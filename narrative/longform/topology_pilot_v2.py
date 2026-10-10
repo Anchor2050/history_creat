@@ -78,6 +78,7 @@ def run_controlled_world(seed, weeks=160):
     actors = _actors()
     events = []
     chains = []
+    min_cash_seen = {k: v["cash"] for k, v in actors.items()}
 
     # Exogenous timing varies; needs and choices remain rule-based.
     care_start = 8 + rng.randint(0, 5)
@@ -101,8 +102,9 @@ def run_controlled_world(seed, weeks=160):
         when = _date("2026-03-02", w)
 
         # Exact starting monthly flows from scenario; care shock changes time only.
-        for actor in actors.values():
+        for aid, actor in actors.items():
             _cash_week(actor)
+            min_cash_seen[aid] = min(min_cash_seen[aid], actor["cash"])
         chen_extra_care = 4 if care_start <= w < care_end else 0
         effective = {
             "lin_jing": actors["lin_jing"]["base_hours"] - actors["lin_jing"]["care_hours"],
@@ -199,6 +201,7 @@ def run_controlled_world(seed, weeks=160):
                     )
                     chen_paid_node = p["id"]
                     actors["chen_lan"]["cash"] += 3200
+                    min_cash_seen["chen_lan"] = min(min_cash_seen["chen_lan"], actors["chen_lan"]["cash"])
                     events.append({
                         "week": w+1, "kind": "chen_paid_work",
                         "node": p["id"], "cash_after": actors["chen_lan"]["cash"],
@@ -293,7 +296,7 @@ def run_controlled_world(seed, weeks=160):
         and len(set(c["actors"])) >= 2
         and len(c["nodes"]) >= 2
     ]
-    min_cash = min(a["cash"] for a in actors.values())
+    min_cash = min(min_cash_seen.values())
     return {
         "seed": seed,
         "weeks": weeks,
@@ -304,6 +307,7 @@ def run_controlled_world(seed, weeks=160):
             c.get("delay_weeks", 0) >= 26 for c in qualified
         ),
         "final_cash": {k: round(v["cash"], 2) for k, v in actors.items()},
+        "minimum_cash_seen": {k: round(v, 2) for k, v in min_cash_seen.items()},
         "no_negative_cash": min_cash >= 0,
         "status": "controlled_pilot_noncanonical",
     }
