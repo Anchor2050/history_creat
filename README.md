@@ -1,3 +1,12 @@
+> 独立 DeepSeek 入口：`python -m narrative.autorun --scenario narrative/scenarios/society.json --rounds 3 --steps-per-round 6 --max-calls 80 --output output/my-story`。无需 GPT 或开发助手驻场；详见 [运行说明](docs/narrative-v1.md)。
+
+## 本 Fork：通用叙事实验架构（开发中）
+
+新增轻量入口 `python -m narrative.run`。使用 **deepseek-flash**；本地 `.env` 自动读取并被 Git 忽略，Jev 可选，运行时不依赖 GPT。原版保留作为对照。
+
+阅读 [新版设计与运行说明](docs/narrative-v1.md)、[真实验证报告及未完成项](docs/validation-v1.md)、[执行计划](docs/plans/2026-10-11-narrative-v1.md)。目前工程流程可运行，创作效果尚未验收。新入口仅需 Python 3.11+ 标准库；下方安装说明属于原版。
+
+---
 <h1 align="center">StoryBox</h1>
 
 <p align="center">

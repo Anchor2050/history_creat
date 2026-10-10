@@ -1,0 +1,182 @@
+{
+  "premise": "边境观测站发现陌生信号，通信需要两个时刻。站长相信旧报告认为信号无害，研究员掌握了相反证据。有限能源既可调查也可发信，发信需站长改变静默政策。",
+  "locations": [
+    "bridge",
+    "lab"
+  ],
+  "routes": [
+    [
+      "bridge",
+      "lab"
+    ]
+  ],
+  "actors": {
+    "captain": {
+      "location": "bridge",
+      "traits": "谨慎且承担全站责任，但不愿只因传闻改变政策。",
+      "goals": [
+        {
+          "id": "warning",
+          "description": "发出经过证据支持的警报",
+          "condition": {
+            "kind": "flag",
+            "flag": "warning_sent",
+            "value": true
+          }
+        }
+      ],
+      "beliefs": [],
+      "resources": {},
+      "claims": {
+        "anomaly": {
+          "value": false,
+          "source": "old report",
+          "event": null
+        }
+      },
+      "name": "站长"
+    },
+    "scientist": {
+      "location": "lab",
+      "traits": "重视证据，宁可冒得罪上级的风险也要让新发现被听见。",
+      "goals": [
+        {
+          "id": "inform",
+          "description": "警报被发出",
+          "condition": {
+            "kind": "flag",
+            "flag": "warning_sent",
+            "value": true
+          }
+        }
+      ],
+      "beliefs": [
+        "anomaly"
+      ],
+      "resources": {
+        "energy": 2
+      },
+      "claims": {},
+      "name": "研究员"
+    },
+    "navigator": {
+      "location": "bridge",
+      "traits": "珍惜能源，倾向等待可核实的消息。",
+      "goals": [
+        {
+          "id": "verify",
+          "description": "亲自或通过消息获知威胁",
+          "condition": {
+            "kind": "knows",
+            "fact": "anomaly",
+            "value": true
+          }
+        }
+      ],
+      "beliefs": [],
+      "resources": {},
+      "claims": {},
+      "name": "导航员"
+    }
+  },
+  "facts": {
+    "anomaly": {
+      "text": "信号正在重复探测本站位置，存在暴露风险。",
+      "false_text": "信号是无害背景噪声。",
+      "truth": true,
+      "location": "lab"
+    }
+  },
+  "items": {},
+  "organizations": {
+    "station": {
+      "members": {
+        "captain": "chief",
+        "scientist": "researcher",
+        "navigator": "crew"
+      },
+      "permissions": {
+        "allocate": [
+          "chief"
+        ],
+        "enact": [
+          "chief"
+        ]
+      },
+      "resources": {
+        "energy": 1
+      },
+      "policies": {
+        "signal": "silent"
+      },
+      "policy_options": {
+        "signal": [
+          "silent",
+          "warn"
+        ]
+      }
+    }
+  },
+  "rules": {
+    "warn": {
+      "description": "静默政策解除后，消耗两份能源发出威胁警报。",
+      "location": "lab",
+      "cost": {
+        "energy": 2
+      },
+      "requires": [
+        {
+          "kind": "knows",
+          "fact": "anomaly",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "org": "station",
+          "policy": "signal",
+          "value": "warn"
+        }
+      ],
+      "once": true,
+      "effects": {
+        "flags": {
+          "warning_sent": true
+        }
+      }
+    }
+  },
+  "script": [
+    {
+      "actor": "captain",
+      "kind": "wait"
+    },
+    {
+      "actor": "scientist",
+      "kind": "send",
+      "target": "captain",
+      "fact": "anomaly",
+      "delay": 2
+    },
+    {
+      "actor": "navigator",
+      "kind": "wait"
+    },
+    {
+      "actor": "captain",
+      "kind": "wait"
+    },
+    {
+      "actor": "captain",
+      "kind": "enact",
+      "org": "station",
+      "policy": "signal",
+      "value": "warn"
+    },
+    {
+      "actor": "scientist",
+      "kind": "perform",
+      "rule": "warn"
+    }
+  ],
+  "public_context": "Station communication takes two ticks. Silent policy blocks warning broadcasts, not internal messages. Investigation is possible in the lab. Sending a warning consumes two energy under warn policy. Waiting never collects new evidence."
+}

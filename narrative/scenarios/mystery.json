@@ -1,0 +1,142 @@
+{
+  "premise": "三个人被困在旧馆。传闻说西印能开门，但档案里有相反证据。开门要消耗唯一一枚筹码，守门人手中的印章牵动着互信。",
+  "locations": [
+    "gate",
+    "archive"
+  ],
+  "routes": [
+    [
+      "gate",
+      "archive"
+    ]
+  ],
+  "actors": {
+    "explorer": {
+      "location": "gate",
+      "traits": "急于脱困，但愿意在付出唯一筹码前核对证据。",
+      "goals": [
+        {
+          "id": "escape",
+          "description": "打开出口",
+          "condition": {
+            "kind": "flag",
+            "flag": "door_open",
+            "value": true
+          }
+        }
+      ],
+      "beliefs": [],
+      "resources": {
+        "token": 1
+      },
+      "claims": {
+        "east": {
+          "value": false,
+          "source": "rumor",
+          "event": null
+        }
+      },
+      "name": "探路人"
+    },
+    "archivist": {
+      "location": "archive",
+      "traits": "习惯核实文字，希望自己的发现帮助所有人。",
+      "goals": [
+        {
+          "id": "help",
+          "description": "让出口打开",
+          "condition": {
+            "kind": "flag",
+            "flag": "door_open",
+            "value": true
+          }
+        }
+      ],
+      "beliefs": [
+        "east"
+      ],
+      "resources": {},
+      "claims": {},
+      "name": "档案员"
+    },
+    "keeper": {
+      "location": "gate",
+      "traits": "谨慎守信；不会因别人的急躁交出珍视的物品。",
+      "goals": [
+        "确认他人是否值得信任"
+      ],
+      "beliefs": [],
+      "resources": {},
+      "claims": {},
+      "name": "守门人"
+    }
+  },
+  "items": {
+    "seal": "keeper"
+  },
+  "facts": {
+    "east": {
+      "text": "东印才是开门的正确印记。",
+      "false_text": "西印才是开门的正确印记。",
+      "truth": true,
+      "location": "archive"
+    }
+  },
+  "rules": {
+    "open_gate": {
+      "description": "掌握正确印记后消耗一枚筹码，打开出口。",
+      "location": "gate",
+      "cost": {
+        "token": 1
+      },
+      "requires": [
+        {
+          "kind": "knows",
+          "fact": "east",
+          "value": true
+        }
+      ],
+      "once": true,
+      "effects": {
+        "flags": {
+          "door_open": true
+        }
+      }
+    }
+  },
+  "script": [
+    {
+      "actor": "explorer",
+      "kind": "move",
+      "target": "archive"
+    },
+    {
+      "actor": "archivist",
+      "kind": "tell",
+      "target": "explorer",
+      "fact": "east"
+    },
+    {
+      "actor": "keeper",
+      "kind": "wait"
+    },
+    {
+      "actor": "explorer",
+      "kind": "move",
+      "target": "gate"
+    },
+    {
+      "actor": "keeper",
+      "kind": "promise",
+      "target": "explorer",
+      "item": "seal",
+      "due_in": 3
+    },
+    {
+      "actor": "explorer",
+      "kind": "perform",
+      "rule": "open_gate"
+    }
+  ],
+  "public_context": "The archive contains evidence about the door marks. Opening the gate costs one token. Players can communicate locally or send delayed messages. Waiting alone does not investigate."
+}

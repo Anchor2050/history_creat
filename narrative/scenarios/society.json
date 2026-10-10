@@ -1,0 +1,163 @@
+{
+  "premise": "旱季的渠口镇，公仓仅剩三份口粮。修渠需要两份供给，饥饿的家庭眼前也需要两份。负责人有权改分配制度，但不能增加粮食。",
+  "locations": [
+    "council",
+    "canal"
+  ],
+  "routes": [
+    [
+      "council",
+      "canal"
+    ]
+  ],
+  "actors": {
+    "hua": {
+      "location": "council",
+      "traits": "重视长远建设与秩序，希望说服人而不是只下命令。",
+      "goals": [
+        {
+          "id": "canal",
+          "description": "让渠道恢复供水",
+          "condition": {
+            "kind": "flag",
+            "flag": "canal_open",
+            "value": true
+          }
+        },
+        "不想让眼前挨饿的人被忽略"
+      ],
+      "beliefs": [],
+      "resources": {},
+      "claims": {},
+      "name": "华"
+    },
+    "min": {
+      "location": "council",
+      "traits": "先顾家人，对没有眼前保障的承诺持怀疑态度。",
+      "goals": [
+        {
+          "id": "meal",
+          "description": "取得两份口粮",
+          "condition": {
+            "kind": "resource",
+            "resource": "food",
+            "at_least": 2
+          },
+          "deadline": 5
+        }
+      ],
+      "beliefs": [],
+      "resources": {},
+      "claims": {},
+      "name": "敏"
+    },
+    "qiao": {
+      "location": "canal",
+      "traits": "务实的修渠者，知道项目有益，也不愿拿空口承诺代替工人的饭。",
+      "goals": [
+        {
+          "id": "work",
+          "description": "完成修渠",
+          "condition": {
+            "kind": "flag",
+            "flag": "canal_open",
+            "value": true
+          }
+        }
+      ],
+      "beliefs": [],
+      "resources": {},
+      "claims": {},
+      "name": "乔"
+    }
+  },
+  "items": {},
+  "facts": {},
+  "organizations": {
+    "council": {
+      "members": {
+        "hua": "chief",
+        "min": "member",
+        "qiao": "worker"
+      },
+      "permissions": {
+        "allocate": [
+          "chief"
+        ],
+        "enact": [
+          "chief"
+        ]
+      },
+      "resources": {
+        "food": 3
+      },
+      "policies": {
+        "ration": "equal"
+      },
+      "policy_options": {
+        "ration": [
+          "equal",
+          "need"
+        ]
+      },
+      "allocation_limits": {
+        "ration": {
+          "equal": 1,
+          "need": 3
+        }
+      }
+    }
+  },
+  "rules": {
+    "repair_canal": {
+      "description": "消耗自己持有的两份口粮组织修渠，恢复供水。",
+      "location": "canal",
+      "cost": {
+        "food": 2
+      },
+      "once": true,
+      "effects": {
+        "flags": {
+          "canal_open": true
+        }
+      }
+    }
+  },
+  "script": [
+    {
+      "actor": "hua",
+      "kind": "enact",
+      "org": "council",
+      "policy": "ration",
+      "value": "need"
+    },
+    {
+      "actor": "min",
+      "kind": "speak",
+      "target": "hua",
+      "text": "家里今天就断粮了。修渠再好，也得有人活着等到水来。"
+    },
+    {
+      "actor": "qiao",
+      "kind": "wait"
+    },
+    {
+      "actor": "hua",
+      "kind": "allocate",
+      "org": "council",
+      "resource": "food",
+      "amount": 2,
+      "target": "qiao"
+    },
+    {
+      "actor": "min",
+      "kind": "wait"
+    },
+    {
+      "actor": "qiao",
+      "kind": "perform",
+      "rule": "repair_canal"
+    }
+  ],
+  "public_context": "Three food units remain in the council store. Repairing the canal consumes two food units held by the worker at the canal. Allocation is remote and needs chief permission. Some families need food immediately; current stock cannot satisfy all demands."
+}

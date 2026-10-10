@@ -1,0 +1,11 @@
+{
+  "locations": ["clinic", "courtyard"],
+  "routes": [["clinic", "courtyard"]],
+  "actors": {
+    "he": {"location": "clinic", "traits": "重承诺，但害怕得罪掌权者。", "goals": ["帮助林照顾病人", "保住自己的差事"], "beliefs": ["bridge"]},
+    "lin": {"location": "clinic", "traits": "谨慎，最在意病人的安危。", "goals": ["取得药物", "了解安全路线"], "beliefs": []},
+    "xu": {"location": "courtyard", "traits": "好奇，但不轻信传闻。", "goals": ["了解院内发生了什么"], "beliefs": []}
+  },
+  "items": {"medicine": "he"},
+  "facts": {"bridge": "通往村庄的桥已受损，无法安全通行。"}
+}
