@@ -1,3 +1,5 @@
+> **ChatGPT / DeepSeek 接手开发：先读 [HANDOFF.md](HANDOFF.md)。** 长篇双驱动架构正在开发，已完成基础模块，尚未打通北京连续章节；不要把 V1 入口当作新版已完成。
+
 > 独立 DeepSeek 入口：`python -m narrative.autorun --scenario narrative/scenarios/society.json --rounds 3 --steps-per-round 6 --max-calls 80 --output output/my-story`。无需 GPT 或开发助手驻场；详见 [运行说明](docs/narrative-v1.md)。
 
 ## 本 Fork：通用叙事实验架构（开发中）
