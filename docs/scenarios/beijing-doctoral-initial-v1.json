@@ -1,0 +1,539 @@
+{
+  "spec_version": 1,
+  "status": "design_only_not_executable",
+  "setting": "contemporary_beijing_fictional_institutions",
+  "start_date": "2026-03-02",
+  "end_date": "2026-04-12",
+  "notice": "全部金额、程序、姓名与机构均为虚构测试初值；不得直接交给现有 narrative.run。",
+  "actors": {
+    "lin_jing": {
+      "id": "lin_jing",
+      "name": "林静",
+      "age": 28,
+      "gender": "female",
+      "organization": "university_a",
+      "role": "doctoral_student",
+      "doctoral_year": 3,
+      "supervisor": "shen_yan",
+      "cash": 38000,
+      "monthly_stipend": 2600,
+      "monthly_family_support": 1200,
+      "monthly_expenses": 3200,
+      "weekly_discretionary_work_hours": 44,
+      "goals": [
+        "完成具有独立问题意识的论文",
+        "辨认自己的职业偏好",
+        "建立双方主动的关系"
+      ],
+      "coping_style": "学业主动；恋爱少发起；私人失落倾向自行消化",
+      "known_initial": [
+        "dorm_shared",
+        "chen_graduation_pressure"
+      ],
+      "private_initial": [
+        "family_buffer",
+        "desire_for_reciprocity"
+      ]
+    },
+    "chen_lan": {
+      "id": "chen_lan",
+      "name": "陈岚",
+      "age": 31,
+      "gender": "female",
+      "organization": "university_a",
+      "role": "doctoral_student",
+      "doctoral_year": 6,
+      "supervisor": "wu_cheng",
+      "cash": 14600,
+      "monthly_stipend": 2400,
+      "monthly_family_support": 0,
+      "monthly_expenses": 3600,
+      "family_transfer_included_in_expenses": 1000,
+      "weekly_discretionary_work_hours": 38,
+      "goals": [
+        "在本批次完成符合质量要求的送审",
+        "保留经济缓冲",
+        "自主选择工作和亲密关系"
+      ],
+      "coping_style": "先承担和解决，较晚说明负担；避免用关系替代明确约定",
+      "known_initial": [
+        "dorm_shared",
+        "submission_deadline",
+        "old_receivable",
+        "new_quote",
+        "romantic_refusal"
+      ],
+      "private_initial": [
+        "cash_balance",
+        "family_transfer",
+        "thesis_specific_gaps"
+      ]
+    },
+    "xu_hang": {
+      "id": "xu_hang",
+      "name": "许航",
+      "age": 27,
+      "gender": "male",
+      "organization": "university_b",
+      "role": "doctoral_student",
+      "doctoral_year": 2,
+      "supervisor": "gu_wei",
+      "cash": 18000,
+      "monthly_stipend": 3000,
+      "monthly_family_support": 0,
+      "monthly_expenses": 3400,
+      "weekly_discretionary_work_hours": 42,
+      "goals": [
+        "完成可复核的复现报告",
+        "建立独立研究方向",
+        "消化拒绝并处理旧同门关系"
+      ],
+      "coping_style": "重互惠、愿意帮忙；受拒后需要重新安排距离",
+      "known_initial": [
+        "romantic_refusal",
+        "chen_graduation_pressure",
+        "replication_deadline"
+      ],
+      "private_initial": [
+        "remaining_affection",
+        "new_group_insecurity"
+      ]
+    },
+    "wu_cheng": {
+      "id": "wu_cheng",
+      "name": "吴澄",
+      "age": 48,
+      "gender": "male",
+      "organization": "university_a",
+      "role": "supervisor",
+      "goals": [
+        "学生按质量要求毕业",
+        "项目履约",
+        "维持组内协作"
+      ],
+      "coping_style": "习惯把收尾交给可靠的人，低估隐形负担",
+      "known_initial": [
+        "submission_deadline",
+        "division_of_work_deadline"
+      ],
+      "private_initial": [
+        "project_schedule_pressure"
+      ],
+      "weekly_scenario_work_hours": 6,
+      "weekly_one_hour_meeting_slots": 2
+    },
+    "shen_yan": {
+      "id": "shen_yan",
+      "name": "沈雁",
+      "age": 43,
+      "gender": "female",
+      "organization": "university_a",
+      "role": "supervisor",
+      "goals": [
+        "培养学生独立研究能力",
+        "完成阶段研究"
+      ],
+      "coping_style": "希望对方提出具体需求，容易低估提出需求的难度",
+      "known_initial": [
+        "research_assistant_opening"
+      ],
+      "private_initial": [
+        "limited_supervision_slots"
+      ],
+      "weekly_scenario_work_hours": 4,
+      "weekly_one_hour_meeting_slots": 2
+    },
+    "gu_wei": {
+      "id": "gu_wei",
+      "name": "顾维",
+      "age": 39,
+      "gender": "male",
+      "organization": "university_b",
+      "role": "supervisor",
+      "goals": [
+        "获得可复核结果",
+        "培养独立研究能力"
+      ],
+      "coping_style": "允许合作，要求说明时间与授权边界",
+      "known_initial": [
+        "replication_deadline"
+      ],
+      "private_initial": [
+        "new_project_constraints"
+      ],
+      "weekly_scenario_work_hours": 6,
+      "weekly_one_hour_meeting_slots": 3
+    },
+    "zhao_ke": {
+      "id": "zhao_ke",
+      "name": "赵珂",
+      "age": 36,
+      "gender": "female",
+      "organization": "mingheng",
+      "role": "project_manager",
+      "goals": [
+        "交付验收",
+        "维护预算",
+        "保留可靠合作"
+      ],
+      "coping_style": "倾向向可靠外包者询问增补，增补仍须协商",
+      "known_initial": [
+        "old_receivable",
+        "new_quote",
+        "payment_workflow"
+      ],
+      "private_initial": [
+        "client_pressure"
+      ],
+      "weekly_scenario_work_hours": 10
+    },
+    "sun_jie": {
+      "id": "sun_jie",
+      "name": "孙洁",
+      "age": 35,
+      "gender": "female",
+      "organization": "university_a",
+      "role": "graduate_coordinator",
+      "goals": [
+        "核验完整材料",
+        "维持批次安排",
+        "有依据地处理例外"
+      ],
+      "coping_style": "优先按清单办事，可以指出补救路径",
+      "known_initial": [
+        "submission_deadline",
+        "predefense_schedule",
+        "housing_end"
+      ],
+      "private_initial": [
+        "administrative_queue"
+      ],
+      "weekly_scenario_work_hours": 8
+    }
+  },
+  "organizations": {
+    "university_a": {
+      "name": "甲校社会研究学院",
+      "members": [
+        "lin_jing",
+        "chen_lan",
+        "wu_cheng",
+        "shen_yan",
+        "sun_jie"
+      ],
+      "permissions": {
+        "wu_cheng": [
+          "review_chen_thesis",
+          "sign_submission_opinion",
+          "assign_own_project_work",
+          "allocate_own_project_budget"
+        ],
+        "shen_yan": [
+          "review_lin_work",
+          "authorize_own_group_data",
+          "offer_research_assistant_role"
+        ],
+        "sun_jie": [
+          "check_documents",
+          "schedule_predefense",
+          "route_exception_request"
+        ]
+      },
+      "prohibitions": [
+        "单人保证学位",
+        "私改独立外审结论",
+        "无上限支配学生工时"
+      ],
+      "earmarked_budgets": {
+        "wu_project_assistant_budget": 6000,
+        "shen_assistant_role_budget": 2400
+      }
+    },
+    "university_b": {
+      "name": "乙校城市计算研究所",
+      "members": [
+        "xu_hang",
+        "gu_wei"
+      ],
+      "permissions": {
+        "gu_wei": [
+          "assign_own_group_work",
+          "review_reproduction",
+          "authorize_own_group_data",
+          "provide_recommendation"
+        ]
+      },
+      "prohibitions": [
+        "干预甲校学位审批",
+        "处分私人交往"
+      ]
+    },
+    "mingheng": {
+      "name": "明衡研究服务公司",
+      "members": [
+        "zhao_ke"
+      ],
+      "cash_available_for_project": 19000,
+      "permissions": {
+        "zhao_ke": [
+          "negotiate_scope",
+          "accept_base_delivery",
+          "request_paid_addition",
+          "authorize_payment_within_budget"
+        ]
+      },
+      "prohibitions": [
+        "把未接受的增补写成既有义务",
+        "因拒绝新合同扣留已验收旧款"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "parties": [
+        "lin_jing",
+        "chen_lan"
+      ],
+      "kind": "roommates",
+      "duration_years": 2,
+      "shared_information": [
+        "住宿安排",
+        "作息",
+        "大致学业压力"
+      ],
+      "not_automatically_shared": [
+        "账户余额",
+        "私聊",
+        "告白",
+        "家庭账目"
+      ]
+    },
+    {
+      "parties": [
+        "chen_lan",
+        "xu_hang"
+      ],
+      "kind": "former_same_group",
+      "romantic_status": "declined",
+      "declined_on": "2026-02-26",
+      "accepted_future_relationship": false,
+      "cooperation_requires_separate_agreement": true,
+      "past_help_creates_romantic_entitlement": false
+    }
+  ],
+  "contracts": {
+    "old_delivery": {
+      "worker": "chen_lan",
+      "payer": "mingheng",
+      "amount": 3200,
+      "status": "accepted_unpaid",
+      "expected_payment_date": "2026-03-13"
+    },
+    "new_quote": {
+      "worker": "chen_lan",
+      "payer": "mingheng",
+      "amount": 6800,
+      "estimated_hours": 40,
+      "status": "offered_not_accepted",
+      "delivery_due": "2026-03-23",
+      "payment_days_after_acceptance": 14,
+      "additional_work_requires_new_agreement": true
+    },
+    "assistant_offer": {
+      "owner": "shen_yan",
+      "candidate": null,
+      "total_hours": 24,
+      "weeks": 4,
+      "amount": 2400,
+      "automatic_authorship": false
+    }
+  },
+  "artifacts": {
+    "chen_thesis": {
+      "owner": "chen_lan",
+      "chapters_total": 6,
+      "chapters_drafted": 5,
+      "publication_baseline_met": true,
+      "ethics_approval_exists": true,
+      "missing": [
+        "两张核心表独立复核",
+        "一项稳健性检验",
+        "讨论章收束",
+        "导师实质反馈",
+        "核验与提交材料"
+      ],
+      "quality_not_guaranteed_by_hours": true
+    },
+    "lin_paper": {
+      "owner": "lin_jing",
+      "status": "有研究问题及访谈材料",
+      "missing": [
+        "补强抽样论证或收缩结论范围"
+      ]
+    },
+    "xu_reproduction": {
+      "owner": "xu_hang",
+      "status": "已定位数据版本不一致",
+      "estimated_hours_remaining": 16,
+      "due": "2026-03-20",
+      "acceptable_outcome_includes_documented_non_reproduction": true
+    }
+  },
+  "calendar": [
+    {
+      "date": "2026-03-06",
+      "event": "division_of_work_due",
+      "known_to": [
+        "wu_cheng"
+      ]
+    },
+    {
+      "date": "2026-03-13",
+      "event": "old_payment_expected",
+      "known_to": [
+        "chen_lan",
+        "zhao_ke"
+      ],
+      "guaranteed": false
+    },
+    {
+      "date": "2026-03-20",
+      "event": "document_check_due",
+      "known_to": [
+        "chen_lan",
+        "wu_cheng",
+        "sun_jie"
+      ]
+    },
+    {
+      "date": "2026-03-20",
+      "event": "reproduction_presentation",
+      "known_to": [
+        "xu_hang",
+        "gu_wei"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "event": "conditional_contract_delivery",
+      "condition": "new_quote accepted",
+      "known_to": [
+        "chen_lan",
+        "zhao_ke"
+      ]
+    },
+    {
+      "date": "2026-03-27",
+      "event": "conditional_predefense",
+      "condition": "documents checked and participants confirmed",
+      "known_to": [
+        "chen_lan",
+        "wu_cheng",
+        "sun_jie"
+      ]
+    },
+    {
+      "date": "2026-04-10",
+      "event": "submission_batch_deadline",
+      "known_to": [
+        "chen_lan",
+        "wu_cheng",
+        "sun_jie"
+      ]
+    },
+    {
+      "date": "2026-06-30",
+      "event": "housing_authorization_end",
+      "known_to": [
+        "lin_jing",
+        "chen_lan",
+        "sun_jie"
+      ],
+      "extension_status": "not_approved",
+      "affected_actor": "chen_lan",
+      "lin_jing_status": "eligible_for_normal_next_year_renewal_registration_required"
+    }
+  ],
+  "action_families": [
+    "research",
+    "write",
+    "review",
+    "submit",
+    "negotiate_work",
+    "assign_resources",
+    "pay",
+    "prepare_job_search",
+    "coordinate_household",
+    "communicate_boundary",
+    "share_information",
+    "revise_plan",
+    "rest"
+  ],
+  "invariants": [
+    "money_has_source_and_destination",
+    "no_double_booking",
+    "permission_required",
+    "prerequisites_required",
+    "consent_is_specific_and_persistent",
+    "information_has_path",
+    "history_immutable",
+    "effort_not_automatic_quality",
+    "affection_not_exchangeable_for_help"
+  ],
+  "experiment": {
+    "weeks": 6,
+    "weekly_major_decisions_per_actor": 1,
+    "regular_opportunities": 48,
+    "conditional_response_slots": [
+      3,
+      6
+    ],
+    "maximum_total_opportunities": 50,
+    "empty_response_slot_must_not_create_event": true,
+    "external_event_schedule_shared_across_branches": true,
+    "variants": [
+      {
+        "id": "baseline",
+        "change": null
+      },
+      {
+        "id": "cash_buffer",
+        "change": {
+          "chen_lan.cash_delta": 30000
+        }
+      },
+      {
+        "id": "explicit_labor_agreement",
+        "change": "额外项目劳动须确认且占已公布有偿工时预算"
+      },
+      {
+        "id": "coping_style_swap",
+        "change": "仅互换林静和陈岚冲突时先解释或自行消化的倾向"
+      },
+      {
+        "id": "no_romantic_pursuit",
+        "change": "移除许航追求初值，保留旧同门合作"
+      }
+    ]
+  },
+  "implementation_gaps": [
+    "calendar_and_duration_queue",
+    "weekly_information_snapshot",
+    "personal_time_budget",
+    "work_artifacts_and_approval_chain",
+    "persistent_plans_and_priorities",
+    "domain_specific_relationships_and_boundaries",
+    "reader_memory_and_serial_chapters",
+    "fixed_exogenous_schedule_and_comparable_branches"
+  ],
+  "full_spec": "beijing-doctoral-initial-v1.md",
+  "household": {
+    "members": [
+      "lin_jing",
+      "chen_lan"
+    ],
+    "residence": "甲校双人博士宿舍",
+    "chen_transition_housing_approved": false,
+    "lin_next_year_renewal_eligible": true
+  }
+}
