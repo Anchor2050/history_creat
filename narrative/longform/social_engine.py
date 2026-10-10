@@ -10,20 +10,23 @@ class SocialEngineError(ValueError):
 
 DEFAULT_HOUSEHOLDS = {
     "lin_jing": {
-        "monthly_support": 1200,
-        "monthly_obligation": 0,
+        "monthly_income": 3800,
+        "monthly_expense": 3200,
+        "extra_monthly_obligation": 0,
         "care_hours_per_week": 1,
         "housing_need": 0.25,
     },
     "chen_lan": {
-        "monthly_support": 0,
-        "monthly_obligation": 1000,
+        "monthly_income": 2400,
+        "monthly_expense": 3600,
+        "extra_monthly_obligation": 0,
         "care_hours_per_week": 3,
         "housing_need": 0.85,
     },
     "xu_hang": {
-        "monthly_support": 0,
-        "monthly_obligation": 0,
+        "monthly_income": 3000,
+        "monthly_expense": 3400,
+        "extra_monthly_obligation": 0,
         "care_hours_per_week": 1,
         "housing_need": 0.35,
     },
@@ -94,12 +97,12 @@ class SocialEngine:
             if delta_hours < 0 or delta_cash < 0:
                 raise SocialEngineError("Household shocks cannot create negative obligations")
             care += delta_hours
-            row["monthly_obligation"] += delta_cash
+            row["extra_monthly_obligation"] += delta_cash
             events.append(self._record(
                 date, "household_obligation_changed", actor_id,
                 {"extra_care_hours": delta_hours, "extra_obligation": delta_cash},
             ))
-        cash_flow = (row["monthly_support"] - row["monthly_obligation"]) / 4.345
+        cash_flow = (row["monthly_income"] - row["monthly_expense"] - row["extra_monthly_obligation"]) / 4.345
         cash_after = cash + cash_flow
         hours_after = max(0, discretionary_hours - care)
         return {
@@ -118,7 +121,7 @@ class SocialEngine:
         if monthly_obligation is not None:
             if monthly_obligation < 0:
                 raise SocialEngineError("Negative household obligation")
-            row["monthly_obligation"] = int(monthly_obligation)
+            row["extra_monthly_obligation"] = int(monthly_obligation)
         if care_hours_per_week is not None:
             if care_hours_per_week < 0:
                 raise SocialEngineError("Negative care hours")
