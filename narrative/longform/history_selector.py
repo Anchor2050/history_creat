@@ -22,9 +22,25 @@ def assess_history(history):
     motif_returns = len(set(x for e in events for x in e.get("motifs", []) if sum(x in z.get("motifs", []) for z in events) >= 2))
     reversals = sum(bool(e.get("earned_reversal")) for e in events)
     exposition = sum(bool(e.get("trend_as_exposition")) for e in events)
-    truth = max(0.0, 1.0 - unsupported / len(events) - impossible)
-    goodness = max(0.0, min(1.0, .22*costly_good + .12*autonomy - .35*coerced))
-    beauty = max(0.0, min(1.0, .18*motif_returns + .22*reversals + .10*delayed + .08*cross_actor - .20*exposition))
+    n = len(events)
+    truth = max(0.0, 1.0 - unsupported / n - impossible)
+    # Normalize evidence by history length so longer replays cannot win by counting
+    # more moral or aesthetic beats. Costly goodness matters more than verbal virtue.
+    costly_rate = min(1.0, costly_good / max(1.0, n / 4.0))
+    agency_rate = min(1.0, autonomy / max(1.0, n / 2.0))
+    goodness = max(0.0, min(1.0,
+        .70 * costly_rate + .30 * agency_rate - .45 * coerced / n
+    ))
+    # Beauty rewards recurring form and earned reversal, with explicit caps.
+    motif_rate = min(1.0, motif_returns / 8.0)
+    reversal_rate = min(1.0, reversals / 4.0)
+    delayed_rate = min(1.0, delayed / 2.0)
+    ensemble_rate = min(1.0, cross_actor / 8.0)
+    beauty = max(0.0, min(1.0,
+        .30 * motif_rate + .30 * reversal_rate
+        + .15 * delayed_rate + .25 * ensemble_rate
+        - .25 * exposition / n
+    ))
     return {"truth":round(truth,3),"goodness":round(goodness,3),"beauty":round(beauty,3),
             "hard_truth_failure": bool(impossible or truth < .72),
             "evidence":{"unsupported":unsupported,"authority_violations":impossible,"cross_actor":cross_actor,"delayed":delayed,"costly_good":costly_good,"agency":autonomy,"coercive_good":coerced,"motif_returns":motif_returns,"earned_reversals":reversals,"trend_exposition":exposition}}
