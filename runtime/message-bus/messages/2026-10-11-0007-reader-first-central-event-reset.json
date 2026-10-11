@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "type": "architecture_decision",
+  "status": "active",
+  "decision": "Replace the chronological career-opening candidate with a reader-first central-event opening test.",
+  "reason": "Human review identified a deeper failure mode: even coherent character arcs can read as flat if sentences, scenes and chapters do not create causal necessity for the reader. The novel needs a strong public incident that generates multiple rational positions and makes each later scene necessary.",
+  "supersedes": [
+    "publication-opening use of opening-luo-sequence-v1",
+    "opening architecture driven primarily by career chronology",
+    "the assumption that ordinary-life realism alone can carry the opening"
+  ],
+  "retains": [
+    "Luo Cheng as a strong possible first focal anchor",
+    "Water-Margin-like event-driven character entry",
+    "Campbell as hidden longitudinal character structure",
+    "negative space",
+    "frozen historical ledger and no writeback"
+  ],
+  "new_sources": [
+    "docs/adaptation/reader-first-causal-density-model-v1.md",
+    "runtime/adaptation/storyteller/central-event-engine-v1.json",
+    "runtime/adaptation/storyteller/payoff-registry-v1.json",
+    "runtime/adaptation/storyteller/central-event-opening-map-v1.json",
+    "docs/adaptation/central-event-probes/ch01-risk-list-v2.md",
+    "runtime/adaptation/storyteller/central-event-opening-audit-v1.json"
+  ],
+  "new_nonnegotiable": [
+    "Every sentence must have a reader-facing function or be deleted.",
+    "Every scene must change state and cause later action.",
+    "Every conspicuous setup enters a payoff registry.",
+    "Each chapter must pay off at least one earlier setup before taking on major new narrative debt.",
+    "Characters enter because the central incident reaches their role, information, authority or interest; never because the ensemble roster needs coverage.",
+    "Technical findings matter only when they alter decisions, power, workload, trust, money, reputation or responsibility."
+  ],
+  "next_gate": "Draft only Chapter2 of the central-event opening from the Chapter1 final discovery. Do not resume the old chronological sequence until the central-event architecture is judged inferior by human review."
+}
