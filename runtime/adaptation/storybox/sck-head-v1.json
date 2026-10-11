@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "status": "sck_v0_implemented_tests_written_not_run",
+  "historical_world_writeback": false,
+  "purpose": "Provide a reusable high-skill strategic cognition layer between StoryBox visibility/legal-action state and StoryBox world resolution.",
+  "design_spec": "docs/adaptation/storybox-strategic-cognition-kernel-v1.md",
+  "research_survey": "docs/research/storybox-high-skill-game-stack-survey-v1.md",
+  "runtime": {
+    "core": "narrative/longform/storybox_sck_v0.py",
+    "textarena_secret_mafia_adapter": "narrative/longform/storybox_textarena_secret_mafia_adapter_v0.py",
+    "evaluation": "narrative/longform/storybox_sck_eval_v0.py",
+    "tests": "tests/test_storybox_sck_v0.py",
+    "tests_status": "written_not_run",
+    "test_execution_note": "Current execution container could not resolve github.com, so the branch could not be cloned for pytest execution in this session."
+  },
+  "implemented_capabilities": [
+    "auditable hidden-world BeliefState",
+    "evidence ledger with reliability-tempered likelihood-ratio updates",
+    "entropy/confidence/Brier scoring",
+    "lightweight opponent action-frequency model",
+    "generic two-ply expected-value planner across hidden-world hypotheses",
+    "risk-adjusted action selection",
+    "structured StrategicDecision",
+    "structured CommunicationIntent boundary",
+    "SecretMafia hidden-role world enumeration",
+    "SecretMafia visible-state to StrategicObservation adapter",
+    "TextArena structured target-action rendering",
+    "replay/action-regret/Brier/leakage evaluation helpers"
+  ],
+  "deliberately_not_implemented_yet": [
+    "LLM strategy-candidate generation",
+    "natural-language dialogue generation",
+    "learned evidence-likelihood model",
+    "joint multi-opponent response model",
+    "MCTS",
+    "bi-level strategy search",
+    "strategy library/self-play league",
+    "nested theory of mind beyond one-step opponent action models",
+    "live TextArena runner"
+  ],
+  "strict_boundaries": [
+    "SCK never receives StoryBox backstage truth.",
+    "Evaluation may use truth only after decisions have been recorded.",
+    "Language generation may realize a CommunicationIntent but may not change the chosen strategic action.",
+    "StoryBox remains authoritative for legal actions and hard-world outcomes.",
+    "Behavioral evidence likelihood ratios must come from an explicit evidence model or replay calibration; the SecretMafia adapter does not hard-code social stereotypes."
+  ],
+  "benchmark_plan": "runtime/adaptation/storybox/sck-secret-mafia-ab-v0.json",
+  "next_gate": [
+    "execute unit tests in an environment with the branch available locally",
+    "fix any import or numerical issues before adding model calls",
+    "add a live TextArena runner for SecretMafia-v0",
+    "run 50-episode shared-seed A/B smoke test across plain/memory/belief/belief_planning",
+    "only after measurable improvement add MCTS or bi-level search"
+  ]
+}
