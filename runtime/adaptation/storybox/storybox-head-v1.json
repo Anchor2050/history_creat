@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_storybox_round_runtime_noncanonical",
+  "historical_world_writeback": false,
+  "purpose": "Run persistent multi-actor narrative games before Storyteller selects and renders prose.",
+  "architecture": "world -> arc -> game -> round -> action collision -> writeback",
+  "runtime": {
+    "legacy_micro_runtime": "narrative/longform/storybox_noapi_runtime_v8.py",
+    "round_runtime": "narrative/longform/storybox_round_engine_v15.py",
+    "design_model": "docs/adaptation/round-based-narrative-engine-v1.md",
+    "tests": "tests/test_storybox_round_engine_v15.py",
+    "tests_status": "written_not_run"
+  },
+  "active_game_arc": {
+    "arc": "runtime/adaptation/storybox/risk-list-game-arc-v1.json",
+    "current_game_seed": "runtime/adaptation/storybox/risk-list-game-v1.json",
+    "current_game_id": "risk-list-game-01",
+    "current_game_status": "seeded_not_executed_by_round_engine",
+    "fixed_truth_before_play": true
+  },
+  "layer_responsibilities": {
+    "storybox": [
+      "hard-world truth",
+      "map and reachability",
+      "public/private information",
+      "actor beliefs",
+      "actor state and resources",
+      "formal power",
+      "legal actions",
+      "action collisions",
+      "round writeback",
+      "mystery graph",
+      "round/game convergence",
+      "successor-game carry"
+    ],
+    "storyteller": [
+      "which rounds deserve prose",
+      "viewpoint selection",
+      "reader knowledge allocation",
+      "scene compression and ordering",
+      "sentence purpose audit",
+      "setup/payoff visibility",
+      "literary voice and negative space"
+    ],
+    "prohibited_crossing": [
+      "Storyteller may not rewrite StoryBox truth to improve drama",
+      "StoryBox may not force an outcome to satisfy a literary arc",
+      "Storyteller may hide truth from reader but may not change it",
+      "StoryBox may end in deadlock, failure or partial resolution"
+    ]
+  },
+  "round_definition": {
+    "start": "a material trigger changes what at least one eligible actor can or must do",
+    "phases": [
+      "world_update",
+      "actor_local_perception",
+      "belief_update",
+      "action_selection",
+      "action_collision",
+      "hard_world_resolution",
+      "writeback"
+    ],
+    "end": [
+      "all eligible actors have acted/passed for the current trigger",
+      "no legal action remains",
+      "deadline advances the world",
+      "hard interrupt changes the action set"
+    ]
+  },
+  "game_convergence": {
+    "successful": [
+      "dominant objective resolved",
+      "dominant objective absorbed into a stable institutional rule",
+      "old objective legitimately superseded by a new dominant game"
+    ],
+    "unsuccessful_but_terminal": [
+      "objective failed",
+      "deadlock after repeated zero-material-delta rounds",
+      "hard round cap",
+      "external hard terminal event"
+    ],
+    "important_rule": "Convergence is not victory. A deadlock is a valid game result and may become a later-world trigger."
+  },
+  "anti_filler": {
+    "zero_delta_rule": "Repeated rounds with no material truth/info/belief/power/relationship/map/resource/deadline/mystery change terminate as deadlock or equilibrium.",
+    "no_chat_for_chat_rule": "Conversation alone is not a material delta unless it changes information, belief, commitment, relationship evidence, authority, resource or future action set.",
+    "no_forced_breakthrough": "If actors lack evidence or legal moves, record the deadlock; do not invent discovery to keep the plot moving."
+  },
+  "information_integrity": {
+    "truth_fixed_before_mystery_play": true,
+    "actor_requests_never_receive_truth_directly": true,
+    "beliefs_may_be_false": true,
+    "reader_knowledge_is_storyteller_controlled": true,
+    "new_evidence_may_reveal_truth_but_not_retroactively_rewrite_it": true
+  },
+  "map_rules": {
+    "start_small": true,
+    "unlock_requires": [
+      "new information source",
+      "new legal capability",
+      "new constraint",
+      "new faction or jurisdiction"
+    ],
+    "decorative_location_without_state_function": "reject"
+  },
+  "character_rules": {
+    "persistent_state_across_rounds": true,
+    "persistent_state_across_games": [
+      "personality",
+      "capability",
+      "relationships",
+      "reputation",
+      "belief residues",
+      "commitments",
+      "unpaid payoff debt"
+    ],
+    "new_actor_entry": "only when the active game reaches their role, information, authority, interest, location or existing relationship",
+    "no_roster_balance": true
+  },
+  "next_actions": [
+    "materialize risk-list-game-01 into GameState",
+    "execute Round 1 from the fixed incident trigger",
+    "compare engine state changes with existing Chapter 1-2 prose probes",
+    "revise prose only after the round state is stable",
+    "do not add more prose chapters merely to advance the manuscript"
+  ]
+}
