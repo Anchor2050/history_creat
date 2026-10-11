@@ -1,0 +1,72 @@
+{
+  "schema_version":1,
+  "batch_id":"career-six-chatbot-2033-q3",
+  "status":"noncanonical_chatbot_replay_batch",
+  "period":{"start":"2033-07-01","end":"2033-09-30"},
+  "generation_mode":"chatgpt_product_interaction_chain",
+  "era_lens":[
+    "路径依赖可以通过审计自己的门槛变化显性化，而不必等到危机才发现。",
+    "可迁移职业资产必须来自实际工作判断并去除敏感材料，不能靠重新包装职位名称。",
+    "成果接受后的专业后果只有新使用、新责任或新机会出现时才进入世界。"
+  ],
+  "exogenous_hard_world_events":[
+    {"event_id":"2033q3:audit01","at":"2033-08-12","kind":"career_threshold_history_review","actor":"gao_yuan","source_candidate":"candidate:2033-q2:gao-threshold-drift-audit:01","result":"threshold_higher_than_2029_but_change_explained_by_real_housing_family_time_benefits_plus_some_inertia_risk","visibility":"private_to_actor"},
+    {"event_id":"2033q3:asset01","at":"2033-08-20","kind":"portable_skill_asset_check","actor":"luo_cheng","source_candidate":"candidate:2033-q2:luo-portable-asset-development:01","result":"one_nonconfidential_research_support_process_case_completed","visibility":"private_to_actor"},
+    {"event_id":"2033q3:role01","at":"2033-09-08","kind":"second_role_nine_month_review","actor":"song_nan","result":"role_judgment_scope_real_life_bundle_improved_learning_growth_moderate_no_exit_trigger","visibility":"private_to_actor"},
+    {"event_id":"2033q3:ownership01","at":"2033-09-14","kind":"home_ownership_six_month_review","actor":"zhou_ye","result":"mortgage_affordable_emergency_buffer_rebuilding_external_mobility_cost_material","visibility":"private_to_actor"}
+  ],
+  "windows":[
+    {"packet_id":"micro:chatbot:2033-08:gao-threshold-drift:01","start_date":"2033-08-14","end_date":"2033-08-14","event_kind":"career_threshold_drift_review","participants":["gao_yuan","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2033-08:luo-portable-case:01","start_date":"2033-08-22","end_date":"2033-08-22","event_kind":"portable_skill_asset_review","participants":["luo_cheng","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2033-09:song-nine-month:01","start_date":"2033-09-10","end_date":"2033-09-10","event_kind":"second_role_nine_month_review","participants":["song_nan","zhao_ke"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2033-09:zhou-ownership-six-month:01","start_date":"2033-09-16","end_date":"2033-09-16","event_kind":"home_ownership_six_month_review","participants":["zhou_ye","he_xin"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2033-07:xu-independent-identity:01","start_date":"2033-07-21","end_date":"2033-07-21","event_kind":"independent_validation_identity_review","participants":["xu_hang","gu_wei"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2033-09:lin-long-question:02","start_date":"2033-09-24","end_date":"2033-09-24","event_kind":"long_horizon_question_second_checkpoint","participants":["lin_jing","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2033-07:chen-year-four:01","start_date":"2033-07-30","end_date":"2033-07-30","event_kind":"formal_role_year_four_checkin","participants":["chen_lan","wu_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events":[
+    {"event_id":"2033q3:e01","kind":"social_interaction","at":"2033-08-14","event_kind":"career_threshold_drift_review","speaker":"gao_yuan","listener":"lin_jing","act":"share_experience","content":"高原把2019式想象、2028接受offer时的门槛和现在的门槛逐项对照，发现自己确实更看重低住房、近家庭和稳定时间了；其中大部分来自四年真实生活收益，但也有一部分只是因为换城成本越来越高。","channel":"video_call","evidence":"threshold history review distinguishes learned preference from inertia risk."},
+    {"event_id":"2033q3:e02","kind":"social_interaction","at":"2033-08-14","event_kind":"career_threshold_drift_review","speaker":"lin_jing","listener":"gao_yuan","act":"offer_information","content":"林静建议他以后不要问‘门槛是不是太高’，而是每年把哪些成本来自真实偏好、哪些来自沉没成本分别写出来；只要两类能区分，留任仍可以是主动选择。","channel":"video_call","evidence":"path dependence audit becomes explicit rather than moralized."},
+
+    {"event_id":"2033q3:e03","kind":"social_interaction","at":"2033-08-22","event_kind":"portable_skill_asset_review","speaker":"luo_cheng","listener":"sun_jie","act":"share_experience","content":"罗诚把一个真实研究支持流程改写成不含机构和敏感材料的案例：他如何发现材料链条里的信息断点、重新设计核验节点、让研究人员少重复返工。","channel":"video_call","evidence":"portable case is based on actual judgment contribution and sanitized for transfer."},
+    {"event_id":"2033q3:e04","kind":"social_interaction","at":"2033-08-22","event_kind":"portable_skill_asset_review","speaker":"sun_jie","listener":"luo_cheng","act":"offer_information","content":"孙洁说这个案例终于比‘我会流程协调’更具体，但也提醒他别把所有研究支持都说成项目管理；真正可迁移的是识别信息断点和设计核验节点。","channel":"video_call","evidence":"portable asset is narrowed to actual transferable judgment."},
+
+    {"event_id":"2033q3:e05","kind":"social_interaction","at":"2033-09-10","event_kind":"second_role_nine_month_review","speaker":"song_nan","listener":"zhao_ke","act":"share_experience","content":"宋楠九个月后确认新岗位不是固定报表岗，需求定义和异常解释权都真实存在；学习速度不如旧岗位高速，但住房、通勤和家庭距离改善没有反弹。","channel":"video_call","evidence":"new role reality validates both preserved judgment and slower learning."},
+    {"event_id":"2033q3:e06","kind":"social_interaction","at":"2033-09-10","event_kind":"second_role_nine_month_review","speaker":"zhao_ke","listener":"song_nan","act":"repair","content":"赵珂说这笔交换已经可以用真实数据评价：她牺牲的是机会密度和部分学习斜率，买回来的是更可持续的生活bundle，并没有明显失去专业判断。","channel":"video_call","evidence":"tradeoff assessed from lived data rather than offer assumptions."},
+
+    {"event_id":"2033q3:e07","kind":"social_interaction","at":"2033-09-16","event_kind":"home_ownership_six_month_review","speaker":"zhou_ye","listener":"he_xin","act":"share_experience","content":"周野住了半年后没有出现‘有房就踏实很多’这种单一结论：按揭可承受，住处稳定更省心，但流动现金恢复得慢，外部机会现在确实需要多算房产处置和月供。","channel":"in_person","evidence":"ownership effects remain mixed and material."},
+    {"event_id":"2033q3:e08","kind":"social_interaction","at":"2033-09-16","event_kind":"home_ownership_six_month_review","speaker":"he_xin","listener":"zhou_ye","act":"share_experience","content":"何欣说自己反而因为还在租，更能看到买房带来的真实交换；她没有提高2035住房优先级，只决定继续把现金和岗位价值分开记。","channel":"in_person","evidence":"peer comparison does not induce imitation."},
+
+    {"event_id":"2033q3:e09","kind":"social_interaction","at":"2033-07-21","event_kind":"independent_validation_identity_review","speaker":"xu_hang","listener":"gu_wei","act":"share_experience","content":"许航回看今年那次独立验证任务，真正新增的部分不是多做几项检查，而是重新定义什么时候可以停止、什么失败值得升级；他第一次有证据把自己的能力描述成‘验证设计’而不只‘复现和排错’。","channel":"in_person","evidence":"independent use passed all candidate checks."},
+    {"event_id":"2033q3:e10","kind":"social_interaction","at":"2033-07-21","event_kind":"independent_validation_identity_review","speaker":"gu_wei","listener":"xu_hang","act":"offer_information","content":"顾维认可这是一条独立身份证据，但要求许航继续收集失败案例；如果每次新问题都只能靠本人临场判断，方法资产还没有真正成熟。","channel":"in_person","evidence":"identity and transferable method remain distinct."},
+
+    {"event_id":"2033q3:e11","kind":"social_interaction","at":"2033-09-24","event_kind":"long_horizon_question_second_checkpoint","speaker":"lin_jing","listener":"shen_yan","act":"share_experience","content":"林静保留的长期问题九个月仍没形成结果，但她已经排除了两个不值得继续的方向，剩下的问题反而更窄更清楚；年度短期指标没有迫使她完全放弃它。","channel":"video_call","evidence":"long-horizon question produces negative narrowing rather than output."},
+    {"event_id":"2033q3:e12","kind":"social_interaction","at":"2033-09-24","event_kind":"long_horizon_question_second_checkpoint","speaker":"shen_yan","listener":"lin_jing","act":"offer_information","content":"沈雁说只要她能说明为什么删掉那两个方向，这九个月就不是‘没有产出’；但年底仍要判断剩下的窄问题是否值得再占一年。","channel":"video_call","evidence":"slow research requires periodic value review."},
+
+    {"event_id":"2033q3:e13","kind":"social_interaction","at":"2033-07-30","event_kind":"formal_role_year_four_checkin","speaker":"chen_lan","listener":"wu_cheng","act":"share_experience","content":"陈岚第四年已经不再每天比较自己是否还是研究者，工作价值更多来自能否改变组织里问题被定义和数据被使用的方式；她也承认这条路越来越难无成本返回纯学术。","channel":"in_person","evidence":"professional identity stabilizes while reentry cost grows."},
+    {"event_id":"2033q3:e14","kind":"social_interaction","at":"2033-07-30","event_kind":"formal_role_year_four_checkin","speaker":"wu_cheng","listener":"chen_lan","act":"repair","content":"吴澄说这并不要求她现在做选择，只要把‘越来越难回去’当成本记录，而不是等以后才说自己从来没想回去。","channel":"in_person","evidence":"identity stabilization does not erase counterfactual cost."}
+  ],
+  "hard_world_candidate_updates":[
+    {"candidate_id":"candidate:2033-q2:gao-threshold-drift-audit:01","checked_at":"2033-08-12","checks":{"market_examples":true,"current_bundle_value":true,"threshold_change_history":true,"no_forced_search":true},"result":"threshold_drift_decomposed_noncanonical","resource_effect":"future annual review separates learned preference from inertia cost"},
+    {"candidate_id":"candidate:2033-q2:luo-portable-asset-development:01","checked_at":"2033-08-20","checks":{"nonconfidential_example_available":true,"actual_judgment_contribution":true,"transferable_description":true},"result":"portable_case_completed_noncanonical","resource_effect":"one sanitized transferable work sample; no job outcome"}
+  ],
+  "new_hard_world_candidates":[
+    {"candidate_id":"candidate:2033-q3:xu-validation-failure-cases:01","created_at":"2033-07-21","type":"independent_validation_failure_case_collection","beneficiary":"xu_hang","description":"继续记录新问题中验证设计失败/不可移交案例，区分独立判断身份和成熟可迁移方法。","requires_checks":["new_use_cases","failure_boundary_documented","no_forced_success"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2033-q3:lin-long-question-yearend:01","created_at":"2033-09-24","type":"long_horizon_question_value_review","beneficiary":"lin_jing","description":"年底判断收缩后的长期问题是否仍值得再投入一年，不以已花时间作为继续理由。","requires_checks":["remaining_question_clear","negative_progress_documented","future_mechanism_value"],"status":"open_noncanonical"}
+  ],
+  "actor_state_evidence":[
+    {"at":"2033-08-14","actor":"gao_yuan","dimension":"path_dependence","evidence":"门槛上升被拆成真实生活偏好与迁移惯性两部分，阶段留任获得更可审计的解释。","status":"candidate_state_evidence"},
+    {"at":"2033-08-22","actor":"luo_cheng","dimension":"portable_career_asset","evidence":"形成第一个不含敏感信息、基于真实研究支持判断的可迁移工作案例。","status":"candidate_state_evidence"},
+    {"at":"2033-09-10","actor":"song_nan","dimension":"second_role_fit","evidence":"新岗位九个月验证较慢学习速度与更好生活bundle并存，统计判断权保留。","status":"candidate_state_evidence"},
+    {"at":"2033-09-16","actor":"zhou_ye","dimension":"home_ownership_reality","evidence":"住房稳定收益和流动性/处置成本同时显现，购房未被写成单一幸福效应。","status":"candidate_state_evidence"},
+    {"at":"2033-07-21","actor":"xu_hang","dimension":"independent_validation_identity","evidence":"独立验证任务支持将能力从复现排错提升为验证设计，但成熟方法仍需更多失败案例。","status":"candidate_state_evidence"},
+    {"at":"2033-09-24","actor":"lin_jing","dimension":"research_autonomy","evidence":"长期问题通过负面排除变窄，九个月无论文输出但保持问题选择自主；年底需价值复核。","status":"candidate_state_evidence"},
+    {"at":"2033-07-30","actor":"chen_lan","dimension":"professional_identity","evidence":"第四年组织身份稳定，回纯学术的再进入成本明确增加但未被事后抹除。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence":[
+    {"at":"2033-08-22","pair":["luo_cheng","sun_jie"],"direction":"positive","evidence":"早期学生事务信息关系多年后转化为对可迁移流程判断的同行反馈，而非招聘资源。"},
+    {"at":"2033-07-30","pair":["chen_lan","wu_cheng"],"direction":"positive","evidence":"导师关系已转成对职业身份和反事实成本的长期校准，而非毕业/岗位资源。"}
+  ],
+  "storyteller_index_delta":{"new_material_threads":["Gao explicitly decomposes a rising career threshold into learned preference versus inertia","Luo creates the first portable work asset after midcareer interview rejection","Song's new bundle remains genuinely mixed after nine months","Zhou home ownership yields stable housing and real mobility friction without a happiness shortcut","Xu validation identity separates from method maturity","Lin slow research produces negative narrowing rather than publishable output"],"world_writeback":false},
+  "audit_rules":{"single_batch_noncanonical":true,"generated_through_interaction_chain":true,"path_dependence_must_be_decomposed_not_moralized":true,"portable_assets_must_be_nonconfidential_and_judgment_based":true,"home_ownership_has_mixed_consequences":true,"identity_evidence_does_not_equal_method_maturity":true,"storyteller_is_read_only":true}
+}
