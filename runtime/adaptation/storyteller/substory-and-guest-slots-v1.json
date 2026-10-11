@@ -1,0 +1,164 @@
+{
+  "schema_version":1,
+  "status":"adaptation_only_substory_guest_slots_noncanonical",
+  "historical_world_writeback":false,
+  "design_rule":"Slots define narrative functions and plausibility constraints. They are not historical people until instantiated in adaptation-only prose.",
+  "substories":[
+    {
+      "substory_id":"sub:zhou-second-judge",
+      "protagonist":"zhou_ye",
+      "years":"2033-2035",
+      "local_question":"一个靠本人判断维持质量的系统，怎样真正长出第二判断者？",
+      "main_arc_function":"return_and_post_return_consequence",
+      "guest_slot":"guest:zhou-junior-second-judge",
+      "required_evidence_refs":["2034q1:e04","2034q1:e05","2034q3:e03","2034q3:e04"]
+    },
+    {
+      "substory_id":"sub:gao-bureau-first-years",
+      "protagonist":"gao_yuan",
+      "years":"2029-2032",
+      "local_question":"家乡体制生活真实有效以后，怎样区分满足与惯性？",
+      "main_arc_function":"trial_and_recalibration",
+      "guest_slot":"guest:gao-section-chief",
+      "required_evidence_refs":["2035q3:e03","2035q3:e04"]
+    },
+    {
+      "substory_id":"sub:luo-second-platform",
+      "protagonist":"luo_cheng",
+      "years":"2034-2035",
+      "local_question":"多年后终于进入更高平台，真实工作是否配得上等待？",
+      "main_arc_function":"threshold_and_return",
+      "guest_slot":"guest:luo-platform-project-lead",
+      "required_evidence_refs":["2034q3:e09","2035q4:e01"]
+    },
+    {
+      "substory_id":"sub:tang-small-project-failure",
+      "protagonist":"tang_yu",
+      "years":"2034-2035",
+      "local_question":"一个研究者是否真能让负面证据迅速结束自己刚开始喜欢的问题？",
+      "main_arc_function":"second_descent_and_transformation",
+      "guest_slot":"guest:tang-young-collaborator",
+      "required_evidence_refs":["2034q3:e11","2035q2:e01","2035q2:e02"]
+    },
+    {
+      "substory_id":"sub:he-role-enrichment",
+      "protagonist":"he_xin",
+      "years":"2034-2035",
+      "local_question":"在不离开组织的情况下，岗位价值能不能被重新做出一点空间？",
+      "main_arc_function":"trial_before_final_threshold",
+      "guest_slot":"guest:he-direct-supervisor",
+      "required_evidence_refs":["2034q1:e01","2034q1:e03","2034q3:e01","2034q3:e02"]
+    },
+    {
+      "substory_id":"sub:song-second-role",
+      "protagonist":"song_nan",
+      "years":"2033-2035",
+      "local_question":"主动降薪换来的生活改善，能否与较慢学习速度长期共存？",
+      "main_arc_function":"post_threshold_trials",
+      "guest_slot":"guest:song-medical-business-partner",
+      "required_evidence_refs":["2034q1:e07","2035q3:e01","2035q3:e02"]
+    },
+    {
+      "substory_id":"sub:lin-close-slow-question",
+      "protagonist":"lin_jing",
+      "years":"2032-2034",
+      "local_question":"保护一个慢问题两年后，谁有权说它不再值得？",
+      "main_arc_function":"descent_and_return",
+      "guest_slot":"guest:lin-department-colleague",
+      "required_evidence_refs":["2034q3:e07","2034q3:e08"]
+    },
+    {
+      "substory_id":"sub:chen-governance-scope",
+      "protagonist":"chen_lan",
+      "years":"2034-2035",
+      "local_question":"扩大组织影响力时，怎样不重新掉回全天候响应？",
+      "main_arc_function":"post_return_governance",
+      "guest_slot":"guest:chen-cross-team-counterpart",
+      "required_evidence_refs":["2034q1:e09","2034q1:e10","2034q3:e05"]
+    },
+    {
+      "substory_id":"sub:xu-transferability",
+      "protagonist":"xu_hang",
+      "years":"2033-2035",
+      "local_question":"个人判断能力什么时候才真的变成别人可独立使用的方法？",
+      "main_arc_function":"trial_and_limited_return",
+      "guest_slot":"guest:xu-nonexpert-user",
+      "required_evidence_refs":["2035q2:e04","2035q2:e05","2035q4:e09"]
+    }
+  ],
+  "guest_slots":[
+    {
+      "slot_id":"guest:zhou-junior-second-judge",
+      "needed_role":"SOE technical colleague with enough domain exposure to take common exception judgments but lower seniority than Zhou",
+      "power_position":"weaker",
+      "interaction_function":"mirror",
+      "plausibility_constraints":["must actually handle live cases","must have manager permission to judge","cannot be written as incompetent foil","must have own reason to want judgment authority"],
+      "possible_micro_arc":"competence_overreach_cost_recalibration"
+    },
+    {
+      "slot_id":"guest:gao-section-chief",
+      "needed_role":"mid-level public-sector supervisor who values reliability and continuity but also knows promotion and learning limits",
+      "power_position":"stronger",
+      "interaction_function":"authority",
+      "plausibility_constraints":["cannot promise promotion","must be constrained by formal staffing and task allocation","should have a legitimate reason to value Gao's steadiness"],
+      "possible_micro_arc":"ordinary_call_boundary_residue"
+    },
+    {
+      "slot_id":"guest:luo-platform-project-lead",
+      "needed_role":"research-support project lead at Luo's second platform, responsible for both project quality and coordination load",
+      "power_position":"stronger",
+      "interaction_function":"authority",
+      "plausibility_constraints":["must own real project scope","cannot know Luo's entire prior career story","has incentives for delivery that can conflict with Luo's content ideals"],
+      "possible_micro_arc":"position_pressure_choice"
+    },
+    {
+      "slot_id":"guest:tang-young-collaborator",
+      "needed_role":"younger researcher or student participating in the small research exploration",
+      "power_position":"weaker",
+      "interaction_function":"mirror",
+      "plausibility_constraints":["must contribute real work or questions","cannot exist only to admire Tang","should experience both benefit and pressure from Tang's high standards"],
+      "possible_micro_arc":"need_refusal_negotiation_partial_gain"
+    },
+    {
+      "slot_id":"guest:he-direct-supervisor",
+      "needed_role":"public-institution supervisor with authority to assign a bounded cross-department task but not redesign He's entire position",
+      "power_position":"stronger",
+      "interaction_function":"guardian",
+      "plausibility_constraints":["authority limited to task assignment","must balance fairness and workload across staff","may value He partly because she is dependable, creating both opportunity and risk"],
+      "possible_micro_arc":"position_pressure_choice"
+    },
+    {
+      "slot_id":"guest:song-medical-business-partner",
+      "needed_role":"medical/business-side collaborator in Song's second pharma role who owns domain requirements but depends on statistical judgment",
+      "power_position":"cross_cutting",
+      "interaction_function":"peer",
+      "plausibility_constraints":["must have domain expertise Song lacks","must need delivery clarity rather than model sophistication","can disagree legitimately over speed, uncertainty and usable conclusions"],
+      "possible_micro_arc":"desire_friction_misjudgment_correction"
+    },
+    {
+      "slot_id":"guest:lin-department-colleague",
+      "needed_role":"regional university colleague who sees evaluation and workload pressures differently from Lin",
+      "power_position":"peer",
+      "interaction_function":"shadow",
+      "plausibility_constraints":["cannot simply embody KPI villainy","should have a rational strategy for surviving evaluation","may sincerely think Lin is wasting scarce research time"],
+      "possible_micro_arc":"position_pressure_choice"
+    },
+    {
+      "slot_id":"guest:chen-cross-team-counterpart",
+      "needed_role":"counterpart manager from another team who needs fast decisions and can pressure Chen's bounded governance design",
+      "power_position":"cross_cutting",
+      "interaction_function":"guardian",
+      "plausibility_constraints":["must face real deadlines","cannot be maliciously demanding","should bear consequences if governance is too slow"],
+      "possible_micro_arc":"desire_friction_misjudgment_correction"
+    },
+    {
+      "slot_id":"guest:xu-nonexpert-user",
+      "needed_role":"technically capable but non-specialist user attempting to apply Xu's verification framework without Xu present",
+      "power_position":"peer",
+      "interaction_function":"mirror",
+      "plausibility_constraints":["must be competent enough that failure is informative","must be allowed to reach a different but defensible stopping judgment","cannot exist merely to prove Xu right"],
+      "possible_micro_arc":"competence_overreach_cost_recalibration"
+    }
+  ],
+  "instantiation_rule":"Names, ages, detailed resumes, family background and voice are created only when a scene needs the slot; every instantiated guest must pass v14 reverse plausibility audit before prose use."
+}
