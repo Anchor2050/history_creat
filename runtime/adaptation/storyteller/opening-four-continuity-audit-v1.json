@@ -1,0 +1,31 @@
+{
+  "schema_version":1,
+  "status":"opening_four_continuity_audit_noncanonical",
+  "historical_world_writeback":false,
+  "chapters":[
+    {"chapter":1,"lead":"zhou_ye","reference":"docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md","register":"quiet technical call"},
+    {"chapter":2,"lead":"song_nan_ensemble","reference":"docs/adaptation/pilots/ch02-ordinary-trip-full-v2.md","register":"low-conversion ordinary social time"},
+    {"chapter":3,"lead":"luo_cheng","reference":"docs/adaptation/pilots/ch03-luo-posting-full-v2.md","register":"institutional friction and status discomfort"},
+    {"chapter":4,"lead":"tang_yu","reference":"docs/adaptation/pilots/ch04-tang-xu-implementation-structure-full-v2.md","register":"research trial and evidence separation"}
+  ],
+  "overall_judgment":"sequence_holds",
+  "strengths":[
+    "The pressure register changes in every chapter: technical self-proof, ordinary social diffusion, institutional fit, then research evidence conflict.",
+    "No chapter completes a full hero arc; each plants or advances a different long-term contradiction.",
+    "Chapter2 remains useful as decompression between three denser chapters.",
+    "Chapter4 reuses Tang Yu and Xu Hang, both already introduced in chapter2, so name load does not expand sharply.",
+    "The first four chapters establish that the ensemble lives in overlapping but separate worlds rather than one permanent group."
+  ],
+  "risks":[
+    "Three of four chapters still involve documents, code, files or explicit work artifacts; chapter5 should shift toward a decision embodied in money, city, time or family geography rather than another desk-bound evidence scene.",
+    "Xu Hang appears in chapters1,2 and4; avoid letting him become accidental connective protagonist or universal verifier.",
+    "Tang Yu's research line should now recede for a while so the long arc has temporal spacing.",
+    "The first four chapters are intellectually legible; upcoming chapters need more bodily, spatial and material stakes."
+  ],
+  "recommended_chapter5_function":"threshold/refusal through concrete life bundle rather than another technical discussion",
+  "recommended_candidates":[
+    "Gao Yuan hometown civil-service offer",
+    "Chen Lan good-offer refusal"
+  ],
+  "preferred_structure":"braided_two-offer_chapter only if each scene remains incomplete and neither is used to summarize a universal life lesson"
+}
