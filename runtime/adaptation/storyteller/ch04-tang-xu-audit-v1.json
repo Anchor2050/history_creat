@@ -1,0 +1,29 @@
+{
+  "schema_version":1,
+  "status":"disposable_full_chapter_audit_noncanonical",
+  "historical_world_writeback":false,
+  "chapter":"docs/adaptation/pilots/ch04-tang-xu-implementation-structure-full-v1.md",
+  "historical_anchor":["2027q2:e14","2027q2:e15","2027q2:e16"],
+  "overall_judgment":"promising_but_overarticulated",
+  "passes":[
+    "Research action is concrete enough to carry the scene without explanatory psychology.",
+    "Tang Yu's attachment appears through repeated return to the fourth phenomenon rather than explicit self-diagnosis.",
+    "Xu Hang remains bounded as verifier and does not become omniscient mentor.",
+    "The chapter advances the Campbell trial only partially and produces no breakthrough."
+  ],
+  "revision_targets":[
+    "Delete or blunt Xu Hang's line about not letting the later research line decide the earlier evidence; it states the theme too cleanly.",
+    "Reduce the designed quality of changing 'stable' to 'candidate' in the presentation title.",
+    "Remove Tang Yu's next-day question about whether to stop if the right-hand chain becomes mere implementation difference; that anticipates her 2035 transformation too early.",
+    "Reduce quick back-and-forth precision in several exchanges so the conversation contains more incomplete coordination.",
+    "Keep the two-chain decision but leave its emotional meaning unresolved."
+  ],
+  "arc_check":{
+    "campbell_stage":"trial",
+    "virtue_shadow":"research intensity / ownership of a beautiful phenomenon",
+    "transformation_delta":"small: accepts separation of two evidence chains",
+    "must_not_happen_yet":"explicit acceptance that negative evidence should terminate a favored project",
+    "negative_space":"reader may notice she protects the fourth phenomenon; narrator and character do not name why"
+  },
+  "next":"produce subtraction-only v2"
+}
