@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "chapter5_first_results_audit_noncanonical",
+  "historical_world_writeback": false,
+  "draft": "docs/adaptation/pilots/ch05-first-results-full-v1.md",
+  "overall_judgment": "structure_pass_prose_needs_subtraction",
+  "strengths": [
+    "Ch1 finally receives a concrete external consequence: the technical screen asks about rerun, verification and anomaly records, and the reproducibility package helps Zhou explain his work style.",
+    "The payoff remains partial because Xu explicitly limits the causal claim and the final interview still evaluates role understanding and collaboration.",
+    "The chapter moves from screen/document stakes into rent, commute, moving, family distance and first-job cash pressure.",
+    "The year-end Zhou/Gao/Luo dinner is historically grounded and makes three routes coexist without requiring a permanent group.",
+    "Luo's rejection and target revision are visible without replaying Chapter3 in full."
+  ],
+  "risks": [
+    "The crossed-out phrase '以后想走的成本' -> '第一年退出成本' is too conceptually polished and makes Zhou sound like the Storyteller.",
+    "Chen Lan's offer-evaluation dialogue is useful but slightly too efficient; leave one uncertainty unresolved instead of fully decomposing the offer.",
+    "Gao's line about Zhou now saying '刚好' explicitly interprets character change and should be removed.",
+    "The Song Nan callback in the dinner is unnecessary connective overreach and risks making the world feel designed around the core cast.",
+    "The final exchange '你真不紧张 / 现在还没上' is a neat closing line and should be replaced by a mundane separation."
+  ],
+  "campbell_check": {
+    "zhou_stage": "threshold",
+    "allowed_change": "reliability receives external recognition and becomes one factor in a first-job decision",
+    "must_not_complete": "do not imply Zhou has already solved the later problem of over-reliance or delegation",
+    "gao_stage": "trial_after_first_failure",
+    "luo_stage": "descent_and_target_revision"
+  },
+  "plot_connection_check": {
+    "ch1_payoff": "pass",
+    "ch3_payoff": "pass",
+    "weak_ensemble_rule": "pass",
+    "winner_loser_ranking": "avoided_but_keep_monitoring",
+    "chapter2_direct_payoff": "not_required_here; its weak-network and Song line can pay later"
+  },
+  "revision_instruction": "Create v2 by subtraction: remove thesis-like self-labeling, remove the Song callback and tidy character commentary, loosen HR certainty, and end on ordinary logistics rather than a quotable line."
+}
