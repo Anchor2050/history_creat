@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_only_noncanonical",
+  "probe_v1": "docs/adaptation/central-event-probes/ch01-risk-list-v1.md",
+  "probe_v2": "docs/adaptation/central-event-probes/ch01-risk-list-v2.md",
+  "preferred": "v2",
+  "verdict": "central_event_opening_materially_stronger_than_career_chronology_but_not_prose_canon",
+  "why_v2_is_preferred": [
+    "removes decorative timestamps that did not alter reader understanding",
+    "compresses repeated troubleshooting dialogue",
+    "keeps only facts that change the causal tree",
+    "ends on a discovery that forces the next chapter rather than a thematic sentence"
+  ],
+  "reader_question_chain": {
+    "next_page": "why did an incomplete-follow-up record appear low-risk?",
+    "next_chapter": "how many overnight batches existed and why does the leaked screenshot predate the current run?",
+    "next_several_chapters": "is the failure in data, version, method, workflow, or some combination, and who will be blamed before that is known?",
+    "long_arc": "what happens to people and institutions when responsibility is distributed but decisions still require a name and deadline?"
+  },
+  "sentence_density_result": {
+    "v1": "promising_but_over-timestamped_and_over-scripted",
+    "v2": "provisional_pass",
+    "remaining_risk": "some dialogue still functions as efficient exposition; later prose must add asymmetry, misunderstanding and incomplete knowledge without adding filler"
+  },
+  "major_risks": [
+    {
+      "risk": "tech-thriller overtake",
+      "description": "the anomaly can become an engineering puzzle detached from human stakes",
+      "control": "every technical finding must change authority, workload, reputation, money, trust or a concrete decision"
+    },
+    {
+      "risk": "convenient ensemble convergence",
+      "description": "all major characters may appear artificially because the author wants the cast together",
+      "control": "entry requires causal necessity; no roster quota; some core actors may remain outside the event for a long time"
+    },
+    {
+      "risk": "mystery-box debt",
+      "description": "too many anomalies can accumulate faster than they are repaid",
+      "control": "each chapter pays at least one prior setup before adding more than two major setups"
+    },
+    {
+      "risk": "single-villain temptation",
+      "description": "a leak source or technical mistake could simplify the story into culprit hunting",
+      "control": "final causal truth must remain distributed; leak motive and system failure are separate questions"
+    },
+    {
+      "risk": "reader loses emotional anchor",
+      "description": "institutional conflict can crowd out character attachment",
+      "control": "Luo remains first focal anchor through the opening incident; new actors enter through his live problem rather than replacing him immediately"
+    }
+  ],
+  "opening_rule": "The central event replaces chronological career setup as the publication-opening candidate. Prior career material becomes backstory reservoir and may only enter when it changes current interpretation or action.",
+  "next_action": "Draft Chapter2 only from the final discovery in Chapter1: the leaked screenshot predates the current batch, so the team freezes and reconstructs all overnight runs. Introduce no new core actor unless the reconstruction genuinely requires their role."
+}
