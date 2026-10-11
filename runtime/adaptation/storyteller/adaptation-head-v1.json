@@ -1,5 +1,5 @@
 {
-  "schema_version": 8,
+  "schema_version": 9,
   "status": "adaptation_storyteller_head_noncanonical",
   "historical_world_writeback": false,
   "history_source": {
@@ -15,6 +15,8 @@
     "character_psychology": "docs/adaptation/character-psychology-bible-v1.md",
     "character_dialectics_power": "docs/adaptation/character-dialectics-and-power-v2.md",
     "campbell_structure": "docs/adaptation/campbell-distributed-hero-journey-v1.md",
+    "campbell_negative_space": "docs/adaptation/campbell-arc-and-negative-space-v2.md",
+    "hero_arc_negative_space_matrix": "runtime/adaptation/storyteller/hero-arc-negative-space-matrix-v1.json",
     "nested_substory_model": "docs/adaptation/nested-hero-substory-model-v1.md",
     "substory_guest_slots": "runtime/adaptation/storyteller/substory-and-guest-slots-v1.json",
     "substory_graph": "runtime/adaptation/storyteller/substory-graph-v1.json",
@@ -79,13 +81,17 @@
     "narrative_voice_status": "provisional_canon",
     "narrative_voice_label": "close_external_restrained_realism",
     "pilot_voice_reference": "docs/adaptation/pilots/ch03-luo-posting-full-v2.md",
+    "hero_arc_priority": "primary_longitudinal_structure",
+    "negative_space_priority": "primary_rendering_principle",
     "world_is_not_centered_on_core_six": true
   },
   "narrative_layers": [
-    "long_hero_arcs_for_core_characters",
+    "long_campbell_hero_arcs_for_core_characters",
+    "negative_space_rendering_of_long_arcs",
     "multi_scene_substories_inside_each_long_arc",
     "guest_micro_arcs_for_passersby_colleagues_authorities_clients_students_family_and_peers"
   ],
+  "arc_rendering_rule": "Backend arcs must be structurally legible; foreground prose must remain partial, delayed, fallible and under-explained. Longitudinal character transformation has priority over making an individual chapter thematically complete.",
   "nonnegotiable_rules": [
     "No adaptation hypothesis becomes ledger history.",
     "No adaptation-only resume item becomes a historical credential unless separately promoted by an explicit canon decision.",
@@ -102,27 +108,44 @@
     "Guest characters generated on demand must pass reverse plausibility audit before prose use.",
     "Guest biography remains adaptation-only unless explicitly canonized later.",
     "Narrative voice canon is provisional and controls distance, not character-specific syntax.",
+    "Campbell stages are backend structure only and must never become chapter labels, thesis dialogue or explicit self-diagnosis.",
+    "A stage may span several chapters or years; no chapter is required to resolve a stage.",
+    "Character transformation changes probabilities, thresholds and recovery patterns; it does not permanently remove old flaws.",
+    "Every core actor must retain at least one materially unresolved ambiguity at the 2035 observation horizon.",
+    "Readers may understand an arc before the character does; the narrator must not close that gap automatically.",
+    "Do not reward every mature decision immediately or fairly; environment and chance retain independent causal force.",
     "Do not force romance, illness, family disaster, betrayal or redemption to complete an arc.",
-    "Do not turn Campbell functions into visible formula or dialogue.",
     "Do not use AI-summary endings, thesis dialogue, forced symbolism or universal self-awareness.",
     "Ordinary time and non-events remain usable narrative material.",
     "2035 is an observation endpoint, not a life verdict."
   ],
-  "current_stage": "sequential_full_chapter_drafting_allowed_with_review",
+  "chapter_arc_audit": [
+    "Which long-term hero stage does this chapter touch, if any?",
+    "Which stable trait or virtue-shadow pair is under pressure?",
+    "Did the prose explain the shadow more clearly than the character could actually know?",
+    "What changed: behavior, threshold, relationship, resource, interpretation, or nothing?",
+    "Did the chapter give an emotionally complete payoff only because the author wanted closure?",
+    "Could the final explanatory paragraph be deleted while the long arc remains legible?",
+    "Does this chapter leave enough uncertainty for later repetitions to change its meaning?"
+  ],
+  "current_stage": "sequential_full_chapter_drafting_allowed_with_campbell_arc_and_negative_space_review",
   "gate_status": {
     "anti_ai_style": "provisional_pass_at_chapter_length",
     "narrative_voice": "provisional_canon",
     "chapter_architecture": "provisional_pass_with_v2_overlay",
     "full_pilot_chapter": "pass_after_subtractive_revision",
+    "campbell_arc_model": "strengthened_with_negative_space",
     "prose_canon": "still_not_fixed"
   },
   "next_stage_gate": {
     "required_before_opening_order_lock": [
+      "audit opening candidates against the six long hero arcs before prose drafting",
       "draft the actual opening candidate chapter as disposable prose",
-      "compare opening energy, character legibility and world-entry burden against the Luo pilot",
+      "compare opening energy, character legibility, world-entry burden and long-arc promise against the Luo pilot",
       "revise the opening candidate once by subtraction",
+      "verify that the opening promises a long arc without explaining the arc",
       "decide whether chapter 1 remains Zhou Ye or whether the novel should enter through a different scene"
     ],
-    "drafting_rule": "Only one new full chapter at a time may advance to review. Do not batch-generate the remaining chapters."
+    "drafting_rule": "Only one new full chapter at a time may advance to review. Every full chapter must pass both anti-AI subtraction review and long-arc/negative-space review before the next one begins."
   }
 }
