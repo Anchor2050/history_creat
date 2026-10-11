@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "chapter5_v1_v2_audit_noncanonical",
+  "historical_world_writeback": false,
+  "v1": "docs/adaptation/pilots/ch05-first-results-full-v1.md",
+  "v2": "docs/adaptation/pilots/ch05-first-results-full-v2.md",
+  "overall_judgment": "v2_preferred_plot_payoff_gate_pass",
+  "improvements": [
+    "Removed conceptual self-labeling around exit cost; Zhou now handles concrete rent, commute and cash without sounding like the Storyteller.",
+    "Removed explicit character commentary about Zhou learning to say 'just happened to fit'.",
+    "Removed the unnecessary Song Nan callback at dinner, reducing designed-world feel.",
+    "Replaced the quotable final exchange with a mundane rental-viewing message, keeping the threshold material rather than thematic.",
+    "Luo's rejection remains visible but is not staged as the losing mirror to Zhou's offer.",
+    "Gao enters with one behavioral hook and one bounded plan rather than biography exposition."
+  ],
+  "remaining_risks": [
+    "Chen Lan's short offer-evaluation exchange is still efficient; later scenes should show her advice can be partial or wrong in other contexts.",
+    "The chapter spans several months; the novel should not make every payoff chapter a quarterly montage.",
+    "Zhou's technical payoff is satisfying enough that later organizational costs must remain genuinely independent and not read as punishment for early success."
+  ],
+  "connection_verdict": {
+    "ch1_to_ch5": "strong_visible_payoff",
+    "ch3_to_ch5": "visible_route_consequence_via_luo",
+    "ch2_to_ch5": "no_direct_payoff_required",
+    "ch4_to_ch5": "intentionally_recedes",
+    "weak_ensemble_preserved": true
+  },
+  "campbell_verdict": {
+    "zhou": "threshold_started_not_completed",
+    "gao": "trial_after_failure",
+    "luo": "descent_to_revised_call",
+    "negative_space_preserved": true
+  },
+  "gate_status": {
+    "chapter5_full_draft": "pass_after_subtraction",
+    "plot_connection_review": "resolved_in_prose_not_only_architecture",
+    "anti_ai_style": "provisional_pass",
+    "prose_canon": "still_disposable_reference"
+  }
+}
