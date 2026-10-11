@@ -1,0 +1,71 @@
+{
+  "schema_version":1,
+  "batch_id":"career-six-chatbot-2034-q3",
+  "status":"noncanonical_chatbot_replay_batch",
+  "period":{"start":"2034-07-01","end":"2034-09-30"},
+  "generation_mode":"chatgpt_product_interaction_chain",
+  "era_lens":[
+    "二阶治理措施允许部分成功：减少单点、增加学习、扩展职责都不要求一次性解决长期问题。",
+    "长期研究自主性的一个真实结果也可以是主动关闭已经不再值得的问题。",
+    "真正跨过长期门槛的外部机会才重新启动公开申请。"
+  ],
+  "exogenous_hard_world_events":[
+    {"event_id":"2034q3:he01","at":"2034-07-19","kind":"internal_role_enrichment_result","actor":"he_xin","source_candidate":"candidate:2034-q1:he-internal-role-enrichment:01","result":"bounded_task_adds_some_new_judgment_without_overtime_role_learning_improves_modestly","visibility":"private_to_actor"},
+    {"event_id":"2034q3:zhou01","at":"2034-07-27","kind":"second_judge_rotation_result","actor":"zhou_ye","source_candidate":"candidate:2034-q1:zhou-second-judge-rotation:01","result":"second_judge_handles_common_cases_independently_rare_cases_still_escalate_to_zhou","visibility":"private_to_actor"},
+    {"event_id":"2034q3:chen01","at":"2034-08-03","kind":"bounded_governance_scope_result","actor":"chen_lan","source_candidate":"candidate:2034-q1:chen-bounded-governance-scope:01","result":"pilot_delivers_cross_team_decisions_without_always_on_response_scope_can_continue","visibility":"private_to_actor"},
+    {"event_id":"2034q3:lin01","at":"2034-08-16","kind":"long_horizon_question_value_gate","actor":"lin_jing","source_candidate":"candidate:2034-q2:lin-close-or-continue-long-question:01","result":"remaining_mechanism_value_too_weak_relative_to_future_cost_question_closed","visibility":"private_to_actor"},
+    {"event_id":"2034q3:luo01","at":"2034-08-24","kind":"selective_opening_verification","actor":"luo_cheng","source_candidate":"candidate:2034-q2:luo-double-threshold-opening:01","result":"public_role_verified_research_content_and_platform_both_material_eligibility_met","visibility":"private_to_actor"},
+    {"event_id":"2034q3:tang01","at":"2034-09-10","kind":"research_exploration_second_checkpoint","actor":"tang_yu","result":"literature_and_counterexample_check_leave_one_narrow_unresolved_question_project_threshold_near_but_not_yet_committed","visibility":"private_to_actor"}
+  ],
+  "windows":[
+    {"packet_id":"micro:chatbot:2034-07:he-task-result:01","start_date":"2034-07-21","end_date":"2034-07-21","event_kind":"internal_role_enrichment_result","participants":["he_xin","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2034-07:zhou-second-judge-result:01","start_date":"2034-07-29","end_date":"2034-07-29","event_kind":"second_judge_rotation_result","participants":["zhou_ye","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2034-08:chen-scope-result:01","start_date":"2034-08-05","end_date":"2034-08-05","event_kind":"bounded_governance_scope_result","participants":["chen_lan","wu_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2034-08:lin-close-long-question:01","start_date":"2034-08-18","end_date":"2034-08-18","event_kind":"long_horizon_question_closure","participants":["lin_jing","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2034-08:luo-opening-apply:01","start_date":"2034-08-26","end_date":"2034-08-26","event_kind":"selective_external_application","participants":["luo_cheng","gao_yuan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2034-09:tang-question-gate:01","start_date":"2034-09-12","end_date":"2034-09-12","event_kind":"research_question_value_gate","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2034-09:zhao-retrospective-result:01","start_date":"2034-09-22","end_date":"2034-09-22","event_kind":"judgment_retrospective_result","participants":["zhao_ke","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events":[
+    {"event_id":"2034q3:e01","kind":"social_interaction","at":"2034-07-21","event_kind":"internal_role_enrichment_result","speaker":"he_xin","listener":"sun_jie","act":"share_experience","content":"何欣的小任务没有改变职位，但确实让她第一次重新做了一些需要比较方案、解释数据限制的判断；她觉得岗位并非完全失去弹性，只是这种学习需要主动争取。","channel":"wechat_private","evidence":"三个月内部任务完成且无持续加班。"},
+    {"event_id":"2034q3:e02","kind":"social_interaction","at":"2034-07-21","event_kind":"internal_role_enrichment_result","speaker":"sun_jie","listener":"he_xin","act":"offer_information","content":"孙洁提醒她这只能证明岗位还可塑，不能证明以后每年都会有合适任务；2035住房前仍要看这种学习是不是可重复获得。","channel":"wechat_private","evidence":"部分正面结果不扩大为长期保证。"},
+
+    {"event_id":"2034q3:e03","kind":"social_interaction","at":"2034-07-29","event_kind":"second_judge_rotation_result","speaker":"zhou_ye","listener":"xu_hang","act":"share_experience","content":"三个月后，另一位同事已经能独立处理这类异常里的常见分支，只有少数边界情况还会升级给周野；周野第一次看到复杂判断真的可以被拆走一部分。","channel":"wechat_private","evidence":"轮转产生部分责任转移。"},
+    {"event_id":"2034q3:e04","kind":"social_interaction","at":"2034-07-29","event_kind":"second_judge_rotation_result","speaker":"xu_hang","listener":"zhou_ye","act":"offer_information","content":"许航说这已经足够证明单点不是天然的，但剩下最稀有的异常仍可能长期绑住周野；下一步应该再复制一类，而不是把试验宣布成功结束。","channel":"wechat_private","evidence":"部分成功保留残余风险。"},
+
+    {"event_id":"2034q3:e05","kind":"social_interaction","at":"2034-08-05","event_kind":"bounded_governance_scope_result","speaker":"chen_lan","listener":"wu_cheng","act":"share_experience","content":"陈岚的试行职责没有重新变成全天候响应，固定会议和升级条件基本守住了；她愿意继续承担这块范围，但不接受把更多无关跨部门问题一起并进来。","channel":"in_person","evidence":"边界在真实组织环境中部分有效。"},
+    {"event_id":"2034q3:e06","kind":"social_interaction","at":"2034-08-05","event_kind":"bounded_governance_scope_result","speaker":"wu_cheng","listener":"chen_lan","act":"repair","content":"吴澄说她现在获得的不是更像学术的工作，而是更高层次的组织判断；如果她认可这笔交换，就不用再把每次职责扩张理解成离研究更远。","channel":"in_person","evidence":"职业身份继续重定义。"},
+
+    {"event_id":"2034q3:e07","kind":"social_interaction","at":"2034-08-18","event_kind":"long_horizon_question_closure","speaker":"lin_jing","listener":"shen_yan","act":"share_experience","content":"林静把剩余问题写成半页后发现，最有意思的部分已经被前面的反例削掉，继续做主要靠‘我已经保了两年’才能说服自己。她决定关掉。","channel":"video_call","evidence":"价值门槛失败，沉没成本不作为继续理由。"},
+    {"event_id":"2034q3:e08","kind":"social_interaction","at":"2034-08-18","event_kind":"long_horizon_question_closure","speaker":"shen_yan","listener":"lin_jing","act":"repair","content":"沈雁说这反而是她想保护的那种自主：自主不只是能选慢问题，也包括有权承认慢问题最终不值得。","channel":"video_call","evidence":"关闭成为自主性的真实结果。"},
+
+    {"event_id":"2034q3:e09","kind":"social_interaction","at":"2034-08-26","event_kind":"selective_external_application","speaker":"luo_cheng","listener":"gao_yuan","act":"share_experience","content":"罗诚核实那条省会岗位后确认，研究支持设计是真实主责，平台资源也明显高于当前单位；他几年里第二次正式提交外部申请。","channel":"phone","evidence":"内容和平台双门槛均通过。"},
+    {"event_id":"2034q3:e10","kind":"social_interaction","at":"2034-08-26","event_kind":"selective_external_application","speaker":"gao_yuan","listener":"luo_cheng","act":"check_in","content":"高原没有跟着打开求职，只问罗诚这次如果成功，住房、通勤和离家距离要付什么代价；两人的市场规则继续分开。","channel":"phone","evidence":"同伴申请不触发模仿。"},
+
+    {"event_id":"2034q3:e11","kind":"social_interaction","at":"2034-09-12","event_kind":"research_question_value_gate","speaker":"tang_yu","listener":"shen_yan","act":"share_experience","content":"唐雨完成第二轮边界检查后，只剩一个很窄的问题仍反复出现：某类结构变化何时会让稳定性判断失效。她已经能说明为什么已有文献没有直接回答，但仍没有证明路径。","channel":"in_person","evidence":"问题通过文献新颖性和持续兴趣检查，但项目承诺仍开放。"},
+    {"event_id":"2034q3:e12","kind":"social_interaction","at":"2034-09-12","event_kind":"research_question_value_gate","speaker":"shen_yan","listener":"tang_yu","act":"offer_information","content":"沈雁建议年底只做最后一道门：如果能写出一个最小可证伪陈述和一组会让它失败的情形，就开小项目；否则继续当问题笔记。","channel":"in_person","evidence":"形成严格项目门槛。"},
+
+    {"event_id":"2034q3:e13","kind":"social_interaction","at":"2034-09-22","event_kind":"judgment_retrospective_result","speaker":"zhao_ke","listener":"sun_jie","act":"share_experience","content":"跨团队复盘后，参与者对三个失败案例的解释明显比一开始具体，甚至有人主动指出现有规则在哪类情形下会误导；赵珂觉得这比再写一版入口流程更有成长感。","channel":"video_call","evidence":"复盘产生判断学习证据，但无职位变化。"},
+    {"event_id":"2034q3:e14","kind":"social_interaction","at":"2034-09-22","event_kind":"judgment_retrospective_result","speaker":"sun_jie","listener":"zhao_ke","act":"repair","content":"孙洁提醒他别把一次复盘变成新的固定培训产品，先看这些人之后遇到例外时是否真的会停下来判断。","channel":"video_call","evidence":"培训效果仍需行为后果。"}
+  ],
+  "hard_world_candidate_updates":[
+    {"candidate_id":"candidate:2034-q1:he-internal-role-enrichment:01","checked_at":"2034-07-19","checks":{"task_completed":true,"new_judgment_content":true,"no_persistent_overtime":true},"result":"modest_role_learning_gain_noncanonical","resource_effect":"role value improves modestly; no promotion"},
+    {"candidate_id":"candidate:2034-q1:zhou-second-judge-rotation:01","checked_at":"2034-07-27","checks":{"real_case_exposure":true,"independent_common_case_judgment":true,"rare_case_independence":false},"result":"partial_single_point_reduction_noncanonical","resource_effect":"one exception class partially delegated"},
+    {"candidate_id":"candidate:2034-q1:chen-bounded-governance-scope:01","checked_at":"2034-08-03","checks":{"scope_respected":true,"always_on_response":false,"decision_value":true},"result":"bounded_scope_continues_noncanonical","resource_effect":"ongoing bounded governance responsibility; no title fact"},
+    {"candidate_id":"candidate:2034-q2:lin-close-or-continue-long-question:01","checked_at":"2034-08-16","checks":{"remaining_mechanism_value_independent_of_sunk_time":false,"clear_half_page_question":true,"future_testable_step":false},"result":"research_question_closed_noncanonical","resource_effect":"time slot released; no replacement project"},
+    {"candidate_id":"candidate:2034-q2:luo-double-threshold-opening:01","checked_at":"2034-08-24","checks":{"public_role_verified":true,"research_content_material":true,"platform_gain_material":true,"application_eligibility":true},"result":"application_submitted_noncanonical","resource_effect":"public selection process opened"},
+    {"candidate_id":"candidate:2034-q1:zhao-judgment-retrospective:01","checked_at":"2034-09-20","checks":{"participants_engaged":true,"judgment_explanations_improved":true,"no_process_only_repetition":true},"result":"pilot_shows_learning_noncanonical","resource_effect":"one peer-learning format demonstrated"}
+  ],
+  "new_hard_world_candidates":[
+    {"candidate_id":"candidate:2034-q3:luo-selection-process:01","created_at":"2034-08-24","type":"public_selection_process","beneficiary":"luo_cheng","requires_checks":["shortlist","interview","selection_result","bundle_evaluation_if_offer"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2034-q3:tang-small-project-gate:01","created_at":"2034-09-12","type":"research_project_gate","beneficiary":"tang_yu","requires_checks":["minimal_falsifiable_statement","known_failure_conditions","bounded_scope","interest_persists"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2034-q3:zhou-second-class-delegation:01","created_at":"2034-07-29","type":"second_judge_extension","beneficiary":"zhou_ye","requires_checks":["first_rotation_stable","second_exception_class_available","colleague_capacity"],"status":"open_noncanonical"}
+  ],
+  "actor_state_evidence":[
+    {"at":"2034-08-18","actor":"lin_jing","dimension":"research_autonomy","evidence":"主动关闭投入近两年的慢问题，证明问题选择自主包含退出权而非只包含长期坚持。","status":"candidate_state_evidence"},
+    {"at":"2034-08-26","actor":"luo_cheng","dimension":"midcareer_search","evidence":"几年等待后第二次只在内容和平台同时达标时正式申请。","status":"candidate_state_evidence"},
+    {"at":"2034-07-29","actor":"zhou_ye","dimension":"expert_lockin_governance","evidence":"第二判断者已能独立处理一类异常常见分支，专家单点风险部分下降。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence":[],
+  "audit_rules":{"generated_through_interaction_chain":true,"partial_success_preserved":true,"sunk_cost_cannot_keep_research_open":true,"double_threshold_required_for_luo_application":true,"peer_behavior_does_not_trigger_imitation":true,"family_age_alone_cannot_create_care_crisis":true,"storyteller_read_only":true}
+}
