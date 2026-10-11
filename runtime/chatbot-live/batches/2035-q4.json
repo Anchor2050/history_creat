@@ -1,0 +1,64 @@
+{
+  "schema_version":1,
+  "batch_id":"career-six-chatbot-2035-q4",
+  "status":"noncanonical_chatbot_replay_batch",
+  "period":{"start":"2035-10-01","end":"2035-12-31"},
+  "generation_mode":"chatgpt_product_interaction_chain",
+  "era_lens":[
+    "情景终点只关闭观测窗口，不关闭人物人生；最终状态可以稳定、开放、失败或无事件。",
+    "十年历史允许以‘没有发生危机’作为真实结果，不为了戏剧性在终点补家庭灾难。",
+    "成熟的长期线应保留收益与代价并存，不写赢家榜或命运结论。"
+  ],
+  "exogenous_hard_world_events":[
+    {"event_id":"2035q4:luo01","at":"2035-11-12","kind":"midcareer_new_role_first_year_review","actor":"luo_cheng","result":"research_content_and_platform_materially_better_coordination_and_living_cost_higher_role_retained","visibility":"private_to_actor"},
+    {"event_id":"2035q4:zhou01","at":"2035-11-18","kind":"combined_lockin_final_review","actor":"zhou_ye","result":"mortgage_stable_two_exception_classes_partly_delegated_rare_cases_still_personal_no_exit_trigger","visibility":"private_to_actor"},
+    {"event_id":"2035q4:he01","at":"2035-11-24","kind":"home_and_role_final_review","actor":"he_xin","result":"mortgage_affordable_role_value_acceptable_learning_modest_city_commitment_high_no_external_search","visibility":"private_to_actor"},
+    {"event_id":"2035q4:xu01","at":"2035-12-02","kind":"validation_identity_final_review","actor":"xu_hang","result":"independent_validation_design_identity_supported_bounded_transferability_supported_general_method_maturity_not_claimed","visibility":"private_to_actor"},
+    {"event_id":"2035q4:lin01","at":"2035-12-08","kind":"research_autonomy_final_review","actor":"lin_jing","result":"no_new_long_horizon_mainline_multiple_smaller_questions_and_reading_active_formal_duties_met","visibility":"private_to_actor"}
+  ],
+  "windows":[
+    {"packet_id":"micro:chatbot:2035-11:luo-firstyear-final:01","start_date":"2035-11-14","end_date":"2035-11-14","event_kind":"midcareer_new_role_first_year_review","participants":["luo_cheng","gao_yuan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-11:zhou-final-lockin:01","start_date":"2035-11-20","end_date":"2035-11-20","event_kind":"combined_lockin_final_review","participants":["zhou_ye","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-11:he-final-role-home:01","start_date":"2035-11-26","end_date":"2035-11-26","event_kind":"home_and_role_final_review","participants":["he_xin","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-12:tang-final-gap:01","start_date":"2035-12-04","end_date":"2035-12-04","event_kind":"research_status_final_review","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-12:xu-final-identity:01","start_date":"2035-12-06","end_date":"2035-12-06","event_kind":"validation_identity_final_review","participants":["xu_hang","gu_wei"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-12:lin-final-autonomy:01","start_date":"2035-12-10","end_date":"2035-12-10","event_kind":"research_autonomy_final_review","participants":["lin_jing","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-12:final-group-call:01","start_date":"2035-12-27","end_date":"2035-12-27","event_kind":"scenario_horizon_group_call","participants":["lin_jing","chen_lan","xu_hang","zhou_ye","gao_yuan","luo_cheng","tang_yu","he_xin","song_nan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events":[
+    {"event_id":"2035q4:e01","kind":"social_interaction","at":"2035-11-14","event_kind":"midcareer_new_role_first_year_review","speaker":"luo_cheng","listener":"gao_yuan","act":"share_experience","content":"罗诚完整一年后确认这次迁移确实改善了他坚持多年的两个门槛：研究支持设计更实质，平台资源也更丰富；代价是生活成本和协调复杂度更高，但目前仍愿意承担。","channel":"phone","evidence":"新岗位第一年现实闭环。"},
+    {"event_id":"2035q4:e02","kind":"social_interaction","at":"2035-11-14","event_kind":"midcareer_new_role_first_year_review","speaker":"gao_yuan","listener":"luo_cheng","act":"repair","content":"高原说这也没有证明罗诚早几年就该走、自己就该留，只说明他们在不同年份遇到的可选集合不一样。","channel":"phone","evidence":"避免终点反推早期唯一正确路径。"},
+
+    {"event_id":"2035q4:e03","kind":"social_interaction","at":"2035-11-20","event_kind":"combined_lockin_final_review","speaker":"zhou_ye","listener":"xu_hang","act":"share_experience","content":"周野到情景终点仍有房贷，换城市成本明显高，但两类复杂异常已经有人能分担大部分常见判断；他没有变得自由，只是不再同时被房子和完全不可替代性双重锁死。","channel":"wechat_private","evidence":"资产锁定持续，职业单点风险部分治理。"},
+    {"event_id":"2035q4:e04","kind":"social_interaction","at":"2035-11-20","event_kind":"combined_lockin_final_review","speaker":"xu_hang","listener":"zhou_ye","act":"repair","content":"许航说这可能就是可逆性比较现实的样子：有些成本消不掉，只能把其中能拆的部分一点点拆掉。","channel":"wechat_private","evidence":"锁定治理没有被写成完全解除。"},
+
+    {"event_id":"2035q4:e05","kind":"social_interaction","at":"2035-11-26","event_kind":"home_and_role_final_review","speaker":"he_xin","listener":"sun_jie","act":"share_experience","content":"何欣年底同时看房贷和工作：房贷可承受，工作仍然稳定且不算高成长，内部可塑性偶尔存在。她不觉得买房证明工作值得做一辈子，只承认自己现在愿意把更多生活放在这座城市。","channel":"wechat_private","evidence":"最终住房与岗位价值仍分账。"},
+    {"event_id":"2035q4:e06","kind":"social_interaction","at":"2035-11-26","event_kind":"home_and_role_final_review","speaker":"sun_jie","listener":"he_xin","act":"check_in","content":"孙洁只提醒她以后如果岗位价值真的变差，房子会让离开的成本更高，但不会替她把答案变成不能走。","channel":"wechat_private","evidence":"资产锁定被保留为成本而非命运。"},
+
+    {"event_id":"2035q4:e07","kind":"social_interaction","at":"2035-12-04","event_kind":"research_status_final_review","speaker":"tang_yu","listener":"shen_yan","act":"share_experience","content":"小项目被反例关掉半年后，唐雨手上没有新的成熟主线。她说这次失败反而很轻，因为项目够小、负面检查够早，没有再次变成需要多年才能承认的问题。","channel":"in_person","evidence":"研究退出能力成为长期学习后果。"},
+    {"event_id":"2035q4:e08","kind":"social_interaction","at":"2035-12-04","event_kind":"research_status_final_review","speaker":"shen_yan","listener":"tang_yu","act":"repair","content":"沈雁没有给情景终点补一个新题，只说以后还有问题就继续，没有也不需要把2035写成空白。","channel":"in_person","evidence":"情景终点不要求研究线闭合。"},
+
+    {"event_id":"2035q4:e09","kind":"social_interaction","at":"2035-12-06","event_kind":"validation_identity_final_review","speaker":"xu_hang","listener":"gu_wei","act":"share_experience","content":"许航把几年记录放在一起看：他已经能在不同问题上独立设计验证，也有一个非专家可有限独立使用的案例，同时还有需要大量本人干预的失败案例。","channel":"in_person","evidence":"身份、部分可移交性和方法局限均有独立证据。"},
+    {"event_id":"2035q4:e10","kind":"social_interaction","at":"2035-12-06","event_kind":"validation_identity_final_review","speaker":"gu_wei","listener":"xu_hang","act":"offer_information","content":"顾维认为现在可以诚实地说‘验证设计是许航自己的专业能力’，但还不能说已经形成通用方法；这个不完整的结论比一张成熟方法标签更可信。","channel":"in_person","evidence":"最终身份结论保持范围。"},
+
+    {"event_id":"2035q4:e11","kind":"social_interaction","at":"2035-12-10","event_kind":"research_autonomy_final_review","speaker":"lin_jing","listener":"chen_lan","act":"share_experience","content":"林静关掉慢问题后没有再立一个大主线，年底手里是几个小问题、阅读和正常教学科研职责。她觉得自己至少证明了一件事：评价制度影响选题，但没有完全替她选择问题。","channel":"video_call","evidence":"自主性最终表现为组合状态而非大成果。"},
+    {"event_id":"2035q4:e12","kind":"social_interaction","at":"2035-12-10","event_kind":"research_autonomy_final_review","speaker":"chen_lan","listener":"lin_jing","act":"share_experience","content":"陈岚说自己这些年走的是另一条路：组织结构已经替她决定了很多问题来源，但她保住了怎么定义和判断问题的空间；两个人的自主最后长成了不同形状。","channel":"video_call","evidence":"原八人职业路径形成横向对照。"},
+
+    {"event_id":"2035q4:e13","kind":"social_interaction","at":"2035-12-27","event_kind":"scenario_horizon_group_call","speaker":"song_nan","listener":"he_xin","act":"small_talk","content":"年末通话里宋楠问何欣新房最烦的是什么，何欣说是收纳和每月固定扣款；她们没有把房子聊成人生成就。","channel":"video_call","evidence":"终点保留普通生活密度。"},
+    {"event_id":"2035q4:e14","kind":"social_interaction","at":"2035-12-27","event_kind":"scenario_horizon_group_call","speaker":"gao_yuan","listener":"zhou_ye","act":"check_in","content":"高原问周野现在还看不看外面的岗位，周野说偶尔看；周野反问他还看不看，高原也说看。两个人都没有因为多年留下就宣布以后不会动。","channel":"video_call","evidence":"终点继续保留未来开放性。"},
+    {"event_id":"2035q4:e15","kind":"social_interaction","at":"2035-12-27","event_kind":"scenario_horizon_group_call","speaker":"luo_cheng","listener":"tang_yu","act":"small_talk","content":"散会前罗诚问唐雨最近有没有新题，唐雨说暂时没有；唐雨问他新单位是不是终于不做流程了，罗诚说流程还是很多。两个人都笑了一下，话题就过去了。","channel":"video_call","evidence":"终点拒绝把职业与研究写成完成态。"}
+  ],
+  "hard_world_candidate_updates":[],
+  "new_hard_world_candidates":[],
+  "actor_state_evidence":[
+    {"at":"2035-11-14","actor":"luo_cheng","dimension":"midcareer_transition","evidence":"第二次迁移第一年验证内容和平台收益真实，协调与生活成本同样真实，当前选择继续。","status":"candidate_state_evidence"},
+    {"at":"2035-11-26","actor":"he_xin","dimension":"housing_and_role_lockin","evidence":"购房后仍将岗位价值和住房分别复核，城市承诺增强但职业未来保持开放。","status":"candidate_state_evidence"},
+    {"at":"2035-12-06","actor":"xu_hang","dimension":"professional_identity","evidence":"验证设计独立身份获得跨项目正负证据支持，方法只被认定为有限可移交而非通用成熟。","status":"candidate_state_evidence"}
+  ],
+  "horizon_negative_evidence":[
+    {"domain":"family_health_care","period":"2026-03-02/2035-12-31","finding":"No explicit ledger event established a major parent-health shock or sustained elder-care crisis for the fourteen-person ensemble; family distance influenced bundles, but crisis was never generated from age alone."},
+    {"domain":"marriage_fertility","period":"2026-03-02/2035-12-31","finding":"No explicit interaction-chain event established marriage or fertility outcomes for the six added characters; these dimensions remain open rather than silently filled."}
+  ],
+  "relationship_evidence":[],
+  "audit_rules":{"scenario_horizon_is_not_life_ending":true,"no_winner_ranking":true,"negative_family_non_events_preserved":true,"future_mobility_remains_open":true,"generated_through_interaction_chain":true,"storyteller_read_only":true}
+}
