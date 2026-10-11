@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2026-q3a",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {
+    "start": "2026-06-26",
+    "end": "2026-08-31"
+  },
+  "base_state": {
+    "path": "runtime/chatbot-live/career-six-state.json",
+    "content_sha": "2d55706ea7063113d54b5b09aac6544813bb9652"
+  },
+  "era_lens": [
+    "2026年仍处于博士退出与首份工作竞争期；学历本身不足以替代可核验的工作证据、程序适配与组织协作能力。",
+    "稳定性对多名角色具有吸引力，但稳定岗位的进入仍受公开程序、岗位匹配、城市与时间成本约束。",
+    "学术训练向行业转译时，方法名的重要性下降，问题定义、版本、权限、交付、责任和复现逐渐成为可见能力。",
+    "高校与学生事务路径都要求角色把抽象的‘认真、沟通、可靠’转成真实经历；缺少对应经历本身也会成为职业适配信号。",
+    "普通社交仍占多数：有人缺席旅行、有人只吃饭不谈求职、有人给出边界而没有资源转移。"
+  ],
+  "windows": [
+    {"packet_id":"micro:chatbot:2026-06:zhou-xu-reproducibility:01","start_date":"2026-06-26","end_date":"2026-06-27","event_kind":"reproducibility_exchange","participants":["zhou_ye","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical","note":"把抽象可靠性转成可检查技术证据。"},
+    {"packet_id":"micro:chatbot:2026-07:he-sun-public-institution:01","start_date":"2026-07-09","end_date":"2026-07-09","event_kind":"public_institution_information_chat","participants":["he_xin","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical","note":"何欣把‘稳定’拆成工作内容、程序和可迁移性问题。"},
+    {"packet_id":"micro:chatbot:2026-07:summer-short-trip:01","start_date":"2026-07-23","end_date":"2026-07-24","event_kind":"friend_trip","participants":["lin_jing","chen_lan","xu_hang","tang_yu","song_nan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical","note":"一次普通短途活动；职业话题只零散出现，陈岚明确介绍宋楠与许航认识。"},
+    {"packet_id":"micro:chatbot:2026-08:u_c_cohort_dinner:02","start_date":"2026-08-14","end_date":"2026-08-14","event_kind":"classmate_meal","participants":["zhou_ye","gao_yuan","luo_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical","note":"三人交换近况，但路线继续分化。"},
+    {"packet_id":"micro:chatbot:2026-08:methods-alumni-meetup:01","start_date":"2026-08-28","end_date":"2026-08-28","event_kind":"alumni_methods_meetup","participants":["lin_jing","xu_hang","tang_yu","he_xin","song_nan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical","note":"同场但不强行全互联；只发生已有关系或已介绍关系上的交流。"}
+  ],
+  "events": [
+    {"event_id":"batch1:e01","kind":"social_interaction","at":"2026-06-26","event_kind":"reproducibility_exchange","speaker":"zhou_ye","listener":"xu_hang","act":"ask_advice","content":"周野问许航，零论文情况下如果只说自己严谨可靠很空，怎样才能留下别人能实际检查的技术证据。","channel":"wechat_private","evidence":"周野已明确零论文与可靠性焦虑；许航被授权讨论复现与验证实践。"},
+    {"event_id":"batch1:e02","kind":"social_interaction","at":"2026-06-26","event_kind":"reproducibility_exchange","speaker":"xu_hang","listener":"zhou_ye","act":"offer_information","content":"许航建议先挑一个自己真正做过、没有权限问题的小计算任务，保留环境说明、输入输出、版本、失败记录、复跑步骤和一个最小验证例；可靠性要让别人能接手和复查。","channel":"wechat_private","evidence":"只提供一般复现实践，不涉及岗位或项目分配。"},
+    {"event_id":"batch1:e03","kind":"social_interaction","at":"2026-06-27","event_kind":"reproducibility_exchange","speaker":"zhou_ye","listener":"xu_hang","act":"make_plan","content":"周野决定从博士工作里挑一个不含敏感材料的小任务整理成可复跑包，先证明自己能把研究过程交接清楚。","channel":"wechat_private","evidence":"计划基于周野已有博士工作，不生成新项目事实。"},
+    {"event_id":"batch1:e04","kind":"social_interaction","at":"2026-06-27","event_kind":"reproducibility_exchange","speaker":"xu_hang","listener":"zhou_ye","act":"offer_help","content":"许航说如果周野先整理出最小版本，而且自己之后有空，可以只从复现和交接角度帮他看一次，不替他包装成国企求职材料。","channel":"wechat_private","evidence":"有限技术审阅候选；无国企推荐或招聘资源。"},
+    {"event_id":"batch1:e05","kind":"social_interaction","at":"2026-07-09","event_kind":"public_institution_information_chat","speaker":"he_xin","listener":"sun_jie","act":"ask_advice","content":"何欣问孙洁，如果自己只盯着‘稳定’两个字，很容易把不同岗位想成一回事；她更想知道比较公开岗位时应该先核对哪些实际信息。","channel":"wechat_private","evidence":"何欣已明确比较公务员和事业单位；孙洁可讲程序性信息。"},
+    {"event_id":"batch1:e06","kind":"social_interaction","at":"2026-07-09","event_kind":"public_institution_information_chat","speaker":"sun_jie","listener":"he_xin","act":"offer_information","content":"孙洁建议她把公开信息至少拆成实际职责、日常节奏、进入程序、城市位置、后续调整空间和自己愿不愿意长期做这些具体事务，不要只按岗位名称排序。","channel":"wechat_private","evidence":"仅为通用程序与职业比较框架，不涉及内部名额。"},
+    {"event_id":"batch1:e07","kind":"social_interaction","at":"2026-07-09","event_kind":"public_institution_information_chat","speaker":"he_xin","listener":"sun_jie","act":"make_plan","content":"何欣决定做一张只基于公开信息和自己偏好的岗位比较表，先排除职责明显不合适的选择，再谈稳定性。","channel":"wechat_private","evidence":"自助计划，不要求孙洁越权。"},
+    {"event_id":"batch1:e08","kind":"social_interaction","at":"2026-07-23","event_kind":"friend_trip","speaker":"chen_lan","listener":"xu_hang","act":"offer_introduction","content":"吃饭时陈岚把宋楠正式介绍给许航，只说两个人都对‘东西能不能被别人接手和复查’这类问题感兴趣，没有转述宋楠之前的私聊细节。","channel":"in_person","evidence":"陈岚分别认识宋楠和许航，具备真实连接路径；未广播私人记忆。"},
+    {"event_id":"batch1:e09","kind":"social_interaction","at":"2026-07-23","event_kind":"friend_trip","speaker":"song_nan","listener":"xu_hang","act":"share_experience","content":"宋楠只公开说自己最近在学着把分析工作写得更像可交付的东西，开始在意版本、复跑和交接，但没有谈潜在项目候选。","channel":"in_person","evidence":"宋楠主动选择披露一般职业学习，不涉及赵珂私聊中的条件性项目可能。"},
+    {"event_id":"batch1:e10","kind":"social_interaction","at":"2026-07-23","event_kind":"friend_trip","speaker":"xu_hang","listener":"song_nan","act":"offer_information","content":"许航说复现记录最有用的时候往往不是展示技术，而是几个月后别人还能知道当时为什么这样做、失败过什么、现在能不能重跑。","channel":"in_person","evidence":"一般复现经验。"},
+    {"event_id":"batch1:e11","kind":"social_interaction","at":"2026-07-24","event_kind":"friend_trip","speaker":"lin_jing","listener":"chen_lan","act":"small_talk","content":"返程路上林静和陈岚大部分时间聊的是住处、吃饭和最近睡得够不够，职业话题没有继续展开。","channel":"in_person","evidence":"保留普通生活密度，避免所有社交都服务求职。"},
+    {"event_id":"batch1:e12","kind":"social_interaction","at":"2026-08-14","event_kind":"classmate_meal","speaker":"zhou_ye","listener":"gao_yuan","act":"share_experience","content":"周野说自己最近在整理一个最小复现包，想把‘可靠’做成别人能检查的东西；他没有把它说成已经能换来国企岗位。","channel":"in_person","evidence":"周野可自行披露六月计划。"},
+    {"event_id":"batch1:e13","kind":"social_interaction","at":"2026-08-14","event_kind":"classmate_meal","speaker":"luo_cheng","listener":"gao_yuan","act":"share_experience","content":"罗诚说自己和孙洁聊过后，对学生事务的理解更具体了：重复沟通、记录和收尾占很大比重，他正在看自己过去有没有真实相似经历。","channel":"in_person","evidence":"罗诚主动披露自己的职业认知修正，没有泄露孙洁的私人信息。"},
+    {"event_id":"batch1:e14","kind":"social_interaction","at":"2026-08-14","event_kind":"classmate_meal","speaker":"gao_yuan","listener":"luo_cheng","act":"set_boundary","content":"高原听完以后仍表示自己暂时不扩展路线，现阶段把能复用的备考和毕业任务做好更重要。","channel":"in_person","evidence":"延续其既有边界。"},
+    {"event_id":"batch1:e15","kind":"social_interaction","at":"2026-08-28","event_kind":"alumni_methods_meetup","speaker":"tang_yu","listener":"xu_hang","act":"ask_advice","content":"唐雨问许航，如果她的问题树里有一个分支依赖很长的计算链，怎样判断结果是不是只在自己机器上‘碰巧能跑’。","channel":"in_person","evidence":"唐雨与许航已有verification_collaboration关系。"},
+    {"event_id":"batch1:e16","kind":"social_interaction","at":"2026-08-28","event_kind":"alumni_methods_meetup","speaker":"xu_hang","listener":"tang_yu","act":"offer_information","content":"许航建议先固定最小数据和关键输出，再记录环境、随机性、失败条件和替代实现；如果换机器或换人就说不清，问题树里要把这种脆弱性也算进去。","channel":"in_person","evidence":"一般验证实践。"},
+    {"event_id":"batch1:e17","kind":"social_interaction","at":"2026-08-28","event_kind":"alumni_methods_meetup","speaker":"he_xin","listener":"lin_jing","act":"share_experience","content":"何欣说自己开始按职责、节奏、城市和调整空间比较公开岗位，发现有些看起来同样‘稳定’的选择其实生活结构差别很大。","channel":"in_person","evidence":"何欣主动披露七月形成的比较框架。"},
+    {"event_id":"batch1:e18","kind":"social_interaction","at":"2026-08-28","event_kind":"alumni_methods_meetup","speaker":"song_nan","listener":"xu_hang","act":"check_in","content":"宋楠和许航只简短确认了上次旅行后各自有没有继续做版本和复跑记录，没有继续谈项目或求职资源。","channel":"in_person","evidence":"两人已在七月被明确介绍。"}
+  ],
+  "attendance_log": [
+    {"event":"summer_short_trip","at":"2026-07-23","attended":["lin_jing","chen_lan","xu_hang","tang_yu","song_nan"],"invited_not_attended":{"zhou_ye":"论文整理优先","gao_yuan":"备考与毕业任务优先","luo_cheng":"毕业手续与求职材料优先","he_xin":"岗位信息整理优先"}}
+  ],
+  "relationship_evidence": [
+    {"at":"2026-06-27","pair":["zhou_ye","xu_hang"],"direction":"positive","evidence":"许航给出具体可操作的复现标准并提出有限审阅可能；周野接受先做证据再谈求职叙事。"}
+  ],
+  "social_graph_deltas": [
+    {"at":"2026-07-23","kind":"introduction","a":"song_nan","b":"xu_hang","introduced_by":"chen_lan","new_tie_kind":"introduced_acquaintance","context":"summer_short_trip","trust_seed":0.27,"closeness_seed":0.22,"status":"noncanonical_candidate_tie"}
+  ],
+  "hard_world_candidate_updates": [],
+  "new_hard_world_candidates": [
+    {"candidate_id":"candidate:2026-06-27:xu-review-zhou-repro-pack:01","created_at":"2026-06-27","type":"bounded_reproducibility_review","proposer":"xu_hang","beneficiary":"zhou_ye","description":"周野先整理一个无敏感材料的最小复现包；若许航有时间，可从复现、版本与交接角度审阅一次。","requires_checks":["zhou_repro_pack_exists","no_sensitive_material","xu_hang_time_capacity"],"explicitly_not_included":["soe_referral","job_offer","hiring_contact","project_assignment"],"status":"pending_feasibility_noncanonical"}
+  ],
+  "actor_state_evidence": [],
+  "audit_rules": {
+    "single_batch_noncanonical": true,
+    "no_unearned_knowledge": true,
+    "conversation_does_not_auto_change_relationship": true,
+    "introductions_require_connector_or_open_context": true,
+    "hard_world_candidates_require_feasibility": true,
+    "ordinary_or_failed_outcomes_allowed": true,
+    "bilateral_memory_derivable_from_events": true
+  }
+}
