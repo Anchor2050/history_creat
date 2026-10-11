@@ -63,6 +63,17 @@ class CareerSix2035Tests(unittest.TestCase):
         for actor_id in NEW_ACTORS + ALL_EXISTING:
             self.assertIn(actor_id, status)
 
+    def test_initial_targets_are_preferences_not_fixed_2035_destinations(self):
+        a = simulate_career_six_world(seed=1)
+        b = simulate_career_six_world(seed=23)
+        final_a = tuple(a["actors"][x]["sector"] for x in NEW_ACTORS)
+        final_b = tuple(b["actors"][x]["sector"] for x in NEW_ACTORS)
+        self.assertNotEqual(final_a, final_b)
+        self.assertTrue(any(
+            a["actors"][x]["sector"] != a["actors"][x]["target_2026"]
+            for x in NEW_ACTORS
+        ))
+
 
 if __name__ == "__main__":
     unittest.main()
