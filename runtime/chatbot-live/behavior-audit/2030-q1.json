@@ -1,0 +1,16 @@
+{
+  "schema_version":1,
+  "period":"2030-q1",
+  "status":"behavior_audit_noncanonical",
+  "backend":"chatgpt_product_conversation",
+  "source_batch":"runtime/chatbot-live/batches/2030-q1.json",
+  "abnormal_budget":1,
+  "abnormal_used":0,
+  "decisions":[
+    {"actor_id":"lin_jing","mode":"normal","chosen_action_id":"close_degree_then_open_career_search","baseline_expected_action":"Finish one major institutional loop before multiplying choices.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Bounded revisions were accepted, making career search the next independent task.","constraint_check":{"feasible":true,"notes":"No job fact is created by Personal state."},"evidence_refs":["2030q1:e01","2030q1:e06"]},
+    {"actor_id":"gao_yuan","mode":"normal","chosen_action_id":"rent_independently_while_remaining_close_to_family","baseline_expected_action":"Preserve low housing/family-distance benefits without giving up daily independence unless required.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Low-cost rental is feasible and no care event requires co-residence.","constraint_check":{"feasible":true,"notes":"No family preference or health need is invented."},"evidence_refs":["2030q1:e09"]},
+    {"actor_id":"tang_yu","mode":"normal","chosen_action_id":"shrink_statement_after_failed_lemma_repair","baseline_expected_action":"Use negative evidence to narrow claims rather than protect the old result.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"The repair attempt failed and a boundary construction survives checks.","constraint_check":{"feasible":true,"notes":"Project remains internal."},"evidence_refs":["2030q1:e12","2030q1:e13"]},
+    {"actor_id":"song_nan","mode":"normal","chosen_action_id":"build_nonconfidential_portable_casebook","baseline_expected_action":"Increase career reversibility without prematurely leaving a still-learning role.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Portable-skill concern exists but no exit trigger exists.","constraint_check":{"feasible":true,"notes":"Uses only public or simulated material."},"evidence_refs":["2030q1:e16","2030q1:e18"]}
+  ],
+  "audit_rule":"No evidence-supported abnormal deviation was needed."
+}
