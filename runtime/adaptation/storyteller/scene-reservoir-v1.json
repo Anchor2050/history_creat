@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_scene_reservoir_noncanonical",
+  "as_of": "2035-12-31",
+  "historical_layer_frozen": true,
+  "world_writeback": false,
+  "primary_working_title": "不同的稳定",
+  "selection_note": "Thirty evidence-backed scene clusters. Storyteller v13 should normally select roughly 24-26 for one novel/season and keep the rest as alternates. Selection is not canon prose.",
+  "character_design_refs": [
+    "docs/adaptation/character-psychology-bible-v1.md",
+    "docs/adaptation/character-dialectics-and-power-v2.md",
+    "docs/adaptation/campbell-distributed-hero-journey-v1.md",
+    "docs/adaptation/literary-style-guardrails-v1.md"
+  ],
+  "scenes": [
+    {
+      "scene_id":"s01-zhou-reliability-visible","part":1,"year":"2026","label":"可靠怎么让别人看见","primary_viewpoint":"zhou_ye","participants":["zhou_ye","xu_hang"],"evidence_refs":["batch1:e01","batch1:e02","batch1:e03","batch1:e04"],
+      "surface_action":"周野在微信里问许航，零论文情况下怎样留下别人能检查的技术证据。","dramatic_question":"一个人最在意的优点，如果没有外部证据，还算不算能力？","inner_conflict":"周野真心想把事情做稳，同时又急于证明自己不是没有产出的博士。","power_structure":"博士退出期；能力必须被招聘组织看见才有交换价值。","hero_stage_function":"call","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"xu_hang","role":"mentor"}],
+      "adaptation_hypotheses":{"primary_emotion":"羞耻被技术问题包住","secondary_emotion":"轻微振奋","virtue_shadow":"可靠 / 被需要的尊严","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":3,"material_concreteness":4,"power_visibility":4,"ordinary_life_counterpoint":2,"visual_or_sensory_potential":3}
+    },
+    {
+      "scene_id":"s02-he-stability-table","part":1,"year":"2026","label":"把稳定拆成一张表","primary_viewpoint":"he_xin","participants":["he_xin","sun_jie"],"evidence_refs":["batch1:e05","batch1:e06","batch1:e07"],
+      "surface_action":"何欣请孙洁把公开岗位里的稳定拆成职责、节奏、城市和调整空间。","dramatic_question":"稳定如果被拆开以后不再是一个词，何欣究竟还想要什么？","inner_conflict":"边界感帮助她抵抗同龄比较，也可能让她把不愿冲突包装成理性筛选。","power_structure":"求职者只能接触公开信息，制度内部者也有权限边界。","hero_stage_function":"call","scene_tier":"strong",
+      "active_archetype_roles":[{"actor":"sun_jie","role":"mentor"}],
+      "adaptation_hypotheses":{"primary_emotion":"谨慎的期待","secondary_emotion":"害怕走错","virtue_shadow":"边界感 / 过度收缩选择","declared_as_history":false},
+      "scores":{"historical_leverage":4,"character_revelation":5,"relationship_pressure":2,"material_concreteness":4,"power_visibility":4,"ordinary_life_counterpoint":2,"visual_or_sensory_potential":3}
+    },
+    {
+      "scene_id":"s03-summer-trip-not-career","part":1,"year":"2026","label":"一次没有改变命运的短途旅行","primary_viewpoint":"song_nan","participants":["lin_jing","chen_lan","xu_hang","tang_yu","song_nan"],"evidence_refs":["batch1:e08","batch1:e09","batch1:e10","batch1:e11"],
+      "surface_action":"几个人短途出行，陈岚正式介绍宋楠和许航认识；返程更多聊住处、吃饭和睡眠。","dramatic_question":"一段关系真正开始时，是否必须立刻产生资源和转折？","inner_conflict":"宋楠习惯把新关系迅速转成行动价值，但这一次只能先留下一个弱联系。","power_structure":"同龄弱关系，暂无资源承诺。","hero_stage_function":"ordinary","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"chen_lan","role":"herald"},{"actor":"xu_hang","role":"ally"}],
+      "adaptation_hypotheses":{"primary_emotion":"放松","secondary_emotion":"职业敏感性仍在","virtue_shadow":"行动力 / 过快把关系工具化","declared_as_history":false},
+      "scores":{"historical_leverage":3,"character_revelation":4,"relationship_pressure":3,"material_concreteness":5,"power_visibility":1,"ordinary_life_counterpoint":5,"visual_or_sensory_potential":5}
+    },
+    {
+      "scene_id":"s04-luo-posting-read","part":1,"year":"2027","label":"招聘启事翻译成一天","primary_viewpoint":"luo_cheng","participants":["luo_cheng","sun_jie"],"evidence_refs":["2027q2:e04","2027q2:e05","2027q2:e06","2027q2:e07"],
+      "surface_action":"罗诚拿高校学生事务招聘启事逐条问孙洁，直到宽泛能力词被翻译成值班、审核、谈话和跨部门协调。","dramatic_question":"他想要的是高校身份，还是这份工作本身？","inner_conflict":"罗诚愿意和人打交道，却害怕博士毕业后没有一个体面的身份名词。","power_structure":"公开招聘；孙洁有经验但没有招聘权。","hero_stage_function":"trial","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"sun_jie","role":"guardian"}],
+      "adaptation_hypotheses":{"primary_emotion":"被戳破幻想后的尴尬","secondary_emotion":"仍想试一次","virtue_shadow":"适应性 / 对体面标签的依赖","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":3,"material_concreteness":4,"power_visibility":5,"ordinary_life_counterpoint":1,"visual_or_sensory_potential":4}
+    },
+    {
+      "scene_id":"s05-song-first-pharma-application","part":1,"year":"2027","label":"第一次觉得博士训练能对上行业问题","primary_viewpoint":"song_nan","participants":["song_nan","chen_lan"],"evidence_refs":["2027q2:e11","2027q2:e12","2027q2:e13"],
+      "surface_action":"宋楠看到医药统计岗位的业务题，第一次发现过去练的决策—数据—错误代价—交付可以直接回答。","dramatic_question":"她能不能进入行业而不伪造行业经验？","inner_conflict":"她反应快、愿意冲，同时最容易因为想证明适配而讲得比真实经历更满。","power_structure":"行业公开招聘把学术语言重新定价。","hero_stage_function":"threshold","scene_tier":"strong",
+      "active_archetype_roles":[{"actor":"chen_lan","role":"mentor"}],
+      "adaptation_hypotheses":{"primary_emotion":"兴奋","secondary_emotion":"怕露怯","virtue_shadow":"行动力 / 过度包装的诱惑","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":3,"material_concreteness":4,"power_visibility":5,"ordinary_life_counterpoint":1,"visual_or_sensory_potential":4}
+    },
+    {
+      "scene_id":"s06-tang-xu-implementation-or-structure","part":1,"year":"2027","label":"失败到底是模型错了还是代码脆弱","primary_viewpoint":"tang_yu","participants":["tang_yu","xu_hang"],"evidence_refs":["2027q2:e14","2027q2:e15","2027q2:e16"],
+      "surface_action":"最小验证矩阵出现重复失效，但换实现后一个现象减弱；两人必须把实现敏感性和结构失效拆开。","dramatic_question":"唐雨愿不愿意让一个不够漂亮的结果改变自己最想做的题？","inner_conflict":"高标准保护研究，也让她更难接受最初问题可能问错了。","power_structure":"理论判断和验证劳动权重尚未稳定，贡献边界仍开放。","hero_stage_function":"trial","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"xu_hang","role":"shadow"},{"actor":"xu_hang","role":"ally"}],
+      "adaptation_hypotheses":{"primary_emotion":"不服","secondary_emotion":"好奇","virtue_shadow":"研究强度 / 不肯及时放手","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":4,"material_concreteness":4,"power_visibility":3,"ordinary_life_counterpoint":1,"visual_or_sensory_potential":4}
+    },
+    {
+      "scene_id":"s07-gao-hometown-offer","part":1,"year":"2028","label":"两年以后终于拿到最初想要的offer","primary_viewpoint":"gao_yuan","participants":["gao_yuan","lin_jing"],"evidence_refs":["2028q4:e04","2028q4:e05","2028q4:e06"],
+      "surface_action":"高原拿到家乡地级市公务员offer，最后一次检查低机会密度究竟是主动代价还是两年备考的沉没成本。","dramatic_question":"一个终于得到的东西，还能被诚实地拒绝吗？","inner_conflict":"谨慎让他能看见代价，也让他极擅长为不冒险建立理由。","power_structure":"公开考试给了资格，但生活bundle仍由个人承担。","hero_stage_function":"threshold","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"lin_jing","role":"guardian"}],
+      "adaptation_hypotheses":{"primary_emotion":"如释重负","secondary_emotion":"怕别人说没出息","virtue_shadow":"谨慎 / 路径依赖合理化","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":3,"material_concreteness":5,"power_visibility":5,"ordinary_life_counterpoint":2,"visual_or_sensory_potential":4}
+    },
+    {
+      "scene_id":"s08-chen-refuses-good-offer","part":1,"year":"2028","label":"有选择时才知道底线算不算数","primary_viewpoint":"chen_lan","participants":["chen_lan","lin_jing"],"evidence_refs":["2028q4:e01","2028q4:e02","2028q4:e03"],
+      "surface_action":"陈岚面对收入和学习都不错的正式offer，却因为高频响应、多项目切换和住房成本决定拒绝。","dramatic_question":"边界是在没有选择时说给自己听的，还是有好offer时也算数？","inner_conflict":"可靠和适应力让她很容易在任何组织活下来，因此也更需要主动拒绝某些结构。","power_structure":"招聘者给资源也给工作节奏；求职者承担拒绝后的收入不确定性。","hero_stage_function":"refusal","scene_tier":"strong",
+      "active_archetype_roles":[{"actor":"lin_jing","role":"mirror"}],
+      "adaptation_hypotheses":{"primary_emotion":"舍不得","secondary_emotion":"坚定","virtue_shadow":"适应力 / 把透支误认成能力","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":3,"material_concreteness":5,"power_visibility":5,"ordinary_life_counterpoint":1,"visual_or_sensory_potential":4}
+    },
+
+    {
+      "scene_id":"s09-lin-first-job-first-week","part":2,"year":"2031","label":"合同里的自主和第一周的日历","primary_viewpoint":"lin_jing","participants":["lin_jing","chen_lan"],"evidence_refs":["2031q1:e01","2031q1:e02","2031q1:e03"],
+      "surface_action":"林静搬到区域高校城市租房入职，第一周发现研究时间仍在，但会议、课程和流程已经切碎日历。","dramatic_question":"研究自主到底是一条合同条款，还是每天能留下的连续时间？","inner_conflict":"她想保护自主，也可能把任何碎片化都过早理解成制度侵入。","power_structure":"新教师处在组织评价与服务义务下，合同不能替代日常。","hero_stage_function":"threshold","scene_tier":"strong",
+      "active_archetype_roles":[{"actor":"chen_lan","role":"mentor"}],
+      "adaptation_hypotheses":{"primary_emotion":"新鲜和疲惫并存","secondary_emotion":"警惕","virtue_shadow":"自主意识 / 过度防御制度","declared_as_history":false},
+      "scores":{"historical_leverage":4,"character_revelation":4,"relationship_pressure":2,"material_concreteness":5,"power_visibility":5,"ordinary_life_counterpoint":4,"visual_or_sensory_potential":5}
+    },
+    {
+      "scene_id":"s10-chen-no-longer-needs-researcher-label","part":2,"year":"2031","label":"还要不要叫自己研究者","primary_viewpoint":"chen_lan","participants":["chen_lan","wu_cheng"],"evidence_refs":["2031q1:e04","2031q1:e05"],
+      "surface_action":"陈岚进入正式岗位第二年，和吴澄谈到自己越来越熟悉组织数据流程，却越来越少主动提出研究问题。","dramatic_question":"身份标签退掉以后，什么能力还值得保留？","inner_conflict":"她享受组织影响力，也不愿承认研究自由正在远去。","power_structure":"组织用正式收入和判断权奖励她，同时重塑问题来源。","hero_stage_function":"insight","scene_tier":"strong",
+      "active_archetype_roles":[{"actor":"wu_cheng","role":"mirror"}],
+      "adaptation_hypotheses":{"primary_emotion":"平静里带一点失落","secondary_emotion":"解脱","virtue_shadow":"适应力 / 太快适应而忘记失去什么","declared_as_history":false},
+      "scores":{"historical_leverage":4,"character_revelation":5,"relationship_pressure":3,"material_concreteness":3,"power_visibility":5,"ordinary_life_counterpoint":3,"visual_or_sensory_potential":3}
+    },
+    {
+      "scene_id":"s11-gao-luo-third-year-call","part":2,"year":"2031","label":"越来越会做同一套流程","primary_viewpoint":"gao_yuan","participants":["gao_yuan","luo_cheng"],"evidence_refs":["2031q1:e08","2031q1:e09"],
+      "surface_action":"老同学通话，高原说自己越来越熟练却新问题变少；罗诚说自己的研究支持工作反而增加了问题判断。","dramatic_question":"熟练究竟是成长，还是一种越来越舒服的重复？","inner_conflict":"高原怕被困，也怕为了证明没被困而制造变化。","power_structure":"不同组织奖励不同类型的熟练和判断。","hero_stage_function":"trial","scene_tier":"strong",
+      "active_archetype_roles":[{"actor":"luo_cheng","role":"mirror"}],
+      "adaptation_hypotheses":{"primary_emotion":"微妙羡慕","secondary_emotion":"防御","virtue_shadow":"耐长期重复 / 惯性","declared_as_history":false},
+      "scores":{"historical_leverage":4,"character_revelation":5,"relationship_pressure":4,"material_concreteness":3,"power_visibility":4,"ordinary_life_counterpoint":4,"visual_or_sensory_potential":3}
+    },
+    {
+      "scene_id":"s12-zhou-first-home-window-no","part":2,"year":"2031","label":"第一次买得起一点，但不想锁","primary_viewpoint":"zhou_ye","participants":["zhou_ye","chen_lan"],"evidence_refs":["2031q1:e10","2031q1:e11","2031q1:e12"],
+      "surface_action":"周野算出首付后还能勉强保留缓冲，却因为不愿意锁死未来两三年的技术流动性决定不买。","dramatic_question":"买得起与愿意被一座城市绑定之间差多少？","inner_conflict":"他渴望秩序，也不愿过早承认自己已经想留下。","power_structure":"住房市场把职业偏好转成不可逆现金约束。","hero_stage_function":"refusal","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"chen_lan","role":"guardian"}],
+      "adaptation_hypotheses":{"primary_emotion":"克制的心动","secondary_emotion":"警惕","virtue_shadow":"秩序感 / 控制未来","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":3,"material_concreteness":5,"power_visibility":5,"ordinary_life_counterpoint":3,"visual_or_sensory_potential":5}
+    },
+    {
+      "scene_id":"s13-he-first-home-window-hard-block","part":2,"year":"2031","label":"这次不需要把不买房解释成价值观","primary_viewpoint":"he_xin","participants":["he_xin","lin_jing"],"evidence_refs":["2031q1:e13","2031q1:e14"],
+      "surface_action":"何欣算完发现首付后应急缓冲明显不够，反而松了一口气：现实先替她否决了。","dramatic_question":"当一个决定被钱提前做掉，人会不会暂时逃开更难的价值判断？","inner_conflict":"她尊重硬边界，也可能暗暗庆幸不用和家人、城市承诺或未来冲突正面交锋。","power_structure":"收入与住房价格直接限制选择，无需道德化。","hero_stage_function":"trial","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"lin_jing","role":"ally"}],
+      "adaptation_hypotheses":{"primary_emotion":"松一口气","secondary_emotion":"一点挫败","virtue_shadow":"现实感 / 借现实边界推迟更深决定","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":2,"material_concreteness":5,"power_visibility":5,"ordinary_life_counterpoint":4,"visual_or_sensory_potential":5}
+    },
+    {
+      "scene_id":"s14-song-year-four-costs","part":2,"year":"2031","label":"有能力离开和现在应该离开是两件事","primary_viewpoint":"song_nan","participants":["song_nan","chen_lan"],"evidence_refs":["2031q1:e06","2031q1:e07"],
+      "surface_action":"宋楠第四年确认高住房和离家远已经变成固定成本，但便携案例让她知道自己未来不是没有路。","dramatic_question":"可逆性是为了马上离开，还是为了能安心暂时留下？","inner_conflict":"她天生爱行动，真正成熟的一步却可能是暂时不动。","power_structure":"高机会密度城市提供成长，也持续收取住房与家庭距离成本。","hero_stage_function":"insight","scene_tier":"strong",
+      "active_archetype_roles":[{"actor":"chen_lan","role":"mentor"}],
+      "adaptation_hypotheses":{"primary_emotion":"烦躁","secondary_emotion":"底气","virtue_shadow":"行动力 / 把任何不满都变成下一次动作","declared_as_history":false},
+      "scores":{"historical_leverage":4,"character_revelation":5,"relationship_pressure":3,"material_concreteness":5,"power_visibility":4,"ordinary_life_counterpoint":3,"visual_or_sensory_potential":4}
+    },
+
+    {
+      "scene_id":"s15-luo-midcareer-rejection","part":3,"year":"2032","label":"第一次中期申请走到面试又没拿到","primary_viewpoint":"luo_cheng","participants":["luo_cheng"],"evidence_refs":["2032q4:e01","2032q4:e02"],
+      "surface_action":"罗诚第一次真正按内容+平台门槛申请更大平台岗位，进入面试但没有offer。","dramatic_question":"一次更成熟的失败，会不会比早期错误目标更难受？","inner_conflict":"他终于知道自己想要什么，因此也更清楚这次没拿到的是什么。","power_structure":"公开选择过程承认部分能力，却不给结果。","hero_stage_function":"descent","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"selection_process","role":"guardian"}],
+      "adaptation_hypotheses":{"primary_emotion":"明确的失落","secondary_emotion":"自尊没有完全崩","virtue_shadow":"目标清晰 / 更难用别的选择安慰自己","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":2,"material_concreteness":4,"power_visibility":5,"ordinary_life_counterpoint":2,"visual_or_sensory_potential":4}
+    },
+    {
+      "scene_id":"s16-tang-paper-accepted-then-nothing","part":3,"year":"2032-2033","label":"论文接受以后没有下一题","primary_viewpoint":"tang_yu","participants":["tang_yu","xu_hang"],"evidence_refs":["2032q4:e08","2032q4:e09","2033q1:e14","2033q1:e15"],
+      "surface_action":"多年收缩后的机制边界稿终于接受；两个月后唐雨没有立刻开下一篇，只和许航聊春节后什么时候恢复正常工作。","dramatic_question":"成果结束后突然没有下一步，会不会比失败更空？","inner_conflict":"她过去靠长期问题维持自我强度，现在第一次允许成功也真正结束。","power_structure":"学术评价鼓励连续产出，但没有硬事实强迫下一项目。","hero_stage_function":"return","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"xu_hang","role":"ally"}],
+      "adaptation_hypotheses":{"primary_emotion":"疲惫后的空","secondary_emotion":"轻微解脱","virtue_shadow":"研究强度 / 把连续产出当自我证明","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":3,"material_concreteness":3,"power_visibility":4,"ordinary_life_counterpoint":5,"visual_or_sensory_potential":4}
+    },
+    {
+      "scene_id":"s17-song-second-city-first-weeks","part":3,"year":"2033","label":"降薪换城以后第一周","primary_viewpoint":"song_nan","participants":["song_nan","he_xin"],"evidence_refs":["2033q1:e01","2033q1:e02","2033q1:e03"],
+      "surface_action":"宋楠搬到省会先租房，新岗位第一周确认判断权还在，但组织协调更慢；两周后仍只敢说生活成本真的下降了。","dramatic_question":"一个选择只有部分维度变好，算不算换对了？","inner_conflict":"她喜欢增长感，却主动选择了一个增长更慢的生活结构。","power_structure":"岗位、城市与家庭距离共同定价，不存在单维晋升。","hero_stage_function":"post_return_consequence","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"he_xin","role":"mirror"}],
+      "adaptation_hypotheses":{"primary_emotion":"兴奋里带着迟疑","secondary_emotion":"不愿马上承认学习变慢","virtue_shadow":"行动力 / 需要证明行动值得","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":4,"material_concreteness":5,"power_visibility":5,"ordinary_life_counterpoint":4,"visual_or_sensory_potential":5}
+    },
+    {
+      "scene_id":"s18-zhou-buys-home","part":3,"year":"2033","label":"第二次算房子，这次买了","primary_viewpoint":"zhou_ye","participants":["zhou_ye","chen_lan"],"evidence_refs":["2033q1:e07","2033q1:e08","2033q1:e09"],
+      "surface_action":"两年后现金缓冲和城市承诺都变强，周野第二次住房窗口通过，明确接受房产会提高城市锁定。","dramatic_question":"主动接受锁定，是否仍然是一种自由？","inner_conflict":"他珍惜可逆性，却也真实喜欢已经形成的秩序。","power_structure":"资产把抽象留城倾向变成按揭与处置成本。","hero_stage_function":"threshold","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"chen_lan","role":"guardian"}],
+      "adaptation_hypotheses":{"primary_emotion":"踏实前的紧张","secondary_emotion":"不愿显得被房子绑架","virtue_shadow":"长期责任 / 主动加锁","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":3,"material_concreteness":5,"power_visibility":5,"ordinary_life_counterpoint":3,"visual_or_sensory_potential":5}
+    },
+    {
+      "scene_id":"s19-xu-independent-validation-works","part":3,"year":"2033","label":"第一次在唐雨之外被当成验证设计者","primary_viewpoint":"xu_hang","participants":["xu_hang","gu_wei"],"evidence_refs":["2033q2:e03","2033q2:e04"],
+      "surface_action":"新项目需要许航重写检查和停止规则，使用者按设计独立执行并找到原流程漏掉的失败条件。","dramatic_question":"一个长期被当成辅助劳动的人，什么时候可以说这就是自己的专业？","inner_conflict":"他想让验证劳动被看见，同时害怕把一次成功夸成一门方法。","power_structure":"技术贡献的社会定价长期偏向主模型与论文主结果。","hero_stage_function":"insight","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"gu_wei","role":"mentor"}],
+      "adaptation_hypotheses":{"primary_emotion":"罕见的自豪","secondary_emotion":"立刻自我校准","virtue_shadow":"严谨 / 低估自己或过度收缩主张","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":3,"material_concreteness":4,"power_visibility":5,"ordinary_life_counterpoint":2,"visual_or_sensory_potential":4}
+    },
+    {
+      "scene_id":"s20-xu-method-fails-transfer","part":3,"year":"2033","label":"本人会做，不等于别人会用","primary_viewpoint":"xu_hang","participants":["xu_hang","gu_wei"],"evidence_refs":["2033q4:e05","2033q4:e06"],
+      "surface_action":"另一新问题仍需要许航大量临场解释，使用者不能独立决定何时停止。","dramatic_question":"身份能力已经成立而方法却失败，这算成功还是失败？","inner_conflict":"许航最想把判断交出去，却又可能因为自己太擅长补洞而让系统永远离不开他。","power_structure":"专家权威会自然吸收不确定性，也阻碍方法真正独立。","hero_stage_function":"descent","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"gu_wei","role":"mirror"}],
+      "adaptation_hypotheses":{"primary_emotion":"沮丧","secondary_emotion":"反而更确定自己会什么","virtue_shadow":"专家判断 / 专家依赖","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":3,"material_concreteness":4,"power_visibility":5,"ordinary_life_counterpoint":2,"visual_or_sensory_potential":4}
+    },
+    {
+      "scene_id":"s21-gao-threshold-audit","part":3,"year":"2033","label":"门槛到底是偏好还是惯性","primary_viewpoint":"gao_yuan","participants":["gao_yuan","lin_jing"],"evidence_refs":["2033q3:e01","2033q3:e02"],
+      "surface_action":"高原把早年的门槛和现在逐项对照，第一次承认现在更高的门槛里既有真实偏好，也有换城越来越麻烦。","dramatic_question":"一个人怎样知道自己的价值观里混进了多少沉没成本？","inner_conflict":"他的自洽能力既保护生活，也最擅长替惯性辩护。","power_structure":"住房、家庭距离和组织年限逐年抬高退出成本。","hero_stage_function":"insight","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"lin_jing","role":"mirror"}],
+      "adaptation_hypotheses":{"primary_emotion":"被自己说服又开始怀疑","secondary_emotion":"一点羞耻","virtue_shadow":"理性 / 高质量自我辩护","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":4,"material_concreteness":4,"power_visibility":5,"ordinary_life_counterpoint":3,"visual_or_sensory_potential":3}
+    },
+
+    {
+      "scene_id":"s22-he-role-before-house","part":4,"year":"2034","label":"先问工作还值不值得，再谈房子","primary_viewpoint":"he_xin","participants":["he_xin","sun_jie"],"evidence_refs":["2034q1:e01","2034q1:e02","2034q1:e03"],
+      "surface_action":"何欣第七年把岗位拆开，决定先争取一个边界清楚的小型跨部门任务，测试工作是否还有学习弹性。","dramatic_question":"稳定已经拥有以后，什么还值得主动争取？","inner_conflict":"她珍惜稳定，也担心稳定正在变成不再提要求的理由。","power_structure":"事业单位提供福利连续性，也可能让退出成本随年限增加。","hero_stage_function":"trial","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"sun_jie","role":"mentor"}],
+      "adaptation_hypotheses":{"primary_emotion":"平静的不满","secondary_emotion":"怕自己显得不知足","virtue_shadow":"边界感 / 低欲望化自身需要","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":3,"material_concreteness":4,"power_visibility":5,"ordinary_life_counterpoint":3,"visual_or_sensory_potential":4}
+    },
+    {
+      "scene_id":"s23-zhou-second-judge","part":4,"year":"2034","label":"别再写文档了，让另一个人真的判断一次","primary_viewpoint":"zhou_ye","participants":["zhou_ye","xu_hang"],"evidence_refs":["2034q1:e04","2034q1:e05","2034q1:e06","2034q3:e03","2034q3:e04"],
+      "surface_action":"周野发现房产锁定和专家单点叠在一起，许航劝他别再加文档，直接培养第二判断者；三个月后常见分支终于能独立处理。","dramatic_question":"一个人真的愿意把最证明自己价值的那部分工作交出去吗？","inner_conflict":"他想降低依赖，但别人真的学会以后又会触碰自己最早的尊严来源。","power_structure":"组织默认把复杂异常升级给最可靠的人，除非责任被主动重构。","hero_stage_function":"transformation","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"xu_hang","role":"mentor"},{"actor":"second_judge","role":"shadow"}],
+      "adaptation_hypotheses":{"primary_emotion":"控制感被挑战","secondary_emotion":"隐秘的高兴","virtue_shadow":"可靠 / 不愿真正可替代","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":4,"material_concreteness":5,"power_visibility":5,"ordinary_life_counterpoint":2,"visual_or_sensory_potential":5}
+    },
+    {
+      "scene_id":"s24-lin-closes-slow-question","part":4,"year":"2034","label":"保了两年的慢问题，自己关掉","primary_viewpoint":"lin_jing","participants":["lin_jing","shen_yan"],"evidence_refs":["2034q3:e07","2034q3:e08"],
+      "surface_action":"林静把剩余问题写成半页，发现继续理由主要只剩‘已经保了两年’，于是关掉。","dramatic_question":"研究自主如果只包含坚持，不包含退出，还算不算自主？","inner_conflict":"她为了抵抗短周期评价保护慢问题，也可能反过来把慢本身神圣化。","power_structure":"年度评价偏好可见产出，人物也可能用反评价姿态建立新的自我束缚。","hero_stage_function":"return","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"shen_yan","role":"mentor"}],
+      "adaptation_hypotheses":{"primary_emotion":"舍不得","secondary_emotion":"很安静的轻松","virtue_shadow":"自主 / 把反抗本身当价值","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":3,"material_concreteness":4,"power_visibility":5,"ordinary_life_counterpoint":3,"visual_or_sensory_potential":5}
+    },
+    {
+      "scene_id":"s25-luo-second-selective-application","part":4,"year":"2034","label":"几年以后第二次真正投出去","primary_viewpoint":"luo_cheng","participants":["luo_cheng","gao_yuan"],"evidence_refs":["2034q3:e09","2034q3:e10"],
+      "surface_action":"罗诚核实省会岗位的研究支持内容和平台都过门槛，几年里第二次正式申请；高原只问迁移代价，没有跟着投。","dramatic_question":"等待多年以后再行动，是成熟还是终于等到了一个足够像样的理由？","inner_conflict":"罗诚已经不再迷信岗位名，却仍然希望这次迁移能证明早期绕路不是浪费。","power_structure":"更大平台真实提供资源，也收取住房、协调和迁移成本。","hero_stage_function":"threshold","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"gao_yuan","role":"mirror"}],
+      "adaptation_hypotheses":{"primary_emotion":"兴奋被压着","secondary_emotion":"怕重演上次落选","virtue_shadow":"目标清晰 / 需要赋予等待意义","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":4,"material_concreteness":4,"power_visibility":5,"ordinary_life_counterpoint":2,"visual_or_sensory_potential":4}
+    },
+    {
+      "scene_id":"s26-tang-question-returns-after-gap","part":4,"year":"2034","label":"两年空档以后，一个问题反复回来","primary_viewpoint":"tang_yu","participants":["tang_yu","shen_yan"],"evidence_refs":["2034q1:e11","2034q1:e12","2034q3:e11","2034q3:e12"],
+      "surface_action":"唐雨第二个没有成熟主线的年份里，一个窄问题几个月反复出现；沈雁只允许她做最小例子和失败模式，直到能写出可证伪陈述。","dramatic_question":"一个新问题到底是在长出来，还是焦虑终于找到一个可占据的对象？","inner_conflict":"她已经学会不强行立题，却也很想确认自己仍然是会产生问题的人。","power_structure":"学术连续性压力存在，但导师拒绝替她用项目填空档。","hero_stage_function":"call","scene_tier":"strong",
+      "active_archetype_roles":[{"actor":"shen_yan","role":"guardian"}],
+      "adaptation_hypotheses":{"primary_emotion":"谨慎的兴奋","secondary_emotion":"怕又是自我欺骗","virtue_shadow":"问题敏感性 / 输出焦虑借壳重生","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":3,"material_concreteness":4,"power_visibility":4,"ordinary_life_counterpoint":3,"visual_or_sensory_potential":4}
+    },
+    {
+      "scene_id":"s27-tang-kills-small-project-fast","part":4,"year":"2035","label":"三个月就关掉的新题","primary_viewpoint":"tang_yu","participants":["tang_yu","shen_yan"],"evidence_refs":["2035q2:e01","2035q2:e02","2035q4:e07"],
+      "surface_action":"小项目首轮反例成立，唐雨没有再耗一年修补，几个月内直接关闭。","dramatic_question":"真正的成长会不会表现为更快承认一个问题不值得继续？","inner_conflict":"她最强的品质仍是坚持，但这次她必须用停止来证明判断。","power_structure":"学术环境天然奖励持续项目，负面证据需要被人为赋予关闭权。","hero_stage_function":"return","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"counterexample","role":"shadow"},{"actor":"shen_yan","role":"mentor"}],
+      "adaptation_hypotheses":{"primary_emotion":"刺痛","secondary_emotion":"干净利落后的空","virtue_shadow":"坚持 / 沉没成本","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":3,"material_concreteness":4,"power_visibility":4,"ordinary_life_counterpoint":2,"visual_or_sensory_potential":5}
+    },
+    {
+      "scene_id":"s28-he-third-home-window-buys","part":4,"year":"2035","label":"第三次算房子，这次她自己说可以买","primary_viewpoint":"he_xin","participants":["he_xin","lin_jing"],"evidence_refs":["2035q1:e08","2035q1:e09","2035q1:e10"],
+      "surface_action":"第三次住房窗口，现金、岗位价值和城市承诺第一次共同通过；何欣决定买房，但明确住房不能替她判断工作。","dramatic_question":"当一个人终于买得起时，她买的是安全感、城市承诺，还是主动接受的退出成本？","inner_conflict":"她一直用边界保护自己，这次必须主动选择一项会减少未来选择的东西。","power_structure":"住房把多年福利网络、岗位价值和现金积累一次性压进资产。","hero_stage_function":"threshold","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"lin_jing","role":"mirror"}],
+      "adaptation_hypotheses":{"primary_emotion":"认真到近乎没有仪式感","secondary_emotion":"一点怕","virtue_shadow":"边界感 / 主动锁定","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":3,"material_concreteness":5,"power_visibility":5,"ordinary_life_counterpoint":4,"visual_or_sensory_potential":5}
+    },
+    {
+      "scene_id":"s29-xu-limited-transferability","part":4,"year":"2035","label":"别人做出了不同判断，但仍然算方法活了","primary_viewpoint":"xu_hang","participants":["xu_hang","gu_wei"],"evidence_refs":["2035q2:e04","2035q2:e05","2035q4:e09","2035q4:e10"],
+      "surface_action":"非专家按有限框架独立做出与许航不同但可接受的停止判断；方法获得有范围的可移交性证据。","dramatic_question":"当别人不再复制作者本人，而能在边界内作出自己的判断，方法才算真正活了吗？","inner_conflict":"许航想让方法独立，又必须接受独立意味着别人不会和自己做得一模一样。","power_structure":"专家权威必须让出部分解释权，方法才能成为公共能力。","hero_stage_function":"return","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"gu_wei","role":"mentor"},{"actor":"nonexpert_user","role":"mirror"}],
+      "adaptation_hypotheses":{"primary_emotion":"不习惯的欣慰","secondary_emotion":"仍想纠正细节","virtue_shadow":"严谨 / 控制解释权","declared_as_history":false},
+      "scores":{"historical_leverage":5,"character_revelation":5,"relationship_pressure":4,"material_concreteness":4,"power_visibility":5,"ordinary_life_counterpoint":2,"visual_or_sensory_potential":4}
+    },
+    {
+      "scene_id":"s30-final-group-chat-no-verdict","part":4,"year":"2035","label":"十年末的群聊没有总结人生","primary_viewpoint":"ensemble","participants":["zhou_ye","gao_yuan","luo_cheng","tang_yu","he_xin","song_nan","lin_jing","chen_lan","xu_hang"],"evidence_refs":["2035q4:e13","2035q4:e14","2035q4:e15"],
+      "surface_action":"年末群聊里仍然有人聊房子收纳、外面的岗位、有没有新题，没有人替十年做总结。","dramatic_question":"一个时代和一群人的意义，能不能不由人物自己说出口？","inner_conflict":"所有人都多少想知道自己过得算不算好，又没有谁真能拥有统一答案。","power_structure":"此刻权力退到背景，长期选择的物质后果仍留在每个人生活里。","hero_stage_function":"post_return_consequence","scene_tier":"must_keep",
+      "active_archetype_roles":[{"actor":"ensemble","role":"mirror"}],
+      "adaptation_hypotheses":{"primary_emotion":"普通","secondary_emotion":"各自未说出口的比较与安定","virtue_shadow":"自我解释 / 想给人生下结论","declared_as_history":false},
+      "scores":{"historical_leverage":4,"character_revelation":5,"relationship_pressure":5,"material_concreteness":5,"power_visibility":2,"ordinary_life_counterpoint":5,"visual_or_sensory_potential":5}
+    }
+  ],
+  "usage_rule": "Do not write all thirty scenes. Rank and balance by part, protagonist weight, emotional register and redundancy. Any prose rendition remains disposable adaptation-only fiction until separately accepted."
+}
