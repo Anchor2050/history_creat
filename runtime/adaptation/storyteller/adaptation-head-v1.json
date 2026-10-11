@@ -1,5 +1,5 @@
 {
-  "schema_version": 9,
+  "schema_version": 10,
   "status": "adaptation_storyteller_head_noncanonical",
   "historical_world_writeback": false,
   "history_source": {
@@ -28,39 +28,18 @@
     "storyteller_nested_engine": "narrative/longform/storybox_adaptation_storyteller_v14.py",
     "scene_reservoir": "runtime/adaptation/storyteller/scene-reservoir-v1.json",
     "core_scene_selection": "runtime/adaptation/storyteller/viewpoint-weight-and-core26-v1.json",
-    "probe_pack_01": "runtime/adaptation/storyteller/probe-pack-01.json",
-    "probe_pack_02": "runtime/adaptation/storyteller/probe-pack-02-execution.json",
-    "probe_pack_03": "runtime/adaptation/storyteller/probe-pack-03-stress-tests.json",
-    "probe_audit_01": "runtime/adaptation/storyteller/probe-audit-pass-01.json",
-    "probe_audit_02": "runtime/adaptation/storyteller/probe-audit-pass-02.json",
-    "probe_audit_03": "runtime/adaptation/storyteller/probe-audit-pass-03-v1-v2.json",
-    "probe_audit_04": "runtime/adaptation/storyteller/probe-audit-pass-04-long-scene.json",
-    "probe_audit_05": "runtime/adaptation/storyteller/probe-audit-pass-05-cross-context.json",
     "chapter_cards_v1": "runtime/adaptation/storyteller/novel-chapter-cards-v1.json",
     "chapter_architecture_audit_01": "runtime/adaptation/storyteller/novel-architecture-audit-pass-01.json",
     "chapter_revision_v2": "runtime/adaptation/storyteller/novel-chapter-revision-v2.json",
-    "pilot_audit_v1": "runtime/adaptation/storyteller/pilot-ch03-audit-v1.json",
-    "pilot_v1_v2_audit": "runtime/adaptation/storyteller/pilot-ch03-v1-v2-audit.json"
+    "luo_pilot_audit": "runtime/adaptation/storyteller/pilot-ch03-v1-v2-audit.json",
+    "zhou_opening_audit": "runtime/adaptation/storyteller/opening-ch01-audit-v1.json",
+    "opening_order_comparison": "runtime/adaptation/storyteller/opening-order-comparison-v1.json"
   },
-  "executed_probes": [
-    "docs/adaptation/probes/p2-01-ordinary-trip-v1.md",
-    "docs/adaptation/probes/p2-02-luo-sun-gate-v1.md",
-    "docs/adaptation/probes/p2-03-zhou-qiu-delegation-v1.md",
-    "docs/adaptation/probes/p2-04-song-ma-deliverable-v1.md",
-    "docs/adaptation/probes/p3-01-final-chat-low-energy-v1.md",
-    "docs/adaptation/probes/p3-02-ma-qing-viewpoint-v1.md",
-    "docs/adaptation/probes/p3-03-he-family-boundary-failure-v1.md",
-    "docs/adaptation/probes/p3-04-six-core-voice-lab-v1.md",
-    "docs/adaptation/probes/p3-05-zhou-he-awkward-meetup-v1.md",
-    "docs/adaptation/probes/p3-02-ma-qing-viewpoint-v2.md",
-    "docs/adaptation/probes/p3-03-he-family-boundary-failure-v2.md",
-    "docs/adaptation/probes/p3-05-zhou-he-awkward-meetup-v2.md",
-    "docs/adaptation/probes/p4-01-ma-song-long-scene-v1.md",
-    "docs/adaptation/probes/p4-02-tang-xu-research-intensity-v1.md"
-  ],
   "executed_full_pilots": [
     "docs/adaptation/pilots/ch03-luo-posting-full-v1.md",
-    "docs/adaptation/pilots/ch03-luo-posting-full-v2.md"
+    "docs/adaptation/pilots/ch03-luo-posting-full-v2.md",
+    "docs/adaptation/pilots/ch01-zhou-reliability-opening-v1.md",
+    "docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md"
   ],
   "primary_project": {
     "working_title": "不同的稳定",
@@ -72,15 +51,13 @@
     "reservoir_scene_count": 30,
     "character_substory_count": 9,
     "braided_substory_count": 4,
-    "audited_guest_count": 3,
-    "executed_probe_count": 14,
-    "executed_full_pilot_count": 2,
     "chapter_card_count": 24,
     "chapter_architecture_status": "provisional_v2_overlay",
     "prose_canon_fixed": false,
     "narrative_voice_status": "provisional_canon",
     "narrative_voice_label": "close_external_restrained_realism",
     "pilot_voice_reference": "docs/adaptation/pilots/ch03-luo-posting-full-v2.md",
+    "opening_voice_reference": "docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md",
     "hero_arc_priority": "primary_longitudinal_structure",
     "negative_space_priority": "primary_rendering_principle",
     "world_is_not_centered_on_core_six": true
@@ -97,16 +74,15 @@
     "No adaptation-only resume item becomes a historical credential unless separately promoted by an explicit canon decision.",
     "High education raises selected cognitive baselines but does not imply universal negotiation, leadership, emotional or social skill.",
     "Every strong capability must have a formation source, shadow cost and high-pressure failure mode.",
-    "Long educational and professional socialization attenuates but does not erase family-origin effects; family may reappear around money, care, hometown, authority and shame.",
+    "Long educational and professional socialization attenuates but does not erase family-origin effects.",
     "No secret or wound is announced as fact without scene evidence or explicit adaptation-only marking.",
     "A virtue must be allowed to create costs; a flaw must be allowed to protect something real.",
     "Local antagonists must have a legible interest, information set and value they are protecting.",
     "Power changes how personality is expressed; scene analysis must separate trait from position effect.",
     "Core six are weakly connected ensemble peers, not a permanent six-person team.",
     "Prefer existing relationships; create a guest only for a real scene-function gap.",
-    "Every named guest needs a current goal, pressure, virtue-shadow pair, power position, bounded information set and 3-5 step micro arc.",
+    "Every named guest needs a current goal, pressure, virtue-shadow pair, power position, bounded information set and micro arc.",
     "Guest characters generated on demand must pass reverse plausibility audit before prose use.",
-    "Guest biography remains adaptation-only unless explicitly canonized later.",
     "Narrative voice canon is provisional and controls distance, not character-specific syntax.",
     "Campbell stages are backend structure only and must never become chapter labels, thesis dialogue or explicit self-diagnosis.",
     "A stage may span several chapters or years; no chapter is required to resolve a stage.",
@@ -128,23 +104,34 @@
     "Could the final explanatory paragraph be deleted while the long arc remains legible?",
     "Does this chapter leave enough uncertainty for later repetitions to change its meaning?"
   ],
-  "current_stage": "sequential_full_chapter_drafting_allowed_with_campbell_arc_and_negative_space_review",
+  "opening_order": {
+    "status": "provisionally_locked_for_next_two_chapters",
+    "sequence": [
+      {"chapter": 1, "lead": "zhou_ye", "function": "quiet Campbell call; reliability seeks external evidence without payoff"},
+      {"chapter": 2, "lead": "song_nan_ensemble", "function": "ordinary-world expansion; weak ties and non-instrumental social time"},
+      {"chapter": 3, "lead": "luo_cheng", "function": "institutional threshold; credentials meet actual labor"}
+    ],
+    "reason": "The three-opening sequence changes register quickly and prevents Zhou from being read as a sole protagonist while preserving his long delayed-payoff arc."
+  },
+  "current_stage": "opening_v2_passed_long_arc_negative_space_review_chapter2_next",
   "gate_status": {
     "anti_ai_style": "provisional_pass_at_chapter_length",
     "narrative_voice": "provisional_canon",
     "chapter_architecture": "provisional_pass_with_v2_overlay",
     "full_pilot_chapter": "pass_after_subtractive_revision",
-    "campbell_arc_model": "strengthened_with_negative_space",
+    "campbell_arc_model": "primary",
+    "negative_space_model": "primary",
+    "opening_candidate": "zhou_v2_provisional_pass",
+    "opening_order": "provisionally_locked",
     "prose_canon": "still_not_fixed"
   },
   "next_stage_gate": {
-    "required_before_opening_order_lock": [
-      "audit opening candidates against the six long hero arcs before prose drafting",
-      "draft the actual opening candidate chapter as disposable prose",
-      "compare opening energy, character legibility, world-entry burden and long-arc promise against the Luo pilot",
-      "revise the opening candidate once by subtraction",
-      "verify that the opening promises a long arc without explaining the arc",
-      "decide whether chapter 1 remains Zhou Ye or whether the novel should enter through a different scene"
+    "required_before_chapter3_order_is_confirmed": [
+      "draft chapter 2 ordinary ensemble trip as full disposable prose",
+      "keep chapter 2 low-conversion: no one gets a resource, life lesson or major decision from the trip",
+      "use chapter 2 to widen the world and establish that core characters are not a permanent team",
+      "preserve Campbell function as ordinary-world texture rather than visible plot progress",
+      "revise chapter 2 once by subtraction and compare its social texture against chapter 1"
     ],
     "drafting_rule": "Only one new full chapter at a time may advance to review. Every full chapter must pass both anti-AI subtraction review and long-arc/negative-space review before the next one begins."
   }
