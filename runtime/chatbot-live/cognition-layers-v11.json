@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "status": "active_chatbot_cognition_layers_noncanonical",
+  "default_backend": "chatgpt_product_conversation",
+  "optional_backends": ["deepseek_api", "local_model", "deterministic_control"],
+  "modules": {
+    "protocol": "narrative/longform/storybox_cognition_protocol_v11.py",
+    "personal": "narrative/longform/storybox_personal_v11.py",
+    "behavior": "narrative/longform/storybox_behavior_v11.py",
+    "storyteller": "narrative/longform/storybox_storyteller_v11.py"
+  },
+  "personal": {
+    "mode": "evidence_grounded_candidate_state",
+    "cadence": "quarterly_when_evidence_changed_plus_major_event_reflection",
+    "writeback_scope": "personal_ledger_only",
+    "hard_world_writeback": false,
+    "first_refresh_as_of": "2028-12-31",
+    "first_refresh_actor_ids": [
+      "lin_jing", "chen_lan", "xu_hang", "wu_cheng", "shen_yan", "gu_wei", "zhao_ke", "sun_jie",
+      "zhou_ye", "gao_yuan", "luo_cheng", "tang_yu", "he_xin", "song_nan"
+    ]
+  },
+  "behavior": {
+    "modes": ["normal", "abnormal"],
+    "normal_default": true,
+    "abnormal_definition": "evidence-triggered deviation from the actor's own established baseline",
+    "abnormal_budget_default": 1,
+    "budget_period": "quarter",
+    "random_abnormal_factor_disabled": true,
+    "must_preserve_hard_world_feasibility": true,
+    "audit_path_pattern": "runtime/chatbot-live/behavior-audit/{year}-q{quarter}.json"
+  },
+  "storyteller": {
+    "mode": "read_only_diagnostic",
+    "literary_generation_enabled": false,
+    "world_writeback": false,
+    "cadence": "year_end_and_on_demand",
+    "first_diagnostic_as_of": "2028-12-31",
+    "output_path_pattern": "runtime/chatbot-live/storyteller/{year}-diagnostic.json",
+    "requires_event_refs": true,
+    "diagnostics": [
+      "history_thickness",
+      "recurring_conflicts",
+      "causal_chains",
+      "protagonist_candidates_with_counterarguments",
+      "scene_clusters",
+      "underrepresented_lives",
+      "competing_interpretations"
+    ]
+  },
+  "backend_contract": {
+    "chatgpt_product_conversation": "read task from GitHub, reason in current ChatGPT product conversation, write validated structured result back through GitHub connector; no repository API call",
+    "deepseek_api": "use narrative.providers.DeepSeek.json(instruction, state) via the same cognition protocol",
+    "local_model": "implement provider.json(instruction, state) -> dict; Ollama/llama.cpp/OpenAI-compatible localhost adapter may be added without changing task schemas"
+  },
+  "next_layer_tasks": [
+    "materialize first 2028-12-31 Personal snapshots for all actors from existing ledger evidence",
+    "run first read-only 2028 Storyteller diagnostic from existing ledger",
+    "from 2029 Q1 route consequential actor decisions through normal/abnormal behavior tasks before event execution"
+  ]
+}
