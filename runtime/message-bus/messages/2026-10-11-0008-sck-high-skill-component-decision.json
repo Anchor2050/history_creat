@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "kind": "architecture_decision",
+  "status": "active",
+  "created_at": "2026-10-11",
+  "topic": "high-skill social-game cognition",
+  "decision": "Pause additional StoryBox rule/mechanic expansion as the default path. Introduce a separate Strategic Cognition Kernel (SCK) between StoryBox visibility/legal-action state and StoryBox hard-world resolution, and require external benchmark evidence before claiming that the system can produce high-skill games.",
+  "reasoning": [
+    "StoryBox already has world/event-arc/game/scene/round/action structure, fixed truth, information isolation, convergence and moderator rules.",
+    "The remaining quality gap is primarily actor cognition: belief calibration, opponent modeling, counterfactual planning, communication strategy and self-play improvement.",
+    "External projects such as AvalonBench/Strategist, TextArena, Cicero, AIWolf-style arenas and Werewolf platforms demonstrate that game legality alone is insufficient for high-skill play.",
+    "SCK must be benchmarkable outside the novel so that apparent intelligence is not judged only by prose quality."
+  ],
+  "implemented_v0": [
+    "narrative/longform/storybox_sck_v0.py",
+    "narrative/longform/storybox_textarena_secret_mafia_adapter_v0.py",
+    "narrative/longform/storybox_sck_eval_v0.py",
+    "tests/test_storybox_sck_v0.py",
+    "tests/test_storybox_sck_eval_v0.py",
+    "runtime/adaptation/storybox/sck-head-v1.json",
+    "runtime/adaptation/storybox/sck-secret-mafia-ab-v0.json",
+    "runtime/adaptation/storybox/sck-storybox-integration-v0.json"
+  ],
+  "gate": {
+    "before_mcts_or_bilevel_search": [
+      "run v0 unit tests",
+      "build live TextArena SecretMafia runner",
+      "run shared-seed 50-episode A/B smoke test across plain/memory/belief/belief_planning",
+      "show measurable improvement in win/utility or action regret without materially worse calibration/leakage"
+    ],
+    "before_story_prose_claims_high_skill": "SCK must demonstrate external or replay benchmark advantage; prose fluency is not evidence of strategic skill."
+  },
+  "historical_world_writeback": false
+}
