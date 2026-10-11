@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "status": "sck_v0_crossplay_primary_evidence_gate_not_lifted_village_inference_unvalidated",
+  "status": "sck_v0_secretmafia_negative_result_retained_redirected_to_mixed_motive_substrate",
   "historical_world_writeback": false,
   "purpose": "Provide a reusable high-skill strategic cognition layer between StoryBox visibility/legal-action state and StoryBox world resolution.",
   "design_spec": "docs/adaptation/storybox-strategic-cognition-kernel-v1.md",
@@ -52,31 +52,34 @@
     "live TextArena SecretMafia self-play runner (one policy drives every seat)",
     "actor-view boundary: roles recovered only from the actor's own private prompt",
     "explicit hand-specified behavior evidence model (night kill, doctor save)",
-    "static and empirical information-leakage audits for the decision path"
+    "static and empirical information-leakage audits for the decision path",
+    "native [N] target-action encoding so day-vote evidence survives the observation stream",
+    "paired cross-play harness against a frozen baseline with role-assigned arms",
+    "vote-coordination mechanism diagnostic (bloc voting vs inference)"
   ],
   "deliberately_not_implemented_yet": [
     "LLM strategy-candidate generation",
     "natural-language dialogue generation",
-    "learned evidence-likelihood model",
+    "learned evidence-likelihood model (replay calibration still pending)",
     "joint multi-opponent response model",
     "MCTS",
     "bi-level strategy search",
     "strategy library/self-play league",
-    "nested theory of mind beyond one-step opponent action models",
-    "vote-target evidence (blocked by the environment, see environment_constraints)"
+    "nested theory of mind beyond one-step opponent action models"
   ],
   "environment_constraints": {
     "verified_against": "textarena 0.7.4",
-    "vote_targets_are_not_observable": "textarena.core.State.add_observation strips role tags from every PLAYER_ACTION message, so structured votes arrive as the empty string. Vote targets cannot be observed and no vote-based evidence model is possible in live play.",
+    "vote_targets_are_observable_with_the_native_format": "state.add_observation strips every '[Player N]' role tag from PLAYER_ACTION messages, but the environment's own prompts ask for the '[X]' form and VoteHandler accepts it. The runner submits '[N]', so day-vote targets reach later actors intact. Submitting '[Player N]' reproduces the earlier broken behaviour where votes arrived as the empty string; that form is kept only as a test control. See native_vote_channel for the measured comparison.",
     "observable_evidence_events": [
       "Player X was killed during the night.",
       "No one was killed tonight.",
       "Player X was eliminated by vote.",
-      "Player X IS [NOT] a Mafia member. (Detective, private)"
+      "Player X IS [NOT] a Mafia member. (Detective, private)",
+      "public day votes with their targets intact, because the runner submits the native [N] form"
     ],
     "day_number_never_increments": "The environment never advances game_state['day_number'], so the runner keeps its own night counter.",
     "global_random_seeding": "SecretMafiaEnv.reset seeds the global random module. Policies therefore use their own random.Random instance so they cannot perturb environment randomness.",
-    "consequence": "Actionable public evidence for alignment is thin at 6 players: a night kill removes a candidate who is already dead, so it does not discriminate among living candidates. The live A/B must be read with this limitation."
+    "residual_consequence": "Even with vote evidence, the SecretMafia substrate does not validate Village-side inference: informed Village seats gain 0.002 to 0.008 against a frozen baseline, inside noise. See cross_play_primary_evidence."
   },
   "strict_boundaries": [
     "SCK never receives StoryBox backstage truth.",
@@ -147,11 +150,24 @@
     "methodological_gap": "The frozen baseline is uniform random and cannot coordinate, so it is maximally exploitable by bloc voting and the mafia delta partly measures the baseline's weakness."
   },
   "next_gate": [
-    "do not tune SecretMafia rules or add handcrafted terms; peer decision 0016 step 6 applies to the informed-village result",
-    "peer Q4 path: build a symmetric evidence feature set and replay-calibrate it on a training seed partition, then evaluate frozen on a disjoint held-out partition, requiring the gain on the village side",
-    "add village-side vote coordination as a first-class capability: the diagnostic shows the informed village scatters rather than concentrating on its best suspect",
-    "strengthen the fixed baseline set so a coordination effect cannot be mistaken for cognition",
-    "peer Q6 path: move to a mixed-motive peaceful repeated game, since the target StoryBox use is coordination under mixed interests rather than deception",
-    "keep MCTS, bi-level search and StoryBox/risk-list reconnection held until a village-side inference gain is reproducible"
-  ]
+    "continue from peer decision 2026-10-11-0021: SecretMafia tuning is stopped and the validation mainline moves to a mixed-motive peaceful repeated game",
+    "round 8: select one structured mixed-motive substrate, write its benchmark contract before running anything, and implement only the adapter and harness needed for a 20-50 episode smoke A/B across plain/memory/belief/belief_planning plus at least one fixed alternative policy",
+    "keep the SecretMafia artifacts as a retained adversarial negative benchmark: do not delete them, do not tune its rules, do not handcraft more evidence terms, and never claim strength from the mafia bloc gain",
+    "keep MCTS, bi-level search, the deferred meta-game/institutional-awareness runtime, the deferred Peak Play runtime and SCK-to-risk-list-hospital-Scene reconnection all held until the mixed-motive smoke gate shows a mechanism-attributable cognition gain"
+  ],
+  "secretmafia_classification": {
+    "status": "retained_adversarial_negative_benchmark",
+    "per_peer_decision": "runtime/message-bus/messages/2026-10-11-0021-peer-decision-stop-secretmafia-tuning-move-mixed-motive.json",
+    "do_not_delete_artifacts": true,
+    "do_not_tune_rules_or_handcraft_more_evidence_terms": true,
+    "do_not_claim_strength_from_the_mafia_bloc_gain": true,
+    "main_claim": "SCK v0 has not demonstrated improved hidden-information inference on SecretMafia Village play. The native channel, information-safety boundary and evaluation harness are valid enough to preserve this as a meaningful negative result.",
+    "reusable_value": "information-safety boundary pattern, native observation-channel validation method, cross-play harness, mechanism diagnostics, metric demotion"
+  },
+  "mixed_motive_substrate": {
+    "benchmark_contract": "docs/adaptation/sck-mixed-motive-benchmark-contract-v1.md",
+    "environment": "narrative/longform/sck_joint_project_env_v1.py",
+    "selection_survey": "tools/probe_mixed_motive_envs.py",
+    "why_own_authored": "The TextArena survey found no usable third-party substrate that satisfies the peer contract. PublicGoodsGame and MarketEntryGame run but are fully symmetric, so they contain no hidden variable and the belief variants could not engage. BlindAuction has genuine private valuations but its reset raises TypeError in 0.7.4 because it constructs textarena.core.State with min_players/max_players/check_truncated, which that constructor does not accept. LetterAuction needs an NLTK corpus the sandbox blocks, and IteratedStagHunt needs numpy, which is not installed. An own-authored substrate is explicitly permitted but is weaker evidence than a third-party environment, and every result from it must carry that label."
+  }
 }

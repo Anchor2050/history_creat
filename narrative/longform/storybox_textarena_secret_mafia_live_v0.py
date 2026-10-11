@@ -22,8 +22,8 @@ Information boundary (hard)
   receive the environment or its ``state``.
 
 Observed environment behaviour this design depends on (verified against
-textarena 0.7.4; the probes that established it are kept at
-``output/sck-evidence/probe_live_env.py`` and ``output/sck-evidence/probe_native_vote.py``)
+textarena 0.7.4; the probes that established it are tracked at
+``tools/probe_secretmafia_observation_stream.py`` and ``tools/probe_native_vote.py``)
 ----------------------------------------------------------------------
 * ``textarena.core.State.add_observation`` strips every ``[Player N]`` role tag
   from ``PLAYER_ACTION`` messages.  The environment's own phase prompts ask for
