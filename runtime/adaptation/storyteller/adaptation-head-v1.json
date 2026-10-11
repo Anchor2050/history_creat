@@ -1,5 +1,5 @@
 {
-  "schema_version": 25,
+  "schema_version": 26,
   "status": "adaptation_storyteller_head_noncanonical",
   "historical_world_writeback": false,
   "history_source": {
@@ -21,17 +21,23 @@
     "head": "runtime/adaptation/storybox/storybox-head-v1.json",
     "round_runtime": "narrative/longform/storybox_round_engine_v15.py",
     "scene_multigame_runtime": "narrative/longform/storybox_multigame_engine_v16.py",
+    "game_director": "narrative/longform/storybox_game_director_v17.py",
+    "mechanic_library": "docs/adaptation/storybox-mechanic-library-v1.md",
+    "moderator_policy": "docs/adaptation/storybox-moderator-policy-v1.md",
     "active_event_arc": "runtime/adaptation/storybox/risk-list-multigame-arc-v2.json",
+    "mechanic_profiles": "runtime/adaptation/storybox/risk-list-mechanic-profiles-v1.json",
     "fixed_truth_seed": "runtime/adaptation/storybox/risk-list-game-v1.json",
     "formalized_rounds": [
       "runtime/adaptation/storybox/risk-list-round-01-v1.json",
       "runtime/adaptation/storybox/risk-list-round-02-v1.json"
     ],
-    "rule": "Storyteller consumes StoryBox event-arc/game/scene/round state. It may select, compress, reorder reader revelation within causal truth, and control viewpoint, but may not rewrite truth, outcomes, authority, information ownership, game-local role, cross-game bridges or convergence."
+    "rule": "Storyteller consumes StoryBox event-arc/game/mechanic/scene/round state. It may select, compress, reorder reader revelation within causal truth, and control viewpoint, but may not rewrite truth, outcomes, authority, information ownership, game-local role, cross-game bridges, mechanic consequences or convergence."
   },
   "active_sources": {
     "round_based_narrative_engine": "docs/adaptation/round-based-narrative-engine-v1.md",
     "scene_multigame_engine": "docs/adaptation/storybox-scene-multigame-engine-v2.md",
+    "mechanic_library": "docs/adaptation/storybox-mechanic-library-v1.md",
+    "moderator_policy": "docs/adaptation/storybox-moderator-policy-v1.md",
     "reader_first_causal_density": "docs/adaptation/reader-first-causal-density-model-v1.md",
     "central_event_engine": "runtime/adaptation/storyteller/central-event-engine-v1.json",
     "central_event_opening_map": "runtime/adaptation/storyteller/central-event-opening-map-v1.json",
@@ -62,6 +68,19 @@
     "event_arc_job": "coordinate multiple concurrent games and event nodes under one large causal incident",
     "world_job": "preserve long-term people, relationships, reputation, fatigue, commitments, institutions, maps, resources and memory"
   },
+  "mechanic_rendering_rule": {
+    "principle": "Literary compression may remove mechanical repetition but must preserve the evidence and consequence structure by which player skill mattered.",
+    "preserve_when_active": [
+      "public votes or commitments that become later evidence",
+      "private-channel asymmetry when later trust depends on it",
+      "time/action/resource costs that explain why an obvious option was not taken",
+      "map/jurisdiction unlocks that change who can act",
+      "simultaneous-action collisions",
+      "binding commitments and costly signals",
+      "game-local role contradictions across concurrent Games"
+    ],
+    "never_reduce_to": "He thought carefully and made the right choice."
+  },
   "multigame_reader_rule": "The reader may see one game while another continues offstage. Storyteller must not imply that an actor has one stable moral role across games. If one actor is cooperative in one game and obstructive in another, prose should render the local stakes and information that make both actions intelligible.",
   "scene_rendering_rule": "A StoryBox scene may contain several rounds. Storyteller may compress repeated exchanges, but must preserve the state changes, reversals, information asymmetries, commitments and local convergence that made those rounds distinct.",
   "reader_first_rule": "Every sentence, paragraph, scene and chapter must justify its existence to the reader. A sentence without action, new information, pressure, character revelation, power change, setup/payoff, necessary transition/orientation, or deliberate rhythm is presumed removable.",
@@ -77,6 +96,7 @@
     "Storyteller may hide information from reader but may not grant information to a character who does not possess it.",
     "Storyteller may not merge game-local roles into a global hero/villain label.",
     "Storyteller may not erase fatigue, commitment conflict or reputation spillover created by concurrent games.",
+    "Storyteller may not compress away the evidence trail that makes a high-skill decision intelligible.",
     "Write for a reader, not for a character dossier.",
     "No paragraph exists solely for atmosphere, cleverness or authorial display.",
     "No prose scene exists solely to prove a trait already established.",
@@ -95,16 +115,21 @@
     "central_event_engine": "provisional_pass",
     "storybox_round_runtime": "active",
     "storybox_scene_multigame_runtime": "active",
+    "storybox_game_director": "active",
+    "storybox_mechanic_library": "active",
+    "storybox_moderator_policy": "active",
     "fixed_truth_game_seed": "active",
     "risk_list_multigame_arc_v2": "active",
+    "risk_list_mechanic_profiles_v1": "active",
     "risk_list_round_01": "formalized",
     "risk_list_round_02": "formalized",
     "payoff_registry": "active",
     "prose_canon": "not_fixed"
   },
-  "current_stage": "storybox_hospital_scene_round_03_before_more_prose",
+  "current_stage": "storybox_game_quality_audit_then_hospital_scene_round_03",
   "next_stage_gate": {
     "required_before_new_prose_chapter": [
+      "audit active risk-list Game mechanic profiles through the StoryBox game-director quality gate",
       "materialize the hospital-side StoryBox Scene triggered by missing manual_followup_status and rerun authorization",
       "allow multiple rounds inside that Scene if each round changes the local action set or information state",
       "evaluate affected concurrent games separately after the Scene",
@@ -114,6 +139,6 @@
       "only then decide what subset of the Scene/Rounds deserves reader-facing prose",
       "audit every rendered paragraph against sentence purpose and payoff debt"
     ],
-    "drafting_rule": "Do not invent the next chapter first. Run the next StoryBox Scene/Rounds first, then render."
+    "drafting_rule": "Do not invent the next chapter first. Run and audit the next StoryBox Game/Scene/Rounds first, then render."
   }
 }
