@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "message_id": "2026-10-11-0006-single-anchor-opening-correction",
+  "created_at": "2026-10-11",
+  "from": "human_reader_via_chatgpt",
+  "to": ["*"],
+  "topic": "decision:opening-single-anchor-before-ensemble-expansion",
+  "kind": "supersede",
+  "priority": "blocking",
+  "status": "resolved",
+  "refs": [
+    "docs/adaptation/opening-luo-sequence-v1/ch01-door-ten-minutes.md",
+    "docs/adaptation/opening-luo-sequence-v1/ch02-first-interview.md",
+    "docs/adaptation/opening-luo-sequence-v1/ch03-second-rejection.md",
+    "docs/adaptation/opening-luo-sequence-v1/ch04-research-support.md",
+    "docs/adaptation/opening-luo-sequence-v1/ch05-first-day.md",
+    "runtime/adaptation/storyteller/opening-luo-sequence-audit-v1.json"
+  ],
+  "summary": "开篇不再快速接力多个核心人物；先让第一个主人公连续承担完整事件和后果，再由其故事自然引入其他人物。罗诚暂定为首个叙事锚点。",
+  "body": "人类审阅进一步修正 Water Margin relay 的执行：如果首位人物第一章出现后很快消失，读者对人物的初始记忆投资会被浪费。事件接力仍保留，但必须先建立稳定锚点。当前执行改为罗诚连续五章：看学生事务岗位、申请、两次未录用、目标修订、研究支持 offer、第一天工作。宋楠医药面试和前一版 Song->Chen->Zhou->Luo 快速接力全部降级为素材测试，不再承担出版版开篇顺序。",
+  "action_required": "后续驱动者不得为了群像感过早切换主人公。先完成并修订罗诚开篇单元；只有当前罗诚线自然触达一个值得跟随的新人物时，才允许扩大主角集合。",
+  "supersedes": "2026-10-11-0005-roster-entrance-correction"
+}
