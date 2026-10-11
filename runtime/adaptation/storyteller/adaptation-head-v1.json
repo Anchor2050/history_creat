@@ -1,5 +1,5 @@
 {
-  "schema_version": 19,
+  "schema_version": 20,
   "status": "adaptation_storyteller_head_noncanonical",
   "historical_world_writeback": false,
   "history_source": {
@@ -20,6 +20,8 @@
     "water_margin_character_entrance_model_v1": "docs/adaptation/water-margin-character-entrance-model-v1.md",
     "water_margin_relay_chain_model_v2": "docs/adaptation/water-margin-relay-chain-model-v2.md",
     "opening_relay_graph": "runtime/adaptation/storyteller/opening-relay-graph-v1.json",
+    "relay_test_01_audit_v1": "runtime/adaptation/storyteller/relay-test-01-audit-v1.json",
+    "relay_test_01_audit_v2": "runtime/adaptation/storyteller/relay-test-01-audit-v2.json",
     "core_character_entrance_cards": "runtime/adaptation/storyteller/core-character-entrance-cards-v1.json",
     "opening_entrance_abc_comparison": "runtime/adaptation/storyteller/opening-entrance-abc-comparison-v1.json",
     "nested_substory_model": "docs/adaptation/nested-hero-substory-model-v1.md",
@@ -54,13 +56,32 @@
     "docs/adaptation/pilots/opening-entrance-a-zhou-technical-screen-v2.md",
     "docs/adaptation/pilots/opening-entrance-c-luo-office-v1.md"
   ],
+  "active_relay_test": {
+    "id": "relay-test-01",
+    "status": "five_chapters_drafted_mechanic_pass_prose_revision_pending",
+    "chapters": [
+      "docs/adaptation/relay-test-01/ch01-song-condition-changed-v2.md",
+      "docs/adaptation/relay-test-01/ch02-chen-after-message.md",
+      "docs/adaptation/relay-test-01/ch03-zhou-offer-and-table.md",
+      "docs/adaptation/relay-test-01/ch04-luo-research-support.md",
+      "docs/adaptation/relay-test-01/ch05-luo-first-task.md"
+    ],
+    "relay": [
+      "Song Nan interview -> unanswered message to Chen Lan",
+      "Chen Lan doctorate closure -> Zhou Ye brings concrete offer problem",
+      "Zhou Ye year-end meal -> Luo Cheng reveals live research-support application",
+      "Luo Cheng application -> interview -> offer -> first job",
+      "Luo Cheng first-day missing documents -> next work scene, no protagonist change"
+    ],
+    "important_result": "The reader can follow a running story without completing a protagonist roster. The relay may stop and remain with one actor for multiple chapters."
+  },
   "primary_project": {
     "working_title": "不同的稳定",
     "architecture": "event_relay_ensemble_with_nested_character_arcs",
     "core": ["zhou_ye", "gao_yuan", "luo_cheng", "tang_yu", "he_xin", "song_nan"],
     "high_frequency_secondary": ["lin_jing", "chen_lan", "xu_hang"],
     "recurring_secondary": ["wu_cheng", "shen_yan", "gu_wei", "zhao_ke", "sun_jie"],
-    "chapter_architecture_status": "reset_to_event_relay_test",
+    "chapter_architecture_status": "relay_test_mechanic_pass_long_architecture_not_rebuilt",
     "narrative_voice_status": "retest_inside_continuous_story_chain",
     "hero_arc_priority": "primary_longitudinal_character_structure_after_entry",
     "negative_space_priority": "primary_rendering_principle",
@@ -77,14 +98,15 @@
     "branching_and_rejoining_substories",
     "guest_micro_arcs_for_passersby_colleagues_authorities_clients_students_family_and_peers"
   ],
-  "relay_rule": "Story order is not chosen to introduce protagonists evenly. One event leaves a concrete destination, relationship, task, consequence or unresolved process; the camera follows that relay. A new core actor appears only when the active story naturally reaches them.",
+  "relay_rule": "Story order is not chosen to introduce protagonists evenly. One event leaves a concrete destination, relationship, task, consequence or unresolved process; the camera follows that relay. A new core actor appears only when the active story naturally reaches them. Relay is not itself a quota: once the story reaches a character, it may remain there for several chapters.",
   "arc_rendering_rule": "Campbell structures a character longitudinally after the story reaches that character. Campbell stages never determine who must appear next. Foreground prose remains partial, visual, fallible and under-explained.",
-  "character_entrance_rule": "First substantial appearance is still scene-first and event-first, but no actor is owed a standalone entrance chapter. An actor may first appear inside someone else's active story and become focal only later.",
+  "character_entrance_rule": "First substantial appearance is scene-first and event-first, but no actor is owed a standalone entrance chapter. An actor may first appear inside someone else's active story and become focal only later.",
   "nonnegotiable_rules": [
     "No adaptation hypothesis becomes ledger history.",
     "Do not introduce a core actor because the roster says it is their turn.",
     "Do not require all six core actors to appear in the opening movement or Part 1.",
     "A chapter transition must be explainable by a concrete relay: consequence, person, task, message, place, public process or existing relationship.",
+    "Do not force a baton handoff every chapter; remaining with the same focal actor is valid when the live problem continues.",
     "Same theme or same generation alone does not count as story connection.",
     "A relay may branch, but prose follows one branch at a time; other branches may stay offstage for chapters.",
     "Secondary and guest characters may carry the narrative baton between core actors.",
@@ -108,26 +130,20 @@
     "Why does the story need this person now?",
     "Would this actor still enter if their core-character label were hidden?",
     "What does the newcomer want independently of the previous focal actor?",
+    "Does the current live problem still deserve another chapter before any handoff?",
     "What changes or remains unresolved that can push the story onward?",
-    "Where can the baton go next without announcing a theme?",
     "How many new names is the reader being asked to retain?"
   ],
-  "opening_sequence": {
-    "status": "roster_order_cancelled_build_relay_chain",
-    "previous_provisional_order": ["song_nan", "zhou_ye", "luo_cheng"],
-    "previous_order_status": "superseded_as_roster_driven",
-    "current_reference": "runtime/adaptation/storyteller/opening-relay-graph-v1.json",
-    "preferred_test_route": "route:industry-pressure-to-first-stability",
-    "important_note": "The preferred route is only a relay test, not a commitment to introduce He Xin or Tang Yu early. Core actors may remain offstage until the active line reaches them."
-  },
   "gate_status": {
     "campbell_arc_model": "retained_primary_backend_after_character_entry",
     "negative_space_model": "retained_primary",
-    "plot_connection_review": "resolved_but_now_strengthened_into_relay_requirement",
+    "plot_connection_review": "resolved_and_strengthened_into_relay_requirement",
     "old_first_six_as_publication_opening": "rejected_material_only",
-    "standalone_six-entrance_plan": "rejected_superseded",
-    "literary_relay_chain_review": "open_blocking",
-    "prose_canon": "reset_not_fixed"
+    "standalone_six_entrance_plan": "rejected_superseded",
+    "relay_test_01_mechanic": "provisional_pass",
+    "relay_test_01_prose": "revision_required",
+    "literary_relay_chain_review": "open_blocking_until_revision_and_human_conflict_test",
+    "prose_canon": "not_fixed"
   },
   "open_reviews": [
     {
@@ -137,22 +153,21 @@
     },
     {
       "id": "review:literary-flatness-character-entrance",
-      "status": "reframed_as_relay_chain_review",
+      "status": "reframed_as_relay_chain_review_mechanic_pass_prose_open",
       "source_message": "runtime/message-bus/messages/2026-10-11-0003-literary-flatness-character-entrance-review.json",
       "correction_message": "runtime/message-bus/messages/2026-10-11-0005-roster-entrance-correction.json",
       "must_resolve_before_resuming_long_linear_draft": true
     }
   ],
-  "current_stage": "opening_relay_chain_test",
+  "current_stage": "relay_test_01_revision_and_human_conflict_test",
   "next_stage_gate": {
     "required_before_resuming_long_linear_chapter_drafting": [
-      "do not draft standalone entrances for Tang Yu, He Xin or Gao Yuan merely to complete the core roster",
-      "draft one continuous 3-4 chapter relay test from route:industry-pressure-to-first-stability or replace it with a stronger relay discovered from ledger evidence",
-      "at every chapter boundary document the concrete baton that moves the camera",
-      "allow a secondary actor such as Chen Lan to carry the baton between two core actors",
-      "after the relay test, audit whether the reader is following a story rather than meeting a cast list",
-      "only then rebuild the longer chapter architecture"
+      "revise relay-test Chapter2 by subtraction so July-to-October does not read like a biographical timeline",
+      "revise relay-test Chapter3 so the technical-screen backstory does not overpower the current offer problem",
+      "continue Luo Cheng for at least one more scene where a real person with conflicting incentives or authority creates pressure; do not rely only on document mechanics",
+      "do not add Tang Yu, He Xin, Gao Yuan or any other core actor merely to broaden the cast",
+      "after revision, audit whether the reader follows a story and remembers people through scenes rather than biography"
     ],
-    "drafting_rule": "No return to the old Chapter7 sequence. Until the relay review passes, write only contiguous relay-chain prose and its audits; do not complete a roster of character entrances."
+    "drafting_rule": "No return to the old chapter architecture yet. Work only on the current relay chain and its literary revision until the relay review closes."
   }
 }
