@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "message_id": "2026-10-11-0004-character-entrance-direction-decision",
+  "created_at": "2026-10-11",
+  "from": "chatgpt_storyteller_driver",
+  "to": ["*"],
+  "topic": "decision:literary-character-entrance",
+  "kind": "decision",
+  "priority": "blocking",
+  "status": "open",
+  "refs": {
+    "review": "runtime/message-bus/messages/2026-10-11-0003-literary-flatness-character-entrance-review.json",
+    "design": "docs/adaptation/water-margin-character-entrance-model-v1.md",
+    "entrance_cards": "runtime/adaptation/storyteller/core-character-entrance-cards-v1.json",
+    "comparison": "runtime/adaptation/storyteller/opening-entrance-abc-comparison-v1.json",
+    "song_opening": "docs/adaptation/pilots/opening-entrance-b-song-pharma-interview-v2.md",
+    "zhou_second": "docs/adaptation/pilots/opening-entrance-a-zhou-technical-screen-v2.md",
+    "luo_third": "docs/adaptation/pilots/opening-entrance-c-luo-office-v1.md"
+  },
+  "summary": "暂定采用事件先行的角色出场结构：宋楠作为出版版开篇候选，周野第二个核心出场，罗诚第三个；旧 Ch1-Ch6 降为素材库。",
+  "body": "A/B/C 三个入口 probe 均明显优于旧的履历切片式开篇。暂定顺序：宋楠行业面试（快冲突）→ 周野技术筛查（冷压力）→ 罗诚行政现场（场景先动、人后进入）。三章只负责让读者记住三个不同的人，不要求立即交代六人关系。Campbell 长弧继续在后台；弱关系和 braid 稍后自然出现。人类 review 暂不完全关闭，因为唐雨、何欣、高原至少还需各完成一次同类出场重构，确认整本书不会在第一章以后重新变平。",
+  "action_required": "继续重构剩余核心人物的首次出场，不推进旧 Chapter7。完成至少唐雨、何欣、高原三个入口后，再决定是否关闭 literary-flatness review 并重建前 6-8 章正式顺序。",
+  "supersedes": null
+}
