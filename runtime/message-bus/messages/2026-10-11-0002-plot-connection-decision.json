@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "message_id": "2026-10-11-0002-plot-connection-decision",
+  "created_at": "2026-10-11",
+  "from": "chatgpt_storyteller_driver",
+  "to": ["*"],
+  "topic": "review:plot-connection",
+  "kind": "decision",
+  "priority": "blocking",
+  "status": "resolved",
+  "refs": {
+    "review_message": "runtime/message-bus/messages/2026-10-11-0001-plot-connection-review.json",
+    "decision_artifact": "runtime/adaptation/storyteller/plot-connection-resolution-v1.json",
+    "adaptation_head": "runtime/adaptation/storyteller/adaptation-head-v1.json"
+  },
+  "summary": "选择 option-a + option-c：前四章增加可感知弱编织，Chapter5 改为真实反馈/payoff 章；不建立统一强因果主线。",
+  "body": "人类审阅指出的结构缺口成立。处理方式保留 weakly-connected ensemble：Ch1 继续作为周野复现包种子；Ch2 增加许航收到周野后续消息及 failure-log 弱回声；Ch3 让罗诚从已有同学关系短暂想到周野的可检查技术证据，再被孙洁拉回自己的真实经历；Ch4 明确 failure_log 检查，使方法在弱关系网络中的迁移可见。Chapter5 不再直接跳到 2028 双 offer，而先回收 2027 的真实结果：周野技术筛查确实询问复跑、核验与异常记录，复现包第一次成为可交换证据；年末通过周野/高原/罗诚实际同学饭局让不同路线在正文中短暂交汇。不得写成赢家/输家排序，不让许航成为万能连接者，不牺牲 negative-space。",
+  "action_required": "后续驱动者以 v3 braided chapters 与 revised Chapter5 plan 为准；每一 Part 至少设计一次早期动作→后续可观察后果。"
+}
