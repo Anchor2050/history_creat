@@ -1,0 +1,17 @@
+{
+  "schema_version":11,
+  "period":"2033-q2",
+  "status":"behavior_audit_noncanonical",
+  "backend":"chatgpt_product_conversation",
+  "source_batch":"runtime/chatbot-live/batches/2033-q2.json",
+  "abnormal_budget":1,
+  "abnormal_used":0,
+  "decisions":[
+    {"actor_id":"zhou_ye","mode":"normal","chosen_action_id":"treat_home_ownership_as_explicit_lockin_cost","baseline_expected_action":"Keep mobility costs visible rather than naturalizing the purchase as irreversible destiny.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Mortgage and lower liquid cash are now observable post-purchase consequences.","constraint_check":{"feasible":true,"notes":"No financial distress or forced exit exists."},"evidence_refs":["2033q2:ownership01","2033q2:e01","2033q2:e02"]},
+    {"actor_id":"xu_hang","mode":"normal","chosen_action_id":"accept_independent_identity_evidence_but_not_method_maturity","baseline_expected_action":"Separate personal judgment capability from a universally transferable framework.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"The new task required genuine redesign and was successfully used by another person, supporting identity evidence but only one new case.","constraint_check":{"feasible":true,"notes":"No promotion or generalized method claim is created."},"evidence_refs":["2033q2:use01","2033q2:e03","2033q2:e04"]},
+    {"actor_id":"song_nan","mode":"normal","chosen_action_id":"finish_full_first_year_before_new_search","baseline_expected_action":"Judge the new role from the entire mixed bundle rather than one attractive life improvement or one slower learning signal.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Half-year evidence confirms both better living bundle and slower coordination/learning.","constraint_check":{"feasible":true,"notes":"Current role meets expectations and no acute exit trigger exists."},"evidence_refs":["2033q2:role01","2033q2:e05","2033q2:e06","2033q2:e07"]},
+    {"actor_id":"lin_jing","mode":"normal","chosen_action_id":"continue_long_question_without_output_commitment","baseline_expected_action":"Protect some problem-choice autonomy only while the question remains meaningful and duties are met.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"The question remains explainably meaningful after six months despite no publishable result.","constraint_check":{"feasible":true,"notes":"Formal duties are met and time block remains available."},"evidence_refs":["2033q2:research01","2033q2:e08","2033q2:e09"]},
+    {"actor_id":"tang_yu","mode":"normal","chosen_action_id":"allow_post_acceptance_research_gap","baseline_expected_action":"Do not create a new project solely to maintain uninterrupted output after a long project closes.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"No recurring new question has yet matured into a real line.","constraint_check":{"feasible":true,"notes":"A research gap has no hard-world cost requiring fabricated action."},"evidence_refs":["2033q2:e12","2033q2:e13"]}
+  ],
+  "audit_rule":"Q2 remains normal. Post-purchase friction, a research gap and mixed second-role evidence are retained instead of converted into dramatic reversals."
+}
