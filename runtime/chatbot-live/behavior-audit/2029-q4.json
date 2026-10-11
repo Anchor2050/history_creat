@@ -1,0 +1,16 @@
+{
+  "schema_version":1,
+  "period":"2029-q4",
+  "status":"behavior_audit_noncanonical",
+  "backend":"chatgpt_product_conversation",
+  "source_batch":"runtime/chatbot-live/batches/2029-q4.json",
+  "abnormal_budget":1,
+  "abnormal_used":0,
+  "decisions":[
+    {"actor_id":"chen_lan","mode":"normal","chosen_action_id":"accept_role_after_contract_confirms_boundary","baseline_expected_action":"Choose a sustainable formal structure over a higher-intensity role after years of overload evidence.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Contract terms preserve the response rotation and scope that made the offer acceptable.","constraint_check":{"feasible":true,"notes":"Relocation, cash and housing checks passed before acceptance."},"evidence_refs":["2029q4:e01","2029q4:e02"]},
+    {"actor_id":"lin_jing","mode":"normal","chosen_action_id":"finish_bounded_revisions_before_career_search","baseline_expected_action":"Close one major institutional loop before opening multiple new career decisions.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Completion requires bounded revisions and no acute job deadline is supplied.","constraint_check":{"feasible":true,"notes":"Search can be deferred until degree closure."},"evidence_refs":["2029q4:e03","2029q4:e05"]},
+    {"actor_id":"tang_yu","mode":"normal","chosen_action_id":"pause_submission_and_repair_or_shrink_statement","baseline_expected_action":"Treat negative logical evidence as a reason to narrow or repair rather than defend a preferred result.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Independent reading found a real lemma gap under a stronger hidden condition.","constraint_check":{"feasible":true,"notes":"The project remains internal; no external submission deadline exists."},"evidence_refs":["2029q4:e08","2029q4:e10"]},
+    {"actor_id":"gao_yuan","mode":"normal","chosen_action_id":"remain_in_home_prefecture_role_after_first_year","baseline_expected_action":"Continue the role while the chosen benefits—family distance, housing and predictable time—still outweigh the now-visible low opportunity density.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"A full year confirms both benefits and costs without a new shock.","constraint_check":{"feasible":true,"notes":"Employment and household conditions remain feasible."},"evidence_refs":["2029q4:e15","2029q4:e16"]}
+  ],
+  "audit_rule":"Independent negative checks changed project state without requiring abnormal behavior; all audited actor choices remain baseline-consistent."
+}
