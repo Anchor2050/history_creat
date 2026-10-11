@@ -1,0 +1,35 @@
+{
+  "schema_version":1,
+  "status":"full_pilot_revision_comparison_noncanonical",
+  "historical_world_writeback":false,
+  "v1":"docs/adaptation/pilots/ch03-luo-posting-full-v1.md",
+  "v2":"docs/adaptation/pilots/ch03-luo-posting-full-v2.md",
+  "overall_judgment":"v2_preferred_full_chapter_gate_pass",
+  "improvements":[
+    "Sun Jie feels more like a busy staff member and less like an authorial truth-delivery device.",
+    "Luo Cheng's status discomfort remains visible after removing several witty recovery lines.",
+    "The chapter trusts the office workflow and resume edits to show the gap between training and direct experience.",
+    "The printing-shop section is shorter and no longer explains the mismatch after the reader has already seen it.",
+    "The mundane ending survives subtraction and does not require a thematic closing image."
+  ],
+  "losses_that_are_acceptable":[
+    "v2 contains less explicit explanation of why student-affairs labor changes Luo's view of the role.",
+    "v2 has fewer memorable lines and less conversational sparkle.",
+    "some readers may need to infer more about Luo's identity anxiety from context and later chapters."
+  ],
+  "remaining_risks":[
+    "Sun Jie is still more verbally precise than many real busy staff members; later scenes should show her tired, mistaken, unavailable or less patient at times.",
+    "The full novel must not make every chapter hinge on a document, table, file version or checklist simply because these devices work well in this pilot.",
+    "Luo's warmer and more adaptive personality needs scenes away from institutional consultation so he does not become only the man who asks good career questions."
+  ],
+  "gate_status":{
+    "full_pilot_chapter":"pass",
+    "subtractive_revision":"pass",
+    "narrative_voice_at_chapter_length":"pass",
+    "secondary_character_humanity":"pass_with_future_variation_required",
+    "anti_ai_style":"provisional_pass_at_chapter_length",
+    "prose_canon":"pilot_v2_may_be_used_as_voice_reference_but_not_final_published_text",
+    "sequential_drafting":"allowed_one_chapter_at_a_time_with_review"
+  },
+  "next_recommendation":"Do not draft all remaining chapters. Draft the actual opening candidate next, then compare opening energy against this pilot. Keep each new full chapter disposable until it passes subtraction and anti-AI review."
+}
