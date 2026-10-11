@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_long_scene_audit_noncanonical",
+  "historical_world_writeback": false,
+  "audited_file": "docs/adaptation/probes/p4-01-ma-song-long-scene-v1.md",
+  "overall_judgment": "sustained_voice_test_pass_with_constraints",
+  "passes": [
+    "The scene sustains length through task pressure, file versions, meeting interruptions and competing professional needs rather than narrator explanation.",
+    "Ma Qing remains the viewpoint center without becoming morally or intellectually superior to Song Nan.",
+    "Song Nan's statistical caution and Ma Qing's delivery pressure both remain legitimate goods.",
+    "A third professional perspective changes the conflict: the medical colleague fears premature abandonment while Song Nan fears premature advancement.",
+    "Minor inefficiency, wrong-file confusion, coffee, mistaken door opening and schedule changes create dead time and friction without decorative symbolism.",
+    "No character gives a life lesson or explains the theme.",
+    "The ending remains procedurally unfinished: a new ownership question arrives after the team thought the slide was ready.",
+    "Professional competence is visible, but competence does not eliminate irritation, tone mistakes, version errors or ambiguity."
+  ],
+  "problems": [
+    "Several lines are still unusually efficient, especially '你今天最怕他们误解成什么' and the product colleague's '一个别砍，一个别推'. These work in a task meeting but should not become a default dialogue rhythm.",
+    "The recurring final_v3/version-control motif is vivid and useful, but repeated procedural motifs can become writerly signatures if overused across chapters.",
+    "The doctor, product colleague and department head assistant remain functional side roles rather than full guest arcs. That is acceptable for this probe, but any recurring one should receive a guest dossier.",
+    "The coffee omission and recycle-bin exchange add lived texture; too many comparable micro-comic beats in one chapter could make realism feel engineered.",
+    "The scene is strong in institutional/professional texture and weak in bodily, spatial and relational history beyond the meeting room. A whole novel cannot stay at this density of work scenes."
+  ],
+  "anti_ai_assessment": {
+    "authorial_psychology_explanation": "low",
+    "thesis_dialogue": "low",
+    "forced_symbolism": "none_detected",
+    "designed_scene_closure": "low",
+    "overly_witty_dialogue": "moderate_low",
+    "symmetry": "low",
+    "competence_porn_risk": "moderate_if_repeated",
+    "mundane_friction": "high_and_useful"
+  },
+  "narrative_voice_candidate": {
+    "status": "provisional_pass",
+    "label": "close_external_restrained_realism",
+    "distance": "Stay close enough to register selective attention and momentary hesitation, but keep most meaning in speech, action, objects, timing and institutional constraints.",
+    "interiority_rule": "Use brief interior access only when it changes what the viewpoint notices or does. Do not translate every reaction into a named emotion or motive.",
+    "dialogue_rule": "Let trained professionals sometimes communicate efficiently, but preserve interruption, incomplete repair, status effects, tiredness and occasional bad phrasing.",
+    "scene_end_rule": "End when the local action naturally stops or changes task; do not add a retrospective meaning shot.",
+    "ordinary_detail_rule": "Use mundane details when they create friction, timing, status or attention. Do not turn ordinary objects into symbolic props by default.",
+    "campbell_rule": "Hero-journey structure remains backstage. Transformation is inferred across repeated scenes, never announced inside a scene."
+  },
+  "gate_status_after_pass_04": {
+    "short_scene_restrained_mode": "pass",
+    "long_scene_sustainability": "pass",
+    "guest_viewpoint": "pass",
+    "institutional_conflict": "pass",
+    "anti_ai_style": "provisional_pass",
+    "narrative_voice": "provisional_pass",
+    "full_prose_canon": "still_blocked",
+    "chapter_architecture": "may_begin_provisionally_but_should_not_fix_every_scene"
+  },
+  "next_recommendation": "Freeze a provisional narrative-voice specification, then test the same voice outside professional settings: one domestic/private scene, one travel/public-space scene, and one intellectually intense research scene. If the voice remains distinct across all three, chapter architecture can move from provisional to active design."
+}
