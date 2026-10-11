@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "opening_five_continuity_audit_noncanonical",
+  "historical_world_writeback": false,
+  "chapters": [
+    {"chapter": 1, "reference": "docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md", "lead": "zhou_ye", "register": "quiet technical call"},
+    {"chapter": 2, "reference": "docs/adaptation/pilots/ch02-ordinary-trip-full-v3-braided.md", "lead": "song_nan_ensemble", "register": "ordinary social diffusion with one weak follow-up cue"},
+    {"chapter": 3, "reference": "docs/adaptation/pilots/ch03-luo-posting-full-v3-braided.md", "lead": "luo_cheng", "register": "institutional labor and status friction"},
+    {"chapter": 4, "reference": "docs/adaptation/pilots/ch04-tang-xu-implementation-structure-full-v3-braided.md", "lead": "tang_yu", "register": "research trial and evidence separation"},
+    {"chapter": 5, "reference": "docs/adaptation/pilots/ch05-first-results-full-v2.md", "lead": "zhou_ye", "register": "external payoff, offer materiality and classmate convergence"}
+  ],
+  "overall_judgment": "sequence_now_reads_as_weakly_connected_novel_opening",
+  "why_it_improved": [
+    "Ch1 is no longer self-contained: its reproducibility package reappears as an unread follow-up in Ch2 and receives a concrete recruitment payoff in Ch5.",
+    "Ch2 remains ordinary-world texture; the connective message is peripheral and does not turn the trip into networking setup.",
+    "Ch3 now remembers Zhou's inspectable technical evidence through an existing classmate relation, while Sun Jie refuses to let Luo borrow another profession's proof form.",
+    "Ch4 makes failure-log practice visible in another research relationship, showing limited method diffusion without making Xu Hang the protagonist of the network.",
+    "Ch5 converts prior preparation into contingent consequences and physically brings Zhou/Gao/Luo together through a historically existing classmate dinner."
+  ],
+  "what_still_remains_weak": [
+    "The first five chapters still do not share a single causal mainline; this is now an intentional ensemble property rather than an accidental omission.",
+    "Xu Hang remains a high-frequency connector in Chapters1/2/4. He should recede for several chapters.",
+    "The reproducibility/failure-record motif is now sufficiently visible; do not keep repeating it as a franchise symbol.",
+    "Song Nan's introduction in Chapter2 has not yet received a major personal payoff. Her industry threshold should later grow from her own arc, not from Xu Hang.",
+    "Gao Yuan enters only in Chapter5; Chapter6 must deepen him through concrete choice rather than retrospective biography."
+  ],
+  "negative_space_check": {
+    "pass": true,
+    "note": "Connections are carried by messages, remembered peer practice, repeated work habits and later outcomes; no narrator explains the braid or announces a shared theme."
+  },
+  "campbell_check": {
+    "pass": true,
+    "note": "The sequence now contains call/ordinary/trial/trial/threshold beats across different people without pretending these beats form one synchronized hero journey."
+  },
+  "reader_review_resolution": "pass_after_prose_retrofit_and_chapter5_payoff",
+  "next_recommendation": "Advance to the preserved Gao Yuan / Chen Lan choice chapter. Keep Xu and Tang off center; emphasize city, time, response burden, family geography and the fact that acceptance/refusal are different Campbell functions rather than opposite moral answers."
+}
