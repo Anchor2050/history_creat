@@ -1,0 +1,92 @@
+{
+  "spec_version": 1,
+  "status": "noncanonical_social_seed",
+  "scope": "fourteen_person_ensemble_2026_2035",
+  "main_actors": [
+    "lin_jing", "chen_lan", "xu_hang", "wu_cheng", "shen_yan", "gu_wei", "zhao_ke", "sun_jie",
+    "zhou_ye", "gao_yuan", "luo_cheng", "tang_yu", "he_xin", "song_nan"
+  ],
+  "principles": [
+    "关系是随事件变化的状态，不是静态标签。",
+    "同班、同门、校友、发小、工作合作、朋友介绍产生不同初始强度与互动频率。",
+    "弱联系可以通过聚会、旅行、会议、求职、群聊和朋友介绍变成强联系，也可以多年保持弱联系。",
+    "人物可以拒绝聚会、错过消息、疏远、重新联系；关系不会因为作者需要自动推进。",
+    "职业与家庭硬约束决定人物是否有时间、钱和地理条件参加社交活动。",
+    "朋友的朋友只有在实际共同事件或明确介绍后才成为已认识关系。"
+  ],
+  "tie_kinds": {
+    "roommate": {"base_closeness": 0.82, "contact_days": 5, "introduction_power": 0.75},
+    "same_class": {"base_closeness": 0.72, "contact_days": 10, "introduction_power": 0.72},
+    "same_group": {"base_closeness": 0.68, "contact_days": 9, "introduction_power": 0.70},
+    "alumni": {"base_closeness": 0.42, "contact_days": 45, "introduction_power": 0.68},
+    "childhood_friend": {"base_closeness": 0.86, "contact_days": 18, "introduction_power": 0.82},
+    "mentor_student": {"base_closeness": 0.55, "contact_days": 14, "introduction_power": 0.76},
+    "work_peer": {"base_closeness": 0.44, "contact_days": 21, "introduction_power": 0.73},
+    "information_peer": {"base_closeness": 0.36, "contact_days": 28, "introduction_power": 0.60},
+    "former_same_group": {"base_closeness": 0.58, "contact_days": 30, "introduction_power": 0.52},
+    "introduced_acquaintance": {"base_closeness": 0.24, "contact_days": 90, "introduction_power": 0.42}
+  },
+  "initial_ties": [
+    {"a":"lin_jing","b":"chen_lan","kind":"roommate","context":"university_a_dorm","trust":0.78},
+    {"a":"chen_lan","b":"xu_hang","kind":"former_same_group","context":"former_academic_group","trust":0.52},
+    {"a":"lin_jing","b":"shen_yan","kind":"mentor_student","context":"university_a","trust":0.66},
+    {"a":"chen_lan","b":"wu_cheng","kind":"mentor_student","context":"university_a","trust":0.61},
+    {"a":"xu_hang","b":"gu_wei","kind":"mentor_student","context":"university_b","trust":0.67},
+    {"a":"chen_lan","b":"zhao_ke","kind":"work_peer","context":"mingheng_project","trust":0.58},
+    {"a":"lin_jing","b":"sun_jie","kind":"information_peer","context":"university_a_student_affairs","trust":0.55},
+    {"a":"chen_lan","b":"sun_jie","kind":"information_peer","context":"university_a_student_affairs","trust":0.60},
+
+    {"a":"zhou_ye","b":"gao_yuan","kind":"same_class","context":"university_c_probability_doctoral_cohort","trust":0.73},
+    {"a":"zhou_ye","b":"luo_cheng","kind":"same_class","context":"university_c_probability_doctoral_cohort","trust":0.68},
+    {"a":"gao_yuan","b":"luo_cheng","kind":"same_class","context":"university_c_probability_doctoral_cohort","trust":0.70},
+
+    {"a":"tang_yu","b":"he_xin","kind":"same_class","context":"university_d_survival_analysis_cohort","trust":0.72},
+    {"a":"tang_yu","b":"song_nan","kind":"same_class","context":"university_d_survival_analysis_cohort","trust":0.69},
+    {"a":"he_xin","b":"song_nan","kind":"same_class","context":"university_d_survival_analysis_cohort","trust":0.74},
+
+    {"a":"zhou_ye","b":"xu_hang","kind":"information_peer","context":"reproducibility_exchange","trust":0.40},
+    {"a":"zhou_ye","b":"chen_lan","kind":"information_peer","context":"stable_work_comparison","trust":0.34},
+    {"a":"gao_yuan","b":"lin_jing","kind":"information_peer","context":"public_sector_preparation","trust":0.42},
+    {"a":"luo_cheng","b":"sun_jie","kind":"information_peer","context":"student_affairs_job_information","trust":0.46},
+    {"a":"luo_cheng","b":"lin_jing","kind":"information_peer","context":"university_path_comparison","trust":0.36},
+    {"a":"tang_yu","b":"shen_yan","kind":"information_peer","context":"methods_seminar","trust":0.44},
+    {"a":"tang_yu","b":"xu_hang","kind":"work_peer","context":"verification_collaboration","trust":0.48},
+    {"a":"he_xin","b":"lin_jing","kind":"information_peer","context":"career_comparison","trust":0.39},
+    {"a":"he_xin","b":"sun_jie","kind":"information_peer","context":"public_institution_process","trust":0.45},
+    {"a":"song_nan","b":"chen_lan","kind":"work_peer","context":"industry_translation","trust":0.49},
+    {"a":"song_nan","b":"zhao_ke","kind":"work_peer","context":"health_data_project_channel","trust":0.51}
+  ],
+  "recurring_social_rituals": [
+    {"id":"u_c_cohort_dinner","participants":["zhou_ye","gao_yuan","luo_cheng"],"cadence_months":2,"kind":"classmate_meal","attendance_base":0.78},
+    {"id":"u_d_cohort_dinner","participants":["tang_yu","he_xin","song_nan"],"cadence_months":2,"kind":"classmate_meal","attendance_base":0.80},
+    {"id":"u_a_old_friends_meal","participants":["lin_jing","chen_lan","xu_hang"],"cadence_months":4,"kind":"old_peer_meal","attendance_base":0.58},
+    {"id":"methods_alumni_meetup","participants":["lin_jing","xu_hang","tang_yu","he_xin","song_nan"],"cadence_months":6,"kind":"alumni_methods_meetup","attendance_base":0.52},
+    {"id":"doctoral_cross_school_dinner","participants":["lin_jing","chen_lan","xu_hang","zhou_ye","gao_yuan","luo_cheng","tang_yu","he_xin","song_nan"],"cadence_months":12,"kind":"cross_school_friend_dinner","attendance_base":0.44},
+    {"id":"summer_short_trip","participants":["lin_jing","chen_lan","xu_hang","zhou_ye","gao_yuan","luo_cheng","tang_yu","he_xin","song_nan"],"cadence_months":12,"month":7,"kind":"friend_trip","attendance_base":0.32},
+    {"id":"year_end_gathering","participants":["lin_jing","chen_lan","xu_hang","zhou_ye","gao_yuan","luo_cheng","tang_yu","he_xin","song_nan"],"cadence_months":12,"month":12,"kind":"year_end_gathering","attendance_base":0.50}
+  ],
+  "occasional_event_types": [
+    {"kind":"conference_meal","annual_probability":0.48,"min_people":3,"max_people":7},
+    {"kind":"wedding_or_life_event","annual_probability":0.30,"min_people":4,"max_people":9},
+    {"kind":"recruitment_information_session","annual_probability":0.55,"min_people":2,"max_people":6},
+    {"kind":"project_meal","annual_probability":0.42,"min_people":2,"max_people":5},
+    {"kind":"weekend_outing","annual_probability":0.44,"min_people":3,"max_people":6},
+    {"kind":"unexpected_city_overlap","annual_probability":0.32,"min_people":2,"max_people":4},
+    {"kind":"group_chat_revival","annual_probability":0.72,"min_people":3,"max_people":9}
+  ],
+  "introduction_rules": {
+    "minimum_host_trust": 0.38,
+    "minimum_context_overlap": 0.18,
+    "max_new_introductions_per_event": 3,
+    "new_tie_kind": "introduced_acquaintance",
+    "new_tie_trust_range": [0.22, 0.38],
+    "new_tie_closeness_range": [0.18, 0.32]
+  },
+  "micro_replay_channels": ["in_person","phone","wechat_private","wechat_group","email","video_call"],
+  "micro_replay_window_days": {
+    "ordinary_social_event": 3,
+    "career_or_family_turning_point": 7,
+    "trip_or_extended_gathering": 5,
+    "major_crisis": 14
+  }
+}
