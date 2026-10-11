@@ -1000,6 +1000,29 @@ class EpisodeTrace:
     )
 
 
+def secret_mafia_role_schedule(
+    *,
+    num_players: int,
+    seed: int,
+    mafia_ratio: float = 0.25,
+    discussion_rounds: int = 3,
+    env_factory: Callable[..., Any] | None = None,
+) -> dict[int, str]:
+    """Read a seed's role schedule without playing a game.
+
+    This is experimenter-side truth used only to decide **which policy sits on
+    which seat** in a cross-play condition, the way any A/B designer assigns
+    arms.  It never reaches a policy: a policy still receives only its own
+    :class:`ActorView`, so the information boundary is unchanged.  The schedule
+    is a deterministic function of the seed, so the throwaway reset below
+    reproduces exactly the roles the real episode will get.
+    """
+    factory = env_factory or load_textarena_secret_mafia_env()
+    env = factory(mafia_ratio=mafia_ratio, discussion_rounds=discussion_rounds)
+    env.reset(num_players=num_players, seed=seed)
+    return {pid: str(env.player_roles[pid]) for pid in range(num_players)}
+
+
 class SecretMafiaLiveRunner:
     """Drive a live TextArena SecretMafia game with SCK policies.
 
@@ -1151,17 +1174,45 @@ class SecretMafiaLiveRunner:
     def run_episode(
         self,
         *,
-        variant: VariantConfig,
+        variant: VariantConfig | None = None,
+        seat_variants: Mapping[int, VariantConfig] | None = None,
+        condition_id: str | None = None,
         num_players: int = 6,
         seed: int = 0,
     ) -> EpisodeEvaluation:
+        """Play one episode.
+
+        Either ``variant`` (one policy drives every seat) or ``seat_variants``
+        (a policy per seat) must be given.  ``seat_variants`` is how cross-play
+        seats an informed policy against a fixed baseline.  Which policy sits on
+        which seat is experiment design, decided by the caller from the seed's
+        role schedule; the policies themselves still only ever see their own
+        :class:`ActorView`, so the information boundary is unaffected.
+        """
+        if seat_variants is None:
+            if variant is None:
+                raise SCKError("run_episode requires variant or seat_variants")
+            seat_variants = {pid: variant for pid in range(num_players)}
+        else:
+            seat_variants = {int(k): v for k, v in seat_variants.items()}
+            missing = set(range(num_players)) - set(seat_variants)
+            if missing:
+                raise SCKError(f"seat_variants is missing seats: {sorted(missing)}")
+        label = condition_id or (
+            variant.variant_id
+            if variant is not None
+            else "+".join(
+                sorted({v.variant_id for v in seat_variants.values()})
+            )
+        )
+
         mafia_count = secret_mafia_role_count(num_players, self.mafia_ratio)
         env = self._make_env()
         env.reset(num_players=num_players, seed=seed)
         state = env.state
         policies = {
             pid: build_policy(
-                variant,
+                seat_variants[pid],
                 num_players=num_players,
                 seed=seed * 1000 + pid,
                 tie_break=self.tie_break,
@@ -1254,12 +1305,13 @@ class SecretMafiaLiveRunner:
         return evaluate_episode(
             env=env,
             state=state,
-            variant=variant,
+            variant_id=label,
             seed=seed,
             num_players=num_players,
             mafia_count=mafia_count,
             trace=trace,
             target_action_format=self.action_format,
+            seat_variants=seat_variants,
         )
 
 
@@ -1333,12 +1385,13 @@ def evaluate_episode(
     *,
     env,
     state,
-    variant: VariantConfig,
+    variant_id: str,
     seed: int,
     num_players: int,
     mafia_count: int,
     trace: EpisodeTrace,
     target_action_format: str = DEFAULT_TARGET_ACTION_FORMAT,
+    seat_variants: Mapping[int, VariantConfig] | None = None,
 ) -> EpisodeEvaluation:
     """Score a finished episode.  Backstage truth is read here only."""
     true_roles = {pid: env.player_roles[pid] for pid in range(num_players)}
@@ -1353,7 +1406,7 @@ def evaluate_episode(
             break
 
     evaluation = EpisodeEvaluation(
-        variant_id=variant.variant_id,
+        variant_id=variant_id,
         won=bool(rewards.get(0) == 1) if rewards else None,
         utility=float(rewards[0]) if 0 in rewards else None,
     )
@@ -1362,6 +1415,12 @@ def evaluate_episode(
             "seed": seed,
             "num_players": num_players,
             "mafia_count": mafia_count,
+            "condition_id": variant_id,
+            "seat_policy_by_actor": (
+                {str(pid): v.variant_id for pid, v in sorted(seat_variants.items())}
+                if seat_variants
+                else {}
+            ),
             "steps": trace.steps,
             "nights_played": trace.nights_played,
             "invalid_moves": trace.invalid_moves,

@@ -42,8 +42,9 @@ import argparse
 from dataclasses import dataclass, field
 import json
 from pathlib import Path
+import re
 import time
-from typing import Any, Iterable, Sequence
+from typing import Any, Callable, Iterable, Mapping, Sequence
 
 from .storybox_sck_eval_v0 import DEFAULT_AB_VARIANTS, EpisodeEvaluation, VariantConfig
 from .storybox_textarena_secret_mafia_live_v0 import (
@@ -52,6 +53,7 @@ from .storybox_textarena_secret_mafia_live_v0 import (
     BeliefPolicy,
     SecretMafiaLiveRunner,
     load_textarena_secret_mafia_env,
+    secret_mafia_role_schedule,
 )
 from .storybox_textarena_secret_mafia_adapter_v0 import (
     marginal_mafia_probabilities,
@@ -80,6 +82,12 @@ UNAVAILABLE_METRICS = {
         "targets reach later actors through the ordinary observation stream. This "
         "entry is retained only to record that the earlier limitation was lifted "
         "by peer decision 0016 Q1; see target_action_format in the design block."
+    ),
+    "replay_calibrated_evidence_model": (
+        "Not implemented yet. Peer decision 0016 Q4 requires a symmetric evidence "
+        "feature set fitted on a training seed partition and frozen before "
+        "held-out evaluation. The current hand-specified BehaviorEvidenceModel is "
+        "still what the belief variants use."
     ),
 }
 
@@ -492,6 +500,512 @@ def format_discrimination(report: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
+# ---------------------------------------------------------------------------
+# Paired cross-play against a fixed baseline
+# ---------------------------------------------------------------------------
+
+#: The fixed, uninformed opponent: uniform random legal target, no memory and no
+#: belief.  It is frozen by definition and never learns from the informed seats.
+BASELINE_VARIANT_ID = "plain"
+
+
+def cross_play_conditions(
+    informed_variant_id: str,
+) -> dict[str, dict[str, str]]:
+    """Seat plans for one informed policy against the fixed baseline.
+
+    Each condition maps a seat role to the variant that drives it.  Roles, not
+    seat ids, decide the arm, so the comparison is symmetric across seeds even
+    though the role schedule changes.  Which seat holds which role is read from
+    the seed's role schedule by the caller; that is experiment design, not
+    information available to any policy.
+    """
+    baseline = BASELINE_VARIANT_ID
+    informed = informed_variant_id
+    return {
+        "all_baseline": {role: baseline for role in _ROLE_ARMS},
+        f"{informed}_village": {
+            role: (baseline if role == "Mafia" else informed) for role in _ROLE_ARMS
+        },
+        f"{informed}_mafia": {
+            role: (informed if role == "Mafia" else baseline) for role in _ROLE_ARMS
+        },
+        f"all_{informed}": {role: informed for role in _ROLE_ARMS},
+    }
+
+
+_ROLE_ARMS = ("Villager", "Mafia", "Doctor", "Detective")
+
+
+def _variant_by_id(variant_id: str) -> VariantConfig:
+    for variant in DEFAULT_AB_VARIANTS:
+        if variant.variant_id == variant_id:
+            return variant
+    raise ValueError(f"unknown variant id: {variant_id}")
+
+
+def seat_variants_for_condition(
+    condition_plan: Mapping[str, str], role_schedule: Mapping[int, str]
+) -> dict[int, VariantConfig]:
+    out: dict[int, VariantConfig] = {}
+    for pid, role in role_schedule.items():
+        try:
+            variant_id = condition_plan[role]
+        except KeyError as exc:
+            raise ValueError(f"condition plan has no arm for role {role}") from exc
+        out[int(pid)] = _variant_by_id(variant_id)
+    return out
+
+
+_STEP_ID_RE = re.compile(r"^p(\d+)-n(\d+)-(.+)-(\d+)$")
+
+
+def vote_coordination_report(episodes: Sequence[EpisodeEvaluation]) -> dict[str, Any]:
+    """Measure how the day vote was actually distributed, per faction.
+
+    This is the cross-play exploitability/asymmetry diagnostic peer decision 0016
+    Q5 asks for.  It answers the question the win rates alone cannot: did the
+    informed side win by *inferring* better, or by *coordinating* into a bloc
+    while the opposing side scattered its votes?
+
+    ``mafia_target_is_plurality_rate`` is the direct test.  The environment
+    eliminates the plurality target, so if the Mafia's target is the (co-)plurality
+    far more often than chance, the Mafia seats are effectively choosing the
+    elimination rather than out-reasoning anyone.
+
+    Read from already-recorded decisions; truth (the role schedule) is used only
+    to label votes, never to produce them.
+    """
+    from collections import defaultdict
+
+    rounds: dict[tuple[int, int], list[tuple[int, int]]] = defaultdict(list)
+    mafia_by_episode: dict[int, set[int]] = {}
+    for index, evaluation in enumerate(episodes):
+        mafia_by_episode[index] = {
+            int(pid) for pid in evaluation.metadata.get("true_mafia", [])
+        }
+        for checkpoint in evaluation.action_checkpoints:
+            match = _STEP_ID_RE.match(checkpoint.step_id)
+            if not match:
+                continue
+            actor, night, phase, _ = match.groups()
+            if phase != "Day-Voting":
+                continue
+            kind, _, target = str(checkpoint.chosen_action_id).partition(":")
+            if kind != "vote" or not target:
+                continue
+            rounds[(index, int(night))].append((int(actor), int(target)))
+
+    mafia_rounds = 0
+    union_mafia_rounds = 0
+    plurality_rounds = 0
+    distinct_mafia: list[int] = []
+    distinct_village: list[int] = []
+    for (index, _night), votes in rounds.items():
+        mafia_seats = mafia_by_episode.get(index, set())
+        mafia_votes = [target for actor, target in votes if actor in mafia_seats]
+        village_votes = [target for actor, target in votes if actor not in mafia_seats]
+        if len(mafia_votes) < 2:
+            continue
+        mafia_rounds += 1
+        distinct_mafia.append(len(set(mafia_votes)))
+        if village_votes:
+            distinct_village.append(len(set(village_votes)))
+        if len(set(mafia_votes)) == 1:
+            union_mafia_rounds += 1
+            counts: dict[int, int] = {}
+            for target in [t for _a, t in votes]:
+                counts[target] = counts.get(target, 0) + 1
+            top = max(counts.values())
+            if counts[mafia_votes[0]] == top:
+                plurality_rounds += 1
+
+    def rate(numerator: int, denominator: int) -> float | None:
+        return numerator / denominator if denominator else None
+
+    return {
+        "day_vote_rounds_with_two_mafia_votes": mafia_rounds,
+        "mafia_unanimous_rate": rate(union_mafia_rounds, mafia_rounds),
+        "mafia_target_is_plurality_rate": rate(plurality_rounds, union_mafia_rounds),
+        "mean_distinct_mafia_targets": _mean([float(x) for x in distinct_mafia]),
+        "mean_distinct_village_targets": _mean([float(x) for x in distinct_village]),
+        "interpretation": (
+            "mafia_unanimous_rate is how often the two Mafia seats named the same "
+            "target. mafia_target_is_plurality_rate is how often that shared "
+            "target was then the (co-)plurality that the environment eliminates. "
+            "A high pair means the informed Mafia wins by bloc voting, which is "
+            "coordination, not inference."
+        ),
+    }
+
+
+def aggregate_cross_play(episodes: Sequence[EpisodeEvaluation]) -> dict[str, Any]:
+    """Score a cross-play condition by faction and by informed/baseline side.
+
+    Which seats are informed is read per episode from that episode's seat plan,
+    because the arm is assigned by role and the role schedule changes with the
+    seed.  ``informed_faction_win_rate`` is only defined when exactly one faction
+    holds informed seats; in ``all_baseline`` and ``all_<informed>`` it is
+    reported as ``None`` rather than as a meaningless number.
+    """
+    if not episodes:
+        raise ValueError("cannot aggregate a condition with no episodes")
+
+    village_wins: list[float] = []
+    informed_faction_wins: list[float] = []
+    informed_faction_names: list[str] = []
+    baseline_faction_wins: list[float] = []
+    informed_seat_utilities: list[float] = []
+    baseline_seat_utilities: list[float] = []
+    leakage = 0
+    brier_values: list[float] = []
+    losses: list[float] = []
+
+    for evaluation in episodes:
+        rows = evaluation.metadata.get("actor_results", [])
+        if not rows:
+            continue
+        role_by_pid = {int(row["actor_id"]): str(row["role"]) for row in rows}
+        policy_by_pid = {
+            int(pid): str(policy)
+            for pid, policy in evaluation.metadata.get("seat_policy_by_actor", {}).items()
+        }
+        informed_seats = {
+            pid for pid, policy in policy_by_pid.items() if policy != BASELINE_VARIANT_ID
+        }
+        baseline_seats = set(role_by_pid) - informed_seats
+
+        village_seats = [row for row in rows if row["role"] != "Mafia"]
+        village_won = 1.0 if all(row["won"] for row in village_seats) else 0.0
+        village_wins.append(village_won)
+
+        informed_roles = {role_by_pid[pid] for pid in informed_seats if pid in role_by_pid}
+        if informed_roles and all(role != "Mafia" for role in informed_roles):
+            informed_faction_wins.append(village_won)
+            informed_faction_names.append("Village")
+        elif informed_roles and all(role == "Mafia" for role in informed_roles):
+            informed_faction_wins.append(1.0 - village_won)
+            informed_faction_names.append("Mafia")
+
+        if baseline_seats:
+            baseline_roles = {
+                role_by_pid[pid] for pid in baseline_seats if pid in role_by_pid
+            }
+            if baseline_roles == {"Mafia"}:
+                baseline_faction_wins.append(1.0 - village_won)
+            elif "Mafia" not in baseline_roles:
+                baseline_faction_wins.append(village_won)
+
+        informed_seat_utilities.extend(
+            float(row["reward"])
+            for row in rows
+            if int(row["actor_id"]) in informed_seats and row["reward"] is not None
+        )
+        baseline_seat_utilities.extend(
+            float(row["reward"])
+            for row in rows
+            if int(row["actor_id"]) in baseline_seats and row["reward"] is not None
+        )
+
+        summary = evaluation.summary()
+        leakage += int(summary["information_leakage_count"])
+        if summary["mean_brier"] is not None:
+            brier_values.append(float(summary["mean_brier"]))
+        for checkpoint in evaluation.action_checkpoints:
+            losses.append(checkpoint.regret)
+
+    village_rate = _mean(village_wins)
+    return {
+        "episodes": len(episodes),
+        "village_faction_win_rate": village_rate,
+        "mafia_faction_win_rate": (
+            None if village_rate is None else 1.0 - village_rate
+        ),
+        "informed_faction_win_rate": _mean(informed_faction_wins),
+        "informed_faction_episodes": len(informed_faction_wins),
+        "informed_faction": (
+            informed_faction_names[0]
+            if informed_faction_names
+            and len(set(informed_faction_names)) == 1
+            else None
+        ),
+        "baseline_faction_win_rate": _mean(baseline_faction_wins),
+        "informed_seat_mean_utility": _mean(informed_seat_utilities),
+        "baseline_seat_mean_utility": _mean(baseline_seat_utilities),
+        "mean_brier_village_side": _mean(brier_values),
+        "information_leakage_count": leakage,
+        "mean_immediate_target_loss_diagnostic": _mean(losses),
+        "invalid_moves": sum(
+            int(e.metadata.get("invalid_moves", 0)) for e in episodes
+        ),
+    }
+
+
+def run_cross_play(
+    *,
+    informed_variant_ids: Sequence[str] = ("belief", "belief_planning"),
+    episodes_per_condition: int = 50,
+    num_players: int = 6,
+    seed_start: int = 0,
+    discussion_rounds: int = 3,
+    action_format: str = DEFAULT_TARGET_ACTION_FORMAT,
+    role_schedule_fn: Callable[..., dict[int, str]] | None = None,
+    runner: SecretMafiaLiveRunner | None = None,
+    progress: bool = False,
+) -> dict[str, Any]:
+    """Paired cross-play: informed seats against a frozen baseline.
+
+    Every condition and every seed uses the identical role schedule, because the
+    schedule is a deterministic function of the seed.  Each condition is scored
+    by faction win rate and by the informed side's outcome, with the
+    immediate-target-loss metric retained only as a diagnostic.
+    """
+    runner = runner or SecretMafiaLiveRunner(
+        discussion_rounds=discussion_rounds, action_format=action_format
+    )
+    schedule_fn = role_schedule_fn or secret_mafia_role_schedule
+    seeds = list(range(seed_start, seed_start + episodes_per_condition))
+    schedules = {
+        seed: schedule_fn(
+            num_players=num_players,
+            seed=seed,
+            mafia_ratio=runner.mafia_ratio,
+            discussion_rounds=discussion_rounds,
+        )
+        for seed in seeds
+    }
+
+    reference_id = "all_baseline"
+    conditions: dict[str, Any] = {}
+    records: list[dict[str, Any]] = []
+    planned: list[tuple[str, dict[str, str] | None, str]] = [
+        (reference_id, None, BASELINE_VARIANT_ID)
+    ]
+    for informed_id in informed_variant_ids:
+        for condition_id, plan in cross_play_conditions(informed_id).items():
+            if condition_id == reference_id:
+                continue
+            planned.append((condition_id, plan, informed_id))
+
+    for condition_id, plan, label in planned:
+        episodes: list[EpisodeEvaluation] = []
+        started = time.perf_counter()
+        for index, seed in enumerate(seeds):
+            if plan is None:
+                episodes.append(
+                    runner.run_episode(
+                        variant=_variant_by_id(BASELINE_VARIANT_ID),
+                        condition_id=condition_id,
+                        num_players=num_players,
+                        seed=seed,
+                    )
+                )
+            else:
+                episodes.append(
+                    runner.run_episode(
+                        seat_variants=seat_variants_for_condition(
+                            plan, schedules[seed]
+                        ),
+                        condition_id=condition_id,
+                        num_players=num_players,
+                        seed=seed,
+                    )
+                )
+            if progress and (index + 1) % 50 == 0:
+                print(f"  {condition_id}: {index + 1}/{len(seeds)}", flush=True)
+        elapsed = time.perf_counter() - started
+        row = aggregate_cross_play(episodes)
+        row["informed_variant"] = label
+        row["wall_clock_seconds"] = elapsed
+        row["vote_coordination"] = vote_coordination_report(episodes)
+        conditions[condition_id] = row
+        for evaluation in episodes:
+            records.append(episode_record(evaluation))
+        if progress:
+            print(f"  {condition_id}: done in {elapsed:.1f}s", flush=True)
+
+    reference = conditions[reference_id]
+    effects: dict[str, Any] = {}
+    for informed_id in informed_variant_ids:
+        village_row = conditions[f"{informed_id}_village"]
+        mafia_row = conditions[f"{informed_id}_mafia"]
+        all_row = conditions[f"all_{informed_id}"]
+        effects[informed_id] = {
+            "informed_village_vs_baseline_mafia": {
+                "village_win_rate": village_row["village_faction_win_rate"],
+                "baseline_village_win_rate": reference["village_faction_win_rate"],
+                "village_delta": _delta(
+                    village_row["village_faction_win_rate"],
+                    reference["village_faction_win_rate"],
+                ),
+                "informed_faction_win_rate": village_row["informed_faction_win_rate"],
+            },
+            "informed_mafia_vs_baseline_village": {
+                "mafia_win_rate": mafia_row["mafia_faction_win_rate"],
+                "baseline_mafia_win_rate": reference["mafia_faction_win_rate"],
+                "mafia_delta": _delta(
+                    mafia_row["mafia_faction_win_rate"],
+                    reference["mafia_faction_win_rate"],
+                ),
+                "informed_faction_win_rate": mafia_row["informed_faction_win_rate"],
+            },
+            "all_informed_self_play": {
+                "village_win_rate": all_row["village_faction_win_rate"],
+            },
+            "asymmetry_note": (
+                "Positive village_delta means informed village seats beat baseline "
+                "Mafia more often than baseline village seats do. Positive "
+                "mafia_delta is the mirror. A component that helps only one "
+                "faction is asymmetric, not generally stronger."
+            ),
+        }
+
+    return {
+        "schema_version": 1,
+        "status": "cross_play_run",
+        "historical_world_writeback": False,
+        "evidence_class": (
+            "primary strength evidence per peer decision "
+            "2026-10-11-0016-peer-decision-sck-methodology-next-gate Q2"
+        ),
+        "environment": {
+            "primary": "TextArena SecretMafia",
+            "textarena_version": _textarena_version(),
+            "player_counts": [num_players],
+            "discussion_rounds": discussion_rounds,
+        },
+        "design": {
+            "episodes_per_condition": episodes_per_condition,
+            "seeds": seeds,
+            "same_seed_schedule_for_every_condition": True,
+            "num_players": num_players,
+            "baseline_variant": BASELINE_VARIANT_ID,
+            "baseline_is_frozen": True,
+            "target_action_format": action_format,
+            "informed_policy_tie_break": runner.tie_break,
+            "seat_assignment_uses_role_schedule": (
+                "Arms are assigned by role, read from the seed's role schedule at "
+                "setup time. This is experiment design, never an input to a "
+                "policy: every decision still consumes only the seat's own "
+                "ActorView."
+            ),
+            "role_schedule_check": _verify_cross_play_schedules(
+                schedules, records, reference_id
+            ),
+        },
+        "conditions": conditions,
+        "cross_play_effect": effects,
+        "episode_records": records,
+        "reading_notes": [
+            "Primary outcome is terminal cross-play faction win rate against the frozen baseline, not self-play win rate.",
+            "mean_immediate_target_loss_diagnostic is a diagnostic only and must not be used as the acceptance metric.",
+            "A condition whose informed side wins no more often than the all-baseline reference gives no evidence that the cognition component is stronger.",
+        ],
+    }
+
+
+def _delta(a: float | None, b: float | None) -> float | None:
+    if a is None or b is None:
+        return None
+    return a - b
+
+
+def _verify_cross_play_schedules(
+    schedules: Mapping[int, Mapping[int, str]],
+    records: Sequence[Mapping[str, Any]],
+    reference_id: str,
+) -> dict[str, Any]:
+    """Every condition must have played the same role schedule for a given seed."""
+    expected = {
+        seed: sorted(pid for pid, role in schedule.items() if role == "Mafia")
+        for seed, schedule in schedules.items()
+    }
+    mismatches = []
+    per_condition: dict[str, int] = {}
+    for record in records:
+        condition = str(record.get("variant"))
+        seed = record.get("seed")
+        per_condition[condition] = per_condition.get(condition, 0) + 1
+        if seed not in expected:
+            mismatches.append({"condition": condition, "seed": seed, "reason": "unexpected seed"})
+            continue
+        if sorted(record.get("true_mafia") or []) != expected[seed]:
+            mismatches.append(
+                {
+                    "condition": condition,
+                    "seed": seed,
+                    "observed_mafia": sorted(record.get("true_mafia") or []),
+                    "expected_mafia": expected[seed],
+                }
+            )
+    return {
+        "verified": not mismatches,
+        "reference_condition": reference_id,
+        "seeds": len(expected),
+        "episodes_checked": len(records),
+        "episodes_per_condition": per_condition,
+        "note": (
+            "The role schedule is a deterministic function of the seed, so every "
+            "condition shares it; this check confirms that from the recorded "
+            "episodes rather than assuming it."
+        ),
+        "mismatches": mismatches,
+    }
+
+
+def format_cross_play(report: dict[str, Any]) -> str:
+    def fmt(value, spec=".3f"):
+        return "n/a" if value is None else format(value, spec)
+
+    lines = [
+        "SCK SecretMafia paired cross-play against a frozen baseline",
+        f"  episodes per condition : {report['design']['episodes_per_condition']}",
+        f"  players                : {report['design']['num_players']}",
+        f"  baseline               : {report['design']['baseline_variant']} (frozen)",
+        "",
+        f"  {'condition':<26}{'village':>9}{'mafia':>8}{'informed':>10}{'loss(diag)':>12}{'leak':>6}",
+    ]
+    for condition_id, row in report["conditions"].items():
+        lines.append(
+            f"  {condition_id:<26}"
+            f"{fmt(row['village_faction_win_rate']):>9}"
+            f"{fmt(row['mafia_faction_win_rate']):>8}"
+            f"{fmt(row['informed_faction_win_rate']):>10}"
+            f"{fmt(row['mean_immediate_target_loss_diagnostic']):>12}"
+            f"{row['information_leakage_count']:>6}"
+        )
+    lines.append("")
+    lines.append("  informed = win rate of the single faction holding informed seats;")
+    lines.append("             n/a in all_baseline and all_<informed>, where the label")
+    lines.append("             would not identify one side.")
+    lines.append("")
+    lines.append("  vote coordination (explains how a win rate was obtained)")
+    lines.append(
+        f"  {'condition':<26}{'mafia unan.':>12}{'->plurality':>12}"
+        f"{'m targets':>11}{'v targets':>11}"
+    )
+    for condition_id, row in report["conditions"].items():
+        coord = row.get("vote_coordination") or {}
+        lines.append(
+            f"  {condition_id:<26}"
+            f"{fmt(coord.get('mafia_unanimous_rate')):>12}"
+            f"{fmt(coord.get('mafia_target_is_plurality_rate')):>12}"
+            f"{fmt(coord.get('mean_distinct_mafia_targets'), '.2f'):>11}"
+            f"{fmt(coord.get('mean_distinct_village_targets'), '.2f'):>11}"
+        )
+    lines.append("")
+    lines.append("  cross-play effect vs the all_baseline reference")
+    for informed_id, effect in report["cross_play_effect"].items():
+        village = effect["informed_village_vs_baseline_mafia"]
+        mafia = effect["informed_mafia_vs_baseline_village"]
+        lines.append(
+            f"  {informed_id:<17}"
+            f"village delta {fmt(village['village_delta']):>7}   "
+            f"mafia delta {fmt(mafia['mafia_delta']):>7}"
+        )
+    return "\n".join(lines)
+
+
 def _textarena_version() -> str:
     try:
         import importlib.metadata  # noqa: PLC0415
@@ -589,6 +1103,14 @@ def main(argv: Sequence[str] | None = None) -> int:
         help="Also measure, over N belief episodes, how often the belief could rank the legal targets.",
     )
     parser.add_argument("--quiet", action="store_true")
+    parser.add_argument(
+        "--cross-play",
+        action="store_true",
+        help=(
+            "Run paired cross-play against the frozen baseline instead of "
+            "all-seats self-play. This is the primary strength evidence."
+        ),
+    )
     args = parser.parse_args(argv)
 
     action_format = args.action_format
@@ -602,6 +1124,24 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     # Fail early and clearly if the live dependency is missing.
     load_textarena_secret_mafia_env()
+
+    if args.cross_play:
+        report = run_cross_play(
+            episodes_per_condition=args.episodes,
+            num_players=args.players,
+            seed_start=args.seed_start,
+            discussion_rounds=args.discussion_rounds,
+            action_format=action_format,
+            progress=not args.quiet,
+        )
+        print(format_cross_play(report))
+        if args.out:
+            args.out.parent.mkdir(parents=True, exist_ok=True)
+            args.out.write_text(
+                json.dumps(report, indent=2, sort_keys=False) + "\n", encoding="utf-8"
+            )
+            print(f"\nwrote {args.out}")
+        return 0
 
     report = run_ab(
         episodes_per_variant=args.episodes,

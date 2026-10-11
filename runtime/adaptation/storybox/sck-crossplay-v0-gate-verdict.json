@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "status": "gate_not_lifted_asymmetric_coordination_gain_only",
+  "historical_world_writeback": false,
+  "evidence_class": "primary strength evidence per peer decision 2026-10-11-0016-peer-decision-sck-methodology-next-gate Q2",
+  "artifact": "runtime/adaptation/storybox/sck-crossplay-v0-results-500.json",
+  "peer_lift_condition": "Only reconsider after a fixed-opponent cross-play experiment shows a reproducible gain attributable to belief/planning rather than tie-breaking or channel artifacts, and mechanism diagnostics remain healthy.",
+  "design": {
+    "environment": "TextArena SecretMafia 0.7.4, 6 players, discussion_rounds=3",
+    "episodes_per_condition": 500,
+    "conditions": [
+      "all_baseline (reference)",
+      "belief_village / belief_mafia / all_belief",
+      "belief_planning_village / belief_planning_mafia / all_belief_planning"
+    ],
+    "baseline": "plain = uniform random legal target, frozen, no memory and no belief",
+    "seeding": "seeds 0-499 identical across every condition; the role schedule is a deterministic function of the seed and the artifact verifies from the recorded episodes that all conditions played the same schedule",
+    "arms_assigned_by_role": "Village arms cover Villager, Doctor and Detective seats; the Mafia arm covers Mafia seats. Role-to-policy assignment is experiment design and never reaches a policy, which still receives only its own ActorView.",
+    "target_action_format": "native [N]",
+    "information_leakage_count": 0
+  },
+  "primary_outcome": {
+    "faction_win_rate": {
+      "all_baseline": {"village": 0.146, "mafia": 0.854},
+      "belief_village": {"village": 0.148, "mafia": 0.852},
+      "belief_mafia": {"village": 0.060, "mafia": 0.940},
+      "all_belief": {"village": 0.048, "mafia": 0.952},
+      "belief_planning_village": {"village": 0.154, "mafia": 0.846},
+      "belief_planning_mafia": {"village": 0.060, "mafia": 0.940},
+      "all_belief_planning": {"village": 0.118, "mafia": 0.882}
+    },
+    "deltas_vs_all_baseline": {
+      "belief": {"informed_village_delta": 0.002, "informed_mafia_delta": 0.086},
+      "belief_planning": {"informed_village_delta": 0.008, "informed_mafia_delta": 0.086}
+    },
+    "sampling_note": "With 500 episodes the standard error on a proportion near 0.15 is about 1.6 percentage points, so a village delta of 0.002 or 0.008 is indistinguishable from no effect, while a mafia delta of 0.086 is roughly five standard errors."
+  },
+  "mechanism_diagnostic": {
+    "purpose": "Distinguish inference from coordination. The environment eliminates the plurality vote target, so if the Mafia's two seats name the same target and that target is the plurality, the Mafia is choosing the elimination rather than out-reasoning anyone.",
+    "mafia_unanimous_rate": {
+      "all_baseline": 0.181,
+      "belief_village": 0.192,
+      "belief_mafia": 1.0,
+      "all_belief": 1.0,
+      "belief_planning_village": 0.192,
+      "belief_planning_mafia": 1.0,
+      "all_belief_planning": 1.0
+    },
+    "mafia_target_is_plurality_rate": {
+      "all_baseline": 0.934,
+      "belief_mafia": 0.963,
+      "all_belief": 0.993,
+      "all_belief_planning": 1.0
+    },
+    "mean_distinct_village_targets": {
+      "all_baseline": 2.53,
+      "belief_village": 2.68,
+      "belief_planning_village": 2.89,
+      "all_belief": 2.97,
+      "all_belief_planning": 3.17
+    },
+    "finding": "The informed Mafia seats vote perfectly unanimously (1.000 against a 0.181 chance baseline) because both seats run identical code on identical private knowledge, and that shared target is then the plurality 96.3% of the time. The four village seats scatter across roughly 2.6 distinct targets, so two coordinated votes usually top the tally.",
+    "reading": "The measured mafia gain is a bloc-voting coordination effect, not an inference advantage. It is also a tell: a perfectly predictable bloc is exploitable by any opponent that models it, and here nothing does."
+  },
+  "verdict": {
+    "intended_capability_validated": false,
+    "reason": "The capability the gate exists to validate is inference under hidden information, which is the village side's task. Informed village seats gain 0.2 to 0.8 percentage points against a baseline Mafia, which is indistinguishable from no effect. Informed Mafia seats gain 8.6 points, but the mechanism diagnostic attributes that to deterministic bloc voting rather than to belief calibration or opponent modelling.",
+    "mcts_bilevel_storybox_reconnection": "still held",
+    "peer_step_6_applies": "Peer decision 0016 next_gate item 6 says that if corrected belief/belief_planning still fail against fixed baselines, stop SecretMafia tuning and declare the substrate or feature model insufficient before considering another benchmark. Informed village failing against a fixed baseline is that condition, so no further SecretMafia rule tuning is planned.",
+    "what_is_established": [
+      "The harness, seeding, role-schedule verification, information boundary and metric demotion are all in place and tested.",
+      "The native [N] channel works and the belief genuinely discriminates where evidence exists.",
+      "A reproducible cross-play effect exists and is fully attributed by a mechanism diagnostic rather than asserted.",
+      "Zero information leakage in every condition."
+    ],
+    "what_is_not_established": [
+      "That SCK improves hidden-information inference.",
+      "That the village can use belief or planning to find Mafia better than random.",
+      "That any gain survives an opponent that also coordinates or models the bloc."
+    ]
+  },
+  "methodological_gap_flagged": {
+    "issue": "The frozen baseline is uniform random, which cannot coordinate and is therefore maximally exploitable by bloc voting.",
+    "consequence": "The +8.6 percentage point mafia result partly measures the baseline's weakness rather than SCK's strength.",
+    "needed": "A stronger fixed baseline set before any positive strength claim, for example a coordination-capable fixed heuristic, so a gain cannot come from exploiting an incoherent opponent. Reported as a gap rather than fixed by adding handcrafted rules to SCK."
+  },
+  "concrete_next_options": [
+    "Peer Q4 path: build the symmetric evidence feature set and replay-calibrate it on a training seed partition, then evaluate frozen on held-out seeds, accepting that the village side is where it must show a gain.",
+    "Add village-side vote coordination as a first-class capability, since the diagnostic shows the informed village scatters its votes and does not concentrate on its best suspect.",
+    "Peer Q6 path: move to a mixed-motive, peaceful repeated game, because the target StoryBox use is coordination under mixed interests rather than deception, and SecretMafia punishes the side that must infer.",
+    "Strengthen the baseline set so a coordination effect cannot masquerade as cognition."
+  ],
+  "action_required": "Peer or human should choose among the concrete next options. This round deliberately stops at the gate rather than adding SCK rules, per peer decision 0016 step 6."
+}

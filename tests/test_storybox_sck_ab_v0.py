@@ -320,6 +320,254 @@ def test_discrimination_report_shape(monkeypatch):
     assert set(captured["policy_classes"]) == {"belief"}
 
 
+def test_cross_play_conditions_assign_arms_by_role():
+    plans = ab.cross_play_conditions("belief_planning")
+    assert set(plans) == {
+        "all_baseline",
+        "belief_planning_village",
+        "belief_planning_mafia",
+        "all_belief_planning",
+    }
+    assert set(plans["all_baseline"].values()) == {"plain"}
+    assert plans["belief_planning_village"]["Mafia"] == "plain"
+    assert plans["belief_planning_village"]["Villager"] == "belief_planning"
+    assert plans["belief_planning_village"]["Doctor"] == "belief_planning"
+    assert plans["belief_planning_village"]["Detective"] == "belief_planning"
+    assert plans["belief_planning_mafia"]["Mafia"] == "belief_planning"
+    assert plans["belief_planning_mafia"]["Villager"] == "plain"
+    assert set(plans["all_belief_planning"].values()) == {"belief_planning"}
+
+
+def test_seat_variants_for_condition_maps_roles_to_seats():
+    plan = ab.cross_play_conditions("belief")["belief_village"]
+    schedule = {0: "Mafia", 1: "Villager", 2: "Detective", 3: "Mafia", 4: "Villager", 5: "Doctor"}
+    seat_variants = ab.seat_variants_for_condition(plan, schedule)
+    assert seat_variants[0].variant_id == "plain"
+    assert seat_variants[3].variant_id == "plain"
+    assert seat_variants[1].variant_id == "belief"
+    assert seat_variants[2].variant_id == "belief"
+    assert seat_variants[5].variant_id == "belief"
+
+    with pytest.raises(ValueError):
+        ab.seat_variants_for_condition(plan, {0: "Alien"})
+
+
+def _cross_play_episode(condition_id, seed, seat_policy, village_won):
+    # Use the same role table the synthetic episode reports, so the seat plan and
+    # actor_results cannot disagree.
+    evaluation = _episode(
+        condition_id, seed=seed, true_mafia=(1, 4), village_won=village_won
+    )
+    evaluation.metadata["condition_id"] = condition_id
+    evaluation.metadata["seat_policy_by_actor"] = {
+        str(pid): seat_policy[role] for pid, role in ROLES_6.items()
+    }
+    evaluation.metadata["invalid_moves"] = 0
+    return evaluation
+
+
+def test_cross_play_informed_faction_rate_only_defined_for_one_sided_conditions():
+    plan = ab.cross_play_conditions("belief")["belief_village"]
+    episodes = [
+        _cross_play_episode("belief_village", 0, plan, village_won=True),
+        _cross_play_episode("belief_village", 1, plan, village_won=False),
+    ]
+    row = ab.aggregate_cross_play(episodes)
+    assert row["village_faction_win_rate"] == 0.5
+    assert row["informed_faction"] == "Village"
+    assert row["informed_faction_win_rate"] == 0.5
+    assert row["informed_faction_episodes"] == 2
+
+    # Mafia-informed condition: the informed faction is Mafia.
+    mafia_plan = ab.cross_play_conditions("belief")["belief_mafia"]
+    mafia_row = ab.aggregate_cross_play(
+        [_cross_play_episode("belief_mafia", 0, mafia_plan, village_won=False)]
+    )
+    assert mafia_row["informed_faction"] == "Mafia"
+    assert mafia_row["informed_faction_win_rate"] == 1.0
+
+    # Both factions informed, so no single informed side exists.
+    all_plan = ab.cross_play_conditions("belief")["all_belief"]
+    all_row = ab.aggregate_cross_play(
+        [_cross_play_episode("all_belief", 0, all_plan, village_won=True)]
+    )
+    assert all_row["informed_faction_win_rate"] is None
+    assert all_row["informed_faction_episodes"] == 0
+
+
+class _CrossPlayStubRunner:
+    """Stub runner that records the seat plan it was handed."""
+
+    mafia_ratio = 0.25
+    tie_break = "lowest_id"
+
+    def __init__(self):
+        self.calls = []
+
+    def run_episode(self, *, variant=None, seat_variants=None, condition_id=None,
+                    num_players=6, seed=0):
+        self.calls.append((condition_id, seat_variants, seed))
+        label = condition_id or variant.variant_id
+        if seat_variants is None:
+            seat_policy = {role: variant.variant_id for role in ab._ROLE_ARMS}
+        else:
+            seat_policy = {
+                ab._ROLE_ARMS[pid % len(ab._ROLE_ARMS)]: seat_variants[pid].variant_id
+                for pid in range(num_players)
+            }
+        return _cross_play_episode(label, seed, seat_policy, village_won=(seed % 2 == 0))
+
+
+def _fixed_role_schedule(*, num_players, seed, mafia_ratio=0.25, discussion_rounds=3):
+    # Must agree with ROLES_6, which the synthetic episodes report.
+    base = ["Villager", "Mafia", "Villager", "Detective", "Mafia", "Doctor"]
+    return {pid: base[pid % len(base)] for pid in range(num_players)}
+
+
+def test_run_cross_play_uses_one_shared_seed_schedule_for_every_condition():
+    stub = _CrossPlayStubRunner()
+    report = ab.run_cross_play(
+        informed_variant_ids=("belief",),
+        episodes_per_condition=3,
+        runner=stub,
+        role_schedule_fn=_fixed_role_schedule,
+    )
+
+    assert set(report["conditions"]) == {
+        "all_baseline",
+        "belief_village",
+        "belief_mafia",
+        "all_belief",
+    }
+    # Four conditions, three seeds each, reference first.
+    assert len(stub.calls) == 12
+    assert stub.calls[0][0] == "all_baseline"
+    assert stub.calls[0][1] is None
+    for condition_id, seat_variants, seed in stub.calls:
+        assert seed in (0, 1, 2)
+        if condition_id != "all_baseline":
+            assert seat_variants is not None
+            assert set(seat_variants) == set(range(6))
+
+    assert report["design"]["same_seed_schedule_for_every_condition"] is True
+    assert report["design"]["role_schedule_check"]["verified"] is True
+    assert report["design"]["role_schedule_check"]["episodes_checked"] == 12
+    assert report["evidence_class"].startswith("primary strength evidence")
+    assert set(report["cross_play_effect"]) == {"belief"}
+    effect = report["cross_play_effect"]["belief"]
+    assert set(effect) >= {
+        "informed_village_vs_baseline_mafia",
+        "informed_mafia_vs_baseline_village",
+        "all_informed_self_play",
+    }
+    assert effect["informed_village_vs_baseline_mafia"]["village_delta"] is not None
+
+
+def test_run_cross_play_detects_a_role_schedule_mismatch():
+    class _LyingRunner(_CrossPlayStubRunner):
+        def run_episode(self, *, variant=None, seat_variants=None, condition_id=None,
+                        num_players=6, seed=0):
+            evaluation = super().run_episode(
+                variant=variant,
+                seat_variants=seat_variants,
+                condition_id=condition_id,
+                num_players=num_players,
+                seed=seed,
+            )
+            if condition_id == "belief_village":
+                evaluation.metadata["true_mafia"] = [5]
+            return evaluation
+
+    report = ab.run_cross_play(
+        informed_variant_ids=("belief",),
+        episodes_per_condition=2,
+        runner=_LyingRunner(),
+        role_schedule_fn=_fixed_role_schedule,
+    )
+    check = report["design"]["role_schedule_check"]
+    assert check["verified"] is False
+    assert check["mismatches"]
+    assert check["mismatches"][0]["condition"] == "belief_village"
+
+
+def _voting_episode(condition_id, seed, votes, true_mafia=(1, 4)):
+    """Synthetic episode whose day-vote decisions are exactly ``votes``."""
+    evaluation = _episode(condition_id, seed=seed, true_mafia=true_mafia)
+    evaluation.action_checkpoints = []
+    for step, (actor, target) in enumerate(votes):
+        evaluation.action_checkpoints.append(
+            ActionCheckpoint(
+                step_id=f"p{actor}-n1-Day-Voting-{step + 1}",
+                chosen_action_id=f"vote:{target}",
+                action_values={f"vote:{target}": 0.0},
+                chosen_value=0.0,
+            )
+        )
+    return evaluation
+
+
+def test_vote_coordination_detects_a_unanimous_mafia_bloc_that_controls_the_vote():
+    # Mafia seats 1 and 4 both name player 2; the four village seats scatter.
+    episode = _voting_episode(
+        "belief_mafia",
+        seed=0,
+        votes=[(1, 2), (4, 2), (0, 3), (2, 3), (3, 5), (5, 2)],
+    )
+    report = ab.vote_coordination_report([episode])
+    assert report["day_vote_rounds_with_two_mafia_votes"] == 1
+    assert report["mafia_unanimous_rate"] == 1.0
+    # votes: 2 -> 3, 3 -> 2, 5 -> 1, so the Mafia's target is the plurality.
+    assert report["mafia_target_is_plurality_rate"] == 1.0
+    assert report["mean_distinct_mafia_targets"] == 1.0
+    # Village votes are 0->3, 2->3, 3->5, 5->2, i.e. three distinct targets.
+    assert report["mean_distinct_village_targets"] == 3.0
+
+
+def test_vote_coordination_reports_a_split_mafia_vote_and_lost_plurality():
+    # Mafia seats disagree, and their shared-target test cannot apply.
+    split = _voting_episode(
+        "all_baseline", seed=0, votes=[(1, 2), (4, 3), (0, 5), (2, 5), (3, 5), (5, 5)]
+    )
+    report = ab.vote_coordination_report([split])
+    assert report["mafia_unanimous_rate"] == 0.0
+    assert report["mafia_target_is_plurality_rate"] is None
+    assert report["mean_distinct_mafia_targets"] == 2.0
+
+
+def test_vote_coordination_ignores_night_phases_and_rounds_with_one_mafia_vote():
+    evaluation = _episode("all_baseline", seed=0, true_mafia=(1, 4))
+    evaluation.action_checkpoints = [
+        ActionCheckpoint(
+            step_id="p1-n1-Night-Mafia-1",
+            chosen_action_id="mafia_eliminate:0",
+            action_values={"mafia_eliminate:0": 1.0},
+            chosen_value=1.0,
+        ),
+        ActionCheckpoint(
+            step_id="p1-n1-Day-Voting-1",
+            chosen_action_id="vote:2",
+            action_values={"vote:2": 1.0},
+            chosen_value=1.0,
+        ),
+    ]
+    report = ab.vote_coordination_report([evaluation])
+    # Only one Mafia seat voted on the day, so no bloc test is possible.
+    assert report["day_vote_rounds_with_two_mafia_votes"] == 0
+    assert report["mafia_unanimous_rate"] is None
+
+
+def test_run_cross_play_reports_coordination_per_condition():
+    report = ab.run_cross_play(
+        informed_variant_ids=("belief",),
+        episodes_per_condition=2,
+        runner=_CrossPlayStubRunner(),
+        role_schedule_fn=_fixed_role_schedule,
+    )
+    for row in report["conditions"].values():
+        assert "vote_coordination" in row
+        assert "mafia_unanimous_rate" in row["vote_coordination"]
+
+
 def test_run_ab_marks_role_schedule_mismatch_in_the_report():
     class _InconsistentRunner(_StubRunner):
         def run_episode(self, *, variant, num_players, seed):

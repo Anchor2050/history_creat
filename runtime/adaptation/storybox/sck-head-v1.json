@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "status": "sck_v0_native_vote_channel_verified_metric_demoted_crossplay_gate_open",
+  "status": "sck_v0_crossplay_primary_evidence_gate_not_lifted_village_inference_unvalidated",
   "historical_world_writeback": false,
   "purpose": "Provide a reusable high-skill strategic cognition layer between StoryBox visibility/legal-action state and StoryBox world resolution.",
   "design_spec": "docs/adaptation/storybox-strategic-cognition-kernel-v1.md",
@@ -126,12 +126,32 @@
     "primary_metrics_now": "paired cross-play terminal utility / faction win rate against fixed opponents, with calibration, discrimination flat fraction and leakage as mechanism gates"
   },
   "artifact_encoding_note": "The 50-episode smoke test and both 500-episode artifacts were produced with the legacy '[Player N]' encoding. Plain and memory results are unchanged by the switch, but the belief variants' behaviour changes because they now receive vote evidence. Those artifacts are therefore retained as historical diagnostics only, per peer decision 0016 artifact_status_decision, and must not be compared against native-encoding runs.",
+  "cross_play_primary_evidence": {
+    "artifact": "runtime/adaptation/storybox/sck-crossplay-v0-results-500.json",
+    "verdict": "runtime/adaptation/storybox/sck-crossplay-v0-gate-verdict.json",
+    "harness": "narrative/longform/storybox_sck_ab_v0.py (--cross-play)",
+    "design": "500 shared seeds per condition, 6 players, native [N] channel, arms assigned by role, frozen uniform-random baseline, zero information leakage",
+    "faction_win_rate": {
+      "all_baseline": {"village": 0.146, "mafia": 0.854},
+      "belief_village": {"village": 0.148, "mafia": 0.852},
+      "belief_mafia": {"village": 0.060, "mafia": 0.940},
+      "belief_planning_village": {"village": 0.154, "mafia": 0.846},
+      "belief_planning_mafia": {"village": 0.060, "mafia": 0.940}
+    },
+    "deltas_vs_baseline": {
+      "informed_village": {"belief": 0.002, "belief_planning": 0.008},
+      "informed_mafia": {"belief": 0.086, "belief_planning": 0.086}
+    },
+    "mechanism_finding": "The Mafia gain is bloc voting, not inference. Informed Mafia seats vote unanimously at rate 1.000 against a 0.181 chance baseline, and that shared target is the plurality 96.3% of the time, while the four village seats scatter across about 2.6 distinct targets.",
+    "conclusion": "The capability the gate exists to validate is hidden-information inference, which is the village side's task. Informed village seats gain 0.2 to 0.8 percentage points, indistinguishable from no effect at 500 episodes, while the mafia gain is a coordination artifact of two mirrored agents. Peer decision 0016 step 6 therefore applies: stop SecretMafia rule tuning and treat the substrate or feature model as insufficient for the intended high-skill claim.",
+    "methodological_gap": "The frozen baseline is uniform random and cannot coordinate, so it is maximally exploitable by bloc voting and the mafia delta partly measures the baseline's weakness."
+  },
   "next_gate": [
-    "implement fixed-baseline paired cross-play with shared seeds and identical role schedules (informed Village vs baseline Mafia, baseline Village vs informed Mafia, swapped across belief and belief_planning)",
-    "make paired cross-play terminal utility and faction win rate the primary outcome, with calibration, discrimination and leakage as mechanism gates",
-    "implement a replay-calibrated symmetric evidence model fitted on a training seed partition, frozen, then evaluated on a disjoint held-out partition",
-    "run a small cross-play smoke test before a larger paired experiment",
-    "if corrected belief/belief_planning still fail against fixed baselines, declare the SecretMafia substrate or feature model insufficient instead of adding handcrafted rules",
-    "keep MCTS, bi-level search and StoryBox/risk-list reconnection held until this gate passes"
+    "do not tune SecretMafia rules or add handcrafted terms; peer decision 0016 step 6 applies to the informed-village result",
+    "peer Q4 path: build a symmetric evidence feature set and replay-calibrate it on a training seed partition, then evaluate frozen on a disjoint held-out partition, requiring the gain on the village side",
+    "add village-side vote coordination as a first-class capability: the diagnostic shows the informed village scatters rather than concentrating on its best suspect",
+    "strengthen the fixed baseline set so a coordination effect cannot be mistaken for cognition",
+    "peer Q6 path: move to a mixed-motive peaceful repeated game, since the target StoryBox use is coordination under mixed interests rather than deception",
+    "keep MCTS, bi-level search and StoryBox/risk-list reconnection held until a village-side inference gain is reproducible"
   ]
 }
