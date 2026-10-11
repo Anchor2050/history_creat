@@ -1,0 +1,16 @@
+{
+  "schema_version":1,
+  "period":"2030-q4",
+  "status":"behavior_audit_noncanonical",
+  "backend":"chatgpt_product_conversation",
+  "source_batch":"runtime/chatbot-live/batches/2030-q4.json",
+  "abnormal_budget":1,
+  "abnormal_used":0,
+  "decisions":[
+    {"actor_id":"lin_jing","mode":"normal","chosen_action_id":"accept_regional_university_offer_after_written_checks","baseline_expected_action":"Choose the stage whose autonomy, housing and time structure are acceptable while preserving future re-evaluation.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Written duties and evaluation structure made the tradeoff visible and feasible.","constraint_check":{"feasible":true,"notes":"Housing, cash, service load and research autonomy passed checks."},"evidence_refs":["2030q4:e01","2030q4:e03"]},
+    {"actor_id":"tang_yu","mode":"normal","chosen_action_id":"keep_xu_as_coauthor_candidate_pending_final_contribution","baseline_expected_action":"Tie authorship to actual intellectual and writing contribution rather than friendship or time invested.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Verification work materially changed retained claims, but final manuscript contribution is not yet complete.","constraint_check":{"feasible":true,"notes":"No final author list is committed."},"evidence_refs":["2030q4:e04","2030q4:e06"]},
+    {"actor_id":"song_nan","mode":"normal","chosen_action_id":"retain_current_role_while_using_casebook_as_reversibility_asset","baseline_expected_action":"Continue a still-learning role while increasing portability instead of treating portability work as an automatic exit trigger.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Casebook improved external legibility but no dissatisfaction or external opportunity requires a move.","constraint_check":{"feasible":true,"notes":"Current role and housing remain feasible."},"evidence_refs":["2030q4:e13","2030q4:e14"]},
+    {"actor_id":"gao_yuan","mode":"normal","chosen_action_id":"remain_after_second_year_while_tracking_opportunity_cost","baseline_expected_action":"Stay while family-distance, housing and predictable-time benefits remain worth the opportunity-density cost.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Second-year review shows no acute mismatch.","constraint_check":{"feasible":true,"notes":"No competing offer or family shock is supplied."},"evidence_refs":["2030q4:e15","2030q4:e16"]}
+  ],
+  "audit_rule":"Q4 contains consequential choices but no evidence-grounded abnormal deviation."
+}
