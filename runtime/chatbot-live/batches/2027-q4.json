@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2027-q4",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2027-10-01","end":"2027-12-31"},
+  "generation_mode": "chatgpt_product_interaction_chain",
+  "era_lens": [
+    "offer出现后，角色开始把抽象职业目标换算成具体城市、住房、通勤、家庭距离、学习空间和退出成本。",
+    "第一份工作决定带来路径依赖，但仍保留后续修订可能；接受offer只写入当前阶段，不写成终身命运。",
+    "忙碌增加后，关系频率自然下降；年末聚会只传播人物主动说出口的信息。"
+  ],
+  "exogenous_hard_world_events": [
+    {"event_id":"2027q4:proc01","at":"2027-10-12","kind":"doctoral_completion_update","actor":"chen_lan","source_candidate":"candidate:2027-06-14:chen-defense-process:01","result":"final_revisions_accepted_degree_process_completed","visibility":"private_then_actor_discretion"},
+    {"event_id":"2027q4:offer01","at":"2027-10-30","kind":"conditional_offer_generated","actor":"he_xin","sector":"civil_service_or_public_institution","city_bundle":"provincial_capital","gross_monthly":7600,"housing_monthly":3300,"commute_hours_daily":0.90,"security":0.91,"opportunity_density":0.73,"family_distance":1.25,"source":"public_recruitment_process","status":"pending_actor_bundle_evaluation_noncanonical"},
+    {"event_id":"2027q4:proc02","at":"2027-11-02","kind":"public_recruitment_update","actor":"luo_cheng","source_candidate":"candidate:2027-09:luo-target-revision:01","result":"one_research_support_opening_identified_application_prepared","visibility":"private_to_actor"}
+  ],
+  "windows": [
+    {"packet_id":"micro:chatbot:2027-10:u_d-offer-comparison:01","start_date":"2027-10-05","end_date":"2027-10-05","event_kind":"classmate_meal","participants":["tang_yu","he_xin","song_nan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-10:zhou-chen-offer-evaluation:01","start_date":"2027-10-14","end_date":"2027-10-14","event_kind":"offer_bundle_evaluation","participants":["zhou_ye","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-10:chen-wu-completion-closure:01","start_date":"2027-10-18","end_date":"2027-10-18","event_kind":"doctoral_completion_closure","participants":["chen_lan","wu_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-11:he-sun-offer-evaluation:01","start_date":"2027-11-04","end_date":"2027-11-04","event_kind":"offer_bundle_evaluation","participants":["he_xin","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-11:tang-shen-research-line:01","start_date":"2027-11-15","end_date":"2027-11-15","event_kind":"research_line_checkin","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-11:xu-gu-contribution-boundary:01","start_date":"2027-11-24","end_date":"2027-11-24","event_kind":"verification_contribution_checkin","participants":["xu_hang","gu_wei"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-12:u_c-year-end-dinner:01","start_date":"2027-12-08","end_date":"2027-12-08","event_kind":"classmate_meal","participants":["zhou_ye","gao_yuan","luo_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-12:year-end-gathering:01","start_date":"2027-12-20","end_date":"2027-12-20","event_kind":"year_end_gathering","participants":["lin_jing","chen_lan","xu_hang","zhou_ye","gao_yuan","luo_cheng","tang_yu","he_xin","song_nan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events": [
+    {"event_id":"2027q4:e01","kind":"social_interaction","at":"2027-10-05","event_kind":"classmate_meal","speaker":"song_nan","listener":"he_xin","act":"share_experience","content":"宋楠说自己手里已经有医药统计岗位offer，但第一次认真算住房、搬家、通勤和离家距离后，发现‘工资更高’并不能替她自动做决定。","channel":"in_person","evidence":"offer bundle由公开招聘产生；未广播具体薪资。"},
+    {"event_id":"2027q4:e02","kind":"social_interaction","at":"2027-10-05","event_kind":"classmate_meal","speaker":"he_xin","listener":"song_nan","act":"offer_information","content":"何欣用自己的岗位比较表问她：如果这份工作学不到想学的东西，两年后退出成本会不会更高；宋楠反过来问何欣，如果稳定岗位城市和职责都一般，她是否也会重新算。","channel":"in_person","evidence":"同班互换决策框架，不替对方选择。"},
+    {"event_id":"2027q4:e03","kind":"social_interaction","at":"2027-10-05","event_kind":"classmate_meal","speaker":"tang_yu","listener":"song_nan","act":"check_in","content":"唐雨只问宋楠是否愿意为了学习密度承受更高住房和更远家庭距离，没有因为自己留在学术线就评价行业选择。","channel":"in_person","evidence":"普通同伴讨论。"},
+
+    {"event_id":"2027q4:e04","kind":"social_interaction","at":"2027-10-14","event_kind":"offer_bundle_evaluation","speaker":"zhou_ye","listener":"chen_lan","act":"share_experience","content":"周野把省会国企offer拆成岗位内容、工资、住房、离家距离、稳定性和技术延展性，发现它没有最初想象的‘绝对稳定’，但技术内容和家庭距离都在可接受区间。","channel":"wechat_private","evidence":"使用已有虚构城市bundle和公开招聘结果。"},
+    {"event_id":"2027q4:e05","kind":"social_interaction","at":"2027-10-14","event_kind":"offer_bundle_evaluation","speaker":"chen_lan","listener":"zhou_ye","act":"offer_information","content":"陈岚提醒他把‘接受这份工作’和‘以后永远不换’分开，只检查第一阶段的现金、搬家、学习空间和家庭距离是否能承受。","channel":"wechat_private","evidence":"通用bundle评估。"},
+    {"event_id":"2027q4:e06","kind":"social_interaction","at":"2027-10-14","event_kind":"offer_bundle_evaluation","speaker":"zhou_ye","listener":"chen_lan","act":"make_plan","content":"周野决定预留搬家和住房押金后保留基本应急缓冲，并确认岗位实际技术职责后再接受，不因为‘国企’两个字跳过内容核对。","channel":"wechat_private","evidence":"接受决策仍需最终硬检查。"},
+
+    {"event_id":"2027q4:e07","kind":"social_interaction","at":"2027-10-18","event_kind":"doctoral_completion_closure","speaker":"chen_lan","listener":"wu_cheng","act":"share_experience","content":"陈岚确认学校最后修改和程序已经完成，博士阶段正式闭环。她第一次可以把下一份长期工作当成独立问题考虑，而不是继续围着毕业倒计时安排一切。","channel":"in_person","evidence":"学位完成由institutional update生成。"},
+    {"event_id":"2027q4:e08","kind":"social_interaction","at":"2027-10-18","event_kind":"doctoral_completion_closure","speaker":"wu_cheng","listener":"chen_lan","act":"check_in","content":"吴澄没有替她推荐下一份工作，只问她毕业后最不想重新回到什么生活状态；陈岚说不想再靠无限接活证明可靠。","channel":"in_person","evidence":"导师保持边界，同时推进陈岚个人职业线。"},
+
+    {"event_id":"2027q4:e09","kind":"social_interaction","at":"2027-11-04","event_kind":"offer_bundle_evaluation","speaker":"he_xin","listener":"sun_jie","act":"share_experience","content":"何欣拿到省会公共机构岗位offer后，把职责、住房、城市、家庭距离和退出成本重新过了一遍；她发现安全感很高，但机会密度和工资并不突出。","channel":"wechat_private","evidence":"offer由公开招聘产生。"},
+    {"event_id":"2027q4:e10","kind":"social_interaction","at":"2027-11-04","event_kind":"offer_bundle_evaluation","speaker":"sun_jie","listener":"he_xin","act":"offer_information","content":"孙洁提醒她稳定岗位也有具体日常，如果职责能接受、城市能生活、现金不被搬家压垮，再去比较安全感；不能只因为进了最后一轮就把offer神化。","channel":"wechat_private","evidence":"通用职业现实反馈。"},
+    {"event_id":"2027q4:e11","kind":"social_interaction","at":"2027-11-04","event_kind":"offer_bundle_evaluation","speaker":"he_xin","listener":"sun_jie","act":"make_plan","content":"何欣决定先核住房和第一年现金压力，再与家庭说明这是她自己的职业选择，不提前把未来照护义务全部算到自己身上。","channel":"wechat_private","evidence":"家庭结构保持开放协商。"},
+
+    {"event_id":"2027q4:e12","kind":"social_interaction","at":"2027-11-15","event_kind":"research_line_checkin","speaker":"tang_yu","listener":"shen_yan","act":"share_experience","content":"唐雨把跨实现仍稳定的反例和初步结构解释整理成一页，明确哪些只是计算观察、哪些可能指向真正的模型机制。","channel":"in_person","evidence":"延续验证链，不宣称定理或投稿。"},
+    {"event_id":"2027q4:e13","kind":"social_interaction","at":"2027-11-15","event_kind":"research_line_checkin","speaker":"shen_yan","listener":"tang_yu","act":"offer_information","content":"沈雁认为这已经比年初清楚，但下一步应该先证明或反驳一个最小机制命题，而不是继续堆模拟；如果最小命题站不住，研究线仍应收缩。","channel":"in_person","evidence":"方法论指导，无成果预写。"},
+    {"event_id":"2027q4:e14","kind":"social_interaction","at":"2027-11-15","event_kind":"research_line_checkin","speaker":"tang_yu","listener":"shen_yan","act":"make_plan","content":"唐雨把2028年第一阶段任务定成最小机制命题和必要反例，不提前决定论文题目或作者名单。","channel":"in_person","evidence":"研究计划。"},
+
+    {"event_id":"2027q4:e15","kind":"social_interaction","at":"2027-11-24","event_kind":"verification_contribution_checkin","speaker":"xu_hang","listener":"gu_wei","act":"share_experience","content":"许航说自己和唐雨的验证合作到目前主要贡献是区分实现脆弱性、设计核验矩阵和冻结反例集；他不想因为参与了计算就自动把自己想成作者。","channel":"in_person","evidence":"贡献边界来自真实交互记录。"},
+    {"event_id":"2027q4:e16","kind":"social_interaction","at":"2027-11-24","event_kind":"verification_contribution_checkin","speaker":"gu_wei","listener":"xu_hang","act":"offer_information","content":"顾维建议他继续保留贡献日志：如果以后验证设计改变了研究结论或形成不可替代的方法判断，再讨论学术贡献；如果只是一次技术审阅，也应接受贡献停在这里。","channel":"in_person","evidence":"个人研究身份与贡献边界。"},
+
+    {"event_id":"2027q4:e17","kind":"social_interaction","at":"2027-12-08","event_kind":"classmate_meal","speaker":"zhou_ye","listener":"gao_yuan","act":"share_experience","content":"周野说自己已经决定接受省会国企技术岗，主要因为技术内容、家庭距离和第一阶段现金都能承受，不是因为它满足了所有理想条件。","channel":"in_person","evidence":"offer bundle经硬检查后接受。"},
+    {"event_id":"2027q4:e18","kind":"social_interaction","at":"2027-12-08","event_kind":"classmate_meal","speaker":"gao_yuan","listener":"zhou_ye","act":"share_experience","content":"高原说自己会再准备一个公务员周期，但同时开始看少量事业单位和大型组织的稳定岗位，避免把下一年全部押在单一路线上。","channel":"in_person","evidence":"失败后的有限目标扩展。"},
+    {"event_id":"2027q4:e19","kind":"social_interaction","at":"2027-12-08","event_kind":"classmate_meal","speaker":"luo_cheng","listener":"gao_yuan","act":"share_experience","content":"罗诚已经找到一条研究支持/流程协调类公开岗位并准备申请，他第一次觉得自己的博士训练和流程能力可能不必通过辅导员身份才能被使用。","channel":"in_person","evidence":"目标修订后出现匹配岗位，尚无结果。"},
+
+    {"event_id":"2027q4:e20","kind":"social_interaction","at":"2027-12-20","event_kind":"year_end_gathering","speaker":"song_nan","listener":"chen_lan","act":"share_experience","content":"宋楠选择告诉陈岚自己已经接受医药统计岗位，准备年后搬去医药产业城市；她说最难的决定不是工资，而是承认第一份工作会暂时把生活重心拉离家庭和学校。","channel":"in_person","evidence":"offer bundle完成评估后由本人选择公开。"},
+    {"event_id":"2027q4:e21","kind":"social_interaction","at":"2027-12-20","event_kind":"year_end_gathering","speaker":"he_xin","listener":"lin_jing","act":"share_experience","content":"何欣说自己也接受了省会公共机构岗位，原因是职责、住房和家庭距离都在可接受区间；她没有把这个决定说成以后永远不会换。","channel":"in_person","evidence":"offer bundle完成评估后公开。"},
+    {"event_id":"2027q4:e22","kind":"social_interaction","at":"2027-12-20","event_kind":"year_end_gathering","speaker":"lin_jing","listener":"he_xin","act":"repair","content":"林静提醒她把第一份工作当成一段真实生活去检验，而不是用‘终于稳定了’把之后所有不舒服都解释成必须忍。","channel":"in_person","evidence":"延续可逆性讨论。"},
+    {"event_id":"2027q4:e23","kind":"social_interaction","at":"2027-12-20","event_kind":"year_end_gathering","speaker":"xu_hang","listener":"tang_yu","act":"check_in","content":"许航问唐雨验证线下一步是否还需要他；唐雨说先进入理论解释阶段，短期不继续扩大计算，两人因此自然降低合作频率。","channel":"in_person","evidence":"合作因任务阶段变化降频，不自动视为关系恶化。"},
+    {"event_id":"2027q4:e24","kind":"social_interaction","at":"2027-12-20","event_kind":"year_end_gathering","speaker":"chen_lan","listener":"lin_jing","act":"small_talk","content":"陈岚毕业后第一次参加年末聚会时，大半时间和林静聊的是搬家、睡眠和春节怎么安排，没有把博士毕业变成公开庆功会。","channel":"in_person","evidence":"保留普通生活密度。"}
+  ],
+  "hard_world_candidate_updates": [
+    {"candidate_id":"candidate:2027-06-14:chen-defense-process:01","checked_at":"2027-10-12","checks":{"program_requirements_met":true,"final_materials_accepted":true,"defense_schedule_available":true,"defense_completed":true,"required_revisions_completed":true},"result":"doctoral_degree_completed_noncanonical","resource_effect":"doctoral completion; career state can now transition"},
+    {"candidate_id":"candidate:2027-08-31:song-pharma-offer-evaluation:01","checked_at":"2027-11-18","checks":{"cash_after_relocation":true,"housing_feasibility":true,"family_bargain":"no immediate 2027 care constraint blocks move","career_learning_value":true,"acceptance_deadline":true},"result":"offer_accepted_noncanonical","resource_effect":"employment start planned 2028-01 in pharma_cluster"},
+    {"candidate_id":"candidate:2027-09-23:zhou-soe-offer-evaluation:01","checked_at":"2027-11-20","checks":{"cash_after_relocation":true,"housing_feasibility":true,"parent_distance_preference":true,"technical_role_content":true,"acceptance_deadline":true},"result":"offer_accepted_noncanonical","resource_effect":"employment start planned 2028-01 in provincial_capital"},
+    {"candidate_id":"candidate:2027-q1:he-public-institution-applications:01","checked_at":"2027-10-30","checks":{"written_stage_passed":true,"interview_attended":true,"selected":true},"result":"conditional_offer_generated_noncanonical","resource_effect":"provincial_capital public-institution offer pending bundle evaluation"},
+    {"candidate_id":"candidate:2027-q4:he-offer-evaluation:01","checked_at":"2027-12-02","checks":{"cash_after_relocation":true,"housing_feasibility":true,"family_distance_acceptable":true,"role_duties_acceptable":true,"acceptance_deadline":true},"result":"offer_accepted_noncanonical","resource_effect":"employment start planned 2028-01 in provincial_capital"}
+  ],
+  "new_hard_world_candidates": [
+    {"candidate_id":"candidate:2027-q4:he-offer-evaluation:01","created_at":"2027-10-30","type":"offer_bundle_evaluation","beneficiary":"he_xin","bundle":{"sector":"civil_service_or_public_institution","city":"provincial_capital","gross_monthly":7600,"housing_monthly":3300,"commute_hours_daily":0.90,"security":0.91,"opportunity_density":0.73,"family_distance":1.25},"requires_checks":["cash_after_relocation","housing_feasibility","family_distance_acceptable","role_duties_acceptable","acceptance_deadline"],"status":"resolved_accepted_noncanonical"},
+    {"candidate_id":"candidate:2027-11:luo-research-support-application:01","created_at":"2027-11-02","type":"public_application_path","beneficiary":"luo_cheng","description":"罗诚申请一条研究支持/流程协调类公开岗位，测试目标修订后的匹配度。","requires_checks":["eligibility_met","application_submitted","selection_process"],"status":"pending_public_process_noncanonical"},
+    {"candidate_id":"candidate:2027-12:gao-broadened-stability-search:01","created_at":"2027-12-08","type":"career_search_revision","beneficiary":"gao_yuan","description":"高原保留下一轮公务员考试，同时增加少量事业单位和大型组织稳定岗位作为并行备选。","requires_checks":["search_time_capacity","matching_public_openings","graduation_progress"],"status":"pending_search_noncanonical"},
+    {"candidate_id":"candidate:2027-11:tang-minimal-mechanism:01","created_at":"2027-11-15","type":"research_mechanism_development","beneficiary":"tang_yu","description":"围绕跨实现稳定的结构性失效，先证明或反驳一个最小机制命题，再决定是否形成论文主线。","requires_checks":["minimal_statement_defined","proof_or_counterexample_progress","failure_not_explained_by_implementation_only"],"status":"pending_research_noncanonical"},
+    {"candidate_id":"candidate:2027-12:chen-postdegree-career-search:01","created_at":"2027-10-18","type":"post_degree_career_search","beneficiary":"chen_lan","description":"博士完成后重新选择长期职业组合，明确排除长期依赖无限外部接活的工作结构。","requires_checks":["income_floor","time_boundary","role_learning_value","city_and_housing_feasibility"],"status":"pending_search_noncanonical"}
+  ],
+  "actor_state_evidence": [
+    {"at":"2027-10-12","actor":"chen_lan","dimension":"education_status","evidence":"博士阶段程序闭环完成，职业决策不再受毕业倒计时直接支配。","status":"candidate_state_evidence"},
+    {"at":"2027-11-18","actor":"song_nan","dimension":"employment_transition","evidence":"接受医药统计岗位，计划2028年初迁往pharma_cluster；第一份工作选择由公开招聘和bundle评估生成。","status":"candidate_state_evidence"},
+    {"at":"2027-11-20","actor":"zhou_ye","dimension":"employment_transition","evidence":"接受省会国企技术岗，计划2028年初迁往provincial_capital。","status":"candidate_state_evidence"},
+    {"at":"2027-12-02","actor":"he_xin","dimension":"employment_transition","evidence":"接受省会公共机构岗位，计划2028年初迁往provincial_capital。","status":"candidate_state_evidence"},
+    {"at":"2027-12-20","actor":"xu_hang","dimension":"collaboration_load","evidence":"唐雨验证线进入理论阶段后，双方计算合作自然降频，许航保留贡献日志而不预设作者身份。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence": [
+    {"at":"2027-12-20","pair":["tang_yu","xu_hang"],"direction":"mixed","evidence":"验证合作完成阶段性任务后自然降频；技术信任仍在，没有把降频解释为关系恶化。"},
+    {"at":"2027-11-04","pair":["he_xin","sun_jie"],"direction":"positive","evidence":"孙洁继续提供公开程序和工作现实框架，同时维持不打听内部信息的边界。"}
+  ],
+  "audit_rules": {"single_batch_noncanonical":true,"generated_through_interaction_chain":true,"offer_acceptance_requires_bundle_checks":true,"job_transition_is_current_state_not_destiny":true,"no_unearned_knowledge":true,"conversation_does_not_auto_change_relationship":true,"hard_world_candidates_require_feasibility":true,"ordinary_interaction_density_preserved":true,"bilateral_memory_derivable_from_events":true}
+}
