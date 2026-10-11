@@ -14,68 +14,73 @@
   "delta_batches": [
     "runtime/chatbot-live/batches/2026-q3a.json",
     "runtime/chatbot-live/batches/2026-q3b.json",
-    "runtime/chatbot-live/batches/2026-q4.json"
+    "runtime/chatbot-live/batches/2026-q4.json",
+    "runtime/chatbot-live/batches/2027-q1.json",
+    "runtime/chatbot-live/batches/2027-q2.json",
+    "runtime/chatbot-live/batches/2027-q3.json",
+    "runtime/chatbot-live/batches/2027-q4.json",
+    "runtime/chatbot-live/batches/2027-q4b-zhao.json"
   ],
-  "cursor": 20,
-  "world_time": "2026-12-31",
-  "processed_window_count": 20,
-  "event_count": 67,
-  "h2_actor_window_coverage": {
-    "lin_jing": 5,
-    "chen_lan": 4,
-    "xu_hang": 6,
-    "wu_cheng": 1,
+  "cursor": 51,
+  "world_time": "2027-12-31",
+  "processed_window_count": 51,
+  "event_count": 159,
+  "actor_window_coverage_2027": {
+    "lin_jing": 6,
+    "chen_lan": 11,
+    "xu_hang": 7,
+    "wu_cheng": 4,
     "shen_yan": 1,
     "gu_wei": 1,
     "zhao_ke": 1,
-    "sun_jie": 1,
-    "zhou_ye": 5,
-    "gao_yuan": 1,
-    "luo_cheng": 3,
-    "tang_yu": 5,
-    "he_xin": 5,
-    "song_nan": 5
+    "sun_jie": 5,
+    "zhou_ye": 8,
+    "gao_yuan": 6,
+    "luo_cheng": 6,
+    "tang_yu": 8,
+    "he_xin": 7,
+    "song_nan": 7
   },
-  "network_deltas_2026_h2": [
-    {"a":"song_nan","b":"xu_hang","introduced_by":"chen_lan","at":"2026-07-23","status":"weak_tie_candidate"},
-    {"a":"luo_cheng","b":"he_xin","introduced_by":"lin_jing","at":"2026-10-24","status":"weak_tie_candidate"},
-    {"a":"zhou_ye","b":"tang_yu","introduced_by":"xu_hang","at":"2026-12-18","status":"weak_tie_candidate"}
-  ],
-  "candidate_status_summary": {
-    "still_pending": [
-      "candidate:2026-04-13:chen-review-song-note:01",
-      "candidate:2026-04-21:gao-lin-mock-interview:01"
+  "candidate_status_summary_end_2027": {
+    "employment_accepted_start_2028": [
+      "zhou_ye: state_owned_enterprise @ provincial_capital",
+      "he_xin: civil_service_or_public_institution @ provincial_capital",
+      "song_nan: pharmaceutical_industry @ pharma_cluster"
     ],
-    "activated_once": [
-      "candidate:2026-05-10:shen-review-tang-problem-tree:01",
-      "candidate:2026-06-27:xu-review-zhou-repro-pack:01"
+    "doctoral_completed": ["chen_lan"],
+    "closed_without_offer_or_resource": [
+      "gao_yuan 2027 civil-service cycle",
+      "luo_cheng 2027 counselor/student-affairs cycle"
     ],
-    "closed_without_resource": [
-      "candidate:2026-06-13:zhao-song-scoped-health-data-trial:01"
+    "open_paths": [
+      "luo_cheng research-support/process-coordination application",
+      "gao_yuan broadened stability search plus another civil-service cycle",
+      "tang_yu minimal mechanism research development",
+      "chen_lan post-degree career search"
     ]
   },
-  "2026_h2_mechanism_findings": [
-    "周野的可靠性从自我评价变成最小复现包、失败条件和核验规则；仍未产生国企推荐。",
-    "宋楠学会用项目语言表达能力，但真实项目候选因没有匹配需求而关闭；认识赵珂没有自动变成项目。",
-    "唐雨把研究线判断从方法复杂度转向结构性失效机制，并只获得一次受时间约束的反馈。",
-    "何欣开始把稳定性拆成职责、城市、调整空间和退出成本，家庭结构仍保持开放协商。",
-    "罗诚把辅导员职业叙事转成真实流程、记录和持续跟进经历的盘点，没有获得招聘捷径。",
-    "陈岚开始给外部项目设时间边界；许航开始把验证工作表述成独立风险识别与判断框架。",
-    "多人活动不会自动让所有人互相认识；2026下半年只确认三条新弱联系。",
-    "候选帮助既可能兑现，也可能因现实条件失败；失败本身进入记忆但不自动损害关系。"
+  "2027_mechanism_findings": [
+    "所有第一份工作结果均先经过公开岗位或考试流程，再经过城市/住房/家庭距离/现金/职责bundle检查；弱联系没有直接生成offer。",
+    "周野的复现工作样本帮助他通过技术筛查，但公开流程和岗位匹配仍决定最终offer；他接受的是省会技术岗而非抽象的国企标签。",
+    "宋楠通过公开医药统计招聘获得offer；前一年失败的小项目候选没有被改写成成功跳板。",
+    "何欣通过公开事业单位/公共机构流程获得省会offer，并继续把稳定性与职责、住房、退出成本一起评估。",
+    "高原首轮公务员招考未进面试线，失败后保留主线但增加重新评估条件和少量并行稳定岗位。",
+    "罗诚连续两次学生事务岗位无offer后，职业目标从单一辅导员修订为高校行政、研究支持和公共机构流程协调组合。",
+    "唐雨与许航的验证合作只把实现脆弱性和结构性失效分开，并形成反例集候选；没有预写论文、定理或作者关系。",
+    "陈岚完成博士后仍未自动获得理想工作，她把不再依靠无限接活证明可靠写入下一阶段职业约束。",
+    "孙洁开始主动管理熟人私聊和正式事务队列的边界；赵珂把外部协作者接入点后移到需求、预算、权限和责任基本成立之后。",
+    "忙碌和任务阶段变化会自然降低联系频率；降频不自动解释为关系恶化。"
   ],
-  "memory_materialization_rule": "Every event in baseline and delta batches writes bilateral memory only to its explicit speaker/listener. Public co-presence alone creates no private knowledge. Explicit introductions create only the named weak-tie edge.",
+  "memory_materialization_rule": "Every social event writes bilateral memory only to explicit speaker/listener. Public or group events expose only statements explicitly marked as spoken in that event. Explicit introductions alone create new weak-tie edges. Exogenous hard-world events are private to named actors until they choose to disclose them.",
   "next_pending_task": {
-    "task_id": "career-six-chatbot-live-v2:2027-01-01",
+    "task_id": "career-six-chatbot-live-v2:2028-01-01",
     "stage": "micro-replay",
-    "packet_id": "micro:chatbot:2027-01:tang-xu-verification-collaboration:01",
-    "start_date": "2027-01-15",
-    "end_date": "2027-01-17",
-    "event_kind": "verification_collaboration",
-    "mode": "in_person",
-    "location": "campus_workroom",
-    "participants": ["tang_yu","xu_hang"],
-    "instruction": "由当前ChatGPT继续充当cognition backend。2027第一场不预写成果，先让唐雨把一个结构性失效问题交给许航做验证设计讨论；任何计算合作、代码审阅或后续论文贡献都只形成候选并受时间、材料权限和实际贡献约束。"
+    "packet_id": "micro:chatbot:2028-01:first-job-transitions:01",
+    "start_date": "2028-01-05",
+    "end_date": "2028-01-20",
+    "event_kind": "first_job_transition_cluster",
+    "participants": ["zhou_ye","he_xin","song_nan"],
+    "instruction": "由当前ChatGPT继续充当cognition backend。三人分别进入不同城市/部门的第一份工作；必须从搬家、住房、现金、通勤、工作任务和旧关系联系频率的真实变化生成后续事件。三人不因同批入职自动互相知道彼此工作细节；只有既有同学或明确披露的信息可流动。"
   },
   "rules": {
     "repository_calls_model_api": false,
@@ -83,9 +88,11 @@
     "deepseek_api_optional_backend": true,
     "local_model_optional_backend": true,
     "single_batch_noncanonical": true,
+    "generated_through_interaction_chain": true,
     "no_unearned_knowledge": true,
     "conversation_does_not_auto_change_relationship": true,
     "hard_world_candidates_require_feasibility": true,
+    "job_outcomes_require_public_process_or_explicit_resource_path": true,
     "literary_layer_not_started": true
   }
 }
