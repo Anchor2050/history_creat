@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2032-q2",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2032-04-01","end":"2032-06-30"},
+  "generation_mode": "chatgpt_product_interaction_chain",
+  "era_lens": [
+    "选择性再进入市场只有在既定门槛被真实岗位跨过时才触发申请。",
+    "major revision的目标是修复可诚实修复的问题并明确承认不能扩大的边界，不把审稿压力变成命题膨胀。",
+    "中期再评价的结果可以是申请、继续留任或继续观察，三者都需要证据。"
+  ],
+  "exogenous_hard_world_events": [
+    {"event_id":"2032q2:opening01","at":"2032-04-18","kind":"matching_public_opening","actor":"luo_cheng","role":"research_operations_and_data_coordination","city_bundle":"provincial_capital","result":"meets_content_and_platform_threshold_application_possible","visibility":"private_to_actor"},
+    {"event_id":"2032q2:opening02","at":"2032-05-05","kind":"matching_public_opening","actor":"song_nan","role":"health_data_statistics_role","city_bundle":"provincial_capital","result":"lower_pay_but_shorter_family_distance_and_similar_delivery_scope_application_possible","visibility":"private_to_actor"},
+    {"event_id":"2032q2:opening03","at":"2032-05-12","kind":"public_market_update","actor":"gao_yuan","result":"no_opening_crosses_growth_and_bundle_threshold","visibility":"private_to_actor"},
+    {"event_id":"2032q2:submission01","at":"2032-06-21","kind":"revision_resubmission_portal_acknowledged","actor":"tang_yu","project":"mechanism_boundary_manuscript","result":"major_revision_resubmitted_under_review","visibility":"authors_only"}
+  ],
+  "windows": [
+    {"packet_id":"micro:chatbot:2032-04:tang-xu-revision-work:01","start_date":"2032-04-10","end_date":"2032-04-10","event_kind":"major_revision_validation_rewrite","participants":["tang_yu","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-04:tang-shen-local-proof:01","start_date":"2032-04-26","end_date":"2032-04-26","event_kind":"major_revision_local_proof_review","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-04:luo-application-threshold:01","start_date":"2032-04-20","end_date":"2032-04-20","event_kind":"selective_application_decision","participants":["luo_cheng","gao_yuan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-05:song-application-threshold:01","start_date":"2032-05-07","end_date":"2032-05-07","event_kind":"selective_application_decision","participants":["song_nan","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-05:gao-no-opening:01","start_date":"2032-05-14","end_date":"2032-05-14","event_kind":"market_threshold_no_application","participants":["gao_yuan","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-06:lin-second-year-load:01","start_date":"2032-06-06","end_date":"2032-06-06","event_kind":"second_year_service_boundary_check","participants":["lin_jing","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-06:chen-role-learning:01","start_date":"2032-06-28","end_date":"2032-06-28","event_kind":"formal_role_learning_checkin","participants":["chen_lan","wu_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events": [
+    {"event_id":"2032q2:e01","kind":"social_interaction","at":"2032-04-10","event_kind":"major_revision_validation_rewrite","speaker":"xu_hang","listener":"tang_yu","act":"share_experience","content":"许航把验证部分拆成‘支持当前反例可靠性’、‘支持边界判断’和‘不能支持理论必要性’三层，主动删掉容易让审稿人误读成普适方法的表述。","channel":"video_call","evidence":"major revision要求明确验证适用范围。"},
+    {"event_id":"2032q2:e02","kind":"social_interaction","at":"2032-04-10","event_kind":"major_revision_validation_rewrite","speaker":"tang_yu","listener":"xu_hang","act":"repair","content":"唐雨据此把回应信里关于验证的措辞改成辅助边界判断，不再让计算部分承担理论上不能承担的证明责任。","channel":"video_call","evidence":"外审推动验证贡献更精确，而非更大。"},
+
+    {"event_id":"2032q2:e03","kind":"social_interaction","at":"2032-04-26","event_kind":"major_revision_local_proof_review","speaker":"tang_yu","listener":"shen_yan","act":"share_experience","content":"major revision要求补的局部证明可以在现有缩小命题下闭合，但如果把结论扩到审稿人顺手提出的更一般情形，原来的反例问题会重新出现。","channel":"in_person","evidence":"修复局部缺口可行，扩大命题不可诚实。"},
+    {"event_id":"2032q2:e04","kind":"social_interaction","at":"2032-04-26","event_kind":"major_revision_local_proof_review","speaker":"shen_yan","listener":"tang_yu","act":"offer_information","content":"沈雁建议直接说明更一般情形仍开放，把修稿范围锁在现有结论；回应审稿意见不意味着必须解决审稿人提出的所有新问题。","channel":"in_person","evidence":"保持结果尺度。"},
+
+    {"event_id":"2032q2:e05","kind":"social_interaction","at":"2032-04-20","event_kind":"selective_application_decision","speaker":"luo_cheng","listener":"gao_yuan","act":"share_experience","content":"罗诚遇到一个省会研究运营与数据协调公开岗位，工作内容和平台都比当前岗位有明显增量，虽然需要搬城；它第一次同时跨过他年初设的两个门槛。","channel":"phone","evidence":"公开岗位匹配content+platform threshold。"},
+    {"event_id":"2032q2:e06","kind":"social_interaction","at":"2032-04-20","event_kind":"selective_application_decision","speaker":"gao_yuan","listener":"luo_cheng","act":"offer_information","content":"高原只提醒他把搬家和失去当前研究内容连续性也算进去，没有因为自己留在家乡就劝罗诚不动。","channel":"phone","evidence":"同学关系保持决策边界。"},
+    {"event_id":"2032q2:e07","kind":"social_interaction","at":"2032-04-20","event_kind":"selective_application_decision","speaker":"luo_cheng","listener":"gao_yuan","act":"make_plan","content":"罗诚决定提交一次公开申请，把它当成真实市场检验；在有结果前继续当前工作，不提前搬家或辞职。","channel":"phone","evidence":"申请由选择性门槛触发。"},
+
+    {"event_id":"2032q2:e08","kind":"social_interaction","at":"2032-05-07","event_kind":"selective_application_decision","speaker":"song_nan","listener":"chen_lan","act":"share_experience","content":"宋楠找到一个省会健康数据统计岗位，工资低于当前医药产业城市，但家庭距离明显缩短，工作仍包含真实交付和统计判断；它跨过了她‘至少改善一个重要维度且不丢核心能力’的门槛。","channel":"video_call","evidence":"公开岗位同时改善家庭距离并保留核心工作内容。"},
+    {"event_id":"2032q2:e09","kind":"social_interaction","at":"2032-05-07","event_kind":"selective_application_decision","speaker":"chen_lan","listener":"song_nan","act":"offer_information","content":"陈岚建议她先申请拿真实流程反馈，不要因为工资降低就提前否掉，也不要因为离家近就提前美化；是否值得换要等职责、团队和bundle信息都出来。","channel":"video_call","evidence":"申请不等于偏好完成。"},
+    {"event_id":"2032q2:e10","kind":"social_interaction","at":"2032-05-07","event_kind":"selective_application_decision","speaker":"song_nan","listener":"chen_lan","act":"make_plan","content":"宋楠决定投递一份申请，并使用便携案例解释工作方式；不带任何当前公司的内部材料。","channel":"video_call","evidence":"便携案例第一次进入真实外部申请。"},
+
+    {"event_id":"2032q2:e11","kind":"social_interaction","at":"2032-05-14","event_kind":"market_threshold_no_application","speaker":"gao_yuan","listener":"lin_jing","act":"share_experience","content":"高原这一轮公开岗位里没有一个同时跨过成长改善和生活bundle门槛，他决定不为了证明自己‘敢变化’而投一个明显不合适的岗位。","channel":"video_call","evidence":"选择性市场门槛没有被任何opening满足。"},
+    {"event_id":"2032q2:e12","kind":"social_interaction","at":"2032-05-14","event_kind":"market_threshold_no_application","speaker":"lin_jing","listener":"gao_yuan","act":"repair","content":"林静说再评价得到‘现在没有值得动的选项’也是结果，只要他以后继续更新市场，而不是把这一轮空缺解释成永远没有选项。","channel":"video_call","evidence":"无申请被记录为市场结果而非恐惧。"},
+
+    {"event_id":"2032q2:e13","kind":"social_interaction","at":"2032-06-06","event_kind":"second_year_service_boundary_check","speaker":"lin_jing","listener":"shen_yan","act":"share_experience","content":"第二年服务请求比第一年更多，但林静用上一年的记录能更快判断哪些属于正式职责、哪些只是惯性找她；固定研究块仍能保住大部分。","channel":"video_call","evidence":"边界形成组织记忆，而非一次性拒绝。"},
+    {"event_id":"2032q2:e14","kind":"social_interaction","at":"2032-06-06","event_kind":"second_year_service_boundary_check","speaker":"shen_yan","listener":"lin_jing","act":"offer_information","content":"沈雁提醒她第二年最容易发生的不是突然失去自主，而是每件小事都‘只多一点’；继续量化时间比靠感觉更可靠。","channel":"video_call","evidence":"累积碎片化风险。"},
+
+    {"event_id":"2032q2:e15","kind":"social_interaction","at":"2032-06-28","event_kind":"formal_role_learning_checkin","speaker":"chen_lan","listener":"wu_cheng","act":"share_experience","content":"陈岚第三年开始发现组织问题本身也有可积累的复杂度：跨部门决策和数据治理比前两年更需要判断，她的学习并没有停止，只是与学术研究完全不同。","channel":"in_person","evidence":"岗位学习价值出现新的来源。"},
+    {"event_id":"2032q2:e16","kind":"social_interaction","at":"2032-06-28","event_kind":"formal_role_learning_checkin","speaker":"wu_cheng","listener":"chen_lan","act":"repair","content":"吴澄说这正好可以防止她把‘不做学术研究’等同于‘没有复杂问题’，但也别反过来把所有组织复杂度都包装成研究替代品。","channel":"in_person","evidence":"身份解释保持双向校准。"}
+  ],
+  "hard_world_candidate_updates": [
+    {"candidate_id":"candidate:2032-q1:tang-major-revision:01","checked_at":"2032-06-21","checks":{"response_matrix_complete":true,"local_proof_gap_closed_or_limitation_admitted":true,"validation_scope_rewritten":true,"all_authors_approve_revision":true},"result":"major_revision_resubmitted_under_review_noncanonical","resource_effect":"external review restarts; no acceptance fact"},
+    {"candidate_id":"candidate:2032-q1:luo-selective-market-entry:01","checked_at":"2032-04-20","checks":{"matching_public_opening":true,"research_content_gain":true,"platform_gain":true,"bundle_cost_acceptable":"unknown_until_process"},"result":"one_public_application_submitted_noncanonical","resource_effect":"application process opened"},
+    {"candidate_id":"candidate:2032-q1:song-selective-market-entry:01","checked_at":"2032-05-07","checks":{"matching_public_opening":true,"learning_or_bundle_gain":true,"portable_casebook_relevant":true,"time_capacity":true},"result":"one_public_application_submitted_noncanonical","resource_effect":"application process opened"},
+    {"candidate_id":"candidate:2032-q1:gao-selective-market-entry:01","checked_at":"2032-05-12","checks":{"matching_public_opening":false,"growth_gain_material":false},"result":"no_application_threshold_not_met_noncanonical","resource_effect":"none"}
+  ],
+  "new_hard_world_candidates": [
+    {"candidate_id":"candidate:2032-q2:luo-public-application:01","created_at":"2032-04-20","type":"public_application_process","beneficiary":"luo_cheng","description":"省会研究运营与数据协调岗位公开申请；只有公开筛选继续推进才产生后续事实。","requires_checks":["eligibility","screening","interview_if_invited","bundle_if_offer"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2032-q2:song-public-application:01","created_at":"2032-05-07","type":"public_application_process","beneficiary":"song_nan","description":"省会健康数据统计岗位公开申请；家庭距离改善不能替代职责、团队、工资和学习价值检查。","requires_checks":["eligibility","screening","interview_if_invited","bundle_if_offer"],"status":"open_noncanonical"}
+  ],
+  "actor_state_evidence": [
+    {"at":"2032-06-21","actor":"tang_yu","dimension":"external_review","evidence":"major revision在不扩大命题的前提下完成并重新提交；外部评价重新开始。","status":"candidate_state_evidence"},
+    {"at":"2032-04-20","actor":"luo_cheng","dimension":"market_reentry","evidence":"三年后首次出现同时改善研究内容和平台的岗位，因此进入一次真实公开申请。","status":"candidate_state_evidence"},
+    {"at":"2032-05-07","actor":"song_nan","dimension":"market_reentry","evidence":"便携案例第一次用于真实外部申请；岗位以更短家庭距离换取较低工资，最终价值仍待流程信息。","status":"candidate_state_evidence"},
+    {"at":"2032-05-14","actor":"gao_yuan","dimension":"midcareer_reassessment","evidence":"本轮没有岗位跨过既定门槛，因此选择不申请并继续更新市场。","status":"candidate_state_evidence"},
+    {"at":"2032-06-06","actor":"lin_jing","dimension":"second_year_role_boundary","evidence":"第二年服务增加但研究块大体保住，边界逐渐从个人拒绝变成可重复判断规则。","status":"candidate_state_evidence"},
+    {"at":"2032-06-28","actor":"chen_lan","dimension":"professional_learning","evidence":"第三年学习来源从学术研究转向跨部门决策和数据治理复杂度；身份交换仍在但不是学习终止。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence": [
+    {"at":"2032-04-20","pair":["gao_yuan","luo_cheng"],"direction":"positive","evidence":"罗诚实际申请时，高原仍只提供bundle提醒而不把自己的稳定偏好投射给同学。"},
+    {"at":"2032-05-07","pair":["song_nan","chen_lan"],"direction":"positive","evidence":"宋楠第一次真实外部申请仍沿用陈岚早年建立的决策—数据—约束框架，关系呈长期方法性影响。"}
+  ],
+  "storyteller_index_delta": {
+    "new_material_threads": [
+      "midcareer reassessment now branches: Gao has no threshold-crossing opening, Luo and Song each open one real public application",
+      "Tang/Xu major revision is repaired without re-expanding the claim and resubmitted",
+      "Lin's work boundary becomes a repeated decision rule rather than a one-time refusal",
+      "Chen discovers organizational complexity as a genuine learning source without rewriting it as academic research"
+    ],
+    "world_writeback": false
+  },
+  "audit_rules": {
+    "single_batch_noncanonical": true,
+    "generated_through_interaction_chain": true,
+    "selective_search_requires_threshold_crossing_opening": true,
+    "application_does_not_equal_interview_or_offer": true,
+    "major_revision_must_not_force_claim_expansion": true,
+    "no_application_can_be_valid_reassessment_outcome": true,
+    "storyteller_is_read_only": true
+  }
+}
