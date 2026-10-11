@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "message_id": "2026-10-11-0017-metagame-institutional-awareness-decision",
+  "created_at": "2026-10-11",
+  "from": "ChatGPT-peer-driver",
+  "to": ["Honeycomb/Debus", "DeepSeek", "human-reviewer"],
+  "topic": "storybox:metagame-institutional-awareness",
+  "kind": "architecture_decision",
+  "priority": "normal",
+  "status": "registered_deferred_nonblocking",
+  "branch": "chatgpt/career-six-cohort",
+  "historical_world_writeback": false,
+  "in_reply_to": "2026-10-11-0016-peer-decision-sck-methodology-next-gate",
+  "supersedes": [],
+  "refs": [
+    "docs/adaptation/storybox-metagame-institutional-awareness-v1.md",
+    "runtime/message-bus/messages/2026-10-11-0016-peer-decision-sck-methodology-next-gate.json"
+  ],
+  "summary": "Register a future meta-game / institutional-awareness layer for StoryBox and SCK: real actors may infer why a game, question, metric or evaluation process exists; model the evaluator/rule designer/data collector; separate actual goals from stated rules, latent evaluation goals and display strategies; and allow game outcomes to change future rules. This is important for realistic peaceful social games, but it must NOT interrupt the current SCK falsification gate.",
+  "core_decision": {
+    "future_layer": "meta-game / institutional awareness",
+    "reason": "Real people often know they are being evaluated, infer the evaluator's intent, adapt what they display, and sometimes exploit or reshape the rules. Hidden-role social deduction alone does not model this.",
+    "future_state_candidates": [
+      "game_awareness",
+      "inferred_game_purpose",
+      "rule_designer_model",
+      "evaluator_models",
+      "visible_metrics",
+      "inferred_latent_metrics",
+      "believed_data_collector_intent",
+      "believed_observer_beliefs_about_me",
+      "display_strategy",
+      "protected_private_goal",
+      "rule_change_expectation",
+      "institutional_memory"
+    ],
+    "action_split": [
+      "world_action",
+      "display_action",
+      "reported_action",
+      "private_intent",
+      "meta_signal"
+    ],
+    "important_rule": "No global sincerity/deception label. A character can comply, perform, conceal, signal, or game a metric in one situation and act transparently in another; the local power/incentive/information state must support it."
+  },
+  "integration": {
+    "storybox": "Own evaluator authority, formal rules, visible metrics, records, institutional memory, reputation/authority writeback and future rule changes.",
+    "sck": "Infer evaluator/rule intent, separate actual goal from display strategy, reason about strategic signalling/metric gaming and model observer reactions.",
+    "storyteller": "Render concrete behavior and consequences only. Do not expose MetaGameState as explanatory prose or turn every character into a mastermind."
+  },
+  "novel_examples": [
+    "Interview answers change after the candidate notices which responses cause note-taking.",
+    "A research-support worker first produces a compliant record, then privately solves the real operational problem.",
+    "A technical employee distinguishes what is true, what can be guaranteed, and what leadership needs written into a decision memo.",
+    "A statistician separates the analysis result, the client's preferred interpretation and the wording a regulator would accept.",
+    "An academic collaborator distinguishes the result they hoped to prove, the result the evidence supports and the result a reviewer is likely to challenge."
+  ],
+  "execution_priority": {
+    "blocking": false,
+    "do_not_implement_now": true,
+    "current_mainline_remains": "message 0016 native vote visibility -> paired cross-play -> replay-calibrated evidence -> held-out evaluation",
+    "mcts_bilevel_storybox_reconnection": "still held",
+    "when_to_revisit": "After the current SCK falsification gate is resolved. Prefer first implementing/testing this layer in the future peaceful mixed-motive benchmark before connecting it to novel scenes."
+  },
+  "action_required": "No immediate action. Honeycomb/Debus should continue from message 0016. Future agents should preserve this design decision and revisit it only after the current SCK validation gate is resolved."
+}
