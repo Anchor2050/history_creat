@@ -7,10 +7,11 @@ generation, event manager, and long-term chat memory while keeping the channel
 explicit and avoiding physical teleportation for remote contact.
 """
 from copy import deepcopy
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
 from pathlib import Path
 
+from reverie.config.config import Config
 from reverie.manager.datetime_manager import datetime_manager
 from reverie.manager.event_manager import event_manager
 from reverie.persona.cognitive.retrieve import retrieve
@@ -129,9 +130,9 @@ def _spatial_memory(packet):
 def materialize_micro_replay(packet, output_dir):
     """Write a Reverie-compatible story directory for one micro window.
 
-    This is intentionally a materializer, not a runner. The caller controls model
-    credentials and Config. The generated directory contains world.yaml plus
-    standard persona scratch/spatial/long-term memory files.
+    This is intentionally a materializer, not a runner. The generated directory
+    contains world.yaml plus standard persona scratch/spatial/long-term memory
+    files and can now be consumed by storybox_micro_runtime_v7.
     """
     validate_micro_packet(packet)
     root = Path(output_dir)
@@ -210,6 +211,10 @@ async def channel_chat(
 
     speaker_persona.long_term_mem.add_chat_mem(chat_history)
     listener_persona.long_term_mem.add_chat_mem(chat_history)
+    total_characters = sum(len(utterance) for _, _, utterance in chat_history)
+    speed = max(1, Config.execute.get("chat_avg_speed", 3))
+    seconds = max(60, round(total_characters / speed))
+    duration = timedelta(seconds=seconds)
     event = event_manager.create_event(
         description=(
             f"{speaker_persona.name} is chatting with "
@@ -217,24 +222,23 @@ async def channel_chat(
         ),
         detail=str(chat_history),
         start_time=datetime_manager.get_current_datetime(),
+        duration=duration,
         participants=[speaker_persona.name, listener_persona.name],
         location=location,
     )
+    datetime_manager.advance_datetime(seconds=seconds)
     return {
         "event_id": event.event_id,
         "channel": channel,
         "location": location,
+        "duration_seconds": seconds,
         "chat_history": chat_history,
         "teleported": False,
     }
 
 
 def candidate_pairings(packet, social_graph_ties):
-    """Rank plausible pair conversations inside one group event.
-
-    Existing strong ties get some conversations, but introductions and weak ties
-    are deliberately surfaced so a dinner/trip can actually change topology.
-    """
+    """Rank plausible pair conversations inside one group event."""
     validate_micro_packet(packet)
     participants = set(packet["participants"])
     tie_map = {
