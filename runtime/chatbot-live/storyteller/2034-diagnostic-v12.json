@@ -1,0 +1,63 @@
+{
+  "schema_version":12,
+  "status":"read_only_storyteller_v12_analysis_noncanonical",
+  "as_of":"2034-12-31",
+  "backend":"chatgpt_product_conversation",
+  "world_writeback":false,
+  "literary_generation":false,
+  "history_thickness_comment":"到2034年底，主要人物已经不只拥有选择与结果，还拥有对既有选择进行治理、撤销、重估和部分修复的历史。周野开始治理房产与专家单点的叠加锁定；何欣先修岗位价值再决定住房；林静主动关闭一个保护两年的慢问题；罗诚第二次选择性申请终于获得双门槛offer；唐雨的研究空档也只在一个新问题跨过严格门槛后结束。底层历史已接近主要改编所需厚度，但原情景的2035终点仍有三个会改变结局含义的开放窗口：何欣最终住房选择、罗诚第二次迁移后的真实工作、以及家庭长期无危机是否一直持续到终点。因此仍应跑完2035再固定主要文学结构。",
+  "recurring_conflicts":[
+    {"label":"锁定之后如何恢复可逆性","interpretation":"周野无法消除房产锁定，但通过培养第二判断者减少职业单点锁定，说明可逆性可以被局部重建。","actors":["zhou_ye","xu_hang"],"evidence_refs":["2034q1:e04","2034q3:e03","2034q4:e12","2034q4:e13"]},
+    {"label":"稳定岗位是否还能继续生长","interpretation":"何欣第七年没有靠离职解决低学习，而是通过一个小型内部任务检验岗位可塑性；结果只有 modest gain，因此2035住房仍必须重新判断。","actors":["he_xin","sun_jie"],"evidence_refs":["2034q1:e01","2034q2:e01","2034q3:e01","2034q4:e08"]},
+    {"label":"自主性也包含退出权","interpretation":"林静用了近两年保护一个慢问题，最后仍在价值门槛失败后关闭；她的研究自主因此从‘能坚持’扩展为‘能不被沉没成本绑住’。","actors":["lin_jing","shen_yan"],"evidence_refs":["2034q2:e09","2034q3:e07","2034q3:e08"]},
+    {"label":"等待是否值得","interpretation":"罗诚坚持内容+平台双门槛数年，直到2034才出现真正同时改善的岗位；长期等待终于得到一次正面结果，但2035迁移后现实仍可能修正这套判断。","actors":["luo_cheng","gao_yuan","lin_jing"],"evidence_refs":["2034q2:e14","2034q3:e09","2034q4:e03","2034q4:e05"]},
+    {"label":"研究空档与新问题","interpretation":"唐雨的两年研究空档没有靠产出焦虑结束，只有一个反复出现的问题最终形成最小可证伪陈述后才开项目。","actors":["tang_yu","shen_yan"],"evidence_refs":["2034q1:e11","2034q2:e07","2034q3:e11","2034q4:e06","2034q4:e07"]},
+    {"label":"职业成熟与边界再协商","interpretation":"陈岚、赵珂、孙洁、吴澄、顾维的后期职业问题越来越少围绕获得机会，越来越多围绕如何定义责任、判断、权威和有限时间。","actors":["chen_lan","zhao_ke","sun_jie","wu_cheng","gu_wei"],"evidence_refs":["2034q3:e05","2034q3:e13","2034q2:e12","2034q4:e14","2034q4b:e01"]}
+  ],
+  "delayed_consequence_arcs":[
+    {"label":"何欣：两次未买房把住房问题推回岗位价值","steps":["2031现金硬阻断。","2033仍未通过缓冲规则。","2034先做岗位价值复核与内部丰富，只有获得有限学习增量后才保留2035住房窗口。"],"actors":["he_xin","sun_jie"],"evidence_refs":["2034q1:e01","2034q3:e01","2034q4:e08","2034q4:e09"]},
+    {"label":"周野：资产锁定之后开始拆职业锁定","steps":["2033购房使迁移成本实体化。","2034明确专家单点与房产锁定叠加。","第二判断者轮转部分成功，使至少一类异常不再只依赖本人。"],"actors":["zhou_ye","xu_hang"],"evidence_refs":["2034q1:e04","2034q2:e03","2034q3:e03","2034q4:e12"]},
+    {"label":"罗诚：早期错配—目标修订—长期等待—第二次迁移","steps":["早期辅导员路线失败后转向研究支持。","第一次中期申请落选后坚持内容+平台双门槛。","2034出现真正双门槛岗位并经公开流程获得offer。","2035迁移现实尚未验证。"],"actors":["luo_cheng","gao_yuan","lin_jing"],"evidence_refs":["2034q2:e14","2034q3:e09","2034q4:e01","2034q4:e03","2034q4:e05"]},
+    {"label":"林静：保护慢问题最终以关闭结束","steps":["评价压力使她主动保留长期问题空间。","问题一年无成果但通过负面收缩继续。","第二年核心假设削弱，价值门槛失败后主动关闭。"],"actors":["lin_jing","shen_yan"],"evidence_refs":["2034q2:e09","2034q3:e07","2034q3:e08"]}
+  ],
+  "unresolved_narrative_threads":[
+    {"label":"2035何欣最终住房窗口","what_is_open":"现金、岗位价值、城市承诺和退出成本必须最后一次共同检查；内部小任务的 modest gain 不足以预写购买。","evidence_refs":["2034q4:e08","2034q4:e09"]},
+    {"label":"罗诚第二次迁移是否兑现双门槛","what_is_open":"offer阶段内容和平台均更好，但真实工作、住房、通勤和组织结构仍需2035第一年验证。","evidence_refs":["2034q4:e03","2034q4:e05"]},
+    {"label":"唐雨小项目首轮负面检查","what_is_open":"项目刚跨门槛，没有证明、反例或结果；2035可能推进，也可能再次收缩或关闭。","evidence_refs":["2034q4:e06","2034q4:e07"]},
+    {"label":"家庭长期无危机是否成为最终历史事实","what_is_open":"家庭距离八九年持续参与选择，但没有真实健康/照护冲击；只有跑到2035终点才知道非事件是否一直成立。","evidence_refs":["2034q4:e15","2034q4:e08"]},
+    {"label":"原八人的后期职业身份","what_is_open":"吴澄、顾维、赵珂、孙洁已出现独立职业阶段问题，但私人生活仍薄；主要改编需要决定是否接受这种不对称，而非补写虚构私人戏。","evidence_refs":["2034q4:e14","2034q4b:e01","2034q3:e13","2034q2:e12"]}
+  ],
+  "scene_reservoirs":[
+    {"label":"一个做了两年的问题被关掉的下午","dramatic_question":"研究自由的证明究竟是能坚持，还是终于敢说这题不值得继续？","evidence_refs":["2034q3:e07","2034q3:e08"]},
+    {"label":"房贷之后第一次把复杂判断交给别人","dramatic_question":"一个人已经把城市锁住之后，还能不能主动拆掉职业上的不可替代？","evidence_refs":["2034q1:e04","2034q3:e03","2034q4:e12"]},
+    {"label":"等了很多年才出现的offer","dramatic_question":"等待终于得到奖励时，怎样防止等待本身变成接受理由？","evidence_refs":["2034q4:e03","2034q4:e04","2034q4:e05"]},
+    {"label":"两年没有新主线后开一个很小的新题","dramatic_question":"研究空档结束时，真正重要的是恢复连续产出，还是终于有一个值得做的小问题？","evidence_refs":["2034q4:e06","2034q4:e07"]},
+    {"label":"第七年仍不确定要不要买房","dramatic_question":"当稳定、现金、城市网络和低成长同时存在，房子究竟是在确认生活还是放大路径依赖？","evidence_refs":["2034q4:e08","2034q4:e09"]}
+  ],
+  "viewpoint_candidates":[
+    {"actor_id":"zhou_ye","why_viewpoint_works":"从零论文可靠性焦虑到组织标准、购房、专家单点和责任再分配，个人能力如何变成制度与物质锁定拥有完整长链。","what_it_hides":"家庭与亲密关系仍薄。","counterargument":"后期冲突主要是治理慢变量，外显戏剧事件较少。","evidence_refs":["2034q1:e04","2034q3:e03","2034q4:e12"]},
+    {"actor_id":"he_xin","why_viewpoint_works":"稳定从最初目标逐渐变成需要逐项复核的生活结构，两次住房未成与第七年岗位价值审查形成罕见的慢性选择线。","what_it_hides":"学术研究内部线较弱。","counterargument":"真正最终住房选择仍在2035。","evidence_refs":["2034q1:e01","2034q3:e01","2034q4:e08"]},
+    {"actor_id":"luo_cheng","why_viewpoint_works":"早期职业错配、目标修订、区域岗位适配、选择性搜索失败和第二次双门槛成功构成完整的非直线职业重建。","what_it_hides":"物质住房锁定较弱。","counterargument":"新岗位现实尚未发生。","evidence_refs":["2034q3:e09","2034q4:e01","2034q4:e05"]},
+    {"actor_id":"lin_jing","why_viewpoint_works":"她的主冲突已经从毕业和工作选择升级到制度如何改变问题选择，再到主动关闭慢问题，可承载学术自主的细微变化。","what_it_hides":"家庭与资产线弱。","counterargument":"关闭之后的下一阶段尚未显现。","evidence_refs":["2034q2:e09","2034q3:e07","2034q3:e08"]},
+    {"actor_id":"tang_yu","why_viewpoint_works":"大命题失败、缩小、发表、研究空档和小项目自然重启让学术生涯具备完整的非线性节奏。","what_it_hides":"职业岗位和住房线尚未成形。","counterargument":"2035小项目可能失败，当前仍不应把重启写成复苏结局。","evidence_refs":["2034q1:e11","2034q4:e06","2034q4:e07"]}
+  ],
+  "ensemble_structures":[
+    {"label":"不同类型的留下","actors":["zhou_ye","gao_yuan","he_xin","song_nan","chen_lan"],"structure":"买房后的主动锁定、家乡稳定留任、等待住房决策、降薪换城后的留任和组织身份稳定化共同说明‘留下’不是同一种社会状态。","evidence_refs":["2034q4:e12","2034q2:e13","2034q4:e08","2034q4:e10","2034q3:e05"]},
+    {"label":"研究的开始与结束","actors":["lin_jing","tang_yu","shen_yan"],"structure":"同一年里林静关闭慢问题、唐雨打开小项目，使开始和结束都成为经过证据门槛的合法科研动作。","evidence_refs":["2034q3:e07","2034q4:e06","2034q4:e16"]}
+  ],
+  "underrepresented_lives":[
+    {"actor_id":"gu_wei","gap":"已有独立职业权威边界，但家庭、城市和非职业生活仍薄。","evidence_refs":["2034q4b:e01"]},
+    {"actor_id":"wu_cheng","gap":"出现职业后期时间偏好，但私人生活仍无充分证据。","evidence_refs":["2034q4:e14"]}
+  ],
+  "competing_interpretations":[
+    {"question":"何欣继续留任到2035，是岗位重新产生价值还是路径依赖继续加深？","interpretations":["内部小任务证明岗位仍有可塑性，继续留任是主动更新后的选择。","modest gain不足以逆转多年低成长，继续留任仍可能主要来自高退出成本。"],"evidence_refs":["2034q3:e01","2034q4:e08"]},
+    {"question":"罗诚多年坚持高门槛最终得到offer，说明等待是正确策略吗？","interpretations":["便携资产和双门槛提高了机会质量，耐心避免再次错配。","市场偶然性仍然很大，成功终点不能证明所有等待都值得。"],"evidence_refs":["2034q3:e09","2034q4:e03","2034q4:e05"]}
+  ],
+  "do_not_literarize_yet":[
+    "2035是既定历史终点，何欣住房、罗诚迁移、唐雨小项目和家庭长期无危机都只差最后一年即可观察完整。",
+    "2034已经足够设计主角候选和场景池，但现在固定结局会把2035二阶后果降格为尾声，而它们可能改变整部作品对稳定、锁定和成长的解释。"
+  ],
+  "recommendation":"allow_small_literary_probes",
+  "hard_world_writeback":[],
+  "note":"History is near major-adaptation readiness. Complete the designed 2035 horizon before fixing protagonist hierarchy, ending, or major novel/screenplay structure."
+}
