@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "status": "adaptation_only_opening_anchor_audit_noncanonical",
+  "historical_world_writeback": false,
+  "preferred_sequence": [
+    "docs/adaptation/opening-luo-sequence-v1/ch01-door-ten-minutes-v2.md",
+    "docs/adaptation/opening-luo-sequence-v1/ch02-first-interview-v2.md",
+    "docs/adaptation/opening-luo-sequence-v1/ch03-second-rejection-v2.md",
+    "docs/adaptation/opening-luo-sequence-v1/ch04-research-support.md",
+    "docs/adaptation/opening-luo-sequence-v1/ch05-first-day.md",
+    "docs/adaptation/opening-luo-sequence-v1/ch06-say-no.md"
+  ],
+  "verdict": "opening_anchor_passes_first_literary_structure_gate",
+  "why": [
+    "Luo Cheng remains the only core protagonist for six chapters, so reader investment is not discarded by premature rotation.",
+    "The opening incident is complete rather than introductory: Luo observes the job, applies, fails, tries again, revises the target, accepts a new role, and then tests that role in lived work.",
+    "The second rejection changes the search space but does not produce a moral conversion or neat life lesson.",
+    "The research-support offer is modest and contingent; success does not erase uncertainty.",
+    "Chapter6 introduces actual human stakes and authority asymmetry: a student needs money, a project lead wants speed, finance requires compliance, and Luo must say no without any side becoming a villain."
+  ],
+  "v2_revision_result": {
+    "chapter1": "v2 preferred: less witty symmetry, stronger office pressure, cleaner ending on actual submission.",
+    "chapter2": "v2 preferred: one key student-scenario exposure carries the interview rather than a long questionnaire.",
+    "chapter3": "v2 preferred: second failure is distinguished through place, physical detail and the eventual search-term change."
+  },
+  "reader_memory": {
+    "luo_cheng": "clear: adaptive, socially capable, status-aware, process-comfortable, but repeatedly exposed by missing direct experience and by a tendency to seek a correct framework.",
+    "sun_jie": "clear secondary anchor: busy, bounded, occasionally helpful, not omniscient and not responsible for Luo's outcomes.",
+    "other_core_names": "not needed yet"
+  },
+  "campbell_backend": {
+    "ordinary_call": "desire for a respectable stable university role",
+    "trials": "two student-affairs failures expose missing direct experience",
+    "first_threshold": "accepting research-support work without requiring the old title",
+    "post_threshold_test": "discovering that institutional work means negotiating people, rules and incomplete information, not merely doing orderly process work"
+  },
+  "water_margin_application": "The Water-Margin lesson now starts from depth before breadth: establish one character through an incident chain, then let a later concrete social encounter reveal the next important person. The next core actor should not appear until a live Luo scene genuinely reaches them.",
+  "remaining_risks": [
+    "The first six chapters are still heavily centered on work. Before or during the next transition, ordinary private life, city texture, money, food, housing, family or leisure should enter naturally without becoming a thematic checklist.",
+    "Sun Jie is the only recurring secondary person so far; do not make her the universal gatekeeper for all of Luo's thinking.",
+    "Do not make every Luo chapter about a deadline and missing material. Chapter6 broadened into power and money; future scenes need additional textures.",
+    "The transition to a second core protagonist should happen only after the reader can leave Luo temporarily without losing him."
+  ],
+  "ensemble_expansion_gate": {
+    "status": "conditionally_allowed_not_required",
+    "requirements": [
+      "The next major character must enter through an actual Luo-linked event or relationship, not a chapter-plan slot.",
+      "The newcomer must have an active problem of their own at the moment of entry.",
+      "Luo may remain present in the entry scene but should not explain the newcomer to the reader.",
+      "If no strong handoff exists, stay with Luo longer."
+    ],
+    "best_known_future_handoff": "A later real classmate call/meal can surface Gao Yuan or another classmate once that person's live process is strong enough; do not develop multiple classmates simultaneously."
+  },
+  "next_action": "Update adaptation head to prefer v2 opening files and chapter6. Then either stay with Luo for one ordinary-life scene or test a single natural handoff from Luo to one classmate with an active live problem. No broad ensemble montage."
+}
