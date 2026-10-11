@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_only_noncanonical_game_arc",
+  "historical_world_writeback": false,
+  "hierarchy": {
+    "round": "one bounded perception-action-collision-writeback cycle",
+    "game": "one dominant problem played until resolution, failure, equilibrium, deadlock or supersession",
+    "arc": "a sequence of games linked by persistent consequences",
+    "world": "persistent people, relationships, reputation, institutions, map and memory across all arcs"
+  },
+  "arc_id": "risk-list-arc-01",
+  "arc_question": "What happens when a distributed statistical system produces a consequential result before the participating institutions agree on what counts as an error?",
+  "games": [
+    {
+      "order": 1,
+      "game_id": "risk-list-game-01",
+      "name": "incident containment",
+      "main_question": "Within 72 hours, what can be responsibly said and what should be paused or continued?",
+      "entry_trigger": "suspicious low-risk row plus external screenshot",
+      "expected_round_range": [3, 8],
+      "end_conditions": [
+        "joint preliminary statement accepted for release",
+        "interim operational decision made: pause / narrow / continue-with-guardrails",
+        "or the institutions deadlock and an external authority imposes the interim decision"
+      ],
+      "does_not_require": [
+        "complete technical truth",
+        "complete responsibility allocation",
+        "screenshot source fully resolved"
+      ],
+      "successor_trigger": "unresolved technical/responsibility questions survive containment"
+    },
+    {
+      "order": 2,
+      "game_id": "risk-list-game-02",
+      "name": "cause verification",
+      "main_question": "Which parts of the incident can be reproduced, falsified or attributed to data, version, pipeline and statistical assumptions?",
+      "entry_trigger": "containment decision creates a formal audit/validation mandate",
+      "expected_round_range": [3, 10],
+      "new_map_nodes": [
+        "university_research_group",
+        "independent_validation_workspace"
+      ],
+      "likely_new_actor_roles": [
+        "tang_yu",
+        "xu_hang"
+      ],
+      "end_conditions": [
+        "technical causal graph reaches a stable evidence-supported form",
+        "or validation reaches a bounded statement of what cannot be distinguished with available evidence"
+      ],
+      "does_not_require": [
+        "one guilty actor",
+        "public consensus on moral responsibility"
+      ],
+      "successor_trigger": "verified technical findings create responsibility, policy, contract or reputation consequences"
+    },
+    {
+      "order": 3,
+      "game_id": "risk-list-game-03",
+      "name": "responsibility allocation",
+      "main_question": "Who had which duty at which stage, and what changes must be imposed on the system and institutions?",
+      "entry_trigger": "audit findings are stable enough to support governance decisions",
+      "expected_round_range": [2, 8],
+      "new_map_nodes": [
+        "public_institution_coordination_room",
+        "industry_partner_meeting"
+      ],
+      "likely_new_actor_roles": [
+        "gao_yuan",
+        "he_xin",
+        "song_nan"
+      ],
+      "end_conditions": [
+        "new decision rights / process rules / documentation duties assigned",
+        "contract or institutional responsibilities reallocated",
+        "or responsibility remains partially contested but the operating system changes anyway"
+      ],
+      "successor_trigger": "governance changes alter careers, relationships and institutional equilibrium"
+    },
+    {
+      "order": 4,
+      "game_id": "risk-list-game-04",
+      "name": "afterlife",
+      "main_question": "Months later, what did the incident actually change in careers, trust, work design and the public story?",
+      "entry_trigger": "operational crisis is over but consequences persist",
+      "expected_round_range": [2, 6],
+      "new_map_nodes": [
+        "external_public_space"
+      ],
+      "end_conditions": [
+        "the incident ceases to generate new material state changes",
+        "remaining disagreements become background commitments for future unrelated games"
+      ],
+      "successor_trigger": "none required; world continues with persistent writeback"
+    }
+  ],
+  "cross_game_carry": [
+    "actor personality and capability state",
+    "relationships and trust damage",
+    "reputation",
+    "beliefs that were never corrected",
+    "public information",
+    "private information still held",
+    "commitments and promises",
+    "institutional rule changes",
+    "map unlocks that remain reachable",
+    "unpaid payoff debt",
+    "career and resource consequences"
+  ],
+  "reset_between_games": [
+    "main objective",
+    "round counter",
+    "eligible actor set",
+    "active deadline set",
+    "which map nodes are foregrounded",
+    "reader-facing mystery emphasis"
+  ],
+  "anti_serialization_rules": [
+    "Do not keep a game alive merely because unresolved facts exist.",
+    "A game ends when its dominant decision problem has converged; residual questions may seed the next game.",
+    "Do not introduce every core actor in Game 1.",
+    "New actors enter only when a successor game's jurisdiction reaches them.",
+    "A successor game must inherit at least one material consequence from its predecessor.",
+    "If an arc produces no persistent writeback, it was probably decorative filler."
+  ]
+}
