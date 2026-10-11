@@ -1,0 +1,54 @@
+{
+  "schema_version":1,
+  "status":"opening_three_chapter_continuity_audit_noncanonical",
+  "historical_world_writeback":false,
+  "chapters":[
+    "docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md",
+    "docs/adaptation/pilots/ch02-ordinary-trip-full-v2.md",
+    "docs/adaptation/pilots/ch03-luo-posting-full-v2.md"
+  ],
+  "overall_judgment":"opening_sequence_works_but_name_load_requires_discipline",
+  "chronology":[
+    {"chapter":1,"period":"2026-06-26/27","lead":"zhou_ye"},
+    {"chapter":2,"period":"2026-07-23/24","lead":"song_nan_ensemble"},
+    {"chapter":3,"period":"2027-04-19","lead":"luo_cheng"}
+  ],
+  "register_progression":[
+    "chapter1: narrow technical task, private status pressure, quiet Call",
+    "chapter2: diffuse social time, heat, food, transit, weak ties, no conversion",
+    "chapter3: institutional labor, embarrassment, concrete mismatch between credential and experience"
+  ],
+  "reader_memory_load":{
+    "chapter1_named_core_or_secondary":["zhou_ye","xu_hang"],
+    "chapter2_new_named_people":["song_nan","lin_jing","chen_lan","tang_yu"],
+    "chapter2_returning_named_people":["xu_hang"],
+    "chapter3_new_named_people":["luo_cheng","sun_jie"],
+    "assessment":"high_but_manageable_for_ensemble_if_later_chapters_do_not_immediately_add_many_more_names"
+  },
+  "character_entry_handles":[
+    {"actor":"zhou_ye","handle":"old files, vague notes, compulsion to make work rerunnable"},
+    {"actor":"xu_hang","handle":"brief, bounded technical advice; refuses career packaging role"},
+    {"actor":"song_nan","handle":"social energy, practical messiness, asks questions quickly but does not force intimacy"},
+    {"actor":"lin_jing","handle":"low-energy practicality; does not turn ordinary talk into career analysis"},
+    {"actor":"chen_lan","handle":"connective social role and logistical competence, without becoming group leader"},
+    {"actor":"tang_yu","handle":"precise and economical response; willing to say she does not know what result means"},
+    {"actor":"luo_cheng","handle":"warmer institutional curiosity plus status discomfort when direct experience is missing"},
+    {"actor":"sun_jie","handle":"busy staff perspective; translates job language into actual labor without promising access"}
+  ],
+  "risks":[
+    "Eight named people are visible by the end of chapter3. Chapter4 should not introduce another cluster of four or five named recurring characters.",
+    "Chapter2 must remain ordinary in later callbacks. Do not retroactively narrate the trip as the origin of a professionally decisive Song-Xu relationship.",
+    "Xu Hang appears in both chapter1 and chapter2; this is useful connective tissue but must not accidentally make him look like the hidden central node of the ensemble.",
+    "The nine-month jump into chapter3 needs a light date/season marker in final manuscript layout; prose should not explain the intervening history just to smooth chronology.",
+    "The opening currently privileges educated professional problems. Before the first major arc accelerates, later chapters need bodily, domestic, financial and ordinary institutional texture as well."
+  ],
+  "continuity_rules_forward":[
+    "For chapters4-6, prefer returning already introduced names over introducing many new recurring characters.",
+    "A newly introduced recurring person should get one concrete behavioral handle, not a paragraph biography.",
+    "Do not remind readers of every prior relation when a person reappears; let context reactivate memory.",
+    "Keep chapter2 consequences sparse: acquaintance may persist without becoming leverage.",
+    "Preserve chronological gaps as gaps unless a later scene genuinely needs an intervening fact."
+  ],
+  "opening_order_verdict":"confirm_ch1_zhou_ch2_trip_ch3_luo",
+  "next_step":"Update Storyteller head and choose chapter4 with a bias toward returning characters and a different pressure register."
+}
