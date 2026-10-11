@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "status": "chapter6_and_part1_audit_noncanonical",
+  "historical_world_writeback": false,
+  "v1": "docs/adaptation/pilots/ch06-two-offers-full-v1.md",
+  "v2": "docs/adaptation/pilots/ch06-two-offers-full-v2.md",
+  "overall_judgment": "v2_preferred_part1_momentum_pass",
+  "chapter6_improvements": [
+    "Chen's refusal remains costly and attractive: no moral reward follows the rejection.",
+    "Gao no longer proves that sunk cost is absent; he explicitly cannot know the counterfactual, preserving the core ambiguity of his long arc.",
+    "Removed the analytical salary-rent-commute list as a symbolic self-diagnosis device.",
+    "Removed Lin's authorial certification of Gao's decision; she repeatedly says she does not know because she is not the one taking the job.",
+    "The ending stays inside administrative reality: medical-exam timing and an alarm, not a life-choice summary."
+  ],
+  "campbell_check": {
+    "gao_yuan": "threshold_pass_with_ambiguity_retained",
+    "chen_lan": "refusal_pass_without_reward",
+    "lin_jing": "mirror_function_bounded_not_mentor_oracle"
+  },
+  "first_six_sequence": [
+    "Ch1 Zhou: call — reliable work seeks external evidence",
+    "Ch2 Song ensemble: ordinary world — weak ties and ordinary time",
+    "Ch3 Luo: trial — credentials meet actual institutional labor",
+    "Ch4 Tang: trial — evidence splits and preferred phenomenon weakens",
+    "Ch5 Zhou/Gao/Luo: partial payoff/threshold — earlier preparation receives contingent external results",
+    "Ch6 Chen/Gao: refusal + threshold — attractive offers produce opposite actions for character-specific reasons"
+  ],
+  "part1_strengths": [
+    "The opening now has causal residue: Ch1 is paid in Ch5, Ch3's route changes are visible in Ch5, and classmate ties persist without becoming a permanent team.",
+    "Campbell functions differ across people and are not synchronized into one formula.",
+    "Material stakes increase over time: code and credentials give way to rent, commute, income, family distance, response burden and start logistics.",
+    "No decision is retrospectively certified as universally correct."
+  ],
+  "part1_risks": [
+    "The novel has used Lin Jing several times as a calibration partner; she should not become the next universal adviser after Xu Hang recedes.",
+    "Offer evaluation can become another version of spreadsheet fiction; later chapters should show the lived job before more bundle comparisons.",
+    "The first six chapters cover many career decisions. The next movement needs daily work, institutional friction, bodily fatigue and ordinary repetition before another major choice chapter.",
+    "Twenty-five chapters is currently provisional. Compress only after later sequence audit identifies a genuinely redundant chapter."
+  ],
+  "gate_status": {
+    "chapter6": "pass_after_subtraction",
+    "first_six_plot_connection": "pass",
+    "campbell_arc_distribution": "pass",
+    "negative_space": "pass",
+    "material_register": "pass_with_future_repetition_warning",
+    "prose_canon": "still_disposable_reference"
+  },
+  "next_recommendation": "Move into the 'work becomes life' movement. Favor a first-job daily-life chapter (Lin first week, Luo first months, or Zhou/He first-year reality) before another major offer or housing decision."
+}
