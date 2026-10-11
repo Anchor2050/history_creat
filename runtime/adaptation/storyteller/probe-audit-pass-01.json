@@ -1,0 +1,61 @@
+{
+  "schema_version":1,
+  "status":"adaptation_probe_audit_noncanonical",
+  "historical_world_writeback":false,
+  "audited_files":[
+    "docs/adaptation/probes/p2-01-ordinary-trip-v1.md",
+    "docs/adaptation/probes/p2-02-luo-sun-gate-v1.md",
+    "docs/adaptation/probes/p2-03-zhou-qiu-delegation-v1.md",
+    "docs/adaptation/probes/p2-04-song-ma-deliverable-v1.md"
+  ],
+  "overall":"promising_but_not_prose_canon",
+  "scene_reviews":[
+    {
+      "file":"p2-01-ordinary-trip-v1.md",
+      "strengths":["ordinary time survives without career conversion","weak ties remain weak","Song's fast social rhythm is visible in action","several lines are genuinely inefficient everyday talk"],
+      "risks":["banter is slightly more uniformly quick than a real mixed group may sustain","minor comic beats can become too neat if repeated","needs one future probe with awkward or low-energy social time rather than all easy banter"],
+      "ai_style_risk":"low_to_medium",
+      "keep_as_probe":true
+    },
+    {
+      "file":"p2-02-luo-sun-gate-v1.md",
+      "strengths":["Sun is ethically legible and institutionally bounded","Luo experiences embarrassment without instant enlightenment","bureaucratic work continues around the conversation","power difference appears through what Sun can and cannot say"],
+      "risks":["a few exchanges are almost too cleanly quotable","Sun's phrasing should occasionally be more rushed or repetitive in a final version","Luo may need a less graceful defensive moment in another probe"],
+      "ai_style_risk":"medium_low",
+      "keep_as_probe":true
+    },
+    {
+      "file":"p2-03-zhou-qiu-delegation-v1.md",
+      "strengths":["guest has own career stake","Zhou's virtue-shadow conflict appears through intervention restraint rather than diagnosis","delegation is shown as judgment transfer rather than document transfer","guest micro-arc produces a small correction rather than a conversion"],
+      "risks":["the exchange about whether the case counts in year-end review is strong but slightly efficient as character revelation","final 'did not reply' has mild crafted-ending feel; final draft may end more mundanely","need future scene from Qiu viewpoint to prove he exists outside Zhou's arc"],
+      "ai_style_risk":"medium_low",
+      "guest_life_legibility":"partial_pass",
+      "keep_as_probe":true
+    },
+    {
+      "file":"p2-04-song-ma-deliverable-v1.md",
+      "strengths":["both sides protect real goods","cross-cutting expertise is visible","negotiation emerges from task structure rather than communication jargon","guest changes slightly and Song also changes task framing","dialogue shows Song's action orientation and technical boundary"],
+      "risks":["dialogue cadence is almost television-ready and may be too polished for a novel if used repeatedly","the 'your expression wanted to delete it' beat is lively but slightly sitcom-like","need a later version with interruptions, partial misunderstanding and less perfect convergence"],
+      "ai_style_risk":"medium",
+      "guest_life_legibility":"pass",
+      "keep_as_probe":true
+    }
+  ],
+  "gate_results":{
+    "ordinary_scene_without_forced_meaning":"pass",
+    "locally_wrong_or_embarrassed_viewpoint":"pass",
+    "local_antagonist_with_plausible_good":"pass",
+    "guest_micro_arc":"pass_with_more_testing_needed",
+    "six_core_dialogue_differentiation":"not_yet_tested_enough",
+    "capability_consistency":"partial_pass",
+    "anti_ai_style":"partial_pass"
+  },
+  "next_required_probes":[
+    "one low-energy or socially awkward scene where dialogue does not stay witty",
+    "one scene from a guest viewpoint rather than protagonist viewpoint",
+    "one family/origin-pressure scene that does not rely on illness or melodrama",
+    "one six-core dialogue stress test using the same prompt/topic with distinct responses",
+    "one scene where a highly educated character communicates badly despite knowing communication theory"
+  ],
+  "decision":"Do not fix prose canon or full chapter voice yet. Continue controlled probes."
+}
