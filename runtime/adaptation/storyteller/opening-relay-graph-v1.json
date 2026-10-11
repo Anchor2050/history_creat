@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_only_opening_relay_graph_noncanonical",
+  "historical_world_writeback": false,
+  "design_rule": "The opening is driven by an event relay, not by a roster of core-character entrances. A new core actor appears only when the current story reaches a person, place, relationship or consequence that naturally requires them.",
+  "forbidden": [
+    "six-core entrance checklist",
+    "one introductory chapter per core actor",
+    "chapter order chosen to balance protagonist exposure",
+    "introducing a person only because the reader has not met them yet"
+  ],
+  "usable_existing_scene_material": {
+    "song_pharma_interview": "docs/adaptation/pilots/opening-entrance-b-song-pharma-interview-v2.md",
+    "zhou_technical_screen": "docs/adaptation/pilots/opening-entrance-a-zhou-technical-screen-v2.md",
+    "luo_office_scene": "docs/adaptation/pilots/opening-entrance-c-luo-office-v1.md"
+  },
+  "candidate_routes": [
+    {
+      "id": "route:industry-pressure-to-first-stability",
+      "status": "preferred_for_next_test",
+      "reason": "It begins with the strongest external-pressure scene and can hand the narrative through existing relationships without requiring all six core actors to appear early.",
+      "nodes": [
+        {
+          "order": 1,
+          "period": "2027-07",
+          "lead": "song_nan",
+          "event": "pharmaceutical recruitment interview under changing business conditions",
+          "historical_anchor": ["2027q3:proc01", "2027q3:e01", "2027q3:e02"],
+          "story_job": "Open on a real test: Song must revise what she can safely conclude as conditions change. Her education and speed appear through action.",
+          "exit_hook": "After the interview she debriefs Chen Lan, an already-established work peer. The camera has a legitimate person to follow next.",
+          "new_memorable_names_target": 1
+        },
+        {
+          "order": 2,
+          "period": "2027-08 to 2027-10",
+          "lead": "chen_lan",
+          "event": "doctoral defense/completion pressure and later bounded career conversations",
+          "historical_anchor": ["2027q3:e05", "2027q3:e06", "2027q4:e07", "2027q4:e08"],
+          "story_job": "Chen is not introduced as another protagonist card. She first exists because Song called her; then the story discovers that she herself is closing a doctorate and defending time boundaries.",
+          "exit_hook": "Zhou Ye later comes to Chen with a concrete SOE offer bundle. That existing contact can carry the camera to Zhou.",
+          "new_memorable_names_target": 1
+        },
+        {
+          "order": 3,
+          "period": "2027-10",
+          "lead": "zhou_ye",
+          "event": "SOE offer evaluation after technical sample gained traction",
+          "historical_anchor": ["2027q3:e03", "2027q3:e04", "2027q4:e04", "2027q4:e05", "2027q4:e06"],
+          "story_job": "Zhou enters because Chen receives his problem, not because it is time to introduce Zhou. His earlier technical-screen scene can be used as a short backward reveal only if needed.",
+          "exit_hook": "At the December classmate meal Zhou tells Gao Yuan and Luo Cheng he has accepted. The story can choose only one of them as the next focal actor and leave the other as a name or background presence.",
+          "new_memorable_names_target": 1
+        },
+        {
+          "order": 4,
+          "period": "2027-12 onward",
+          "lead_choice": ["gao_yuan", "luo_cheng"],
+          "event": "classmate meal after divergent first-round outcomes",
+          "historical_anchor": ["2027q4:e17", "2027q4:e18", "2027q4:e19"],
+          "story_job": "This is the first true branch. Follow Gao if the novel wants the public-exam threshold next; follow Luo if it wants identity reconstruction and research-support work next. Do not develop both equally in the same chapter.",
+          "exit_hook": "Whichever actor is selected generates the next concrete process: Gao's second exam cycle or Luo's research-support application/job.",
+          "new_memorable_names_target": 1
+        }
+      ],
+      "explicit_non_goal": "He Xin and Tang Yu do not need to appear in the first four nodes. They enter later when an active line reaches their existing classmate, work, or introduction relationship."
+    },
+    {
+      "id": "route:institutional-door-to-peer-network",
+      "status": "reserve",
+      "reason": "This route is less immediately dramatic but has a strong Water-Margin-like social relay through actual introductions.",
+      "nodes": [
+        {
+          "order": 1,
+          "period": "2026-07",
+          "lead": "he_xin",
+          "event": "public-institution information chat with Sun Jie",
+          "historical_anchor": ["batch1:e05", "batch1:e06", "batch1:e07"],
+          "exit_hook": "He carries the unresolved stability question into later peer comparison scenes."
+        },
+        {
+          "order": 2,
+          "period": "2026-10",
+          "lead": "he_xin",
+          "event": "cross-school dinner where Lin Jing introduces He Xin to Luo Cheng",
+          "historical_anchor": ["batch1:e29", "batch1:e30", "batch1:e31"],
+          "exit_hook": "The camera may now follow Luo because the introduction has created a real weak tie and Luo has his own unresolved student-affairs path."
+        },
+        {
+          "order": 3,
+          "period": "2027-02",
+          "lead": "luo_cheng",
+          "event": "classmate meal with Zhou Ye and Gao Yuan as their job-search routes diverge",
+          "historical_anchor": ["2027q1:e11", "2027q1:e12", "2027q1:e13"],
+          "exit_hook": "Choose one classmate's live process to follow. Do not turn the meal into a three-profile presentation."
+        }
+      ]
+    }
+  ],
+  "branching_rule": "A relay may branch, but the prose follows only one branch at a time. Other known people remain offstage until an event gives the story a reason to return to them.",
+  "campbell_integration": "Each actor's Campbell arc begins or advances when the relay reaches them. The arc does not determine relay order.",
+  "next_action": "Draft a 3-4 chapter continuous relay test from the preferred route. Reuse entrance-probe material only where it fits the causal handoff. Do not draft standalone entrances for the remaining core actors."
+}
