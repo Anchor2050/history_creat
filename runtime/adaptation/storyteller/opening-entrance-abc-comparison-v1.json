@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_only_opening_entrance_abc_comparison_noncanonical",
+  "historical_world_writeback": false,
+  "candidates": [
+    {
+      "id": "A",
+      "actor": "zhou_ye",
+      "file": "docs/adaptation/pilots/opening-entrance-a-zhou-technical-screen-v2.md",
+      "hook_type": "quiet external pressure",
+      "world_frame": "strong",
+      "cinematic_action": "high",
+      "character_memory": "high",
+      "name_load": "very_low",
+      "long_arc_room": "very_high",
+      "main_risk": "technical interview remains comparatively static"
+    },
+    {
+      "id": "B",
+      "actor": "song_nan",
+      "file": "docs/adaptation/pilots/opening-entrance-b-song-pharma-interview-v2.md",
+      "hook_type": "fast changing external problem",
+      "world_frame": "strong",
+      "cinematic_action": "very_high",
+      "character_memory": "very_high",
+      "name_load": "very_low",
+      "long_arc_room": "high",
+      "main_risk": "must keep competence from turning into interview-showcase fiction"
+    },
+    {
+      "id": "C",
+      "actor": "luo_cheng",
+      "file": "docs/adaptation/pilots/opening-entrance-c-luo-office-v1.md",
+      "hook_type": "scene already in motion before protagonist enters",
+      "world_frame": "medium",
+      "cinematic_action": "very_high",
+      "character_memory": "very_high",
+      "name_load": "low",
+      "long_arc_room": "very_high",
+      "main_risk": "institutional office texture can become procedural if repeated too long"
+    }
+  ],
+  "reader_problem_addressed": {
+    "flat_plot": "substantially improved because all three entrances begin with pressure rather than profile exposition",
+    "too_many_names": "substantially improved; each scene asks the reader to retain one core name and at most one recurring secondary name",
+    "characters_hard_to_remember": "improved through scene-specific memory hooks rather than resume facts",
+    "cinematic_feel": "improved through physical space, interruption, movement, props and live dialogue",
+    "background_delivery": "improved through job notices, interview documents, office workload and other people's questions"
+  },
+  "provisional_opening_decision": {
+    "selected": "B",
+    "lead": "song_nan",
+    "file": "docs/adaptation/pilots/opening-entrance-b-song-pharma-interview-v2.md",
+    "reason": "It best combines a readable macro background with immediate conflict, visual movement, dialogue and a memorable personality. The scene shows both competence and a flaw seed without requiring prior knowledge of statistics.",
+    "not_a_canon_lock": true
+  },
+  "provisional_next_entrances": [
+    {
+      "position": 2,
+      "candidate": "A",
+      "actor": "zhou_ye",
+      "reason": "Switch from Song Nan's speed to Zhou Ye's restraint and immediately widen the tonal range."
+    },
+    {
+      "position": 3,
+      "candidate": "C",
+      "actor": "luo_cheng",
+      "reason": "Move from interview pressure into an already-moving institutional scene and introduce social adaptability/status tension."
+    }
+  ],
+  "architecture_consequence": "The previous six-chapter opening sequence remains material only. Rebuild the opening around entrance scenes: one person at a time, low name load, event-first, with later weak braids and Campbell arcs layered behind the visible scenes.",
+  "review_status": "literary entrance direction passes first gate; further chapters should be rebuilt before closing the human review completely"
+}
