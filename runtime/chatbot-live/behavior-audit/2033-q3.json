@@ -1,0 +1,17 @@
+{
+  "schema_version":11,
+  "period":"2033-q3",
+  "status":"behavior_audit_noncanonical",
+  "backend":"chatgpt_product_conversation",
+  "source_batch":"runtime/chatbot-live/batches/2033-q3.json",
+  "abnormal_budget":1,
+  "abnormal_used":0,
+  "decisions":[
+    {"actor_id":"gao_yuan","mode":"normal","chosen_action_id":"decompose_threshold_growth_into_preference_and_inertia","baseline_expected_action":"Continue annual market refresh while keeping current bundle benefits and low growth cost visible.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Repeated no-opening years raise a real concern that the threshold itself is changing.","constraint_check":{"feasible":true,"notes":"The audit requires no resignation or broad search."},"evidence_refs":["2033q3:audit01","2033q3:e01","2033q3:e02"]},
+    {"actor_id":"luo_cheng","mode":"normal","chosen_action_id":"build_one_portable_work_case_without_lowering_search_threshold","baseline_expected_action":"Increase market readiness by making actual judgment legible rather than applying more broadly after rejection.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"No new double-threshold opening exists, but current work contains a sanitizable judgment example.","constraint_check":{"feasible":true,"notes":"The case contains no sensitive institution material."},"evidence_refs":["2033q3:asset01","2033q3:e03","2033q3:e04"]},
+    {"actor_id":"song_nan","mode":"normal","chosen_action_id":"keep_second_role_after_nine_month_mixed_review","baseline_expected_action":"Stay if judgment scope and life bundle are preserved even with lower learning speed.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Nine-month evidence confirms the intended life-bundle gains and preserved professional judgment.","constraint_check":{"feasible":true,"notes":"No exit trigger or superior opening is present."},"evidence_refs":["2033q3:role01","2033q3:e05","2033q3:e06"]},
+    {"actor_id":"xu_hang","mode":"normal","chosen_action_id":"claim_validation_design_identity_but_keep_method_maturity_open","baseline_expected_action":"Use independent problem evidence to refine identity while demanding failure cases before claiming transferability.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"A new independent task supports design judgment, but only one strong case exists so far.","constraint_check":{"feasible":true,"notes":"Failure-case collection remains open."},"evidence_refs":["2033q3:e09","2033q3:e10"]},
+    {"actor_id":"lin_jing","mode":"normal","chosen_action_id":"continue_narrowed_long_question_to_yearend_review","baseline_expected_action":"Let negative narrowing count as progress only while the remaining question still has mechanism value.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Two weak directions were removed and a clearer narrow question remains.","constraint_check":{"feasible":true,"notes":"Year-end value review is still required."},"evidence_refs":["2033q3:e11","2033q3:e12"]}
+  ],
+  "audit_rule":"Q3 remains normal. Path dependence is audited, not turned into an abrupt escape; portable assets and identity claims are kept proportional to evidence."
+}
