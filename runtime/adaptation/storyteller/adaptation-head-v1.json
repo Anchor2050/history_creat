@@ -1,5 +1,5 @@
 {
-  "schema_version": 24,
+  "schema_version": 25,
   "status": "adaptation_storyteller_head_noncanonical",
   "historical_world_writeback": false,
   "history_source": {
@@ -10,7 +10,7 @@
   },
   "primary_project": {
     "working_title": "不同的稳定",
-    "architecture": "storybox_round_game_arc_world_then_storyteller_rendering",
+    "architecture": "storybox_world_eventarc_game_scene_round_then_storyteller_rendering",
     "core": ["zhou_ye", "gao_yuan", "luo_cheng", "tang_yu", "he_xin", "song_nan"],
     "prose_canon_fixed": false,
     "world_is_not_centered_on_core_six": true,
@@ -20,17 +20,18 @@
   "storybox_source_of_truth": {
     "head": "runtime/adaptation/storybox/storybox-head-v1.json",
     "round_runtime": "narrative/longform/storybox_round_engine_v15.py",
-    "seed_loader": "narrative/longform/storybox_round_loader_v15.py",
-    "active_game_seed": "runtime/adaptation/storybox/risk-list-game-v1.json",
-    "active_game_arc": "runtime/adaptation/storybox/risk-list-game-arc-v1.json",
+    "scene_multigame_runtime": "narrative/longform/storybox_multigame_engine_v16.py",
+    "active_event_arc": "runtime/adaptation/storybox/risk-list-multigame-arc-v2.json",
+    "fixed_truth_seed": "runtime/adaptation/storybox/risk-list-game-v1.json",
     "formalized_rounds": [
       "runtime/adaptation/storybox/risk-list-round-01-v1.json",
       "runtime/adaptation/storybox/risk-list-round-02-v1.json"
     ],
-    "rule": "Storyteller consumes StoryBox state. It may select, compress, reorder within causal truth, and control reader knowledge, but may not rewrite StoryBox truth, outcomes, authority or information ownership."
+    "rule": "Storyteller consumes StoryBox event-arc/game/scene/round state. It may select, compress, reorder reader revelation within causal truth, and control viewpoint, but may not rewrite truth, outcomes, authority, information ownership, game-local role, cross-game bridges or convergence."
   },
   "active_sources": {
     "round_based_narrative_engine": "docs/adaptation/round-based-narrative-engine-v1.md",
+    "scene_multigame_engine": "docs/adaptation/storybox-scene-multigame-engine-v2.md",
     "reader_first_causal_density": "docs/adaptation/reader-first-causal-density-model-v1.md",
     "central_event_engine": "runtime/adaptation/storyteller/central-event-engine-v1.json",
     "central_event_opening_map": "runtime/adaptation/storyteller/central-event-opening-map-v1.json",
@@ -50,28 +51,35 @@
     "legacy_pilots": "docs/adaptation/pilots/",
     "note": "These remain adaptation reservoirs. They may supply backstory only when current StoryBox state causally requires it."
   },
-  "round_game_rendering_rule": {
-    "round_is_not_chapter": true,
+  "rendering_hierarchy_rule": {
+    "round_is_not_scene": true,
+    "scene_is_not_chapter": true,
     "game_is_not_part": true,
+    "event_arc_is_not_book_part": true,
     "chapter_job": "render the minimum reader-facing material needed to convey one or more meaningful StoryBox state transitions",
-    "game_job": "run one dominant decision/problem until resolution, failure, deadlock, equilibrium or supersession",
-    "arc_job": "carry persistent consequences across successor games",
-    "world_job": "preserve long-term people, relationships, reputation, institutions, map and memory"
+    "scene_job": "hold one bounded encounter through one or more rounds until the local action set changes or locally converges/deadlocks",
+    "game_job": "run one strategic problem until resolution, failure, deadlock, equilibrium, absorption or supersession",
+    "event_arc_job": "coordinate multiple concurrent games and event nodes under one large causal incident",
+    "world_job": "preserve long-term people, relationships, reputation, fatigue, commitments, institutions, maps, resources and memory"
   },
+  "multigame_reader_rule": "The reader may see one game while another continues offstage. Storyteller must not imply that an actor has one stable moral role across games. If one actor is cooperative in one game and obstructive in another, prose should render the local stakes and information that make both actions intelligible.",
+  "scene_rendering_rule": "A StoryBox scene may contain several rounds. Storyteller may compress repeated exchanges, but must preserve the state changes, reversals, information asymmetries, commitments and local convergence that made those rounds distinct.",
   "reader_first_rule": "Every sentence, paragraph, scene and chapter must justify its existence to the reader. A sentence without action, new information, pressure, character revelation, power change, setup/payoff, necessary transition/orientation, or deliberate rhythm is presumed removable.",
-  "causal_density_rule": "A scene must change state. A chapter must answer at least one prior question and deepen or create another. Each chapter pays off at least one prior setup before adding more than two major new setups.",
+  "causal_density_rule": "A rendered scene must expose a meaningful state change. A chapter must answer at least one prior question and deepen or create another. Each chapter pays off at least one prior setup before adding more than two major new setups.",
   "payoff_rule": "Every conspicuous object, anomaly, promise, name, discrepancy, secret or rule enters the payoff registry. Setups without later consequences are deleted.",
-  "character_entry_rule": "A major actor enters prose only when StoryBox has already made them materially relevant through role, information, authority, interest, location or relationship. Ensemble coverage is never a reason to introduce a person.",
-  "technical_rule": "Technical detail remains only when it changes a decision, responsibility, authority, workload, money, reputation, trust or later causal interpretation.",
-  "campbell_rule": "Campbell remains hidden longitudinal structure for characters after they enter. It neither chooses StoryBox actions nor chapter order and never appears as explicit thesis dialogue.",
+  "character_entry_rule": "A major actor enters prose only when StoryBox has already made them materially relevant through a live scene/game role, information, authority, interest, location or relationship. Ensemble coverage is never a reason to introduce a person.",
+  "technical_rule": "Technical detail remains only when it changes a decision, responsibility, authority, workload, money, reputation, trust, map access, game state or later causal interpretation.",
+  "campbell_rule": "Campbell remains hidden longitudinal structure for persistent characters across games. It neither chooses StoryBox actions nor game participation and never appears as explicit thesis dialogue.",
   "nonnegotiable_rules": [
     "No adaptation hypothesis becomes ledger history.",
     "StoryBox runs first; Storyteller renders second.",
     "Storyteller may not rewrite fixed truth to improve drama.",
     "Storyteller may hide information from reader but may not grant information to a character who does not possess it.",
+    "Storyteller may not merge game-local roles into a global hero/villain label.",
+    "Storyteller may not erase fatigue, commitment conflict or reputation spillover created by concurrent games.",
     "Write for a reader, not for a character dossier.",
     "No paragraph exists solely for atmosphere, cleverness or authorial display.",
-    "No scene exists solely to prove a trait already established.",
+    "No prose scene exists solely to prove a trait already established.",
     "No chapter exists solely to introduce a character.",
     "No single villain or single bug explains the central incident.",
     "Every major faction protects something genuinely valuable and can still create external costs.",
@@ -79,29 +87,33 @@
     "Do not let human conflict require a faction to become stupid.",
     "No roster balancing and no forced ensemble montage.",
     "Do not use AI-summary endings, thesis dialogue or redundant meaning explanations.",
-    "A StoryBox deadlock is a valid outcome and must not be repaired by literary convenience.",
+    "A StoryBox scene/game deadlock is a valid outcome and must not be repaired by literary convenience.",
     "2035 remains an observation endpoint for frozen history; adaptation games are explicitly noncanonical."
   ],
   "gate_status": {
     "chronological_career_opening": "demoted_to_backstory_reservoir",
     "central_event_engine": "provisional_pass",
     "storybox_round_runtime": "active",
+    "storybox_scene_multigame_runtime": "active",
     "fixed_truth_game_seed": "active",
+    "risk_list_multigame_arc_v2": "active",
     "risk_list_round_01": "formalized",
     "risk_list_round_02": "formalized",
     "payoff_registry": "active",
     "prose_canon": "not_fixed"
   },
-  "current_stage": "storybox_round_03_before_more_prose",
+  "current_stage": "storybox_hospital_scene_round_03_before_more_prose",
   "next_stage_gate": {
     "required_before_new_prose_chapter": [
-      "execute StoryBox Round 3 from the missing manual-followup-status and rerun-authorization problem",
-      "activate hospital-side actor only because current StoryBox jurisdiction requires it",
-      "do not activate research, industry or public-sector core actors yet",
-      "evaluate Game 1 convergence after Round 3 using the explicit convergence policy",
-      "only then decide what subset of Round 3 deserves reader-facing prose",
+      "materialize the hospital-side StoryBox Scene triggered by missing manual_followup_status and rerun authorization",
+      "allow multiple rounds inside that Scene if each round changes the local action set or information state",
+      "evaluate affected concurrent games separately after the Scene",
+      "permit cross-game spillover only through explicit report/evidence/participant/authority bridges",
+      "do not activate research, industry or additional core actors yet unless a live game actually reaches their jurisdiction",
+      "evaluate event-node readiness after the Scene",
+      "only then decide what subset of the Scene/Rounds deserves reader-facing prose",
       "audit every rendered paragraph against sentence purpose and payoff debt"
     ],
-    "drafting_rule": "Do not invent Chapter 3 first. Run Round 3 first, then render."
+    "drafting_rule": "Do not invent the next chapter first. Run the next StoryBox Scene/Rounds first, then render."
   }
 }
