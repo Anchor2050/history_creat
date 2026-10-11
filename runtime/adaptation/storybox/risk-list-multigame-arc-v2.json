@@ -1,0 +1,190 @@
+{
+  "schema_version": 2,
+  "status": "adaptation_only_noncanonical",
+  "event_arc_id": "arc:risk-list-v2",
+  "title": "风险名单",
+  "hierarchy": "World -> EventArc -> Game -> Scene -> Round -> Action",
+  "truth_source": "runtime/adaptation/storybox/risk-list-game-v1.json",
+  "world_writeback": false,
+  "games": {
+    "game:cause-reconstruction": {
+      "status": "active",
+      "objective": "重建名单异常的技术/数据/方法因果链，确定哪些解释可被证据支持。",
+      "initial_map": ["project_office", "technical_runtime"],
+      "possible_later_map": ["hospital_followup", "research_validation"],
+      "convergence": ["resolved", "deadlock", "absorbed_into_audit"]
+    },
+    "game:72h-briefing": {
+      "status": "active",
+      "objective": "在72小时内形成不超出证据的联合初步说明。",
+      "initial_map": ["project_office"],
+      "depends_on_but_not_identical_to": "game:cause-reconstruction",
+      "convergence": ["joint_briefing_issued", "deadline_missed", "briefing_deadlock"]
+    },
+    "game:pilot-decision": {
+      "status": "locked",
+      "objective": "决定试点暂停、缩窄还是继续，以及人工复核范围。",
+      "opens_when": "enough verified incident facts exist to make an operational choice",
+      "convergence": ["pause", "narrow_continue", "continue_with_controls", "decision_deadlock"]
+    },
+    "game:leak-path": {
+      "status": "active",
+      "objective": "查清截图如何离开内部工作流，以及这件事改变了谁的行为和责任压力。",
+      "initial_map": ["project_office"],
+      "possible_later_map": ["hospital_followup", "external_observer"],
+      "convergence": ["source_path_narrowed", "institutional_absorption", "deadlock"]
+    }
+  },
+  "initial_scenes": [
+    {
+      "scene_id": "scene:project-office:discovery",
+      "game_id": "game:cause-reconstruction",
+      "location": "project_office",
+      "purpose": "确认异常名单、截图时间和当前批次不一致，并冻结昨夜所有批次。",
+      "rounds_materialized": [1],
+      "exit": "技术侧成为下一合法信息源"
+    },
+    {
+      "scene_id": "scene:technical:overnight-runs",
+      "game_id": "game:cause-reconstruction",
+      "location": "technical_runtime",
+      "purpose": "重建三次运行、回滚、手工重跑和输入快照差异。",
+      "rounds_materialized": [2],
+      "exit": "医院随访侧被解锁；旧版本解释被证明不充分"
+    },
+    {
+      "scene_id": "scene:project-office:briefing-draft",
+      "game_id": "game:72h-briefing",
+      "location": "project_office",
+      "purpose": "把已知事实压缩成可对上级使用的语言，同时避免把未证实因果写成结论。",
+      "rounds_materialized": [],
+      "status": "pending"
+    }
+  ],
+  "event_nodes": {
+    "event:all-overnight-runs-frozen": {
+      "status": "fired",
+      "preconditions": ["screenshot timestamp conflicts with current batch"],
+      "world_effect": "all overnight outputs are preserved and no further automatic overwrite is allowed"
+    },
+    "event:72h-briefing-issued": {
+      "status": "locked",
+      "preconditions": [
+        "game:72h-briefing reaches a resolved state",
+        "at least one causal explanation has been verified or explicitly bounded",
+        "actual-use scope is sufficiently described"
+      ],
+      "world_effect": "preliminary institutional narrative becomes public/official and spills into every active game"
+    },
+    "event:pilot-decision-window-opens": {
+      "status": "locked",
+      "preconditions": [
+        "material risk can be bounded enough to compare operational options",
+        "decision authority is present",
+        "manual review capacity is known"
+      ],
+      "world_effect": "game:pilot-decision unlocks"
+    },
+    "event:formal-audit-opens": {
+      "status": "locked",
+      "preconditions": [
+        "initial response has converged or failed",
+        "there remains unresolved responsibility or control-design debt"
+      ],
+      "world_effect": "successor game/arc for responsibility and institutional redesign becomes legal"
+    }
+  },
+  "actor_portfolio_examples": {
+    "luo_cheng": {
+      "soft_parallel_games": 1,
+      "hard_parallel_games": 2,
+      "active": {
+        "game:cause-reconstruction": {
+          "local_role": "process_chain_reconstructor",
+          "stance": "preserve what was knowable when",
+          "attention": 0.75
+        },
+        "game:72h-briefing": {
+          "local_role": "fact_compiler",
+          "stance": "separate fact from causal conclusion",
+          "attention": 0.30
+        }
+      },
+      "expected_cost": "attention overflow and pressure from two incompatible clocks"
+    },
+    "zhou_ye": {
+      "soft_parallel_games": 2,
+      "hard_parallel_games": 4,
+      "active": {
+        "game:cause-reconstruction": {
+          "local_role": "technical_verifier",
+          "stance": "reconstruct exact run and reject non-reproducible causal claims",
+          "attention": 0.55
+        },
+        "game:72h-briefing": {
+          "local_role": "vendor_side_fact_owner",
+          "stance": "allow verified facts but resist premature liability language",
+          "attention": 0.25
+        },
+        "game:pilot-decision": {
+          "local_role": "technical_feasibility_adviser",
+          "stance": "prefer controls that can actually be implemented and audited",
+          "attention": 0.20,
+          "status": "locked_until_game_opens"
+        }
+      },
+      "expected_cost": "becomes single-point expert, accumulates calls, and risks contradictory commitments across games"
+    },
+    "project_office_director": {
+      "soft_parallel_games": 3,
+      "hard_parallel_games": 4,
+      "active": {
+        "game:cause-reconstruction": {
+          "local_role": "institutional_requester",
+          "stance": "need facts fast enough to govern",
+          "attention": 0.20
+        },
+        "game:72h-briefing": {
+          "local_role": "decision_owner",
+          "stance": "produce a usable statement without creating unsupported panic",
+          "attention": 0.45
+        },
+        "game:leak-path": {
+          "local_role": "reputation_and_process_owner",
+          "stance": "find exposure path without turning inquiry into a witch hunt",
+          "attention": 0.20
+        },
+        "game:pilot-decision": {
+          "local_role": "decision_owner",
+          "stance": "keep patient safety and institutional feasibility jointly visible",
+          "attention": 0.25,
+          "status": "locked_until_game_opens"
+        }
+      },
+      "expected_cost": "high coordination load, conflicting deadlines, temptation to compress uncertainty"
+    }
+  },
+  "cross_game_bridges": [
+    {
+      "source": "game:cause-reconstruction",
+      "target": "game:72h-briefing",
+      "allowed_bridge": "verified_fact_or_signed_incident_note",
+      "forbidden": "private suspicion automatically becoming official language"
+    },
+    {
+      "source": "game:cause-reconstruction",
+      "target": "game:pilot-decision",
+      "allowed_bridge": "bounded risk estimate or validated failure mode",
+      "forbidden": "technical team deciding operational policy by itself"
+    },
+    {
+      "source": "game:leak-path",
+      "target": "game:72h-briefing",
+      "allowed_bridge": "publicly observable leak or verified distribution path",
+      "forbidden": "unverified accusation"
+    }
+  ],
+  "role_rule": "Roles are game-local. No actor receives a global hero/villain tag. The same act can protect a legitimate good in one game and impose a cost in another.",
+  "scene_rule": "A scene may contain multiple rounds and should end only when the local action set changes, a deadline interrupts, participants separate, or local convergence/deadlock occurs.",
+  "next_engine_step": "Materialize Round 3 as at least one hospital-side scene with multiple rounds. Do not add a new core actor unless the active games actually require that person's information, authority or relationship."
+}
