@@ -1,0 +1,54 @@
+{
+  "schema_version": 2,
+  "status": "adaptation_only_relay_test_audit_noncanonical",
+  "historical_world_writeback": false,
+  "test": "relay-test-01",
+  "chapters": [
+    "docs/adaptation/relay-test-01/ch01-song-condition-changed-v2.md",
+    "docs/adaptation/relay-test-01/ch02-chen-after-message.md",
+    "docs/adaptation/relay-test-01/ch03-zhou-offer-and-table.md",
+    "docs/adaptation/relay-test-01/ch04-luo-research-support.md",
+    "docs/adaptation/relay-test-01/ch05-luo-first-task.md"
+  ],
+  "overall_verdict": "relay_mechanic_passes_first_real_test_but_prose_still_needs_literary_revision",
+  "why_it_passes": [
+    "Chapter1 to Chapter2 is driven by an unanswered message, not a cast-list transition.",
+    "Chapter2 to Chapter3 is driven by Zhou Ye bringing a concrete offer problem to Chen Lan after her doctorate closes.",
+    "Chapter3 to Chapter4 is driven by Luo Cheng's live research-support application revealed at the classmate meal.",
+    "Chapter4 to Chapter5 does not change protagonist at all; the missing documents on Luo Cheng's desk become the next chapter's plot engine.",
+    "The reader no longer needs to know that there are six core actors. Song Nan can disappear after Chapter1 and remain narratively valid."
+  ],
+  "what_is_now_working": {
+    "event_relay": "pass",
+    "character_entry_by_need": "pass",
+    "name_load": "pass",
+    "campbell_hidden_backend": "pass",
+    "ability_to_stay_with_one_actor": "pass",
+    "story_vs_roster": "story_now_dominates_roster"
+  },
+  "remaining_literary_problems": [
+    {
+      "scope": "chapter2",
+      "problem": "跨七月至十月，仍有轻微时间年表感。",
+      "revision_direction": "压缩说明性过渡，让删页、答辩、最终提交之间通过重复动作或未完成事项连接，而不是月份说明。"
+    },
+    {
+      "scope": "chapter3",
+      "problem": "技术筛查回忆较长，短暂打断了offer现在时。",
+      "revision_direction": "正式稿考虑把技术筛查拆成前章或只保留最关键三问；不要为了补背景把完整人物履历塞进回忆。"
+    },
+    {
+      "scope": "chapter5",
+      "problem": "程序细节真实，但如果继续同密度书写，会变成职业流程纪录。",
+      "revision_direction": "后续必须让权力、误解、偶然、身体疲劳、人与人的利害逐步进入；材料流程只是压力载体，不能成为作品本身。"
+    },
+    {
+      "scope": "whole_test",
+      "problem": "五章仍主要围绕工作、招聘、学术完成，私人生活和时代空气偏薄。",
+      "revision_direction": "下一轮不急着加新核心人物；先在当前线里让城市、住处、消费、家人电话、同事关系或普通娱乐自然进入，但不得做主题补丁。"
+    }
+  ],
+  "water_margin_lesson_corrected": "Water-Margin-like structure here means a running incident chain can reveal and temporarily hand narrative weight to people it encounters. It does not mean every chapter must hand off, every important actor needs an entrance chapter, or every relay must connect core protagonists.",
+  "campbell_role": "Campbell remains a private longitudinal map for whichever character currently carries or receives the story. It does not choose the next chapter.",
+  "next_recommended_action": "Do not expand the roster. First revise Chapters2-3 by subtraction and then continue Luo Cheng for at least one more scene where the task creates a human conflict or power asymmetry, not just a document problem. Only if that conflict naturally reaches another existing character should the camera move again."
+}
