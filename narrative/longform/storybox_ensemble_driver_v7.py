@@ -8,7 +8,11 @@ contacts as candidate history.
 """
 from __future__ import annotations
 
+import argparse
+import asyncio
 from copy import deepcopy
+import json
+import os
 from pathlib import Path
 
 from .ensemble_social_replay_v6 import ENSEMBLE_ACTORS, simulate_ensemble_social_replay
@@ -45,12 +49,7 @@ def _packet_score(packet, seen_counts):
     return score
 
 
-def select_storybox_windows(
-    packets,
-    *,
-    max_per_year=2,
-    max_total=20,
-):
+def select_storybox_windows(packets, *, max_per_year=2, max_total=20):
     """Select costly micro-replays for social coverage and consequential turns."""
     by_year = {}
     for packet in packets:
@@ -83,19 +82,14 @@ def select_storybox_windows(
 
 
 def _tie_index(social_graph):
-    index = {}
-    for tie in social_graph["ties"]:
-        index[tuple(sorted((tie["a"], tie["b"])))] = tie
-    return index
+    return {
+        tuple(sorted((tie["a"], tie["b"]))): tie
+        for tie in social_graph["ties"]
+    }
 
 
 def apply_storybox_contact_writeback(social_graph, result):
-    """Record actual StoryBox contact without inventing positive sentiment.
-
-    Dialogue occurrence updates contact history only. Trust/closeness are left
-    unchanged until a future semantic relationship assessment explicitly earns
-    such a change.
-    """
+    """Record actual contact without assuming that every conversation improves a tie."""
     ties = _tie_index(social_graph)
     for conversation in result["conversations"]:
         history = conversation.get("chat_history", [])
@@ -160,14 +154,11 @@ async def run_storybox_ensemble(
         for actor in ENSEMBLE_ACTORS
     }
     candidate_events = [
-        {
-            "packet_id": result["packet_id"],
-            "event": event,
-        }
+        {"packet_id": result["packet_id"], "event": event}
         for result in results
         for event in result["events"]
     ]
-    return {
+    final = {
         "status": "storybox_decade_replay_executed_noncanonical",
         "seed": seed,
         "candidate_window_count": len(ensemble["micro_replay_packets"]),
@@ -187,3 +178,40 @@ async def run_storybox_ensemble(
             "Storyteller may summarize only after these events exist",
         ],
     }
+    (root / "storybox_decade_result.json").write_text(
+        json.dumps(final, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    return final
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Run bounded StoryBox replay for the 14-person ensemble")
+    parser.add_argument("--seed", type=int, default=7)
+    parser.add_argument("--output-dir", default="output/storybox-ensemble-v7")
+    parser.add_argument("--max-per-year", type=int, default=2)
+    parser.add_argument("--max-total", type=int, default=20)
+    parser.add_argument("--max-pair-chats", type=int, default=4)
+    parser.add_argument("--round-num", type=int, default=3)
+    args = parser.parse_args()
+
+    if not os.getenv("OPENAI_API_KEY"):
+        raise SystemExit("OPENAI_API_KEY is required for real StoryBox/Reverie dialogue replay")
+
+    result = asyncio.run(run_storybox_ensemble(
+        seed=args.seed,
+        output_dir=args.output_dir,
+        max_per_year=args.max_per_year,
+        max_total=args.max_total,
+        max_pair_chats=args.max_pair_chats,
+        round_num=args.round_num,
+    ))
+    print(json.dumps({
+        "status": result["status"],
+        "executed_window_count": result["executed_window_count"],
+        "coverage": result["coverage"],
+        "result_file": str(Path(args.output_dir) / "storybox_decade_result.json"),
+    }, ensure_ascii=False, indent=2))
+
+
+if __name__ == "__main__":
+    main()
