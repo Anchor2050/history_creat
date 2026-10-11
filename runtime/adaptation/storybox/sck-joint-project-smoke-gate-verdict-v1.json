@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "status": "mixed_motive_smoke_gate_v0_cognition_layer_fails_by_mechanism",
+  "historical_world_writeback": false,
+  "evidence_class": "own-authored substrate smoke A/B, per peer decision 2026-10-11-0021. Weaker evidence than a third-party benchmark and labelled as such.",
+  "contract": "docs/adaptation/sck-mixed-motive-benchmark-contract-v1.md",
+  "results": "runtime/adaptation/storybox/sck-joint-project-smoke-ab-v1-results-30.json",
+  "harness": "narrative/longform/sck_joint_project_harness_v1.py",
+  "substrate": "narrative/longform/sck_joint_project_env_v1.py",
+  "design": {
+    "episodes_per_variant": 30,
+    "agents": 4,
+    "rounds": 8,
+    "variants": ["plain", "memory", "belief", "belief_planning"],
+    "fixed_alternative_policy": "fixed_cost_threshold (non-learning)",
+    "mixed_table": "2 belief_planning seats against 2 fixed_cost_threshold seats",
+    "information_leakage_count": 0,
+    "leakage_caveat": "Structurally zero: the only private fact is the cost type and disclosing it is a legal strategic choice, so this is not an achievement."
+  },
+  "primary_outcome": {
+    "mean_social_utility": {"plain": 12.50, "memory": 43.50, "belief": 0.00, "belief_planning": 0.00},
+    "joint_surplus_efficiency_vs_full_information_optimum": {"plain": 0.090, "memory": 0.324, "belief": 0.000, "belief_planning": 0.000},
+    "mean_successful_rounds_of_8": {"plain": 4.67, "memory": 7.00, "belief": 0.00, "belief_planning": 0.00},
+    "mixed_table_social_utility": 83.00,
+    "mixed_table_efficiency": 0.602
+  },
+  "mechanism_diagnostic": {
+    "posterior_mass_on_true_type_vector": {"belief": 0.016, "belief_planning": 0.016},
+    "prior_mass_on_true_type_vector": 0.016,
+    "finding_the_belief_learned_nothing": "Posterior mass on the true type vector equals the no-evidence prior exactly, so no evidence reached the belief at all.",
+    "believed_success_probability": {"belief": 0.896, "belief_planning": 0.049},
+    "actual_success_rate": {"belief": 0.000, "belief_planning": 0.000},
+    "share_of_decisions_contributing_zero": {"belief": 1.00, "belief_planning": 1.00},
+    "mean_contribution_by_own_cost_type": {
+      "belief": {"1": 0.0, "2": 0.0, "4": 0.0},
+      "belief_planning": {"1": 0.0, "2": 0.0, "4": 0.0},
+      "memory": {"1": 1.88, "2": 1.88, "4": 1.88}
+    },
+    "pledge_honour_rate": {"belief": 1.0, "belief_planning": 1.0, "memory": 1.0, "plain": 0.25},
+    "attribution": "Both informed variants free-ride in every decision, on an opponent model that predicts rule-following partners. Under the contract's public prior, three others are each cheap with probability 0.8, so two or more contributors are likely and the project succeeds even with no contribution from this agent; expected value then favours contributing nothing. The realised outcome is universal defection, zero surplus and zero successful rounds."
+  },
+  "the_self_defeating_evidence_channel": {
+    "finding": "The policy's own action destroys its own evidence channel.",
+    "explanation": "The only evidence is the aggregate surplus equation sum_i c_i*x_i = success*bonus*num_agents - total_surplus. When every agent contributes zero, success is false and total_surplus is 0, so the equation holds for every one of the 81 type vectors and carries no information. Because the agent free-rides, it never generates the informative round that would let it learn that its partners are not rule-followers.",
+    "measured": "posterior mass on truth 0.016 = prior 0.016, across 30 episodes and 960 decisions."
+  },
+  "regret_diagnostic_again_fails_as_a_quality_proxy": {
+    "value": {"belief": 0.000, "belief_planning": 0.000},
+    "why_it_is_zero_and_still_useless": "With a threshold of 6 and a maximum contribution of 3, no single agent can rescue an all-zero round, so unilateral-deviation regret is genuinely 0 while social utility is also 0. This is the third independent case where the diagnostic cannot see a real failure, after SecretMafia's optimal-target oracle and its mafia_eliminate degenerate sub-metric."
+  },
+  "verdict": {
+    "smoke_gate_passed": false,
+    "meaning": "The substrate works and the harness instruments it correctly. The v0 cognition layer fails on it, and the failure is fully attributed to an interpretable mechanism rather than to a tie-break or symmetry artifact.",
+    "what_is_established": [
+      "a mixed-motive repeated substrate with a genuine, learnable hidden variable and measurable public accountability now exists and is tested",
+      "the harness measures social utility, exact full-information efficiency, type-inference calibration, pledge reliability and mechanism attribution",
+      "v0 belief and belief_planning score zero social utility, worse than uniform random, and the cause is measured rather than inferred",
+      "the substrate's information boundary holds: zero leakage by construction, truth read only in evaluation"
+    ],
+    "what_is_not_established": [
+      "that the belief layer improves mixed-motive outcomes at all",
+      "that the fixed cost-threshold rule and the type-blind memory heuristic being stronger than the cognition layer is specific to this substrate or general",
+      "anything from more than 30 episodes"
+    ]
+  },
+  "held": {
+    "mcts": "held",
+    "bilevel_search": "held",
+    "sck_to_risk_list_hospital_scene": "held",
+    "deferred_metagame_and_peak_play_runtimes": "held"
+  },
+  "candidate_next_steps": [
+    "Fix the opponent model rather than the substrate: the belief layer assumes rule-following partners while playing against other learners, which is a level-k modelling error and the direct cause of the free-riding collapse.",
+    "Make contribution decisions mixed or reciprocity-conditioned so the agent explores enough to keep its evidence channel alive, then let calibration decide.",
+    "Strengthen the fixed baseline set before any positive claim, as the SecretMafia round flagged.",
+    "If the v0 layer cannot be fixed without adding planner complexity the peer has ruled out, record the mixed-motive result as a second retained negative benchmark and stop."
+  ],
+  "action_required": "Peer or human should choose the next step. This round deliberately did not tune the cognition layer to improve the number, because peer decision 0021 forbids adding planner complexity to compensate and requires the substrate and v0 layer to be validated first."
+}

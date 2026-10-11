@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "status": "sck_v0_secretmafia_negative_result_retained_redirected_to_mixed_motive_substrate",
+  "status": "sck_v0_mixed_motive_smoke_gate_failed_by_mechanism_held",
   "historical_world_writeback": false,
   "purpose": "Provide a reusable high-skill strategic cognition layer between StoryBox visibility/legal-action state and StoryBox world resolution.",
   "design_spec": "docs/adaptation/storybox-strategic-cognition-kernel-v1.md",
@@ -150,10 +150,12 @@
     "methodological_gap": "The frozen baseline is uniform random and cannot coordinate, so it is maximally exploitable by bloc voting and the mafia delta partly measures the baseline's weakness."
   },
   "next_gate": [
-    "continue from peer decision 2026-10-11-0021: SecretMafia tuning is stopped and the validation mainline moves to a mixed-motive peaceful repeated game",
-    "round 8: select one structured mixed-motive substrate, write its benchmark contract before running anything, and implement only the adapter and harness needed for a 20-50 episode smoke A/B across plain/memory/belief/belief_planning plus at least one fixed alternative policy",
-    "keep the SecretMafia artifacts as a retained adversarial negative benchmark: do not delete them, do not tune its rules, do not handcraft more evidence terms, and never claim strength from the mafia bloc gain",
-    "keep MCTS, bi-level search, the deferred meta-game/institutional-awareness runtime, the deferred Peak Play runtime and SCK-to-risk-list-hospital-Scene reconnection all held until the mixed-motive smoke gate shows a mechanism-attributable cognition gain"
+    "the mixed-motive smoke gate did NOT pass: v0 belief and belief_planning score zero social utility, worse than uniform random, and the cause is measured rather than inferred",
+    "do not tune the cognition layer to improve the number; peer decision 0021 forbids adding planner complexity to compensate and requires the substrate and v0 layer to be validated first",
+    "candidate fix, for peer choice: the opponent model assumes rule-following partners while playing against other learners, which is a level-k modelling error and the direct cause of the free-riding collapse",
+    "candidate fix, for peer choice: make contribution mixed or reciprocity-conditioned so the agent keeps its own evidence channel alive, since free-riding provably starves it",
+    "strengthen the fixed baseline set before any positive claim, as the SecretMafia round already flagged",
+    "keep the SecretMafia and mixed-motive results as retained negative benchmarks; keep MCTS, bi-level search, the deferred meta-game and Peak Play runtimes, and SCK-to-hospital-Scene reconnection all held"
   ],
   "secretmafia_classification": {
     "status": "retained_adversarial_negative_benchmark",
@@ -167,7 +169,21 @@
   "mixed_motive_substrate": {
     "benchmark_contract": "docs/adaptation/sck-mixed-motive-benchmark-contract-v1.md",
     "environment": "narrative/longform/sck_joint_project_env_v1.py",
+    "environment_tests": "tests/test_sck_joint_project_env_v1.py",
+    "harness": "narrative/longform/sck_joint_project_harness_v1.py",
+    "harness_tests": "tests/test_sck_joint_project_harness_v1.py",
     "selection_survey": "tools/probe_mixed_motive_envs.py",
-    "why_own_authored": "The TextArena survey found no usable third-party substrate that satisfies the peer contract. PublicGoodsGame and MarketEntryGame run but are fully symmetric, so they contain no hidden variable and the belief variants could not engage. BlindAuction has genuine private valuations but its reset raises TypeError in 0.7.4 because it constructs textarena.core.State with min_players/max_players/check_truncated, which that constructor does not accept. LetterAuction needs an NLTK corpus the sandbox blocks, and IteratedStagHunt needs numpy, which is not installed. An own-authored substrate is explicitly permitted but is weaker evidence than a third-party environment, and every result from it must carry that label."
+    "smoke_ab_results": "runtime/adaptation/storybox/sck-joint-project-smoke-ab-v1-results-30.json",
+    "smoke_gate_verdict": "runtime/adaptation/storybox/sck-joint-project-smoke-gate-verdict-v1.json",
+    "smoke_ab_outcome": {
+      "episodes_per_variant": 30,
+      "mean_social_utility": {"plain": 12.5, "memory": 43.5, "belief": 0.0, "belief_planning": 0.0},
+      "joint_surplus_efficiency": {"plain": 0.09, "memory": 0.324, "belief": 0.0, "belief_planning": 0.0},
+      "mixed_table_social_utility": 83.0,
+      "mixed_table_efficiency": 0.602,
+      "gate_passed": false
+    },
+    "mechanism_finding": "Both informed variants contribute zero in every decision, on an opponent model that predicts rule-following partners. Believed success probability is 0.896 against a realised success rate of 0.000. Because all-zero contributions satisfy the surplus equation for every one of the 81 type vectors, the agent's own free-riding starves its evidence channel: the posterior mass on the true vector stays exactly at the no-evidence prior (0.016). The best-response regret diagnostic reads 0.000 while social utility is also 0, which is the third independent case of that diagnostic failing to see a real failure.",
+    "why_own_authored": "The TextArena survey found no usable third-party substrate. PublicGoodsGame and MarketEntryGame run but are fully symmetric, so no hidden variable exists and the belief variants could not engage. BlindAuction has genuine private valuations but its reset raises TypeError in 0.7.4 because it constructs textarena.core.State with min_players/max_players/check_truncated, which that constructor does not accept. LetterAuction needs an NLTK corpus the sandbox blocks, and IteratedStagHunt needs numpy, which is not installed. An own-authored substrate is explicitly permitted but is weaker evidence than a third-party environment, and every result from it carries that label."
   }
 }
