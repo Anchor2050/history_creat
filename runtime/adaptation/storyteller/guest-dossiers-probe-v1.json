@@ -1,0 +1,98 @@
+{
+  "schema_version":1,
+  "status":"adaptation_only_guest_dossiers_noncanonical",
+  "historical_world_writeback":false,
+  "guests":[
+    {
+      "guest_id":"guest:qiu_siyuan",
+      "display_name":"邱思远",
+      "used_in_substory":"sub:zhou-second-judge",
+      "first_scene_year":2034,
+      "current_role":"国企技术团队较年轻的数据/质量工程师，已在团队数年，能独立处理常规问题",
+      "resume_hypothesis":{
+        "education":"应用数学或统计相关硕士，训练偏计算与质量流程",
+        "career":"毕业后进入当前国企技术团队，早期主要做执行、复核和问题归档",
+        "status":"adaptation_only"
+      },
+      "current_goal":"不想永远只做周野判断后的执行者，希望拥有一类异常的完整判断权",
+      "pressure":"一方面需要证明自己能承担更复杂责任，另一方面真实生产/质量错误会留下可追责后果",
+      "virtue":"认真、肯复盘、对已有流程掌握扎实，愿意承担具体责任",
+      "shadow":"一旦终于得到判断机会，会担心再次被降回执行者，因此有时不愿太早承认自己其实还没把握",
+      "power_position":"weaker",
+      "information_set":{
+        "knows":["所在团队常见异常流程","自己负责过的真实案例","周野的部分判断习惯和升级规则"],
+        "does_not_know":["周野完整职业焦虑","周野买房后的私人财务情况","团队所有稀有历史异常"]
+      },
+      "interaction_mode_with_protagonist":"mirror",
+      "micro_arc_pattern":"competence_overreach_cost_recalibration",
+      "micro_arc_steps":[
+        "competence: 独立处理常见异常并能解释停止条件",
+        "overreach: 遇到一个稀有边界案例时本能地想继续独立判断，迟了一点才升级",
+        "cost: 复盘发现问题没有造成实质损失，但暴露了‘证明自己’会影响升级时点",
+        "recalibration: 和周野重新定义第二判断者的成熟标准——包括知道什么时候必须升级"
+      ],
+      "what_changes_for_guest":"他得到的不是‘终于和周野一样’，而是第一次把主动升级也看作判断能力的一部分。",
+      "what_changes_for_protagonist":"周野看到授权不是把自己的答案复制给别人；第二判断者可以形成不同路径，只要知道边界和责任。",
+      "status":"adaptation_only_approved",
+      "historical_world_writeback":false,
+      "reverse_plausibility_audit":{
+        "time_feasible":true,
+        "institution_feasible":true,
+        "professional_feasible":true,
+        "relationship_feasible":true,
+        "information_feasible":true,
+        "interest_feasible":true,
+        "psychology_feasible":true,
+        "era_feasible":true,
+        "result":"approved_for_disposable_probe",
+        "notes":"与2034-2035账本中‘常见分支可独立、稀有边界仍升级’一致；具体姓名、学历与一次过度坚持仅为改编细节。"
+      }
+    },
+    {
+      "guest_id":"guest:ma_qing",
+      "display_name":"马晴",
+      "used_in_substory":"sub:song-second-role",
+      "first_scene_year":2034,
+      "current_role":"宋楠第二家医药企业中的医学/业务侧项目合作人，负责把临床团队需求转成可交付问题并对时间表负责",
+      "resume_hypothesis":{
+        "education":"临床药学、公共卫生或相近硕士背景",
+        "career":"在医药企业做过多年医学项目或产品/研究协作，熟悉临床语言、内部决策和交付节奏",
+        "status":"adaptation_only"
+      },
+      "current_goal":"在真实决策窗口关闭前拿到足够可用的分析结论，让医学团队知道下一步该做什么",
+      "pressure":"临床/业务团队要求明确答案，时间窗口有限；她本人也要为延迟和沟通失败承担协调成本",
+      "virtue":"决断快、懂业务问题、能逼复杂讨论回到‘这次到底要决定什么’",
+      "shadow":"在时间压力下容易把‘可行动’压缩成‘给我一个明确数字’，低估统计不确定性本身就是结论的一部分",
+      "power_position":"cross_cutting",
+      "information_set":{
+        "knows":["医学侧真正关心的决策","内部时间表","临床背景和使用场景"],
+        "does_not_know":["宋楠全部统计推导细节","宋楠第一份工作的完整职业故事","模型在所有外推情形下的行为"]
+      },
+      "interaction_mode_with_protagonist":"peer",
+      "micro_arc_pattern":"desire_friction_misjudgment_correction",
+      "micro_arc_steps":[
+        "desire: 希望在会议前得到一个能直接给业务使用的判断",
+        "friction: 宋楠坚持当前数据只能支持分层结论，拒绝压成单一确定答案",
+        "misjudgment: 马晴一度把宋楠的谨慎理解成学术式拖延，宋楠也把马晴的催促理解成不尊重统计边界",
+        "small correction: 两人把输出改成‘当前可行动结论 + 不确定部分 + 触发下一轮数据的条件’，双方都没有完全赢"
+      ],
+      "what_changes_for_guest":"她开始把不确定性结构本身当作业务信息，而不只是分析还没做完。",
+      "what_changes_for_protagonist":"宋楠第一次更明确地看到，成熟行业判断不只是守住统计边界，也包括把边界翻译成别人能行动的形式。",
+      "status":"adaptation_only_approved",
+      "historical_world_writeback":false,
+      "reverse_plausibility_audit":{
+        "time_feasible":true,
+        "institution_feasible":true,
+        "professional_feasible":true,
+        "relationship_feasible":true,
+        "information_feasible":true,
+        "interest_feasible":true,
+        "psychology_feasible":true,
+        "era_feasible":true,
+        "result":"approved_for_disposable_probe",
+        "notes":"与宋楠第二岗位‘生活bundle更好、学习速度中等但判断责任增加’一致；具体合作人和会议冲突为改编层生成。"
+      }
+    }
+  ],
+  "use_rule":"These guests may appear only in adaptation probes/chapters. Their detailed biographies do not become historical ledger facts."
+}
