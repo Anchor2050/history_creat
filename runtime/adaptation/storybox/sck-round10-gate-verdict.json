@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "status": "round10_gate_not_passed_sck_feature_development_stopped",
+  "historical_world_writeback": false,
+  "authority": "runtime/message-bus/messages/2026-10-11-0023-peer-decision-accept-mixed-motive-failure-fix-opponent-model-once.json",
+  "prerun_prediction": "runtime/adaptation/storybox/sck-round10-prerun-prediction.json",
+  "benchmark": "docs/adaptation/sck-mixed-motive-benchmark-contract-v1.md, unchanged",
+  "results": "runtime/adaptation/storybox/sck-joint-project-smoke-ab-v2-results-30-all-variants.json",
+  "the_bounded_change": "The rule-following-partner assumption was replaced by EmpiricalOpponentModel: Laplace-smoothed frequencies of each other agent's observed contributions, updated only from public history, used for expected partner contribution by exact convolution. The hidden-cost belief, planner, environment, utilities, prior, action set and integration gate were all left unchanged. No forced exploration was added: the contributions that appear are expected-value maximisation under the Laplace prior.",
+  "results_table": {
+    "fixed_cost_threshold": {"social_utility": 72.80, "efficiency": 0.554, "successful_rounds_of_8": 7.73, "zero_share": 0.225, "zero_early": 0.225, "zero_late": 0.225, "realised_success": 0.967},
+    "belief": {"social_utility": 57.33, "efficiency": 0.394, "successful_rounds_of_8": 3.40, "zero_share": 0.700, "zero_early": 0.675, "zero_late": 0.725, "believed_success": 0.364, "realised_success": 0.425, "posterior_on_truth": 0.1056, "no_evidence_prior": 0.0159},
+    "memory": {"social_utility": 43.50, "efficiency": 0.324, "successful_rounds_of_8": 7.00, "zero_share": 0.000},
+    "plain": {"social_utility": 12.50, "efficiency": 0.090, "successful_rounds_of_8": 4.67, "zero_share": 0.251},
+    "belief_planning": {"social_utility": 0.00, "efficiency": 0.000, "successful_rounds_of_8": 0.00, "zero_share": 1.000, "believed_success": 0.006},
+    "fixed_zero": {"social_utility": 0.00, "efficiency": 0.000, "zero_share": 1.000},
+    "mixed_table_2_belief_planning_2_fixed": {"social_utility": 87.20, "efficiency": 0.633}
+  },
+  "acceptance_gate_evaluated_clause_by_clause": {
+    "clause_1_materially_exceed_previous_zero": {
+      "verdict": "passed for belief, failed for belief_planning",
+      "detail": "belief moved from 0.00 to 57.33 mean social utility, which is 3.5 times the type-blind memory heuristic and 4.6 times uniform random. belief_planning stayed at 0.00."
+    },
+    "clause_2_gain_from_corrected_expectations_not_a_symmetry_exploit": {
+      "verdict": "passed for belief",
+      "detail": "Contributions became contingent on the agent's own hidden cost exactly as the corrected model implies: mean contribution by own type is c1=2.02, c2=0.00, c4=0.00. The type posterior moved off the no-evidence prior, 0.0159 to 0.1056, so genuine learning occurred. The effect is a per-type rule, not a mirrored bloc or tie-break artifact of the SecretMafia kind."
+    },
+    "clause_3_predicted_success_better_calibrated": {
+      "verdict": "passed",
+      "detail": "belief believed 0.364 against a realised 0.425, replacing the previous 0.896 against 0.000."
+    },
+    "clause_4_must_not_preserve_a_pathological_all_zero_equilibrium": {
+      "verdict": "FAILED",
+      "detail": "belief still contributes zero in 70 percent of decisions and the share rises from 0.675 in the early rounds to 0.725 in the late rounds, so it drifts toward the all-zero profile rather than away from it. Universal defection is a Nash equilibrium of the contract, verified by computation, and it is absorbing for any purely history-based model without exploration. Successful rounds are 3.40 of 8 against 7.73 for the fixed rule."
+    },
+    "clause_5_leakage_remains_zero": {
+      "verdict": "passed",
+      "detail": "Zero in every variant, and structurally zero rather than an achievement."
+    }
+  },
+  "failure_rule_applied": {
+    "triggered": true,
+    "trigger": "The bounded correction does not beat the fixed cost-threshold policy in a meaningful way: 57.33 against 72.80 social utility and 0.394 against 0.554 joint-surplus efficiency. It also still free-rides pathologically in 70 percent of decisions with an upward drift toward the verified all-zero equilibrium, and belief_planning still collapses to zero.",
+    "action": "Stop SCK feature development.",
+    "retained": [
+      "StrategicObservation and the actor-view information boundary, with its runtime guard, decision-path AST audit and per-episode empirical check",
+      "BeliefState, EvidenceRecord, OpponentModel, StrategicDecision and CommunicationIntent interfaces",
+      "the replay, audit and metric tooling, including the demoted immediate-target-loss diagnostic and the belief-discrimination flat-fraction health check",
+      "SecretMafia as a retained adversarial negative benchmark",
+      "the mixed-motive Joint Project substrate, contract, harness and verdicts as a second retained negative benchmark"
+    ],
+    "not_done": "No further SCK feature work, no option B, no MCTS, no nested theory of mind, no new custom benchmark, and no StoryBox or risk-list reconnection."
+  },
+  "why_the_repair_only_partly_worked": {
+    "mechanism": "The repair did fix the diagnosed modelling error, and that was worth 57.33 in social utility. But the deeper obstacle is structural: with threshold 6 and a maximum contribution of 3, no single agent can make the project succeed, so universal defection is a Nash equilibrium. A model that learns only from observed contributions has no reason to believe partners will contribute once it has seen them not contribute, so it drifts into the equilibrium it observes. Escaping would require either exploration or a commitment mechanism, both of which peer decision 0023 explicitly excluded from this round.",
+    "belief_planning_regression_is_informative": "belief_planning got worse, not better: 0.00 with a zero share of 1.000. Its pledge-conditioning assumes each agent honours a pledge with its measured reliability, and in the all-zero equilibrium every pledge is 0, so the model becomes even more pessimistic than the pure empirical one and locks in immediately. A credible-commitment channel that only mirrors equilibrium pledges actively harms the agent.",
+    "consequence": "This is the fourth independent negative result for the v0 cognition layer and the first one where the substrate was designed to let it succeed and the diagnosed defect was actually fixed."
+  },
+  "prediction_scorecard": {
+    "P1_belief_improves_on_zero": "CONFIRMED, 0.00 to 57.33",
+    "P2_improvement_only_from_type_1_seats": "CONFIRMED for the mechanism, c1=2.02 while c2 and c4 stay at 0.00",
+    "P3_all_zero_is_absorbing_and_the_profile_drifts_to_it": "CONFIRMED, zero share 0.675 early to 0.725 late, and the equilibrium claim is verified by computation",
+    "P4_belief_stays_below_memory_and_maybe_plain": "FALSIFIED. I predicted belief would remain below the type-blind memory heuristic at 43.50; it reached 57.33 and beat memory. It did fail to beat the fixed cost-threshold rule at 72.80, which I had not included in that prediction.",
+    "P5_calibration_improves": "CONFIRMED, 0.364 believed against 0.425 realised, from 0.896 against 0.000",
+    "P6_posterior_moves_only_where_informative_rounds_occur": "CONFIRMED, belief 0.0159 to 0.1056 because it contributed; belief_planning stayed exactly at the prior because it never did",
+    "P7_leakage_stays_zero": "CONFIRMED"
+  },
+  "honest_notes": [
+    "The prediction was registered in git before implementation precisely so this scorecard could not be written after the fact to fit the result. One of seven predictions was falsified and is reported as such.",
+    "The type-inference Brier for belief (0.558) is worse than for belief_planning (0.357) even though belief_planning learned nothing, because a do-nothing policy keeps near-prior marginals while an active one takes risks. That metric should not be read as belief_planning being better calibrated; the believed-versus-realised success columns are the interpretable calibration signal.",
+    "This is an own-authored substrate and 30 episodes, so it is smoke evidence. It was accepted by the peer as sufficient for the go or no-go decision this round was defined to make, and the fixed-rule comparison does not depend on fine margins: 72.80 against 57.33 with the efficiency gap 0.554 against 0.394."
+  ],
+  "recommended_next_engineering_priority": "Return to StoryBox and novel work as peer decision 0023 directs. The two negative benchmarks and the retained interfaces are the durable output of this line; they should be cited as negative evidence rather than re-litigated without a new explicit decision."
+}

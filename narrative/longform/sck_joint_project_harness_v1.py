@@ -70,6 +70,84 @@ def _type_hypotheses(config: JointProjectConfig) -> tuple[tuple[int, ...], ...]:
     return tuple(product(config.type_values, repeat=config.num_agents))
 
 
+class EmpiricalOpponentModel:
+    """Laplace-smoothed frequencies of each other agent's observed contributions.
+
+    This is the round-10 bounded repair permitted by peer decision 0023: the
+    smallest learner-aware opponent model, in the same spirit as the existing
+    lightweight opponent action-frequency machinery.  It is updated only from
+    public history and is used to compute expected partner contribution by exact
+    convolution, replacing the assumption that partners follow the contract's
+    fixed cost-threshold rule.
+
+    No new planning architecture is introduced, there is no tunable parameter
+    beyond the Laplace prior weight, and the model contains no contribution
+    heuristic of its own.
+    """
+
+    def __init__(self, *, config: JointProjectConfig, agent_id: int, prior_weight: float = 1.0) -> None:
+        self.config = config
+        self.agent_id = agent_id
+        self.prior_weight = float(prior_weight)
+        # One pseudo-count per legal value for every other agent, so the initial
+        # prediction is the uniform distribution rather than an undefined one.
+        self.counts: dict[int, list[float]] = {
+            agent: [self.prior_weight] * len(config.legal_values)
+            for agent in range(config.num_agents)
+            if agent != agent_id
+        }
+        self.processed_rounds = 0
+
+    def update_from_public_history(self, view: AgentView) -> None:
+        """Learn only from what the contract makes public."""
+        while self.processed_rounds < len(view.public_history):
+            record = view.public_history[self.processed_rounds]
+            contributions = dict(record.contributions)
+            for agent, row in self.counts.items():
+                value = contributions.get(agent)
+                if value is None:
+                    continue
+                row[self.config.legal_values.index(int(value))] += 1.0
+            self.processed_rounds += 1
+
+    def distribution(self, agent: int) -> tuple[float, ...]:
+        row = self.counts[agent]
+        total = sum(row)
+        if total <= 0:
+            raise ValueError("opponent model has no mass")
+        return tuple(value / total for value in row)
+
+    def predicted_total_distribution(self) -> dict[int, float]:
+        """Exact distribution of the sum of the other agents' contributions."""
+        totals: dict[int, float] = {0: 1.0}
+        for agent in sorted(self.counts):
+            probabilities = self.distribution(agent)
+            updated: dict[int, float] = {}
+            for total, weight in totals.items():
+                for value, probability in zip(self.config.legal_values, probabilities):
+                    key = total + value
+                    updated[key] = updated.get(key, 0.0) + weight * probability
+            totals = updated
+        return totals
+
+    def probability_of_success(self, own_contribution: int) -> float:
+        return sum(
+            probability
+            for total, probability in self.predicted_total_distribution().items()
+            if total + own_contribution >= self.config.threshold
+        )
+
+    def expected_partner_contribution(self) -> float:
+        expected = 0.0
+        for agent in sorted(self.counts):
+            probabilities = self.distribution(agent)
+            expected += sum(
+                value * probability
+                for value, probability in zip(self.config.legal_values, probabilities)
+            )
+        return expected
+
+
 def _hypothesis_prior(
     hypothesis: Sequence[int], config: JointProjectConfig
 ) -> float:
@@ -207,6 +285,11 @@ class BeliefPolicy(JointProjectPolicy):
             for hypothesis in self.hypotheses
         ]
         self.processed_rounds = 0
+        # Round-10 bounded repair: expected partner contribution now comes from a
+        # learner-aware empirical model instead of the fixed cost-threshold rule.
+        self.opponents = EmpiricalOpponentModel(
+            config=self.config, agent_id=self.agent_id
+        )
 
     # -- inference -------------------------------------------------------
     def normalised_posterior(self) -> list[float]:
@@ -252,23 +335,15 @@ class BeliefPolicy(JointProjectPolicy):
     def probability_of_success(
         self, view: AgentView, own_contribution: int
     ) -> float:
-        """P(project succeeds | my contribution) under the documented rule."""
-        weights = self.normalised_posterior()
-        probability = 0.0
-        for index, hypothesis in enumerate(self.hypotheses):
-            weight = weights[index]
-            if weight <= 0:
-                continue
-            others = sum(
-                1
-                for agent in range(self.config.num_agents)
-                if agent != self.agent_id
-                and hypothesis[agent] <= PREDICTED_CONTRIBUTOR_COST_CEILING
-            )
-            total = others * self.config.max_contribution + own_contribution
-            if total >= self.config.threshold:
-                probability += weight
-        return probability
+        """P(project succeeds | my contribution) under the learned model.
+
+        The hidden-cost posterior is still maintained and still drives
+        calibration, but the prediction of partner behaviour now comes from the
+        empirical opponent model, which is exactly the correction peer decision
+        0023 asked for.
+        """
+        self.opponents.update_from_public_history(view)
+        return self.opponents.probability_of_success(own_contribution)
 
     def best_response(self, view: AgentView) -> int:
         best_value = float("-inf")
@@ -318,36 +393,49 @@ class BeliefPlanningPolicy(BeliefPolicy):
     def probability_of_success(
         self, view: AgentView, own_contribution: int
     ) -> float:
+        """Pledge-conditioned one-ply response, with a learned fallback.
+
+        Structure is unchanged from before the repair: an agent is assumed to
+        honour its pledge with probability equal to its measured pledge-keeping
+        rate.  What changed is the fallback for an agent that does not honour it.
+        It used to be the contract's fixed cost-threshold rule; it is now the
+        learner-aware empirical distribution over that agent's observed
+        contributions, taken from public history only.
+        """
+        self.opponents.update_from_public_history(view)
         pledges = dict(view.pledges_this_round)
         others = [a for a in range(self.config.num_agents) if a != self.agent_id]
-        weights = self.normalised_posterior()
         probability = 0.0
-        for index, hypothesis in enumerate(self.hypotheses):
-            weight = weights[index]
-            if weight <= 0:
-                continue
-            # Enumerate which of the others honour their pledge.
-            for size in range(len(others) + 1):
-                for honouring in combinations(others, size):
-                    outcome_probability = 1.0
-                    for agent in others:
-                        reliability = self.pledge_reliability(view, agent)
-                        outcome_probability *= (
-                            reliability if agent in honouring else 1.0 - reliability
-                        )
-                    if outcome_probability <= 0:
-                        continue
-                    total = own_contribution
-                    for agent in others:
-                        if agent in honouring:
-                            total += pledges.get(agent, 0)
-                        elif (
-                            hypothesis[agent]
-                            <= PREDICTED_CONTRIBUTOR_COST_CEILING
+        for size in range(len(others) + 1):
+            for honouring in combinations(others, size):
+                outcome_probability = 1.0
+                for agent in others:
+                    reliability = self.pledge_reliability(view, agent)
+                    outcome_probability *= (
+                        reliability if agent in honouring else 1.0 - reliability
+                    )
+                if outcome_probability <= 0:
+                    continue
+                # Deterministic part: the pledges of agents assumed to honour.
+                promised = sum(pledges.get(agent, 0) for agent in honouring)
+                # Learned part: exact convolution over the agents assumed not to.
+                abstaining = [agent for agent in others if agent not in honouring]
+                totals: dict[int, float] = {promised: 1.0}
+                for agent in abstaining:
+                    probabilities = self.opponents.distribution(agent)
+                    updated: dict[int, float] = {}
+                    for total, weight in totals.items():
+                        for value, value_probability in zip(
+                            self.config.legal_values, probabilities
                         ):
-                            total += self.config.max_contribution
-                    if total >= self.config.threshold:
-                        probability += weight * outcome_probability
+                            key = total + value
+                            updated[key] = (
+                                updated.get(key, 0.0) + weight * value_probability
+                            )
+                    totals = updated
+                for total, weight in totals.items():
+                    if total + own_contribution >= self.config.threshold:
+                        probability += outcome_probability * weight
         return probability
 
 
@@ -552,6 +640,14 @@ def evaluate_episode(outcome: EpisodeOutcome, config: JointProjectConfig) -> dic
         (a / o) for a, o in zip(achieved, optima) if o > 0
     ]
     efficiency = sum(informative) / len(informative) if informative else None
+    # Prediction P3: does the profile drift toward the all-zero equilibrium?
+    per_round_contributions = [
+        [dict(record.contributions)[agent] for agent in range(config.num_agents)]
+        for record in outcome.history
+    ]
+    half = len(per_round_contributions) // 2
+    early = [value for row in per_round_contributions[:half] for value in row]
+    late = [value for row in per_round_contributions[half:] for value in row]
     return {
         "variant_id": outcome.variant_id,
         "seed": outcome.seed,
@@ -590,6 +686,11 @@ def evaluate_episode(outcome: EpisodeOutcome, config: JointProjectConfig) -> dic
             str(value): outcome.contributions_taken.count(value)
             for value in config.legal_values
         },
+        "zero_contribution_share": _zero_share(outcome.contributions_taken),
+        "zero_contribution_share_early_rounds": _zero_share(early),
+        "zero_contribution_share_late_rounds": _zero_share(late),
+        "min_agent_payoff": float(min(outcome.payoffs)) if outcome.payoffs else None,
+        "max_agent_payoff": float(max(outcome.payoffs)) if outcome.payoffs else None,
         "pledge_violations": outcome.pledge_broken,
         "mean_best_response_regret_diagnostic": (
             sum(outcome.best_response_regrets) / len(outcome.best_response_regrets)
@@ -598,6 +699,98 @@ def evaluate_episode(outcome: EpisodeOutcome, config: JointProjectConfig) -> dic
         ),
         "information_leakage_count": 0,
     }
+
+
+def best_response_under_partner_distributions(
+    *,
+    config: JointProjectConfig,
+    own_type: int,
+    partner_distributions: Sequence[Sequence[float]],
+) -> dict[str, Any]:
+    """Exact best response when partners' contributions are independent draws.
+
+    Evaluation and analysis side only: this is the same computation the policy
+    performs, exposed so the pre-run prediction can be checked numerically
+    instead of only by hand.
+    """
+    totals: dict[int, float] = {0: 1.0}
+    for distribution in partner_distributions:
+        if len(distribution) != len(config.legal_values):
+            raise ValueError("partner distribution length must match the legal values")
+        updated: dict[int, float] = {}
+        for total, weight in totals.items():
+            for value, probability in zip(config.legal_values, distribution):
+                key = total + value
+                updated[key] = updated.get(key, 0.0) + weight * probability
+        totals = updated
+    values: dict[int, float] = {}
+    probabilities: dict[int, float] = {}
+    for action in config.legal_values:
+        probability = sum(
+            weight
+            for total, weight in totals.items()
+            if total + action >= config.threshold
+        )
+        probabilities[action] = probability
+        values[action] = config.bonus * probability - own_type * action
+    best = max(values.values())
+    return {
+        "expected_values": values,
+        "success_probabilities": probabilities,
+        "best_action": min(
+            action for action, value in values.items() if value == best
+        ),
+        "best_value": best,
+    }
+
+
+def uniform_prior_best_responses(config: JointProjectConfig) -> dict[str, Any]:
+    """Best responses when every partner is uniform over the legal values."""
+    uniform = tuple(1.0 / len(config.legal_values) for _ in config.legal_values)
+    partners = [uniform] * (config.num_agents - 1)
+    return {
+        str(cost): best_response_under_partner_distributions(
+            config=config, own_type=cost, partner_distributions=partners
+        )
+        for cost in config.type_values
+    }
+
+
+def all_zero_is_nash_equilibrium(config: JointProjectConfig) -> dict[str, Any]:
+    """Check whether universal defection is a Nash equilibrium of the contract.
+
+    With threshold 6 and a maximum contribution of 3, one agent cannot make the
+    project succeed alone, so against all-zero partners every cost type's best
+    response should be 0.  Computed rather than asserted.
+    """
+    # Positional over config.legal_values = (0, 1, 2, 3): contribute zero surely.
+    zero = (1.0, 0.0, 0.0, 0.0)
+    partners = [zero] * (config.num_agents - 1)
+    rows = {
+        str(cost): best_response_under_partner_distributions(
+            config=config, own_type=cost, partner_distributions=partners
+        )
+        for cost in config.type_values
+    }
+    return {
+        "is_equilibrium": all(row["best_action"] == 0 for row in rows.values()),
+        "per_type": {
+            cost: {"best_action": row["best_action"], "best_value": row["best_value"]}
+            for cost, row in rows.items()
+        },
+        "derivation": (
+            "Against all-zero partners the project cannot succeed, because the "
+            "threshold 6 exceeds the maximum contribution 3, so the payoff is "
+            "-cost*action and is maximised at zero for every cost type."
+        ),
+    }
+
+
+def _zero_share(contributions: Sequence[int]) -> float | None:
+    values = list(contributions)
+    if not values:
+        return None
+    return sum(1 for value in values if value == 0) / len(values)
 
 
 def mechanism_diagnostics(
@@ -744,6 +937,33 @@ def run_smoke_ab(
             "contribution_histogram": _merge_histograms(
                 [r["contribution_histogram"] for r in reports], config
             ),
+            "mean_zero_contribution_share": _mean(
+                [
+                    r["zero_contribution_share"]
+                    for r in reports
+                    if r["zero_contribution_share"] is not None
+                ]
+            ),
+            "mean_zero_contribution_share_early_rounds": _mean(
+                [
+                    r["zero_contribution_share_early_rounds"]
+                    for r in reports
+                    if r["zero_contribution_share_early_rounds"] is not None
+                ]
+            ),
+            "mean_zero_contribution_share_late_rounds": _mean(
+                [
+                    r["zero_contribution_share_late_rounds"]
+                    for r in reports
+                    if r["zero_contribution_share_late_rounds"] is not None
+                ]
+            ),
+            "mean_min_agent_payoff": _mean(
+                [r["min_agent_payoff"] for r in reports if r["min_agent_payoff"] is not None]
+            ),
+            "mean_max_agent_payoff": _mean(
+                [r["max_agent_payoff"] for r in reports if r["max_agent_payoff"] is not None]
+            ),
             "pledge_violations": sum(r["pledge_violations"] for r in reports),
             "mean_best_response_regret_diagnostic": _mean(
                 [
@@ -822,6 +1042,17 @@ def run_smoke_ab(
         },
         "variants": variant_rows,
         "mixed_table": mixed_rows,
+        "structural_analysis": {
+            "all_zero_nash_equilibrium": all_zero_is_nash_equilibrium(config),
+            "uniform_prior_best_responses": uniform_prior_best_responses(config),
+            "why_this_matters": (
+                "If universal defection is a Nash equilibrium, then a purely "
+                "history-based learner-aware opponent model has no reason to leave "
+                "it once reached, and the empirical model should drift toward it in "
+                "the later rounds."
+            ),
+        },
+        "prerun_prediction": "runtime/adaptation/storybox/sck-round10-prerun-prediction.json",
         "reading_notes": [
             "Primary outcome is social utility and joint-surplus efficiency against the exact full-information optimum, not a win rate.",
             "mean_best_response_regret_diagnostic is a secondary diagnostic only, computed against a legitimate post-hoc counterfactual, never the acceptance metric.",
@@ -902,6 +1133,30 @@ def format_smoke_ab(report: dict[str, Any]) -> str:
             f"  {variant_id:<18}{by_type:<34}"
             f"pledge_honour={fmt(diag['pledge_honour_rate'])}"
         )
+    if report.get("structural_analysis"):
+        structural = report["structural_analysis"]
+        lines.append("")
+        lines.append(
+            "  all-zero is a Nash equilibrium: "
+            f"{structural['all_zero_nash_equilibrium']['is_equilibrium']}"
+        )
+        uniform = structural["uniform_prior_best_responses"]
+        lines.append(
+            "  best response under a uniform partner prior: "
+            + ", ".join(
+                f"c{k}->x{v['best_action']}" for k, v in uniform.items()
+            )
+        )
+        lines.append("")
+        lines.append("  drift toward the all-zero equilibrium (zero-contribution share)")
+        lines.append(f"  {'variant':<18}{'overall':>9}{'early':>8}{'late':>8}")
+        for variant_id, row in report["variants"].items():
+            lines.append(
+                f"  {variant_id:<18}"
+                f"{fmt(row['mean_zero_contribution_share']):>9}"
+                f"{fmt(row['mean_zero_contribution_share_early_rounds']):>8}"
+                f"{fmt(row['mean_zero_contribution_share_late_rounds']):>8}"
+            )
     if report.get("mixed_table"):
         mixed = report["mixed_table"]
         lines.append("")

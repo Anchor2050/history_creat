@@ -160,21 +160,87 @@ def test_an_informative_round_raises_the_posterior_mass_on_the_truth():
     assert after > before
 
 
-def test_the_belief_agent_free_rides_when_it_expects_two_cheap_partners():
-    """Pins the mechanism the smoke A/B measures, not just its number.
+def test_empirical_opponent_model_initial_prediction_matches_the_recorded_maths():
+    """The Laplace prior case worked out by hand in the pre-run prediction."""
+    config = JointProjectConfig()
+    model = h.EmpiricalOpponentModel(config=config, agent_id=0)
+    assert model.probability_of_success(0) == pytest.approx(20 / 64)
+    assert model.probability_of_success(1) == pytest.approx(0.5)
+    assert model.probability_of_success(2) == pytest.approx(0.6875)
+    assert model.probability_of_success(3) == pytest.approx(0.84375)
+    assert model.expected_partner_contribution() == pytest.approx(4.5)
+    assert sum(model.predicted_total_distribution().values()) == pytest.approx(1.0)
 
-    With the prior, three others are each cheap with probability 0.8, so two or
-    more contributors are likely and the project succeeds even if this agent
-    contributes nothing.  Maximising expected value then means contributing
-    nothing, which is also what starves the agent's own evidence channel.
-    """
+
+def test_the_recorded_first_round_best_response_prediction_holds():
+    config = JointProjectConfig()
+    rows = h.uniform_prior_best_responses(config)
+    assert rows["1"]["best_action"] == 2
+    assert rows["2"]["best_action"] == 0
+    assert rows["4"]["best_action"] == 0
+    # Values as written into sck-round10-prerun-prediction.json.
+    assert rows["1"]["expected_values"][2] == pytest.approx(2.125)
+    assert rows["1"]["expected_values"][0] == pytest.approx(1.875)
+    assert rows["2"]["expected_values"][0] == pytest.approx(1.875)
+
+
+def test_all_zero_is_a_nash_equilibrium_of_the_contract():
+    config = JointProjectConfig()
+    result = h.all_zero_is_nash_equilibrium(config)
+    assert result["is_equilibrium"] is True
+    for row in result["per_type"].values():
+        assert row["best_action"] == 0
+        assert row["best_value"] == 0.0
+
+
+def test_empirical_model_learns_only_from_public_history():
+    config = JointProjectConfig()
+    model = h.EmpiricalOpponentModel(config=config, agent_id=0)
+    env = JointProjectEnv(config=config)
+    env.reset(seed=3)
+    env.resolve({a: 1 for a in range(4)})
+    env.resolve({0: 0, 1: 3, 2: 3, 3: 0})
+    model.update_from_public_history(env.observe(0))
+    # Agents 1 and 2 each contributed 3 once, so their mass shifts to value 3.
+    assert model.distribution(1) == pytest.approx(model.distribution(2))
+    assert model.distribution(1)[3] > model.distribution(1)[0]
+    # Re-processing the same history must not double count.
+    before = model.distribution(1)
+    model.update_from_public_history(env.observe(0))
+    assert model.distribution(1) == pytest.approx(before)
+
+
+def test_partner_prediction_no_longer_comes_from_the_cost_type_rule():
+    """The bounded repair: prediction is learned, not assumed."""
     config = JointProjectConfig()
     policy = h.build_policy("belief", agent_id=0, config=config, seed=0)
     env = JointProjectEnv(config=config)
     env.reset(seed=2)
     view = env.observe(0)
-    assert policy.choose_contribution(view) == 0
-    assert policy.last_success_probability > 0.5
+    # The old rule-following assumption gave 0.896 here; the empirical model gives
+    # the uniform-prior convolution instead.
+    assert policy.probability_of_success(view, 0) == pytest.approx(20 / 64)
+    assert policy.uses_belief is True
+    # The hidden-cost posterior is still maintained for calibration.
+    weights = policy.normalised_posterior()
+    assert len(weights) == len(config.type_values) ** config.num_agents
+    assert sum(weights) == pytest.approx(1.0)
+
+
+def test_belief_contributes_only_when_its_own_cost_makes_it_worthwhile():
+    """Under the learned prior, only the cheapest type wants to contribute."""
+    config = JointProjectConfig()
+    env = JointProjectEnv(config=config)
+    env.reset(seed=2)
+    policy = h.build_policy("belief", agent_id=0, config=config, seed=0)
+    view = env.observe(0)
+    action = policy.choose_contribution(view)
+    expected = {
+        1: 2,
+        2: 0,
+        4: 0,
+    }[view.own_type]
+    assert action == expected
 
 
 def test_pledge_conditioning_lowers_the_believed_success_probability():
@@ -190,7 +256,6 @@ def test_pledge_conditioning_lowers_the_believed_success_probability():
     assert planner.probability_of_success(view, 0) < plain_belief.probability_of_success(
         view, 0
     )
-
 
 def test_pledge_reliability_starts_at_the_documented_prior_and_moves_with_history():
     config = JointProjectConfig()
