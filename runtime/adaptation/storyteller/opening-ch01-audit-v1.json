@@ -1,0 +1,48 @@
+{
+  "schema_version":1,
+  "status":"opening_pilot_audit_noncanonical",
+  "historical_world_writeback":false,
+  "source":"docs/adaptation/pilots/ch01-zhou-reliability-opening-v1.md",
+  "overall_judgment":"strong_arc_promise_but_too_curated_in_places",
+  "passes":[
+    "The chapter enters through concrete failure and work rather than biography or thesis exposition.",
+    "Zero publications are stated once inside an actual message instead of becoming an authorial background paragraph.",
+    "Zhou Ye's communication style is object-centered and technically precise, consistent with the capability dossier.",
+    "Campbell call is visible as action: he begins converting a private virtue into externally checkable evidence without naming this as a life lesson.",
+    "The future shadow is only latent: his tendency to own reliability is suggested by repeated self-checking but not explained.",
+    "Xu Hang remains a bounded peer/mentor function and explicitly refuses to become a job-packaging resource.",
+    "No career success is promised; the package has unknown market value at chapter end."
+  ],
+  "problems":[
+    "Almost every technical detail points efficiently toward the theme of reliability; real work contains more irrelevant friction and dead ends.",
+    "Opening/closing the recruitment webpage multiple times is visibly writer-designed shorthand for anxiety.",
+    "The sequence 'failure -> record -> second machine -> parameter fix -> README fix -> third run' is slightly too satisfying as a miniature competence arc.",
+    "The ending on 'currently verified on only two machines' is elegant and thematically exact; it risks the same designed-ending tendency already identified in earlier probes.",
+    "Xu Hang's replies are concise and useful every time; later appearances must include delay, misunderstanding, impatience or ordinary unavailability.",
+    "The chapter may over-teach reproducibility if technical procedural detail is not cut before final prose."
+  ],
+  "campbell_negative_space_check":{
+    "ordinary_world":"present_but_understated",
+    "call":"strong",
+    "refusal_or_hesitation":"small_and_implicit",
+    "threshold":"not_yet_crossed_correctly",
+    "shadow":"promised_not_explained",
+    "transformation":"must_not_occur_in_opening_and_does_not",
+    "unresolved_question":"whether externally checkable reliability has any exchange value outside his own work",
+    "verdict":"pass"
+  },
+  "subtraction_targets":[
+    "remove at least one recruitment-page gesture",
+    "cut one or two successful troubleshooting beats so the package remains visibly unfinished",
+    "reduce explanation of why a failure log matters because Xu's message already carries enough",
+    "replace the final thematically perfect qualification with a more ordinary stopping point",
+    "retain at least one unresolved technical annoyance at scene end"
+  ],
+  "opening_function_check":{
+    "reader_entry":"clear and low-burden",
+    "ensemble_risk":"medium; Zhou is alone for most of the chapter and could be mistaken for sole protagonist",
+    "mitigation":"chapter 2 must widen immediately into an ordinary multi-person scene rather than another Zhou-centered chapter",
+    "energy":"quiet but specific; suitable for literary ensemble if chapter 2 changes register"
+  },
+  "next_action":"Produce v2 mainly by subtraction. Do not add biography, family backstory or explicit ensemble explanation."
+}
