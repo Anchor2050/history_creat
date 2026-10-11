@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "message_id": "2026-10-11-0011-sck-round2-live-runner-result",
+  "created_at": "2026-10-11",
+  "from": "Honeycomb/Debus",
+  "to": ["*"],
+  "topic": "sck:round-2-live-runner",
+  "kind": "agent_round_result",
+  "priority": "high",
+  "status": "resolved",
+  "commit": "852a309",
+  "branch": "chatgpt/career-six-cohort",
+  "historical_world_writeback": false,
+  "supersedes": [],
+  "refs": [
+    "narrative/longform/storybox_textarena_secret_mafia_live_v0.py",
+    "tests/test_storybox_secret_mafia_live_v0.py",
+    "runtime/adaptation/storybox/sck-head-v1.json",
+    "runtime/message-bus/messages/2026-10-11-0009-honeycomb-multiround-execution-prompt.json"
+  ],
+  "summary": "Execution chain step B done: an information-safe live TextArena SecretMafia runner exists, plays complete self-play episodes for all four SCK variants, and passes 7 live tests against textarena 0.7.4.",
+  "round_goal": "Implement an information-safe live TextArena SecretMafia runner that consumes only the current actor's legal visible observation/transcript and can complete a full episode.",
+  "changed": [
+    "narrative/longform/storybox_textarena_secret_mafia_live_v0.py (new): actor-visible ActorView boundary, transcript plumbing, explicit behavior evidence model, plain/memory/belief/belief_planning policies, live runner, truth-only-in-evaluation scoring (Brier, action regret, leakage).",
+    "tests/test_storybox_secret_mafia_live_v0.py (new): 17 offline tests plus 7 live tests.",
+    "runtime/adaptation/storybox/sck-head-v1.json: live runner recorded as implemented_and_executed with its environment and command; capabilities updated; environment_constraints section added."
+  ],
+  "information_boundary_evidence": {
+    "runtime_guard": "assert_information_safe runs on every decision view and raises if a backstage attribute is present or if the boundary object carries a pending night elimination.",
+    "static_audit": "test_policy_and_runner_sources_never_read_backstage_state_before_evaluation parses the module AST and asserts that no audited decision-path definition reads player_roles, secret_roles or pending_elimination. evaluate_episode is the only exempt definition, and the single allowed read is the guard's own 'is None' check, listed explicitly.",
+    "empirical_audit": "test_live_actor_views_only_ever_carry_the_actors_own_private_prompt wraps the policy during a real episode and asserts every view contains exactly one PROMPT observation, its own, and no other player's role text.",
+    "truth_use": "player_roles, rewards, game_info and the pending night elimination are read only in evaluate_episode, after all decisions are recorded."
+  },
+  "verification": {
+    "live_environment": "textarena 0.7.4 in .venv-textarena",
+    "live_command": ".venv-textarena/Scripts/python.exe -m pytest tests/test_storybox_secret_mafia_live_v0.py -q",
+    "live_result": "24 passed in 0.57s (17 offline + 7 live)",
+    "offline_command": "python -m pytest tests/test_storybox_sck_v0.py tests/test_storybox_sck_eval_v0.py tests/test_storybox_secret_mafia_live_v0.py -q",
+    "offline_result": "24 passed, 7 skipped in 0.10s",
+    "live_properties_verified": [
+      "all four variants complete a full 6-player episode and produce win/utility, action regret and leakage numbers",
+      "belief variants produce real Brier/calibration checkpoints; plain and memory have no belief so Brier is reported as None rather than fabricated",
+      "episodes are deterministic for a fixed seed (identical roles, step count, reason and rewards)",
+      "information leakage count is zero for every variant",
+      "Doctor decisions exist and their oracle uses the evaluation-only pending night target"
+    ]
+  },
+  "findings": [
+    "textarena 0.7.4 scrubs role tags from every PLAYER_ACTION message via State.add_observation, so structured votes arrive as the empty string. Vote targets are UNOBSERVABLE, which invalidates the vote-based evidence model sketched in sck-secret-mafia-ab-v0.json and in the adapter's recorded_vote_evidence helper. Evidence must come from GAME_MESSAGE events.",
+    "The remaining live evidence events are: night kill, 'No one was killed tonight', vote elimination, and the Detective's private result. The Mafia's own team list is legitimate private knowledge from its prompt.",
+    "game_state['day_number'] is never incremented by the environment, so the runner keeps its own night counter.",
+    "SecretMafiaEnv.reset seeds the global random module, so policies must use their own random.Random instance or they silently perturb environment randomness. The runner enforces this per policy.",
+    "At 6 players the actionable public evidence is thin: a night kill only excludes an already-dead candidate, so it does not discriminate among the living. The belief advantage is expected to concentrate on Mafia-side play (never eliminate a teammate) and on the Detective's own hard result, not on village voting."
+  ],
+  "limits": [
+    "Every seat is driven by the same policy, so episodes are SCK self-play; the A/B measures self-play quality, not strength against a fixed external opponent.",
+    "Discussion uses a deterministic template renderer, not an LLM. It cannot persuade, so persuasion_delta is reported unavailable and communication_separated currently has no causal effect.",
+    "BehaviorEvidenceModel likelihoods are hand-specified, not learned or replay-calibrated.",
+    "Only 6-player games were exercised in tests; 8 and 10 players from the benchmark plan are untested.",
+    "The runner is noncanonical and writes nothing back to the frozen historical ledger."
+  ],
+  "next_gate": "Execution chain step C: build the shared-seed A/B harness and run the 50-episode smoke test across plain, memory, belief and belief_planning, reporting win/utility, per-role results, Brier/calibration, action regret and leakage with unavailable metrics marked unavailable.",
+  "action_required": "No reply needed. Step C is starting in the same chain; the next bus message will carry the measured A/B numbers."
+}
