@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "adaptation_storybox_round_runtime_noncanonical",
   "historical_world_writeback": false,
   "purpose": "Run persistent multi-actor narrative games before Storyteller selects and renders prose.",
@@ -7,6 +7,7 @@
   "runtime": {
     "legacy_micro_runtime": "narrative/longform/storybox_noapi_runtime_v8.py",
     "round_runtime": "narrative/longform/storybox_round_engine_v15.py",
+    "seed_loader": "narrative/longform/storybox_round_loader_v15.py",
     "design_model": "docs/adaptation/round-based-narrative-engine-v1.md",
     "tests": "tests/test_storybox_round_engine_v15.py",
     "tests_status": "written_not_run"
@@ -15,8 +16,14 @@
     "arc": "runtime/adaptation/storybox/risk-list-game-arc-v1.json",
     "current_game_seed": "runtime/adaptation/storybox/risk-list-game-v1.json",
     "current_game_id": "risk-list-game-01",
-    "current_game_status": "seeded_not_executed_by_round_engine",
-    "fixed_truth_before_play": true
+    "fixed_truth_before_play": true,
+    "formalized_rounds": [
+      "runtime/adaptation/storybox/risk-list-round-01-v1.json",
+      "runtime/adaptation/storybox/risk-list-round-02-v1.json"
+    ],
+    "current_round": 2,
+    "current_game_status": "active_round_2_resolved_round_3_gate_open",
+    "next_trigger": "batch-3 manifest lacks manual_followup_status; hospital-side rerun context must be reconstructed before the first external reply"
   },
   "layer_responsibilities": {
     "storybox": [
@@ -117,11 +124,21 @@
     "new_actor_entry": "only when the active game reaches their role, information, authority, interest, location or existing relationship",
     "no_roster_balance": true
   },
+  "round_history": [
+    {
+      "round": 1,
+      "material_change": "timestamp mismatch turns one suspicious list into a multi-run incident; all overnight batches are frozen; technical-operations map unlocks"
+    },
+    {
+      "round": 2,
+      "material_change": "three runs reconstructed; rollback confirmed but single-cause explanation weakened; hospital/data-snapshot map unlocks; missing manual-followup table becomes actionable"
+    }
+  ],
   "next_actions": [
-    "materialize risk-list-game-01 into GameState",
-    "execute Round 1 from the fixed incident trigger",
-    "compare engine state changes with existing Chapter 1-2 prose probes",
-    "revise prose only after the round state is stable",
-    "do not add more prose chapters merely to advance the manuscript"
+    "execute Round 3 only from the missing manual-followup-status / rerun-authorization problem",
+    "activate hospital-side actor only because the current question reaches that jurisdiction",
+    "do not activate research, industry or public-sector actors yet",
+    "after Round 3 evaluate convergence; Game 1 cannot end before its minimum-round requirement",
+    "only render prose after the round state is stable"
   ]
 }
