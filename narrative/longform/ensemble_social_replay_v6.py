@@ -304,12 +304,8 @@ def _event_mode(kind, rng):
 
 
 def _event_location(kind, mode, rng):
-    if mode == "wechat_group":
-        return "digital:wechat_group"
-    if mode == "video_call":
-        return "digital:video_call"
-    if mode == "phone":
-        return "digital:phone"
+    if mode in {"wechat_group", "wechat_private", "video_call", "phone", "email"}:
+        return f"digital:{mode}"
     if kind in {"friend_trip", "weekend_outing"}:
         return rng.choice(["beijing_outskirts", "nearby_city_trip", "mountain_or_lake_trip"])
     if kind == "conference_meal":
