@@ -1,0 +1,17 @@
+{
+  "schema_version": 11,
+  "period": "2031-q4",
+  "status": "behavior_audit_noncanonical",
+  "backend": "chatgpt_product_conversation",
+  "source_batch": "runtime/chatbot-live/batches/2031-q4.json",
+  "abnormal_budget": 1,
+  "abnormal_used": 0,
+  "decisions": [
+    {"actor_id":"lin_jing","mode":"normal","chosen_action_id":"continue_role_with_annual_boundary_review","baseline_expected_action":"Judge the university role from repeated lived evidence, not one contract or one semester.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"First-year review confirms no formal penalty for the service boundary and partial preservation of research time, while long-run evaluation pressure remains visible.","constraint_check":{"feasible":true,"notes":"Role remains feasible and no competing process exists."},"evidence_refs":["2031q4:review01","2031q4:e01","2031q4:e02"]},
+    {"actor_id":"song_nan","mode":"normal","chosen_action_id":"open_market_calibration_without_opening_job_search","baseline_expected_action":"Use portable assets to keep reversibility visible before deciding whether the current role has stopped paying learning returns.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Fourth-year review shows slower marginal learning but no acute role failure.","constraint_check":{"feasible":true,"notes":"Public market calibration can occur without resignation or confidential material."},"evidence_refs":["2031q4:review04","2031q4:e05","2031q4:e06"]},
+    {"actor_id":"tang_yu","mode":"normal","chosen_action_id":"wait_for_external_review_without_parallel_rewrite","baseline_expected_action":"After submission, avoid creating a second moving target unless external evidence arrives.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Editorial status remains under review with no decision.","constraint_check":{"feasible":true,"notes":"No further world action is required while review is pending."},"evidence_refs":["2031q4:submission01","2031q4:e07","2031q4:e08"]},
+    {"actor_id":"gao_yuan","mode":"normal","chosen_action_id":"prepare_2032_reassessment_while_staying_employed","baseline_expected_action":"Keep current stability until a structured comparison shows that growth costs outweigh its benefits.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Three-year evidence is now sufficient for reassessment, but there is still no competing offer or family shock.","constraint_check":{"feasible":true,"notes":"Reassessment can proceed without leaving the role."},"evidence_refs":["2031q4:review06","2031q4:e09"]},
+    {"actor_id":"luo_cheng","mode":"normal","chosen_action_id":"prepare_2032_reassessment_while_retaining_research_support_role","baseline_expected_action":"Retain improving research fit while monitoring regional platform ceiling.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Third-year review confirms fit and the persistent ceiling simultaneously.","constraint_check":{"feasible":true,"notes":"No external search is yet required."},"evidence_refs":["2031q4:review05","2031q4:e10"]}
+  ],
+  "audit_rule": "Q4 remains entirely normal. Waiting, deferral, and structured reassessment are treated as actions rather than narrative emptiness."
+}
