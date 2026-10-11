@@ -1,0 +1,62 @@
+{
+  "schema_version":1,
+  "status":"opening_order_comparison_noncanonical",
+  "historical_world_writeback":false,
+  "candidates":[
+    {
+      "id":"zhou_opening_v2",
+      "file":"docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md",
+      "strengths":[
+        "low exposition burden: reader enters through a failed rerun rather than a cast/history briefing",
+        "strong long-arc promise: reliability appears before its later organizational shadow is visible",
+        "technical behavior differentiates Zhou immediately without personality labels",
+        "negative space is preserved: the chapter does not answer whether this evidence has market value",
+        "quietness leaves room for chapter 2 to expand into ensemble ordinary life"
+      ],
+      "risks":[
+        "solitary and procedural opening can make the novel initially look like a technical-career novel",
+        "reader may temporarily assume Zhou is sole protagonist",
+        "too many file/environment details would tire readers if repeated elsewhere"
+      ],
+      "campbell_value":"high_as_call; the meaning of this call only becomes fully visible after later dependency and delegation scenes",
+      "opening_energy":"quiet_precise"
+    },
+    {
+      "id":"luo_pilot_v2",
+      "file":"docs/adaptation/pilots/ch03-luo-posting-full-v2.md",
+      "strengths":[
+        "immediate human interaction and institutional friction",
+        "side character has independent work pressure and imperfection",
+        "status anxiety and labor reality are accessible without technical knowledge",
+        "warmer dialogue makes entry easier"
+      ],
+      "risks":[
+        "opens the book with a clearer career-advice frame than the novel as a whole deserves",
+        "Sun Jie/Luo institutional scene could over-signal that the book is primarily about job matching",
+        "Luo's arc call is more explicit, leaving slightly less mystery than Zhou's"
+      ],
+      "campbell_value":"strong_trial_call_mix but less latent than Zhou opening",
+      "opening_energy":"socially_accessible"
+    }
+  ],
+  "decision":"keep_zhou_as_provisional_chapter_1",
+  "reasoning":[
+    "The novel needs a long delayed-payoff arc in its first pages more than it needs immediate thematic explanation.",
+    "Zhou's v2 leaves more unanswered and allows readers to discover later that a virtue can become an organizational trap.",
+    "Luo's chapter becomes stronger as chapter 3 after the book has already shown both solitary technical life and ordinary peer life.",
+    "The sequence Zhou -> ordinary ensemble trip -> Luo creates three different registers early: private work, weak-tie life, institution-facing career friction."
+  ],
+  "opening_order_provisional":[
+    {"chapter":1,"lead":"zhou_ye","function":"quiet call; private virtue seeks external evidence"},
+    {"chapter":2,"lead":"song_nan ensemble","function":"ordinary world expansion; relationships remain weak and non-instrumental"},
+    {"chapter":3,"lead":"luo_cheng","function":"institutional threshold; credentials meet actual labor"}
+  ],
+  "negative_space_requirements_for_chapter_1":[
+    "Do not add a childhood explanation for Zhou's reliability.",
+    "Do not tell readers he will later become a single point of failure.",
+    "Do not add a successful job response or external reward to justify the work.",
+    "Do not end with a thesis sentence about rigor, value or employability.",
+    "Let the unresolved TODO and unfinished exchange value remain."
+  ],
+  "verdict":"opening_order_may_be_provisionally_locked_for_next_two_chapters_but_final_prose_remains_noncanonical"
+}
