@@ -198,6 +198,17 @@ class ActorView:
     history: tuple[TranscriptEntry, ...]
     own_actions: tuple[tuple[str, int | None], ...]
     investigations: tuple[tuple[int, bool], ...]
+    #: Day votes already cast by other seats in the current voting round, in
+    #: submission order.  Empty unless the runner runs the explicitly labelled
+    #: reconstructed-channel arm, because the environment destroys vote targets
+    #: before broadcasting them (see the module docstring).  A player could
+    #: always observe votes cast before its own turn; the reconstruction only
+    #: restores the target the environment intended to broadcast.
+    public_vote_record: tuple[tuple[int, int], ...] = ()
+    #: Names of channels on this view whose content was reconstructed by the
+    #: runner rather than delivered by the environment.  Exposing reconstructed
+    #: content without declaring it here is an information-boundary violation.
+    reconstructed_channels: tuple[str, ...] = ()
 
     @property
     def is_mafia(self) -> bool:
@@ -235,6 +246,9 @@ class ActorView:
         )
 
 
+RECONSTRUCTED_VOTE_CHANNEL = "public_day_vote"
+
+
 def assert_information_safe(view: ActorView) -> None:
     """Fail loudly if a decision view ever exposes backstage state."""
     for name in FORBIDDEN_VIEW_ATTRIBUTES:
@@ -243,6 +257,14 @@ def assert_information_safe(view: ActorView) -> None:
     state = view.as_visible_state(TextArenaSecretMafiaAdapter())
     if state.pending_elimination is not None:
         raise SCKError("actor view leaks the pending night elimination")
+    undeclared = set(view.reconstructed_channels) - {RECONSTRUCTED_VOTE_CHANNEL}
+    if undeclared:
+        raise SCKError(f"actor view declares an unknown reconstructed channel: {sorted(undeclared)}")
+    if view.public_vote_record and RECONSTRUCTED_VOTE_CHANNEL not in view.reconstructed_channels:
+        raise SCKError(
+            "actor view carries a reconstructed vote record without declaring "
+            f"{RECONSTRUCTED_VOTE_CHANNEL!r}"
+        )
 
 
 def parse_role_and_teammates(prompt_text: str) -> tuple[str, tuple[int, ...]]:
@@ -613,6 +635,7 @@ class BeliefPolicy(SecretMafiaPolicy):
         self.uses_belief = True
         self.beliefs: dict[int, BeliefState] = {}
         self.processed: dict[int, int] = {}
+        self.vote_cursor: dict[int, int] = {}
 
     # -- belief maintenance ---------------------------------------------
     def belief_for(self, view: ActorView) -> BeliefState:
@@ -676,6 +699,36 @@ class BeliefPolicy(SecretMafiaPolicy):
                     )
                 )
         self.processed[view.actor_id] = len(history)
+        self._update_from_vote_record(view, belief)
+
+    def _update_from_vote_record(self, view: ActorView, belief: BeliefState) -> None:
+        """Apply evidence from the reconstructed public day-vote record.
+
+        ``recorded_vote_evidence`` was written for replay inputs; in live play it
+        stays dead code unless the runner runs the labelled reconstructed-channel
+        arm, because the environment destroys vote targets.
+        """
+        record = view.public_vote_record
+        if not record:
+            return
+        cursor = self.vote_cursor.get(view.actor_id, 0)
+        if cursor > len(record):
+            # A new voting round started and the record was reset.
+            cursor = 0
+        for index in range(cursor, len(record)):
+            voter, target = record[index]
+            if voter == view.actor_id:
+                continue
+            belief.update(
+                recorded_vote_evidence(
+                    evidence_id=f"p{view.actor_id}-n{view.night_number}-vote-{voter}-{target}",
+                    voter=voter,
+                    target=target,
+                    belief=belief,
+                    model=self.model,
+                )
+            )
+        self.vote_cursor[view.actor_id] = len(record)
 
     # -- target choice ---------------------------------------------------
     @staticmethod
@@ -865,6 +918,9 @@ class EpisodeTrace:
     empty_player_action_messages: int = 0
     vote_eliminations: int = 0
     night_kills: int = 0
+    #: Channels the runner reconstructed instead of receiving from the
+    #: environment, recorded so every artifact is self-describing.
+    reconstructed_channels: tuple[str, ...] = ()
     #: Evaluation-only snapshot: the Mafia's pending target at decision time.
     #: It is read by the runner *after* a decision has been produced, stored on
     #: this trace, and consumed by :func:`oracle_action_values`.  It is never
@@ -890,6 +946,7 @@ class SecretMafiaLiveRunner:
         evidence_model: BehaviorEvidenceModel | None = None,
         tie_break: str = "lowest_id",
         policy_classes: Mapping[str, type[SecretMafiaPolicy]] | None = None,
+        public_vote_record: bool = False,
         env_factory: Callable[..., Any] | None = None,
     ):
         self.mafia_ratio = mafia_ratio
@@ -900,6 +957,11 @@ class SecretMafiaLiveRunner:
         #: Optional policy registry override, used by instrumentation such as
         #: the A/B harness's belief-discrimination diagnostic.
         self.policy_classes = policy_classes
+        #: Off by default.  When on, the runner reconstructs the day-vote record
+        #: the environment intends to broadcast but destroys, and marks every
+        #: view that carries it.  Turns on with this flag are a labelled
+        #: sensitivity arm, never the primary measurement.
+        self.public_vote_record = public_vote_record
         self._env_factory = env_factory
 
     def _make_env(self):
@@ -968,6 +1030,7 @@ class SecretMafiaLiveRunner:
         actor_id: int,
         mafia_count: int,
         night_number: int,
+        current_round_votes: Sequence[tuple[int, int]] = (),
     ) -> ActorView:
         history = tuple(transcript[actor_id])
         pending = history[consumed[actor_id]:]
@@ -975,6 +1038,7 @@ class SecretMafiaLiveRunner:
         role, teammates = parse_role_and_teammates(self._prompt_text(history))
         phase = self._phase_name(state.game_state["phase"])
         alive = tuple(sorted(int(p) for p in state.game_state["alive_players"]))
+        reconstruct = bool(self.public_vote_record) and phase == PHASE_DAY_VOTING
         return ActorView(
             actor_id=actor_id,
             num_players=int(state.num_players),
@@ -996,6 +1060,10 @@ class SecretMafiaLiveRunner:
             history=history,
             own_actions=tuple(own_actions[actor_id]),
             investigations=parse_investigations(history),
+            public_vote_record=tuple(current_round_votes) if reconstruct else (),
+            reconstructed_channels=(
+                (RECONSTRUCTED_VOTE_CHANNEL,) if reconstruct else ()
+            ),
         )
 
     # -- episode ---------------------------------------------------------
@@ -1029,6 +1097,7 @@ class SecretMafiaLiveRunner:
             pid: [] for pid in range(num_players)
         }
         discussion_turn = {pid: 0 for pid in range(num_players)}
+        current_round_votes: list[tuple[int, int]] = []
         trace = EpisodeTrace()
         night_number = 1
 
@@ -1053,8 +1122,15 @@ class SecretMafiaLiveRunner:
                 actor_id=actor_id,
                 mafia_count=mafia_count,
                 night_number=night_number,
+                current_round_votes=current_round_votes,
             )
             record = policies[actor_id].act(view)
+            if (
+                self.public_vote_record
+                and phase_before == PHASE_DAY_VOTING
+                and record.target is not None
+            ):
+                current_round_votes.append((actor_id, record.target))
             own_actions[actor_id].append((record.chosen_action_id or "", record.target))
             if phase_before == PHASE_DAY_DISCUSSION:
                 discussion_turn[actor_id] += 1
@@ -1076,12 +1152,16 @@ class SecretMafiaLiveRunner:
             if phase_before == PHASE_DAY_VOTING and phase_after == PHASE_NIGHT_MAFIA:
                 night_number += 1
                 discussion_turn = {pid: 0 for pid in range(num_players)}
+                current_round_votes = []
                 trace.nights_played += 1
 
         if not state.done:
             raise SCKError(
                 f"episode exceeded max_steps={self.max_steps} without terminating"
             )
+        trace.reconstructed_channels = (
+            (RECONSTRUCTED_VOTE_CHANNEL,) if self.public_vote_record else ()
+        )
 
         for row in state.logs:
             if NIGHT_KILL_RE.search(row[1]):
@@ -1204,6 +1284,7 @@ def evaluate_episode(
             "termination_reason": reason,
             "empty_player_action_messages": trace.empty_player_action_messages,
             "vote_targets_observable": False,
+            "reconstructed_channels": list(trace.reconstructed_channels),
             "focal_actor": 0,
             "focal_role": true_roles[0],
             "true_mafia": sorted(true_mafia),

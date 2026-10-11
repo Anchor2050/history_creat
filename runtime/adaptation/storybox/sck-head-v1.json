@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "status": "sck_v0_live_ab_500_run_belief_channel_inert_gate_held",
+  "status": "sck_v0_evidence_model_invalidated_by_vote_arm_gate_held",
   "historical_world_writeback": false,
   "purpose": "Provide a reusable high-skill strategic cognition layer between StoryBox visibility/legal-action state and StoryBox world resolution.",
   "design_spec": "docs/adaptation/storybox-strategic-cognition-kernel-v1.md",
@@ -95,12 +95,22 @@
     "scope": "6 players, discussion_rounds=3, seeds 0-499 shared across all four variants, all seats driven by one policy",
     "direction_found": "At 500 episodes action regret falls monotonically plain/memory 0.643 -> belief 0.541 -> belief_planning 0.492, village-side Brier is 0.0777 (belief) and 0.0772 (planning), leakage is zero everywhere, and the village faction win rate rises 0.146 -> 0.192 -> 0.304.",
     "attribution_problem": "A belief-discrimination diagnostic (100 episodes, 1481 decisions) shows 74.1% of belief decisions had identical marginal probabilities across every legal target, and 100% for the Villager role. The belief therefore could not rank candidates and the tie-break alone picked the action. The measured improvement is reproducible but is not yet attributable to cognition, and the protect-regret gain is an artifact of the Doctor's and the Mafia's rules collapsing to the same 'lowest living id' tie-break.",
-    "claim_status": "direction_reproducible_attribution_unproven"
+    "claim_status": "direction_reproducible_attribution_unproven_then_refuted_by_the_vote_arm"
+  },
+  "vote_record_arm": {
+    "artifact": "runtime/adaptation/storybox/sck-secret-mafia-ab-v0-results-500-public-vote-arm.json",
+    "comparison": "runtime/adaptation/storybox/sck-secret-mafia-ab-v0-arm-comparison.json",
+    "what_it_is": "A labelled sensitivity arm in which the runner reconstructs the day-vote record the environment broadcasts and then destroys, preserving submission order. Off by default; every view carrying it declares the channel and the information-safety audit enforces that.",
+    "channel_health": "Belief-discrimination flat fraction falls from 0.741 to 0.465 overall, for the Villager role from 1.000 to 0.164, and in day voting from 0.504 to 0.086. The belief becomes a real inference engine.",
+    "play_outcome": "Village faction win rate falls from 0.192 to 0.036 (belief) and from 0.304 to 0.068 (belief_planning), both far below the uniform-random baseline of 0.146, while regret barely moves (0.541 to 0.533).",
+    "conclusion": "Action regret is not a valid proxy for playing well here, and the evidence model is mis-specified for play: recorded_vote_evidence only ever exonerates the player voted for, so the informed village avoids whoever is under suspicion, scatters its votes and never concentrates on a Mafia. The mechanism that should improve play makes it worse once it has data.",
+    "gate": "MCTS, bi-level search and reconnecting SCK to the risk-list hospital Scene all remain held. SCK has no validated strategic improvement to offer StoryBox yet."
   },
   "next_gate": [
-    "restore a real evidence channel before any strength claim: the live runner should support an explicitly labelled sensitivity arm that reconstructs the day-vote record the environment intends to broadcast but destroys (see sck-secret-mafia-ab-v0.json next_channel_work)",
-    "only after the belief channel demonstrably discriminates, re-run the A/B and then decide whether SCK may be reconnected to the risk-list hospital Scene",
+    "replace or replay-calibrate the evidence model so it can accuse as well as exonerate; the hand-specified likelihoods are refuted, not merely uncalibrated",
+    "re-run the 500-episode comparison and require the informed variants to beat the uniform-random baseline on village faction win rate, not only on action regret",
+    "keep the belief-discrimination flat fraction as a channel-health gate before any claim that the belief mechanism engaged",
     "extend the live A/B to the 8- and 10-player counts in the environment block",
-    "do not add MCTS or bi-level search while the measurement substrate cannot exercise the belief mechanism"
+    "only then reconsider MCTS, bi-level search, or reconnecting SCK to the risk-list hospital Scene"
   ]
 }

@@ -408,6 +408,43 @@ def test_live_dependency_is_lazy_and_reports_unavailability_clearly():
     assert live.DECISION_TIME_STATE_KEYS == ("phase", "day_number", "alive_players")
 
 
+def test_information_guard_rejects_undeclared_reconstructed_channels():
+    base = dict(
+        actor_id=0,
+        num_players=6,
+        mafia_count=2,
+        role="Villager",
+        mafia_teammates=(),
+        phase=PHASE_DAY_VOTING,
+        night_number=1,
+        alive_players=(0, 1, 2, 3, 4, 5),
+        legal_targets=(1, 2, 3, 4, 5),
+        discussion_turn=1,
+        pending=(),
+        history=(),
+        own_actions=(),
+        investigations=(),
+    )
+    # A reconstructed vote record without declaring its channel is a violation.
+    with pytest.raises(SCKError):
+        live.assert_information_safe(
+            live.ActorView(**base, public_vote_record=((1, 2),))
+        )
+    # Declared, it is allowed.
+    live.assert_information_safe(
+        live.ActorView(
+            **base,
+            public_vote_record=((1, 2),),
+            reconstructed_channels=(live.RECONSTRUCTED_VOTE_CHANNEL,),
+        )
+    )
+    # An unknown channel is rejected outright.
+    with pytest.raises(SCKError):
+        live.assert_information_safe(
+            live.ActorView(**base, reconstructed_channels=("backstage_truth",))
+        )
+
+
 # ---------------------------------------------------------------------------
 # Live episodes (skipped without textarena)
 # ---------------------------------------------------------------------------
@@ -493,3 +530,45 @@ def test_live_actor_views_only_ever_carry_the_actors_own_private_prompt(monkeypa
                 continue
             assert "Your role:" not in row.message
         assert view.role in {"Villager", "Mafia", "Doctor", "Detective"}
+
+
+def test_live_primary_arm_never_carries_a_reconstructed_vote_record():
+    """The default arm must expose only what the environment really delivers."""
+    _require_textarena()
+    seen = []
+
+    class AuditedBelief(live.BeliefPolicy):
+        def act(self, view):
+            live.assert_information_safe(view)
+            seen.append(view)
+            return super().act(view)
+
+    runner = live.SecretMafiaLiveRunner(
+        discussion_rounds=1, policy_classes={"belief": AuditedBelief}
+    )
+    evaluation = runner.run_episode(variant=LIVE_VARIANTS[2], num_players=6, seed=4)
+
+    assert seen
+    assert all(view.public_vote_record == () for view in seen)
+    assert all(view.reconstructed_channels == () for view in seen)
+    assert evaluation.metadata["reconstructed_channels"] == []
+
+
+def test_live_reconstructed_vote_arm_restores_belief_discrimination():
+    """The arm is the difference between an inert and a working belief channel."""
+    _require_textarena()
+    from narrative.longform.storybox_sck_ab_v0 import discrimination_report
+
+    off = discrimination_report(episodes=20, discussion_rounds=2)
+    on = discrimination_report(
+        episodes=20, discussion_rounds=2, public_vote_record=True
+    )
+
+    # With only the environment's observations a Villager's belief is provably
+    # unable to rank anyone: every legal target has the same marginal.
+    assert off["by_role"]["Villager"]["flat_fraction"] == 1.0
+    assert on["by_role"]["Villager"]["flat_fraction"] < 0.5
+    assert on["overall"]["flat_fraction"] < off["overall"]["flat_fraction"]
+    assert off["reconstructed_public_vote_record"] is False
+    assert on["reconstructed_public_vote_record"] is True
+

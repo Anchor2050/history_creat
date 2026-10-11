@@ -246,12 +246,15 @@ def run_ab(
     seed_start: int = 0,
     discussion_rounds: int = 3,
     tie_break: str = "lowest_id",
+    public_vote_record: bool = False,
     runner: SecretMafiaLiveRunner | None = None,
     progress: bool = False,
 ) -> dict[str, Any]:
     variants = tuple(variants or DEFAULT_AB_VARIANTS)
     runner = runner or SecretMafiaLiveRunner(
-        discussion_rounds=discussion_rounds, tie_break=tie_break
+        discussion_rounds=discussion_rounds,
+        tie_break=tie_break,
+        public_vote_record=public_vote_record,
     )
     seeds = list(range(seed_start, seed_start + episodes_per_variant))
     runtimes: list[VariantRuntime] = []
@@ -309,6 +312,7 @@ def run_ab(
             "num_players": num_players,
             "all_seats_driven_by_one_policy": True,
             "informed_policy_tie_break": tie_break,
+            "reconstructed_public_vote_record": public_vote_record,
             "role_schedule_check": role_check,
         },
         "variants": variant_reports,
@@ -342,6 +346,7 @@ def discrimination_report(
     num_players: int = 6,
     seed_start: int = 0,
     discussion_rounds: int = 3,
+    public_vote_record: bool = False,
 ) -> dict[str, Any]:
     """Measure whether the belief actually separates the legal targets.
 
@@ -378,6 +383,7 @@ def discrimination_report(
     runner = SecretMafiaLiveRunner(
         discussion_rounds=discussion_rounds,
         policy_classes={"belief": _Probe},
+        public_vote_record=public_vote_record,
     )
     belief_variant = next(
         variant for variant in DEFAULT_AB_VARIANTS if variant.variant_id == "belief"
@@ -410,6 +416,7 @@ def discrimination_report(
     return {
         "episodes": episodes,
         "num_players": num_players,
+        "reconstructed_public_vote_record": public_vote_record,
         "overall": summarise(samples),
         "by_role": by_role,
         "by_phase": by_phase,
@@ -510,6 +517,15 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
     parser.add_argument("--out", type=Path, default=None)
     parser.add_argument(
+        "--public-vote-record",
+        action="store_true",
+        help=(
+            "Labelled sensitivity arm: reconstruct the day-vote record the "
+            "environment destroys before broadcasting it. Off by default so "
+            "primary numbers stay strictly within what the environment delivers."
+        ),
+    )
+    parser.add_argument(
         "--diagnose-discrimination",
         type=int,
         default=0,
@@ -528,6 +544,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         seed_start=args.seed_start,
         discussion_rounds=args.discussion_rounds,
         tie_break=args.tie_break,
+        public_vote_record=args.public_vote_record,
         progress=not args.quiet,
     )
     if args.diagnose_discrimination:
@@ -536,6 +553,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             num_players=args.players,
             seed_start=args.seed_start,
             discussion_rounds=args.discussion_rounds,
+            public_vote_record=args.public_vote_record,
         )
     print(format_report(report))
     if args.diagnose_discrimination:
