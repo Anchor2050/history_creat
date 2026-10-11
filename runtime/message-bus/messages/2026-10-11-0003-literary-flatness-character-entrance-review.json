@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "message_id": "2026-10-11-0003-literary-flatness-character-entrance-review",
+  "created_at": "2026-10-11",
+  "from": "human_reader_via_chatgpt_session",
+  "to": ["*"],
+  "topic": "review:literary-flatness-character-entrance",
+  "kind": "review",
+  "priority": "blocking",
+  "status": "open",
+  "refs": {
+    "old_opening_head": "runtime/adaptation/storyteller/adaptation-head-v1.json",
+    "new_design": "docs/adaptation/water-margin-character-entrance-model-v1.md",
+    "new_entrance_cards": "runtime/adaptation/storyteller/core-character-entrance-cards-v1.json",
+    "zhou_probe_v2": "docs/adaptation/pilots/opening-entrance-a-zhou-technical-screen-v2.md"
+  },
+  "summary": "现有前六章人物研究充分但小说性不足：剧情扁平、名字过多、人物像履历切片，缺少抓人的外部背景、人物突然入场的画面感和可记忆的出场戏。",
+  "body": "人类读者明确要求重置开篇呈现方式。参考《水浒传》的人物出场机制，而不模仿章回语言：先有事，再出人；人物通过行动、对白、旁人反应和所处环境被迅速勾勒。开篇应更像电影分镜：先有可见的大环境/事件，再切入一个人物的具体压力场。前期严格控制实名数量；人物第一次出场不允许完整履历介绍。现有 Ch1-Ch6 保留为历史锚点和素材，但不得继续默认是出版版开篇。",
+  "action_required": "暂停继续撰写后续章节。至少完成两个不同类型的核心人物出场 probe，并进行名字负担、画面感、抓人度、人物可辨识度审查；通过后再重排正式开篇。",
+  "do_not": [
+    "不要继续按人物履历切片顺序写下去。",
+    "不要通过增加更多姓名和背景介绍解决人物不清楚的问题。",
+    "不要把《水浒传》理解为仿古腔或英雄脸谱。",
+    "不要为了抓人强行制造无历史依据的灾难、犯罪、疾病或阴谋。"
+  ]
+}
