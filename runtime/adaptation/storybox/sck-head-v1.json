@@ -1,6 +1,6 @@
 {
-  "schema_version": 1,
-  "status": "sck_v0_implemented_tests_written_not_run",
+  "schema_version": 2,
+  "status": "sck_v0_tests_executed_passing",
   "historical_world_writeback": false,
   "purpose": "Provide a reusable high-skill strategic cognition layer between StoryBox visibility/legal-action state and StoryBox world resolution.",
   "design_spec": "docs/adaptation/storybox-strategic-cognition-kernel-v1.md",
@@ -10,8 +10,16 @@
     "textarena_secret_mafia_adapter": "narrative/longform/storybox_textarena_secret_mafia_adapter_v0.py",
     "evaluation": "narrative/longform/storybox_sck_eval_v0.py",
     "tests": "tests/test_storybox_sck_v0.py",
-    "tests_status": "written_not_run",
-    "test_execution_note": "Current execution container could not resolve github.com, so the branch could not be cloned for pytest execution in this session."
+    "eval_tests": "tests/test_storybox_sck_eval_v0.py",
+    "tests_status": "executed_passing",
+    "test_command": "python -m pytest tests/test_storybox_sck_v0.py tests/test_storybox_sck_eval_v0.py -q",
+    "test_evidence": {
+      "executed_at": "2026-10-11",
+      "interpreter": "CPython 3.13.5",
+      "pytest": "9.0.2",
+      "result": "7 passed",
+      "note": "The SCK tests are pytest-style functions, not unittest.TestCase classes. 'python -m unittest discover -s tests' collects 0 of them, so HANDOFF.md's unittest command cannot verify this component."
+    }
   },
   "implemented_capabilities": [
     "auditable hidden-world BeliefState",
@@ -47,8 +55,6 @@
   ],
   "benchmark_plan": "runtime/adaptation/storybox/sck-secret-mafia-ab-v0.json",
   "next_gate": [
-    "execute unit tests in an environment with the branch available locally",
-    "fix any import or numerical issues before adding model calls",
     "add a live TextArena runner for SecretMafia-v0",
     "run 50-episode shared-seed A/B smoke test across plain/memory/belief/belief_planning",
     "only after measurable improvement add MCTS or bi-level search"
