@@ -1,0 +1,36 @@
+{
+  "schema_version":1,
+  "status":"full_chapter_revision_comparison_noncanonical",
+  "historical_world_writeback":false,
+  "v1":"docs/adaptation/pilots/ch04-tang-xu-implementation-structure-full-v1.md",
+  "v2":"docs/adaptation/pilots/ch04-tang-xu-implementation-structure-full-v2.md",
+  "overall_judgment":"v2_preferred",
+  "why_v2_is_better":[
+    "Tang Yu accepts evidence separation without prematurely learning the later skill of stopping a favored project.",
+    "Xu Hang no longer states the chapter's moral or the research philosophy in polished language.",
+    "The chapter remains a trial rather than a miniature transformation-and-return cycle.",
+    "The final split into structure-check and implementation-check is procedural rather than emotionally conclusive.",
+    "The silence after the table is sent leaves more negative space than an explicit stopping question."
+  ],
+  "remaining_risks":[
+    "Research dialogue is still unusually efficient; later Tang-Xu scenes need fatigue, misunderstandings, delayed replies or unrelated interruptions so their collaboration does not become a perpetual precision machine.",
+    "The document/figure/table motif is useful but should not dominate every research chapter.",
+    "Tang Yu's attachment to elegant structure is legible; do not make every future failure scene repeat the same visible stubbornness."
+  ],
+  "arc_check":{
+    "actor":"tang_yu",
+    "campbell_stage":"trial",
+    "delta":"moves from treating two failures as one possible main problem to tolerating separate evidence chains",
+    "unchanged_core":"still wants the cleaner and more ambitious phenomenon to survive",
+    "shadow_revealed_but_not_named":"ownership of a beautiful research line",
+    "future_arc_reserved":"later lemma failure, narrowing, acceptance, research gap and 2035 fast closure must carry the deeper transformation"
+  },
+  "gate_status":{
+    "historical_consistency":"pass",
+    "research_voice":"pass_with_minor_efficiency_risk",
+    "campbell_arc_timing":"pass",
+    "negative_space":"pass",
+    "anti_ai_style":"provisional_pass",
+    "chapter_v2":"may_join_sequential_draft_reference_set"
+  }
+}
