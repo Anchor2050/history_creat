@@ -1,0 +1,63 @@
+{
+  "schema_version":1,
+  "batch_id":"career-six-chatbot-2035-q1",
+  "status":"noncanonical_chatbot_replay_batch",
+  "period":{"start":"2035-01-01","end":"2035-03-31"},
+  "generation_mode":"chatgpt_product_interaction_chain",
+  "era_lens":[
+    "最后一年不要求所有人生线闭合；只把既定开放窗口走完并记录仍然开放的生活。",
+    "最终住房窗口仍要求角色同时接受财务、职业价值和城市锁定；买得起不构成购买义务。",
+    "中期迁移和新研究项目都必须经真实后果检验，不能用2034的正面候选预写2035结果。"
+  ],
+  "exogenous_hard_world_events":[
+    {"event_id":"2035q1:luo01","at":"2035-01-08","kind":"midcareer_relocation_check","actor":"luo_cheng","source_candidate":"candidate:2034-q4:luo-2035-relocation:01","result":"employment_start_lease_move_cash_and_commute_confirmed","engineering_prior":{"monthly_rent":3300,"living_monthly":2500,"commute_hours_daily":0.90},"visibility":"private_to_actor"},
+    {"event_id":"2035q1:he01","at":"2035-03-03","kind":"final_home_purchase_feasibility_check","actor":"he_xin","source_candidate":"candidate:2034-q4:he-2035-home-window:01","city":"provincial_capital","checks":{"cash_buffer":"passes_engineering_prior","role_value":"acceptable_but_not_high_growth","city_commitment":"high_after_seven_years_and_network_continuity","mobility_cost":"material_and_explicit","new_family_care_cost":"none_observed"},"result":"financial_and_commitment_checks_pass_purchase_candidate_open","visibility":"private_to_actor"},
+    {"event_id":"2035q1:zhou01","at":"2035-02-15","kind":"second_judge_extension_feasibility","actor":"zhou_ye","source_candidate":"candidate:2034-q3:zhou-second-class-delegation:01","result":"first_rotation_stable_second_exception_class_and_colleague_capacity_available","visibility":"private_to_actor"},
+    {"event_id":"2035q1:tang01","at":"2035-02-26","kind":"small_project_initial_check","actor":"tang_yu","result":"minimal_statement_testable_one_counterexample_candidate_found_before_proof_progress","visibility":"private_to_actor"},
+    {"event_id":"2035q1:xu01","at":"2035-03-18","kind":"validation_transfer_use_request","actor":"xu_hang","result":"new_internal_use_case_available_with_nonexpert_user_and_bounded_scope","visibility":"private_to_actor"}
+  ],
+  "windows":[
+    {"packet_id":"micro:chatbot:2035-01:luo-relocation:01","start_date":"2035-01-10","end_date":"2035-01-24","event_kind":"midcareer_relocation_and_role_start","participants":["luo_cheng","gao_yuan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-02:zhou-second-class:01","start_date":"2035-02-17","end_date":"2035-02-17","event_kind":"second_judge_extension_start","participants":["zhou_ye","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-02:tang-initial-counterexample:01","start_date":"2035-02-28","end_date":"2035-02-28","event_kind":"small_project_initial_negative_check","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-03:he-final-home-window:01","start_date":"2035-03-05","end_date":"2035-03-05","event_kind":"final_home_purchase_decision","participants":["he_xin","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-03:xu-transfer-use:01","start_date":"2035-03-20","end_date":"2035-03-20","event_kind":"validation_transfer_use_start","participants":["xu_hang","gu_wei"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-03:sun-listening-boundary:01","start_date":"2035-03-27","end_date":"2035-03-27","event_kind":"coordinator_personal_scene","participants":["sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events":[
+    {"event_id":"2035q1:e01","kind":"social_interaction","at":"2035-01-12","event_kind":"midcareer_relocation_and_role_start","speaker":"luo_cheng","listener":"gao_yuan","act":"share_experience","content":"罗诚搬到省会后先租房。新岗位第一周确实能接触更完整的研究运营设计，但会议、审批和跨团队协调也比原单位明显多；他没有把更高平台直接等同于更自由。","channel":"video_call","evidence":"入职、租住、搬迁现金和通勤已通过硬检查。"},
+    {"event_id":"2035q1:e02","kind":"social_interaction","at":"2035-01-12","event_kind":"midcareer_relocation_and_role_start","speaker":"gao_yuan","listener":"luo_cheng","act":"check_in","content":"高原只问他每天真正花在研究支持判断上的时间有没有变多，没有因为罗诚终于迁移就重新评价自己的留任。","channel":"video_call","evidence":"同伴迁移不触发模仿。"},
+    {"event_id":"2035q1:e03","kind":"social_interaction","at":"2035-01-24","event_kind":"midcareer_relocation_and_role_start","speaker":"luo_cheng","listener":"gao_yuan","act":"make_plan","content":"罗诚决定用半年记录研究内容占比、平台资源是否真的能用以及住房通勤成本，不在第一个月判断这次等待是否值得。","channel":"video_call","evidence":"2034 offer只开启现实检验。"},
+
+    {"event_id":"2035q1:e04","kind":"social_interaction","at":"2035-02-17","event_kind":"second_judge_extension_start","speaker":"zhou_ye","listener":"xu_hang","act":"share_experience","content":"第一类异常轮转稳定后，周野又选了第二类更少见的问题让同事跟判断链；他发现自己现在更愿意容忍别人用不同路径得到同样可靠的停止结论。","channel":"wechat_private","evidence":"第二类责任转移只在第一轮稳定后启动。"},
+    {"event_id":"2035q1:e05","kind":"social_interaction","at":"2035-02-17","event_kind":"second_judge_extension_start","speaker":"xu_hang","listener":"zhou_ye","act":"offer_information","content":"许航提醒他第二轮的目标不应是复制周野，而是让团队出现另一套可解释的判断；否则单点只是换成了更熟练的模仿。","channel":"wechat_private","evidence":"判断多样性成为治理指标。"},
+
+    {"event_id":"2035q1:e06","kind":"social_interaction","at":"2035-02-28","event_kind":"small_project_initial_negative_check","speaker":"tang_yu","listener":"shen_yan","act":"share_experience","content":"唐雨刚开始推最小陈述就找到一个很小的反例候选，它可能直接否掉当前版本。和上一次不同，她没有先尝试补更多条件，而是把反例放到主任务前面。","channel":"in_person","evidence":"新项目第一轮负面检查优先于证明推进。"},
+    {"event_id":"2035q1:e07","kind":"social_interaction","at":"2035-02-28","event_kind":"small_project_initial_negative_check","speaker":"shen_yan","listener":"tang_yu","act":"offer_information","content":"沈雁说先把反例核实清楚：如果陈述错了，就让这个三个月的小项目及时结束；不需要因为刚刚重新开始研究就保护它。","channel":"in_person","evidence":"研究重启不获得特殊保护。"},
+
+    {"event_id":"2035q1:e08","kind":"social_interaction","at":"2035-03-05","event_kind":"final_home_purchase_decision","speaker":"he_xin","listener":"lin_jing","act":"share_experience","content":"何欣第三次算房子时第一次真正跨过现金缓冲门槛。她把第七年岗位价值复核也放进来：工作并不高成长，但稳定、福利、同城网络和有限的内部可塑性都是真实存在，她愿意把未来几年主要生活放在这座省会。","channel":"video_call","evidence":"现金、岗位价值和城市承诺同时通过。"},
+    {"event_id":"2035q1:e09","kind":"social_interaction","at":"2035-03-05","event_kind":"final_home_purchase_decision","speaker":"lin_jing","listener":"he_xin","act":"offer_information","content":"林静提醒她只要把房产增加的退出成本明确写进决定，就不需要证明这份工作足够理想；买房可以是对生活结构的承诺，不是对岗位的终身表态。","channel":"video_call","evidence":"住房承诺与职业终身化分开。"},
+    {"event_id":"2035q1:e10","kind":"social_interaction","at":"2035-03-05","event_kind":"final_home_purchase_decision","speaker":"he_xin","listener":"lin_jing","act":"make_plan","content":"何欣决定购买通勤可控的小户型，保留首付后应急缓冲，不提高预算追求一步到位；她明确接受流动性进一步下降。","channel":"video_call","evidence":"最终住房窗口全部检查通过后主动购买。"},
+
+    {"event_id":"2035q1:e11","kind":"social_interaction","at":"2035-03-20","event_kind":"validation_transfer_use_start","speaker":"xu_hang","listener":"gu_wei","act":"share_experience","content":"许航找到一个边界较清楚的新使用场景，使用者不是验证专家。他准备把过去失败案例转成三项必须解释理由的判断节点，看看对方能否在少量支持下独立执行。","channel":"in_person","evidence":"方法可移交性进入新的有限试验。"},
+    {"event_id":"2035q1:e12","kind":"social_interaction","at":"2035-03-20","event_kind":"validation_transfer_use_start","speaker":"gu_wei","listener":"xu_hang","act":"offer_information","content":"顾维要求他预先写清什么结果才算失败：如果使用者每一步都要问他，哪怕最后结论正确也不能算方法转移成功。","channel":"in_person","evidence":"失败标准先于试验结果。"},
+
+    {"event_id":"2035q1:e13","kind":"actor_state_interaction","at":"2035-03-27","event_kind":"coordinator_personal_scene","speaker":"sun_jie","listener":"self_record","act":"share_experience","content":"孙洁今年刻意在几次学生来访中先听完问题再判断该走哪条流程。她发现多花的几分钟并没有破坏队列，反而减少了后面因为最初分类错误造成的反复解释。","channel":"private_record","evidence":"程序边界与人际理解的长期张力出现可观察的小改善。"}
+  ],
+  "hard_world_candidate_updates":[
+    {"candidate_id":"candidate:2034-q4:luo-2035-relocation:01","checked_at":"2035-01-08","checks":{"employment_start":true,"lease_feasible":true,"move_cash_feasible":true,"commute_feasible":true},"result":"midcareer_relocation_completed_noncanonical","resource_effect":"provincial-capital role active; first-year reality open"},
+    {"candidate_id":"candidate:2034-q4:he-2035-home-window:01","checked_at":"2035-03-03","checks":{"cash_buffer":true,"role_value":true,"city_commitment":true,"mobility_cost":"accepted"},"result":"home_purchase_accepted_noncanonical","resource_effect":"provincial-capital owner-occupied home; mortgage/asset lock-in begins"},
+    {"candidate_id":"candidate:2034-q3:zhou-second-class-delegation:01","checked_at":"2035-02-15","checks":{"first_rotation_stable":true,"second_exception_class_available":true,"colleague_capacity":true},"result":"second_judge_extension_started_noncanonical","resource_effect":"second anomaly class enters judgment-transfer trial"}
+  ],
+  "new_hard_world_candidates":[
+    {"candidate_id":"candidate:2035-q1:tang-counterexample-verification:01","created_at":"2035-02-28","type":"research_negative_check","beneficiary":"tang_yu","requires_checks":["counterexample_reproduces","statement_invalid_if_true","no_patch_by_default"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2035-q1:xu-transferability-trial:01","created_at":"2035-03-20","type":"validation_transferability_trial","beneficiary":"xu_hang","requires_checks":["nonexpert_user","bounded_support","independent_stop_decision","reasoning_documented"],"status":"open_noncanonical"}
+  ],
+  "actor_state_evidence":[
+    {"at":"2035-03-05","actor":"he_xin","dimension":"housing_lock_in","evidence":"在第三次窗口同时通过现金、岗位价值和城市承诺后主动购房，接受更高退出成本。","status":"candidate_state_evidence"},
+    {"at":"2035-01-24","actor":"luo_cheng","dimension":"midcareer_transition","evidence":"第二次职业迁移完成，进入半年现实验证而非用offer阶段结论替代新岗位体验。","status":"candidate_state_evidence"},
+    {"at":"2035-02-28","actor":"tang_yu","dimension":"research_project","evidence":"小项目第一轮即把潜在反例置于证明之前，项目可能快速关闭。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence":[],
+  "audit_rules":{"generated_through_interaction_chain":true,"final_housing_purchase_requires_joint_finance_role_city_checks":true,"midcareer_relocation_requires_real_start_checks":true,"new_research_project_gets_no_sunk_cost_protection":true,"validation_transfer_failure_defined_before_result":true,"family_age_alone_cannot_create_care_crisis":true,"storyteller_read_only":true}
+}
