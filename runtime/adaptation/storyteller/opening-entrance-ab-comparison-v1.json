@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_only_opening_entrance_comparison_noncanonical",
+  "historical_world_writeback": false,
+  "candidates": [
+    {
+      "id": "A",
+      "actor": "zhou_ye",
+      "file": "docs/adaptation/pilots/opening-entrance-a-zhou-technical-screen-v2.md",
+      "strengths": [
+        "World frame arrives before the named character: graduation/recruitment season, labs emptying, job-result messages.",
+        "Only Zhou Ye must be remembered by name.",
+        "Zero-paper pressure and PhD status leak through interview conflict.",
+        "Reliability appears as an action pattern and an unfinished limitation, not a personality summary.",
+        "The tone is restrained and leaves room for a long Campbell arc."
+      ],
+      "risks": [
+        "Interview Q&A remains a relatively static form.",
+        "Technical details may still ask too much attention before emotional attachment forms.",
+        "Final-interview notification gives a tidy micro-payoff that should not be overread as reward for virtue."
+      ],
+      "cinematic_score": "high",
+      "character_memory_score": "high",
+      "name_load": "very_low",
+      "hook_type": "quiet_pressure"
+    },
+    {
+      "id": "B",
+      "actor": "song_nan",
+      "file": "docs/adaptation/pilots/opening-entrance-b-song-pharma-interview-v1.md",
+      "strengths": [
+        "Immediate conflict: the interviewer changes the conditions and asks her to retract a conclusion.",
+        "Song Nan's speed, humor, confidence and willingness to delete her own answer appear through action.",
+        "Industry world is legible even without prior technical knowledge.",
+        "Dialogue and whiteboard changes produce stronger scene motion than the old profile-like chapters.",
+        "Her weakness is already visible: speed can become over-answering."
+      ],
+      "risks": [
+        "The scene can drift toward a job-interview competence showcase if too many answers land cleanly.",
+        "Q&A rhythm is still highly structured and needs interruptions/awkwardness in revision.",
+        "The final line about statistics stopping decisions is close to a polished thesis line and should probably be weakened in v2."
+      ],
+      "cinematic_score": "very_high",
+      "character_memory_score": "very_high",
+      "name_load": "very_low",
+      "hook_type": "fast_conflict"
+    }
+  ],
+  "comparative_judgment": {
+    "best_single_book_opening_at_current_stage": "undecided",
+    "reason": "B is more immediately entertaining; A better establishes the novel's larger world and slower moral texture. The project should not choose solely on first-page excitement.",
+    "current_learning": [
+      "The old opening failed because characters were introduced as analyzed subjects. Both new probes work better because the reader first watches them deal with pressure.",
+      "Name overload drops automatically when the scene is centered on one entrance rather than an ensemble briefing.",
+      "Background can be delivered by interviewers, forms, empty labs, job notices and what the character refuses to overclaim.",
+      "Cinematic quality comes from spatial action and pressure, not from adding decorative visual description."
+    ]
+  },
+  "next_test": {
+    "actor": "luo_cheng",
+    "purpose": "Test a third entrance driven by social/institutional friction rather than technical or interview performance, using an office already in motion before Luo is introduced.",
+    "gate": "Do not restore the old opening sequence until at least one non-interview entrance also works."
+  }
+}
