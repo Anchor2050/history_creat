@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2026-q4",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2026-11-01","end":"2026-12-31"},
+  "base_state": null,
+  "era_lens": [],
+  "windows": [
+    {"packet_id":"micro:chatbot:2026-11:song-zhao-project-feasibility:01","start_date":"2026-11-12","end_date":"2026-11-12","event_kind":"project_candidate_feasibility","participants":["song_nan","zhao_ke"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical","note":"六月项目候选第一次被现实否决：没有匹配的真实需求。"},
+    {"packet_id":"micro:chatbot:2026-11:tang-shen-problem-tree-review:01","start_date":"2026-11-26","end_date":"2026-11-26","event_kind":"bounded_methods_feedback","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical","note":"五月候选通过：唐雨确实写出问题树，沈雁有一次短讨论空档。"},
+    {"packet_id":"micro:chatbot:2026-12:year-end-gathering:01","start_date":"2026-12-18","end_date":"2026-12-18","event_kind":"year_end_gathering","participants":["lin_jing","chen_lan","xu_hang","zhou_ye","luo_cheng","tang_yu","he_xin","song_nan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical","note":"年末多人聚会；不做年度总结大会，只发生几段局部交流和一个明确新介绍。"}
+  ],
+  "events": [
+    {"event_id":"batch1:e33","kind":"social_interaction","at":"2026-11-12","event_kind":"project_candidate_feasibility","speaker":"zhao_ke","listener":"song_nan","act":"set_boundary","content":"赵珂告诉宋楠，眼下没有一个范围和需求都合适的小项目，所以六月说的试做可能先关闭；没有必要为了兑现一句话硬造工作。","channel":"wechat_private","evidence":"真实需求检查未通过，因此候选不激活。"},
+    {"event_id":"batch1:e34","kind":"social_interaction","at":"2026-11-12","event_kind":"project_candidate_feasibility","speaker":"song_nan","listener":"zhao_ke","act":"repair","content":"宋楠接受这个结果，没有把前面的条件性可能当成爽约；她把这次经历记成项目机会首先取决于真实需求，而不是认识了谁就会有活。","channel":"wechat_private","evidence":"候选失败被正确理解，没有自动造成关系恶化。"},
+    {"event_id":"batch1:e35","kind":"social_interaction","at":"2026-11-26","event_kind":"bounded_methods_feedback","speaker":"tang_yu","listener":"shen_yan","act":"share_experience","content":"唐雨带来一页问题树，其中一个分支主要是把惩罚或计算再做复杂一点，另一个分支来自删失与异质结构下现有步骤真正失效的地方。","channel":"in_person","evidence":"延续五月计划；只描述问题结构，不宣称得到新定理。"},
+    {"event_id":"batch1:e36","kind":"social_interaction","at":"2026-11-26","event_kind":"bounded_methods_feedback","speaker":"shen_yan","listener":"tang_yu","act":"offer_information","content":"沈雁认为第一个分支更像方法堆叠，第二个分支至少有清楚的失效机制；她建议唐雨先验证失效是否稳定存在，再决定值不值得形成独立研究线。","channel":"in_person","evidence":"一次有限反馈，不生成论文成果或署名。"},
+    {"event_id":"batch1:e37","kind":"social_interaction","at":"2026-12-18","event_kind":"year_end_gathering","speaker":"xu_hang","listener":"tang_yu","act":"offer_introduction","content":"许航把唐雨正式介绍给周野，只说两个人这一年都在把‘可靠’从抽象评价变成可检查的工作过程，具体研究内容让他们自己决定聊多少。","channel":"in_person","evidence":"许航分别与周野、唐雨有已建立的技术联系。"},
+    {"event_id":"batch1:e38","kind":"social_interaction","at":"2026-12-18","event_kind":"year_end_gathering","speaker":"zhou_ye","listener":"tang_yu","act":"share_experience","content":"周野说自己做复现包后才发现，最有价值的不是代码整洁，而是失败条件、核验规则和交接说明；唐雨听后想到自己的问题树也需要把‘什么时候会失败’写得更具体。","channel":"in_person","evidence":"新介绍后的有限技术交流，不涉及求职资源。"},
+    {"event_id":"batch1:e39","kind":"social_interaction","at":"2026-12-18","event_kind":"year_end_gathering","speaker":"song_nan","listener":"chen_lan","act":"share_experience","content":"宋楠告诉陈岚，后来赵珂那边没有出现合适小项目，但她反而更清楚项目机会受真实需求、权限和预算约束；这次没有把‘没成’当失败。","channel":"in_person","evidence":"宋楠选择向已有work-peer陈岚披露候选未激活结果。"},
+    {"event_id":"batch1:e40","kind":"social_interaction","at":"2026-12-18","event_kind":"year_end_gathering","speaker":"chen_lan","listener":"song_nan","act":"repair","content":"陈岚说这反而比为了证明自己能进行业而硬找一个模糊项目更有用，至少宋楠已经知道组织问题不会因为个人意愿自动出现。","channel":"in_person","evidence":"通用职业反馈。"},
+    {"event_id":"batch1:e41","kind":"social_interaction","at":"2026-12-18","event_kind":"year_end_gathering","speaker":"luo_cheng","listener":"he_xin","act":"check_in","content":"罗诚和何欣只交换了这一阵各自有没有继续做岗位比较，没有谈具体单位；两人的新弱联系停留在偶尔可聊职业现实的程度。","channel":"in_person","evidence":"延续十月明确介绍，不扩大信息边界。"},
+    {"event_id":"batch1:e42","kind":"social_interaction","at":"2026-12-18","event_kind":"year_end_gathering","speaker":"lin_jing","listener":"chen_lan","act":"small_talk","content":"散场前林静和陈岚聊了几句第二天吃什么、谁最近总睡不够，没有把年末聚会强行变成职业总结。","channel":"in_person","evidence":"普通生活互动。"}
+  ],
+  "attendance_log": [
+    {"event":"year_end_gathering","at":"2026-12-18","attended":["lin_jing","chen_lan","xu_hang","zhou_ye","luo_cheng","tang_yu","he_xin","song_nan"],"invited_not_attended":{"gao_yuan":"继续把备考和毕业任务放在优先位"}}
+  ],
+  "relationship_evidence": [
+    {"at":"2026-11-12","pair":["song_nan","zhao_ke"],"direction":"mixed","evidence":"项目候选因缺少真实需求关闭，但赵珂清楚说明原因，宋楠未把条件性可能误读为承诺；关系没有因失败自动恶化。"},
+    {"at":"2026-11-26","pair":["tang_yu","shen_yan"],"direction":"positive","evidence":"五月问题树反馈候选在材料存在且导师有空档时实际完成一次，边界保持清楚。"},
+    {"at":"2026-12-18","pair":["zhou_ye","tang_yu"],"direction":"positive","evidence":"经许航明确介绍后完成一次有限技术经验交流，仅形成弱联系证据。"}
+  ],
+  "social_graph_deltas": [
+    {"at":"2026-12-18","kind":"introduction","a":"zhou_ye","b":"tang_yu","introduced_by":"xu_hang","new_tie_kind":"introduced_acquaintance","context":"year_end_gathering","trust_seed":0.26,"closeness_seed":0.21,"status":"noncanonical_candidate_tie"}
+  ],
+  "hard_world_candidate_updates": [
+    {"candidate_id":"candidate:2026-06-13:zhao-song-scoped-health-data-trial:01","checked_at":"2026-11-12","checks":{"real_project_need_exists":false,"budget_available":null,"data_permission_available":null,"scope_and_owner_defined":false,"zhao_ke_has_assignment_authority":null,"song_nan_time_capacity":true,"conflict_of_interest_check":null},"result":"closed_no_matching_need_noncanonical","resource_effect":"none"},
+    {"candidate_id":"candidate:2026-05-10:shen-review-tang-problem-tree:01","checked_at":"2026-11-26","checks":{"tang_yu_problem_tree_exists":true,"shen_yan_mentoring_slot_available":true},"result":"activated_once_noncanonical","resource_effect":"one bounded feedback session"}
+  ],
+  "new_hard_world_candidates": [],
+  "actor_state_evidence": [
+    {"at":"2026-11-26","actor":"tang_yu","dimension":"research_line","evidence":"开始把研究线筛选标准从‘方法是否更复杂’转向‘是否存在稳定、可解释的结构性失效机制’。","status":"candidate_state_evidence"}
+  ],
+  "audit_rules": {"single_batch_noncanonical":true,"no_unearned_knowledge":true,"conversation_does_not_auto_change_relationship":true,"introductions_require_connector_or_open_context":true,"hard_world_candidates_require_feasibility":true,"ordinary_or_failed_outcomes_allowed":true,"bilateral_memory_derivable_from_events":true},
+  "next_pending_task": {
+    "task_id":"career-six-chatbot-live-v2:2027-01-01","stage":"micro-replay","packet_id":"micro:chatbot:2027-01:tang-xu-verification-collaboration:01","start_date":"2027-01-15","end_date":"2027-01-17","event_kind":"verification_collaboration","mode":"in_person","location":"campus_workroom","participants":["tang_yu","xu_hang"],
+    "known_relationships":[{"a":"tang_yu","b":"xu_hang","kind":"work_peer","context":"verification_collaboration","trust":0.48,"authorization":"career-six scenario states this collaboration link begins in 2027-01"}],
+    "retrieved_memory":{"tang_yu":["沈雁建议优先验证结构性失效是否稳定存在。","许航建议在长计算链中记录环境、随机性、失败条件和最小核验输出。"],"xu_hang":["唐雨此前询问如何判断长计算链是否可复现；自己建议记录失败条件和替代实现。"]},
+    "instruction":"由当前ChatGPT继续充当cognition backend。2027第一场不预写成果，先让唐雨把一个结构性失效问题交给许航做验证设计讨论；任何计算合作、代码审阅或后续论文贡献都只形成候选并受时间、材料权限和实际贡献约束。"
+  }
+}
