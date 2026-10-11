@@ -1,0 +1,88 @@
+{
+  "schema_version":1,
+  "status":"storyteller_core_scene_selection_noncanonical",
+  "source_reservoir":"runtime/adaptation/storyteller/scene-reservoir-v1.json",
+  "world_writeback":false,
+  "selected_scene_ids":[
+    "s01-zhou-reliability-visible",
+    "s03-summer-trip-not-career",
+    "s04-luo-posting-read",
+    "s06-tang-xu-implementation-or-structure",
+    "s07-gao-hometown-offer",
+    "s08-chen-refuses-good-offer",
+
+    "s09-lin-first-job-first-week",
+    "s11-gao-luo-third-year-call",
+    "s12-zhou-first-home-window-no",
+    "s13-he-first-home-window-hard-block",
+    "s14-song-year-four-costs",
+
+    "s15-luo-midcareer-rejection",
+    "s16-tang-paper-accepted-then-nothing",
+    "s17-song-second-city-first-weeks",
+    "s18-zhou-buys-home",
+    "s19-xu-independent-validation-works",
+    "s20-xu-method-fails-transfer",
+    "s21-gao-threshold-audit",
+
+    "s22-he-role-before-house",
+    "s23-zhou-second-judge",
+    "s24-lin-closes-slow-question",
+    "s25-luo-second-selective-application",
+    "s27-tang-kills-small-project-fast",
+    "s28-he-third-home-window-buys",
+    "s29-xu-limited-transferability",
+    "s30-final-group-chat-no-verdict"
+  ],
+  "reserve_scene_ids":[
+    {"scene_id":"s02-he-stability-table","reason":"historically formative but can be embedded as remembered decision practice inside later He scenes; avoid early exposition chapter"},
+    {"scene_id":"s05-song-first-pharma-application","reason":"strong threshold scene but overlaps later Song mobility arc; retain for series or if early act needs more industry texture"},
+    {"scene_id":"s10-chen-no-longer-needs-researcher-label","reason":"excellent secondary-ring identity scene; reserve to prevent second-ring density from crowding six-core opening"},
+    {"scene_id":"s26-tang-question-returns-after-gap","reason":"important setup but can be compressed into the 2035 rapid-closure scene through concrete prior notes rather than a separate chapter"}
+  ],
+  "viewpoint_counts_selected":{
+    "zhou_ye":4,
+    "gao_yuan":3,
+    "luo_cheng":3,
+    "tang_yu":3,
+    "he_xin":3,
+    "song_nan":3,
+    "lin_jing":2,
+    "chen_lan":1,
+    "xu_hang":3,
+    "ensemble":1
+  },
+  "viewpoint_priority":{
+    "tier_1_core":["zhou_ye","gao_yuan","luo_cheng","tang_yu","he_xin","song_nan"],
+    "tier_2_high_frequency_secondary":["lin_jing","chen_lan","xu_hang"],
+    "tier_3_recurring_secondary":["wu_cheng","shen_yan","gu_wei","zhao_ke","sun_jie"]
+  },
+  "part_distribution":{
+    "part_1_2026_2028":6,
+    "part_2_2029_2031":5,
+    "part_3_2032_2033":7,
+    "part_4_2034_2035":8
+  },
+  "emotional_rhythm":{
+    "part_1":"羞耻、期待、试探、第一次外部定价；夹一场真正普通的旅行",
+    "part_2":"日常磨损、边界、住房第一次物质化、成长速度开始分叉",
+    "part_3":"中期失落与第二次行动并存；成果之后有空白，买房之后有锁定，能力之后有失败",
+    "part_4":"人物不再只做选择，而开始治理已经发生的选择；停止、授权、迁移和购房都带着更成熟也更昂贵的后果"
+  },
+  "anti_schematic_rules":[
+    "Do not rotate the six core actors mechanically.",
+    "A chapter/episode belongs to the actor with the largest decision uncertainty or deepest contradiction in that scene.",
+    "No actor is guaranteed a scene merely to maintain symmetry.",
+    "At least one ordinary-life or non-conversion scene must appear in each major part, even if it scores lower on historical leverage.",
+    "Secondary-ring viewpoints are allowed when they reveal a system-level transformation that the six core cannot see from inside.",
+    "The ensemble final scene cannot explain the previous ten years to the reader."
+  ],
+  "adaptation_status":"ready_for_scene_probes",
+  "next_tasks":[
+    "Build 20-24 chapter beat sheet from the core 26 without forcing one scene per chapter.",
+    "Build separate 12-episode beat sheet with composite scene clusters.",
+    "Run three disposable prose probes before fixing narrative voice.",
+    "Use at least one probe where the viewpoint character is locally wrong but understandable.",
+    "Use at least one probe where a secondary-ring character temporarily functions as local antagonist while remaining ethically legible."
+  ]
+}
