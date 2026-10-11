@@ -1,5 +1,5 @@
 {
-  "schema_version": 10,
+  "schema_version": 11,
   "status": "adaptation_storyteller_head_noncanonical",
   "historical_world_writeback": false,
   "history_source": {
@@ -33,13 +33,18 @@
     "chapter_revision_v2": "runtime/adaptation/storyteller/novel-chapter-revision-v2.json",
     "luo_pilot_audit": "runtime/adaptation/storyteller/pilot-ch03-v1-v2-audit.json",
     "zhou_opening_audit": "runtime/adaptation/storyteller/opening-ch01-audit-v1.json",
-    "opening_order_comparison": "runtime/adaptation/storyteller/opening-order-comparison-v1.json"
+    "opening_order_comparison": "runtime/adaptation/storyteller/opening-order-comparison-v1.json",
+    "chapter2_audit_v1": "runtime/adaptation/storyteller/ch02-ordinary-trip-audit-v1.json",
+    "chapter2_v1_v2_audit": "runtime/adaptation/storyteller/ch02-v1-v2-audit.json",
+    "opening_three_continuity_audit": "runtime/adaptation/storyteller/opening-three-continuity-audit-v1.json"
   },
   "executed_full_pilots": [
     "docs/adaptation/pilots/ch03-luo-posting-full-v1.md",
     "docs/adaptation/pilots/ch03-luo-posting-full-v2.md",
     "docs/adaptation/pilots/ch01-zhou-reliability-opening-v1.md",
-    "docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md"
+    "docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md",
+    "docs/adaptation/pilots/ch02-ordinary-trip-full-v1.md",
+    "docs/adaptation/pilots/ch02-ordinary-trip-full-v2.md"
   ],
   "primary_project": {
     "working_title": "不同的稳定",
@@ -58,6 +63,7 @@
     "narrative_voice_label": "close_external_restrained_realism",
     "pilot_voice_reference": "docs/adaptation/pilots/ch03-luo-posting-full-v2.md",
     "opening_voice_reference": "docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md",
+    "ordinary_world_voice_reference": "docs/adaptation/pilots/ch02-ordinary-trip-full-v2.md",
     "hero_arc_priority": "primary_longitudinal_structure",
     "negative_space_priority": "primary_rendering_principle",
     "world_is_not_centered_on_core_six": true
@@ -105,15 +111,16 @@
     "Does this chapter leave enough uncertainty for later repetitions to change its meaning?"
   ],
   "opening_order": {
-    "status": "provisionally_locked_for_next_two_chapters",
+    "status": "confirmed_for_first_three_chapters",
     "sequence": [
       {"chapter": 1, "lead": "zhou_ye", "function": "quiet Campbell call; reliability seeks external evidence without payoff"},
       {"chapter": 2, "lead": "song_nan_ensemble", "function": "ordinary-world expansion; weak ties and non-instrumental social time"},
       {"chapter": 3, "lead": "luo_cheng", "function": "institutional threshold; credentials meet actual labor"}
     ],
-    "reason": "The three-opening sequence changes register quickly and prevents Zhou from being read as a sole protagonist while preserving his long delayed-payoff arc."
+    "continuity_note": "Eight named people are visible by chapter3; chapters4-6 should control new-name load and prefer returning actors.",
+    "reason": "The opening shifts from narrow task pressure to ordinary social diffusion to institutional friction. The registers differ enough to establish an ensemble without turning the trip into networking setup."
   },
-  "current_stage": "opening_v2_passed_long_arc_negative_space_review_chapter2_next",
+  "current_stage": "opening_three_confirmed_next_select_chapter4_with_name_load_control",
   "gate_status": {
     "anti_ai_style": "provisional_pass_at_chapter_length",
     "narrative_voice": "provisional_canon",
@@ -121,17 +128,19 @@
     "full_pilot_chapter": "pass_after_subtractive_revision",
     "campbell_arc_model": "primary",
     "negative_space_model": "primary",
-    "opening_candidate": "zhou_v2_provisional_pass",
-    "opening_order": "provisionally_locked",
+    "chapter1_opening": "pass",
+    "chapter2_ordinary_world": "pass_after_subtraction",
+    "opening_three_continuity": "pass_with_name_load_warning",
+    "opening_order": "confirmed_first_three",
     "prose_canon": "still_not_fixed"
   },
   "next_stage_gate": {
-    "required_before_chapter3_order_is_confirmed": [
-      "draft chapter 2 ordinary ensemble trip as full disposable prose",
-      "keep chapter 2 low-conversion: no one gets a resource, life lesson or major decision from the trip",
-      "use chapter 2 to widen the world and establish that core characters are not a permanent team",
-      "preserve Campbell function as ordinary-world texture rather than visible plot progress",
-      "revise chapter 2 once by subtraction and compare its social texture against chapter 1"
+    "required_before_chapter4_full_draft": [
+      "select chapter4 with a different pressure register from chapters1-3",
+      "prefer already introduced characters and avoid another cluster of new recurring names",
+      "audit chapter4 against the relevant long Campbell arc before drafting",
+      "keep any new guest minimal and function-driven",
+      "draft and revise only chapter4 before advancing"
     ],
     "drafting_rule": "Only one new full chapter at a time may advance to review. Every full chapter must pass both anti-AI subtraction review and long-arc/negative-space review before the next one begins."
   }
