@@ -1,0 +1,17 @@
+{
+  "schema_version":11,
+  "period":"2032-q1",
+  "status":"behavior_audit_noncanonical",
+  "backend":"chatgpt_product_conversation",
+  "source_batch":"runtime/chatbot-live/batches/2032-q1.json",
+  "abnormal_budget":1,
+  "abnormal_used":0,
+  "decisions":[
+    {"actor_id":"gao_yuan","mode":"normal","chosen_action_id":"scan_market_before_any_exit","baseline_expected_action":"Protect the concrete benefits of the home-prefecture role while keeping growth-density cost visible.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Three years of role evidence justify reassessment, but no competing opportunity or shock exists yet.","constraint_check":{"feasible":true,"notes":"Public market scan can be done while remaining employed."},"evidence_refs":["2032q1:e01","2032q1:e03","2032q1:e04"]},
+    {"actor_id":"luo_cheng","mode":"normal","chosen_action_id":"use_content_and_platform_double_threshold","baseline_expected_action":"Retain the current role unless a new role improves both research-content fit and platform value enough to justify moving.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Market scan shows larger platforms exist, but many roles weaken the content he values.","constraint_check":{"feasible":true,"notes":"Selective threshold can be applied without opening a broad search."},"evidence_refs":["2032q1:e02","2032q1:e05","2032q1:e06"]},
+    {"actor_id":"song_nan","mode":"normal","chosen_action_id":"calibrate_market_legibility_before_job_search","baseline_expected_action":"Use portable assets to test reversibility before deciding whether slower learning warrants a move.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Portable cases are readable externally, but no specific role yet dominates the current bundle.","constraint_check":{"feasible":true,"notes":"Public-role comparison uses no confidential material."},"evidence_refs":["2032q1:e07","2032q1:e08"]},
+    {"actor_id":"tang_yu","mode":"normal","chosen_action_id":"answer_major_revision_without_reexpanding_claim","baseline_expected_action":"Keep the narrowed mechanism-boundary scale established by years of negative checks.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Reviewers reopen boundary and necessity questions, but supplied evidence does not justify restoring the early broad claim.","constraint_check":{"feasible":true,"notes":"Local proof/clarification and explicit limitations are feasible."},"evidence_refs":["2032q1:editorial01","2032q1:e09","2032q1:e10","2032q1:e11","2032q1:e12"]},
+    {"actor_id":"lin_jing","mode":"normal","chosen_action_id":"maintain_and_measure_service_boundary","baseline_expected_action":"Treat first-year boundary success as provisional and continue distinguishing formal duty from habitual extra work.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Second-year service requests rise again without evidence of formal penalty or exit trigger.","constraint_check":{"feasible":true,"notes":"Formal duties remain compatible with continued tracking."},"evidence_refs":["2032q1:e13","2032q1:e14"]}
+  ],
+  "audit_rule":"All Q1 consequential actions remain normal. Midcareer reassessment and major revision do not by themselves justify out-of-pattern behavior."
+}
