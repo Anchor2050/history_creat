@@ -1,0 +1,69 @@
+{
+  "schema_version":1,
+  "batch_id":"career-six-chatbot-2034-q2",
+  "status":"noncanonical_chatbot_replay_batch",
+  "period":{"start":"2034-04-01","end":"2034-06-30"},
+  "generation_mode":"chatgpt_product_interaction_chain",
+  "era_lens":[
+    "候选只有通过权限、时间和真实使用检查后才成为历史后果；内部丰富和责任转移可以部分成功。",
+    "慢问题和研究空档都必须允许负面结果：探索可能证明问题不值得继续，长期问题也可能被关闭。",
+    "组织成长如果重新引入全天候响应，就应被视为旧风险回归而不是晋升。"
+  ],
+  "exogenous_hard_world_events":[
+    {"event_id":"2034q2:he01","at":"2034-04-18","kind":"internal_role_enrichment_feasibility","actor":"he_xin","source_candidate":"candidate:2034-q1:he-internal-role-enrichment:01","result":"one_bounded_cross_unit_data_policy_review_task_approved_no_persistent_overtime","visibility":"private_to_actor"},
+    {"event_id":"2034q2:zhou01","at":"2034-04-25","kind":"second_judge_rotation_feasibility","actor":"zhou_ye","source_candidate":"candidate:2034-q1:zhou-second-judge-rotation:01","result":"manager_support_and_suitable_colleague_available_one_exception_class_selected","visibility":"private_to_actor"},
+    {"event_id":"2034q2:chen01","at":"2034-05-03","kind":"bounded_governance_scope_feasibility","actor":"chen_lan","source_candidate":"candidate:2034-q1:chen-bounded-governance-scope:01","result":"written_scope_fixed_meetings_and_explicit_escalation_rule_confirmed","visibility":"private_to_actor"},
+    {"event_id":"2034q2:tang01","at":"2034-06-08","kind":"research_exploration_checkpoint","actor":"tang_yu","source_candidate":"candidate:2034-q1:tang-recurring-question-exploration:01","result":"recurring_question_survives_three_minimal_examples_failure_pattern_nontrivial_project_not_yet_open","visibility":"private_to_actor"},
+    {"event_id":"2034q2:lin01","at":"2034-06-16","kind":"long_horizon_question_midyear_review","actor":"lin_jing","result":"one_core_assumption_weakened_remaining_mechanism_value_uncertain","visibility":"private_to_actor"},
+    {"event_id":"2034q2:zhao01","at":"2034-06-21","kind":"judgment_retrospective_feasibility","actor":"zhao_ke","source_candidate":"candidate:2034-q1:zhao-judgment-retrospective:01","result":"cross_team_participants_and_three_failure_cases_available_pilot_scheduled","visibility":"private_to_actor"}
+  ],
+  "windows":[
+    {"packet_id":"micro:chatbot:2034-04:he-internal-task-start:01","start_date":"2034-04-20","end_date":"2034-04-20","event_kind":"internal_role_enrichment_start","participants":["he_xin","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2034-04:zhou-second-judge-start:01","start_date":"2034-04-27","end_date":"2034-04-27","event_kind":"second_judge_rotation_start","participants":["zhou_ye","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2034-05:chen-governance-scope-start:01","start_date":"2034-05-05","end_date":"2034-05-05","event_kind":"bounded_governance_scope_start","participants":["chen_lan","wu_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2034-06:tang-exploration:01","start_date":"2034-06-10","end_date":"2034-06-10","event_kind":"research_exploration_checkpoint","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2034-06:lin-long-question-midyear:01","start_date":"2034-06-18","end_date":"2034-06-18","event_kind":"long_horizon_question_midyear_review","participants":["lin_jing","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2034-06:zhao-retrospective-start:01","start_date":"2034-06-23","end_date":"2034-06-23","event_kind":"judgment_retrospective_start","participants":["zhao_ke","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2034-05:gao-luo-market-refresh:01","start_date":"2034-05-17","end_date":"2034-05-17","event_kind":"selective_market_refresh","participants":["gao_yuan","luo_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events":[
+    {"event_id":"2034q2:e01","kind":"social_interaction","at":"2034-04-20","event_kind":"internal_role_enrichment_start","speaker":"he_xin","listener":"sun_jie","act":"share_experience","content":"何欣拿到一个三个月的小型跨部门复核任务，范围和时间都写清楚，没有要求她长期加班；她把它当成测试岗位是否还有学习弹性，不先当晋升机会。","channel":"wechat_private","evidence":"权限和时间检查通过。"},
+    {"event_id":"2034q2:e02","kind":"social_interaction","at":"2034-04-20","event_kind":"internal_role_enrichment_start","speaker":"sun_jie","listener":"he_xin","act":"offer_information","content":"孙洁提醒她记录自己到底新增了什么判断，而不只是多认识了几个部门；如果最后只是换一种重复协调，就不算岗位价值被修复。","channel":"wechat_private","evidence":"内部丰富要用判断增长而非忙碌度评价。"},
+
+    {"event_id":"2034q2:e03","kind":"social_interaction","at":"2034-04-27","event_kind":"second_judge_rotation_start","speaker":"zhou_ye","listener":"xu_hang","act":"share_experience","content":"周野的团队同意让另一位同事跟一类高频复杂异常三个月。周野第一次刻意不直接给结论，而是要求对方写判断链和停止点。","channel":"wechat_private","evidence":"第二判断者轮转通过组织与人员检查。"},
+    {"event_id":"2034q2:e04","kind":"social_interaction","at":"2034-04-27","event_kind":"second_judge_rotation_start","speaker":"xu_hang","listener":"zhou_ye","act":"offer_information","content":"许航说如果周野每次看到方向不对就立刻接管，三个月后只会多一个会模仿的人；必须允许对方在可控范围内犯一次能复盘的判断错误。","channel":"wechat_private","evidence":"判断转移需要真实决策空间。"},
+
+    {"event_id":"2034q2:e05","kind":"social_interaction","at":"2034-05-05","event_kind":"bounded_governance_scope_start","speaker":"chen_lan","listener":"wu_cheng","act":"share_experience","content":"陈岚确认新职责有固定会议、明确决策范围和升级条件后，接受了一个试行期；她拒绝把所有跨部门问题都默认挂到自己名下。","channel":"in_person","evidence":"内部职责通过边界检查后才启动。"},
+    {"event_id":"2034q2:e06","kind":"social_interaction","at":"2034-05-05","event_kind":"bounded_governance_scope_start","speaker":"wu_cheng","listener":"chen_lan","act":"check_in","content":"吴澄只问她一个月后有没有重新出现‘所有问题都来找我’的感觉；如果有，就说明书面边界没有真正落地。","channel":"in_person","evidence":"旧风险作为现实监测指标。"},
+
+    {"event_id":"2034q2:e07","kind":"social_interaction","at":"2034-06-10","event_kind":"research_exploration_checkpoint","speaker":"tang_yu","listener":"shen_yan","act":"share_experience","content":"唐雨的三个最小例子都出现了相似失效模式，问题没有因为具体化就消失；但她仍看不出一个值得承诺一两年的主命题。","channel":"in_person","evidence":"探索候选通过兴趣和非平凡失败检查，但未达到项目门槛。"},
+    {"event_id":"2034q2:e08","kind":"social_interaction","at":"2034-06-10","event_kind":"research_exploration_checkpoint","speaker":"shen_yan","listener":"tang_yu","act":"make_plan","content":"沈雁让她再做一轮文献和反例边界检查，到年底只回答‘这个问题是否值得变成项目’，不提前写论文题目。","channel":"in_person","evidence":"研究空档开始收束但仍可失败。"},
+
+    {"event_id":"2034q2:e09","kind":"social_interaction","at":"2034-06-18","event_kind":"long_horizon_question_midyear_review","speaker":"lin_jing","listener":"shen_yan","act":"share_experience","content":"林静发现长期问题依赖的一个核心假设比去年想象中更脆，删掉后剩下的问题仍有一点机制意味，但她第一次认真考虑把它关掉。","channel":"video_call","evidence":"两年投入没有阻止负面价值更新。"},
+    {"event_id":"2034q2:e10","kind":"social_interaction","at":"2034-06-18","event_kind":"long_horizon_question_midyear_review","speaker":"shen_yan","listener":"lin_jing","act":"offer_information","content":"沈雁让她把剩余机制问题写成半页：如果半年后仍只能靠‘做了两年’解释价值，就关；如果能独立说明为什么值得，再继续。","channel":"video_call","evidence":"形成明确关闭门槛。"},
+
+    {"event_id":"2034q2:e11","kind":"social_interaction","at":"2034-06-23","event_kind":"judgment_retrospective_start","speaker":"zhao_ke","listener":"sun_jie","act":"share_experience","content":"赵珂选了三个真实失败案例做跨团队复盘，要求参与者先说当时为什么会误判，再讨论规则哪里缺；他刻意不先展示标准答案。","channel":"video_call","evidence":"复盘试验聚焦判断训练而非流程宣讲。"},
+    {"event_id":"2034q2:e12","kind":"social_interaction","at":"2034-06-23","event_kind":"judgment_retrospective_start","speaker":"sun_jie","listener":"zhao_ke","act":"check_in","content":"孙洁发现这种做法和学生事务里处理例外很像：成熟规则之后，真正稀缺的是承认‘这里需要判断’的能力。","channel":"video_call","evidence":"原八人横向职业线继续。"},
+
+    {"event_id":"2034q2:e13","kind":"social_interaction","at":"2034-05-17","event_kind":"selective_market_refresh","speaker":"gao_yuan","listener":"luo_cheng","act":"share_experience","content":"高原仍没有看到跨过自己门槛的公开岗位；这次他把原因拆成真实bundle优势和迁移惯性，没有因为多年没投就把市场刷新停掉。","channel":"phone","evidence":"年度阈值审计继续。"},
+    {"event_id":"2034q2:e14","kind":"social_interaction","at":"2034-05-17","event_kind":"selective_market_refresh","speaker":"luo_cheng","listener":"gao_yuan","act":"share_experience","content":"罗诚看到一条省会研究运营岗位，公开职责同时包含研究支持设计和流程治理，平台也明显更高；这是几年里第一次同时越过内容和平台双门槛，他决定进一步核实。","channel":"phone","evidence":"形成真正双门槛opening候选，不等于申请或offer。"}
+  ],
+  "hard_world_candidate_updates":[
+    {"candidate_id":"candidate:2034-q1:he-internal-role-enrichment:01","checked_at":"2034-04-18","checks":{"task_exists":true,"manager_authority":true,"bounded_time_cost":true,"no_persistent_overtime":true},"result":"bounded_internal_task_started_noncanonical","resource_effect":"three-month role-enrichment test only"},
+    {"candidate_id":"candidate:2034-q1:zhou-second-judge-rotation:01","checked_at":"2034-04-25","checks":{"team_manager_support":true,"suitable_colleague_available":true,"bounded_exception_class":true,"real_case_exposure":true},"result":"second_judge_rotation_started_noncanonical","resource_effect":"one bounded exception class transferred for training"},
+    {"candidate_id":"candidate:2034-q1:chen-bounded-governance-scope:01","checked_at":"2034-05-03","checks":{"written_scope":true,"bounded_meeting_load":true,"explicit_escalation_rule":true,"no_always_on_response":true},"result":"bounded_scope_pilot_started_noncanonical","resource_effect":"one internal governance workstream pilot"},
+    {"candidate_id":"candidate:2034-q1:tang-recurring-question-exploration:01","checked_at":"2034-06-08","checks":{"recurring_question_survives_examples":true,"failure_modes_nontrivial":true,"interest_not_output_anxiety":true},"result":"exploration_continues_without_project_commitment_noncanonical","resource_effect":"further literature/counterexample exploration only"},
+    {"candidate_id":"candidate:2034-q1:zhao-judgment-retrospective:01","checked_at":"2034-06-21","checks":{"cross_team_participants":true,"failure_cases_available":true,"learning_not_process_repetition":true},"result":"judgment_retrospective_pilot_started_noncanonical","resource_effect":"one cross-team learning pilot"}
+  ],
+  "new_hard_world_candidates":[
+    {"candidate_id":"candidate:2034-q2:lin-close-or-continue-long-question:01","created_at":"2034-06-18","type":"research_value_gate","beneficiary":"lin_jing","requires_checks":["remaining_mechanism_value_independent_of_sunk_time","clear_half_page_question","future_testable_step"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2034-q2:luo-double-threshold-opening:01","created_at":"2034-05-17","type":"selective_external_opening","beneficiary":"luo_cheng","requires_checks":["public_role_verified","research_content_material","platform_gain_material","application_eligibility"],"status":"open_noncanonical"}
+  ],
+  "actor_state_evidence":[
+    {"at":"2034-04-20","actor":"he_xin","dimension":"role_value_strategy","evidence":"先用边界清楚的内部任务测试岗位可塑性，继续把稳定与学习增长分开评价。","status":"candidate_state_evidence"},
+    {"at":"2034-04-27","actor":"zhou_ye","dimension":"expert_lockin_governance","evidence":"首次把复杂异常的一部分真实判断空间交给第二判断者训练。","status":"candidate_state_evidence"},
+    {"at":"2034-06-18","actor":"lin_jing","dimension":"long_horizon_research","evidence":"长期问题在第二年出现机制价值削弱，正式进入关闭或继续的价值门槛。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence":[],
+  "audit_rules":{"generated_through_interaction_chain":true,"partial_success_allowed":true,"internal_enrichment_not_promotion":true,"second_judge_requires_real_decision_space":true,"slow_research_can_close_after_sunk_time":true,"selective_opening_requires_double_threshold":true,"family_age_alone_cannot_create_care_crisis":true,"storyteller_read_only":true}
+}
