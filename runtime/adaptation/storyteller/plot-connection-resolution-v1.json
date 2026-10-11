@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "status": "plot_connection_resolution_noncanonical",
+  "historical_world_writeback": false,
+  "review_id": "review:plot-connection-ch01-ch04",
+  "review_bus_message": "runtime/message-bus/messages/2026-10-11-0001-plot-connection-review.json",
+  "decision": "option-a-plus-c",
+  "decision_summary": "保留弱连接群像结构；给前四章增加可感知的弱编织，并从 Chapter5 起让这些前因收到真实世界反馈。",
+  "rejected": {
+    "option-b": "不建立统一强因果主线，不把六个核心人物改成永久共同体，也不制造共同危机。"
+  },
+  "retrofit_plan": [
+    {
+      "chapter": 1,
+      "reference": "docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md",
+      "action": "keep_as_seed",
+      "note": "保留周野复现包、failure_log 和许航有限审阅承诺，不为连接而改掉开篇留白。"
+    },
+    {
+      "chapter": 2,
+      "new_reference": "docs/adaptation/pilots/ch02-ordinary-trip-full-v3-braided.md",
+      "action": "add_visible_braid_cue",
+      "note": "许航收到周野复现包/失败记录的后续消息但不处理；宋楠第一次听见失败记录，唐雨同桌但不被强制赋义。旅行仍无资源转移和人生决定。"
+    },
+    {
+      "chapter": 3,
+      "new_reference": "docs/adaptation/pilots/ch03-luo-posting-full-v3-braided.md",
+      "action": "add_peer_memory_cue",
+      "note": "罗诚在问‘这种能力怎么证明’时短暂想到同班周野把技术可靠做成复现包；孙洁把他拉回自己的真实经历。连接来自已有同学关系，不复制技术路线。"
+    },
+    {
+      "chapter": 4,
+      "new_reference": "docs/adaptation/pilots/ch04-tang-xu-implementation-structure-full-v3-braided.md",
+      "action": "make_method_transfer_legible",
+      "note": "明确许航检查的是 failure_log 的缺口，让读者看见同一套‘记录失败/让别人复查’实践在弱关系网络中迁移，但不把许航写成万能导师。"
+    }
+  ],
+  "forward_payoff": {
+    "chapter": 5,
+    "working_title": "第一次有结果",
+    "primary_viewpoint": "zhou_ye",
+    "historical_window": "2027-07 to 2027-12",
+    "core_evidence_refs": ["2027q3:e03", "2027q3:e04", "2027q4:e04", "2027q4:e05", "2027q4:e06", "2027q4:e17", "2027q4:e18"],
+    "visible_payoff": "技术筛查真实询问别人如何复跑、如何核验结果、异常如何记录；周野的复现包第一次成为工作方式证据，并进入最终面试，之后拿到并评估国企 offer。",
+    "braid_payoff": "年末同学饭局让周野、高原、罗诚三条路线第一次在正文中同桌：一人接受技术岗，一人继续下一轮考试，一人已把辅导员从唯一身份降为多个选项之一。",
+    "constraint": "不写赢家/输家排序；复现包不是万能通行证；offer 不是终身结论。"
+  },
+  "connection_rule_forward": [
+    "每一部分至少有一次早期动作在后章收到可观察后果；后果可以是失败、延迟、误读或部分有效。",
+    "弱关系可传递方法、语言和有限信息，但不得自动传递资源、职位和私密信息。",
+    "跨章回声优先使用已经存在的关系和历史事件；新增 connective detail 必须 adaptation-only 且不能改写硬结果。",
+    "连接通过动作、消息、后果和重复对象出现，不用作者旁白解释 braid。",
+    "ordinary-world 章节允许不推进主线，但不能长期与前后完全断开。"
+  ],
+  "review_status": "resolved_for_chapter5_after_retrofit"
+}
