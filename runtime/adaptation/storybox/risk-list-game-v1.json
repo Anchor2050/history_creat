@@ -1,0 +1,334 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_only_noncanonical_game_seed",
+  "historical_world_writeback": false,
+  "engine": "narrative/longform/storybox_round_engine_v15.py",
+  "game_id": "risk-list-game-01",
+  "game_type": "institutional_mystery_social_deduction",
+  "objective": {
+    "question": "Within the 72-hour deadline, what can the joint project responsibly say happened, what must be paused or changed, and who has authority to decide before the full audit is complete?",
+    "status": "open",
+    "success_is_not_required": true
+  },
+  "convergence_policy": {
+    "min_rounds": 3,
+    "max_rounds": 10,
+    "stable_rounds_required": 2,
+    "max_zero_delta_rounds": 2,
+    "require_objective_or_terminal_for_success": true
+  },
+  "hard_world": {
+    "clock": {
+      "incident_discovered": "08:10",
+      "joint_preliminary_explanation_due_hours": 72,
+      "pilot_continue_pause_narrow_decision_due_days": 7
+    },
+    "truth_graph": {
+      "deployment": {
+        "23:29": "v3.5.0 deployment began",
+        "23:32": "health check failed",
+        "23:33": "automatic rollback selected v3.4.2 as serving version"
+      },
+      "batch_runs": {
+        "23:31": {
+          "label": "v3.5.0",
+          "actual_instance": "v3.4.2-compatible old serving container during rollback race",
+          "input_snapshot": "snapshot_A"
+        },
+        "23:46": {
+          "label": "manual_rerun",
+          "actual_instance": "v3.4.2",
+          "input_snapshot": "snapshot_B",
+          "trigger": "hospital interface account after late follow-up data arrived"
+        },
+        "23:51": {
+          "label": "automatic_retry",
+          "actual_instance": "v3.4.2",
+          "input_snapshot": "snapshot_C"
+        }
+      },
+      "data_path": {
+        "23:42": "late follow-up records entered main follow-up store",
+        "snapshot_B": "main follow-up store updated; manual_followup_status replication not yet complete",
+        "snapshot_C": "fallback snapshot path omitted manual_followup_status table because the export manifest and serving contract were temporarily inconsistent"
+      },
+      "model_behavior": {
+        "v3.4.2": "missing manual-follow-up status falls through a legacy default that does not force manual review",
+        "v3.5.0": "contains a guard that routes missing manual-follow-up status to manual review",
+        "scientific_limit": "incomplete follow-up/censoring pattern also weakens the certainty of the raw risk interpretation even when software behavior is corrected"
+      },
+      "suspicious_row": {
+        "cause_components": [
+          "late/incomplete follow-up",
+          "manual follow-up status unavailable in the scoring snapshot",
+          "v3.4.2 legacy missing-status default",
+          "operational use began before cross-institution review"
+        ],
+        "single_root_cause": false
+      },
+      "screenshot_path": {
+        "23:47": "hospital follow-up coordinator captured batch-2 screen to ask a colleague whether the low-risk row looked wrong",
+        "23:49": "image entered a small internal work chat",
+        "later": "a recipient forwarded it outside the project context while seeking advice; the external path then widened",
+        "malicious_mastermind": false
+      }
+    }
+  },
+  "map_state": {
+    "unlocked": [
+      "project_office"
+    ],
+    "locked": [
+      "technical_operations_room",
+      "hospital_followup_desk",
+      "university_research_group",
+      "public_institution_coordination_room",
+      "industry_partner_meeting",
+      "external_public_space"
+    ],
+    "reachable_by_actor": {
+      "luo_cheng": ["project_office"],
+      "office_director": ["project_office", "technical_operations_room", "hospital_followup_desk"],
+      "zhou_ye": ["technical_operations_room"],
+      "hospital_duty_coordinator": ["hospital_followup_desk"],
+      "tang_yu": ["university_research_group"],
+      "xu_hang": ["university_research_group", "technical_operations_room"],
+      "song_nan": ["industry_partner_meeting"],
+      "gao_yuan": ["public_institution_coordination_room"],
+      "he_xin": ["public_institution_coordination_room"]
+    }
+  },
+  "actor_state": {
+    "luo_cheng": {
+      "active": true,
+      "role": "project process/research support",
+      "goal": "preserve a defensible timeline and keep the joint response factually correct",
+      "protected_value": "being useful without pretending to have authority he lacks",
+      "pressure": 0.76
+    },
+    "office_director": {
+      "active": true,
+      "role": "project office director",
+      "goal": "send a preliminary explanation that is accurate enough to survive later audit and timely enough to preserve control",
+      "protected_value": "institutional credibility and patient-facing safety",
+      "pressure": 0.88
+    },
+    "zhou_ye": {
+      "active": false,
+      "role": "technical/vendor reliability engineer",
+      "goal": "reconstruct exactly what code and input ran before anyone turns a version label into a causal conclusion",
+      "protected_value": "technical correctness and auditable handoff",
+      "pressure": 0.70
+    },
+    "hospital_duty_coordinator": {
+      "active": false,
+      "role": "hospital follow-up operations",
+      "goal": "keep the follow-up workflow moving while avoiding blame for data latency that the hospital considers routine",
+      "protected_value": "patient follow-up continuity and local team legitimacy",
+      "pressure": 0.82
+    },
+    "tang_yu": {
+      "active": false,
+      "role": "research/method side",
+      "goal": "separate software/data failures from a genuine statistical validity problem",
+      "protected_value": "scientific claim integrity",
+      "pressure": 0.58
+    },
+    "xu_hang": {
+      "active": false,
+      "role": "independent validation",
+      "goal": "reproduce only what can actually be certified",
+      "protected_value": "verification independence",
+      "pressure": 0.52
+    },
+    "song_nan": {
+      "active": false,
+      "role": "industry translation",
+      "goal": "turn uncertainty into a bounded operational decision before downstream timelines collapse",
+      "protected_value": "usable decisions under uncertainty",
+      "pressure": 0.60
+    },
+    "gao_yuan": {
+      "active": false,
+      "role": "public-sector briefing/process",
+      "goal": "produce an administratively actionable briefing without pretending uncertainty has disappeared",
+      "protected_value": "procedural legitimacy",
+      "pressure": 0.54
+    },
+    "he_xin": {
+      "active": false,
+      "role": "public-institution process side",
+      "goal": "distinguish a justified pause from bureaucratic self-protection",
+      "protected_value": "fair and reversible procedure",
+      "pressure": 0.49
+    }
+  },
+  "truth": {
+    "full_truth_visible_to_characters": false,
+    "truth_graph_ref": "hard_world.truth_graph"
+  },
+  "public_information": {
+    "risk_list_exists": true,
+    "one_low_risk_row_has_incomplete_followup": true,
+    "screenshot_exists_outside_project": true,
+    "72_hour_joint_explanation_required": true
+  },
+  "private_information": {
+    "luo_cheng": {
+      "screenshot_timestamp": "23:46 batch output",
+      "current_printed_list": "23:51 batch output",
+      "manual_rerun_application": "not found in project-office records yet"
+    },
+    "office_director": {
+      "hospital_already_exported_list": true,
+      "external_request_for_explanation": true
+    },
+    "zhou_ye": {
+      "deployment_rollback_log": true,
+      "actual_serving_version_for_23_46": "v3.4.2",
+      "first_batch_instance_needs_container-level reconstruction": true
+    },
+    "hospital_duty_coordinator": {
+      "late_followup_arrived_at": "23:42",
+      "manual_rerun_requested": true,
+      "screenshot_was_first_shared_for_internal_question": true
+    }
+  },
+  "beliefs": {
+    "luo_cheng": {
+      "leading_hypothesis": "there were multiple runs and the visible screenshot is not the current list"
+    },
+    "office_director": {
+      "leading_hypothesis": "the institutions do not yet share one timeline and any causal statement is premature"
+    },
+    "zhou_ye": {
+      "leading_hypothesis": "version rollback explains part of the timeline but probably not the full anomaly"
+    },
+    "hospital_duty_coordinator": {
+      "leading_hypothesis": "late data required a rerun; the model side should tolerate ordinary data arrival patterns"
+    }
+  },
+  "relationships": {},
+  "power": {
+    "luo_cheng": {
+      "can_document_timeline": true,
+      "can_request_records": true,
+      "can_publicly_conclude_cause": false,
+      "can_freeze_system": false
+    },
+    "office_director": {
+      "can_request_cross_institution_meeting": true,
+      "can_issue_preliminary_project_response": true,
+      "can_request_pause": true,
+      "can_unilaterally_assign_technical_cause": false
+    },
+    "zhou_ye": {
+      "can_access_vendor_logs": true,
+      "can_reconstruct_versions": true,
+      "can_decide_pilot_continuation": false
+    },
+    "hospital_duty_coordinator": {
+      "can_request_operational_rerun": true,
+      "can_view_followup_list": true,
+      "can_decide_model_validity": false
+    }
+  },
+  "resources": {
+    "luo_cheng": {
+      "time_hours_before_first_reply": 1,
+      "access": ["project_records", "meeting_notes"]
+    },
+    "office_director": {
+      "access": ["project_contacts", "joint_meeting_authority"]
+    },
+    "zhou_ye": {
+      "access": ["deployment_logs", "job_logs", "input_hashes"]
+    }
+  },
+  "mysteries": {
+    "q_run_count": {
+      "question": "How many runs happened overnight and which one produced the leaked screenshot?",
+      "status": "open",
+      "actionable": true
+    },
+    "q_version_cause": {
+      "question": "Did the rollback to v3.4.2 cause the suspicious classification?",
+      "status": "open",
+      "actionable": true
+    },
+    "q_missing_manual_status": {
+      "question": "Why is manual_followup_status absent or stale in some snapshots?",
+      "status": "latent",
+      "actionable": false
+    },
+    "q_screenshot_path": {
+      "question": "How did the screenshot leave the project and why?",
+      "status": "open",
+      "actionable": false
+    },
+    "q_scientific_validity": {
+      "question": "After software/data issues are corrected, does incomplete follow-up still invalidate the comfortable interpretation of the risk score?",
+      "status": "latent",
+      "actionable": false
+    }
+  },
+  "deadlines": {
+    "first_external_reply": {
+      "status": "active",
+      "remaining_minutes": 50
+    },
+    "joint_preliminary_explanation": {
+      "status": "active",
+      "remaining_hours": 72
+    },
+    "pilot_decision": {
+      "status": "active",
+      "remaining_days": 7
+    }
+  },
+  "commitments": {
+    "luo_cheng": {
+      "preserve_timeline": true
+    },
+    "office_director": {
+      "fact_before_causal_claim": true
+    }
+  },
+  "reputation": {},
+  "payoff_debt": {
+    "setup:screenshot_timestamp_precedes_current_batch": {
+      "status": "open",
+      "due": "round_1_or_2"
+    },
+    "setup:version_342_vs_350": {
+      "status": "open",
+      "due": "round_1_to_3"
+    },
+    "setup:list_used_before_review": {
+      "status": "open",
+      "due": "round_2_to_4"
+    },
+    "setup:project_office_72h_deadline": {
+      "status": "open",
+      "due": "whole_game_clock"
+    }
+  },
+  "round_0_trigger": {
+    "kind": "incident_discovery",
+    "event": "project office sees suspicious risk-list row and receives evidence that an external screenshot already exists"
+  },
+  "round_plan_constraints": {
+    "round_1": "reconstruct overnight runs; technical operations map may unlock",
+    "round_2": "separate version from input-snapshot hypotheses; hospital follow-up map may unlock",
+    "round_3": "force first joint preliminary statement under incomplete certainty",
+    "later": "only unlock research/validation/industry/public-sector nodes when the active question reaches their jurisdiction"
+  },
+  "anti_cheat_rules": [
+    "truth_graph is fixed before prose rendering",
+    "no later chapter may invent a new root cause that contradicts the fixed truth graph",
+    "new evidence may reveal hidden parts of truth but may not retroactively rewrite truth",
+    "no single actor knows the complete truth at game start",
+    "the reader receives only Storyteller-selected evidence",
+    "game convergence may be deadlock or partial institutional decision; full truth need not be public at game end"
+  ]
+}
