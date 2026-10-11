@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "status": "inferred_personal_candidates_noncanonical",
+  "as_of": "2031-12-31",
+  "backend": "chatgpt_product_conversation",
+  "hard_world_writeback": [],
+  "actors": {
+    "lin_jing": {
+      "current_concerns": [{"text":"研究自主性基本真实，但服务碎片化和年度评价压力会不会在第二年重新扩大。","evidence_refs":["2031q2:e07","2031q4:e01"],"confidence":"high"}],
+      "private_goals": [{"text":"继续把高校岗位当成可观察结构，通过固定研究块而不是口头自主来判断是否值得长期留下。","evidence_refs":["2031q3:e01","2031q4:e02"],"confidence":"high"}],
+      "unresolved_tensions": [{"text":"当前边界实验成功一次，但制度长期是否容纳这种边界仍未知。","evidence_refs":["2031q3:e02","2031q4:e01"],"confidence":"high"}],
+      "attention_priorities": [{"text":"2032第二年评价、研究块持续性和城市长期承诺。","evidence_refs":["2031q4:e01"],"confidence":"high"}],
+      "unknowns": ["是否会进入购房或长期留城判断尚无证据。"]
+    },
+    "chen_lan": {
+      "current_concerns": [{"text":"岗位时间边界已稳定，但较低研究自由度已经变成结构性交换而非暂时过渡。","evidence_refs":["2031q3:e11","2031q3:e12"],"confidence":"high"}],
+      "private_goals": [{"text":"保留独立判断和可持续工作节奏，不用回到研究者标签证明自身价值。","evidence_refs":["2031q1:e04","2031q1:e05"],"confidence":"high"}],
+      "unresolved_tensions": [{"text":"组织判断权增加与自主研究减少同时发生。","evidence_refs":["2031q3:e11"],"confidence":"high"}],
+      "attention_priorities": [{"text":"继续观察组织身份是否还能提供足够长期学习价值。","evidence_refs":["2031q3:e11"],"confidence":"medium"}],
+      "unknowns": ["没有证据表明她准备重新转向更研究化岗位。"]
+    },
+    "xu_hang": {
+      "current_concerns": [{"text":"验证规范正在变得可移交，但必须持续删除不能跨问题工作的检查。","evidence_refs":["2031q2:e10","2031q2:e11"],"confidence":"high"}],
+      "private_goals": [{"text":"让验证能力既能成为独立方法资产，也能在唐雨稿件中承担明确、可问责的学术贡献。","evidence_refs":["2031q2:e02","2031q3:e04"],"confidence":"high"}],
+      "unresolved_tensions": [{"text":"稿件外审可能改变验证部分，从而重新影响最终贡献边界。","evidence_refs":["2031q3:e04","2031q4:e07"],"confidence":"high"}],
+      "attention_priorities": [{"text":"等待外审；继续记录验证标准失败边界。","evidence_refs":["2031q4:e07"],"confidence":"high"}],
+      "unknowns": ["外审会不会要求删改验证部分未知。"]
+    },
+    "wu_cheng": {
+      "current_concerns": [{"text":"导师边界太软会替团队收尾，太硬又可能让年轻成员不敢在真正需要判断时求助。","evidence_refs":["2031q4:e11","2031q4:e12"],"confidence":"high"}],
+      "private_goals": [{"text":"把边界从减少联系转成帮助团队识别什么问题值得同步讨论。","evidence_refs":["2031q4:e12"],"confidence":"high"}],
+      "unresolved_tensions": [],
+      "attention_priorities": [{"text":"观察团队是否能自主区分异步问题与判断节点。","evidence_refs":["2031q2:e16"],"confidence":"medium"}],
+      "unknowns": ["个人家庭与职业风险仍缺少证据。"]
+    },
+    "shen_yan": {
+      "current_concerns": [{"text":"唐雨稿件已经离开内部控制，接下来需要避免用等待焦虑制造新的无依据改写。","evidence_refs":["2031q3:e09","2031q4:e07"],"confidence":"high"}],
+      "private_goals": [{"text":"维持指导边界，让研究者自己承担最终论证和外部评价。","evidence_refs":["2031q2:e05","2031q4:e12"],"confidence":"high"}],
+      "unresolved_tensions": [],
+      "attention_priorities": [{"text":"外审结果；导师边界的双向风险。","evidence_refs":["2031q4:e11","2031q4:e12"],"confidence":"medium"}],
+      "unknowns": ["自身职业变化仍无新证据。"]
+    },
+    "gu_wei": {
+      "current_concerns": [{"text":"验证规范一旦制度化，年轻人可能把检查表误当成判断本身。","evidence_refs":["2031q3:e17"],"confidence":"high"}],
+      "private_goals": [{"text":"要求使用者解释为什么某个问题需要这些检查，而不是只问是否合格。","evidence_refs":["2031q3:e17"],"confidence":"high"}],
+      "unresolved_tensions": [{"text":"方法可移交与方法被机械使用之间出现新张力。","evidence_refs":["2031q2:e10","2031q3:e17"],"confidence":"high"}],
+      "attention_priorities": [{"text":"验证工具的过度程序化风险。","evidence_refs":["2031q3:e17"],"confidence":"high"}],
+      "unknowns": ["自身生活与职业变化仍薄。"]
+    },
+    "zhao_ke": {
+      "current_concerns": [{"text":"项目入口规则已减少救火，但例外判断和规则僵化开始成为新的管理问题。","evidence_refs":["2031q1:e16","2031q3:e15"],"confidence":"high"}],
+      "private_goals": [{"text":"把谁能确认例外、什么算真正例外写得更清楚，同时保留必要灵活性。","evidence_refs":["2031q3:e16"],"confidence":"high"}],
+      "unresolved_tensions": [{"text":"规则越成熟，判断责任越集中在少数例外上。","evidence_refs":["2031q3:e15"],"confidence":"high"}],
+      "attention_priorities": [{"text":"例外权限和入口规则不过度僵化。","evidence_refs":["2031q3:e16"],"confidence":"high"}],
+      "unknowns": []
+    },
+    "sun_jie": {
+      "current_concerns": [{"text":"正式队列减少了常态插队，但真正紧急例外的判断责任更显眼。","evidence_refs":["2031q1:e15","2031q3:e15"],"confidence":"high"}],
+      "private_goals": [{"text":"让程序公平与例外处理同时可解释。","evidence_refs":["2031q3:e16"],"confidence":"high"}],
+      "unresolved_tensions": [{"text":"边界制度化不能消灭例外，只能改变例外被谁判断。","evidence_refs":["2031q1:e15"],"confidence":"high"}],
+      "attention_priorities": [{"text":"例外权限和熟人关系成本。","evidence_refs":["2031q3:e15"],"confidence":"medium"}],
+      "unknowns": ["是否考虑岗位变化仍无证据。"]
+    },
+    "zhou_ye": {
+      "current_concerns": [{"text":"技术标准开始真正减少个人兜底，但买房会不会过早锁住未来技术流动仍是开放问题。","evidence_refs":["2031q1:e11","2031q4:e03"],"confidence":"high"}],
+      "private_goals": [{"text":"保留现金与迁移能力，等2033再判断城市承诺是否足够强。","evidence_refs":["2031q1:e12"],"confidence":"high"}],
+      "unresolved_tensions": [{"text":"工作组织知识与同城生活持续增加，而住房仍保持可逆。","evidence_refs":["2031q4:review02","2031q4:e04"],"confidence":"high"}],
+      "attention_priorities": [{"text":"2032技术责任是否继续增加；2033住房复核。","evidence_refs":["2031q4:review02","2031q1:e12"],"confidence":"high"}],
+      "unknowns": ["2033是否购买仍无证据。"]
+    },
+    "gao_yuan": {
+      "current_concerns": [{"text":"三年稳定工作已经验证生活结构价值，也让低成长密度从长期成本变成需要正式比较的问题。","evidence_refs":["2031q3:e13","2031q4:e09"],"confidence":"high"}],
+      "private_goals": [{"text":"2032用结构化再评价判断是否继续把机会密度作为自愿成本。","evidence_refs":["2031q4:e09"],"confidence":"high"}],
+      "unresolved_tensions": [{"text":"家庭距离、低住房成本和稳定时间仍有真实收益，而职业新颖度持续下降。","evidence_refs":["2031q1:e08","2031q4:review06"],"confidence":"high"}],
+      "attention_priorities": [{"text":"2032再评价，不凭父母年龄制造家庭危机。","evidence_refs":["2031q4:e09"],"confidence":"high"}],
+      "unknowns": ["是否会真正打开外部求职尚无证据。"]
+    },
+    "luo_cheng": {
+      "current_concerns": [{"text":"研究支持内容已经证明适配，但区域平台上限也连续三年没有消失。","evidence_refs":["2031q2:e14","2031q4:review05"],"confidence":"high"}],
+      "private_goals": [{"text":"2032比较内容适配收益和重新进入更大平台的成本。","evidence_refs":["2031q4:e10"],"confidence":"high"}],
+      "unresolved_tensions": [{"text":"当前工作越来越像理想内容，但所在平台可能限制更长期成长。","evidence_refs":["2031q2:e14","2031q4:e10"],"confidence":"high"}],
+      "attention_priorities": [{"text":"2032市场再进入成本和岗位内容可迁移性。","evidence_refs":["2031q4:e10"],"confidence":"high"}],
+      "unknowns": ["是否会实际投递未知。"]
+    },
+    "tang_yu": {
+      "current_concerns": [{"text":"论文已经进入外审，当前没有新的内部证据能合理改变已提交版本。","evidence_refs":["2031q3:e10","2031q4:e07"],"confidence":"high"}],
+      "private_goals": [{"text":"接受外部评价，无论结果如何都保持失效边界与最小结果的真实尺度。","evidence_refs":["2031q3:e08","2031q3:e09"],"confidence":"high"}],
+      "unresolved_tensions": [{"text":"多年投入已经结束内部准备阶段，但外部评价可能再次迫使项目收缩或重写。","evidence_refs":["2031q4:submission01","2031q4:e07"],"confidence":"high"}],
+      "attention_priorities": [{"text":"等待审稿；不平行重写一个未被要求的新版本。","evidence_refs":["2031q4:e07","2031q4:e08"],"confidence":"high"}],
+      "unknowns": ["审稿结果完全未知。"]
+    },
+    "he_xin": {
+      "current_concerns": [{"text":"住房现金阻断让她更清楚职业稳定和资产锁定是两回事。","evidence_refs":["2031q1:e13","2031q4:e04"],"confidence":"high"}],
+      "private_goals": [{"text":"继续改善租住质量和学习时间，同时保留年度退出成本核算。","evidence_refs":["2031q2:e12","2031q4:e04"],"confidence":"high"}],
+      "unresolved_tensions": [{"text":"岗位路径依赖继续增长，但购房暂时没有进一步强化这种锁定。","evidence_refs":["2031q4:e03","2031q4:e04"],"confidence":"high"}],
+      "attention_priorities": [{"text":"第五年岗位学习与现金积累；下一次住房窗口。","evidence_refs":["2031q4:review03"],"confidence":"medium"}],
+      "unknowns": ["未来家庭照护仍无具体事件证据。"]
+    },
+    "song_nan": {
+      "current_concerns": [{"text":"第四年新增学习速度开始下降，而高住房和家庭距离成本仍持续。","evidence_refs":["2031q4:review04","2031q4:e05"],"confidence":"high"}],
+      "private_goals": [{"text":"2032先用便携案例校准外部市场，确认自己在公司之外是否真的可读，再决定是否投递。","evidence_refs":["2031q4:e06"],"confidence":"high"}],
+      "unresolved_tensions": [{"text":"当前岗位仍有价值，但继续留下的边际收益已经需要与城市成本重新比较。","evidence_refs":["2031q3:e05","2031q4:e05"],"confidence":"high"}],
+      "attention_priorities": [{"text":"外部市场校准、第五年角色学习价值；继续租住。","evidence_refs":["2031q4:e05","2031q3:e07"],"confidence":"high"}],
+      "unknowns": ["是否真正打开求职尚未知。"]
+    }
+  },
+  "audit_rule": "Only evidence-changed Personal fields are refreshed. No Personal item directly changes hard-world state."
+}
