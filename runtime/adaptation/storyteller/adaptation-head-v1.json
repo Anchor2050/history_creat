@@ -1,5 +1,5 @@
 {
-  "schema_version": 6,
+  "schema_version": 7,
   "status": "adaptation_storyteller_head_noncanonical",
   "historical_world_writeback": false,
   "history_source": {
@@ -33,7 +33,10 @@
     "probe_audit_02": "runtime/adaptation/storyteller/probe-audit-pass-02.json",
     "probe_audit_03": "runtime/adaptation/storyteller/probe-audit-pass-03-v1-v2.json",
     "probe_audit_04": "runtime/adaptation/storyteller/probe-audit-pass-04-long-scene.json",
-    "probe_audit_05": "runtime/adaptation/storyteller/probe-audit-pass-05-cross-context.json"
+    "probe_audit_05": "runtime/adaptation/storyteller/probe-audit-pass-05-cross-context.json",
+    "chapter_cards_v1": "runtime/adaptation/storyteller/novel-chapter-cards-v1.json",
+    "chapter_architecture_audit_01": "runtime/adaptation/storyteller/novel-architecture-audit-pass-01.json",
+    "chapter_revision_v2": "runtime/adaptation/storyteller/novel-chapter-revision-v2.json"
   },
   "executed_probes": [
     "docs/adaptation/probes/p2-01-ordinary-trip-v1.md",
@@ -63,6 +66,8 @@
     "braided_substory_count": 4,
     "audited_guest_count": 3,
     "executed_probe_count": 14,
+    "chapter_card_count": 24,
+    "chapter_architecture_status": "provisional_v2_overlay",
     "prose_canon_fixed": false,
     "narrative_voice_status": "provisional_canon",
     "narrative_voice_label": "close_external_restrained_realism",
@@ -91,7 +96,7 @@
     "guest micro-hero arc",
     "provisional narrative voice spec",
     "literary style guardrails",
-    "disposable prose probe or chapter card",
+    "chapter card or disposable prose draft",
     "anti-AI audit before any prose canon decision"
   ],
   "nonnegotiable_rules": [
@@ -116,34 +121,27 @@
     "Ordinary time and non-events remain usable narrative material.",
     "2035 is an observation endpoint, not a life verdict."
   ],
-  "current_stage": "provisional_chapter_architecture_ready",
+  "current_stage": "full_disposable_pilot_chapter_selected",
+  "pilot_chapter": {
+    "chapter": 3,
+    "working_title": "招聘启事上的一天",
+    "primary_viewpoint": "luo_cheng",
+    "historical_anchor": ["2027q2:e04", "2027q2:e05", "2027q2:e06", "2027q2:e07"],
+    "status": "ready_to_draft_full_disposable_chapter"
+  },
   "gate_status": {
-    "ordinary_scene_without_forced_meaning": "pass",
-    "low_energy_socially_awkward_scene": "pass",
-    "locally_wrong_or_embarrassed_viewpoint": "pass",
-    "local_antagonist_with_plausible_good": "pass",
-    "guest_viewpoint_scene": "pass",
-    "guest_micro_arc": "pass",
-    "family_origin_pressure_without_melodrama": "pass",
-    "educated_character_communicates_badly": "pass",
-    "six_core_dialogue_differentiation": "pass_as_diagnostic",
-    "capability_consistency": "pass_with_revision_notes",
-    "v1_v2_revision_comparison": "pass",
-    "long_scene_sustainability": "pass",
-    "research_scene_voice": "pass_with_minor_risk",
     "anti_ai_style": "provisional_pass",
     "narrative_voice": "provisional_canon",
+    "chapter_architecture": "provisional_pass_with_v2_overlay",
     "prose_canon": "blocked"
   },
   "next_stage_gate": {
-    "required_before_full_chapter_drafting": [
-      "build 20-24 provisional chapter cards from the selected scenes and substory graph",
-      "assign viewpoint by uncertainty and contradiction rather than rotation",
-      "for each chapter define visible action, hidden contradiction, material/institutional constraint and unresolved residue",
-      "mark guest-function gaps but instantiate new guests only on demand",
-      "retain at least one ordinary/non-conversion chapter in every major part",
-      "audit chapter rhythm for overconcentration of work/research scenes"
+    "required_before_any_full_prose_canon": [
+      "draft full disposable pilot chapter 3",
+      "audit the full chapter for over-explanation, character flattening, pacing, side-character legibility and Campbell leakage",
+      "revise pilot at least once by subtraction before any canon decision",
+      "do not draft the remaining 23 chapters yet"
     ],
-    "after_gate": "draft one full pilot chapter while all other chapters remain cards"
+    "after_gate": "decide whether the narrative voice and chapter density are strong enough to begin sequential chapter drafting"
   }
 }
