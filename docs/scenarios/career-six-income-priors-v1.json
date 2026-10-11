@@ -1,0 +1,43 @@
+{
+  "spec_version": 1,
+  "status": "engineering_priors_pending_empirical_calibration",
+  "notice": "本文件只为六人群像非规范情景推演提供显式收入先验，不代表真实博士津贴、家庭支持、兼职收入或税后收入分布。不得按性别、独生子女或兄弟姐妹结构直接指定收入。",
+  "doctoral_stipend_monthly": {
+    "min": 2200,
+    "max": 3800
+  },
+  "family_support_monthly": {
+    "min": 0,
+    "max": 1600,
+    "rule": "对六人使用同一开放区间；家庭结构本身不决定金额。"
+  },
+  "search_period_support_monthly": {
+    "min": 0,
+    "max": 2200,
+    "rule": "毕业后未就业阶段的家庭或其他生活支持情景；不保证存在。"
+  },
+  "temporary_work": {
+    "mathematics_probability": {
+      "monthly_probability_doctoral": 0.18,
+      "monthly_probability_search": 0.32,
+      "income_if_active_min": 900,
+      "income_if_active_max": 3200
+    },
+    "survival_analysis": {
+      "monthly_probability_doctoral": 0.22,
+      "monthly_probability_search": 0.38,
+      "income_if_active_min": 1000,
+      "income_if_active_max": 3800
+    }
+  },
+  "employment_net_pay_share": {
+    "min": 0.78,
+    "max": 0.86
+  },
+  "audit_rules": [
+    "收入先验必须随seed变化并可在输出中检查。",
+    "男女不得因性别获得不同的family_support区间。",
+    "独生子女或有两个哥哥不得直接决定family_support金额。",
+    "任何基于买房、贫困、照护购买能力的历史结论都必须对这些收入先验做敏感性检查。"
+  ]
+}
