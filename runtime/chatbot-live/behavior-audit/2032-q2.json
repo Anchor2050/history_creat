@@ -1,0 +1,17 @@
+{
+  "schema_version":11,
+  "period":"2032-q2",
+  "status":"behavior_audit_noncanonical",
+  "backend":"chatgpt_product_conversation",
+  "source_batch":"runtime/chatbot-live/batches/2032-q2.json",
+  "abnormal_budget":1,
+  "abnormal_used":0,
+  "decisions":[
+    {"actor_id":"luo_cheng","mode":"normal","chosen_action_id":"submit_one_threshold_crossing_application","baseline_expected_action":"Apply only when both role content and platform improve enough to justify relocation risk.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"One public opening crosses both thresholds for the first time.","constraint_check":{"feasible":true,"notes":"Application can proceed while current employment continues."},"evidence_refs":["2032q2:opening01","2032q2:e05","2032q2:e07"]},
+    {"actor_id":"song_nan","mode":"normal","chosen_action_id":"submit_one_role_that_improves_family_distance_without_losing_core_judgment","baseline_expected_action":"Open search only when an external role materially improves at least one bundle dimension while preserving professional judgment.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"The provincial-capital role shortens family distance and preserves relevant statistical delivery scope despite lower pay.","constraint_check":{"feasible":true,"notes":"One public application uses only portable/nonconfidential material."},"evidence_refs":["2032q2:opening02","2032q2:e08","2032q2:e09","2032q2:e10"]},
+    {"actor_id":"gao_yuan","mode":"normal","chosen_action_id":"make_no_application_when_threshold_is_not_met","baseline_expected_action":"Do not trade away current housing/family/stability gains merely to prove willingness to change.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"No public opening materially improves growth after bundle costs.","constraint_check":{"feasible":true,"notes":"Annual market refresh can continue while staying employed."},"evidence_refs":["2032q2:opening03","2032q2:e11","2032q2:e12"]},
+    {"actor_id":"tang_yu","mode":"normal","chosen_action_id":"resubmit_major_revision_at_same_narrow_scale","baseline_expected_action":"Repair local gaps and state unresolved general cases rather than inflating the claim.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Local proof closes under current statement and broader extension remains unsupported.","constraint_check":{"feasible":true,"notes":"Revision can be approved without expanding the theorem."},"evidence_refs":["2032q2:e01","2032q2:e02","2032q2:e03","2032q2:e04","2032q2:submission01"]},
+    {"actor_id":"chen_lan","mode":"normal","chosen_action_id":"recognize_organizational_learning_without_relabeling_it_academic_research","baseline_expected_action":"Keep time-boundary gains and evaluate the actual complexity of the chosen role without rewriting earlier preferences.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Third-year work adds complex governance and cross-department judgment while research freedom remains structurally lower.","constraint_check":{"feasible":true,"notes":"No role change is required to record new learning value."},"evidence_refs":["2032q2:e15","2032q2:e16"]}
+  ],
+  "audit_rule":"Q2 remains normal: a threshold-crossing opening can trigger a selective application, while no opening can validly produce no application."
+}
