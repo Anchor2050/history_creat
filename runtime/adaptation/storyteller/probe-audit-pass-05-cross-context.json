@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_cross_context_voice_audit_noncanonical",
+  "historical_world_writeback": false,
+  "contexts": [
+    {
+      "context": "institutional_work",
+      "file": "docs/adaptation/probes/p4-01-ma-song-long-scene-v1.md",
+      "result": "pass",
+      "strength": "task pressure and institutional ambiguity sustain scene without thematic narration"
+    },
+    {
+      "context": "family_private",
+      "file": "docs/adaptation/probes/p3-03-he-family-boundary-failure-v2.md",
+      "result": "pass",
+      "strength": "family role pressure appears through ordinary housing discussion and imperfect repair"
+    },
+    {
+      "context": "weak_tie_public_space",
+      "file": "docs/adaptation/probes/p3-05-zhou-he-awkward-meetup-v2.md",
+      "result": "pass",
+      "strength": "relationship remains weak and scene tolerates inefficiency, dead topics and mundane continuation"
+    },
+    {
+      "context": "intense_research",
+      "file": "docs/adaptation/probes/p4-02-tang-xu-research-intensity-v1.md",
+      "result": "pass_with_minor_risk",
+      "strength": "intellectual conflict is carried by artifacts, implementation differences and attachment to a candidate result rather than abstract genius dialogue",
+      "risk": "several exchanges are sharply efficient and should be balanced elsewhere by slower research days, failed checks and less articulate disagreement"
+    }
+  ],
+  "research_scene_specific_findings": {
+    "passes": [
+      "Tang Yu's attachment to the fourth phenomenon is visible without narrator diagnosing ambition or sunk cost.",
+      "Xu Hang functions as verification pressure and ally without becoming an omniscient truth teller.",
+      "technical specificity remains legible even though the fictional method is not exhaustively explained.",
+      "the result remains unresolved: one phenomenon survives more strongly, another becomes implementation-sensitive, and no one converts this immediately into a theorem.",
+      "ordinary interruptions and time constraints coexist with high-level reasoning."
+    ],
+    "problems": [
+      "the line '核心步骤是你定义的核心' is strong and memorable; similar lines should be rare or the prose will drift toward crafted intellectual repartee",
+      "the repeated short question-answer rhythm is appropriate to debugging but cannot dominate all academic scenes",
+      "future research scenes need more solitary work, delayed email, failed runs and asymmetric preparation so research is not represented mainly as good conversation"
+    ]
+  },
+  "overall_voice_judgment": "provisional_narrative_voice_canon_allowed",
+  "voice_label": "close_external_restrained_realism",
+  "canon_scope": {
+    "allowed": [
+      "chapter and episode beat-sheet design may now assume this narrative distance",
+      "new scene probes may use this voice as the default starting point",
+      "character-specific modulation remains required"
+    ],
+    "not_allowed": [
+      "existing probe prose is not canonical chapter text",
+      "one voice specification cannot erase viewpoint-specific syntax and attention",
+      "future drafts still require anti-AI audit",
+      "Campbell structure remains backstage"
+    ]
+  },
+  "next_stage": "begin_provisional_chapter_architecture_while_continuing_scene_level_tests",
+  "recommended_next_work": [
+    "group 26 selected scenes and 13 substories into 20-24 provisional chapters",
+    "assign chapter viewpoint by uncertainty and contradiction, not rotation",
+    "mark where new guest characters are required and instantiate only on demand",
+    "for each chapter define one visible action, one hidden contradiction, one institutional/material constraint and one unresolved residue",
+    "do not draft full chapters yet; first produce chapter cards"
+  ]
+}
