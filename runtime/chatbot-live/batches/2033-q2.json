@@ -1,0 +1,72 @@
+{
+  "schema_version":1,
+  "batch_id":"career-six-chatbot-2033-q2",
+  "status":"noncanonical_chatbot_replay_batch",
+  "period":{"start":"2033-04-01","end":"2033-06-30"},
+  "generation_mode":"chatgpt_product_interaction_chain",
+  "era_lens":[
+    "购房后的第一层后果是现金、按揭和迁移成本变化，不自动生成幸福、婚恋或职业稳定。",
+    "第二次城市迁移要通过真实半年工作检验，尤其比较旧岗位边际学习与新岗位生活bundle。",
+    "验证身份只有在新问题上需要重新设计判断并被别人实际使用后，才形成独立证据。"
+  ],
+  "exogenous_hard_world_events":[
+    {"event_id":"2033q2:ownership01","at":"2033-04-05","kind":"post_purchase_finance_update","actor":"zhou_ye","result":"mortgage_active_liquid_cash_lower_mobility_cost_higher","engineering_prior":{"monthly_mortgage":2508,"rent_replaced":true,"downpayment_already_paid":92400},"visibility":"private_to_actor"},
+    {"event_id":"2033q2:use01","at":"2033-05-19","kind":"independent_validation_use_result","actor":"xu_hang","source_candidate":"candidate:2033-q1:xu-independent-validation-use:01","result":"new_problem_required_new_stop_rule_and_two_checks_rewritten_end_user_applied_design_successfully","visibility":"private_to_actor"},
+    {"event_id":"2033q2:role01","at":"2033-06-20","kind":"second_role_half_year_review","actor":"song_nan","result":"meets_expectations_lower_housing_and_family_distance_real_slower_coordination_but_judgment_scope_preserved","visibility":"private_to_actor"},
+    {"event_id":"2033q2:research01","at":"2033-06-24","kind":"long_horizon_question_checkpoint","actor":"lin_jing","source_candidate":"candidate:2033-q1:lin-long-horizon-question-space:01","result":"one_long_horizon_question_remains_active_without_publishable_output_formal_duties_met","visibility":"private_to_actor"}
+  ],
+  "windows":[
+    {"packet_id":"micro:chatbot:2033-04:zhou-post-purchase:01","start_date":"2033-04-07","end_date":"2033-04-07","event_kind":"post_purchase_lockin_check","participants":["zhou_ye","he_xin"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2033-05:xu-gu-independent-use-result:01","start_date":"2033-05-21","end_date":"2033-05-21","event_kind":"independent_validation_result_review","participants":["xu_hang","gu_wei"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2033-06:song-role-halfyear:01","start_date":"2033-06-22","end_date":"2033-06-22","event_kind":"second_role_halfyear_review","participants":["song_nan","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2033-06:lin-long-question:01","start_date":"2033-06-26","end_date":"2033-06-26","event_kind":"long_horizon_question_checkpoint","participants":["lin_jing","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2033-05:gao-market-refresh:01","start_date":"2033-05-10","end_date":"2033-05-10","event_kind":"annual_public_market_refresh","participants":["gao_yuan","luo_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2033-04:tang-next-question-check:01","start_date":"2033-04-28","end_date":"2033-04-28","event_kind":"post_project_research_checkin","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2033-06:sun-personal-boundary:01","start_date":"2033-06-11","end_date":"2033-06-11","event_kind":"coordinator_personal_scene","participants":["sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events":[
+    {"event_id":"2033q2:e01","kind":"social_interaction","at":"2033-04-07","event_kind":"post_purchase_lockin_check","speaker":"zhou_ye","listener":"he_xin","act":"share_experience","content":"买房后的第一个月，周野最明显的变化不是生活品质，而是账户里的流动现金一下变薄、每月支出从房租变成按揭；他开始把任何外部机会都多算一项‘这套房怎么办’。","channel":"in_person","evidence":"真实首付和按揭已进入住房状态。"},
+    {"event_id":"2033q2:e02","kind":"social_interaction","at":"2033-04-07","event_kind":"post_purchase_lockin_check","speaker":"he_xin","listener":"zhou_ye","act":"share_experience","content":"何欣说自己还在租，反而第一次很具体地看见买房会怎样改变选择成本；她没有因此加速攒首付，只把2035之前的现金目标重新按应急缓冲和生活质量分开。","channel":"in_person","evidence":"弱联系允许经验交换，不共享财务账户或共同决策。"},
+
+    {"event_id":"2033q2:e03","kind":"social_interaction","at":"2033-05-21","event_kind":"independent_validation_result_review","speaker":"xu_hang","listener":"gu_wei","act":"share_experience","content":"新项目证明许航不能直接搬用原检查表：他重写了两个检查，还重新定义了停止规则；最终使用者能按设计独立执行并找到一处原流程会漏掉的失败条件。","channel":"in_person","evidence":"候选满足新问题判断、非模板使用和实际他人使用。"},
+    {"event_id":"2033q2:e04","kind":"social_interaction","at":"2033-05-21","event_kind":"independent_validation_result_review","speaker":"gu_wei","listener":"xu_hang","act":"offer_information","content":"顾维认为这比唐雨论文共同作者更直接支持‘独立验证设计’身份，因为结果来自另一个问题且需要重新判断；但一次成功还不等于形成成熟方法路线。","channel":"in_person","evidence":"独立身份获得新证据但不自动扩成职位或研究领域。"},
+
+    {"event_id":"2033q2:e05","kind":"social_interaction","at":"2033-06-22","event_kind":"second_role_halfyear_review","speaker":"song_nan","listener":"chen_lan","act":"share_experience","content":"半年后宋楠确认新岗位的住房和家庭距离收益是真实的，统计判断权也保住了；代价是组织节奏更慢、跨部门协调更重，学习速度没有旧岗位前两年那么快。","channel":"video_call","evidence":"第二角色半年评估。"},
+    {"event_id":"2033q2:e06","kind":"social_interaction","at":"2033-06-22","event_kind":"second_role_halfyear_review","speaker":"chen_lan","listener":"song_nan","act":"repair","content":"陈岚说这正是她换岗时愿意买的交换：不需要证明新岗位全面更好，只看较低学习速度是否被生活bundle改善和仍存在的判断空间补偿。","channel":"video_call","evidence":"中期换岗按整体bundle而非单维度评价。"},
+    {"event_id":"2033q2:e07","kind":"social_interaction","at":"2033-06-22","event_kind":"second_role_halfyear_review","speaker":"song_nan","listener":"chen_lan","act":"make_plan","content":"宋楠决定至少完成完整第一年再评价，不在半年节点打开第三次求职；她继续租住。","channel":"video_call","evidence":"新岗位尚无失败触发。"},
+
+    {"event_id":"2033q2:e08","kind":"social_interaction","at":"2033-06-26","event_kind":"long_horizon_question_checkpoint","speaker":"lin_jing","listener":"shen_yan","act":"share_experience","content":"林静保留下来的长期问题半年仍没有可投稿结果，但她仍能解释为什么它值得继续想，也没有因此影响正式职责完成。","channel":"video_call","evidence":"长期问题保护候选有真实持续性但无成果。"},
+    {"event_id":"2033q2:e09","kind":"social_interaction","at":"2033-06-26","event_kind":"long_horizon_question_checkpoint","speaker":"shen_yan","listener":"lin_jing","act":"offer_information","content":"沈雁说这个结果本身就足够检验一部分自主性：她至少没有因为半年无产出就自动丢掉问题；是否长期值得做仍要由问题本身而非反评价姿态决定。","channel":"video_call","evidence":"自主性实验不把慢等同于好。"},
+
+    {"event_id":"2033q2:e10","kind":"social_interaction","at":"2033-05-10","event_kind":"annual_public_market_refresh","speaker":"gao_yuan","listener":"luo_cheng","act":"share_experience","content":"高原年度市场刷新仍没有看到明显跨过自己门槛的岗位；他开始觉得真正的风险不是错过某个职位，而是门槛会不会随着多年留任越来越难被任何职位跨过。","channel":"phone","evidence":"持续市场刷新暴露路径依赖的新形式。"},
+    {"event_id":"2033q2:e11","kind":"social_interaction","at":"2033-05-10","event_kind":"annual_public_market_refresh","speaker":"luo_cheng","listener":"gao_yuan","act":"share_experience","content":"罗诚这一轮也没有新的双门槛opening；他更关注自己是不是应该主动培养一个能带出当前城市的能力，而不只是等更好的岗位出现。","channel":"phone","evidence":"落选后搜索逻辑没有放宽，开始关注可迁移资产。"},
+
+    {"event_id":"2033q2:e12","kind":"social_interaction","at":"2033-04-28","event_kind":"post_project_research_checkin","speaker":"tang_yu","listener":"shen_yan","act":"share_experience","content":"论文接受半年后，唐雨只有两三个零散问题记在本子上，没有一个自然长成新项目；她没有因为担心‘断档’就强行立题。","channel":"in_person","evidence":"接受未自动产生新研究线。"},
+    {"event_id":"2033q2:e13","kind":"social_interaction","at":"2033-04-28","event_kind":"post_project_research_checkin","speaker":"shen_yan","listener":"tang_yu","act":"repair","content":"沈雁说空一段时间并不会把上一项成果抹掉，如果新题只能靠‘我需要下一篇’来解释，就先别做。","channel":"in_person","evidence":"研究空档被允许作为真实状态。"},
+
+    {"event_id":"2033q2:e14","kind":"actor_state_interaction","at":"2033-06-11","event_kind":"coordinator_personal_scene","speaker":"sun_jie","listener":"self_record","act":"share_experience","content":"孙洁发现自己已经很少因为熟人请求而焦虑，但长期做程序入口的人容易把每个问题先看成‘属于哪条流程’；她开始提醒自己有些学生来找她首先是在描述困惑，流程分类可以晚几分钟。","channel":"private_record","evidence":"职业边界成熟后出现程序视角侵占人际理解的个人代价。"}
+  ],
+  "hard_world_candidate_updates":[
+    {"candidate_id":"candidate:2033-q1:xu-independent-validation-use:01","checked_at":"2033-05-19","checks":{"new_problem_requires_judgment":true,"design_not_template_only":true,"user_can_apply_output":true,"failure_boundaries_documented":true},"result":"independent_validation_design_evidence_activated_noncanonical","resource_effect":"one independent use outside Tang project; no title/promotion automatic"},
+    {"candidate_id":"candidate:2033-q1:lin-long-horizon-question-space:01","checked_at":"2033-06-24","checks":{"formal_duties_met":true,"time_block_available":true,"long_horizon_question_remains_meaningful":true,"publishable_output":false},"result":"active_without_output_noncanonical","resource_effect":"continued long-horizon question space only"}
+  ],
+  "new_hard_world_candidates":[
+    {"candidate_id":"candidate:2033-q2:gao-threshold-drift-audit:01","created_at":"2033-05-10","type":"career_threshold_drift_audit","beneficiary":"gao_yuan","description":"检查多年留任是否让外部岗位门槛被动抬高；需要区分真实bundle要求和路径依赖合理化。","requires_checks":["market_examples","current_bundle_value","threshold_change_history","no_forced_search"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2033-q2:luo-portable-asset-development:01","created_at":"2033-05-10","type":"portable_skill_asset","beneficiary":"luo_cheng","description":"在当前岗位中形成可带出区域城市的研究支持/流程设计工作样本，不含敏感材料。","requires_checks":["nonconfidential_example_available","actual_judgment_contribution","transferable_description"],"status":"open_noncanonical"}
+  ],
+  "actor_state_evidence":[
+    {"at":"2033-04-07","actor":"zhou_ye","dimension":"housing_lock_in","evidence":"购房后流动现金下降且外部机会新增房产处置成本，资产锁定成为真实迁移摩擦。","status":"candidate_state_evidence"},
+    {"at":"2033-05-21","actor":"xu_hang","dimension":"independent_validation_identity","evidence":"验证框架首次在唐雨项目外的新问题上需要重写检查与停止规则，并被另一使用者成功执行，形成独立身份新证据。","status":"candidate_state_evidence"},
+    {"at":"2033-06-22","actor":"song_nan","dimension":"second_role_reality","evidence":"第二岗位半年兑现生活bundle改善和判断职责，同时学习速度/组织节奏较旧岗位降低；决定完成完整第一年再评价。","status":"candidate_state_evidence"},
+    {"at":"2033-06-26","actor":"lin_jing","dimension":"research_autonomy","evidence":"一个无半年可见产出的长期问题仍被保留且不影响正式职责，问题选择自主性获得初步行为证据。","status":"candidate_state_evidence"},
+    {"at":"2033-05-10","actor":"gao_yuan","dimension":"path_dependence","evidence":"年度市场刷新继续无跨门槛opening，开始担心门槛本身随路径依赖提高。","status":"candidate_state_evidence"},
+    {"at":"2033-04-28","actor":"tang_yu","dimension":"post_project_attention","evidence":"成果接受半年后仍允许研究空档，不以连续产出压力强行生成新项目。","status":"candidate_state_evidence"},
+    {"at":"2033-06-11","actor":"sun_jie","dimension":"professional_boundary_cost","evidence":"程序边界成熟后开始注意流程视角可能过早压过对学生困惑本身的理解。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence":[
+    {"at":"2033-05-21","pair":["xu_hang","gu_wei"],"direction":"positive","evidence":"顾维继续用可迁移判断而非论文身份衡量许航的独立验证能力。"},
+    {"at":"2033-06-22","pair":["song_nan","chen_lan"],"direction":"positive","evidence":"多年职业校准关系继续帮助宋楠比较整体bundle而非单一工资/平台。"}
+  ],
+  "storyteller_index_delta":{"new_material_threads":["home ownership immediately creates a new migration-friction ledger for Zhou","Xu obtains first independent validation-design evidence outside Tang project","Song's lower-pay relocation shows a genuine mixed bundle rather than a simple improvement","Lin preserves a meaningful slow question without output, moving autonomy from calendar to problem choice","Tang's post-acceptance research gap is allowed to remain empty","Sun's procedural boundary creates a new human-understanding cost"],"world_writeback":false},
+  "audit_rules":{"single_batch_noncanonical":true,"generated_through_interaction_chain":true,"home_purchase_consequences_begin_with_cash_mortgage_and_mobility_not_happiness":true,"independent_identity_requires_new_problem_use":true,"second_role_requires_lived_review":true,"research_gap_is_valid_history":true,"storyteller_is_read_only":true}
+}
