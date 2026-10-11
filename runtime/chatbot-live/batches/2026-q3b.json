@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2026-q3b",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2026-09-01","end":"2026-10-31"},
+  "base_state": null,
+  "era_lens": [],
+  "windows": [
+    {"packet_id":"micro:chatbot:2026-09:chen-wu-supervision:01","start_date":"2026-09-05","end_date":"2026-09-05","event_kind":"doctoral_completion_checkin","participants":["chen_lan","wu_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical","note":"原八人hard-world补深：陈岚的完成压力与导师注意力约束。"},
+    {"packet_id":"micro:chatbot:2026-09:zhou-xu-repro-review:01","start_date":"2026-09-17","end_date":"2026-09-17","event_kind":"reproducibility_review","participants":["zhou_ye","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical","note":"六月候选通过最小可行性检查，进行一次有限审阅。"},
+    {"packet_id":"micro:chatbot:2026-09:xu-gu-verification-identity:01","start_date":"2026-09-30","end_date":"2026-09-30","event_kind":"verification_identity_checkin","participants":["xu_hang","gu_wei"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical","note":"许航的个人职业线：验证工作如何形成独立身份。"},
+    {"packet_id":"micro:chatbot:2026-10:he-lin-career-comparison:01","start_date":"2026-10-10","end_date":"2026-10-10","event_kind":"career_comparison_chat","participants":["he_xin","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical","note":"把稳定性比较推进到可逆性、城市与家庭边界。"},
+    {"packet_id":"micro:chatbot:2026-10:cross-school-dinner:01","start_date":"2026-10-24","end_date":"2026-10-24","event_kind":"cross_school_friend_dinner","participants":["lin_jing","chen_lan","zhou_ye","luo_cheng","tang_yu","he_xin","song_nan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical","note":"第一次较大的跨圈饭局；只产生一个明确新介绍，其他同场者不自动成为熟人。"}
+  ],
+  "events": [
+    {"event_id":"batch1:e19","kind":"social_interaction","at":"2026-09-05","event_kind":"doctoral_completion_checkin","speaker":"chen_lan","listener":"wu_cheng","act":"share_experience","content":"陈岚把最近的博士完成任务和外部项目工作摊开给吴澄看，承认两边同时追会让一些本该收尾的研究工作持续拖延。","channel":"in_person","evidence":"陈岚既有博士完成与外部项目压力。"},
+    {"event_id":"batch1:e20","kind":"social_interaction","at":"2026-09-05","event_kind":"doctoral_completion_checkin","speaker":"wu_cheng","listener":"chen_lan","act":"offer_information","content":"吴澄要求她先把毕业相关的剩余任务按‘必须完成、可以延后、可以放弃’重新排一遍，并提醒可靠不等于把所有人的活都接过来。","channel":"in_person","evidence":"导师只提供优先级反馈，不生成额外资源。"},
+    {"event_id":"batch1:e21","kind":"social_interaction","at":"2026-09-05","event_kind":"doctoral_completion_checkin","speaker":"chen_lan","listener":"wu_cheng","act":"make_plan","content":"陈岚决定给外部项目设更清楚的时间边界，把至少一块连续时间保留给博士收尾。","channel":"in_person","evidence":"个人时间配置计划。"},
+    {"event_id":"batch1:e22","kind":"social_interaction","at":"2026-09-17","event_kind":"reproducibility_review","speaker":"xu_hang","listener":"zhou_ye","act":"offer_information","content":"许航实际看了周野的最小复现包，指出最大问题不是代码本身，而是失败条件和结果核验写得太少；别人能跑起来，还不等于别人知道跑对了。","channel":"wechat_private","evidence":"六月有限审阅候选完成一次，范围仅限复现与交接。"},
+    {"event_id":"batch1:e23","kind":"social_interaction","at":"2026-09-17","event_kind":"reproducibility_review","speaker":"zhou_ye","listener":"xu_hang","act":"make_plan","content":"周野补写失败案例、预期输出和两条核验规则，决定以后把这类材料当作自己的技术工作样本，而不是写成‘我很认真’。","channel":"wechat_private","evidence":"从抽象可靠性转向可检查证据。"},
+    {"event_id":"batch1:e24","kind":"social_interaction","at":"2026-09-30","event_kind":"verification_identity_checkin","speaker":"xu_hang","listener":"gu_wei","act":"ask_advice","content":"许航问顾维，如果自己总在做复现、验证和失败排查，会不会最后只被看成给别人收尾的人；他想知道怎样把这些工作变成独立判断能力。","channel":"in_person","evidence":"许航的长期私人线是验证工作是否被低估以及独立研究身份。"},
+    {"event_id":"batch1:e25","kind":"social_interaction","at":"2026-09-30","event_kind":"verification_identity_checkin","speaker":"gu_wei","listener":"xu_hang","act":"offer_information","content":"顾维建议他以后不要只记录‘帮谁修好了什么’，还要留下自己识别了什么风险、设计了什么检查、什么条件下结论会失效；独立性要体现在判断框架，不只体现在工作量。","channel":"in_person","evidence":"导师提供一般研究身份反馈，不承诺职位。"},
+    {"event_id":"batch1:e26","kind":"social_interaction","at":"2026-10-10","event_kind":"career_comparison_chat","speaker":"he_xin","listener":"lin_jing","act":"ask_advice","content":"何欣问林静，两个都算稳定的选择如果一个更靠近家、一个调整空间更大，应该怎样比较才不会只看眼前。","channel":"wechat_private","evidence":"两人已有career_comparison_peer联系。"},
+    {"event_id":"batch1:e27","kind":"social_interaction","at":"2026-10-10","event_kind":"career_comparison_chat","speaker":"lin_jing","listener":"he_xin","act":"offer_information","content":"林静建议她把不可逆成本单独列出来：城市迁移、资格重来、家庭默认期待和以后再换路径的成本，比岗位名字本身更值得提前看。","channel":"wechat_private","evidence":"通用职业选择框架，不替何欣做决定。"},
+    {"event_id":"batch1:e28","kind":"social_interaction","at":"2026-10-10","event_kind":"career_comparison_chat","speaker":"he_xin","listener":"lin_jing","act":"make_plan","content":"何欣在比较表里新增‘以后想退出时要付什么代价’一栏，也决定不预先替两个哥哥承担尚未发生的家庭义务。","channel":"wechat_private","evidence":"家庭结构只作为协商约束，不预写照护结果。"},
+    {"event_id":"batch1:e29","kind":"social_interaction","at":"2026-10-24","event_kind":"cross_school_friend_dinner","speaker":"lin_jing","listener":"he_xin","act":"offer_introduction","content":"林静把何欣介绍给罗诚，只说两个人最近都在认真看体制和高校相关工作的实际日常，可以互相听听不同路径，没有转述两人的私聊内容。","channel":"in_person","evidence":"林静分别认识何欣和罗诚，具备连接路径。"},
+    {"event_id":"batch1:e30","kind":"social_interaction","at":"2026-10-24","event_kind":"cross_school_friend_dinner","speaker":"luo_cheng","listener":"he_xin","act":"share_experience","content":"罗诚只分享自己最近发现高校学生工作比想象中更依赖流程、记录和持续跟进，因此正在重新判断适配性。","channel":"in_person","evidence":"罗诚主动公开自己的职业认知，不泄露孙洁的私人信息。"},
+    {"event_id":"batch1:e31","kind":"social_interaction","at":"2026-10-24","event_kind":"cross_school_friend_dinner","speaker":"he_xin","listener":"luo_cheng","act":"share_experience","content":"何欣说自己也把‘稳定’拆开了看，职责、城市和退出成本常常比名称更重要；两人没有交换具体申请单位或未公开岗位消息。","channel":"in_person","evidence":"何欣主动公开一般比较框架。"},
+    {"event_id":"batch1:e32","kind":"social_interaction","at":"2026-10-24","event_kind":"cross_school_friend_dinner","speaker":"chen_lan","listener":"zhou_ye","act":"check_in","content":"陈岚问周野最近还在不在为零论文焦虑；周野说焦虑还在，但至少已经有一个别人能复查的技术样本，不再只靠形容词解释自己。","channel":"in_person","evidence":"两人已有稳定工作比较的信息型联系。"}
+  ],
+  "attendance_log": [
+    {"event":"cross_school_friend_dinner","at":"2026-10-24","attended":["lin_jing","chen_lan","zhou_ye","luo_cheng","tang_yu","he_xin","song_nan"],"invited_not_attended":{"gao_yuan":"备考和毕业任务叠加","xu_hang":"已有验证工作安排"}}
+  ],
+  "relationship_evidence": [
+    {"at":"2026-09-17","pair":["zhou_ye","xu_hang"],"direction":"positive","evidence":"六月提出的有限复现审阅实际完成一次，双方都保持技术范围和求职边界。"}
+  ],
+  "social_graph_deltas": [
+    {"at":"2026-10-24","kind":"introduction","a":"luo_cheng","b":"he_xin","introduced_by":"lin_jing","new_tie_kind":"introduced_acquaintance","context":"cross_school_friend_dinner","trust_seed":0.25,"closeness_seed":0.20,"status":"noncanonical_candidate_tie"}
+  ],
+  "hard_world_candidate_updates": [
+    {"candidate_id":"candidate:2026-06-27:xu-review-zhou-repro-pack:01","checked_at":"2026-09-17","checks":{"zhou_repro_pack_exists":true,"no_sensitive_material":true,"xu_hang_time_capacity":true},"result":"activated_once_noncanonical","resource_effect":"one bounded review only"}
+  ],
+  "new_hard_world_candidates": [],
+  "actor_state_evidence": [
+    {"at":"2026-09-05","actor":"chen_lan","dimension":"time_boundary","evidence":"开始明确区分博士收尾与外部项目时间，避免可靠性被等同于无限接活。","status":"candidate_state_evidence"}
+  ],
+  "audit_rules": {"single_batch_noncanonical":true,"no_unearned_knowledge":true,"conversation_does_not_auto_change_relationship":true,"introductions_require_connector_or_open_context":true,"hard_world_candidates_require_feasibility":true,"ordinary_or_failed_outcomes_allowed":true,"bilateral_memory_derivable_from_events":true}
+}
