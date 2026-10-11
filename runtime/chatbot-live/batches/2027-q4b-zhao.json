@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2027-q4b-zhao",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2027-11-28","end":"2027-11-30"},
+  "generation_mode": "chatgpt_product_interaction_chain",
+  "windows": [
+    {"packet_id":"micro:chatbot:2027-11:zhao-chen-project-boundary:01","start_date":"2027-11-30","end_date":"2027-11-30","event_kind":"project_budget_boundary","participants":["zhao_ke","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events": [
+    {"event_id":"2027q4b:e01","kind":"social_interaction","at":"2027-11-30","event_kind":"project_budget_boundary","speaker":"zhao_ke","listener":"chen_lan","act":"share_experience","content":"赵珂说今年几次项目机会在真正落到预算、责任人和交付范围时都比前期设想收缩，他越来越不愿意在需求没成立前先让熟人做大量试工。","channel":"wechat_private","evidence":"延续其项目经理角色和2026年宋楠项目候选因无真实需求关闭的经验。"},
+    {"event_id":"2027q4b:e02","kind":"social_interaction","at":"2027-11-30","event_kind":"project_budget_boundary","speaker":"chen_lan","listener":"zhao_ke","act":"repair","content":"陈岚说自己博士收尾后也更警惕‘先帮一点再说’变成没有边界的长期劳动；如果以后合作，她希望先看到明确范围、负责人和付费或正式资源安排。","channel":"wechat_private","evidence":"陈岚已形成外部项目时间边界，且两人有work-peer联系。"},
+    {"event_id":"2027q4b:e03","kind":"social_interaction","at":"2027-11-30","event_kind":"project_budget_boundary","speaker":"zhao_ke","listener":"chen_lan","act":"make_plan","content":"赵珂决定以后把‘是否值得找外部协作者’放到项目需求、预算和数据权限确认之后，再谈具体人选，减少用关系网络提前透支别人时间。","channel":"wechat_private","evidence":"项目管理流程调整，不生成具体项目或预算事实。"}
+  ],
+  "actor_state_evidence": [
+    {"at":"2027-11-30","actor":"zhao_ke","dimension":"project_management_boundary","evidence":"把外部协作者接入点后移到需求、预算、权限和责任边界基本成立之后，减少关系网络中的无偿试工。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence": [
+    {"at":"2027-11-30","pair":["zhao_ke","chen_lan"],"direction":"positive","evidence":"双方在项目边界上形成更一致的合作预期，但没有具体资源转移或项目承诺。"}
+  ],
+  "audit_rules": {"single_batch_noncanonical":true,"generated_through_interaction_chain":true,"functional_support_nodes_require_own_scene":true,"no_unearned_knowledge":true,"conversation_does_not_auto_change_relationship":true,"bilateral_memory_derivable_from_events":true}
+}
