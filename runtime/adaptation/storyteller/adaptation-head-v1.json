@@ -1,5 +1,5 @@
 {
-  "schema_version": 7,
+  "schema_version": 8,
   "status": "adaptation_storyteller_head_noncanonical",
   "historical_world_writeback": false,
   "history_source": {
@@ -36,7 +36,9 @@
     "probe_audit_05": "runtime/adaptation/storyteller/probe-audit-pass-05-cross-context.json",
     "chapter_cards_v1": "runtime/adaptation/storyteller/novel-chapter-cards-v1.json",
     "chapter_architecture_audit_01": "runtime/adaptation/storyteller/novel-architecture-audit-pass-01.json",
-    "chapter_revision_v2": "runtime/adaptation/storyteller/novel-chapter-revision-v2.json"
+    "chapter_revision_v2": "runtime/adaptation/storyteller/novel-chapter-revision-v2.json",
+    "pilot_audit_v1": "runtime/adaptation/storyteller/pilot-ch03-audit-v1.json",
+    "pilot_v1_v2_audit": "runtime/adaptation/storyteller/pilot-ch03-v1-v2-audit.json"
   },
   "executed_probes": [
     "docs/adaptation/probes/p2-01-ordinary-trip-v1.md",
@@ -54,6 +56,10 @@
     "docs/adaptation/probes/p4-01-ma-song-long-scene-v1.md",
     "docs/adaptation/probes/p4-02-tang-xu-research-intensity-v1.md"
   ],
+  "executed_full_pilots": [
+    "docs/adaptation/pilots/ch03-luo-posting-full-v1.md",
+    "docs/adaptation/pilots/ch03-luo-posting-full-v2.md"
+  ],
   "primary_project": {
     "working_title": "不同的稳定",
     "architecture": "six_core_plus_second_ring_with_nested_substories",
@@ -66,38 +72,19 @@
     "braided_substory_count": 4,
     "audited_guest_count": 3,
     "executed_probe_count": 14,
+    "executed_full_pilot_count": 2,
     "chapter_card_count": 24,
     "chapter_architecture_status": "provisional_v2_overlay",
     "prose_canon_fixed": false,
     "narrative_voice_status": "provisional_canon",
     "narrative_voice_label": "close_external_restrained_realism",
+    "pilot_voice_reference": "docs/adaptation/pilots/ch03-luo-posting-full-v2.md",
     "world_is_not_centered_on_core_six": true
   },
   "narrative_layers": [
     "long_hero_arcs_for_core_characters",
     "multi_scene_substories_inside_each_long_arc",
     "guest_micro_arcs_for_passersby_colleagues_authorities_clients_students_family_and_peers"
-  ],
-  "scene_execution_order": [
-    "historical evidence refs",
-    "relationship history and information rights",
-    "year-specific Personal state if available",
-    "education, resume and professional socialization",
-    "capability matrix and skill-source constraints",
-    "cultural capital and family-origin attenuation",
-    "stable character core",
-    "virtue-shadow contradiction",
-    "power position and institutional incentives",
-    "current emotion hypothesis",
-    "Campbell long-arc and local-substory function",
-    "existing-character function check",
-    "if a real function gap remains: instantiate minimum guest dossier",
-    "reverse guest plausibility audit: time/institution/profession/relationship/information/interest/psychology/era",
-    "guest micro-hero arc",
-    "provisional narrative voice spec",
-    "literary style guardrails",
-    "chapter card or disposable prose draft",
-    "anti-AI audit before any prose canon decision"
   ],
   "nonnegotiable_rules": [
     "No adaptation hypothesis becomes ledger history.",
@@ -121,27 +108,21 @@
     "Ordinary time and non-events remain usable narrative material.",
     "2035 is an observation endpoint, not a life verdict."
   ],
-  "current_stage": "full_disposable_pilot_chapter_selected",
-  "pilot_chapter": {
-    "chapter": 3,
-    "working_title": "招聘启事上的一天",
-    "primary_viewpoint": "luo_cheng",
-    "historical_anchor": ["2027q2:e04", "2027q2:e05", "2027q2:e06", "2027q2:e07"],
-    "status": "ready_to_draft_full_disposable_chapter"
-  },
+  "current_stage": "sequential_full_chapter_drafting_allowed_with_review",
   "gate_status": {
-    "anti_ai_style": "provisional_pass",
+    "anti_ai_style": "provisional_pass_at_chapter_length",
     "narrative_voice": "provisional_canon",
     "chapter_architecture": "provisional_pass_with_v2_overlay",
-    "prose_canon": "blocked"
+    "full_pilot_chapter": "pass_after_subtractive_revision",
+    "prose_canon": "still_not_fixed"
   },
   "next_stage_gate": {
-    "required_before_any_full_prose_canon": [
-      "draft full disposable pilot chapter 3",
-      "audit the full chapter for over-explanation, character flattening, pacing, side-character legibility and Campbell leakage",
-      "revise pilot at least once by subtraction before any canon decision",
-      "do not draft the remaining 23 chapters yet"
+    "required_before_opening_order_lock": [
+      "draft the actual opening candidate chapter as disposable prose",
+      "compare opening energy, character legibility and world-entry burden against the Luo pilot",
+      "revise the opening candidate once by subtraction",
+      "decide whether chapter 1 remains Zhou Ye or whether the novel should enter through a different scene"
     ],
-    "after_gate": "decide whether the narrative voice and chapter density are strong enough to begin sequential chapter drafting"
+    "drafting_rule": "Only one new full chapter at a time may advance to review. Do not batch-generate the remaining chapters."
   }
 }
