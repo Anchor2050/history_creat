@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2031-q3",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2031-07-01","end":"2031-09-30"},
+  "generation_mode": "chatgpt_product_interaction_chain",
+  "era_lens": [
+    "研究项目经过多年负面检查后才第一次进入正式投稿；投稿是新候选，不等于成果兑现。",
+    "住房购买考虑开始扩展到高收入但高迁移价值的角色，财务可行仍可能被长期城市承诺否决。",
+    "职业边界实验只有通过真实工作结果才进入长期状态。"
+  ],
+  "exogenous_hard_world_events": [
+    {"event_id":"2031q3:submission01","at":"2031-09-12","kind":"manuscript_submission_portal_acknowledged","actor":"tang_yu","project":"mechanism_boundary_manuscript","result":"submitted_under_review_no_decision","visibility":"authors_only_then_actor_discretion"},
+    {"event_id":"2031q3:house01","at":"2031-08-03","kind":"home_purchase_feasibility_check","actor":"song_nan","city":"pharma_cluster","engineering_prior":{"reference_rent":4600,"downpayment_target":128800,"minimum_liquid_buffer_floor":26000,"cash_feasibility":"passes_under_current_income_and_no_new_care_cost_assumption","mobility_cost":"high","family_distance":"high"},"result":"financially_possible_actor_commitment_check_required","visibility":"private_to_actor"},
+    {"event_id":"2031q3:review01","at":"2031-09-18","kind":"second_year_role_review","actor":"chen_lan","result":"meets_expectations_time_boundary_sustained_research_freedom_remains_lower","visibility":"private_to_actor"}
+  ],
+  "windows": [
+    {"packet_id":"micro:chatbot:2031-07:lin-service-boundary-result:01","start_date":"2031-07-18","end_date":"2031-07-18","event_kind":"service_boundary_experiment_review","participants":["lin_jing","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-07:tang-xu-final-assembly:01","start_date":"2031-07-27","end_date":"2031-07-27","event_kind":"manuscript_final_assembly","participants":["tang_yu","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-08:song-home-check:01","start_date":"2031-08-06","end_date":"2031-08-06","event_kind":"home_purchase_consideration","participants":["song_nan","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-08:tang-shen-submission-choice:01","start_date":"2031-08-22","end_date":"2031-08-22","event_kind":"submission_target_and_claim_check","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-09:chen-wu-year-two:01","start_date":"2031-09-20","end_date":"2031-09-20","event_kind":"formal_role_year_two_checkin","participants":["chen_lan","wu_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-09:gao-luo-growth-density:01","start_date":"2031-09-10","end_date":"2031-09-10","event_kind":"growth_density_reassessment","participants":["gao_yuan","luo_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-09:zhao-sun-boundary-peer:01","start_date":"2031-09-26","end_date":"2031-09-26","event_kind":"boundary_system_peer_exchange","participants":["zhao_ke","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-08:gu-mentoring-load:01","start_date":"2031-08-29","end_date":"2031-08-29","event_kind":"verification_mentor_personal_scene","participants":["gu_wei"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events": [
+    {"event_id":"2031q3:e01","kind":"social_interaction","at":"2031-07-18","event_kind":"service_boundary_experiment_review","speaker":"lin_jing","listener":"shen_yan","act":"share_experience","content":"林静第二学期减少了两类可替代的额外服务后，每周至少有一块连续研究时间比上学期稳定；代价是她需要更早说明哪些事务自己不接，并承担少量‘不够积极’的主观压力。","channel":"video_call","evidence":"Q2服务边界实验产生可观察结果。"},
+    {"event_id":"2031q3:e02","kind":"social_interaction","at":"2031-07-18","event_kind":"service_boundary_experiment_review","speaker":"shen_yan","listener":"lin_jing","act":"offer_information","content":"沈雁提醒她只要正式职责没有受损，就把这当作工作设计而不是性格评价；真正需要继续观察的是年度评价会不会惩罚这种边界。","channel":"video_call","evidence":"短期实验成功不等于制度长期允许。"},
+
+    {"event_id":"2031q3:e03","kind":"social_interaction","at":"2031-07-27","event_kind":"manuscript_final_assembly","speaker":"tang_yu","listener":"xu_hang","act":"share_experience","content":"完整项目贡献记录已经核对完，许航负责的验证与反例部分保留在主文；全体列名贡献者完成内部确认，长历史账本只记录状态，不复制其他人的身份与顺序。","channel":"in_person","evidence":"作者资格由完整项目记录确认，避免在长历史层虚构未建模人物。"},
+    {"event_id":"2031q3:e04","kind":"social_interaction","at":"2031-07-27","event_kind":"manuscript_final_assembly","speaker":"xu_hang","listener":"tang_yu","act":"make_plan","content":"许航完成验证段落最终版本和可复查材料，确认自己愿意对这部分的设计、限制和结论负责；两人同意投稿后即使审稿要求删减，也继续按实际最终贡献重新核对署名。","channel":"in_person","evidence":"作者责任在投稿前完成。"},
+
+    {"event_id":"2031q3:e05","kind":"social_interaction","at":"2031-08-06","event_kind":"home_purchase_consideration","speaker":"song_nan","listener":"chen_lan","act":"share_experience","content":"宋楠的收入和几年积累让她在工程先验下已经能承担医药产业城市的首付和最低缓冲，但一旦买房，未来跨城选择和回家距离问题都会被放大。","channel":"video_call","evidence":"2031财务检查通过但迁移成本高。"},
+    {"event_id":"2031q3:e06","kind":"social_interaction","at":"2031-08-06","event_kind":"home_purchase_consideration","speaker":"chen_lan","listener":"song_nan","act":"offer_information","content":"陈岚问她现在是否愿意把‘我暂时愿意留’升级成‘我愿意为这座城市承担长期退出成本’；宋楠说还没有，她现在更想保留便携案例真正带来的可逆性。","channel":"video_call","evidence":"当前留任与长期城市承诺被分开。"},
+    {"event_id":"2031q3:e07","kind":"social_interaction","at":"2031-08-06","event_kind":"home_purchase_consideration","speaker":"song_nan","listener":"chen_lan","act":"make_plan","content":"宋楠决定2031不购房，继续租住，把现金缓冲和职业迁移能力保留下来；下一次只在长期城市承诺更清楚时重新评估。","channel":"video_call","evidence":"财务可行但城市承诺不通过。"},
+
+    {"event_id":"2031q3:e08","kind":"social_interaction","at":"2031-08-22","event_kind":"submission_target_and_claim_check","speaker":"tang_yu","listener":"shen_yan","act":"share_experience","content":"唐雨把候选投稿目标、摘要和主结论逐条对齐，最终版本只声称边界条件下的最小机制结果与失效反例，不再暗示更一般的结论。","channel":"in_person","evidence":"正式投稿目标由当前结果规模与叙事匹配，不预写期刊结果。"},
+    {"event_id":"2031q3:e09","kind":"social_interaction","at":"2031-08-22","event_kind":"submission_target_and_claim_check","speaker":"shen_yan","listener":"tang_yu","act":"offer_information","content":"沈雁确认完整作者批准和文件核对都已具备，允许进入正式投稿；他提醒投稿本身只结束内部准备阶段，外部评价可能再次否定当前叙事。","channel":"in_person","evidence":"投稿权限来自完整内部检查。"},
+    {"event_id":"2031q3:e10","kind":"social_interaction","at":"2031-09-12","event_kind":"submission_target_and_claim_check","speaker":"tang_yu","listener":"xu_hang","act":"check_in","content":"投稿系统确认收稿后，唐雨只告诉许航状态已经变成under review；两人没有把提交动作当成研究结果已经被认可。","channel":"wechat_private","evidence":"投稿事实由portal acknowledgment生成。"},
+
+    {"event_id":"2031q3:e11","kind":"social_interaction","at":"2031-09-20","event_kind":"formal_role_year_two_checkin","speaker":"chen_lan","listener":"wu_cheng","act":"share_experience","content":"陈岚第二年评估仍显示岗位时间结构可持续，她也越来越能影响数据流程设计；但研究自由度没有回升，她已经不再把它当成暂时现象，而是这份工作的稳定交换条件。","channel":"in_person","evidence":"两年工作证据支持结构性身份交换。"},
+    {"event_id":"2031q3:e12","kind":"social_interaction","at":"2031-09-20","event_kind":"formal_role_year_two_checkin","speaker":"wu_cheng","listener":"chen_lan","act":"repair","content":"吴澄说真正需要防的是以后把这份交换包装成‘我本来就不想研究’；陈岚决定继续承认自己既获得了边界，也失去了一部分自由。","channel":"in_person","evidence":"防止事后单向合理化。"},
+
+    {"event_id":"2031q3:e13","kind":"social_interaction","at":"2031-09-10","event_kind":"growth_density_reassessment","speaker":"gao_yuan","listener":"luo_cheng","act":"share_experience","content":"高原尝试在现岗位内部寻找更复杂的专项工作，但短期没有出现明显扩展职责的机会；他仍不准备马上离开，只把2032职业再评价的优先级提高。","channel":"phone","evidence":"Q1成长密度候选未找到足够内部增量。"},
+    {"event_id":"2031q3:e14","kind":"social_interaction","at":"2031-09-10","event_kind":"growth_density_reassessment","speaker":"luo_cheng","listener":"gao_yuan","act":"share_experience","content":"罗诚说自己这边内容适配在提高，但平台上限仍在；两人约定2032各自重新算一次‘留下来的收益’和‘重新进入市场的成本’，不共享具体未公开岗位。","channel":"phone","evidence":"形成2032再评价候选。"},
+
+    {"event_id":"2031q3:e15","kind":"social_interaction","at":"2031-09-26","event_kind":"boundary_system_peer_exchange","speaker":"zhao_ke","listener":"sun_jie","act":"share_experience","content":"赵珂说项目入口规则制度化后，团队救火减少，但真正紧急的例外更需要有人承担判断责任；孙洁说队列规则也有同样问题，规则减少常态插队，却让例外判断更显眼。","channel":"in_person","evidence":"两条独立边界线形成同行横向比较。"},
+    {"event_id":"2031q3:e16","kind":"social_interaction","at":"2031-09-26","event_kind":"boundary_system_peer_exchange","speaker":"sun_jie","listener":"zhao_ke","act":"offer_information","content":"两人都认为下一步不是把规则做得更硬，而是把什么算例外、谁有权确认例外写得更清楚；没有形成共同项目。","channel":"in_person","evidence":"横向经验交换不生成资源。"},
+
+    {"event_id":"2031q3:e17","kind":"actor_state_interaction","at":"2031-08-29","event_kind":"verification_mentor_personal_scene","speaker":"gu_wei","listener":"self_record","act":"share_experience","content":"顾维发现自己近几年越来越常被年轻人拿‘验证规范’来问是否合格，他开始担心大家把检查表当成替代判断的答案；他准备以后要求提问者同时说明为什么这个问题值得这些检查。","channel":"private_record","evidence":"验证方法制度化后出现导师层面的过度程序化担忧。"}
+  ],
+  "hard_world_candidate_updates": [
+    {"candidate_id":"candidate:2031-q2:lin-service-boundary-experiment:01","checked_at":"2031-07-18","checks":{"optional_service_declined_without_formal_penalty":true,"research_block_tracking":true,"continuous_research_time_improved":true,"annual_evaluation_effect":"unknown_until_year_end"},"result":"partially_activated_noncanonical","resource_effect":"one stable weekly research block gained; long-term institutional effect still open"},
+    {"candidate_id":"candidate:2031-q2:tang-final-submission-assembly:01","checked_at":"2031-09-12","checks":{"full_author_list_confirmed":true,"author_order_confirmed":true,"all_authors_approve":true,"files_final":true,"submission_target_selected":true},"result":"manuscript_submitted_under_review_noncanonical","resource_effect":"submission only; no acceptance or publication fact"},
+    {"candidate_id":"candidate:2031-08:song-home-purchase:01","checked_at":"2031-08-06","checks":{"engineering_cash_feasibility":true,"minimum_buffer_after_downpayment":true,"long_term_city_commitment":false,"mobility_value_high":true,"family_distance_cost_high":true},"result":"deferred_by_actor_after_feasibility_noncanonical","resource_effect":"none; continues renting and preserves mobility"},
+    {"candidate_id":"candidate:2031-q1:gao-growth-density-review:01","checked_at":"2031-09-10","checks":{"internal_growth_opportunity":false,"time_capacity":true,"external_search_opened":false},"result":"internal_growth_not_found_reassessment_deferred_to_2032_noncanonical","resource_effect":"none"}
+  ],
+  "new_hard_world_candidates": [
+    {"candidate_id":"candidate:2031-08:song-home-purchase:01","created_at":"2031-08-03","type":"home_purchase_consideration","beneficiary":"song_nan","description":"高收入下购房工程上可行，但只有长期城市承诺、家庭距离和迁移价值均能接受时才购买。","requires_checks":["engineering_cash_feasibility","minimum_buffer_after_downpayment","long_term_city_commitment","mobility_value","family_distance_cost"],"status":"resolved_deferred_noncanonical"},
+    {"candidate_id":"candidate:2031-09:gao-luo-2032-reassessment:01","created_at":"2031-09-10","type":"career_reassessment_checkpoint","beneficiary":"gao_yuan_and_luo_cheng","description":"2032分别重新核算当前岗位收益、平台/成长成本和重新进入市场的成本；不共享未公开申请信息。","requires_checks":["individual_role_review","market_reentry_cost","city_lock_in","time_capacity"],"status":"open_noncanonical"}
+  ],
+  "actor_state_evidence": [
+    {"at":"2031-07-18","actor":"lin_jing","dimension":"work_boundary","evidence":"减少部分可替代服务后连续研究时间改善，但年度评价是否容纳该边界仍未知。","status":"candidate_state_evidence"},
+    {"at":"2031-09-12","actor":"tang_yu","dimension":"manuscript_status","evidence":"机制边界稿在多年反例、收缩、贡献与作者确认后首次正式投稿；当前仅为under review。","status":"candidate_state_evidence"},
+    {"at":"2031-09-12","actor":"xu_hang","dimension":"research_contribution","evidence":"作为已满足贡献条件的共同作者参与投稿并承担验证部分责任；最终审稿变化仍可能改变贡献边界。","status":"candidate_state_evidence"},
+    {"at":"2031-08-06","actor":"song_nan","dimension":"housing_lock_in","evidence":"购房财务可行但本人因城市承诺不足、家庭距离和迁移价值主动延后。","status":"candidate_state_evidence"},
+    {"at":"2031-09-10","actor":"gao_yuan","dimension":"career_reassessment","evidence":"内部成长机会短期没有增加，决定把外部再评价推到2032而非立刻离职。","status":"candidate_state_evidence"},
+    {"at":"2031-09-20","actor":"chen_lan","dimension":"professional_identity","evidence":"两年正式岗位确认时间边界可持续、组织判断权增加，同时较低研究自由度已成为结构性交换。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence": [
+    {"at":"2031-07-27","pair":["tang_yu","xu_hang"],"direction":"positive","evidence":"投稿前责任和写作实际完成，技术合作已经形成持续的学术贡献关系。"},
+    {"at":"2031-09-26","pair":["zhao_ke","sun_jie"],"direction":"positive","evidence":"两人第二次以同行身份比较边界制度化的例外成本，关系仍停留在专业同伴。"}
+  ],
+  "storyteller_index_delta": {
+    "new_material_threads": [
+      "Tang/Xu manuscript finally enters external review after a five-year negative-check chain",
+      "Song financially can buy but explicitly chooses portability over city lock-in",
+      "Lin service-boundary experiment produces measurable time gain with evaluation risk still open",
+      "Gao internal growth search fails quietly and pushes reassessment to 2032",
+      "Chen treats lost research freedom as a real exchange rather than rewriting past preference"
+    ],
+    "world_writeback": false
+  },
+  "audit_rules": {
+    "single_batch_noncanonical": true,
+    "generated_through_interaction_chain": true,
+    "submission_is_not_acceptance": true,
+    "financially_feasible_home_purchase_can_be_deferred": true,
+    "career_reassessment_can_be_deferred_without_denial": true,
+    "method_rules_cannot_replace_judgment": true,
+    "storyteller_is_read_only": true,
+    "bilateral_memory_derivable_from_events": true
+  }
+}
