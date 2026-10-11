@@ -1,0 +1,17 @@
+{
+  "schema_version":11,
+  "period":"2032-q4",
+  "status":"behavior_audit_noncanonical",
+  "backend":"chatgpt_product_conversation",
+  "source_batch":"runtime/chatbot-live/batches/2032-q4.json",
+  "abnormal_budget":1,
+  "abnormal_used":0,
+  "decisions":[
+    {"actor_id":"luo_cheng","mode":"normal","chosen_action_id":"retain_current_role_after_no_offer_and_keep_double_threshold","baseline_expected_action":"Use selective market tests without broadening search after one rejection.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Interview yields useful role information but no offer; current content fit remains real and no new threshold-crossing option exists.","constraint_check":{"feasible":true,"notes":"Current employment continues; future search threshold remains intact."},"evidence_refs":["2032q4:process01","2032q4:e01","2032q4:e02","2032q4:e16"]},
+    {"actor_id":"song_nan","mode":"normal","chosen_action_id":"accept_provincial_capital_offer_after_current-role_comparison","baseline_expected_action":"Move only when a new role preserves core judgment and materially improves the current bundle after marginal learning has slowed.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"The offer lowers salary/opportunity density but reduces housing and family distance while preserving requirement and exception judgment.","constraint_check":{"feasible":true,"notes":"Role scope, relocation and bundle checks pass."},"evidence_refs":["2032q4:offer01","2032q4:e03","2032q4:e04","2032q4:e05","2032q4:e06","2032q4:e07"]},
+    {"actor_id":"tang_yu","mode":"normal","chosen_action_id":"accept_editorial_closure_without_restoring_old_story","baseline_expected_action":"Treat external acceptance as closure of the narrowed project, not proof that the original broad ambition was right.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Final accepted manuscript retains the small mechanism-boundary claim produced by years of negative checks.","constraint_check":{"feasible":true,"notes":"Editorial process is closed; career consequences are not inferred."},"evidence_refs":["2032q4:editorial01","2032q4:e08","2032q4:e09"]},
+    {"actor_id":"lin_jing","mode":"normal","chosen_action_id":"continue_role_and_monitor_output_pressure","baseline_expected_action":"Keep viable service boundaries while testing whether evaluation pressure distorts research choice.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Second-year review is satisfactory, but autonomy risk has shifted to preference for short measurable projects.","constraint_check":{"feasible":true,"notes":"No exit trigger or competing process exists."},"evidence_refs":["2032q4:review01","2032q4:e10","2032q4:e11"]},
+    {"actor_id":"gao_yuan","mode":"normal","chosen_action_id":"close_reassessment_and_continue_role_with_annual_market_refresh","baseline_expected_action":"Stay when no alternative clears the growth-versus-bundle threshold, while refusing to call current role permanently optimal.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"A full public-market reassessment finds no threshold-crossing alternative.","constraint_check":{"feasible":true,"notes":"Annual market refresh can continue without role exit."},"evidence_refs":["2032q4:review02","2032q4:e12","2032q4:e13"]}
+  ],
+  "audit_rule":"Q4 choices remain normal. Acceptance, rejection and continued staying are all produced by prior thresholds and observed bundles, not dramatic deviation."
+}
