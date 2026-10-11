@@ -10,14 +10,15 @@
     "runtime": "narrative/longform/storybox_noapi_runtime_v8.py",
     "chat_driver": "narrative/longform/storybox_chatbot_driver_v9.py"
   },
-  "cursor": 5,
-  "world_time": "2026-05-12",
+  "cursor": 6,
+  "world_time": "2026-05-26",
   "processed_windows": [
     {"packet_id":"micro:chatbot:2026-03:u_c_cohort_dinner:01","start_date":"2026-03-08","event_kind":"classmate_meal","participants":["zhou_ye","gao_yuan","luo_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
     {"packet_id":"micro:chatbot:2026-03:u_d_cohort_dinner:01","start_date":"2026-03-22","event_kind":"classmate_meal","participants":["tang_yu","he_xin","song_nan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
     {"packet_id":"micro:chatbot:2026-04:song-chen-industry-translation:01","start_date":"2026-04-12","event_kind":"career_translation_chat","participants":["song_nan","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
     {"packet_id":"micro:chatbot:2026-04:gao-lin-public-sector-prep:01","start_date":"2026-04-20","event_kind":"public_sector_preparation_chat","participants":["gao_yuan","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
-    {"packet_id":"micro:chatbot:2026-05:tang-shen-methods:01","start_date":"2026-05-10","event_kind":"methods_seminar_followup","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+    {"packet_id":"micro:chatbot:2026-05:tang-shen-methods:01","start_date":"2026-05-10","event_kind":"methods_seminar_followup","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2026-05:luo-sun-student-affairs:01","start_date":"2026-05-24","event_kind":"student_affairs_information_chat","participants":["luo_cheng","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
   ],
   "event_history": [
     {"event_id":"local:7ac6952971b1","kind":"social_interaction","at":"2026-03-08","event_kind":"classmate_meal","speaker":"luo_cheng","listener":"zhou_ye","act":"ask_advice","content":"罗诚说自己正琢磨怎样把博士训练写进高校辅导员申请里；如果不把论文数量当主叙事，他想知道同学会怎样描述博士期间能证明可靠性、沟通和长期执行的经历。","channel":"in_person","evidence":"罗诚的2026目标是高校辅导员，且公开论文为0；周野是熟悉的同班同学。"},
@@ -35,13 +36,18 @@
     {"event_id":"local:9e24d10a4b7c","kind":"social_interaction","at":"2026-04-21","event_kind":"public_sector_preparation_chat","speaker":"lin_jing","listener":"gao_yuan","act":"offer_help","content":"林静提议，如果两个人之后都还有时间，可以互相做一次二十分钟的模拟回答：只练经历表达和追问，不交换各自尚未公开的申请信息。她把这个提议说成可有可无，没有要求马上定时间。","channel":"wechat_private","evidence":"帮助范围被限制在通用面试表达练习，并明确保留个人申请边界。"},
     {"event_id":"local:1c77e0a49d2b","kind":"social_interaction","at":"2026-05-10","event_kind":"methods_seminar_followup","speaker":"tang_yu","listener":"shen_yan","act":"ask_advice","content":"方法讨论结束后，唐雨问沈雁：如果她以后想把生存分析做成一条自己的研究线，现阶段应该怎样判断一个题目只是‘换个数据再做一次’，还是已经有能往下长的独立问题。","channel":"in_person","evidence":"唐雨的高校目标和对研究线独立延展性的焦虑已经在前一场同班饭局中出现；沈雁与她存在方法讨论联系。"},
     {"event_id":"local:fe8c215aa107","kind":"social_interaction","at":"2026-05-10","event_kind":"methods_seminar_followup","speaker":"shen_yan","listener":"tang_yu","act":"offer_information","content":"沈雁没有替她指定题目，只建议她把正在想的问题拆成三层：数据结构本身带来的困难、现有方法真正失效的地方、以及如果这个困难被解决后还能不能生成第二个自然问题。她提醒唐雨，能连续提出后续问题比把一个方法包装得更复杂更能说明研究线在形成。","channel":"in_person","evidence":"沈雁只提供方法论反馈，没有替唐雨生成未获得的论文结果、署名或岗位资源。"},
-    {"event_id":"local:6b2a9130d4ce","kind":"social_interaction","at":"2026-05-10","event_kind":"methods_seminar_followup","speaker":"shen_yan","listener":"tang_yu","act":"offer_help","content":"沈雁说，如果唐雨愿意先自己写一页‘问题树’，把主问题、失败点和两个可能的后续问题列出来，后面有合适的讨论空档时可以再看一次；她没有承诺固定指导名额，也没有把这个讨论和岗位、作者排序绑定。","channel":"in_person","evidence":"这是一个受指导时间约束的反馈候选，且明确不自动产生署名或职位收益。"}
+    {"event_id":"local:6b2a9130d4ce","kind":"social_interaction","at":"2026-05-10","event_kind":"methods_seminar_followup","speaker":"shen_yan","listener":"tang_yu","act":"offer_help","content":"沈雁说，如果唐雨愿意先自己写一页‘问题树’，把主问题、失败点和两个可能的后续问题列出来，后面有合适的讨论空档时可以再看一次；她没有承诺固定指导名额，也没有把这个讨论和岗位、作者排序绑定。","channel":"in_person","evidence":"这是一个受指导时间约束的反馈候选，且明确不自动产生署名或职位收益。"},
+    {"event_id":"local:91fb48b28a31","kind":"social_interaction","at":"2026-05-24","event_kind":"student_affairs_information_chat","speaker":"luo_cheng","listener":"sun_jie","act":"ask_advice","content":"罗诚问孙洁，学生事务岗位真正费精力的地方是什么；他担心自己如果只把博士经历写成‘严谨、能执行、会沟通’，还是太像一套泛化的求职话术，想知道这些能力放到日常工作里究竟意味着什么。","channel":"in_person","evidence":"罗诚此前已经尝试用严谨、执行和复盘重写零论文背景下的职业叙事；孙洁被授权解释真实学生事务工作和程序边界。"},
+    {"event_id":"local:4c5db6c18e74","kind":"social_interaction","at":"2026-05-24","event_kind":"student_affairs_information_chat","speaker":"sun_jie","listener":"luo_cheng","act":"offer_information","content":"孙洁说，很多时候真正消耗人的不是某一件特别难的事，而是同一条规则要解释很多遍、材料要一项项核、截止时间和队列不能丢、临时情况来了还要记得前面的事继续收尾。所谓可靠，在这类工作里常常表现为别人不用反复追你、事情有记录、该回的时候能回、边界说清楚以后还能把后续跟完。","channel":"in_person","evidence":"内容只来自孙洁获授权的研究生事务经验，没有涉及内部招聘信息或具体岗位名额。"},
+    {"event_id":"local:68cf130d7a92","kind":"social_interaction","at":"2026-05-24","event_kind":"student_affairs_information_chat","speaker":"sun_jie","listener":"luo_cheng","act":"set_boundary","content":"孙洁也提醒罗诚，她能讲的是工作方式和公开流程的一般边界；具体学校招什么人、怎么评价、谁能进，她既不能替招聘部门判断，也不会把自己说成一个推荐入口。","channel":"in_person","evidence":"孙洁明确维持程序和权限边界，没有虚构推荐权、内部评价或录用影响力。"},
+    {"event_id":"local:0de932a7f0c5","kind":"social_interaction","at":"2026-05-25","event_kind":"student_affairs_information_chat","speaker":"luo_cheng","listener":"sun_jie","act":"make_plan","content":"罗诚决定先把自己的经历重新翻一遍，只保留真的发生过、能说明‘和人打交道、按流程推进、持续跟进、留下记录’的例子；如果这些例子很少，他也不准备硬编学生工作经历，而是把这当成判断自己是否真的适合这条路的一部分。","channel":"in_person","evidence":"这是罗诚基于已有经历做自我盘点的计划，不需要孙洁额外资源，也不产生招聘事实。"}
   ],
   "memory_delta": {
     "zhou_ye":[{"at":"2026-03-08","with":"luo_cheng","act":"ask_advice","content":"罗诚询问如何把零论文背景下的博士训练转成辅导员申请中的可靠性、沟通和长期执行叙事。","heard_as_listener":true},{"at":"2026-03-08","with":"luo_cheng","act":"share_experience","content":"自己也面对零论文起点，更想强调研究严谨、持续执行和复盘能力。"},{"at":"2026-03-08","with":"gao_yuan","act":"set_boundary","content":"高原目前优先毕业和公务员备考，不想同时铺开太多求职路线。","heard_as_listener":true}],
     "gao_yuan":[{"at":"2026-03-08","with":"zhou_ye","act":"set_boundary","content":"自己当前优先毕业与公务员备考，暂时不铺开太多求职路线。"},{"at":"2026-04-20","with":"lin_jing","act":"ask_advice","content":"向林静询问如何在博士毕业与公务员准备之间管理信息和时间。"},{"at":"2026-04-20","with":"lin_jing","act":"offer_information","content":"林静建议把可控制的准备与不可控制的岗位消息分开，固定做可复用材料和表达练习。","heard_as_listener":true},{"at":"2026-04-21","with":"lin_jing","act":"offer_help","content":"林静提出以后若双方有时间，可做一次只练经历表达和追问的短模拟，并保留个人申请边界。","heard_as_listener":true}],
     "lin_jing":[{"at":"2026-04-20","with":"gao_yuan","act":"ask_advice","content":"高原询问如何避免公务员信息搜集打碎论文与准备时间。","heard_as_listener":true},{"at":"2026-04-20","with":"gao_yuan","act":"offer_information","content":"自己建议把可控制准备和不可控制岗位消息分开，固定做可复用材料与面试表达。"},{"at":"2026-04-21","with":"gao_yuan","act":"offer_help","content":"自己提出若双方有时间，可做一次二十分钟通用模拟回答，同时保留个人申请边界。"}],
-    "luo_cheng":[{"at":"2026-03-08","with":"zhou_ye","act":"ask_advice","content":"主动询问如何将博士经历转成辅导员申请中的职业叙事。"},{"at":"2026-03-08","with":"zhou_ye","act":"share_experience","content":"周野也面对零论文起点，倾向突出严谨、执行和复盘能力。","heard_as_listener":true}],
+    "luo_cheng":[{"at":"2026-03-08","with":"zhou_ye","act":"ask_advice","content":"主动询问如何将博士经历转成辅导员申请中的职业叙事。"},{"at":"2026-03-08","with":"zhou_ye","act":"share_experience","content":"周野也面对零论文起点，倾向突出严谨、执行和复盘能力。","heard_as_listener":true},{"at":"2026-05-24","with":"sun_jie","act":"ask_advice","content":"向孙洁询问学生事务工作里可靠、沟通和执行在日常中究竟意味着什么。"},{"at":"2026-05-24","with":"sun_jie","act":"offer_information","content":"孙洁说明学生事务常由重复解释、材料核验、截止时间、队列、突发事务和持续收尾组成；可靠更多体现为记录、回复、跟进和边界。","heard_as_listener":true},{"at":"2026-05-24","with":"sun_jie","act":"set_boundary","content":"孙洁明确只能讲工作方式和公开流程，不能替招聘部门判断或充当推荐入口。","heard_as_listener":true},{"at":"2026-05-25","with":"sun_jie","act":"make_plan","content":"自己准备只从真实经历中盘点和人、流程、持续跟进、记录有关的例子；如果例子很少，也将其视为职业适配信号。"}],
+    "sun_jie":[{"at":"2026-05-24","with":"luo_cheng","act":"ask_advice","content":"罗诚询问如何把博士阶段的执行与沟通能力对应到真实学生事务工作。","heard_as_listener":true},{"at":"2026-05-24","with":"luo_cheng","act":"offer_information","content":"自己解释学生事务中的重复解释、材料核验、队列、截止时间、突发事务和收尾，并把可靠性具体化为记录、回复与跟进。"},{"at":"2026-05-24","with":"luo_cheng","act":"set_boundary","content":"自己明确不替招聘部门判断，也不充当岗位推荐入口。"},{"at":"2026-05-25","with":"luo_cheng","act":"make_plan","content":"罗诚将从真实经历中盘点人际、流程、持续跟进和记录证据，不硬编学生工作经历。","heard_as_listener":true}],
     "tang_yu":[{"at":"2026-03-22","with":"song_nan","act":"share_experience","content":"宋楠对如何把生存分析训练转成药物研发问题能力仍没把握。","heard_as_listener":true},{"at":"2026-03-22","with":"song_nan","act":"share_experience","content":"自己更担心高校求职时能否讲清研究线的独立延展性。"},{"at":"2026-03-23","with":"he_xin","act":"set_boundary","content":"何欣暂时只比较公务员和事业单位，不想同时铺开高校和企业路线。","heard_as_listener":true},{"at":"2026-05-10","with":"shen_yan","act":"ask_advice","content":"询问怎样判断一个研究题只是重复应用，还是能长成独立研究线。"},{"at":"2026-05-10","with":"shen_yan","act":"offer_information","content":"沈雁建议从数据结构困难、现有方法失效点和能否自然生成后续问题三层判断研究线。","heard_as_listener":true},{"at":"2026-05-10","with":"shen_yan","act":"offer_help","content":"沈雁提出若自己先写一页问题树，未来有讨论空档时可以再看一次；没有固定名额、署名或岗位承诺。","heard_as_listener":true}],
     "shen_yan":[{"at":"2026-05-10","with":"tang_yu","act":"ask_advice","content":"唐雨询问怎样判断研究题是否具有独立延展性。","heard_as_listener":true},{"at":"2026-05-10","with":"tang_yu","act":"offer_information","content":"自己建议用数据结构困难、方法失效点和自然后续问题来检查研究线。"},{"at":"2026-05-10","with":"tang_yu","act":"offer_help","content":"自己提出如果唐雨先写问题树，之后有讨论空档时可再看一次；不承诺固定指导资源。"}],
     "he_xin":[{"at":"2026-03-23","with":"tang_yu","act":"set_boundary","content":"自己当前只比较公务员和事业单位的稳定性，先处理毕业与岗位信息。"}],
@@ -52,7 +58,8 @@
   "relationship_evidence": [
     {"at":"2026-04-13","pair":["song_nan","chen_lan"],"direction":"positive","evidence":"陈岚在权限边界内给出具体方法建议，并提出一次有限度审阅帮助；仅作为关系证据，不自动调整trust/closeness。"},
     {"at":"2026-04-21","pair":["gao_yuan","lin_jing"],"direction":"positive","evidence":"双方把互助范围限定在通用表达练习，同时保留个人申请边界；仅作为可持续互惠证据，不自动调整关系分数。"},
-    {"at":"2026-05-10","pair":["tang_yu","shen_yan"],"direction":"positive","evidence":"沈雁给出具体研究线判断框架，并提出受时间约束的后续反馈可能；仅作为方法信任证据，不自动调整关系分数。"}
+    {"at":"2026-05-10","pair":["tang_yu","shen_yan"],"direction":"positive","evidence":"沈雁给出具体研究线判断框架，并提出受时间约束的后续反馈可能；仅作为方法信任证据，不自动调整关系分数。"},
+    {"at":"2026-05-24","pair":["luo_cheng","sun_jie"],"direction":"positive","evidence":"孙洁给出具体工作现实并清楚说明权限边界，罗诚接受现实修正并不要求越界帮助；仅作为职业信息信任证据，不自动调整关系分数。"}
   ],
   "hard_world_candidates": [
     {"candidate_id":"candidate:2026-04-13:chen-review-song-note:01","created_at":"2026-04-13","type":"bounded_review_help","proposer":"chen_lan","beneficiary":"song_nan","description":"陈岚若下周有可用时间，审阅宋楠的一页‘问题—数据—决策—约束—交付’职业转译稿一次。","requires_checks":["chen_lan_time_capacity","no_confidential_material","song_nan_draft_exists"],"explicitly_not_included":["job_referral","company_introduction","client_access","recruitment_authority"],"status":"pending_feasibility_noncanonical"},
@@ -64,24 +71,25 @@
     {"kind":"chatgpt_product_replay_committed","packet_id":"micro:chatbot:2026-03:u_d_cohort_dinner:01","accepted":true,"event_count":3,"relationship_scores_changed":false,"note":"三名同班博士只交换各自求职焦虑与边界；没有介绍、帮助承诺、资源转移或关系分数变化。"},
     {"kind":"chatgpt_product_replay_committed","packet_id":"micro:chatbot:2026-04:song-chen-industry-translation:01","accepted":true,"event_count":4,"relationship_scores_changed":false,"hard_world_candidate_count":1,"note":"形成有边界的一页职业转译稿审阅候选；无内推、岗位或客户资源事实。"},
     {"kind":"chatgpt_product_replay_committed","packet_id":"micro:chatbot:2026-04:gao-lin-public-sector-prep:01","accepted":true,"event_count":3,"relationship_scores_changed":false,"hard_world_candidate_count":1,"note":"交流通用准备方法，并形成短模拟面试候选；保留个人申请信息边界。"},
-    {"kind":"chatgpt_product_replay_committed","packet_id":"micro:chatbot:2026-05:tang-shen-methods:01","accepted":true,"event_count":3,"relationship_scores_changed":false,"hard_world_candidate_count":1,"note":"唐雨获得研究线判断框架，并形成受指导时间约束的问题树反馈候选；无署名或岗位承诺。"}
+    {"kind":"chatgpt_product_replay_committed","packet_id":"micro:chatbot:2026-05:tang-shen-methods:01","accepted":true,"event_count":3,"relationship_scores_changed":false,"hard_world_candidate_count":1,"note":"唐雨获得研究线判断框架，并形成受指导时间约束的问题树反馈候选；无署名或岗位承诺。"},
+    {"kind":"chatgpt_product_replay_committed","packet_id":"micro:chatbot:2026-05:luo-sun-student-affairs:01","accepted":true,"event_count":4,"relationship_scores_changed":false,"hard_world_candidate_count":0,"note":"罗诚获得学生事务工作的现实校准，并把职业叙事从泛化能力词转成真实经历盘点；孙洁维持招聘权限边界。"}
   ],
   "pending_task": {
-    "task_id":"career-six-chatbot-live-v1:6",
+    "task_id":"career-six-chatbot-live-v1:7",
     "stage":"micro-replay",
-    "packet_id":"micro:chatbot:2026-05:luo-sun-student-affairs:01",
-    "start_date":"2026-05-24",
-    "end_date":"2026-05-25",
-    "event_kind":"student_affairs_information_chat",
-    "mode":"in_person",
-    "location":"campus_cafe",
-    "participants":["luo_cheng","sun_jie"],
-    "known_relationships":[{"a":"luo_cheng","b":"sun_jie","kind":"information_peer","context":"student_affairs_job_information","trust":0.46,"authorization":"career-six scenario states this link begins in 2026-03 and may help Luo understand real counselor work and recruitment process; Sun Jie cannot guarantee hiring or bypass procedure"}],
-    "actors":{"luo_cheng":{"name":"罗诚","age":30,"role":"doctoral_student","doctoral_year":6,"field":"mathematics_probability","published_papers":0,"career_target_2026":"university_counselor","cash":18000,"weekly_discretionary_work_hours":40,"goals":["完成博士毕业手续","争取高校辅导员或相近学生工作岗位","建立不依赖论文数量的职业叙事"]},"sun_jie":{"name":"孙洁","age":35,"role":"graduate_coordinator","authorized_known_fact":"可解释研究生事务中的程序、材料核验、队列与学生工作现实，也可说明公开招聘流程的一般边界；不得保证岗位、越过招聘程序或虚构辅导员职位资源"}},
-    "retrieved_memory":{"luo_cheng":[{"at":"2026-03-08","content":"自己主动询问如何把博士经历转成辅导员申请中的职业叙事。"},{"at":"2026-03-08","content":"周野也面对零论文起点，倾向突出严谨、执行和复盘能力。"}],"sun_jie":[]},
+    "packet_id":"micro:chatbot:2026-06:song-zhao-project-channel:01",
+    "start_date":"2026-06-12",
+    "end_date":"2026-06-14",
+    "event_kind":"health_data_project_channel_chat",
+    "mode":"wechat_private",
+    "location":null,
+    "participants":["song_nan","zhao_ke"],
+    "known_relationships":[{"a":"song_nan","b":"zhao_ke","kind":"work_peer","context":"health_data_project_channel","trust":0.51,"authorization":"career-six scenario states this project-channel link begins in 2026-06; possible paid health-data project or industry recommendation remains subject to budget, delivery need, permissions and conflict checks"}],
+    "actors":{"song_nan":{"name":"宋楠","age":28,"role":"doctoral_student","doctoral_year":4,"field":"survival_analysis","published_papers":null,"career_target_2026":"pharmaceutical_industry","cash":25000,"weekly_discretionary_work_hours":45,"goals":["把生存分析训练转化为真实药物研发问题能力","进入医药企业统计或数据科学岗位","保留研究与行业之间的回流可能"]},"zhao_ke":{"name":"赵珂","age":36,"role":"project_manager","authorized_known_fact":"可从交付、预算、时间和可靠协作角度讨论健康数据项目，也可能在真实需求存在时提出有偿项目候选；不得虚构客户、预算、数据权限、招聘岗位或直接录用资源"}},
+    "retrieved_memory":{"song_nan":[{"at":"2026-04-12","content":"陈岚建议先写清谁在何时做什么决定、有什么数据、最怕什么错误、需要什么交付，再解释方法。"},{"at":"2026-04-13","content":"自己计划从真实做过的研究问题出发写一页‘问题—数据—决策—约束—交付’说明，不虚构行业项目背景。"}],"zhao_ke":[]},
     "allowed_acts":["check_in","share_experience","ask_advice","offer_information","offer_introduction","offer_help","decline","set_boundary","make_plan","small_talk","disagree","repair"],
-    "instruction":"由当前 ChatGPT 对话直接充当 cognition backend。重点让罗诚理解高校学生工作的日常和程序现实，而不是把孙洁当成招聘入口。孙洁可以基于自己的研究生事务经验讲清工作中反复沟通、材料、队列、突发事务和边界；不得虚构具体招聘名额、内部评价、推荐权或录用承诺。罗诚可以据此调整自己的职业叙事或产生进一步了解岗位的计划，但任何材料审阅、岗位介绍或招聘帮助都只形成候选并另做权限/时间可行性检查。",
-    "expected_output":{"interactions":"0到5条语义互动","relationship_evidence":"只有明确证据才写；不得自动加亲密度","hard_world_candidates":"材料审阅、岗位介绍、后续计划只记候选并另做可行性检查"}
+    "instruction":"由当前 ChatGPT 对话直接充当 cognition backend。让宋楠带着前一轮形成的‘决策—数据—错误代价—交付’框架与赵珂交流，测试她是否开始用项目语言而非方法名说话。赵珂可以讲真实项目管理的一般约束，也可以在合理情况下提出一个后续项目探索候选；任何具体项目、数据访问、有偿工时、预算、客户接触或行业推荐都必须只形成 hard-world candidate，并在后续经过真实需求、预算、权限、时间和利益冲突检查后才能生效。",
+    "expected_output":{"interactions":"0到5条语义互动","relationship_evidence":"只有明确证据才写；不得自动加亲密度","hard_world_candidates":"若出现项目探索、付费工作、数据访问或介绍，只记候选并另做可行性检查"}
   },
   "rules":{"repository_calls_model_api":false,"chatgpt_product_is_runtime":true,"deepseek_api_optional_future_backend":true,"local_model_optional_future_backend":true,"no_unearned_knowledge":true,"single_window_noncanonical":true,"conversation_does_not_auto_change_relationship":true,"hard_world_candidates_require_feasibility":true}
 }
