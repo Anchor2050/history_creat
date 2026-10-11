@@ -1,0 +1,17 @@
+{
+  "schema_version":1,
+  "period":"2031-q1",
+  "status":"behavior_audit_noncanonical",
+  "backend":"chatgpt_product_conversation",
+  "source_batch":"runtime/chatbot-live/batches/2031-q1.json",
+  "abnormal_budget":1,
+  "abnormal_used":0,
+  "decisions":[
+    {"actor_id":"lin_jing","mode":"normal","chosen_action_id":"complete_relocation_then_observe_first_semester","baseline_expected_action":"Complete a checked move, rent first, and update career judgment from lived job evidence.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Employment start, lease, move cash and commute all passed feasibility; early workload evidence is too short to justify a long-run verdict.","constraint_check":{"feasible":true,"notes":"Employment, lease, cash and commute confirmed; no purchase commitment."},"evidence_refs":["2031q1:move01","2031q1:e01","2031q1:e03"]},
+    {"actor_id":"zhou_ye","mode":"normal","chosen_action_id":"defer_home_purchase_despite_borderline_financial_feasibility","baseline_expected_action":"Buy only when cash buffer, city commitment and mobility cost jointly support ownership.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Cash feasibility approximately passes, but city commitment fails and technical mobility remains valuable.","constraint_check":{"feasible":true,"notes":"Deferral preserves rental tenure, liquidity and mobility."},"evidence_refs":["2031q1:house01","2031q1:e10","2031q1:e11","2031q1:e12"]},
+    {"actor_id":"he_xin","mode":"normal","chosen_action_id":"close_home_purchase_candidate_on_cash_buffer_block","baseline_expected_action":"Do not convert job stability into ownership when hard financial constraints fail.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Post-downpayment emergency buffer fails before preference-level commitment needs adjudication.","constraint_check":{"feasible":true,"notes":"Continuing to rent is feasible; purchase is not."},"evidence_refs":["2031q1:house02","2031q1:e13","2031q1:e14"]},
+    {"actor_id":"song_nan","mode":"normal","chosen_action_id":"continue_role_and_reassess_learning_density","baseline_expected_action":"Treat portable assets as reversibility insurance, not an automatic exit trigger.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Housing and family-distance costs remain high, but no evidence yet shows learning value has fallen below them.","constraint_check":{"feasible":true,"notes":"No external search or offer exists."},"evidence_refs":["2031q1:e06","2031q1:e07"]},
+    {"actor_id":"gao_yuan","mode":"normal","chosen_action_id":"retain_role_while_opening_growth_density_review","baseline_expected_action":"Track low opportunity density without inventing a family crisis or forcing an external search.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Third-year review confirms stability and lower novelty but supplies no competing opportunity or family event.","constraint_check":{"feasible":true,"notes":"Internal growth review can proceed within current role."},"evidence_refs":["2031q1:review01","2031q1:e08","2031q1:e09"]}
+  ],
+  "audit_rule":"All consequential Q1 choices remain normal. No evidence supports abnormal behavior; family age generated no event."
+}
