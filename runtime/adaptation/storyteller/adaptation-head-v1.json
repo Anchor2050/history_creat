@@ -1,5 +1,5 @@
 {
-  "schema_version": 12,
+  "schema_version": 13,
   "status": "adaptation_storyteller_head_noncanonical",
   "historical_world_writeback": false,
   "history_source": {
@@ -30,7 +30,10 @@
     "opening_three_continuity_audit": "runtime/adaptation/storyteller/opening-three-continuity-audit-v1.json",
     "chapter4_audit_v1": "runtime/adaptation/storyteller/ch04-tang-xu-audit-v1.json",
     "chapter4_v1_v2_audit": "runtime/adaptation/storyteller/ch04-tang-xu-v1-v2-audit.json",
-    "opening_four_continuity_audit": "runtime/adaptation/storyteller/opening-four-continuity-audit-v1.json"
+    "opening_four_continuity_audit": "runtime/adaptation/storyteller/opening-four-continuity-audit-v1.json",
+    "reader_plot_connection_review": "runtime/adaptation/storyteller/reader-plot-connection-review-v1.json",
+    "message_bus_protocol": "runtime/message-bus/README.md",
+    "message_bus_latest_open": "runtime/message-bus/messages/2026-10-11-0001-plot-connection-review.json"
   },
   "executed_full_pilots": [
     "docs/adaptation/pilots/ch01-zhou-reliability-opening-v1.md",
@@ -115,9 +118,23 @@
     "opening_four_continuity": "pass_with_material_stakes_warning",
     "prose_canon": "still_not_fixed"
   },
+  "open_reviews": [
+    {
+      "id": "review:plot-connection-ch01-ch04",
+      "bus_message": "runtime/message-bus/messages/2026-10-11-0001-plot-connection-review.json",
+      "artifact": "runtime/adaptation/storyteller/reader-plot-connection-review-v1.json",
+      "raised": "2026-10-11",
+      "raised_by": "human_reader",
+      "status": "open_blocking_for_chapter5",
+      "summary": "前四章之间没有因果剧情连接；braid 与长期弧线只存在于架构层，正文不可见。",
+      "must_resolve_before_chapter5": true,
+      "options": ["option-a: visible braid cue", "option-b: add causal mainline (may violate ensemble rule)", "option-c: keep, converge later"]
+    }
+  ],
   "current_stage": "chapter4_passed_select_chapter5_material_threshold",
   "next_stage_gate": {
     "required_before_chapter5_full_draft": [
+      "resolve open review review:plot-connection-ch01-ch04 (chapters 1-4 lack causal plot connection; braids and long arcs are not legible in prose) and record the chosen option in open_reviews",
       "shift away from code/document verification into money, city, time, family geography or embodied work rhythm",
       "keep Xu Hang off center and let Tang Yu's line recede temporarily",
       "use a threshold/refusal scene that advances a different hero arc",

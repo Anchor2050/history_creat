@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "message_id": "2026-10-11-0001-plot-connection-review",
+  "created_at": "2026-10-11",
+  "from": "human_reader_via_codebuddy_agent",
+  "to": ["*"],
+  "topic": "review:plot-connection",
+  "kind": "review",
+  "priority": "blocking",
+  "status": "open",
+  "refs": {
+    "machine_readable": "runtime/adaptation/storyteller/reader-plot-connection-review-v1.json",
+    "human_readable": "docs/adaptation/reader-plot-connection-review-01.md",
+    "scope_chapters": [
+      "docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md",
+      "docs/adaptation/pilots/ch02-ordinary-trip-full-v2.md",
+      "docs/adaptation/pilots/ch03-luo-posting-full-v2.md",
+      "docs/adaptation/pilots/ch04-tang-xu-implementation-structure-full-v2.md"
+    ],
+    "adaptation_head": "runtime/adaptation/storyteller/adaptation-head-v1.json",
+    "substory_graph": "runtime/adaptation/storyteller/substory-graph-v1.json"
+  },
+  "summary": "前四章之间没有因果剧情连接；并排阅读像四篇自足短文，braid 与长期弧线只存在于架构层，正文不可见。",
+  "body": "人类读者审阅意见（relayed via repo bus）。这是人类审阅，不是独立模型审阅。\n\n证据：\n1) Ch1 周野做复现包、与许航微信，自足。\n2) Ch2 宋楠群像出行，与 Ch1 无因果，仅许航等人在场。\n3) Ch3 罗成找孙洁问辅导员岗、改简历，独立。\n4) Ch4 唐雨换实现跑对照、与许航对图，独立。\n5) 四章无共同触发事件、无跨章后果累积、无悬念-兑现关系。\n6) 四章中三章（1/3/4）都依赖文档/代码/材料类工作场景，语域同质。\n\n设计意图：架构规则 Core six are weakly connected ensemble peers；用 braid、人物重叠、长期 hero arc 替代传统因果剧情链。\n执行缺口：braid（braid:first-pricing → ch01/ch03/ch04；braid:ordinary-network → ch02）与 hero arc 只在架构文档中，正文没有可感知的抓手。",
+  "severity": "structural",
+  "recommended_options": [
+    {"id": "option-a", "label": "保留弱连接，增加可感知编织", "cost": "low"},
+    {"id": "option-b", "label": "升一格，加一条真正因果主线", "cost": "high", "risk": "可能违反 weakly-connected ensemble 规则"},
+    {"id": "option-c", "label": "维持现状，后段选择性聚拢", "cost": "medium"}
+  ],
+  "action_required": "在开始 Chapter5 全文起草前，至少选定一个 option，并在 adaptation-head-v1.json 的 open_reviews 中记录结论。未决时不得推进 Chapter5。",
+  "do_not": [
+    "不得用作者旁白或对话直接宣告主题来伪造连接。",
+    "不得把 braid 变成章节标签或论文式小标题。",
+    "不得为了连接而牺牲 negative-space 的留白原则。"
+  ],
+  "acknowledgements": []
+}

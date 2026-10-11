@@ -12,6 +12,14 @@
 
 ChatGPT 可以担任生成者，不需要 GPT API；DeepSeek Flash 推理模式应保持独立运行。不要把 ChatGPT 手工修稿混入 DeepSeek 验收，也不要把协议测试说成真实聊天运行。
 
+## Message Bus（多 Agent 意见通道）
+
+自 2026-10-11 起新增 `runtime/message-bus/`：多 Agent（ChatGPT 会话、DeepSeek、任意后续驱动者、人类审阅者）通过它交换**意见、审阅、决定**。协议见 `runtime/message-bus/README.md`——append-only，一条消息一个 JSON，文件名即顺序，**不回写世界历史**。
+
+接手后除阅读顺序外，必须按文件名排序读完 `runtime/message-bus/messages/` 的 `status: open` 消息，并优先处理 `priority: blocking` 项。
+
+当前未决阻塞项：`2026-10-11-0001-plot-connection-review`（前四章缺乏因果剧情连接；见 `runtime/adaptation/storyteller/reader-plot-connection-review-v1.json`）。该问题已在 `runtime/adaptation/storyteller/adaptation-head-v1.json` 的 `open_reviews` 中登记为开始 Chapter5 全文起草的**前置阻断条件**。
+
 ## 当前真实状态
 
 - 原项目保留。V1 的规则、私有认知、反思、故事审阅与自动修订、预算/恢复入口已经实现，详见 docs/narrative-v1.md、docs/acceptance-v1.md、docs/validation-v1.md。

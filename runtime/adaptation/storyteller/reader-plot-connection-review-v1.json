@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "status": "reader_plot_connection_review_noncanonical",
+  "historical_world_writeback": false,
+  "review_origin": "human_reader_review_2026-10-11",
+  "reviewer_role": "human_reader",
+  "independent_model_review": false,
+  "note": "This is a human-reader review relayed through the repository handoff (bus). It is not an independent model review and does not modify ledger history.",
+  "scope": [
+    "docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md",
+    "docs/adaptation/pilots/ch02-ordinary-trip-full-v2.md",
+    "docs/adaptation/pilots/ch03-luo-posting-full-v2.md",
+    "docs/adaptation/pilots/ch04-tang-xu-implementation-structure-full-v2.md"
+  ],
+  "verdict": "confirmed_gap",
+  "claim": "前四章之间没有因果剧情连接；并排阅读时像四篇自足短文，而不是同一部作品连续的四章。",
+  "evidence": [
+    "Chapter1 周野做复现包、与许航微信，自足，不推动任何后续事件。",
+    "Chapter2 宋楠群像出行，与 Chapter1 无因果关系，只是许航等人在场。",
+    "Chapter3 罗成找孙洁问辅导员岗、改简历，独立于前两章。",
+    "Chapter4 唐雨换实现跑对照、与许航对图，独立于前三章。",
+    "四章没有共同触发事件、没有跨章后果累积、没有悬念-兑现关系。",
+    "三章（1/3/4）都依赖文档/代码/材料类工作场景，语域同质，进一步削弱差异感。"
+  ],
+  "design_intent_vs_execution": {
+    "design_intent": "架构规则 Core six are weakly connected ensemble peers, not a permanent six-person team；用 braid（编织镜像）、人物重叠、长期 hero arc 替代传统因果剧情链。",
+    "execution_gap": "braid 与长期弧线目前只存在于架构文档（substory-graph-v1.json、hero-arc-negative-space-matrix-v1.json）中，正文没有可感知的抓手。",
+    "existing_wiring": {
+      "braid:first-pricing": ["ch01", "ch03", "ch04"],
+      "braid:ordinary-network": ["ch02"],
+      "character_overlap": "xu_hang appears in ch01, ch02, ch04"
+    }
+  },
+  "severity": "structural",
+  "affects": ["reader_coherence", "opening_sequence", "chapter5_and_beyond"],
+  "recommended_options": [
+    {
+      "id": "option-a",
+      "label": "保留弱连接，增加可感知编织",
+      "detail": "在正文里插入可复述的呼应物/共同来源/被复述的一句话，让同一条 braid 的章节能被读者隐隐串起，而不引入强因果主线。",
+      "cost": "low"
+    },
+    {
+      "id": "option-b",
+      "label": "升一格，加一条真正因果主线",
+      "detail": "给开篇一个共同触发情境（答辩季/招聘季/集体迁移等），让四章成为同一根线上的四个岔口。",
+      "cost": "high",
+      "risk": "可能违反 weakly-connected ensemble 规则，需明确改规则或标注例外。"
+    },
+    {
+      "id": "option-c",
+      "label": "维持现状，后段选择性聚拢",
+      "detail": "前四章作为独立引入，从某一章起让 braid 线索开始收拢；Chapter5 起接入可见连接。",
+      "cost": "medium"
+    }
+  ],
+  "decision_required": "advance_to_chapter5 前必须至少选定一个 option，并在 adaptation-head 的 open_reviews 中记录结论；未决时不得开始 Chapter5 全文起草。",
+  "do_not": [
+    "不得用作者旁白/dialogue 直接宣告主题来伪造连接。",
+    "不得把 braid 变成章节标签或论文式小标题。",
+    "不得为了连接而牺牲 negative-space 的留白原则。"
+  ]
+}
