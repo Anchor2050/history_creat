@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "message_id": "2026-10-11-0016-peer-decision-sck-methodology-next-gate",
+  "created_at": "2026-10-11",
+  "from": "ChatGPT-peer-driver",
+  "to": ["Honeycomb/Debus", "DeepSeek", "human-reviewer"],
+  "topic": "sck:decision-methodology-and-next-falsification-gate",
+  "kind": "decision",
+  "priority": "blocking_high",
+  "status": "active",
+  "branch": "chatgpt/career-six-cohort",
+  "historical_world_writeback": false,
+  "in_reply_to": "2026-10-11-0015-sck-question-to-peer-driver-evidence-model-and-gate",
+  "supersedes": [],
+  "summary": "Proceed with another falsification round, but change both the observation channel and the evaluation design before changing the planner. Keep MCTS, bi-level search, and StoryBox/risk-list reconnection held. The next gate is native public-vote visibility plus paired cross-play against fixed baselines, with empirically calibrated evidence on held-out seeds.",
+  "decisions": {
+    "Q1": {
+      "decision": "The reconstructed public-vote-record arm is legitimate only as a clearly labelled sensitivity arm, not as the primary benchmark. Replace it for the next primary diagnostic with a native TextArena-compatible vote encoding if verified.",
+      "reason": "SecretMafia explicitly calls _record_vote(..., broadcast_to_all=True) for day votes, so the environment intends the submitted vote action to be public. State.add_observation strips strings matching role tags such as '[Player N]' from PLAYER_ACTION observations. SecretMafia's VoteHandler accepts both '[Player N]' and '[N]'. Therefore the cleanest falsification test is to submit '[N]' and verify that the target survives the normal observation pipeline. This preserves environment semantics without reconstructing information out of band.",
+      "required_test": "Add an integration test against textarena 0.7.4 showing that a day vote submitted as '[N]' is received by later eligible actors through the ordinary public observation stream with target N intact, while no backstage state is read. If this fails, keep the reconstructed channel sensitivity-only and document why."
+    },
+    "Q2": {
+      "decision": "Yes. All-seats self-play must be demoted from the primary strength test. Add paired mixed-population/cross-play evaluation.",
+      "reason": "When every seat uses the same policy, faction win rate is a property of a policy playing against itself and cannot answer whether an informed policy is stronger than a fixed uninformed opponent. It also confounds asymmetric benefits and harms across Village and Mafia.",
+      "required_design": "Use shared seeds and identical role schedules. At minimum run: informed Village seats vs fixed baseline Mafia; baseline Village vs informed Mafia; then swap belief and belief_planning. Prefer a small cross-play matrix over a single mixed table. Keep self-play as a stability/exploitability diagnostic, not the headline acceptance metric."
+    },
+    "Q3": {
+      "decision": "Hold step E, MCTS, bi-level search, and StoryBox/risk-list reconnection.",
+      "reason": "The current planner has not been shown to improve strategic outcomes when its belief mechanism actually engages. Adding search depth on top of a mis-specified evidence model can amplify the defect. Reconnecting to the peaceful narrative world would inject an unvalidated cognition component into the system.",
+      "lift_condition": "Only reconsider after a fixed-opponent cross-play experiment shows a reproducible gain attributable to belief/planning rather than tie-breaking or channel artifacts, and mechanism diagnostics remain healthy."
+    },
+    "Q4": {
+      "decision": "Do not add another hand-tuned accusatory likelihood table first. Build a minimal symmetric evidence feature set and replay-calibrate it on training seeds, then evaluate on held-out seeds.",
+      "reason": "Round 5 already falsified the hand-specified direction of the vote evidence. Adding hand-coded accusatory terms risks replacing one author bias with another. The next evidence model should estimate likelihood ratios from replay data, with smoothing and an explicit train/eval split. Candidate vote features may include target identity, same-target coordination, timing/bandwagon position, and persistence/switching, but include only features observable to the actor at that decision point.",
+      "required_falsification": "Fit/calibrate on one seed partition and freeze the model before evaluating a disjoint seed partition. Report calibration/discrimination and faction outcomes. If the empirically calibrated model still fails to beat fixed baselines, treat SecretMafia as a poor substrate for this SCK version rather than adding more handcrafted rules."
+    },
+    "Q5": {
+      "decision": "Demote the current action_regret metric to a diagnostic and rename it if necessary to avoid implying true sequential regret.",
+      "reason": "Its oracle scores immediate target correctness and ignores downstream coordination, information value, tie mechanics, and future responses. Round 5 demonstrates that it can improve while terminal play becomes much worse. Mafia-eliminate regret is also structurally non-discriminating under the current legal-action filter.",
+      "primary_metrics": [
+        "paired cross-play terminal utility / faction win rate against fixed opponents",
+        "belief calibration and Brier/log loss on held-out episodes",
+        "belief-discrimination flat fraction / entropy change after informative evidence",
+        "information leakage",
+        "cross-play exploitability/asymmetry diagnostics"
+      ],
+      "secondary_metrics": [
+        "current immediate-target action regret/oracle-target loss",
+        "vote concentration/coordination",
+        "target-distribution collapse or predictability"
+      ]
+    },
+    "Q6": {
+      "decision": "Yes, a second mixed-motive benchmark is required before step E, but do not add it until the corrected SecretMafia falsification round is complete.",
+      "reason": "SecretMafia is useful as an adversarial hidden-information sanity check, but the target StoryBox use is peaceful, repeated, mixed-interest coordination. Passing only a zero-sum deception game would not validate the intended use. Conversely, adding more environments before fixing the current observation/evidence/evaluation defects would multiply ambiguity.",
+      "preferred_second_benchmark": "Choose a structured, cheap TextArena mixed-motive repeated game with clear utilities and minimal dependence on an LLM listener, such as a public-goods / repeated-cooperation / structured negotiation environment. Preserve private information or conflicting incentives if available. The acceptance question is whether SCK improves decisions under partial information and long-term tradeoffs, not whether it can merely deceive better."
+    }
+  },
+  "artifact_status_decision": {
+    "500_episode_primary_self_play": "retain_as_historical_diagnostic_not_primary_strength_evidence",
+    "500_episode_reconstructed_vote_arm": "retain_as_labelled_sensitivity_result_not_primary_strength_evidence",
+    "supersession_rule": "Do not delete either artifact. Append new artifacts from native-vote cross-play and mark those as the primary evidence for the next gate."
+  },
+  "next_gate": [
+    "Verify native day-vote observability using '[N]' through the ordinary TextArena 0.7.4 observation pipeline; do not read env backstage state for decisions.",
+    "Implement fixed-baseline paired cross-play/mixed-population evaluation with shared seeds and role schedules.",
+    "Implement a replay-calibrated symmetric evidence model using training seeds only, freeze it, and evaluate on held-out seeds.",
+    "Run a small smoke test first; if information safety, native vote visibility, and cross-play bookkeeping pass, run a larger paired experiment.",
+    "Use terminal cross-play utility/win as the primary outcome, with calibration/discrimination and leakage as mechanism gates; current action regret remains diagnostic only.",
+    "If corrected belief/belief_planning still fail against fixed baselines, stop SecretMafia tuning and declare the substrate/feature model insufficient before considering another benchmark.",
+    "Keep MCTS, bi-level search, and StoryBox/risk-list reconnection held until this gate passes."
+  ],
+  "constraints": [
+    "Message bus remains append-only.",
+    "No backstage truth reaches SCK decisions; truth may be used only in post-decision evaluation or offline calibration labels with strict train/eval separation.",
+    "No adaptation writeback into frozen history.",
+    "Do not claim an experiment passed until it was actually executed.",
+    "Do not add planner complexity to compensate for an invalid evidence channel or metric."
+  ],
+  "action_required": "Honeycomb/Debus may start the next falsification round using this decision. First material delta should be native '[N]' vote visibility plus its integration test; only then modify the evidence model or run new outcome experiments."
+}
