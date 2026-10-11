@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_only_noncanonical",
+  "historical_world_writeback": false,
+  "working_event_name": "risk-list-incident",
+  "working_title": "风险名单",
+  "placement": "after several principal characters have established professional identities; provisional 2031-2033 window",
+  "premise": "A fictional cross-institution health-data pilot uses a survival-risk scoring workflow to prioritize manual follow-up. A routine batch produces a suspicious low-risk list. During manual review, several records prove to have been scored under inconsistent data/version conditions. Before the institutions agree on what happened, a screenshot of the list leaks outside the project. A 72-hour explanation is demanded.",
+  "inciting_object": {
+    "object": "a one-page exported risk list with several rows circled by hand",
+    "visual_hook": "one row is marked low-risk although the follow-up record is obviously incomplete; another row has two different score timestamps",
+    "reader_question": "Is this a bad model, bad data, a deployment/version problem, or a process failure?",
+    "important_rule": "The answer must not be available in the opening chapter. Different pieces are held by different institutions."
+  },
+  "central_clock": {
+    "first_deadline": "72 hours for a joint preliminary explanation",
+    "second_deadline": "one week to decide whether the pilot pauses, narrows, or continues",
+    "long_tail": "audit, responsibility allocation, scientific correction, career consequences and trust damage continue for months"
+  },
+  "central_question": "When data, model, code, deployment and decision authority are split across institutions, who is responsible for a wrong-looking result before anyone even agrees on what went wrong?",
+  "factions": [
+    {
+      "id": "public_project_office",
+      "public_goal": "protect patients and determine whether the pilot can safely continue",
+      "private_pressure": "a politically visible pilot cannot appear uncontrolled",
+      "reasonable_position": "do not create public panic before the failure mode is verified",
+      "shadow": "may compress uncertainty into an administratively convenient explanation"
+    },
+    {
+      "id": "hospital_or_public_health_data_owner",
+      "public_goal": "protect clinical interpretation and data integrity",
+      "private_pressure": "does not want incomplete follow-up or local data processes blamed publicly",
+      "reasonable_position": "model developers cannot ignore how data are actually produced",
+      "shadow": "may treat every anomaly as an upstream model problem"
+    },
+    {
+      "id": "university_research_team",
+      "public_goal": "identify whether the statistical method is valid under the observed censoring and missingness pattern",
+      "private_pressure": "scientific credibility, publication claims and professional identity are exposed",
+      "reasonable_position": "deployment should not be judged as if it were the original research setting",
+      "shadow": "may define the failure narrowly enough to protect the method"
+    },
+    {
+      "id": "soe_technical_vendor",
+      "public_goal": "reconstruct versions, pipelines and logs",
+      "private_pressure": "contract liability and organizational reputation",
+      "reasonable_position": "a model cannot be audited without knowing exactly which data and code version ran",
+      "shadow": "may reduce a substantive statistical issue to a version-control issue"
+    },
+    {
+      "id": "pharma_or_industry_partner",
+      "public_goal": "understand whether the anomaly affects ongoing analyses and timelines",
+      "private_pressure": "delays cost money and may affect downstream regulatory or business decisions",
+      "reasonable_position": "uncertainty must eventually be translated into a decision, not left as an academic caveat",
+      "shadow": "may push for a binary answer before the evidence supports one"
+    },
+    {
+      "id": "independent_validation_side",
+      "public_goal": "reproduce the anomaly before blame is assigned",
+      "private_pressure": "limited authority, incomplete access, and the risk of being used as neutral decoration",
+      "reasonable_position": "no causal story should be accepted without a reproducible path",
+      "shadow": "verification can become delay if it never reaches a decision threshold"
+    },
+    {
+      "id": "media_or_external_observer",
+      "public_goal": "ask why a patient-facing or policy-facing system produced a suspicious list",
+      "private_pressure": "needs a comprehensible story under deadline",
+      "reasonable_position": "institutions often hide behind technical complexity",
+      "shadow": "may prematurely personalize a distributed failure into a villain story"
+    }
+  ],
+  "character_fit": {
+    "luo_cheng": {
+      "entry": "research-support/project-process side",
+      "dramatic_use": "he understands the chain of documents, meetings and responsibility handoffs but initially lacks authority; he becomes useful because he remembers who knew what when",
+      "conflict": "process loyalty versus the temptation to protect people he works with"
+    },
+    "gao_yuan": {
+      "entry": "public-sector administrative side",
+      "dramatic_use": "must help turn technical uncertainty into an actionable briefing",
+      "conflict": "careful stability-seeking style is rewarded by procedure but may become institutional caution at the wrong moment"
+    },
+    "zhou_ye": {
+      "entry": "technical/vendor side",
+      "dramatic_use": "version logs and reproducibility become materially important, but his competence creates pressure for him to become the single person everyone calls",
+      "conflict": "being indispensable helps solve the crisis while deepening the very dependency his long arc later resists"
+    },
+    "tang_yu": {
+      "entry": "method/research side",
+      "dramatic_use": "recognizes that a censoring/missingness condition may invalidate a comfortable interpretation",
+      "conflict": "the scientifically honest answer may damage work close to her intellectual identity; negative evidence gains real external stakes"
+    },
+    "he_xin": {
+      "entry": "public-institution/process side",
+      "dramatic_use": "sees the practical difference between a procedural pause and an institutional cover-up",
+      "conflict": "her skill at making systems tolerable can either protect due process or help a bad equilibrium persist"
+    },
+    "song_nan": {
+      "entry": "industry translation side",
+      "dramatic_use": "must explain what the uncertainty changes for a real decision and deadline",
+      "conflict": "her speed and decisiveness are valuable, but she can compress nuance too aggressively when others are slow"
+    },
+    "xu_hang": {
+      "entry": "independent validation",
+      "dramatic_use": "tries to reconstruct the exact failure path and demands stop rules for claims",
+      "conflict": "verification finally becomes central rather than auxiliary, but everyone wants him to certify more than the evidence warrants"
+    },
+    "chen_lan": {
+      "entry": "cross-team analytics/project translation",
+      "dramatic_use": "can see where high-response organizational habits distort the investigation",
+      "conflict": "her boundary discipline is tested when the crisis genuinely may require unusual response"
+    }
+  },
+  "opening_design": {
+    "principle": "begin with the abnormal object and a person forced to act, not with a world-history explanation",
+    "possible_first_image": "a printer produces the one-page risk list before the office fully opens; three rows are already circled in red by someone who arrived earlier",
+    "possible_first_action": "the first focal actor is told not to forward the list and then immediately receives a message from someone outside the room who already has a screenshot",
+    "what_not_to_explain": [
+      "full project architecture",
+      "which faction is at fault",
+      "technical censoring mechanism",
+      "all principal characters",
+      "the significance of the incident"
+    ],
+    "first_chapter_job": "establish that the list exists, that different people already know different pieces, and that a 72-hour clock has started"
+  },
+  "causal_spine": [
+    "suspicious list discovered",
+    "internal attempt to classify the anomaly",
+    "screenshot leaks",
+    "72-hour joint explanation ordered",
+    "institutions produce incompatible first explanations",
+    "version/data/method evidence begins to contradict convenient narratives",
+    "one early suspect explanation fails",
+    "responsibility shifts from individual error to distributed system design",
+    "characters make choices that protect different goods",
+    "pilot decision is made before complete certainty exists",
+    "later audit reveals what was knowable at each stage and who acted anyway"
+  ],
+  "anti-thriller-cheat_rules": [
+    "No omniscient villain secretly caused everything.",
+    "No single technical bug explains the entire incident.",
+    "No faction is stupid merely to create conflict.",
+    "Every major position must protect something genuinely valuable.",
+    "The technical answer and the moral/responsibility answer are not required to be identical.",
+    "The final truth may be distributed: data delay plus version mismatch plus an invalid assumption plus deadline pressure can jointly create the event."
+  ],
+  "status_note": "This is a provisional central engine for adaptation testing. It does not overwrite the frozen historical ledger and should not yet be treated as prose canon."
+}
