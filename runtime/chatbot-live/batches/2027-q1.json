@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2027-q1",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2027-01-01","end":"2027-03-31"},
+  "generation_mode": "chatgpt_product_interaction_chain",
+  "era_lens": [
+    "2027年上半年仍处于博士退出与首份工作竞争期；准备材料开始真正进入公开程序，而不再只停留在职业想象。",
+    "前一年形成的有限帮助必须经过时间、材料和权限检查后才能兑现；认识某个人本身不等于获得岗位。",
+    "研究训练的职业价值逐渐从方法名转向可验证工作证据、问题定义、复现、沟通和交付。",
+    "毕业、备考、求职和外部项目同时存在时，时间本身成为稀缺资源。"
+  ],
+  "windows": [
+    {"packet_id":"micro:chatbot:2027-01:tang-xu-verification-collaboration:01","start_date":"2027-01-15","end_date":"2027-01-17","event_kind":"verification_collaboration","participants":["tang_yu","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-01:song-chen-bounded-review:01","start_date":"2027-01-29","end_date":"2027-01-29","event_kind":"career_translation_review","participants":["song_nan","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-02:gao-lin-mock-interview:01","start_date":"2027-02-12","end_date":"2027-02-12","event_kind":"peer_mock_interview","participants":["gao_yuan","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-02:u_c_cohort_dinner:01","start_date":"2027-02-26","end_date":"2027-02-26","event_kind":"classmate_meal","participants":["zhou_ye","gao_yuan","luo_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-03:chen-wu-completion:01","start_date":"2027-03-10","end_date":"2027-03-10","event_kind":"doctoral_completion_checkin","participants":["chen_lan","wu_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-03:u_d_cohort_dinner:01","start_date":"2027-03-25","end_date":"2027-03-25","event_kind":"classmate_meal","participants":["tang_yu","he_xin","song_nan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events": [
+    {"event_id":"2027q1:e01","kind":"social_interaction","at":"2027-01-15","event_kind":"verification_collaboration","speaker":"tang_yu","listener":"xu_hang","act":"share_experience","content":"唐雨把问题树里那个来自结构性失效的分支拿给许航看，只说明她观察到某类删失与异质结构下现有步骤可能不稳定，并没有把它说成已经成立的研究结论。","channel":"in_person","evidence":"延续2026年沈雁要求先验证失效是否稳定存在的建议。"},
+    {"event_id":"2027q1:e02","kind":"social_interaction","at":"2027-01-15","event_kind":"verification_collaboration","speaker":"xu_hang","listener":"tang_yu","act":"offer_information","content":"许航建议先做一个最小验证矩阵：固定几个最关键的数据结构变化，每种只看少数能判断失效是否重复出现的输出，同时保留随机种子、失败日志和替代实现。","channel":"in_person","evidence":"许航只提供验证设计，不宣称已有结果。"},
+    {"event_id":"2027q1:e03","kind":"social_interaction","at":"2027-01-17","event_kind":"verification_collaboration","speaker":"tang_yu","listener":"xu_hang","act":"make_plan","content":"唐雨决定先自己完成最小验证矩阵和第一轮记录；如果结果仍显示稳定失效，再讨论是否值得扩大计算或形成正式合作。","channel":"in_person","evidence":"后续合作取决于实际验证结果和双方贡献。"},
+    {"event_id":"2027q1:e04","kind":"social_interaction","at":"2027-01-17","event_kind":"verification_collaboration","speaker":"xu_hang","listener":"tang_yu","act":"offer_help","content":"许航表示如果唐雨先把最小矩阵跑完并整理失败日志，他之后有时间时可以从复现和验证角度看一次；这不预设论文署名或长期合作。","channel":"in_person","evidence":"形成受材料和时间约束的有限验证候选。"},
+
+    {"event_id":"2027q1:e05","kind":"social_interaction","at":"2027-01-29","event_kind":"career_translation_review","speaker":"song_nan","listener":"chen_lan","act":"share_experience","content":"宋楠把自己基于真实研究经历写的一页‘问题—数据—决策—约束—交付’说明发给陈岚，没有加入不存在的客户、项目或行业数据。","channel":"wechat_private","evidence":"满足2026年有限审阅候选的材料存在条件。"},
+    {"event_id":"2027q1:e06","kind":"social_interaction","at":"2027-01-29","event_kind":"career_translation_review","speaker":"chen_lan","listener":"song_nan","act":"offer_information","content":"陈岚只改了两处：一处要求宋楠把‘模型准确’换成决策者真正怕错什么，另一处要求她把交付物说成别人能接手检查的东西；她没有替宋楠补行业经历。","channel":"wechat_private","evidence":"一次有限审阅，保持事实边界。"},
+    {"event_id":"2027q1:e07","kind":"social_interaction","at":"2027-01-29","event_kind":"career_translation_review","speaker":"chen_lan","listener":"song_nan","act":"set_boundary","content":"陈岚说明这次看完就算兑现之前那次帮助，后面她自己的博士收尾和项目工作都紧，不承诺持续改材料。","channel":"wechat_private","evidence":"帮助成功一次但不扩张成长期辅导。"},
+
+    {"event_id":"2027q1:e08","kind":"social_interaction","at":"2027-02-12","event_kind":"peer_mock_interview","speaker":"gao_yuan","listener":"lin_jing","act":"share_experience","content":"高原按真实经历回答了一次‘为什么博士毕业后选择公共部门’的问题，第一次回答仍大量使用稳定、平台和服务社会这类抽象词。","channel":"video_call","evidence":"兑现2026年双方约定的短模拟。"},
+    {"event_id":"2027q1:e09","kind":"social_interaction","at":"2027-02-12","event_kind":"peer_mock_interview","speaker":"lin_jing","listener":"gao_yuan","act":"offer_information","content":"林静追问他具体愿意长期做什么事务、能举出什么处理复杂材料或长期任务的例子，并提醒如果所有回答都只剩‘稳定’，面试官很难判断职业匹配。","channel":"video_call","evidence":"只练通用表达，不交换未公开申请信息。"},
+    {"event_id":"2027q1:e10","kind":"social_interaction","at":"2027-02-12","event_kind":"peer_mock_interview","speaker":"gao_yuan","listener":"lin_jing","act":"make_plan","content":"高原决定把准备材料拆成岗位动机、真实经历和失败复盘三块，继续把公务员作为主线，但不再把稳定当唯一理由。","channel":"video_call","evidence":"形成自助准备计划。"},
+
+    {"event_id":"2027q1:e11","kind":"social_interaction","at":"2027-02-26","event_kind":"classmate_meal","speaker":"zhou_ye","listener":"luo_cheng","act":"share_experience","content":"周野说自己已经把最小复现包当作技术工作样本使用，下一步准备在公开招聘里找真正要求数据、算法或质量控制能力的国企技术岗位，不再先假设所有国企都适合自己。","channel":"in_person","evidence":"从可靠性样本推进到岗位匹配，但尚无具体录用结果。"},
+    {"event_id":"2027q1:e12","kind":"social_interaction","at":"2027-02-26","event_kind":"classmate_meal","speaker":"luo_cheng","listener":"zhou_ye","act":"share_experience","content":"罗诚说自己盘点后发现，能证明长期跟进和流程记录的经历有一些，但真正直接面向学生事务的经验仍少，因此准备只投职责比较接近的公开岗位，不硬把所有辅导员职位都当成同一种工作。","channel":"in_person","evidence":"延续孙洁给出的工作现实校准。"},
+    {"event_id":"2027q1:e13","kind":"social_interaction","at":"2027-02-26","event_kind":"classmate_meal","speaker":"gao_yuan","listener":"zhou_ye","act":"set_boundary","content":"高原仍没有加入两人的路线比较，他说自己已经进入一轮公开招考准备，不想再同时开新的求职分支。","channel":"in_person","evidence":"延续公务员主线边界。"},
+
+    {"event_id":"2027q1:e14","kind":"social_interaction","at":"2027-03-10","event_kind":"doctoral_completion_checkin","speaker":"chen_lan","listener":"wu_cheng","act":"share_experience","content":"陈岚汇报自己把外部工作进一步压缩后，博士收尾任务终于从不断切换变成一条能连续推进的清单，但仍有几项结果整理和文本工作没有完成。","channel":"in_person","evidence":"延续2026年时间边界调整。"},
+    {"event_id":"2027q1:e15","kind":"social_interaction","at":"2027-03-10","event_kind":"doctoral_completion_checkin","speaker":"wu_cheng","listener":"chen_lan","act":"offer_information","content":"吴澄让她只盯住毕业必须闭环的部分，提醒现在最危险的是为了把论文或项目再做漂亮一点而重新打开已经可以收尾的问题。","channel":"in_person","evidence":"导师提供完成优先级反馈。"},
+    {"event_id":"2027q1:e16","kind":"social_interaction","at":"2027-03-10","event_kind":"doctoral_completion_checkin","speaker":"chen_lan","listener":"wu_cheng","act":"make_plan","content":"陈岚决定在下一阶段继续维持外部项目上限，先完成毕业闭环，再决定毕业后的职业组合。","channel":"in_person","evidence":"不预写毕业结果或就业结果。"},
+
+    {"event_id":"2027q1:e17","kind":"social_interaction","at":"2027-03-25","event_kind":"classmate_meal","speaker":"he_xin","listener":"song_nan","act":"share_experience","content":"何欣说自己已经开始按公开信息筛一轮事业单位和公共部门岗位，只保留职责、城市和退出成本都能接受的选项。","channel":"in_person","evidence":"延续岗位比较表，不涉及内部信息。"},
+    {"event_id":"2027q1:e18","kind":"social_interaction","at":"2027-03-25","event_kind":"classmate_meal","speaker":"song_nan","listener":"he_xin","act":"share_experience","content":"宋楠说自己准备参加公开的医药统计和数据岗位招聘流程，但把目标从‘一定要进某家公司’改成先验证自己是否能通过真实业务问题和交付要求的面试。","channel":"in_person","evidence":"从职业转译训练进入公开招聘探索。"},
+    {"event_id":"2027q1:e19","kind":"social_interaction","at":"2027-03-25","event_kind":"classmate_meal","speaker":"tang_yu","listener":"song_nan","act":"set_boundary","content":"唐雨说自己这一阶段仍把验证结构性失效和博士研究放在前面，暂时不因为同学开始求职就强行同步进入全职岗位竞争。","channel":"in_person","evidence":"保持个人研究节奏。"}
+  ],
+  "relationship_evidence": [
+    {"at":"2027-01-29","pair":["song_nan","chen_lan"],"direction":"positive","evidence":"2026年有限材料审阅候选实际兑现一次，陈岚同时清楚结束持续帮助预期。"},
+    {"at":"2027-02-12","pair":["gao_yuan","lin_jing"],"direction":"positive","evidence":"2026年短模拟候选完成一次，双方仍保持申请信息边界。"},
+    {"at":"2027-01-17","pair":["tang_yu","xu_hang"],"direction":"positive","evidence":"双方从一般验证交流推进到一个有明确前置材料的有限合作候选，但尚无成果或署名。"}
+  ],
+  "hard_world_candidate_updates": [
+    {"candidate_id":"candidate:2026-04-13:chen-review-song-note:01","checked_at":"2027-01-29","checks":{"song_nan_draft_exists":true,"chen_lan_time_capacity":true,"no_confidential_material":true},"result":"activated_once_and_closed_noncanonical","resource_effect":"one bounded review"},
+    {"candidate_id":"candidate:2026-04-21:gao-lin-mock-interview:01","checked_at":"2027-02-12","checks":{"gao_yuan_time_capacity":true,"lin_jing_time_capacity":true,"personal_application_boundary_preserved":true},"result":"activated_once_and_closed_noncanonical","resource_effect":"one 20-minute general mock session"}
+  ],
+  "new_hard_world_candidates": [
+    {"candidate_id":"candidate:2027-01-17:tang-xu-validation-review:01","created_at":"2027-01-17","type":"bounded_verification_review","proposer":"xu_hang","beneficiary":"tang_yu","description":"唐雨先完成最小验证矩阵和失败日志；若结果仍显示稳定失效且许航有时间，再进行一次复现/验证审阅。","requires_checks":["tang_validation_matrix_exists","failure_pattern_repeats","xu_hang_time_capacity","materials_shareable"],"explicitly_not_included":["authorship","paper_result","guaranteed_collaboration"],"status":"pending_feasibility_noncanonical"},
+    {"candidate_id":"candidate:2027-q1:zhou-soe-technical-applications:01","created_at":"2027-02-26","type":"public_application_path","beneficiary":"zhou_ye","description":"周野开始筛选公开发布、实际要求数据/算法/质量控制能力的国企技术岗位，并准备用复现工作样本支撑申请。","requires_checks":["matching_public_posting_exists","graduation_timeline_compatible","application_material_ready"],"status":"pending_public_process_noncanonical"},
+    {"candidate_id":"candidate:2027-q1:luo-counselor-applications:01","created_at":"2027-02-26","type":"public_application_path","beneficiary":"luo_cheng","description":"罗诚只申请职责与自己真实流程/跟进经历较匹配的高校学生事务或辅导员公开岗位。","requires_checks":["matching_public_posting_exists","eligibility_met","application_material_ready"],"status":"pending_public_process_noncanonical"},
+    {"candidate_id":"candidate:2027-q1:gao-civil-service-cycle:01","created_at":"2027-02-26","type":"public_exam_path","beneficiary":"gao_yuan","description":"高原进入一轮公开公务员招考准备与报名路径。","requires_checks":["eligible_public_posting_exists","registration_completed","exam_attendance"],"status":"pending_public_process_noncanonical"},
+    {"candidate_id":"candidate:2027-q1:he-public-institution-applications:01","created_at":"2027-03-25","type":"public_application_path","beneficiary":"he_xin","description":"何欣从公开信息中筛选职责、城市与退出成本可接受的事业单位或公共部门岗位并准备申请。","requires_checks":["matching_public_posting_exists","eligibility_met","application_material_ready"],"status":"pending_public_process_noncanonical"},
+    {"candidate_id":"candidate:2027-q1:song-pharma-recruitment:01","created_at":"2027-03-25","type":"public_recruitment_path","beneficiary":"song_nan","description":"宋楠进入公开医药统计/数据岗位招聘探索，以真实业务问题和交付能力检验岗位匹配。","requires_checks":["matching_public_posting_exists","application_material_ready","interview_invitation"],"status":"pending_public_process_noncanonical"}
+  ],
+  "actor_state_evidence": [
+    {"at":"2027-03-10","actor":"chen_lan","dimension":"doctoral_completion","evidence":"外部项目时间边界开始产生效果，博士收尾从碎片化推进变成连续清单，但尚未完成。","status":"candidate_state_evidence"},
+    {"at":"2027-03-25","actor":"tang_yu","dimension":"career_timing","evidence":"同学进入求职并未迫使她同步切换；仍优先验证研究问题和博士训练。","status":"candidate_state_evidence"}
+  ],
+  "audit_rules": {"single_batch_noncanonical":true,"generated_through_interaction_chain":true,"no_unearned_knowledge":true,"conversation_does_not_auto_change_relationship":true,"hard_world_candidates_require_feasibility":true,"job_outcomes_require_public_process_or_explicit_resource_path":true,"bilateral_memory_derivable_from_events":true}
+}
