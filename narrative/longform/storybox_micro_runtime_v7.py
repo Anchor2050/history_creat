@@ -1,9 +1,8 @@
-"""Execute one ensemble micro-window with the repository's Reverie personas.
+"""Execute ensemble micro-windows with the repository's Reverie personas.
 
-This is the point where the long-horizon social-physics layer hands control to
-StoryBox/Reverie-style agents. The scheduler decides who can plausibly be in the
-same window; this runtime lets those personas perceive, retrieve, converse, and
-store memories before exporting the results back to the long-horizon world.
+The long-horizon world decides which social windows are feasible. This runtime
+hands a bounded window to real Reverie Persona objects, lets them perceive,
+retrieve and converse, and exports memory/events for later windows.
 """
 from __future__ import annotations
 
@@ -32,7 +31,6 @@ from .reverie_micro_bridge_v6 import (
 
 
 def _scene_start(packet):
-    """Choose a human-scale start time inside the already-approved social window."""
     day = datetime.fromisoformat(packet["start_date"])
     if packet["event_kind"] in {"recruiting_event", "methods_event", "project_meal"}:
         hour = 14
@@ -44,17 +42,48 @@ def _scene_start(packet):
 
 
 def reset_reverie_runtime():
-    """Clear the singleton DB-backed runtime before loading one isolated window."""
+    """Clear singleton DB state before one isolated micro-window."""
     db.query(PersonaTable).delete()
     db.query(Event).delete()
     db.commit()
     persona_manager._persona_dict.clear()
 
 
-def load_micro_world(packet, work_dir):
-    """Materialize and load a packet into the actual Reverie World/Persona classes."""
+def _merge_memory_seed(seed, carry):
+    """Carry prior StoryBox memory while adding current-window relationship facts."""
+    if not carry:
+        return seed
+    merged = {
+        "event_mem": deepcopy(carry.get("event_mem", [])),
+        "thought_mem": deepcopy(carry.get("thought_mem", [])),
+        "chat_mem": deepcopy(carry.get("chat_mem", [])),
+    }
+    fingerprints = {
+        (row.get("memory_type"), row.get("content"), row.get("create_time"))
+        for rows in merged.values() for row in rows
+    }
+    for bucket in ("event_mem", "thought_mem", "chat_mem"):
+        for row in seed.get(bucket, []):
+            fp = (row.get("memory_type"), row.get("content"), row.get("create_time"))
+            if fp not in fingerprints:
+                merged[bucket].append(deepcopy(row))
+                fingerprints.add(fp)
+    return merged
+
+
+def load_micro_world(packet, work_dir, memory_carryover=None):
+    """Materialize and load one packet into real Reverie World/Persona classes."""
     validate_micro_packet(packet)
     root = materialize_micro_replay(packet, work_dir)
+    memory_carryover = memory_carryover or {}
+    for actor_id in packet["participants"]:
+        memory_file = root / "personas" / actor_id / "long_term_memory.json"
+        current_seed = json.loads(memory_file.read_text(encoding="utf-8"))
+        merged = _merge_memory_seed(current_seed, memory_carryover.get(actor_id))
+        memory_file.write_text(
+            json.dumps(merged, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+
     reset_reverie_runtime()
     datetime_manager.set_current_datetime(_scene_start(packet))
 
@@ -72,7 +101,6 @@ def load_micro_world(packet, work_dir):
 
 
 def _kickoff_event(packet):
-    """Create the shared social fact each persona is allowed to perceive."""
     venue = (
         "Ensemble World:Micro City:Remote Channel:Shared Space"
         if packet["mode"] in REMOTE_CHANNELS
@@ -98,7 +126,7 @@ def _kickoff_event(packet):
 
 
 def perceive_window(personas, world):
-    """Use real Persona.perceive/retrieve before any dialogue is generated."""
+    """Use real Persona.perceive/retrieve before or after dialogue."""
     rows = {}
     for actor_id, persona in personas.items():
         perceived = persona.perceive(world)
@@ -114,8 +142,7 @@ def _event_to_row(event):
     detail = event.detail
     if detail and isinstance(detail, str):
         try:
-            parsed = ast.literal_eval(detail)
-            detail = parsed
+            detail = ast.literal_eval(detail)
         except (ValueError, SyntaxError):
             pass
     return {
@@ -131,7 +158,6 @@ def _event_to_row(event):
 
 
 def export_persona_state(persona):
-    """Return the memory state that the long-horizon engine must carry forward."""
     return {
         "scratch": {
             "name": persona.scratch.name,
@@ -170,17 +196,14 @@ async def run_storybox_micro_window(
     *,
     work_dir,
     result_dir=None,
+    memory_carryover=None,
     max_pair_chats=4,
     round_num=3,
 ):
-    """Run one bounded StoryBox-like scene with actual repository personas.
-
-    No dialogue is prewritten here. The long-horizon layer only supplies legal
-    co-presence, hard constraints, memory seeds, and relationship paths. Reverie
-    then supplies perception, retrieval, relationship-grounded utterances, and
-    bilateral long-term chat memory.
-    """
-    root, world, personas = load_micro_world(packet, work_dir)
+    """Run one bounded StoryBox/Reverie scene with real Persona objects."""
+    root, world, personas = load_micro_world(
+        packet, work_dir, memory_carryover=memory_carryover
+    )
     kickoff, venue = _kickoff_event(packet)
     perception = perceive_window(personas, world)
     plan = build_replay_plan(packet, social_graph_ties, max_pair_chats=max_pair_chats)
@@ -202,10 +225,7 @@ async def run_storybox_micro_window(
         result["pairing_reason"] = row["reason"]
         conversations.append(result)
 
-    # Let each persona perceive the conversations/events that now exist in the
-    # micro world. This is what turns a scene into future retrievable memory.
     post_perception = perceive_window(personas, world)
-
     if result_dir is None:
         result_dir = Path(root) / "result"
     exported = save_persona_state(personas, result_dir)
@@ -214,6 +234,7 @@ async def run_storybox_micro_window(
     return {
         "status": "storybox_micro_window_executed_noncanonical",
         "packet_id": packet["id"],
+        "start_date": packet["start_date"],
         "event_kind": packet["event_kind"],
         "mode": packet["mode"],
         "participants": list(packet["participants"]),
