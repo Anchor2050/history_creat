@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_only_opening_entrance_audit_noncanonical",
+  "historical_world_writeback": false,
+  "target": "docs/adaptation/pilots/opening-entrance-a-zhou-technical-screen-v1.md",
+  "verdict": "promising_but_needs_world_scale_and_less_interview_symmetry",
+  "passes": [
+    "First line contains conflict rather than biography.",
+    "Only Zhou Ye needs to be remembered by name.",
+    "PhD status and zero-paper pressure leak through interview dialogue.",
+    "Reliability is shown through failure_log and unfinished TODO rather than narrator explanation.",
+    "Physical space and small interruptions provide camera-like movement.",
+    "The scene advances a real external consequence: final interview invitation."
+  ],
+  "risks": [
+    "The opening enters the interview room too quickly and does not yet give the reader a larger world/background frame.",
+    "Too many interviewer questions arrive in a clean sequence; the exchange risks feeling like a crafted oral exam.",
+    "Technical content can still dominate before the reader has emotional orientation.",
+    "The final email payoff is useful but slightly neat; later versions should preserve uncertainty around what exactly was rewarded.",
+    "The two unnamed interviewers are differentiated mainly by question timing rather than physical/social presence."
+  ],
+  "revision_direction": [
+    "Add a short prelude image of the 2027 graduation/recruitment season: packing labs, destination forms, job notices, people waiting to be priced by organizations.",
+    "Cut one or two technical Q&A chains and replace with interruption, hesitation or misreading.",
+    "Keep no more than one explicit background datum per exchange.",
+    "Do not name the macro theme 'first pricing' in prose.",
+    "Keep the final-interview notification but make it feel like one door opening rather than moral reward."
+  ],
+  "comparison_to_old_opening": {
+    "old": "docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md",
+    "judgment": "new entrance is substantially more novelistic because the reader meets Zhou under external pressure rather than watching him self-construct a portfolio in isolation."
+  }
+}
