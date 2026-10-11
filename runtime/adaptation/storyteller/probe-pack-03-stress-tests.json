@@ -1,0 +1,45 @@
+{
+  "schema_version":1,
+  "status":"adaptation_probe_pack_noncanonical",
+  "historical_world_writeback":false,
+  "source_head":"runtime/adaptation/storyteller/adaptation-head-v1.json",
+  "purpose":"Stress-test low-energy dialogue, guest viewpoint, family-origin pressure, capability failure and six-core voice differentiation before any prose canon is fixed.",
+  "probes":[
+    {
+      "probe_id":"p3-01-final-chat-low-energy",
+      "anchor_scene":"s30-final-group-chat-no-verdict",
+      "primary_viewpoint":"ensemble",
+      "test_goal":"Can a nearly uneventful year-end group chat distinguish voices without forcing wit, confession or retrospective wisdom?",
+      "historical_refs":["2035q4:e13","2035q4:e14","2035q4:e15"]
+    },
+    {
+      "probe_id":"p3-02-ma-qing-viewpoint",
+      "anchor_substory":"sub:song-second-role",
+      "primary_viewpoint":"guest:ma_qing",
+      "test_goal":"Can a passerby feel like the center of her own workday while Song Nan appears only as one difficult but useful collaborator?",
+      "guest_dossier":"runtime/adaptation/storyteller/guest-dossiers-probe-v1.json"
+    },
+    {
+      "probe_id":"p3-03-he-family-boundary-failure",
+      "anchor_substory":"sub:he-role-before-house",
+      "primary_viewpoint":"he_xin",
+      "test_goal":"Can family-origin pressure reappear without illness or melodrama, and can a person with strong communication skills still communicate badly when sibling-role shame is activated?",
+      "guest_dossier":"runtime/adaptation/storyteller/guest-dossiers-probe-v2-family.json"
+    },
+    {
+      "probe_id":"p3-04-six-core-voice-lab",
+      "mode":"noncanonical_voice_lab",
+      "primary_viewpoint":"none",
+      "test_goal":"Expose whether six core characters answer the same practical stimulus with genuinely different attention, syntax, values and blind spots, without turning the exercise into six philosophical monologues."
+    }
+  ],
+  "shared_rules":[
+    "No scene becomes canon prose.",
+    "No family detail beyond fixed ledger structure becomes history.",
+    "Dialogue may be dull, repetitive, badly timed or unfinished.",
+    "Do not make every line quotable.",
+    "A character may know a communication principle and still fail to use it under status, shame or fatigue.",
+    "Guest viewpoint must retain a goal that would exist if the protagonist disappeared from the scene.",
+    "Endings may stop on logistics or silence rather than meaning."
+  ]
+}
