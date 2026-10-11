@@ -1,5 +1,5 @@
 {
-  "schema_version":4,
+  "schema_version":5,
   "status":"adaptation_storyteller_head_noncanonical",
   "historical_world_writeback":false,
   "history_source":{
@@ -19,6 +19,7 @@
     "substory_guest_slots":"runtime/adaptation/storyteller/substory-and-guest-slots-v1.json",
     "substory_graph":"runtime/adaptation/storyteller/substory-graph-v1.json",
     "audited_guest_dossiers":"runtime/adaptation/storyteller/guest-dossiers-probe-v1.json",
+    "family_guest_dossier":"runtime/adaptation/storyteller/guest-dossiers-probe-v2-family.json",
     "style_guardrails":"docs/adaptation/literary-style-guardrails-v1.md",
     "storyteller_scene_engine":"narrative/longform/storybox_adaptation_storyteller_v13.py",
     "storyteller_nested_engine":"narrative/longform/storybox_adaptation_storyteller_v14.py",
@@ -26,13 +27,20 @@
     "core_scene_selection":"runtime/adaptation/storyteller/viewpoint-weight-and-core26-v1.json",
     "probe_pack_01":"runtime/adaptation/storyteller/probe-pack-01.json",
     "probe_pack_02":"runtime/adaptation/storyteller/probe-pack-02-execution.json",
-    "probe_audit":"runtime/adaptation/storyteller/probe-audit-pass-01.json"
+    "probe_pack_03":"runtime/adaptation/storyteller/probe-pack-03-stress-tests.json",
+    "probe_audit_01":"runtime/adaptation/storyteller/probe-audit-pass-01.json",
+    "probe_audit_02":"runtime/adaptation/storyteller/probe-audit-pass-02.json"
   },
   "executed_probes":[
     "docs/adaptation/probes/p2-01-ordinary-trip-v1.md",
     "docs/adaptation/probes/p2-02-luo-sun-gate-v1.md",
     "docs/adaptation/probes/p2-03-zhou-qiu-delegation-v1.md",
-    "docs/adaptation/probes/p2-04-song-ma-deliverable-v1.md"
+    "docs/adaptation/probes/p2-04-song-ma-deliverable-v1.md",
+    "docs/adaptation/probes/p3-01-final-chat-low-energy-v1.md",
+    "docs/adaptation/probes/p3-02-ma-qing-viewpoint-v1.md",
+    "docs/adaptation/probes/p3-03-he-family-boundary-failure-v1.md",
+    "docs/adaptation/probes/p3-04-six-core-voice-lab-v1.md",
+    "docs/adaptation/probes/p3-05-zhou-he-awkward-meetup-v1.md"
   ],
   "primary_project":{
     "working_title":"不同的稳定",
@@ -44,8 +52,8 @@
     "reservoir_scene_count":30,
     "character_substory_count":9,
     "braided_substory_count":4,
-    "audited_guest_count":2,
-    "executed_probe_count":4,
+    "audited_guest_count":3,
+    "executed_probe_count":9,
     "prose_canon_fixed":false,
     "world_is_not_centered_on_core_six":true
   },
@@ -95,25 +103,27 @@
     "Ordinary time and non-events remain usable narrative material.",
     "2035 is an observation endpoint, not a life verdict."
   ],
-  "current_stage":"probe_execution_pass_01_complete_more_voice_stress_tests_required",
+  "current_stage":"probe_execution_pass_02_complete_revision_before_architecture_lock",
   "gate_status":{
     "ordinary_scene_without_forced_meaning":"pass",
+    "low_energy_socially_awkward_scene":"pass",
     "locally_wrong_or_embarrassed_viewpoint":"pass",
     "local_antagonist_with_plausible_good":"pass",
-    "guest_micro_arc":"pass_with_more_testing_needed",
-    "six_core_dialogue_differentiation":"not_yet_tested_enough",
-    "capability_consistency":"partial_pass",
-    "anti_ai_style":"partial_pass",
+    "guest_viewpoint_scene":"pass",
+    "guest_micro_arc":"pass",
+    "family_origin_pressure_without_melodrama":"pass",
+    "educated_character_communicates_badly":"pass",
+    "six_core_dialogue_differentiation":"pass_as_diagnostic",
+    "capability_consistency":"pass_with_revision_notes",
+    "anti_ai_style":"improved_but_not_full_pass",
     "prose_canon":"blocked"
   },
   "next_stage_gate":{
     "required_before_full_chapter_drafting":[
-      "one low-energy or socially awkward scene where dialogue is not consistently witty",
-      "one guest-viewpoint scene",
-      "one family-origin-pressure scene without illness or melodrama",
-      "one six-core dialogue differentiation stress test",
-      "one scene where an educated character communicates badly despite knowing communication theory",
-      "second anti-AI style audit"
+      "revise three strongest probes by deleting explanatory psychology and designed endings",
+      "compare v1 and v2 for loss or gain of human texture",
+      "second anti-AI audit focused on authorial over-explanation, neatness and symmetry",
+      "choose provisional narrative distance only after revision comparison"
     ],
     "after_gate":"20-24 chapter novel beat sheet and 12-episode screen beat sheet may be fixed separately"
   }
