@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "read_only_adaptation_design_layer",
+  "source_branch": "chatgpt/career-six-cohort",
+  "historical_horizon": ["2026-03-02", "2035-12-31"],
+  "source_head": "runtime/chatbot-live/head-v2.json",
+  "source_storyteller": "runtime/chatbot-live/storyteller/2035-diagnostic-v12.json",
+  "source_personal": "runtime/chatbot-live/personal/2035-year-end.json",
+  "history_is_frozen": true,
+  "world_writeback": false,
+  "adaptation_only_fiction_allowed": true,
+  "adaptation_only_fiction_must_be_labeled": true,
+  "allowed_operations": [
+    "topic_selection",
+    "protagonist_hierarchy",
+    "viewpoint_design",
+    "time_structure",
+    "scene_selection",
+    "novel_architecture",
+    "screenplay_architecture",
+    "animation_episode_architecture",
+    "disposable_scene_probe"
+  ],
+  "forbidden_operations": [
+    "rewrite_ledger_fact",
+    "invent_historical_outcome_as_canon",
+    "convert_interpretation_into_world_fact",
+    "turn_2035_into_life_ending",
+    "rank_characters_as_winners_and_losers"
+  ],
+  "interpretation_rule": "Every major thematic claim should preserve at least one competing interpretation supported by the historical ledger.",
+  "current_phase": "selection_and_architecture",
+  "literary_prose_status": "not_started"
+}
