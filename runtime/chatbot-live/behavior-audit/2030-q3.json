@@ -1,0 +1,16 @@
+{
+  "schema_version":1,
+  "period":"2030-q3",
+  "status":"behavior_audit_noncanonical",
+  "backend":"chatgpt_product_conversation",
+  "source_batch":"runtime/chatbot-live/batches/2030-q3.json",
+  "abnormal_budget":1,
+  "abnormal_used":0,
+  "decisions":[
+    {"actor_id":"lin_jing","mode":"normal","chosen_action_id":"wait_for_written_academic_terms_before_acceptance","baseline_expected_action":"Compare actual bundle information before committing, even when only one track remains alive.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"The data-method track ended, but that does not make the university offer automatically correct.","constraint_check":{"feasible":true,"notes":"Offer deadline still allows final checks."},"evidence_refs":["2030q3:e01","2030q3:e08"]},
+    {"actor_id":"tang_yu","mode":"normal","chosen_action_id":"continue_project_only_after_value_review_passes","baseline_expected_action":"Allow a shrunken project to continue only if the mechanism boundary still explains something reusable.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Independent value review supports the mechanism framing despite the smaller theorem.","constraint_check":{"feasible":true,"notes":"Continuation means rewrite, not submission."},"evidence_refs":["2030q3:e03","2030q3:e05"]},
+    {"actor_id":"zhou_ye","mode":"normal","chosen_action_id":"test_template_first_handoff_boundary","baseline_expected_action":"Convert growing reliability demand into standards rather than absorbing every request personally.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Cross-team handoff requests increased and threaten to recreate prior overload pattern.","constraint_check":{"feasible":true,"notes":"One-month experiment preserves exception support."},"evidence_refs":["2030q3:e11","2030q3:e13"]},
+    {"actor_id":"he_xin","mode":"normal","chosen_action_id":"track_exit_cost_annually_without_immediate_switch","baseline_expected_action":"Keep a stable role while making path dependence visible instead of reacting to it prematurely.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Lock-in costs are rising but current role remains acceptable.","constraint_check":{"feasible":true,"notes":"Annual review is low-cost and reversible."},"evidence_refs":["2030q3:e14","2030q3:e15"]}
+  ],
+  "audit_rule":"No Q3 decision required abnormal routing; path-dependence awareness alone is not an exit trigger."
+}
