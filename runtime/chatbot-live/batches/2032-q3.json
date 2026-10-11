@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2032-q3",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2032-07-01","end":"2032-09-30"},
+  "generation_mode": "chatgpt_product_interaction_chain",
+  "era_lens": [
+    "真实申请进入面试后，市场再评价开始提供比职位描述更具体的职责、团队和城市信息。",
+    "多年工作后的岗位评估更重视组织是否真正使用角色积累的判断资产，而不是是否换了头衔。",
+    "修回稿的第二次外部决定可以继续收缩，也可以开始形成真正关闭点。"
+  ],
+  "exogenous_hard_world_events": [
+    {"event_id":"2032q3:process01","at":"2032-07-19","kind":"public_application_update","actor":"luo_cheng","source_candidate":"candidate:2032-q2:luo-public-application:01","result":"interview_invited","visibility":"private_to_actor"},
+    {"event_id":"2032q3:process02","at":"2032-08-02","kind":"public_application_update","actor":"song_nan","source_candidate":"candidate:2032-q2:song-public-application:01","result":"interview_invited","visibility":"private_to_actor"},
+    {"event_id":"2032q3:editorial01","at":"2032-09-09","kind":"editorial_decision","actor":"tang_yu","project":"mechanism_boundary_manuscript","result":"minor_revision","review_focus":["tighten one boundary statement","clarify validation limitation in discussion"],"visibility":"authors_only"},
+    {"event_id":"2032q3:review01","at":"2032-09-15","kind":"fifth_year_role_review","actor":"zhou_ye","result":"meets_expectations_no_title_change_handoff_standard_embedded_in_team_process","visibility":"private_to_actor"},
+    {"event_id":"2032q3:review02","at":"2032-09-20","kind":"fifth_year_role_review","actor":"he_xin","result":"meets_expectations_no_role_change_cash_buffer_improved_learning_growth_modest","visibility":"private_to_actor"}
+  ],
+  "windows": [
+    {"packet_id":"micro:chatbot:2032-07:luo-interview-prep:01","start_date":"2032-07-21","end_date":"2032-07-21","event_kind":"selective_interview_preparation","participants":["luo_cheng","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-08:song-interview-prep:01","start_date":"2032-08-04","end_date":"2032-08-04","event_kind":"selective_interview_preparation","participants":["song_nan","zhao_ke"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-09:tang-xu-minor-revision:01","start_date":"2032-09-11","end_date":"2032-09-11","event_kind":"minor_revision_response","participants":["tang_yu","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-09:zhou-xu-year-five:01","start_date":"2032-09-17","end_date":"2032-09-17","event_kind":"technical_ownership_year_five_checkin","participants":["zhou_ye","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-09:he-sun-year-five:01","start_date":"2032-09-22","end_date":"2032-09-22","event_kind":"public_institution_year_five_checkin","participants":["he_xin","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-08:lin-second-year-midpoint:01","start_date":"2032-08-18","end_date":"2032-08-18","event_kind":"university_role_second_year_midpoint","participants":["lin_jing","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-07:gu-rule-vs-judgment:01","start_date":"2032-07-29","end_date":"2032-07-29","event_kind":"verification_mentor_judgment_scene","participants":["gu_wei"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events": [
+    {"event_id":"2032q3:e01","kind":"social_interaction","at":"2032-07-21","event_kind":"selective_interview_preparation","speaker":"luo_cheng","listener":"lin_jing","act":"share_experience","content":"罗诚收到面试后没有把重点放在‘怎样显得更厉害’，而是列出三个必须问清的问题：研究判断占比、流程协调占比、搬到省会后角色有没有真正更大平台。","channel":"video_call","evidence":"申请门槛是内容+平台双改善。"},
+    {"event_id":"2032q3:e02","kind":"social_interaction","at":"2032-07-21","event_kind":"selective_interview_preparation","speaker":"lin_jing","listener":"luo_cheng","act":"offer_information","content":"林静提醒他面试也是获取bundle信息的机会，如果职责实际比招聘描述更偏行政协调，即使拿offer也可能不跨门槛。","channel":"video_call","evidence":"面试不只用于争取录用。"},
+
+    {"event_id":"2032q3:e03","kind":"social_interaction","at":"2032-08-04","event_kind":"selective_interview_preparation","speaker":"song_nan","listener":"zhao_ke","act":"share_experience","content":"宋楠准备面试时把便携案例缩成三个判断片段：需求范围、版本变化和风险识别；她想借面试确认新岗位究竟是统计判断角色，还是主要做固定报表。","channel":"video_call","evidence":"外部申请门槛要求保留核心交付判断。"},
+    {"event_id":"2032q3:e04","kind":"social_interaction","at":"2032-08-04","event_kind":"selective_interview_preparation","speaker":"zhao_ke","listener":"song_nan","act":"offer_information","content":"赵珂建议她尤其问清谁拥有需求定义权和异常解释权；如果岗位只是接需求做固定输出，离家近也不一定补得回学习损失。","channel":"video_call","evidence":"项目管理视角补充职责核验。"},
+
+    {"event_id":"2032q3:e05","kind":"social_interaction","at":"2032-09-11","event_kind":"minor_revision_response","speaker":"tang_yu","listener":"xu_hang","act":"share_experience","content":"第二轮外审只剩minor revision，要求把一个边界表述再收紧，并在讨论里更明确写出验证框架不能推出什么。","channel":"video_call","evidence":"修回后外部质疑显著缩小但尚未接受。"},
+    {"event_id":"2032q3:e06","kind":"social_interaction","at":"2032-09-11","event_kind":"minor_revision_response","speaker":"xu_hang","listener":"tang_yu","act":"make_plan","content":"许航直接在限制段加入一个负面例子，说明核心检查在某类问题上不能替代理论论证；两人决定只做这次要求范围内的修订。","channel":"video_call","evidence":"继续把验证边界写成主文责任。"},
+
+    {"event_id":"2032q3:e07","kind":"social_interaction","at":"2032-09-17","event_kind":"technical_ownership_year_five_checkin","speaker":"zhou_ye","listener":"xu_hang","act":"share_experience","content":"周野第五年没有职位变化，但交接标准已经被多个团队日常使用；他个人收到的常规问题更少，复杂异常反而更集中。","channel":"wechat_private","evidence":"技术资产已经嵌入团队流程。"},
+    {"event_id":"2032q3:e08","kind":"social_interaction","at":"2032-09-17","event_kind":"technical_ownership_year_five_checkin","speaker":"xu_hang","listener":"zhou_ye","act":"offer_information","content":"许航说这比头衔更能说明技术所有权已经发生变化，但也要记录复杂异常是不是越来越依赖周野个人，否则制度化只把简单工作移走。","channel":"wechat_private","evidence":"组织资产与专家单点风险并存。"},
+
+    {"event_id":"2032q3:e09","kind":"social_interaction","at":"2032-09-22","event_kind":"public_institution_year_five_checkin","speaker":"he_xin","listener":"sun_jie","act":"share_experience","content":"何欣第五年现金缓冲比2031明显好，但岗位学习增长仍比较慢；她没有提前开启2033购房，只把现金改善和职业锁定分别记录。","channel":"wechat_private","evidence":"下一住房窗口尚未到，现金变化不自动触发购买。"},
+    {"event_id":"2032q3:e10","kind":"social_interaction","at":"2032-09-22","event_kind":"public_institution_year_five_checkin","speaker":"sun_jie","listener":"he_xin","act":"offer_information","content":"孙洁提醒她明年购房再评价时先看城市承诺和退出成本有没有变化，不要因为这次终于‘买得起一点’就把过去的现金阻断补偿回来。","channel":"wechat_private","evidence":"2033住房判断提前定义但不执行。"},
+
+    {"event_id":"2032q3:e11","kind":"social_interaction","at":"2032-08-18","event_kind":"university_role_second_year_midpoint","speaker":"lin_jing","listener":"chen_lan","act":"share_experience","content":"林静第二年中段仍能保住研究块，但她发现评价压力正把注意力从‘有没有时间’转到‘这段时间产出了什么’；自主性的下一层成本开始变成产出焦虑。","channel":"video_call","evidence":"时间边界稳定后出现绩效层压力。"},
+    {"event_id":"2032q3:e12","kind":"social_interaction","at":"2032-08-18","event_kind":"university_role_second_year_midpoint","speaker":"chen_lan","listener":"lin_jing","act":"repair","content":"陈岚提醒她别因为终于保护出时间就要求每个研究块都产生可见结果；如果保护时间反而变成新的绩效焦虑，边界只换了一个形式。","channel":"video_call","evidence":"自主性成本继续演化。"},
+
+    {"event_id":"2032q3:e13","kind":"actor_state_interaction","at":"2032-07-29","event_kind":"verification_mentor_judgment_scene","speaker":"gu_wei","listener":"self_record","act":"share_experience","content":"顾维开始要求组里使用验证清单的人同时写一段‘为什么这个检查对当前问题有意义’，几次之后他发现问题说明比勾选结果更能暴露真正的判断差异。","channel":"private_record","evidence":"对过度程序化风险的直接干预。"}
+  ],
+  "hard_world_candidate_updates": [
+    {"candidate_id":"candidate:2032-q2:luo-public-application:01","checked_at":"2032-07-19","checks":{"eligibility":true,"screening":true,"interview_if_invited":true,"bundle_if_offer":"pending"},"result":"interview_invited_noncanonical","resource_effect":"interview process opened"},
+    {"candidate_id":"candidate:2032-q2:song-public-application:01","checked_at":"2032-08-02","checks":{"eligibility":true,"screening":true,"interview_if_invited":true,"bundle_if_offer":"pending"},"result":"interview_invited_noncanonical","resource_effect":"interview process opened"},
+    {"candidate_id":"candidate:2032-q1:tang-major-revision:01","checked_at":"2032-09-09","checks":{"resubmitted":true,"second_external_decision":"minor_revision"},"result":"minor_revision_open_noncanonical","resource_effect":"small revision required; no acceptance fact"}
+  ],
+  "new_hard_world_candidates": [
+    {"candidate_id":"candidate:2032-q3:luo-interview-outcome:01","created_at":"2032-07-19","type":"public_interview_process","beneficiary":"luo_cheng","description":"省会研究运营与数据协调岗位面试；只有真实流程结果才能生成offer或落选。","requires_checks":["interview_completed","selection_result","bundle_if_offer"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2032-q3:song-interview-outcome:01","created_at":"2032-08-02","type":"public_interview_process","beneficiary":"song_nan","description":"省会健康数据统计岗位面试；家庭距离改善不替代职责与学习价值检查。","requires_checks":["interview_completed","selection_result","bundle_if_offer"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2032-q3:tang-minor-revision:01","created_at":"2032-09-09","type":"manuscript_minor_revision","beneficiary":"tang_yu","description":"只完成边界表述和验证限制的小修，不扩展命题。","requires_checks":["boundary_text_tightened","validation_limitation_added","all_authors_approve"],"status":"open_noncanonical"}
+  ],
+  "actor_state_evidence": [
+    {"at":"2032-07-19","actor":"luo_cheng","dimension":"market_reentry","evidence":"选择性申请进入面试，开始用真实职责信息而非岗位名称判断更大平台是否值得搬城。","status":"candidate_state_evidence"},
+    {"at":"2032-08-02","actor":"song_nan","dimension":"market_reentry","evidence":"便携案例支持真实外部面试，下一步重点转为需求定义权与异常解释权等职责信息。","status":"candidate_state_evidence"},
+    {"at":"2032-09-09","actor":"tang_yu","dimension":"external_review","evidence":"major revision后进入minor revision，外部争议已缩小到边界措辞和验证限制。","status":"candidate_state_evidence"},
+    {"at":"2032-09-17","actor":"zhou_ye","dimension":"technical_ownership","evidence":"交接标准嵌入多团队流程，常规问题减少但复杂异常集中，组织资产与单点专家风险并存。","status":"candidate_state_evidence"},
+    {"at":"2032-09-22","actor":"he_xin","dimension":"housing_readiness","evidence":"现金缓冲改善但2033窗口未到，未提前打开购房；职业学习增长仍慢。","status":"candidate_state_evidence"},
+    {"at":"2032-08-18","actor":"lin_jing","dimension":"second_year_role_boundary","evidence":"研究时间边界稳定后，年度评价把压力从时间不足转成产出焦虑。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence": [
+    {"at":"2032-08-04","pair":["song_nan","zhao_ke"],"direction":"positive","evidence":"赵珂在宋楠真实外部面试前帮助核职责判断权，而非提供岗位或关系资源。"},
+    {"at":"2032-09-17","pair":["zhou_ye","xu_hang"],"direction":"positive","evidence":"多年技术交流已从个人复现建议发展到组织标准与专家单点风险讨论。"}
+  ],
+  "storyteller_index_delta": {
+    "new_material_threads": [
+      "Luo and Song selective searches move from application to interview, finally exposing actual role content",
+      "Tang/Xu external review narrows from major to minor revision without claim expansion",
+      "Zhou's technical standard success creates a second-order expert concentration risk",
+      "Lin's autonomy conflict evolves from protecting time to pressure about what protected time must produce",
+      "He's cash readiness improves before the next housing window, setting up a nontrivial 2033 repeat decision"
+    ],
+    "world_writeback": false
+  },
+  "audit_rules": {
+    "single_batch_noncanonical": true,
+    "generated_through_interaction_chain": true,
+    "interview_is_information_and_selection_not_offer": true,
+    "cash_improvement_cannot_open_home_purchase_outside_window_without_new_trigger": true,
+    "minor_revision_is_not_acceptance": true,
+    "successful_standardization_can_create_expert_concentration_risk": true,
+    "storyteller_is_read_only": true
+  }
+}
