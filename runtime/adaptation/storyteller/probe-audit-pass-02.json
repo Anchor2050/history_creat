@@ -1,0 +1,63 @@
+{
+  "schema_version":1,
+  "status":"adaptation_probe_audit_noncanonical",
+  "historical_world_writeback":false,
+  "audited_files":[
+    "docs/adaptation/probes/p3-01-final-chat-low-energy-v1.md",
+    "docs/adaptation/probes/p3-02-ma-qing-viewpoint-v1.md",
+    "docs/adaptation/probes/p3-03-he-family-boundary-failure-v1.md",
+    "docs/adaptation/probes/p3-04-six-core-voice-lab-v1.md",
+    "docs/adaptation/probes/p3-05-zhou-he-awkward-meetup-v1.md"
+  ],
+  "overall_judgment":"materially_better_but_not_ready_for_full_chapter_canon",
+  "findings":[
+    {
+      "file":"p3-01-final-chat-low-energy-v1.md",
+      "passes":["six core and secondary-ring voices are distinguishable without explicit personality labels","no retrospective ten-year verdict","mundane objects and delayed replies carry much of the scene"],
+      "problems":["several replies are too neatly funny in succession","the chat still has more conversational efficiency than a real nine-person group","some characters appear exactly when structurally useful"],
+      "verdict":"useful_voice_lab_not_yet_final_scene"
+    },
+    {
+      "file":"p3-02-ma-qing-viewpoint-v1.md",
+      "passes":["guest has independent deadline and institutional pressure","Song Nan does not dominate the viewpoint","both statistical caution and business actionability remain legitimate goods"],
+      "problems":["the paragraph explaining that Ma Qing is annoyed by coordination burden is too diagnostically clean","the final slide-title change is slightly writer-designed as a miniature resolution","dialogue remains somewhat more efficient than a tired real meeting"],
+      "verdict":"strong_guest_pov_probe_needs_less_explanation"
+    },
+    {
+      "file":"p3-03-he-family-boundary-failure-v1.md",
+      "passes":["family-origin pressure emerges through ordinary housing talk rather than melodrama","He Xin communicates worse precisely in a domain where she normally has strong skills","older brother protects a plausible good and is not a stereotype","repair is partial and emotionally cheap rather than cathartic"],
+      "problems":["the paragraph explicitly explaining facts-feelings-needs is too close to an author note","the line about sounding like a meeting is effective but slightly designed","the self-forwarding of the housing link creates a neat irony that should be used sparingly"],
+      "verdict":"passes_core_test_needs_authorial_explanation_cut"
+    },
+    {
+      "file":"p3-04-six-core-voice-lab-v1.md",
+      "passes":["attention patterns, syntax and risk filters differ clearly across all six actors","differences do not rely on catchphrases"],
+      "problems":["as expected, repeated use of these full decision algorithms in prose would become schematic","responses are cleaner than real-time speech because this is a lab instrument"],
+      "verdict":"diagnostic_only_never_use_as_scene"
+    },
+    {
+      "file":"p3-05-zhou-he-awkward-meetup-v1.md",
+      "passes":["dialogue is genuinely low-energy and sometimes fails to land","weak tie remains weak","neither character turns the meal into a career workshop","silence and food logistics are allowed to occupy time"],
+      "problems":["the final look-back at the intersection risks adding unnecessary cinematic meaning","the mirrored questions about whether work is annoying/causes quitting are slightly too formally symmetric"],
+      "verdict":"best_anti_ai_probe_so_far_but_should_trim_ending"
+    }
+  ],
+  "gate_status_after_pass_02":{
+    "low_energy_socially_awkward_scene":"pass",
+    "guest_viewpoint_scene":"pass",
+    "family_origin_pressure_without_melodrama":"pass",
+    "six_core_dialogue_differentiation":"pass_as_diagnostic",
+    "educated_character_communicates_badly":"pass",
+    "guest_has_life_beyond_protagonist":"pass",
+    "anti_ai_style":"improved_but_not_full_pass",
+    "prose_canon":"blocked"
+  },
+  "anti_ai_red_flags_to_cut_next":[
+    "author paragraphs that diagnose exactly why a character feels something",
+    "small elegant resolutions that make every scene feel complete",
+    "too many consecutive witty or perfectly responsive lines",
+    "symmetrical dialogue structures used because they are aesthetically satisfying",
+    "cinematic final gestures that imply meaning the scene already contains"
+  ],
+  "next_recommendation":"Do one revision pass on the strongest three probes by deleting explanatory psychology and designed endings; then compare v1/v2 before deciding narrative voice. Do not lock chapter architecture yet."
+}
