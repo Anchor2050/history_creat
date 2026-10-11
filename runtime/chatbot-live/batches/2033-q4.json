@@ -1,0 +1,77 @@
+{
+  "schema_version":1,
+  "batch_id":"career-six-chatbot-2033-q4",
+  "status":"noncanonical_chatbot_replay_batch",
+  "period":{"start":"2033-10-01","end":"2033-12-31"},
+  "generation_mode":"chatgpt_product_interaction_chain",
+  "era_lens":[
+    "第二次职业迁移要用完整第一年而非半年判断；混合bundle可以长期成立而无需归结为换对或换错。",
+    "资产锁定的二阶后果通过机会计算、现金恢复和城市承诺体现，不强行制造危机。",
+    "独立方法身份需要失败案例；一次新问题成功不能替代可迁移性检验。"
+  ],
+  "exogenous_hard_world_events":[
+    {"event_id":"2033q4:role01","at":"2033-11-18","kind":"second_role_first_year_review","actor":"song_nan","result":"meets_expectations_lower_living_cost_shorter_family_distance_judgment_scope_preserved_learning_growth_moderate_no_exit_trigger","visibility":"private_to_actor"},
+    {"event_id":"2033q4:research01","at":"2033-11-24","kind":"long_horizon_question_yearend_review","actor":"lin_jing","source_candidate":"candidate:2033-q3:lin-long-question-yearend:01","result":"remaining_narrow_question_still_mechanistically_meaningful_continue_one_more_year_without_output_commitment","visibility":"private_to_actor"},
+    {"event_id":"2033q4:validation01","at":"2033-12-03","kind":"independent_validation_failure_case","actor":"xu_hang","source_candidate":"candidate:2033-q3:xu-validation-failure-cases:01","result":"new_use_case_requires_so_much_expert_intervention_that_current_core_framework_not_independently_transferable","visibility":"private_to_actor"},
+    {"event_id":"2033q4:ownership01","at":"2033-12-07","kind":"home_ownership_yearend_review","actor":"zhou_ye","result":"mortgage_current_cash_buffer_partly_rebuilt_city_exit_cost_higher_no_distress","visibility":"private_to_actor"},
+    {"event_id":"2033q4:review01","at":"2033-12-10","kind":"public_institution_sixth_year_review","actor":"he_xin","result":"meets_expectations_cash_buffer_improving_learning_growth_low_still_renting","visibility":"private_to_actor"}
+  ],
+  "windows":[
+    {"packet_id":"micro:chatbot:2033-11:song-firstyear-secondrole:01","start_date":"2033-11-20","end_date":"2033-11-20","event_kind":"second_role_first_year_review","participants":["song_nan","he_xin"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2033-11:lin-long-question-yearend:01","start_date":"2033-11-26","end_date":"2033-11-26","event_kind":"long_horizon_question_value_review","participants":["lin_jing","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2033-12:xu-failure-case:01","start_date":"2033-12-05","end_date":"2033-12-05","event_kind":"validation_failure_case_review","participants":["xu_hang","gu_wei"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2033-12:zhou-ownership-yearend:01","start_date":"2033-12-09","end_date":"2033-12-09","event_kind":"home_ownership_yearend_check","participants":["zhou_ye","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2033-12:he-yearsix:01","start_date":"2033-12-12","end_date":"2033-12-12","event_kind":"public_institution_year_six_checkin","participants":["he_xin","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2033-11:gao-luo-yearend:01","start_date":"2033-11-08","end_date":"2033-11-08","event_kind":"selective_market_yearend_check","participants":["gao_yuan","luo_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2033-12:tang-research-gap:01","start_date":"2033-12-18","end_date":"2033-12-18","event_kind":"post_project_research_gap_check","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2033-12:year-end-group-call:01","start_date":"2033-12-26","end_date":"2033-12-26","event_kind":"year_end_group_call","participants":["lin_jing","chen_lan","xu_hang","zhou_ye","gao_yuan","luo_cheng","tang_yu","he_xin","song_nan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events":[
+    {"event_id":"2033q4:e01","kind":"social_interaction","at":"2033-11-20","event_kind":"second_role_first_year_review","speaker":"song_nan","listener":"he_xin","act":"share_experience","content":"宋楠把新岗位第一年总结成一笔没有单一答案的交换：工资和机会密度比旧岗位低，学习速度中等，但住房、通勤、家庭距离明显改善，需求定义和异常判断也没有丢。","channel":"in_person","evidence":"完整第一年review支持mixed bundle."},
+    {"event_id":"2033q4:e02","kind":"social_interaction","at":"2033-11-20","event_kind":"second_role_first_year_review","speaker":"he_xin","listener":"song_nan","act":"check_in","content":"何欣问她现在还会不会回原来的产业城市；宋楠说目前没有，因为这次换城的目标不是最大化机会密度，而是让专业判断和生活成本同时可持续。","channel":"in_person","evidence":"第一年无退出trigger."},
+
+    {"event_id":"2033q4:e03","kind":"social_interaction","at":"2033-11-26","event_kind":"long_horizon_question_value_review","speaker":"lin_jing","listener":"shen_yan","act":"share_experience","content":"林静年底把长期问题重新过了一遍：九个月删掉两条方向后，剩下的窄问题仍能说明一个她认为真实存在的机制疑问，虽然还没有结果。","channel":"video_call","evidence":"继续理由来自问题本身而非已投入时间。"},
+    {"event_id":"2033q4:e04","kind":"social_interaction","at":"2033-11-26","event_kind":"long_horizon_question_value_review","speaker":"shen_yan","listener":"lin_jing","act":"offer_information","content":"沈雁同意她再给一年，但要求明年中期仍做价值检查；慢问题不需要年度论文，却也不能因为叫长期问题就免于被放弃。","channel":"video_call","evidence":"long-horizon autonomy remains reviewable."},
+
+    {"event_id":"2033q4:e05","kind":"social_interaction","at":"2033-12-05","event_kind":"validation_failure_case_review","speaker":"xu_hang","listener":"gu_wei","act":"share_experience","content":"许航收到了一个很不舒服的失败案例：另一条新问题使用核心框架时仍需要他大量临场解释，使用者无法独立决定什么时候停止，说明方法资产的可移交性远没有身份能力那么成熟。","channel":"in_person","evidence":"failure-case candidate intentionally allows negative result."},
+    {"event_id":"2033q4:e06","kind":"social_interaction","at":"2033-12-05","event_kind":"validation_failure_case_review","speaker":"gu_wei","listener":"xu_hang","act":"repair","content":"顾维说这反而把两件事分开了：许航本人已经具备验证设计能力，但‘一套别人能独立用的方法’还没有形成；下一步不应该用更多规则掩盖这个差距。","channel":"in_person","evidence":"identity is not equated with method maturity."},
+
+    {"event_id":"2033q4:e07","kind":"social_interaction","at":"2033-12-09","event_kind":"home_ownership_yearend_check","speaker":"zhou_ye","listener":"chen_lan","act":"share_experience","content":"周野买房九个月后按揭没有造成财务压力，现金缓冲也在恢复，但他已经很明确地感觉到换城市的心理和财务门槛更高了；这正是当初主动接受的锁定。","channel":"wechat_private","evidence":"ownership lock-in persists without distress."},
+    {"event_id":"2033q4:e08","kind":"social_interaction","at":"2033-12-09","event_kind":"home_ownership_yearend_check","speaker":"chen_lan","listener":"zhou_ye","act":"repair","content":"陈岚说只要以后不要把这个锁定说成‘我现在当然只能留下’，买房本身不需要被后悔或美化；周野决定仍保持年度岗位复核。","channel":"wechat_private","evidence":"asset lock-in remains explicit rather than destiny."},
+
+    {"event_id":"2033q4:e09","kind":"social_interaction","at":"2033-12-12","event_kind":"public_institution_year_six_checkin","speaker":"he_xin","listener":"sun_jie","act":"share_experience","content":"何欣第六年现金继续改善，但工作学习增长仍慢；第二次购房现金失败后，她今年没有再反复算房子，反而更认真问自己这份工作除了稳定还在提供什么。","channel":"wechat_private","evidence":"housing failure shifts attention back to role value rather than urgent purchase."},
+    {"event_id":"2033q4:e10","kind":"social_interaction","at":"2033-12-12","event_kind":"public_institution_year_six_checkin","speaker":"sun_jie","listener":"he_xin","act":"offer_information","content":"孙洁建议她2034先做一次岗位价值复核，再决定2035住房窗口；如果工作本身都要重新评价，先加房产锁定可能把两个问题混在一起。","channel":"wechat_private","evidence":"housing and career lock-in sequence kept separate."},
+
+    {"event_id":"2033q4:e11","kind":"social_interaction","at":"2033-11-08","event_kind":"selective_market_yearend_check","speaker":"gao_yuan","listener":"luo_cheng","act":"share_experience","content":"高原今年没有新opening跨门槛，但阈值审计让他至少能说清哪些要求是这几年真正学出来的，哪些只是搬家和转换越来越麻烦；他决定2034继续看市场但不扩大投递范围。","channel":"phone","evidence":"threshold audit changes interpretation, not outcome."},
+    {"event_id":"2033q4:e12","kind":"social_interaction","at":"2033-11-08","event_kind":"selective_market_yearend_check","speaker":"luo_cheng","listener":"gao_yuan","act":"share_experience","content":"罗诚做完便携案例后更有底气等真正双门槛岗位，而不是因为上次落选降低标准；两人都承认这样做可能意味着再等一年。","channel":"phone","evidence":"portable asset supports patience, not guaranteed opportunity."},
+
+    {"event_id":"2033q4:e13","kind":"social_interaction","at":"2033-12-18","event_kind":"post_project_research_gap_check","speaker":"tang_yu","listener":"shen_yan","act":"share_experience","content":"到年底唐雨还是没有形成一条成熟的新主线，只留下几个短问题和一个她暂时没想清楚的长期疑问；她开始接受研究生涯并不一定按论文之间无缝衔接。","channel":"in_person","evidence":"one-year post-acceptance gap remains real."},
+    {"event_id":"2033q4:e14","kind":"social_interaction","at":"2033-12-18","event_kind":"post_project_research_gap_check","speaker":"shen_yan","listener":"tang_yu","act":"repair","content":"沈雁没有给她补题，只让她继续保留真正反复回来找她的问题；如果2034仍没有主线，也先记录事实，不把焦虑伪装成选题。","channel":"in_person","evidence":"mentor does not create research resource."},
+
+    {"event_id":"2033q4:e15","kind":"social_interaction","at":"2033-12-26","event_kind":"year_end_group_call","speaker":"zhou_ye","listener":"song_nan","act":"share_experience","content":"周野说自己今年第一次有房，宋楠说自己今年第一次主动降薪换城市；两个人都觉得所谓‘更稳定’或‘更舒服’其实带着新的交换，没有互相比较谁做对了。","channel":"video_call","evidence":"different lock-in choices are disclosed without ranking."},
+    {"event_id":"2033q4:e16","kind":"social_interaction","at":"2033-12-26","event_kind":"year_end_group_call","speaker":"xu_hang","listener":"tang_yu","act":"check_in","content":"许航告诉唐雨自己今年在别的项目上验证了独立设计能力，也遇到框架移交失败；唐雨只说这比文章接受更像他自己的下一步，没有据此替他定义新领域。","channel":"video_call","evidence":"accepted joint paper is separated from Xu independent evidence."}
+  ],
+  "hard_world_candidate_updates":[
+    {"candidate_id":"candidate:2033-q3:xu-validation-failure-cases:01","checked_at":"2033-12-03","checks":{"new_use_cases":true,"failure_boundary_documented":true,"no_forced_success":true},"result":"failure_case_confirmed_method_not_yet_independently_transferable_noncanonical","resource_effect":"identity evidence retained; method-maturity claim reduced"},
+    {"candidate_id":"candidate:2033-q3:lin-long-question-yearend:01","checked_at":"2033-11-24","checks":{"remaining_question_clear":true,"negative_progress_documented":true,"future_mechanism_value":true},"result":"continue_one_more_year_without_output_commitment_noncanonical","resource_effect":"protected long-horizon question space continues"}
+  ],
+  "new_hard_world_candidates":[
+    {"candidate_id":"candidate:2033-q4:he-2034-role-value-review:01","created_at":"2033-12-12","type":"career_value_reassessment","beneficiary":"he_xin","description":"2034先评估第七年岗位除稳定外的持续价值，再决定2035住房锁定是否合理。","requires_checks":["learning_value","time_quality","benefit_continuity","market_reentry_cost","no_forced_exit"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2033-q4:tang-2034-research-gap-review:01","created_at":"2033-12-18","type":"research_gap_review","beneficiary":"tang_yu","description":"2034继续记录自然出现的问题；没有足够主线时允许研究空档，不强制立题。","requires_checks":["recurring_question_evidence","no_output_pressure_fabrication"],"status":"open_noncanonical"}
+  ],
+  "actor_state_evidence":[
+    {"at":"2033-11-20","actor":"song_nan","dimension":"second_role_fit","evidence":"第二岗位完整一年形成稳定mixed bundle：生活成本/家庭距离改善、专业判断保留、学习和机会密度低于旧岗但可接受。","status":"candidate_state_evidence"},
+    {"at":"2033-11-26","actor":"lin_jing","dimension":"research_autonomy","evidence":"长期问题经一年负面收缩后仍具有机制价值，允许无年度产出继续一年。","status":"candidate_state_evidence"},
+    {"at":"2033-12-05","actor":"xu_hang","dimension":"validation_identity","evidence":"本人独立设计能力与方法可移交成熟度正式分开：新失败案例显示后者仍不足。","status":"candidate_state_evidence"},
+    {"at":"2033-12-09","actor":"zhou_ye","dimension":"housing_lock_in","evidence":"按揭可承受且现金恢复，但城市退出成本显著提高；锁定被主动承认而非自然化。","status":"candidate_state_evidence"},
+    {"at":"2033-12-12","actor":"he_xin","dimension":"career_reassessment","evidence":"住房连续被硬约束阻断后，注意力转回第七年岗位除稳定外的长期价值。","status":"candidate_state_evidence"},
+    {"at":"2033-11-08","actor":"gao_yuan","dimension":"path_dependence","evidence":"阈值审计使年度留任理由更加可审计，但没有改变仍无跨门槛opening的市场事实。","status":"candidate_state_evidence"},
+    {"at":"2033-12-18","actor":"tang_yu","dimension":"research_gap","evidence":"接受一年后仍无成熟新主线，开始把研究空档视为真实职业状态而非必须立即修复的问题。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence":[
+    {"at":"2033-12-26","pair":["xu_hang","tang_yu"],"direction":"positive","evidence":"共同项目结束后关系仍能支持彼此区分独立发展，不再靠同一项目维持。"},
+    {"at":"2033-11-20","pair":["song_nan","he_xin"],"direction":"positive","evidence":"同城一年内形成低频现实交流，但仍无资源合并或住房联动。"}
+  ],
+  "storyteller_index_delta":{"new_material_threads":["Song's deliberate lower-pay move stabilizes as a mixed but sustainable first-year bundle","Zhou's first home produces durable mobility friction without financial distress","He turns repeated housing blockage into a question about career value before the next lock-in window","Xu's independent identity survives a failure that reduces method-maturity claims","Tang experiences a full post-publication year with no forced next project","Lin's slow question earns another year through negative narrowing rather than output"],"world_writeback":false},
+  "audit_rules":{"single_batch_noncanonical":true,"generated_through_interaction_chain":true,"mixed_bundle_can_be_stable_without_being_globally_better":true,"ownership_lockin_must_remain_visible":true,"method_failure_can_strengthen_identity_boundary_while_reducing_maturity_claim":true,"research_gap_is_valid_history":true,"family_age_alone_cannot_create_health_or_care_crisis":true,"storyteller_is_read_only":true}
+}
