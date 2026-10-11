@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_only_relay_test_audit_noncanonical",
+  "historical_world_writeback": false,
+  "test": "relay-test-01",
+  "chapters": [
+    "docs/adaptation/relay-test-01/ch01-song-condition-changed-v2.md",
+    "docs/adaptation/relay-test-01/ch02-chen-after-message.md",
+    "docs/adaptation/relay-test-01/ch03-zhou-offer-and-table.md",
+    "docs/adaptation/relay-test-01/ch04-luo-research-support.md"
+  ],
+  "relay_edges": [
+    {
+      "from": 1,
+      "to": 2,
+      "baton": "宋楠面试后给陈岚发出的两条未回复消息",
+      "judgment": "strong",
+      "reason": "第二章从消息接收端打开，不需要作者解释为什么换人物。"
+    },
+    {
+      "from": 2,
+      "to": 3,
+      "baton": "陈岚博士流程闭环当天收到周野的具体offer求助",
+      "judgment": "strong",
+      "reason": "周野进入是因为他把问题带到陈岚面前，不是因为轮到介绍周野。"
+    },
+    {
+      "from": 3,
+      "to": 4,
+      "baton": "年底饭桌上罗诚明确说正在准备研究支持岗位申请",
+      "judgment": "medium_strong",
+      "reason": "下一章直接兑现该公开流程；但第三章结尾没有必须由罗诚接管镜头的强迫性，仍需靠申请悬念维持。"
+    },
+    {
+      "from": 4,
+      "to": "next",
+      "baton": "罗诚第一天上班桌角出现明天下午必须提交、仍缺两份材料的真实任务",
+      "judgment": "very_strong",
+      "reason": "下一场天然是工作本身，不需要再引入新核心人物。"
+    }
+  ],
+  "reader_experience": {
+    "cast_list_feeling": "substantially_reduced",
+    "story_following_feeling": "provisional_pass",
+    "cinematic_sceneability": "pass",
+    "new_name_load": "controlled",
+    "campbell_visibility": "appropriately_hidden",
+    "negative_space": "mostly_pass"
+  },
+  "chapter_findings": {
+    "ch1": {
+      "strengths": [
+        "大环境只用快递点、就业表和面试现场起势，随后迅速进入冲突。",
+        "宋楠的博士背景、行业零经验、急性子都从交锋中泄露。",
+        "结尾消息是实际传棒，不是主题句。"
+      ],
+      "risks": [
+        "中段仍有少量作者概括，例如真正坐进屋后对方一直在问今天能不能决定，可在后续删减版再压。"
+      ]
+    },
+    "ch2": {
+      "strengths": [
+        "陈岚首先作为宋楠的接收者出现，随后自己的答辩和收尾自然夺走镜头。",
+        "博士完成通过删页、答辩、封面年份、超市排队呈现，没有履历介绍。",
+        "周野消息进入时有具体物理动作和生活现场。"
+      ],
+      "risks": [
+        "一章跨七月至十月，存在轻微人物年表感。",
+        "答辩到完成之间可以考虑用更强的重复物件或未完成任务保持连续感，但不能加作者总结。"
+      ]
+    },
+    "ch3": {
+      "strengths": [
+        "周野由offer问题进入，现金、租房、通勤和岗位内容立即构成现实压力。",
+        "技术筛查回忆解释了offer为什么可能发生，也把零论文和可靠性放进冲突。",
+        "年底饭桌没有三人平衡展开，只让罗诚成为下一支。"
+      ],
+      "risks": [
+        "技术筛查回忆偏长，可能打断offer现在时。",
+        "纸上列去/不去略接近决策模型展示，正式稿可再生活化。"
+      ]
+    },
+    "ch4": {
+      "strengths": [
+        "申请在上一章已种下，本章从面试通知自然兑现。",
+        "孙洁因罗诚的真实求助出现，并有自己的忙碌边界，不承担全知导师功能。",
+        "面试把两次失败、博士身份和真实能力都变成现场问题。",
+        "结尾第一份工作直接生成下一任务，是目前最强的向前推动。"
+      ],
+      "risks": [
+        "个别面试对白仍略整齐，可在正式版本加入停顿、误解或不完整回答。"
+      ]
+    }
+  },
+  "overall_verdict": "provisional_pass_event_relay_mechanic",
+  "important_correction": "这次通过的只是‘事带人、人带事’机制，不代表四章已经是出版正文，也不代表以后要继续按宋楠—陈岚—周野—罗诚固定顺序。下一步应沿罗诚桌上的真实任务继续一小段，测试故事能否在同一人物身上持续，而不是立刻再次传棒。",
+  "recommended_next_step": [
+    "先对ch2和ch3做减法型v2，降低时间蒙太奇感和回忆长度。",
+    "随后只写罗诚入职后的连续工作场景，不引入新核心人物。",
+    "如果一条线能连续撑住两到三章，再允许事件把镜头带到下一个人。"
+  ]
+}
