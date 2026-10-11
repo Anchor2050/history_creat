@@ -19,68 +19,74 @@
     "runtime/chatbot-live/batches/2027-q2.json",
     "runtime/chatbot-live/batches/2027-q3.json",
     "runtime/chatbot-live/batches/2027-q4.json",
-    "runtime/chatbot-live/batches/2027-q4b-zhao.json"
+    "runtime/chatbot-live/batches/2027-q4b-zhao.json",
+    "runtime/chatbot-live/batches/2028-q1.json",
+    "runtime/chatbot-live/batches/2028-q2.json",
+    "runtime/chatbot-live/batches/2028-q3.json",
+    "runtime/chatbot-live/batches/2028-q4.json"
   ],
-  "cursor": 51,
-  "world_time": "2027-12-31",
-  "processed_window_count": 51,
-  "event_count": 159,
-  "actor_window_coverage_2027": {
-    "lin_jing": 6,
+  "cursor": 84,
+  "world_time": "2028-12-31",
+  "processed_window_count": 84,
+  "event_count": 237,
+  "actor_window_coverage_2028": {
+    "lin_jing": 10,
     "chen_lan": 11,
-    "xu_hang": 7,
-    "wu_cheng": 4,
-    "shen_yan": 1,
+    "xu_hang": 6,
+    "wu_cheng": 1,
+    "shen_yan": 4,
     "gu_wei": 1,
-    "zhao_ke": 1,
-    "sun_jie": 5,
-    "zhou_ye": 8,
-    "gao_yuan": 6,
-    "luo_cheng": 6,
-    "tang_yu": 8,
-    "he_xin": 7,
-    "song_nan": 7
+    "zhao_ke": 3,
+    "sun_jie": 3,
+    "zhou_ye": 7,
+    "gao_yuan": 7,
+    "luo_cheng": 7,
+    "tang_yu": 9,
+    "he_xin": 6,
+    "song_nan": 6
   },
-  "candidate_status_summary_end_2027": {
-    "employment_accepted_start_2028": [
-      "zhou_ye: state_owned_enterprise @ provincial_capital",
-      "he_xin: civil_service_or_public_institution @ provincial_capital",
-      "song_nan: pharmaceutical_industry @ pharma_cluster"
-    ],
-    "doctoral_completed": ["chen_lan"],
-    "closed_without_offer_or_resource": [
-      "gao_yuan 2027 civil-service cycle",
-      "luo_cheng 2027 counselor/student-affairs cycle"
-    ],
-    "open_paths": [
-      "luo_cheng research-support/process-coordination application",
-      "gao_yuan broadened stability search plus another civil-service cycle",
-      "tang_yu minimal mechanism research development",
-      "chen_lan post-degree career search"
-    ]
+  "current_actor_transitions_end_2028": {
+    "zhou_ye": "active first job: state_owned_enterprise @ provincial_capital",
+    "gao_yuan": "accepted civil_service @ home_prefecture; starts 2029-01",
+    "luo_cheng": "active first job: research-support/process-coordination role @ regional_university_city",
+    "tang_yu": "doctoral research; narrow mechanism internal-result candidate under review",
+    "he_xin": "active first job: public institution @ provincial_capital",
+    "song_nan": "active first job: pharmaceutical statistics @ pharma_cluster; chooses to stay at least another stage",
+    "chen_lan": "doctoral degree completed; rejected one formal offer for structural time-boundary mismatch; formal search remains open",
+    "lin_jing": "doctoral research; explicitly tracking time autonomy and city choice for future career bundle",
+    "xu_hang": "doctoral research; verification identity increasingly organized around risk identification and check design"
   },
-  "2027_mechanism_findings": [
-    "所有第一份工作结果均先经过公开岗位或考试流程，再经过城市/住房/家庭距离/现金/职责bundle检查；弱联系没有直接生成offer。",
-    "周野的复现工作样本帮助他通过技术筛查，但公开流程和岗位匹配仍决定最终offer；他接受的是省会技术岗而非抽象的国企标签。",
-    "宋楠通过公开医药统计招聘获得offer；前一年失败的小项目候选没有被改写成成功跳板。",
-    "何欣通过公开事业单位/公共机构流程获得省会offer，并继续把稳定性与职责、住房、退出成本一起评估。",
-    "高原首轮公务员招考未进面试线，失败后保留主线但增加重新评估条件和少量并行稳定岗位。",
-    "罗诚连续两次学生事务岗位无offer后，职业目标从单一辅导员修订为高校行政、研究支持和公共机构流程协调组合。",
-    "唐雨与许航的验证合作只把实现脆弱性和结构性失效分开，并形成反例集候选；没有预写论文、定理或作者关系。",
-    "陈岚完成博士后仍未自动获得理想工作，她把不再依靠无限接活证明可靠写入下一阶段职业约束。",
-    "孙洁开始主动管理熟人私聊和正式事务队列的边界；赵珂把外部协作者接入点后移到需求、预算、权限和责任基本成立之后。",
-    "忙碌和任务阶段变化会自然降低联系频率；降频不自动解释为关系恶化。"
+  "open_candidates_end_2028": [
+    "chen_lan sustainable formal-role search",
+    "tang_yu internal review of narrow proposition plus counterexample",
+    "gao_yuan 2029 first-job transition",
+    "lin_jing doctoral completion and future career-bundle formation",
+    "xu_hang independent verification/research identity"
   ],
-  "memory_materialization_rule": "Every social event writes bilateral memory only to explicit speaker/listener. Public or group events expose only statements explicitly marked as spoken in that event. Explicit introductions alone create new weak-tie edges. Exogenous hard-world events are private to named actors until they choose to disclose them.",
+  "network_deltas_2028": [
+    {"a":"zhou_ye","b":"he_xin","introduced_by":"tang_yu","at":"2028-07-20","status":"introduced_acquaintance_with_two_actual_contacts_by_year_end"}
+  ],
+  "2028_mechanism_findings": [
+    "第一份工作把offer bundle转成了真实日常：周野获得更可预测的生活但组织流程更慢；何欣获得稳定时间边界但重复程序挤压学习；宋楠获得高学习密度但住房、家庭距离和组织流程成本持续存在。",
+    "罗诚通过修订目标而不是关系补偿获得第二次机会，公开流程后进入研究支持岗位；先前辅导员路线的失败成为目标修订证据。",
+    "高原第二轮公开考试才获得家乡公务员offer，并明确接受低机会密度以换取家庭距离、住房和稳定性。",
+    "陈岚在有正式offer的情况下因结构性高响应和多项目切换主动拒绝，说明职业边界在真实选择中生效，而不是事后叙事。",
+    "唐雨的广义机制命题先被反例推翻，之后才收缩成带显式条件的窄命题；年底只有内部证明草稿和可复现反例，没有投稿或发表事实。",
+    "许航的验证贡献继续通过贡献日志和边界管理积累，仍未自动转成作者身份。",
+    "同城本身不会自动创造关系；周野和何欣只有在唐雨明确介绍后才建立弱联系，并通过两次普通见面维持。",
+    "工作后联系频率下降是时间约束结果，不自动解释为疏远；多人活动中仍只传播主动说出的信息。",
+    "赵珂和孙洁的个人工作边界继续演化：前者减少无预算试工，后者减少熟人私聊侵占正式队列。"
+  ],
+  "memory_materialization_rule": "Every social event writes bilateral memory only to explicit speaker/listener. Public or group events expose only statements explicitly spoken in that event. Explicit introductions alone create new weak-tie edges. Exogenous hard-world events are private to named actors until disclosed. Employment and offer outcomes must be materialized only after their documented public/institutional process and bundle checks.",
   "next_pending_task": {
-    "task_id": "career-six-chatbot-live-v2:2028-01-01",
-    "stage": "micro-replay",
-    "packet_id": "micro:chatbot:2028-01:first-job-transitions:01",
-    "start_date": "2028-01-05",
-    "end_date": "2028-01-20",
-    "event_kind": "first_job_transition_cluster",
-    "participants": ["zhou_ye","he_xin","song_nan"],
-    "instruction": "由当前ChatGPT继续充当cognition backend。三人分别进入不同城市/部门的第一份工作；必须从搬家、住房、现金、通勤、工作任务和旧关系联系频率的真实变化生成后续事件。三人不因同批入职自动互相知道彼此工作细节；只有既有同学或明确披露的信息可流动。"
+    "task_id":"career-six-chatbot-live-v2:2029-01-01",
+    "stage":"micro-replay",
+    "packet_id":"micro:chatbot:2029-01:gao-first-job-transition:01",
+    "start_date":"2029-01-06",
+    "end_date":"2029-01-20",
+    "event_kind":"first_job_transition",
+    "participants":["gao_yuan"],
+    "instruction":"由当前ChatGPT继续充当cognition backend。高原进入家乡公务员岗位后，从住房/是否与父母同住、通勤、现金、程序工作、与周野罗诚的联系频率以及对低机会密度的真实体验生成后续状态。不要把稳定自动写成满意，也不要因为机会密度低自动写成后悔。随后继续推进2029年其他角色的工作第二年、博士完成、研究内部审读和陈岚正式求职。"
   },
   "rules": {
     "repository_calls_model_api": false,
@@ -93,6 +99,7 @@
     "conversation_does_not_auto_change_relationship": true,
     "hard_world_candidates_require_feasibility": true,
     "job_outcomes_require_public_process_or_explicit_resource_path": true,
+    "offer_can_be_rejected_when_constraints_fail": true,
     "literary_layer_not_started": true
   }
 }
