@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2028-q3",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2028-07-01","end":"2028-09-30"},
+  "generation_mode": "chatgpt_product_interaction_chain",
+  "era_lens": [
+    "同一群人已分散到博士、公共机构、国企、医药企业和高校研究支持岗位，社交网络开始明显受城市和工作时间重塑。",
+    "第二轮求职/招考带来新的选择，但先前失败经验改变了角色对风险和退路的理解。",
+    "工作第一年的评价更依赖真实任务与组织结构，岗位标签的解释力继续下降。"
+  ],
+  "exogenous_hard_world_events": [
+    {"event_id":"2028q3:job01","at":"2028-07-03","kind":"employment_started","actor":"luo_cheng","sector":"civil_service_or_public_institution","city":"regional_university_city","housing_reference_monthly":2400,"status":"active_noncanonical"},
+    {"event_id":"2028q3:proc01","at":"2028-07-15","kind":"public_exam_result","actor":"gao_yuan","source_candidate":"candidate:2028-06:gao-second-civil-cycle:01","result":"written_cutoff_met_interview_invited","visibility":"private_to_actor"},
+    {"event_id":"2028q3:proc02","at":"2028-08-08","kind":"formal_role_application_update","actor":"chen_lan","source_candidate":"candidate:2028-05:chen-formal-role-application:01","result":"interview_invited","visibility":"private_to_actor"},
+    {"event_id":"2028q3:proc03","at":"2028-09-12","kind":"public_exam_interview_update","actor":"gao_yuan","result":"interview_completed_final_ranking_pending","visibility":"private_to_actor"},
+    {"event_id":"2028q3:proc04","at":"2028-09-20","kind":"formal_role_offer_generated","actor":"chen_lan","role":"formal_analytics_project_role","city":"beijing_core","gross_monthly":15600,"housing_monthly":6200,"commute_hours_daily":1.45,"response_expectation":"high","learning_value":"moderate_high","status":"pending_actor_bundle_evaluation_noncanonical"}
+  ],
+  "windows": [
+    {"packet_id":"micro:chatbot:2028-07:luo-first-job-checkin:01","start_date":"2028-07-10","end_date":"2028-07-10","event_kind":"first_job_checkin","participants":["luo_cheng","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2028-07:tang-introduces-zhou-he:01","start_date":"2028-07-20","end_date":"2028-07-20","event_kind":"same_city_introduction","participants":["tang_yu","zhou_ye","he_xin"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2028-08:gao-lin-interview-prep:01","start_date":"2028-08-02","end_date":"2028-08-02","event_kind":"second_cycle_interview_prep","participants":["gao_yuan","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2028-08:chen-zhao-formal-role:01","start_date":"2028-08-12","end_date":"2028-08-12","event_kind":"formal_role_interview_debrief","participants":["chen_lan","zhao_ke"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2028-08:song-work-scope:01","start_date":"2028-08-24","end_date":"2028-08-24","event_kind":"first_year_work_scope","participants":["song_nan","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2028-09:zhou-he-coffee:01","start_date":"2028-09-01","end_date":"2028-09-01","event_kind":"same_city_weak_tie_meetup","participants":["zhou_ye","he_xin"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2028-09:tang-shen-narrow-proof:01","start_date":"2028-09-16","end_date":"2028-09-16","event_kind":"research_mechanism_checkin","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2028-09:lin-xu-doctoral-peer:01","start_date":"2028-09-27","end_date":"2028-09-27","event_kind":"doctoral_peer_checkin","participants":["lin_jing","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events": [
+    {"event_id":"2028q3:e01","kind":"social_interaction","at":"2028-07-10","event_kind":"first_job_checkin","speaker":"luo_cheng","listener":"sun_jie","act":"share_experience","content":"罗诚说研究支持岗位第一周和辅导员想象很不一样：更多是项目材料、流程节点、教师学生之间的信息衔接和临时协调，但这反而更接近他真正能做好的事情。","channel":"wechat_private","evidence":"新岗位日常来自已接受bundle。"},
+    {"event_id":"2028q3:e02","kind":"social_interaction","at":"2028-07-10","event_kind":"first_job_checkin","speaker":"sun_jie","listener":"luo_cheng","act":"repair","content":"孙洁提醒他先别急着证明‘这才是最适合自己的路’，至少做一个学期再看哪些任务让他有持续能力、哪些只是新鲜感。","channel":"wechat_private","evidence":"延迟结论。"},
+
+    {"event_id":"2028q3:e03","kind":"social_interaction","at":"2028-07-20","event_kind":"same_city_introduction","speaker":"tang_yu","listener":"he_xin","act":"offer_introduction","content":"唐雨知道周野和何欣都已经在同一个省会工作，于是在三人的小群里正式把两人介绍给彼此，只说都是自己的熟人、在同城生活，具体工作让他们自己决定聊多少。","channel":"wechat_group","evidence":"唐雨与周野已有明确弱联系，与何欣为同班；满足真实连接路径。"},
+    {"event_id":"2028q3:e04","kind":"social_interaction","at":"2028-07-20","event_kind":"same_city_introduction","speaker":"zhou_ye","listener":"he_xin","act":"small_talk","content":"周野只问了何欣住的片区通勤是否方便，没有问具体单位或收入；何欣也只说自己还在适应城市节奏。","channel":"wechat_group","evidence":"新介绍后的低强度交流。"},
+
+    {"event_id":"2028q3:e05","kind":"social_interaction","at":"2028-08-02","event_kind":"second_cycle_interview_prep","speaker":"gao_yuan","listener":"lin_jing","act":"share_experience","content":"高原第二轮终于进了面试，他把上一轮失败和这一年的准备差异整理给林静看：知识准备更系统，但他仍担心回答会回到抽象稳定叙事。","channel":"video_call","evidence":"公开考试进入面试。"},
+    {"event_id":"2028q3:e06","kind":"social_interaction","at":"2028-08-02","event_kind":"second_cycle_interview_prep","speaker":"lin_jing","listener":"gao_yuan","act":"offer_information","content":"林静只让他继续用具体经历回答，并特别准备一个‘如果没有录取会怎么办’的问题，避免把第二轮考试变成心理上的唯一出口。","channel":"video_call","evidence":"通用表达与风险准备。"},
+
+    {"event_id":"2028q3:e07","kind":"social_interaction","at":"2028-08-12","event_kind":"formal_role_interview_debrief","speaker":"chen_lan","listener":"zhao_ke","act":"share_experience","content":"陈岚说正式岗位面试里职责和收入都比零散项目清楚，但对即时响应和跨项目切换的期待仍然偏高，她开始怀疑这个岗位会不会重新复制自己最不想回去的工作结构。","channel":"wechat_private","evidence":"面试得到的岗位信息进入个人bundle评估。"},
+    {"event_id":"2028q3:e08","kind":"social_interaction","at":"2028-08-12","event_kind":"formal_role_interview_debrief","speaker":"zhao_ke","listener":"chen_lan","act":"offer_information","content":"赵珂让她区分短期忙和结构性高响应：如果岗位制度本身要求持续多项目切换，就算收入更稳定，也可能违背她博士毕业后写下的时间边界。","channel":"wechat_private","evidence":"项目经理经验反馈。"},
+
+    {"event_id":"2028q3:e09","kind":"social_interaction","at":"2028-08-24","event_kind":"first_year_work_scope","speaker":"song_nan","listener":"chen_lan","act":"share_experience","content":"宋楠说入职大半年后开始接到一个边界更明确的分析子任务，她第一次需要对时间表和交付质量承担更直接责任，但仍由团队控制数据权限和最终决策。","channel":"video_call","evidence":"工作职责自然扩展，无晋升预写。"},
+    {"event_id":"2028q3:e10","kind":"social_interaction","at":"2028-08-24","event_kind":"first_year_work_scope","speaker":"chen_lan","listener":"song_nan","act":"check_in","content":"陈岚问她现在最怕的是做不好还是长期被流程磨掉；宋楠说暂时更怕自己只学会流程却没继续长统计判断，因此准备记录每个任务真正新增了什么能力。","channel":"video_call","evidence":"职业学习自审。"},
+
+    {"event_id":"2028q3:e11","kind":"social_interaction","at":"2028-09-01","event_kind":"same_city_weak_tie_meetup","speaker":"zhou_ye","listener":"he_xin","act":"check_in","content":"经唐雨介绍后，两人在周末约了次短咖啡，只交换同城租房、通勤和刚工作半年的一般感受，没有涉及单位内部信息。","channel":"in_person","evidence":"明确介绍后第一次线下弱联系互动。"},
+    {"event_id":"2028q3:e12","kind":"social_interaction","at":"2028-09-01","event_kind":"same_city_weak_tie_meetup","speaker":"he_xin","listener":"zhou_ye","act":"share_experience","content":"何欣说稳定工作让生活更可安排，但重复程序会消耗主动学习；周野说国企技术岗的问题则是组织流程慢、但技术文档和交接习惯确实能用上。","channel":"in_person","evidence":"双方只分享一般个人体验。"},
+
+    {"event_id":"2028q3:e13","kind":"social_interaction","at":"2028-09-16","event_kind":"research_mechanism_checkin","speaker":"tang_yu","listener":"shen_yan","act":"share_experience","content":"唐雨在窄条件下完成了一部分关键推导，但证明仍有一个依赖额外正则条件的缺口；如果拿掉这个条件，现有反例还无法判断命题真假。","channel":"in_person","evidence":"研究进展保持未完成状态。"},
+    {"event_id":"2028q3:e14","kind":"social_interaction","at":"2028-09-16","event_kind":"research_mechanism_checkin","speaker":"shen_yan","listener":"tang_yu","act":"offer_information","content":"沈雁要求她先把额外条件究竟是技术工具还是机制本身的一部分说清，不允许为了‘快做成’把条件藏在证明细节里。","channel":"in_person","evidence":"研究严谨性约束。"},
+
+    {"event_id":"2028q3:e15","kind":"social_interaction","at":"2028-09-27","event_kind":"doctoral_peer_checkin","speaker":"lin_jing","listener":"xu_hang","act":"share_experience","content":"林静说自己现在既羡慕已经工作的朋友有明确日程，也知道他们失去了一部分研究自主；她开始认真列毕业后想保留的时间自主和城市选择。","channel":"in_person","evidence":"博士职业思考。"},
+    {"event_id":"2028q3:e16","kind":"social_interaction","at":"2028-09-27","event_kind":"doctoral_peer_checkin","speaker":"xu_hang","listener":"lin_jing","act":"share_experience","content":"许航说自己最担心的仍是技术判断被当成附属劳动，因此未来岗位是否允许独立提出检查问题，对他可能比名义职位更重要。","channel":"in_person","evidence":"双方交换个人职业维度。"}
+  ],
+  "social_graph_deltas": [
+    {"at":"2028-07-20","kind":"introduction","a":"zhou_ye","b":"he_xin","introduced_by":"tang_yu","new_tie_kind":"introduced_acquaintance","context":"same_city_introduction","trust_seed":0.24,"closeness_seed":0.18,"status":"noncanonical_candidate_tie"}
+  ],
+  "relationship_evidence": [
+    {"at":"2028-09-01","pair":["zhou_ye","he_xin"],"direction":"positive","evidence":"经唐雨明确介绍后完成一次普通同城咖啡，弱联系从纯介绍变成有一次实际共同经历。"}
+  ],
+  "hard_world_candidate_updates": [
+    {"candidate_id":"candidate:2028-q1:chen-formal-role-search:01","checked_at":"2028-08-08","checks":{"matching_role_exists":true,"income_floor":true,"time_boundary":"uncertain_high_response","learning_value":true,"city_housing_feasible":true},"result":"interview_stage_noncanonical","resource_effect":"one interview; acceptance not implied"},
+    {"candidate_id":"candidate:2028-05:chen-formal-role-application:01","checked_at":"2028-09-20","checks":{"application_submitted":true,"interview_invitation":true,"income_floor":true,"time_boundary":"potentially_violated","learning_value":true,"city_housing_feasible":true},"result":"conditional_offer_generated_noncanonical","resource_effect":"beijing_core formal analytics role pending bundle evaluation"},
+    {"candidate_id":"candidate:2028-06:gao-second-civil-cycle:01","checked_at":"2028-09-12","checks":{"written_cutoff":true,"interview_if_eligible":true,"graduation_progress":true},"result":"interview_completed_final_ranking_pending_noncanonical","resource_effect":"none yet"}
+  ],
+  "new_hard_world_candidates": [
+    {"candidate_id":"candidate:2028-09:chen-formal-offer-evaluation:01","created_at":"2028-09-20","type":"offer_bundle_evaluation","beneficiary":"chen_lan","bundle":{"role":"formal_analytics_project_role","city":"beijing_core","gross_monthly":15600,"housing_monthly":6200,"commute_hours_daily":1.45,"response_expectation":"high","learning_value":"moderate_high"},"requires_checks":["net_income_after_housing","time_boundary_acceptability","learning_value","city_preference","acceptance_deadline"],"status":"pending_bundle_evaluation_noncanonical"},
+    {"candidate_id":"candidate:2028-09:tang-condition-necessity:01","created_at":"2028-09-16","type":"research_condition_analysis","beneficiary":"tang_yu","description":"判断当前证明所需额外正则条件究竟是技术工具还是结构机制的一部分。","requires_checks":["condition_used_explicitly","counterexample_without_condition","proof_revision"],"status":"pending_research_noncanonical"}
+  ],
+  "actor_state_evidence": [
+    {"at":"2028-07-10","actor":"luo_cheng","dimension":"first_job_reality","evidence":"研究支持岗位的材料、流程与协调任务比原辅导员目标更匹配其真实经历；仍需更长时间验证。","status":"candidate_state_evidence"},
+    {"at":"2028-08-24","actor":"song_nan","dimension":"work_scope","evidence":"开始承担边界更明确的分析子任务，并主动记录任务是否增加统计判断而非只增加流程熟练度。","status":"candidate_state_evidence"},
+    {"at":"2028-09-27","actor":"lin_jing","dimension":"career_preferences","evidence":"开始明确把时间自主与城市选择作为毕业后职业bundle的重要维度。","status":"candidate_state_evidence"}
+  ],
+  "audit_rules": {"single_batch_noncanonical":true,"generated_through_interaction_chain":true,"explicit_introduction_required_for_new_tie":true,"same_city_does_not_auto_create_relationship":true,"no_unearned_knowledge":true,"conversation_does_not_auto_change_relationship":true,"offer_does_not_auto_accept":true,"research_partial_progress_remains_partial":true,"bilateral_memory_derivable_from_events":true}
+}
