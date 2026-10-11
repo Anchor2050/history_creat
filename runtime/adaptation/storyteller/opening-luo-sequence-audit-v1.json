@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_only_opening_anchor_audit_noncanonical",
+  "historical_world_writeback": false,
+  "sequence": [
+    "docs/adaptation/opening-luo-sequence-v1/ch01-door-ten-minutes.md",
+    "docs/adaptation/opening-luo-sequence-v1/ch02-first-interview.md",
+    "docs/adaptation/opening-luo-sequence-v1/ch03-second-rejection.md",
+    "docs/adaptation/opening-luo-sequence-v1/ch04-research-support.md",
+    "docs/adaptation/opening-luo-sequence-v1/ch05-first-day.md"
+  ],
+  "verdict": "single_anchor_opening_materially_stronger_than_early_roster_or_fast_relay",
+  "why": [
+    "The reader invests in one person and is not asked to relearn a new focal actor every chapter.",
+    "Chapter1 completes a real incident: Luo Cheng observes the actual student-affairs environment, discovers the gap between doctorate status and direct experience, and still submits the application.",
+    "Chapters2-3 let that choice produce consequences through two failed student-affairs attempts rather than switching away after the first hook.",
+    "The pivot to research support grows from Luo's discovered preferences and repeated evidence, not from authorial need to introduce another protagonist.",
+    "Chapters4-5 test the revised choice in a real new job, allowing the novel to distinguish imagined fit from lived fit."
+  ],
+  "character_memory": {
+    "primary_name_load": "Luo Cheng remains the sole core character across all five chapters.",
+    "secondary_anchor": "Sun Jie recurs as a bounded, busy institutional peer; she does not become an omniscient mentor.",
+    "other_core_actors": "none required in the opening unit",
+    "reader_hook": "Can Luo Cheng find a form of institutional work that uses his strengths without pretending he has experience he does not have?"
+  },
+  "water_margin_correction": "For this project, Water-Margin-like event relay begins only after the first anchor character and incident are established. Event-driven introduction does not require early protagonist rotation. A new important character should enter because Luo's live story reaches them, not because the ensemble roster needs expansion.",
+  "campbell_integration": "Luo's early arc now has room to breathe: call through student-affairs aspiration, trials through failed applications, first threshold through research-support acceptance. These labels stay backend-only.",
+  "remaining_risks": [
+    {
+      "scope": "chapter1",
+      "risk": "The office scene is strong but still somewhat long; later prose revision may trim several witty exchanges and retain more pressure from the waiting work queue."
+    },
+    {
+      "scope": "chapters2-3",
+      "risk": "Two failed interviews could feel repetitive if both are structured as question-answer-rejection. Chapter3 should retain more physical/social texture and less interview symmetry in final revision."
+    },
+    {
+      "scope": "chapter4",
+      "risk": "The successful interview can appear too narratively compensatory after two failures. Keep the offer contingent, modest, and not framed as destiny or proof that the pivot was correct."
+    },
+    {
+      "scope": "chapter5",
+      "risk": "Document and process realism is credible but can become occupational procedure fiction. The next Luo chapter should add human incentives, hierarchy, misunderstanding, embarrassment, conflict or cost while keeping the task concrete."
+    }
+  ],
+  "opening_rule": "Do not introduce another core protagonist until Luo Cheng's opening unit has established scene memory, desire, vulnerability, and a lived consequence. Expansion begins only when his current work or relationship naturally reaches another person worth following.",
+  "next_action": "Revise Chapters1-3 by subtraction only if needed, then continue Luo Cheng at work into a human conflict/power scene. Do not introduce a new core actor solely to create ensemble breadth."
+}
