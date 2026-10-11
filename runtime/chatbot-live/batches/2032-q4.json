@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2032-q4",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2032-10-01","end":"2032-12-31"},
+  "generation_mode": "chatgpt_product_interaction_chain",
+  "era_lens": [
+    "中期市场再进入第一次产生不同结果：相似的选择性搜索可以结束于落选、offer或继续留任。",
+    "新的offer必须与当前已知生活结构比较，不能只与旧职业目标比较。",
+    "一条多年研究线可以得到外部接受，但接受只关闭稿件流程，不自动解决职业、声望或人生问题。"
+  ],
+  "exogenous_hard_world_events": [
+    {"event_id":"2032q4:process01","at":"2032-10-08","kind":"public_interview_result","actor":"luo_cheng","source_candidate":"candidate:2032-q3:luo-interview-outcome:01","result":"not_selected_no_offer","visibility":"private_to_actor"},
+    {"event_id":"2032q4:offer01","at":"2032-10-18","kind":"conditional_offer_generated","actor":"song_nan","source_candidate":"candidate:2032-q3:song-interview-outcome:01","sector":"pharmaceutical_industry","city_bundle":"provincial_capital","gross_monthly":14500,"housing_monthly":3300,"commute_hours_daily":0.90,"security":0.56,"opportunity_density":0.73,"flexibility":0.64,"family_distance":1.25,"role_scope":"health_data_statistics_with_requirement_and_exception_judgment","status":"pending_actor_bundle_evaluation_noncanonical","visibility":"private_to_actor"},
+    {"event_id":"2032q4:editorial01","at":"2032-10-27","kind":"editorial_decision","actor":"tang_yu","project":"mechanism_boundary_manuscript","result":"accepted_after_minor_revision","visibility":"authors_only"},
+    {"event_id":"2032q4:review01","at":"2032-11-14","kind":"second_year_university_role_review","actor":"lin_jing","result":"meets_expectations_no_title_change_service_boundary_viable_output_pressure_visible","visibility":"private_to_actor"},
+    {"event_id":"2032q4:review02","at":"2032-11-25","kind":"fourth_year_civil_service_review","actor":"gao_yuan","result":"meets_expectations_no_role_change_market_reassessment_completed_no_better_threshold_crossing_option","visibility":"private_to_actor"}
+  ],
+  "windows": [
+    {"packet_id":"micro:chatbot:2032-10:luo-result:01","start_date":"2032-10-10","end_date":"2032-10-10","event_kind":"selective_search_result_checkin","participants":["luo_cheng","gao_yuan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-10:song-offer-evaluation:01","start_date":"2032-10-20","end_date":"2032-10-20","event_kind":"midcareer_offer_bundle_evaluation","participants":["song_nan","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-10:song-zhao-role-check:01","start_date":"2032-10-22","end_date":"2032-10-22","event_kind":"midcareer_role_scope_check","participants":["song_nan","zhao_ke"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-10:tang-xu-acceptance:01","start_date":"2032-10-29","end_date":"2032-10-29","event_kind":"manuscript_acceptance_checkin","participants":["tang_yu","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-11:lin-year-two-review:01","start_date":"2032-11-16","end_date":"2032-11-16","event_kind":"university_role_year_two_review","participants":["lin_jing","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-11:gao-reassessment-close:01","start_date":"2032-11-27","end_date":"2032-11-27","event_kind":"midcareer_reassessment_closure","participants":["gao_yuan","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-12:year-end-group-call:01","start_date":"2032-12-22","end_date":"2032-12-22","event_kind":"year_end_group_call","participants":["lin_jing","chen_lan","xu_hang","zhou_ye","gao_yuan","luo_cheng","tang_yu","he_xin","song_nan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events": [
+    {"event_id":"2032q4:e01","kind":"social_interaction","at":"2032-10-10","event_kind":"selective_search_result_checkin","speaker":"luo_cheng","listener":"gao_yuan","act":"share_experience","content":"罗诚这次面试后没有被选中。面试让他确认岗位平台确实更大，但实际职责仍有相当一部分流程协调；落选让这次市场检验结束，却没有证明当前岗位就是长期最优。","channel":"phone","evidence":"公开流程给出no offer，同时提供更真实职责信息。"},
+    {"event_id":"2032q4:e02","kind":"social_interaction","at":"2032-10-10","event_kind":"selective_search_result_checkin","speaker":"gao_yuan","listener":"luo_cheng","act":"repair","content":"高原说至少罗诚已经知道自己愿意为什么样的内容搬城；他自己今年连这样的opening都没遇到。两人把不同结果都记成市场信息，没有互相排成输赢。","channel":"phone","evidence":"再评价结果多样化。"},
+
+    {"event_id":"2032q4:e03","kind":"social_interaction","at":"2032-10-20","event_kind":"midcareer_offer_bundle_evaluation","speaker":"song_nan","listener":"chen_lan","act":"share_experience","content":"宋楠拿到省会医药统计offer后把它和当前岗位重算：工资下降，但住房成本和家庭距离明显改善；面试确认新岗位仍有需求定义、异常解释和统计判断权，学习密度可能低一点，却不是固定报表岗。","channel":"video_call","evidence":"offer职责和bundle均由公开流程获得。"},
+    {"event_id":"2032q4:e04","kind":"social_interaction","at":"2032-10-20","event_kind":"midcareer_offer_bundle_evaluation","speaker":"chen_lan","listener":"song_nan","act":"offer_information","content":"陈岚让她比较未来两年边际学习而不是过去四年平均学习：当前岗位的新增成长已经放缓，新岗位虽然机会密度低一点，却可能用更低住房和更近家庭距离换来可持续空间。","channel":"video_call","evidence":"中期offer需与当前真实边际价值比较。"},
+
+    {"event_id":"2032q4:e05","kind":"social_interaction","at":"2032-10-22","event_kind":"midcareer_role_scope_check","speaker":"song_nan","listener":"zhao_ke","act":"ask_advice","content":"宋楠把新岗位的职责描述给赵珂，只问一件事：需求定义和异常解释权够不够支撑她继续积累判断能力，而不是退回固定执行。","channel":"video_call","evidence":"角色判断只基于公开/面试可披露职责。"},
+    {"event_id":"2032q4:e06","kind":"social_interaction","at":"2032-10-22","event_kind":"midcareer_role_scope_check","speaker":"zhao_ke","listener":"song_nan","act":"offer_information","content":"赵珂认为职责里确实保留了足够判断空间，但提醒组织成熟度和团队实际协作只有入职后才知道；它是可接受的新实验，不是已经验证更好。","channel":"video_call","evidence":"职责跨过最低判断门槛但现实仍未知。"},
+    {"event_id":"2032q4:e07","kind":"social_interaction","at":"2032-10-24","event_kind":"midcareer_offer_bundle_evaluation","speaker":"song_nan","listener":"chen_lan","act":"make_plan","content":"宋楠决定接受省会offer，计划2033年初搬迁。理由不是单纯离家近，也不是工资，而是当前岗位边际学习放缓后，新岗位仍保留统计判断，同时明显降低住房和家庭距离成本；她接受机会密度下降作为交换。","channel":"video_call","evidence":"完整bundle和职责检查后接受。"},
+
+    {"event_id":"2032q4:e08","kind":"social_interaction","at":"2032-10-29","event_kind":"manuscript_acceptance_checkin","speaker":"tang_yu","listener":"xu_hang","act":"share_experience","content":"编辑通知稿件在minor revision后接受。唐雨第一反应不是把早期大命题重新说回来，而是确认最终接受的仍然是缩小后的机制边界结果。","channel":"video_call","evidence":"accepted result scope remains the final narrowed manuscript."},
+    {"event_id":"2032q4:e09","kind":"social_interaction","at":"2032-10-29","event_kind":"manuscript_acceptance_checkin","speaker":"xu_hang","listener":"tang_yu","act":"repair","content":"许航说这几年最值得保留的不是‘最后发出来了’，而是反例和验证真的改变了文章能说什么；两人把接受当成项目流程关闭，不把它扩写成证明早期路线正确。","channel":"video_call","evidence":"外部接受不反向美化失败历史。"},
+
+    {"event_id":"2032q4:e10","kind":"social_interaction","at":"2032-11-16","event_kind":"university_role_year_two_review","speaker":"lin_jing","listener":"shen_yan","act":"share_experience","content":"林静第二年评价仍然合格，服务边界没有正式惩罚，但产出压力越来越清楚；她觉得岗位目前仍值得留，下一步要防的是把每个研究块都变成短期指标任务。","channel":"video_call","evidence":"第二年制度结果。"},
+    {"event_id":"2032q4:e11","kind":"social_interaction","at":"2032-11-16","event_kind":"university_role_year_two_review","speaker":"shen_yan","listener":"lin_jing","act":"offer_information","content":"沈雁提醒她自主性不仅是能拒绝多少服务，也包括能不能容忍研究一段时间没有可见结果；如果评价压力让她只做短题，自主会以另一种方式消失。","channel":"video_call","evidence":"自主性的第二阶风险。"},
+
+    {"event_id":"2032q4:e12","kind":"social_interaction","at":"2032-11-27","event_kind":"midcareer_reassessment_closure","speaker":"gao_yuan","listener":"lin_jing","act":"share_experience","content":"高原把2032再评价暂时收口：市场上没有出现一个足以覆盖家乡住房、家庭距离和稳定时间收益的成长机会，所以他决定继续留任一到两年，同时每年更新一次公开市场。","channel":"video_call","evidence":"再评价基于真实市场而不是惯性留任。"},
+    {"event_id":"2032q4:e13","kind":"social_interaction","at":"2032-11-27","event_kind":"midcareer_reassessment_closure","speaker":"lin_jing","listener":"gao_yuan","act":"repair","content":"林静说这和‘不想动’不同：他已经付出时间去确认外部选项，只是目前交换不划算；以后如果成本结构变了，结论也可以变。","channel":"video_call","evidence":"留任被写成阶段性市场结论。"},
+
+    {"event_id":"2032q4:e14","kind":"social_interaction","at":"2032-12-22","event_kind":"year_end_group_call","speaker":"song_nan","listener":"he_xin","act":"share_experience","content":"宋楠告诉几位同学自己年后会搬到省会，新工作工资低一点但住房和家庭距离轻很多；何欣听到后没有把同城可能性当成关系或住房资源，只说以后有空再吃饭。","channel":"video_call","evidence":"未来同城不自动建立新资源。"},
+    {"event_id":"2032q4:e15","kind":"social_interaction","at":"2032-12-22","event_kind":"year_end_group_call","speaker":"tang_yu","listener":"lin_jing","act":"share_experience","content":"唐雨只说那篇折腾了很多年的小稿终于被接受，林静问她现在是不是轻松了；唐雨说更像一个问题终于可以停止占据同一块脑子，没有说这证明学术路线更值得。","channel":"video_call","evidence":"项目闭环不等于职业结论。"},
+    {"event_id":"2032q4:e16","kind":"social_interaction","at":"2032-12-22","event_kind":"year_end_group_call","speaker":"luo_cheng","listener":"gao_yuan","act":"check_in","content":"罗诚说这次没拿到offer后会继续当前岗位，下一轮只在真正内容和平台同时改善时再投；高原说自己的门槛也会继续保留。","channel":"video_call","evidence":"失败后不扩大搜索范围。"}
+  ],
+  "hard_world_candidate_updates": [
+    {"candidate_id":"candidate:2032-q3:luo-interview-outcome:01","checked_at":"2032-10-08","checks":{"interview_completed":true,"selection_result":"not_selected","bundle_if_offer":null},"result":"closed_no_offer_noncanonical","resource_effect":"none; market information retained"},
+    {"candidate_id":"candidate:2032-q3:song-interview-outcome:01","checked_at":"2032-10-18","checks":{"interview_completed":true,"selection_result":"selected","bundle_if_offer":"generated"},"result":"conditional_offer_generated_noncanonical","resource_effect":"provincial-capital pharma/health-data offer requires bundle evaluation"},
+    {"candidate_id":"candidate:2032-q4:song-offer-evaluation:01","checked_at":"2032-10-24","checks":{"role_judgment_scope_acceptable":true,"salary_drop_acceptable":true,"housing_cost_improves":true,"family_distance_improves":true,"learning_value_acceptable":true,"relocation_feasible":true},"result":"offer_accepted_noncanonical","resource_effect":"employment relocation planned 2033-01 to provincial_capital"},
+    {"candidate_id":"candidate:2032-q3:tang-minor-revision:01","checked_at":"2032-10-27","checks":{"boundary_text_tightened":true,"validation_limitation_added":true,"all_authors_approve":true,"editorial_decision":"accepted"},"result":"manuscript_accepted_noncanonical","resource_effect":"publication process accepted; exact publication timing outside current event"},
+    {"candidate_id":"candidate:2032-q1:gao-selective-market-entry:01","checked_at":"2032-11-25","checks":{"annual_market_update_complete":true,"threshold_crossing_opening":false},"result":"reassessment_closed_continue_role_noncanonical","resource_effect":"stay employed with annual market refresh"}
+  ],
+  "new_hard_world_candidates": [
+    {"candidate_id":"candidate:2032-q4:song-offer-evaluation:01","created_at":"2032-10-18","type":"midcareer_offer_bundle_evaluation","beneficiary":"song_nan","bundle":{"sector":"pharmaceutical_industry","city":"provincial_capital","gross_monthly":14500,"housing_monthly":3300,"commute_hours_daily":0.90,"security":0.56,"opportunity_density":0.73,"flexibility":0.64,"family_distance":1.25},"requires_checks":["role_judgment_scope_acceptable","salary_drop_acceptable","housing_cost_improves","family_distance_improves","learning_value_acceptable","relocation_feasible"],"status":"resolved_accepted_noncanonical"},
+    {"candidate_id":"candidate:2032-q4:song-2033-relocation:01","created_at":"2032-10-24","type":"employment_relocation","beneficiary":"song_nan","description":"2033年初迁往省会并进入新医药/健康数据统计岗位；需在入职前完成租住、搬迁现金和工作确认。","requires_checks":["employment_start_confirmed","lease_feasible","move_cash_feasible","commute_feasible"],"status":"open_noncanonical"}
+  ],
+  "actor_state_evidence": [
+    {"at":"2032-10-08","actor":"luo_cheng","dimension":"market_reentry","evidence":"第一次中期选择性申请落选，但面试确认更大平台并不自动提供更合适职责；继续当前岗位并保留双门槛。","status":"candidate_state_evidence"},
+    {"at":"2032-10-24","actor":"song_nan","dimension":"employment_transition","evidence":"第四年学习边际下降后，通过公开流程获得并接受省会岗位，以较低工资和机会密度换更低住房、较近家庭距离并保留统计判断职责。","status":"candidate_state_evidence"},
+    {"at":"2032-10-27","actor":"tang_yu","dimension":"research_outcome","evidence":"机制边界稿经major/minor revision后被接受；最终被接受的是多年收缩后的结果，而非早期大命题。","status":"candidate_state_evidence"},
+    {"at":"2032-10-27","actor":"xu_hang","dimension":"research_contribution","evidence":"共同作者验证贡献随最终稿被接受，负面边界和验证限制保留在主文。","status":"candidate_state_evidence"},
+    {"at":"2032-11-16","actor":"lin_jing","dimension":"second_year_role_fit","evidence":"第二年服务边界仍可行，但评价压力开始把自主性风险从时间碎片转成短期产出偏好。","status":"candidate_state_evidence"},
+    {"at":"2032-11-27","actor":"gao_yuan","dimension":"midcareer_reassessment","evidence":"公开市场再评价未发现足以覆盖当前生活bundle收益的成长机会，阶段性继续留任并保留年度市场刷新。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence": [
+    {"at":"2032-10-22","pair":["song_nan","zhao_ke"],"direction":"positive","evidence":"赵珂帮助核新岗位判断职责而不提供资源，宋楠的行业关系继续表现为方法性校准。"},
+    {"at":"2032-10-29","pair":["tang_yu","xu_hang"],"direction":"positive","evidence":"五年合作以外部接受闭环，但双方仍把价值归因于验证改变了可声称结论，而非关系或坚持本身。"}
+  ],
+  "storyteller_index_delta": {
+    "new_material_threads": [
+      "midcareer reassessment produces three distinct outcomes: Gao stays after no threshold-crossing option, Luo applies/interviews but gets no offer, Song receives and accepts a materially different bundle",
+      "Tang/Xu five-year research chain closes with acceptance of the narrowed result rather than restoration of the original ambition",
+      "Lin's autonomy conflict evolves into output-pressure risk even after time boundaries hold",
+      "Song's 2033 relocation will create a second city transition and a new comparison against prior high-density industry life"
+    ],
+    "world_writeback": false
+  },
+  "audit_rules": {
+    "single_batch_noncanonical": true,
+    "generated_through_interaction_chain": true,
+    "interview_failure_does_not_prove_current_role_optimal": true,
+    "midcareer_offer_requires_current_role_comparison_not_original_goal_comparison": true,
+    "accepted_manuscript_closes_editorial_process_not_life_arc": true,
+    "future_same_city_does_not_create_relationship_resources": true,
+    "storyteller_is_read_only": true
+  }
+}
