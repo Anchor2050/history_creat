@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "status": "sck_v0_tests_passing_live_runner_implemented_ab_not_run",
+  "status": "sck_v0_tests_passing_live_runner_implemented_ab_smoke_test_run",
   "historical_world_writeback": false,
   "purpose": "Provide a reusable high-skill strategic cognition layer between StoryBox visibility/legal-action state and StoryBox world resolution.",
   "design_spec": "docs/adaptation/storybox-strategic-cognition-kernel-v1.md",
@@ -86,9 +86,19 @@
     "Behavioral evidence likelihood ratios must come from an explicit evidence model or replay calibration; the SecretMafia adapter does not hard-code social stereotypes."
   ],
   "benchmark_plan": "runtime/adaptation/storybox/sck-secret-mafia-ab-v0.json",
+  "benchmark_results": {
+    "first_milestone_smoke_test_50": "runtime/adaptation/storybox/sck-secret-mafia-ab-v0-results-smoke-50.json",
+    "harness": "narrative/longform/storybox_sck_ab_v0.py",
+    "harness_tests": "tests/test_storybox_sck_ab_v0.py",
+    "run_date": "2026-10-11",
+    "scope": "6 players, discussion_rounds=3, seeds 0-49 shared across all four variants, all seats driven by one policy",
+    "direction_found": "Action regret and village-side calibration improve monotonically plain/memory -> belief -> belief_planning (regret 0.656 -> 0.527 -> 0.445; Brier n/a -> 0.0787 -> 0.0726), leakage is zero everywhere, and the village faction win rate rises from 0.140 (plain) to 0.360 (belief_planning). belief alone improves regret and calibration but not outcomes (village win rate 0.120).",
+    "claim_status": "direction_and_instrumentation_only_not_a_strength_claim"
+  },
   "next_gate": [
-    "run 50-episode shared-seed A/B smoke test across plain/memory/belief/belief_planning",
-    "report win/utility, per-role result, Brier/calibration, action regret and information leakage, marking uncomputable metrics unavailable",
-    "only after measurable improvement add MCTS or bi-level search"
+    "run the 500-episode second milestone before any strength claim; the plan marks the 50-episode run as not_for_final_claim",
+    "add a matched tie-break option so variants do not diverge merely through policy RNG streams",
+    "extend the live A/B to the 8- and 10-player counts in the environment block",
+    "only after a stable role-stratified advantage is demonstrated, consider MCTS or bi-level search"
   ]
 }
