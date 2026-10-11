@@ -10,11 +10,12 @@
     "runtime": "narrative/longform/storybox_noapi_runtime_v8.py",
     "chat_driver": "narrative/longform/storybox_chatbot_driver_v9.py"
   },
-  "cursor": 2,
-  "world_time": "2026-03-24",
+  "cursor": 3,
+  "world_time": "2026-04-15",
   "processed_windows": [
     {"packet_id":"micro:chatbot:2026-03:u_c_cohort_dinner:01","start_date":"2026-03-08","event_kind":"classmate_meal","participants":["zhou_ye","gao_yuan","luo_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
-    {"packet_id":"micro:chatbot:2026-03:u_d_cohort_dinner:01","start_date":"2026-03-22","event_kind":"classmate_meal","participants":["tang_yu","he_xin","song_nan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+    {"packet_id":"micro:chatbot:2026-03:u_d_cohort_dinner:01","start_date":"2026-03-22","event_kind":"classmate_meal","participants":["tang_yu","he_xin","song_nan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2026-04:song-chen-industry-translation:01","start_date":"2026-04-12","event_kind":"career_translation_chat","participants":["song_nan","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
   ],
   "event_history": [
     {"event_id":"local:7ac6952971b1","kind":"social_interaction","at":"2026-03-08","event_kind":"classmate_meal","speaker":"luo_cheng","listener":"zhou_ye","act":"ask_advice","content":"罗诚说自己正琢磨怎样把博士训练写进高校辅导员申请里；如果不把论文数量当主叙事，他想知道同学会怎样描述博士期间能证明可靠性、沟通和长期执行的经历。","channel":"in_person","evidence":"罗诚的2026目标是高校辅导员，且公开论文为0；周野是熟悉的同班同学。"},
@@ -22,7 +23,11 @@
     {"event_id":"local:edd2e5aac0e0","kind":"social_interaction","at":"2026-03-08","event_kind":"classmate_meal","speaker":"gao_yuan","listener":"zhou_ye","act":"set_boundary","content":"高原提到自己这段时间主要在毕业和公务员备考之间分配精力，暂时不想同时铺开太多求职路线；饭桌上聊到别的路径时，他更多听着，没有承诺共享尚未确认的岗位消息。","channel":"in_person","evidence":"高原的2026主目标是公务员，当前仍处于博士毕业与备考并行阶段。"},
     {"event_id":"local:4e8a9f6d22c1","kind":"social_interaction","at":"2026-03-22","event_kind":"classmate_meal","speaker":"song_nan","listener":"tang_yu","act":"share_experience","content":"宋楠说自己最近看行业方向时，最没把握的是怎样把生存分析训练讲成药物研发里能落地的问题能力；她暂时还没把这件事想成一条确定路线。","channel":"in_person","evidence":"宋楠2026目标是医药企业统计或数据科学岗位，且行业适配仍是开放问题。"},
     {"event_id":"local:8b2d1f3a6c90","kind":"social_interaction","at":"2026-03-22","event_kind":"classmate_meal","speaker":"tang_yu","listener":"song_nan","act":"share_experience","content":"唐雨说自己反而更担心高校求职时研究线能不能讲出独立延展性；两人的焦虑不太一样，她没有对宋楠的行业适配给结论。","channel":"in_person","evidence":"唐雨2026目标是高校教学科研岗位，核心目标之一是形成可独立延展的生存分析研究线。"},
-    {"event_id":"local:c3f711e84a55","kind":"social_interaction","at":"2026-03-23","event_kind":"classmate_meal","speaker":"he_xin","listener":"tang_yu","act":"set_boundary","content":"何欣说自己现在主要在比较公务员和事业单位的长期稳定性，暂时不想把高校和企业也一起纳入选择；她更想先把毕业和岗位信息理顺。","channel":"in_person","evidence":"何欣2026目标明确为公务员或事业单位，且目标包括比较两类岗位的长期稳定性。"}
+    {"event_id":"local:c3f711e84a55","kind":"social_interaction","at":"2026-03-23","event_kind":"classmate_meal","speaker":"he_xin","listener":"tang_yu","act":"set_boundary","content":"何欣说自己现在主要在比较公务员和事业单位的长期稳定性，暂时不想把高校和企业也一起纳入选择；她更想先把毕业和岗位信息理顺。","channel":"in_person","evidence":"何欣2026目标明确为公务员或事业单位，且目标包括比较两类岗位的长期稳定性。"},
+    {"event_id":"local:5ba19ce0d741","kind":"social_interaction","at":"2026-04-12","event_kind":"career_translation_chat","speaker":"song_nan","listener":"chen_lan","act":"ask_advice","content":"宋楠问陈岚，如果手里只有自己熟悉的生存分析训练，怎样才能在求职材料或交流里把它讲成一个组织真正要解决的问题，而不是从模型名字和论文方法开始讲。","channel":"wechat_private","evidence":"宋楠此前已经明确意识到自己不会把生存分析训练转成药物研发里的落地问题；陈岚在既有关系机制中被授权分享研究训练转成客户或组织问题的经验。"},
+    {"event_id":"local:42ea8ef61b34","kind":"social_interaction","at":"2026-04-12","event_kind":"career_translation_chat","speaker":"chen_lan","listener":"song_nan","act":"offer_information","content":"陈岚说她自己的经验是先别急着报方法名，先把问题写成‘谁要在什么时间点做什么决定、手里有什么数据、最怕哪类错误、结果最后要交付成什么’，再回头说明统计方法为什么合适。她特意说这只是通用的工作拆法，没有讲具体客户、公司或招聘渠道。","channel":"wechat_private","evidence":"陈岚只分享被授权的通用研究到组织问题的转译经验，没有虚构具体外部资源。"},
+    {"event_id":"local:f0d41d3e8492","kind":"social_interaction","at":"2026-04-13","event_kind":"career_translation_chat","speaker":"chen_lan","listener":"song_nan","act":"offer_help","content":"陈岚说宋楠可以先拿自己已经熟悉的一个学术问题，压成一页‘问题—数据—决策—约束—交付’说明；如果她下周能抽出时间，可以帮宋楠看一遍这个写法是否还太像论文，但她没有承诺介绍企业、岗位或客户。","channel":"wechat_private","evidence":"这是一个有边界的小型时间帮助承诺，明确排除了招聘资源与介绍权限。"},
+    {"event_id":"local:d5b02d9476cc","kind":"social_interaction","at":"2026-04-13","event_kind":"career_translation_chat","speaker":"song_nan","listener":"chen_lan","act":"make_plan","content":"宋楠答应先自己写一版，不去编造并不存在的行业数据或项目背景；她准备从自己真正做过的研究问题出发，把技术语言换成决策语言，再看这一步到底卡在哪里。","channel":"wechat_private","evidence":"计划只使用宋楠已有研究训练，不需要外部资源，也没有产生岗位事实。"}
   ],
   "memory_delta": {
     "zhou_ye":[{"at":"2026-03-08","with":"luo_cheng","act":"ask_advice","content":"罗诚询问如何把零论文背景下的博士训练转成辅导员申请中的可靠性、沟通和长期执行叙事。","heard_as_listener":true},{"at":"2026-03-08","with":"luo_cheng","act":"share_experience","content":"自己也面对零论文起点，更想强调研究严谨、持续执行和复盘能力。"},{"at":"2026-03-08","with":"gao_yuan","act":"set_boundary","content":"高原目前优先毕业和公务员备考，不想同时铺开太多求职路线。","heard_as_listener":true}],
@@ -30,31 +35,37 @@
     "luo_cheng":[{"at":"2026-03-08","with":"zhou_ye","act":"ask_advice","content":"主动询问如何将博士经历转成辅导员申请中的职业叙事。"},{"at":"2026-03-08","with":"zhou_ye","act":"share_experience","content":"周野也面对零论文起点，倾向突出严谨、执行和复盘能力。","heard_as_listener":true}],
     "tang_yu":[{"at":"2026-03-22","with":"song_nan","act":"share_experience","content":"宋楠对如何把生存分析训练转成药物研发问题能力仍没把握。","heard_as_listener":true},{"at":"2026-03-22","with":"song_nan","act":"share_experience","content":"自己更担心高校求职时能否讲清研究线的独立延展性。"},{"at":"2026-03-23","with":"he_xin","act":"set_boundary","content":"何欣暂时只比较公务员和事业单位，不想同时铺开高校和企业路线。","heard_as_listener":true}],
     "he_xin":[{"at":"2026-03-23","with":"tang_yu","act":"set_boundary","content":"自己当前只比较公务员和事业单位的稳定性，先处理毕业与岗位信息。"}],
-    "song_nan":[{"at":"2026-03-22","with":"tang_yu","act":"share_experience","content":"自己尚不确定怎样把生存分析训练转成药物研发里的可落地问题能力。"},{"at":"2026-03-22","with":"tang_yu","act":"share_experience","content":"唐雨的主要焦虑是高校求职中研究线的独立延展性，她没有替自己判断行业适配。","heard_as_listener":true}]
+    "song_nan":[{"at":"2026-03-22","with":"tang_yu","act":"share_experience","content":"自己尚不确定怎样把生存分析训练转成药物研发里的可落地问题能力。"},{"at":"2026-03-22","with":"tang_yu","act":"share_experience","content":"唐雨的主要焦虑是高校求职中研究线的独立延展性，她没有替自己判断行业适配。","heard_as_listener":true},{"at":"2026-04-12","with":"chen_lan","act":"ask_advice","content":"向陈岚询问怎样把熟悉的生存分析训练讲成组织实际要解决的问题，而不是从方法名开始讲。"},{"at":"2026-04-12","with":"chen_lan","act":"offer_information","content":"陈岚建议先写清谁在何时做什么决定、有什么数据、最怕什么错误、需要什么交付，再解释方法。","heard_as_listener":true},{"at":"2026-04-13","with":"chen_lan","act":"offer_help","content":"陈岚提出一个有边界的帮助：如果下周有时间，可以看一次一页职业转译稿是否仍太像论文；不包含企业或岗位介绍。","heard_as_listener":true},{"at":"2026-04-13","with":"chen_lan","act":"make_plan","content":"自己计划从真实做过的研究问题出发写一页‘问题—数据—决策—约束—交付’说明，不虚构行业项目背景。"}],
+    "chen_lan":[{"at":"2026-04-12","with":"song_nan","act":"ask_advice","content":"宋楠询问怎样把生存分析训练转成组织实际问题的表达。","heard_as_listener":true},{"at":"2026-04-12","with":"song_nan","act":"offer_information","content":"自己分享先从决策、数据、错误代价和交付物组织问题，再回到统计方法的通用经验。"},{"at":"2026-04-13","with":"song_nan","act":"offer_help","content":"自己提出若下周有时间，可帮宋楠看一遍一页职业转译稿；明确没有承诺企业、岗位或客户介绍。"},{"at":"2026-04-13","with":"song_nan","act":"make_plan","content":"宋楠会先自己基于真实研究经历写一版一页说明。","heard_as_listener":true}]
   },
   "relationship_overrides": [],
-  "relationship_evidence": [],
-  "hard_world_candidates": [],
+  "relationship_evidence": [
+    {"at":"2026-04-13","pair":["song_nan","chen_lan"],"direction":"positive","evidence":"陈岚在权限边界内给出具体方法建议，并提出一次有限度审阅帮助；仅作为关系证据，不自动调整trust/closeness。"}
+  ],
+  "hard_world_candidates": [
+    {"candidate_id":"candidate:2026-04-13:chen-review-song-note:01","created_at":"2026-04-13","type":"bounded_review_help","proposer":"chen_lan","beneficiary":"song_nan","description":"陈岚若下周有可用时间，审阅宋楠的一页‘问题—数据—决策—约束—交付’职业转译稿一次。","requires_checks":["chen_lan_time_capacity","no_confidential_material","song_nan_draft_exists"],"explicitly_not_included":["job_referral","company_introduction","client_access","recruitment_authority"],"status":"pending_feasibility_noncanonical"}
+  ],
   "audit": [
     {"kind":"chatgpt_product_replay_committed","packet_id":"micro:chatbot:2026-03:u_c_cohort_dinner:01","accepted":true,"event_count":3,"relationship_scores_changed":false,"note":"普通同班饭局；没有资源转移、岗位承诺或关系分数自动变化。"},
-    {"kind":"chatgpt_product_replay_committed","packet_id":"micro:chatbot:2026-03:u_d_cohort_dinner:01","accepted":true,"event_count":3,"relationship_scores_changed":false,"note":"三名同班博士只交换各自求职焦虑与边界；没有介绍、帮助承诺、资源转移或关系分数变化。"}
+    {"kind":"chatgpt_product_replay_committed","packet_id":"micro:chatbot:2026-03:u_d_cohort_dinner:01","accepted":true,"event_count":3,"relationship_scores_changed":false,"note":"三名同班博士只交换各自求职焦虑与边界；没有介绍、帮助承诺、资源转移或关系分数变化。"},
+    {"kind":"chatgpt_product_replay_committed","packet_id":"micro:chatbot:2026-04:song-chen-industry-translation:01","accepted":true,"event_count":4,"relationship_scores_changed":false,"hard_world_candidate_count":1,"note":"第一次形成有边界的帮助候选：仅审阅一页职业转译稿，仍需时间与材料可行性检查；无内推、岗位或客户资源事实。"}
   ],
   "pending_task": {
-    "task_id":"career-six-chatbot-live-v1:3",
+    "task_id":"career-six-chatbot-live-v1:4",
     "stage":"micro-replay",
-    "packet_id":"micro:chatbot:2026-04:song-chen-industry-translation:01",
-    "start_date":"2026-04-12",
-    "end_date":"2026-04-14",
-    "event_kind":"career_translation_chat",
+    "packet_id":"micro:chatbot:2026-04:gao-lin-public-sector-prep:01",
+    "start_date":"2026-04-20",
+    "end_date":"2026-04-21",
+    "event_kind":"public_sector_preparation_chat",
     "mode":"wechat_private",
     "location":null,
-    "participants":["song_nan","chen_lan"],
-    "known_relationships":[{"a":"song_nan","b":"chen_lan","kind":"work_peer","context":"industry_translation","trust":0.49,"authorization":"career-six scenario states this link begins in 2026-04; social graph seeds it as an existing work-peer channel"}],
-    "actors":{"song_nan":{"name":"宋楠","age":28,"role":"doctoral_student","doctoral_year":4,"field":"survival_analysis","published_papers":null,"career_target_2026":"pharmaceutical_industry","cash":25000,"weekly_discretionary_work_hours":45,"goals":["把生存分析训练转化为真实药物研发问题能力","进入医药企业统计或数据科学岗位","保留研究与行业之间的回流可能"]},"chen_lan":{"name":"陈岚","authorized_known_fact":"在该关系机制中可分享把研究训练转成客户或组织问题的经验；不得据此虚构具体公司、职位、客户、招聘权限或可支配资源"}},
-    "retrieved_memory":{"song_nan":[{"at":"2026-03-22","content":"自己尚不确定怎样把生存分析训练转成药物研发里的可落地问题能力。"}],"chen_lan":[]},
+    "participants":["gao_yuan","lin_jing"],
+    "known_relationships":[{"a":"gao_yuan","b":"lin_jing","kind":"information_peer","context":"public_sector_preparation","trust":0.42,"authorization":"career-six scenario states this link begins in 2026-04; information and interview practice may be shared, but competitive job information is not automatically complete"}],
+    "actors":{"gao_yuan":{"name":"高原","age":28,"role":"doctoral_student","doctoral_year":5,"field":"mathematics_probability","published_papers":0,"career_target_2026":"civil_service","cash":22000,"weekly_discretionary_work_hours":44,"goals":["完成博士毕业要求","系统备考公务员","在城市平台与父母距离之间找到可接受方案"]},"lin_jing":{"name":"林静","age":28,"role":"doctoral_student","doctoral_year":3,"authorized_known_fact":"可与高原交流公共部门/体制岗位准备和个人职业比较；不得因此假设她掌握具体岗位内部信息、录用权限或完整考试情报"}},
+    "retrieved_memory":{"gao_yuan":[{"at":"2026-03-08","content":"自己当前优先毕业与公务员备考，暂时不铺开太多求职路线。"}],"lin_jing":[]},
     "allowed_acts":["check_in","share_experience","ask_advice","offer_information","offer_introduction","offer_help","decline","set_boundary","make_plan","small_talk","disagree","repair"],
-    "instruction":"由当前 ChatGPT 对话直接充当 cognition backend。只使用这里和 base_sources 中人物已经有权知道的信息。这个窗口重点测试 cognition 到 hard-world candidate 的边界：经验和信息可以直接进入记忆；任何帮助、介绍、计划、承诺只能形成候选，后续必须做资源/时间/权限/城市/预算可行性检查。不得凭 work_peer 标签补写招聘资源。",
-    "expected_output":{"interactions":"0到5条语义互动","relationship_evidence":"只有明确证据才写；不得自动加亲密度","hard_world_candidates":"帮助、介绍、计划、承诺只记为候选，后续另做可行性检查"}
+    "instruction":"由当前 ChatGPT 对话直接充当 cognition backend。重点观察公共部门准备中的信息互惠与竞争边界：可以交换通用准备方法、时间安排和个人权衡；不得凭 information_peer 标签补写内部岗位消息、考试答案、录用承诺或完整竞争信息。任何模拟面试、资料互换或后续计划只形成候选，需检查双方时间与竞争边界。",
+    "expected_output":{"interactions":"0到5条语义互动","relationship_evidence":"只有明确证据才写；不得自动加亲密度","hard_world_candidates":"模拟面试、资料互换、后续计划只记候选并另做可行性检查"}
   },
   "rules":{"repository_calls_model_api":false,"chatgpt_product_is_runtime":true,"deepseek_api_optional_future_backend":true,"local_model_optional_future_backend":true,"no_unearned_knowledge":true,"single_window_noncanonical":true,"conversation_does_not_auto_change_relationship":true,"hard_world_candidates_require_feasibility":true}
 }
