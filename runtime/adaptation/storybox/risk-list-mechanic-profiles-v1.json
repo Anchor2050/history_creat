@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_only_noncanonical",
+  "event_arc": "risk-list-incident",
+  "design_rule": "Each Game uses the minimum necessary mechanism bundle. Shared world does not imply shared game mechanics.",
+  "games": [
+    {
+      "game_id": "game:cause-reconstruction",
+      "objective": "Reconstruct what combination of data snapshot, version, pipeline and workflow produced the suspicious outputs.",
+      "primary_mechanics": [
+        "asymmetric_information",
+        "investigation_clue_economy",
+        "public_evidence_trail",
+        "map_unlock",
+        "phase_clock"
+      ],
+      "parameters": {
+        "truth_fixed_before_play": true,
+        "public_evidence_rate": 0.58,
+        "private_information_density": 0.63,
+        "moderator_discretion": 0.22,
+        "strategic_branching": 3,
+        "counterplay_paths": 2,
+        "evidence_redundancy": 3,
+        "dominant_actor_share": 0.38,
+        "stochasticity": 0.08,
+        "action_budget_pressure": 0.58,
+        "deadline_pressure": 0.72,
+        "false_belief_possible": true,
+        "game_can_deadlock": true,
+        "game_can_fail": true
+      },
+      "skill_expression": [
+        "forming competing causal hypotheses",
+        "preserving evidence before acting",
+        "choosing which jurisdiction to unlock next",
+        "distinguishing correlation from causal explanation",
+        "tracking who knew what when"
+      ],
+      "anti_pattern": "Do not let Zhou Ye or any technical actor become an omniscient debugger."
+    },
+    {
+      "game_id": "game:72h-briefing",
+      "objective": "Produce a defensible preliminary explanation under deadline without converting uncertainty into false certainty.",
+      "primary_mechanics": [
+        "proposal_vote_mission",
+        "public_evidence_trail",
+        "bluff_costly_signal",
+        "phase_clock",
+        "multi_game_portfolio"
+      ],
+      "parameters": {
+        "truth_fixed_before_play": true,
+        "public_evidence_rate": 0.75,
+        "private_information_density": 0.35,
+        "moderator_discretion": 0.18,
+        "strategic_branching": 3,
+        "counterplay_paths": 3,
+        "evidence_redundancy": 2,
+        "dominant_actor_share": 0.42,
+        "stochasticity": 0.04,
+        "action_budget_pressure": 0.62,
+        "deadline_pressure": 0.92,
+        "false_belief_possible": true,
+        "game_can_deadlock": true,
+        "game_can_fail": true
+      },
+      "skill_expression": [
+        "drafting claims whose evidential strength matches the record",
+        "choosing what to omit without misleading",
+        "building a coalition around a statement",
+        "recognizing when a caveat is protective versus evasive",
+        "using public commitments as leverage"
+      ],
+      "anti_pattern": "Do not make the cautious faction automatically morally superior."
+    },
+    {
+      "game_id": "game:leak-path",
+      "objective": "Determine how the screenshot moved outside the project and what, if anything, that implies about motive or responsibility.",
+      "primary_mechanics": [
+        "private_channel",
+        "asymmetric_information",
+        "investigation_clue_economy",
+        "bluff_costly_signal",
+        "campaign_persistence"
+      ],
+      "parameters": {
+        "truth_fixed_before_play": true,
+        "public_evidence_rate": 0.28,
+        "private_information_density": 0.78,
+        "moderator_discretion": 0.28,
+        "strategic_branching": 4,
+        "counterplay_paths": 3,
+        "evidence_redundancy": 2,
+        "dominant_actor_share": 0.31,
+        "stochasticity": 0.12,
+        "action_budget_pressure": 0.48,
+        "deadline_pressure": 0.45,
+        "false_belief_possible": true,
+        "game_can_deadlock": true,
+        "game_can_fail": true
+      },
+      "skill_expression": [
+        "testing claims against timestamps and access paths",
+        "using private conversations without contaminating evidence",
+        "distinguishing self-protective forwarding from sabotage",
+        "deciding when disclosure is a costly signal",
+        "managing reputation spillover"
+      ],
+      "anti_pattern": "Do not collapse the leak into a secret villain reveal."
+    },
+    {
+      "game_id": "game:pilot-decision",
+      "objective": "Choose whether the pilot pauses, narrows or continues before complete certainty exists.",
+      "primary_mechanics": [
+        "proposal_vote_mission",
+        "resource_conversion",
+        "attention_budget",
+        "multi_game_portfolio",
+        "event_node_gate",
+        "phase_clock"
+      ],
+      "parameters": {
+        "truth_fixed_before_play": true,
+        "public_evidence_rate": 0.68,
+        "private_information_density": 0.42,
+        "moderator_discretion": 0.16,
+        "strategic_branching": 4,
+        "counterplay_paths": 3,
+        "evidence_redundancy": 2,
+        "dominant_actor_share": 0.47,
+        "stochasticity": 0.07,
+        "action_budget_pressure": 0.72,
+        "deadline_pressure": 0.78,
+        "false_belief_possible": true,
+        "game_can_deadlock": true,
+        "game_can_fail": true
+      },
+      "skill_expression": [
+        "coalition building",
+        "trading scope for safety or speed",
+        "allocating manual review capacity",
+        "using authority without exhausting legitimacy",
+        "anticipating how today's compromise constrains the next Game"
+      ],
+      "anti_pattern": "Do not let the formally highest-ranking actor decide without coalition or downstream cost."
+    }
+  ],
+  "event_arc_variety_goal": "The four Games should feel strategically different while remaining causally coupled through explicit cross-game bridges."
+}
