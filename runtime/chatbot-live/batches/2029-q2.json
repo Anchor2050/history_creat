@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2029-q2",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2029-04-01","end":"2029-06-30"},
+  "generation_mode": "chatgpt_product_interaction_chain",
+  "era_lens": [
+    "工作进入第二年后，小幅职责变化比职位名称变化更常见；很多职业判断先通过日常实验产生。",
+    "博士完成需要程序链而非一句‘毕业了’；研究命题也需要内部审读和反例检查后才可能进入写作。",
+    "职业搜索的边界只有在真实面试和真实offer出现时才有意义。"
+  ],
+  "exogenous_hard_world_events": [
+    {"event_id":"2029q2:proc01","at":"2029-04-18","kind":"doctoral_completion_update","actor":"lin_jing","result":"core_dissertation_materials_ready_for_internal_completion_check","visibility":"private_to_actor"},
+    {"event_id":"2029q2:proc02","at":"2029-05-22","kind":"formal_job_process_update","actor":"chen_lan","result":"one_sustainable_role_application_reaches_structured_interview","visibility":"private_to_actor"},
+    {"event_id":"2029q2:review01","at":"2029-06-05","kind":"first_year_role_review","actor":"luo_cheng","result":"meets_expectations_strength_in_process_research_bridge_no_title_change","visibility":"private_to_actor"}
+  ],
+  "windows": [
+    {"packet_id":"micro:chatbot:2029-04:lin-shen-completion-check:01","start_date":"2029-04-20","end_date":"2029-04-20","event_kind":"doctoral_completion_check","participants":["lin_jing","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-04:he-work-experiment:01","start_date":"2029-04-27","end_date":"2029-04-27","event_kind":"work_design_experiment","participants":["he_xin"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-05:chen-wu-interview-debrief:01","start_date":"2029-05-24","end_date":"2029-05-24","event_kind":"formal_role_interview_debrief","participants":["chen_lan","wu_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-05:xu-gu-validation-identity:01","start_date":"2029-05-31","end_date":"2029-05-31","event_kind":"verification_identity_checkin","participants":["xu_hang","gu_wei"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-06:luo-year-one-review:01","start_date":"2029-06-07","end_date":"2029-06-07","event_kind":"first_year_role_review","participants":["luo_cheng","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-06:tang-condition-split:01","start_date":"2029-06-16","end_date":"2029-06-16","event_kind":"research_revision_check","participants":["tang_yu","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-06:gao-first-half-review:01","start_date":"2029-06-23","end_date":"2029-06-23","event_kind":"first_job_half_year_review","participants":["gao_yuan","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events": [
+    {"event_id":"2029q2:e01","kind":"social_interaction","at":"2029-04-20","event_kind":"doctoral_completion_check","speaker":"lin_jing","listener":"shen_yan","act":"share_experience","content":"林静把博士阶段剩余材料按必须闭环的问题、可延后问题和以后独立发展的题目重新分开，核心材料已经能进入内部完成检查。","channel":"in_person","evidence":"由博士完成进度事件触发。"},
+    {"event_id":"2029q2:e02","kind":"social_interaction","at":"2029-04-20","event_kind":"doctoral_completion_check","speaker":"shen_yan","listener":"lin_jing","act":"offer_information","content":"沈雁要求她不要为了毕业把所有未来题目都塞进当前论文，只把能形成完整论证闭环的部分留下；城市和职业选择等通过程序后再算。","channel":"in_person","evidence":"导师只处理学术完成边界。"},
+    {"event_id":"2029q2:e03","kind":"social_interaction","at":"2029-04-20","event_kind":"doctoral_completion_check","speaker":"lin_jing","listener":"shen_yan","act":"make_plan","content":"林静决定进入正式完成流程，同时保留一条独立研究问题到毕业后再判断，不把博士论文变成无限扩张项目。","channel":"in_person","evidence":"形成博士完成候选。"},
+
+    {"event_id":"2029q2:e04","kind":"actor_state_interaction","at":"2029-04-27","event_kind":"work_design_experiment","speaker":"he_xin","listener":"self_record","act":"share_experience","content":"何欣连续数周固定保住两块学习时间，并接到一个比常规流程稍复杂但仍在权限内的整理任务；她发现工作并非完全没有变化空间，只是需要主动守住时间。","channel":"private_record","evidence":"Q1工作实验经过实际时间和任务可用性检查。"},
+    {"event_id":"2029q2:e05","kind":"actor_state_interaction","at":"2029-04-27","event_kind":"work_design_experiment","speaker":"he_xin","listener":"self_record","act":"make_plan","content":"何欣决定暂不考虑离开，先观察这种学习和任务变化能否稳定维持半年。","channel":"private_record","evidence":"轻度不满没有自动触发退出。"},
+
+    {"event_id":"2029q2:e06","kind":"social_interaction","at":"2029-05-24","event_kind":"formal_role_interview_debrief","speaker":"chen_lan","listener":"wu_cheng","act":"share_experience","content":"陈岚说这次面试第一次把并行任务数、临时响应来源和优先级机制都问清楚：岗位收入不算最高，但主要任务更集中，临时响应有明确负责人轮转。","channel":"in_person","evidence":"由真实结构化面试生成岗位信息。"},
+    {"event_id":"2029q2:e07","kind":"social_interaction","at":"2029-05-24","event_kind":"formal_role_interview_debrief","speaker":"wu_cheng","listener":"chen_lan","act":"offer_information","content":"吴澄提醒她别因为终于碰到结构更合适的岗位就提前接受；要等正式条件出来，再把住房、现金和职责一起算。","channel":"in_person","evidence":"无推荐资源。"},
+
+    {"event_id":"2029q2:e08","kind":"social_interaction","at":"2029-05-31","event_kind":"verification_identity_checkin","speaker":"xu_hang","listener":"gu_wei","act":"share_experience","content":"许航把过去两年的贡献日志整理后发现，自己最稳定的价值不是修代码，而是能设计检查、冻结反例、区分实现脆弱性和结构风险；他想把这套方法独立写成组内验证规范。","channel":"in_person","evidence":"来自既有验证贡献日志。"},
+    {"event_id":"2029q2:e09","kind":"social_interaction","at":"2029-05-31","event_kind":"verification_identity_checkin","speaker":"gu_wei","listener":"xu_hang","act":"offer_information","content":"顾维支持他先写内部规范，但要求每一条规则都对应真实失败案例或检查需求，避免把经验整理成空泛最佳实践。","channel":"in_person","evidence":"形成内部验证规范候选，不等于论文。"},
+
+    {"event_id":"2029q2:e10","kind":"social_interaction","at":"2029-06-07","event_kind":"first_year_role_review","speaker":"luo_cheng","listener":"sun_jie","act":"share_experience","content":"罗诚说研究支持岗第一年最满意的地方是博士训练终于能用于理解研究材料和流程，但他也发现大量价值来自催节点、补文档和让不同角色说清同一件事。","channel":"wechat_private","evidence":"由第一年角色评估生成。"},
+    {"event_id":"2029q2:e11","kind":"social_interaction","at":"2029-06-07","event_kind":"first_year_role_review","speaker":"sun_jie","listener":"luo_cheng","act":"repair","content":"孙洁说这和学生事务其实共享一部分底层能力，只是对象和内容不同；罗诚不需要把当年辅导员落选理解成博士训练没有价值。","channel":"wechat_private","evidence":"职业认知修正，不生成资源。"},
+
+    {"event_id":"2029q2:e12","kind":"social_interaction","at":"2029-06-16","event_kind":"research_revision_check","speaker":"tang_yu","listener":"xu_hang","act":"share_experience","content":"唐雨把原来一个条件拆成机制条件和技术控制条件后，证明主线仍能走通，但反例只真正针对机制条件；她让许航重新检查反例是否仍跨实现稳定。","channel":"in_person","evidence":"Q1研究修订后的实际检查。"},
+    {"event_id":"2029q2:e13","kind":"social_interaction","at":"2029-06-16","event_kind":"research_revision_check","speaker":"xu_hang","listener":"tang_yu","act":"offer_information","content":"许航确认反例在冻结的两套实现中仍出现，但提醒这只能支持机制条件的必要性线索；技术控制条件是否能弱化仍要单独处理。","channel":"in_person","evidence":"验证范围清楚。"},
+    {"event_id":"2029q2:e14","kind":"social_interaction","at":"2029-06-16","event_kind":"research_revision_check","speaker":"tang_yu","listener":"xu_hang","act":"make_plan","content":"唐雨决定正式开始结构化写作草稿，但把技术控制条件的弱化列为未解决问题，不把内部草稿当成投稿完成。","channel":"in_person","evidence":"写作候选由修订和复核后产生。"},
+
+    {"event_id":"2029q2:e15","kind":"social_interaction","at":"2029-06-23","event_kind":"first_job_half_year_review","speaker":"gao_yuan","listener":"lin_jing","act":"share_experience","content":"高原说半年后他仍喜欢低通勤和离家近，但开始真实感到学习资源和岗位横向流动比大城市少；目前这个代价仍在他可接受范围。","channel":"video_call","evidence":"低机会密度经过半年实际体验后进入判断。"},
+    {"event_id":"2029q2:e16","kind":"social_interaction","at":"2029-06-23","event_kind":"first_job_half_year_review","speaker":"lin_jing","listener":"gao_yuan","act":"offer_information","content":"林静建议他把‘接受’写成当前状态，而不是以后每次不满都拿当初选择惩罚自己；如果未来代价变大，再按新状态重新评估。","channel":"video_call","evidence":"通用可逆性框架。"}
+  ],
+  "hard_world_candidate_updates": [
+    {"candidate_id":"candidate:2029-q1:he-protected-learning-block:01","checked_at":"2029-04-27","checks":{"weekly_time_capacity":true,"managerial_permission_if_needed":true,"task_available":true},"result":"activated_trial_noncanonical","resource_effect":"protected learning blocks plus one bounded varied task"},
+    {"candidate_id":"candidate:2029-q1:tang-condition-split:01","checked_at":"2029-06-16","checks":{"condition_roles_separated":true,"proof_remains_valid":true,"counterexample_targets_correct_layer":true},"result":"revision_passed_internal_check_noncanonical","resource_effect":"structured writing may begin; unresolved control-condition question remains"}
+  ],
+  "new_hard_world_candidates": [
+    {"candidate_id":"candidate:2029-q2:lin-doctoral-completion:01","created_at":"2029-04-20","type":"doctoral_completion_process","beneficiary":"lin_jing","description":"核心论文材料进入正式完成流程。","requires_checks":["program_requirements_met","internal_review_passed","defense_or_equivalent_schedule","required_revisions"],"status":"pending_institutional_process_noncanonical"},
+    {"candidate_id":"candidate:2029-q2:xu-validation-standard:01","created_at":"2029-05-31","type":"internal_method_asset","beneficiary":"xu_hang","description":"把真实失败案例和检查设计整理为组内验证规范，测试验证身份能否形成独立技术资产。","requires_checks":["real_cases_documented","rules_traceable_to_failures","group_usefulness_review"],"status":"pending_internal_review_noncanonical"},
+    {"candidate_id":"candidate:2029-q2:tang-structured-draft:01","created_at":"2029-06-16","type":"research_writing_project","beneficiary":"tang_yu","description":"基于窄命题、机制条件反例和未解决的技术控制条件形成结构化内部草稿。","requires_checks":["proof_text_complete","counterexample_reproducible","open_condition_clearly_marked","internal_reader_feedback"],"status":"pending_writing_noncanonical"}
+  ],
+  "actor_state_evidence": [
+    {"at":"2029-04-27","actor":"he_xin","dimension":"job_retention","evidence":"通过保护学习时间和变化任务，当前不满下降到可观察范围，暂不考虑离开。","status":"candidate_state_evidence"},
+    {"at":"2029-06-05","actor":"luo_cheng","dimension":"first_year_role_fit","evidence":"研究支持岗位实际使用博士训练与流程协调能力，目标修订得到一年工作证据支持。","status":"candidate_state_evidence"},
+    {"at":"2029-06-23","actor":"gao_yuan","dimension":"city_tradeoff","evidence":"低住房和家庭距离收益真实存在，低机会密度成本也开始可见；当前仍接受该交换。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence": [
+    {"at":"2029-06-07","pair":["luo_cheng","sun_jie"],"direction":"positive","evidence":"孙洁帮助罗诚重新解释早期失败与当前岗位的共同底层能力，不涉及招聘帮助。"},
+    {"at":"2029-06-16","pair":["tang_yu","xu_hang"],"direction":"positive","evidence":"验证合作再次因明确技术问题短暂升频，仍保持理论与验证贡献边界。"}
+  ],
+  "audit_rules": {"single_batch_noncanonical":true,"generated_through_interaction_chain":true,"doctoral_completion_requires_institutional_process":true,"research_writing_requires_internal_checks":true,"no_unearned_knowledge":true,"conversation_does_not_auto_change_relationship":true,"hard_world_candidates_require_feasibility":true,"bilateral_memory_derivable_from_events":true}
+}
