@@ -1,0 +1,59 @@
+{
+  "schema_version":1,
+  "batch_id":"career-six-chatbot-2035-q3",
+  "status":"noncanonical_chatbot_replay_batch",
+  "period":{"start":"2035-07-01","end":"2035-09-30"},
+  "generation_mode":"chatgpt_product_interaction_chain",
+  "era_lens":[
+    "最后阶段的成熟不等于升级：很多结果表现为角色能够更准确地解释自己的交换和边界。",
+    "长期留任要继续接受外部校准；长期迁移则要验证新平台收益是否能抵消协调和生活成本。",
+    "原八人的晚期职业问题应继续独立存在，不以帮助主角为唯一功能。"
+  ],
+  "exogenous_hard_world_events":[
+    {"event_id":"2035q3:song01","at":"2035-07-18","kind":"second_role_year_three_review","actor":"song_nan","result":"judgment_scope_broader_learning_growth_moderate_life_bundle_stable_no_exit_trigger","visibility":"private_to_actor"},
+    {"event_id":"2035q3:gao01","at":"2035-08-02","kind":"final_horizon_public_market_refresh","actor":"gao_yuan","result":"no_threshold_crossing_opening_current_bundle_still_preferred_with_inertia_cost_explicit","visibility":"private_to_actor"},
+    {"event_id":"2035q3:luo01","at":"2035-08-18","kind":"midcareer_new_role_nine_month_review","actor":"luo_cheng","result":"research_content_share_higher_platform_resources_used_coordination_cost_high_but_acceptable","visibility":"private_to_actor"},
+    {"event_id":"2035q3:he01","at":"2035-09-01","kind":"home_ownership_six_month_review","actor":"he_xin","result":"mortgage_affordable_cash_buffer_rebuilding_role_value_unchanged_city_exit_cost_higher","visibility":"private_to_actor"},
+    {"event_id":"2035q3:chen01","at":"2035-09-12","kind":"formal_role_year_six_review","actor":"chen_lan","result":"bounded_governance_scope_stable_judgment_influence_high_no_always_on_reversion","visibility":"private_to_actor"},
+    {"event_id":"2035q3:zhao01","at":"2035-09-20","kind":"judgment_retrospective_followup","actor":"zhao_ke","result":"participants_later_identify_one_exception_before_rule_failure_rework_reduced","visibility":"private_to_actor"}
+  ],
+  "windows":[
+    {"packet_id":"micro:chatbot:2035-07:song-year-three:01","start_date":"2035-07-20","end_date":"2035-07-20","event_kind":"second_role_year_three_review","participants":["song_nan","he_xin"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-08:gao-final-market:01","start_date":"2035-08-04","end_date":"2035-08-04","event_kind":"final_horizon_market_refresh","participants":["gao_yuan","luo_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-08:luo-nine-month:01","start_date":"2035-08-20","end_date":"2035-08-20","event_kind":"midcareer_new_role_nine_month_review","participants":["luo_cheng","gao_yuan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-09:he-ownership-six-month:01","start_date":"2035-09-03","end_date":"2035-09-03","event_kind":"home_ownership_six_month_review","participants":["he_xin","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-09:chen-year-six:01","start_date":"2035-09-14","end_date":"2035-09-14","event_kind":"formal_role_year_six_review","participants":["chen_lan","wu_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-09:zhao-retrospective-followup:01","start_date":"2035-09-22","end_date":"2035-09-22","event_kind":"judgment_retrospective_followup","participants":["zhao_ke","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-09:gu-authority-followup:01","start_date":"2035-09-28","end_date":"2035-09-28","event_kind":"verification_authority_boundary_followup","participants":["gu_wei"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events":[
+    {"event_id":"2035q3:e01","kind":"social_interaction","at":"2035-07-20","event_kind":"second_role_year_three_review","speaker":"song_nan","listener":"he_xin","act":"share_experience","content":"宋楠第三年在新岗位的判断范围比刚来时更完整，学习斜率仍不快，但她已经不再把‘学得快’当唯一职业成长指标；住房、通勤和家庭距离的改善也没有反弹。","channel":"in_person","evidence":"三年mixed bundle持续。"},
+    {"event_id":"2035q3:e02","kind":"social_interaction","at":"2035-07-20","event_kind":"second_role_year_three_review","speaker":"he_xin","listener":"song_nan","act":"check_in","content":"何欣说她买房后也更能理解‘生活结构本身是一种选择’，两个人都没有把更稳定解释成从此不再重新评价。","channel":"in_person","evidence":"稳定结构保持可审计。"},
+
+    {"event_id":"2035q3:e03","kind":"social_interaction","at":"2035-08-04","event_kind":"final_horizon_market_refresh","speaker":"gao_yuan","listener":"luo_cheng","act":"share_experience","content":"高原做了情景期最后一次公开市场刷新，仍没有岗位同时越过成长、家庭距离、住房和稳定门槛；他承认现在的门槛里既有真实偏好，也有多年留下形成的惯性。","channel":"phone","evidence":"最终市场校准仍无threshold-crossing opening。"},
+    {"event_id":"2035q3:e04","kind":"social_interaction","at":"2035-08-04","event_kind":"final_horizon_market_refresh","speaker":"luo_cheng","listener":"gao_yuan","act":"repair","content":"罗诚说这至少说明高原不是‘从来没看过外面’，只是几次看完都没有愿意支付交换成本的机会；两人不再需要用移动证明主动性。","channel":"phone","evidence":"留任由重复外部校准支持。"},
+
+    {"event_id":"2035q3:e05","kind":"social_interaction","at":"2035-08-20","event_kind":"midcareer_new_role_nine_month_review","speaker":"luo_cheng","listener":"gao_yuan","act":"share_experience","content":"罗诚九个月下来实际花在研究支持设计和早期问题定义上的比例明显提高，平台资源也确实能用；代价是协调层级更多、生活成本更高，但还没有盖过内容和平台收益。","channel":"phone","evidence":"双门槛优势在真实岗位持续兑现。"},
+    {"event_id":"2035q3:e06","kind":"social_interaction","at":"2035-08-20","event_kind":"midcareer_new_role_nine_month_review","speaker":"gao_yuan","listener":"luo_cheng","act":"check_in","content":"高原问他如果三年后协调成本继续上升会不会再走；罗诚说会，但现在没有必要把这次迁移写成终局。","channel":"phone","evidence":"中期成功不终身化。"},
+
+    {"event_id":"2035q3:e07","kind":"social_interaction","at":"2035-09-03","event_kind":"home_ownership_six_month_review","speaker":"he_xin","listener":"sun_jie","act":"share_experience","content":"何欣住了半年后房贷可承受，现金缓冲也在恢复；工作本身没有因为买房变得更好，她仍把第七年内部任务带来的那点学习和长期低增长同时记着。","channel":"wechat_private","evidence":"房产没有反写岗位价值。"},
+    {"event_id":"2035q3:e08","kind":"social_interaction","at":"2035-09-03","event_kind":"home_ownership_six_month_review","speaker":"sun_jie","listener":"he_xin","act":"offer_information","content":"孙洁说最重要的是以后别用‘已经有房’替代职业复核；何欣答应继续把住房和工作分别记账。","channel":"wechat_private","evidence":"资产锁定与职业判断继续分离。"},
+
+    {"event_id":"2035q3:e09","kind":"social_interaction","at":"2035-09-14","event_kind":"formal_role_year_six_review","speaker":"chen_lan","listener":"wu_cheng","act":"share_experience","content":"陈岚新增治理职责运行一年多后仍保持固定范围，没有重新变成全天候救火；她现在更确定自己选择的是组织判断型职业，而不是暂时离开学术。","channel":"in_person","evidence":"长期身份交换获得持续证据。"},
+    {"event_id":"2035q3:e10","kind":"social_interaction","at":"2035-09-14","event_kind":"formal_role_year_six_review","speaker":"wu_cheng","listener":"chen_lan","act":"repair","content":"吴澄说这不等于以后不能改变，只是到现在为止，当前身份已经不需要靠‘还可以回去’才能被证明合理。","channel":"in_person","evidence":"身份稳定不等于永久锁定。"},
+
+    {"event_id":"2035q3:e11","kind":"social_interaction","at":"2035-09-22","event_kind":"judgment_retrospective_followup","speaker":"zhao_ke","listener":"sun_jie","act":"share_experience","content":"赵珂后来看到参加复盘的人在一个新项目里主动停下来指出‘现有入口规则在这里会误导’，提前改了处理方式，返工明显少了一次。","channel":"video_call","evidence":"判断训练产生后续行为证据。"},
+    {"event_id":"2035q3:e12","kind":"social_interaction","at":"2035-09-22","event_kind":"judgment_retrospective_followup","speaker":"sun_jie","listener":"zhao_ke","act":"repair","content":"孙洁说这才算真正超出流程培训：别人开始自己知道什么时候不能只按流程。","channel":"video_call","evidence":"peer training consequence validated."},
+
+    {"event_id":"2035q3:e13","kind":"actor_state_interaction","at":"2035-09-28","event_kind":"verification_authority_boundary_followup","speaker":"gu_wei","listener":"self_record","act":"share_experience","content":"顾维这一年刻意不替几项成熟方案做口头‘最终背书’，要求提交者自己写失败边界。开始有人觉得麻烦，但也有人逐渐不再把他当作最后盖章的人。","channel":"private_record","evidence":"导师权威边界出现真实行为后果。"}
+  ],
+  "hard_world_candidate_updates":[],
+  "new_hard_world_candidates":[],
+  "actor_state_evidence":[
+    {"at":"2035-08-04","actor":"gao_yuan","dimension":"long_term_stability_choice","evidence":"多次市场刷新后仍无跨门槛岗位，留任同时由真实偏好和惯性构成，二者被持续区分。","status":"candidate_state_evidence"},
+    {"at":"2035-09-14","actor":"chen_lan","dimension":"professional_identity","evidence":"六年正式组织工作与有边界的治理责任使组织判断型职业身份稳定化。","status":"candidate_state_evidence"},
+    {"at":"2035-09-22","actor":"zhao_ke","dimension":"professional_growth","evidence":"判断复盘首次产生后续真实行为改变，职业价值超出规则维护获得证据。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence":[],
+  "audit_rules":{"generated_through_interaction_chain":true,"final_market_refresh_can_end_with_no_change":true,"homeownership_does_not_rewrite_role_value":true,"midcareer_success_not_terminal":true,"peer_training_requires_later_behavior_evidence":true,"family_age_alone_cannot_create_care_crisis":true,"storyteller_read_only":true}
+}
