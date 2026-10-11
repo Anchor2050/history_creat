@@ -1,0 +1,62 @@
+{
+  "schema_version":1,
+  "batch_id":"career-six-chatbot-2034-q1",
+  "status":"noncanonical_chatbot_replay_batch",
+  "period":{"start":"2034-01-01","end":"2034-03-31"},
+  "generation_mode":"chatgpt_product_interaction_chain",
+  "era_lens":[
+    "2034开始检验早期选择能否被治理：锁定本身不等于命运，但治理锁定需要具体组织和个人机制。",
+    "岗位价值复核优先于新增住房锁定；专家单点风险优先通过责任再分配而不是强制换岗解决。",
+    "长期研究问题和职业身份都允许被关闭、收缩或重定义，不以坚持本身作为成功。"
+  ],
+  "exogenous_hard_world_events":[
+    {"event_id":"2034q1:review01","at":"2034-01-18","kind":"public_institution_role_value_review","actor":"he_xin","result":"stability_welfare_city_network_strong_work_content_acceptable_learning_growth_low_exit_cost_high","visibility":"private_to_actor"},
+    {"event_id":"2034q1:review02","at":"2034-02-02","kind":"expert_property_lockin_review","actor":"zhou_ye","result":"property_lockin_material_complex_exception_dependency_high_second_judge_absent","visibility":"private_to_actor"},
+    {"event_id":"2034q1:review03","at":"2034-02-20","kind":"second_role_year_two_early_review","actor":"song_nan","result":"life_bundle_still_better_learning_growth_moderate_judgment_scope_stable","visibility":"private_to_actor"},
+    {"event_id":"2034q1:review04","at":"2034-03-12","kind":"formal_role_year_five_scope_review","actor":"chen_lan","result":"time_boundary_stable_cross_team_judgment_value_high_internal_scope_expansion_possible","visibility":"private_to_actor"}
+  ],
+  "windows":[
+    {"packet_id":"micro:chatbot:2034-01:he-role-value:01","start_date":"2034-01-20","end_date":"2034-01-20","event_kind":"structured_role_value_review","participants":["he_xin","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2034-02:zhou-second-judge:01","start_date":"2034-02-04","end_date":"2034-02-04","event_kind":"expert_single_point_review","participants":["zhou_ye","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2034-02:song-year-two:01","start_date":"2034-02-22","end_date":"2034-02-22","event_kind":"second_role_year_two_checkin","participants":["song_nan","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2034-03:chen-scope-expansion:01","start_date":"2034-03-14","end_date":"2034-03-14","event_kind":"internal_scope_expansion_review","participants":["chen_lan","wu_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2034-03:tang-gap:01","start_date":"2034-03-20","end_date":"2034-03-20","event_kind":"research_gap_checkin","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2034-03:zhao-growth-beyond-gatekeeping:01","start_date":"2034-03-27","end_date":"2034-03-27","event_kind":"project_manager_growth_review","participants":["zhao_ke","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events":[
+    {"event_id":"2034q1:e01","kind":"social_interaction","at":"2034-01-20","event_kind":"structured_role_value_review","speaker":"he_xin","listener":"sun_jie","act":"share_experience","content":"何欣把第七年岗位拆开：稳定、福利连续性和同城网络都是真收益，日常职责也不讨厌，但新的学习和判断增长明显低。她第一次把问题改成‘能不能先改变工作内容’，而不是‘要不要离开’。","channel":"wechat_private","evidence":"2033年末明确要求岗位价值复核先于住房。"},
+    {"event_id":"2034q1:e02","kind":"social_interaction","at":"2034-01-20","event_kind":"structured_role_value_review","speaker":"sun_jie","listener":"he_xin","act":"offer_information","content":"孙洁建议她先找一个不改变编制和城市的内部职责增量，看看岗位是否还有学习弹性；如果连小范围调整都没有，再把外部市场和2035住房一起重新算。","channel":"wechat_private","evidence":"先测试内部可塑性，不创造内部名额。"},
+    {"event_id":"2034q1:e03","kind":"social_interaction","at":"2034-01-20","event_kind":"structured_role_value_review","speaker":"he_xin","listener":"sun_jie","act":"make_plan","content":"何欣决定只申请一个边界清楚的小型跨部门数据/政策复核任务，前提是不长期增加加班，也不影响现有职责。","channel":"wechat_private","evidence":"形成内部丰富候选，仍需权限和时间检查。"},
+
+    {"event_id":"2034q1:e04","kind":"social_interaction","at":"2034-02-04","event_kind":"expert_single_point_review","speaker":"zhou_ye","listener":"xu_hang","act":"share_experience","content":"周野把买房后的年度复核和技术异常清单放在一起看，发现真正限制未来选择的已经不是常规交接，而是复杂异常仍只有他能快速判断；房产让这个单点依赖的迁移成本更高。","channel":"wechat_private","evidence":"房产锁定和专家单点均已有真实证据。"},
+    {"event_id":"2034q1:e05","kind":"social_interaction","at":"2034-02-04","event_kind":"expert_single_point_review","speaker":"xu_hang","listener":"zhou_ye","act":"offer_information","content":"许航建议不要先做更厚的文档，而是选一类高频复杂异常，让另一位同事跟着做完整判断并解释为什么停止；如果只把结论交出去，第二判断者永远长不出来。","channel":"wechat_private","evidence":"从标准化转向判断转移。"},
+    {"event_id":"2034q1:e06","kind":"social_interaction","at":"2034-02-04","event_kind":"expert_single_point_review","speaker":"zhou_ye","listener":"xu_hang","act":"make_plan","content":"周野决定提出三个月的第二判断者轮转试验，只选一类异常，不承诺一次性消除所有单点风险。","channel":"wechat_private","evidence":"形成团队责任再分配候选。"},
+
+    {"event_id":"2034q1:e07","kind":"social_interaction","at":"2034-02-22","event_kind":"second_role_year_two_checkin","speaker":"song_nan","listener":"chen_lan","act":"share_experience","content":"宋楠进入第二年后，学习速度没有重新变快，但她开始接触更完整的需求定义和结果沟通；生活成本和家庭距离优势仍然稳定。她暂时不觉得需要用第三次换岗追求更高斜率。","channel":"video_call","evidence":"第二岗位的mixed bundle延续。"},
+    {"event_id":"2034q1:e08","kind":"social_interaction","at":"2034-02-22","event_kind":"second_role_year_two_checkin","speaker":"chen_lan","listener":"song_nan","act":"repair","content":"陈岚说中期职业价值可以从‘还能不能学新模型’转成‘是不是开始拥有更完整的判断责任’，但两者都要有真实工作证据，不能自己解释自己。","channel":"video_call","evidence":"职业成熟不等于停止学习。"},
+
+    {"event_id":"2034q1:e09","kind":"social_interaction","at":"2034-03-14","event_kind":"internal_scope_expansion_review","speaker":"chen_lan","listener":"wu_cheng","act":"share_experience","content":"陈岚被问到是否愿意协调一个小型跨部门数据治理工作组。她感兴趣，但最先检查的是这会不会重新变成全天候响应和多项目切换。","channel":"in_person","evidence":"五年组织判断积累产生内部职责候选，不等于晋升。"},
+    {"event_id":"2034q1:e10","kind":"social_interaction","at":"2034-03-14","event_kind":"internal_scope_expansion_review","speaker":"wu_cheng","listener":"chen_lan","act":"offer_information","content":"吴澄提醒她把边界写进职责：固定会议、明确决策范围、紧急升级条件。如果组织只给责任不给边界，这和她当年拒掉的高响应岗位没有本质区别。","channel":"in_person","evidence":"旧职业底线用于新职责检查。"},
+
+    {"event_id":"2034q1:e11","kind":"social_interaction","at":"2034-03-20","event_kind":"research_gap_checkin","speaker":"tang_yu","listener":"shen_yan","act":"share_experience","content":"进入第二个没有成熟主线的年份后，唐雨有一个问题反复回来：当生存数据结构改变时，某类常用稳定性判断为什么会突然失效。她还没有模型或定理，只确认自己几个月里多次回到同一个疑问。","channel":"in_person","evidence":"recurring question来自长期反复注意，而非为了填论文空档临时指定。"},
+    {"event_id":"2034q1:e12","kind":"social_interaction","at":"2034-03-20","event_kind":"research_gap_checkin","speaker":"shen_yan","listener":"tang_yu","act":"make_plan","content":"沈雁建议她先做三个月探索笔记，只收集最小例子和失败模式；如果问题在具体化后失去吸引力，就让它结束，不先叫新项目。","channel":"in_person","evidence":"形成探索候选，不生成研究项目事实。"},
+
+    {"event_id":"2034q1:e13","kind":"social_interaction","at":"2034-03-27","event_kind":"project_manager_growth_review","speaker":"zhao_ke","listener":"sun_jie","act":"share_experience","content":"赵珂说自己已经把入口治理做得很成熟，反而开始担心职业价值只剩维护规则；他想试一次跨团队复盘，看自己能不能把项目经验变成别人可用的判断训练。","channel":"video_call","evidence":"长期规则成熟后出现自身成长问题。"},
+    {"event_id":"2034q1:e14","kind":"social_interaction","at":"2034-03-27","event_kind":"project_manager_growth_review","speaker":"sun_jie","listener":"zhao_ke","act":"offer_information","content":"孙洁说如果复盘只是再讲流程，很可能只是换一种维护；真正有价值的是把几个判断失败的案例拿出来，让别人说明当时为什么会误判。","channel":"video_call","evidence":"职业成长候选聚焦判断训练而非规则宣讲。"}
+  ],
+  "hard_world_candidate_updates":[],
+  "new_hard_world_candidates":[
+    {"candidate_id":"candidate:2034-q1:he-internal-role-enrichment:01","created_at":"2034-01-20","type":"internal_role_enrichment","beneficiary":"he_xin","requires_checks":["task_exists","manager_authority","bounded_time_cost","no_persistent_overtime"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2034-q1:zhou-second-judge-rotation:01","created_at":"2034-02-04","type":"second_judge_rotation","beneficiary":"zhou_ye","requires_checks":["team_manager_support","suitable_colleague_available","bounded_exception_class","real_case_exposure"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2034-q1:chen-bounded-governance-scope:01","created_at":"2034-03-14","type":"internal_scope_expansion","beneficiary":"chen_lan","requires_checks":["written_scope","bounded_meeting_load","explicit_escalation_rule","no_always_on_response"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2034-q1:tang-recurring-question-exploration:01","created_at":"2034-03-20","type":"research_exploration","beneficiary":"tang_yu","requires_checks":["recurring_question_survives_examples","failure_modes_nontrivial","interest_not_output_anxiety"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2034-q1:zhao-judgment-retrospective:01","created_at":"2034-03-27","type":"peer_judgment_training","beneficiary":"zhao_ke","requires_checks":["cross_team_participants","failure_cases_available","learning_not_process_repetition"],"status":"open_noncanonical"}
+  ],
+  "actor_state_evidence":[
+    {"at":"2034-01-20","actor":"he_xin","dimension":"role_value_review","evidence":"第七年首次把稳定收益与低学习增长分开，优先测试岗位内部可塑性而非先跳槽或买房。","status":"candidate_state_evidence"},
+    {"at":"2034-02-04","actor":"zhou_ye","dimension":"combined_lockin","evidence":"房产锁定与复杂异常单点依赖开始被同一年度复核显式联合评估。","status":"candidate_state_evidence"},
+    {"at":"2034-03-20","actor":"tang_yu","dimension":"research_gap","evidence":"研究空档第二年出现第一个持续数月反复返回的问题，但仍只进入探索候选。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence":[],
+  "audit_rules":{"generated_through_interaction_chain":true,"role_value_precedes_housing_lockin":true,"expert_lockin_first_tests_delegation":true,"research_gap_can_end_or_continue_without_forced_project":true,"internal_scope_expansion_requires_boundary_checks":true,"family_age_alone_cannot_create_care_crisis":true,"storyteller_read_only":true}
+}
