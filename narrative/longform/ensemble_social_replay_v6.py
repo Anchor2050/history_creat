@@ -103,6 +103,13 @@ ORIGINAL_PROFILES = {
     "sun_jie": {"name": "孙洁", "age_2026": 35, "organization": "university_a", "field": "graduate_administration"},
 }
 
+PERSONAL_SCENE_MONTH = {
+    "lin_jing": 4, "chen_lan": 5, "xu_hang": 6, "wu_cheng": 9,
+    "shen_yan": 10, "gu_wei": 11, "zhao_ke": 8, "sun_jie": 12,
+    "zhou_ye": 3, "gao_yuan": 4, "luo_cheng": 5,
+    "tang_yu": 6, "he_xin": 7, "song_nan": 8,
+}
+
 
 def load_social_design(path=None):
     path = path or (
@@ -699,6 +706,58 @@ def _apply_event(
     )
 
 
+def _personal_scene_pulses(career_run, ties, profiles, rng):
+    """Advance each person's own small theatre independently of group events."""
+    pulses = []
+    social_events = []
+    for year in range(2026, 2036):
+        for index, actor_id in enumerate(ENSEMBLE_ACTORS):
+            month = PERSONAL_SCENE_MONTH[actor_id]
+            context = _hard_context(career_run, actor_id, year, month, rng)
+            scene = PERSONAL_SCENES[actor_id]
+            neighbors = sorted(
+                _neighbors(ties, actor_id),
+                key=lambda item: (.58 * item[1]["trust"] + .42 * item[1]["closeness"]),
+                reverse=True,
+            )
+            pulse = {
+                "id": f"personal:{actor_id}:{year:04d}-{month:02d}",
+                "actor": actor_id,
+                "year": year,
+                "month": month,
+                "career_scene": scene["career"],
+                "private_scene": scene["private"],
+                "hard_context": deepcopy(context),
+                "closest_contacts": [other for other, _ in neighbors[:4]],
+                "status": "personal_scene_noncanonical",
+            }
+            pulses.append(pulse)
+
+            due = ((year - 2026 + index) % 2 == 0)
+            high_pressure = context.get("scene_pressure", 0.0) >= .68
+            if not neighbors or not (due or high_pressure):
+                continue
+            invitees = [other for other, _ in neighbors[:2]]
+            mode = "in_person"
+            if context.get("city") not in {
+                None, "beijing", "beijing_training", "beijing_market_network"
+            }:
+                mode = rng.choice(["wechat_private", "phone", "video_call"])
+            elif rng.random() < .28:
+                mode = rng.choice(["wechat_private", "phone"])
+            social_events.append({
+                "id": f"personal-social:{actor_id}:{year:04d}-{month:02d}",
+                "kind": "personal_scene_checkin",
+                "participants": [actor_id] + invitees,
+                "attendance_base": .76,
+                "mode": mode,
+                "location": None,
+                "source": "personal_scene",
+                "anchor": actor_id,
+            })
+    return pulses, social_events
+
+
 def _career_trigger_packets(career_run, social_design, profiles, ties, rng):
     packets = []
     significant = []
@@ -755,7 +814,22 @@ def simulate_ensemble_social_replay(seed=1, career_run=None, social_design=None)
     rng = random.Random(seed + 600_000)
 
     packets = []
+    personal_scene_pulses, personal_social_events = _personal_scene_pulses(
+        career_run, ties, profiles, rng
+    )
+    personal_by_month = {}
+    for event in personal_social_events:
+        _, raw = event["id"].rsplit(":", 1)
+        year, month = map(int, raw.split("-"))
+        personal_by_month.setdefault((year, month), []).append(event)
+
     for year, month in _months():
+        for event in personal_by_month.get((year, month), []):
+            packet = _apply_event(
+                social_design, profiles, ties, event, career_run, year, month, rng
+            )
+            if packet:
+                packets.append(packet)
         for ritual in social_design["recurring_social_rituals"]:
             if not _recurring_due(ritual, year, month):
                 continue
@@ -799,6 +873,7 @@ def simulate_ensemble_social_replay(seed=1, career_run=None, social_design=None)
         "status": "fourteen_person_ensemble_social_v6_noncanonical",
         "actors": deepcopy(profiles),
         "personal_scenes": deepcopy(PERSONAL_SCENES),
+        "personal_scene_pulses": personal_scene_pulses,
         "social_graph": {
             "ties": [deepcopy(tie) for tie in ties.values()],
             "actor_event_counts": actor_event_counts,
@@ -837,5 +912,9 @@ def summarize_ensemble_structure(run):
         "actors_without_personal_scene": [
             actor_id for actor_id in ENSEMBLE_ACTORS
             if actor_id not in run["personal_scenes"]
+        ],
+        "actors_without_personal_pulse": [
+            actor_id for actor_id in ENSEMBLE_ACTORS
+            if not any(row["actor"] == actor_id for row in run["personal_scene_pulses"])
         ],
     }
