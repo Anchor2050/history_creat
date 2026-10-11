@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "status": "provisional_novel_architecture_audit_noncanonical",
+  "historical_world_writeback": false,
+  "source": "runtime/adaptation/storyteller/novel-chapter-cards-v1.json",
+  "overall_judgment": "workable_structure_needs_one_time_bridge_and_part4_texture_controls",
+  "strengths": [
+    "Chapters are organized around uncertainty centers rather than equal character rotation.",
+    "The six core arcs remain distinct while secondary-ring characters enter only where they reveal a system or relationship the core actor cannot see alone.",
+    "Housing, employment, research and organizational judgment recur at different life stages, allowing delayed consequence rather than one-off thematic scenes.",
+    "The ending remains ordinary and does not retrospectively rank the cast."
+  ],
+  "problems": [
+    "Part 2 is overly concentrated in 2031 and underrepresents the lived transition through 2029-2030.",
+    "Part 4 contains many mature decisions in succession; without errands, waiting, routine work and failed small interactions the cast could appear implausibly self-aware.",
+    "Work and research scenes remain structurally dominant; domestic and city texture must enter inside chapters even when they do not create separate plot beats.",
+    "The viewpoint summary note in v1 is imprecise: its counts include primary plus mirror viewpoint blocks, not primary viewpoints only."
+  ],
+  "required_revision": {
+    "new_chapter": {
+      "insert_after_v1_chapter": 5,
+      "new_chapter_number": 6,
+      "working_title": "最后几页",
+      "primary_viewpoint": "lin_jing",
+      "historical_window": "2029-10 to 2030-02",
+      "evidence_refs": ["2029q4:e03", "2029q4:e04", "2029q4:e05", "2030q1:e01", "2030q1:e02", "2030q1:e03", "2030q1:e04", "2030q1:e05", "2030q1:e06"],
+      "visible_action": "林静完成答辩后的边界修改，拒绝同时打开求职和新研究问题；学位程序闭环后，才和陈岚一起把城市、收入、响应边界、并行任务和学习价值写成第一轮职业筛选条件。",
+      "hidden_contradiction": "她长期把自主理解成保护研究空间，但博士真正结束时，首先需要的是接受一个阶段可以被有限地关掉。",
+      "material_or_institutional_constraint": "学位程序、明确修改项、时间窗口、求职信息噪声和毕业后的现金/城市约束。",
+      "unresolved_residue": "学位关掉以后没有职位自动出现；职业搜索这时才真正开始。",
+      "campbell_function": "return_then_new_call",
+      "rhythm": "低戏剧、纸面工作、等待程序、几次普通见面；不要把毕业写成重生。",
+      "anti_ai_risk": "避免‘一扇门关闭另一扇门打开’类隐喻。"
+    },
+    "renumber_rule": "All v1 chapters 6-23 shift by +1; final count becomes 24.",
+    "part_distribution_after_revision": {"part1":5,"part2":6,"part3":6,"part4":7}
+  },
+  "part4_texture_rules": [
+    "Every Part 4 chapter must contain at least one activity unrelated to the headline decision: commute, lunch, document cleanup, routine task, shopping, family message or waiting.",
+    "At least two Part 4 chapters should end because time or another obligation interrupts the scene, not because the character reaches a conclusion.",
+    "Do not make every mature decision articulate. Some characters can act correctly for reasons they explain poorly.",
+    "Retain one minor mistake or miscommunication in at least half of Part 4 chapters so maturity does not become omniscience."
+  ],
+  "corrected_viewpoint_block_counts_after_revision": {
+    "zhou_ye":4,
+    "gao_yuan":3,
+    "luo_cheng":3,
+    "tang_yu":3,
+    "he_xin":3,
+    "song_nan":3,
+    "lin_jing":3,
+    "chen_lan":2,
+    "xu_hang":2,
+    "ensemble":1,
+    "counting_rule":"Primary and mirror viewpoint blocks are counted; a mirror block is normally shorter and does not imply equal chapter weight."
+  },
+  "pilot_chapter_candidates": [
+    {
+      "rank":1,
+      "v2_chapter":3,
+      "label":"招聘启事上的一天",
+      "reason":"Contains a core actor, a strong secondary character, institutional power, embarrassment, concrete work translation and an unresolved decision without requiring many invented guests."
+    },
+    {
+      "rank":2,
+      "v2_chapter":19,
+      "label":"第二判断者",
+      "reason":"Best virtue-shadow and guest-micro-arc material; already has useful prose probes, but it occurs late and may overfit a mature version of the voice."
+    },
+    {
+      "rank":3,
+      "v2_chapter":7,
+      "label":"第一周的日历",
+      "reason":"Tests city, domestic setup and institution together; requires more adaptation-only departmental texture."
+    }
+  ],
+  "recommendation": "Treat the 24-chapter map as provisional architecture. Draft one full pilot chapter using v2 chapter 3 before drafting chapter 1; the pilot is a voice and density test, not a commitment to opening order."
+}
