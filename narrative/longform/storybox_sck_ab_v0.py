@@ -11,9 +11,10 @@ and information leakage *before* win rate, and an all-seats-self-play win rate i
 a zero-sum bookkeeping number rather than a quality measure.  This harness
 therefore leads with:
 
-* ``mean_action_regret_by_kind`` -- per-decision quality against a truth oracle
-  (``+1`` faction-optimal, ``-1`` faction-worst target), which is the only
-  per-decision quality signal available here;
+* ``mean_immediate_target_loss_diagnostic`` -- per-decision quality against a
+  truth oracle (``+1`` faction-optimal, ``-1`` faction-worst target).  Diagnostic
+  only, per peer decision 0016 Q5: it can improve while terminal play gets
+  worse, so it is never the acceptance metric;
 * ``mean_brier`` -- belief calibration, village-side only.  A Mafia actor's
   belief is a point mass on its own team by construction, so including it would
   report a meaningless perfect score;
@@ -46,6 +47,8 @@ from typing import Any, Iterable, Sequence
 
 from .storybox_sck_eval_v0 import DEFAULT_AB_VARIANTS, EpisodeEvaluation, VariantConfig
 from .storybox_textarena_secret_mafia_live_v0 import (
+    DEFAULT_TARGET_ACTION_FORMAT,
+    TARGET_ACTION_FORMATS,
     BeliefPolicy,
     SecretMafiaLiveRunner,
     load_textarena_secret_mafia_env,
@@ -72,8 +75,11 @@ UNAVAILABLE_METRICS = {
         "divergence. Initial role schedules are shared and verified instead."
     ),
     "vote_target_evidence": (
-        "textarena 0.7.4 strips role tags from PLAYER_ACTION messages, so vote "
-        "targets are unobservable and no vote evidence metric exists."
+        "RESOLVED: no longer unavailable. Target actions are submitted as '[N]', "
+        "which survives State.add_observation's role-tag stripping, so day-vote "
+        "targets reach later actors through the ordinary observation stream. This "
+        "entry is retained only to record that the earlier limitation was lifted "
+        "by peer decision 0016 Q1; see target_action_format in the design block."
     ),
 }
 
@@ -160,8 +166,13 @@ def aggregate_variant(runtime: VariantRuntime) -> dict[str, Any]:
         "self_play_mean_utility_all_seats": _mean(all_seat_utilities),
         "mean_brier_village_side": _mean(brier_values),
         "brier_episodes_measured": len(brier_values),
-        "mean_action_regret": _mean(all_regrets),
-        "mean_action_regret_by_kind": regret_means,
+        # Diagnostic only, per peer decision 0016 Q5: this scores immediate
+        # target correctness against a truth oracle and ignores downstream
+        # coordination, information value, tie mechanics and future responses.
+        # It can improve while terminal play gets worse, so it must never be
+        # read as a quality verdict on its own.
+        "mean_immediate_target_loss_diagnostic": _mean(all_regrets),
+        "immediate_target_loss_by_kind_diagnostic": regret_means,
         "action_decisions_measured": len(all_regrets),
         "information_leakage_count": sum(
             int(row["information_leakage_count"]) for row in reports
@@ -232,7 +243,7 @@ def episode_record(evaluation: EpisodeEvaluation) -> dict[str, Any]:
         "invalid_moves": evaluation.metadata.get("invalid_moves"),
         "termination_reason": evaluation.metadata.get("termination_reason"),
         "decision_count": evaluation.metadata.get("decision_count"),
-        "mean_action_regret": mean_regret,
+        "mean_immediate_target_loss_diagnostic": mean_regret,
         "mean_brier_village_side": summary["mean_brier"],
         "information_leakage_count": summary["information_leakage_count"],
     }
@@ -246,6 +257,7 @@ def run_ab(
     seed_start: int = 0,
     discussion_rounds: int = 3,
     tie_break: str = "lowest_id",
+    action_format: str = DEFAULT_TARGET_ACTION_FORMAT,
     public_vote_record: bool = False,
     runner: SecretMafiaLiveRunner | None = None,
     progress: bool = False,
@@ -254,6 +266,7 @@ def run_ab(
     runner = runner or SecretMafiaLiveRunner(
         discussion_rounds=discussion_rounds,
         tie_break=tie_break,
+        action_format=action_format,
         public_vote_record=public_vote_record,
     )
     seeds = list(range(seed_start, seed_start + episodes_per_variant))
@@ -312,6 +325,7 @@ def run_ab(
             "num_players": num_players,
             "all_seats_driven_by_one_policy": True,
             "informed_policy_tie_break": tie_break,
+            "target_action_format": action_format,
             "reconstructed_public_vote_record": public_vote_record,
             "role_schedule_check": role_check,
         },
@@ -319,12 +333,37 @@ def run_ab(
         "episode_records": episode_records,
         "failure_replay_retention": (
             "episode_records holds one compact record per episode (seed, role "
-            "schedule, outcome, steps, regret, calibration, leakage), which is the "
-            "replay depth available in a run with no model calls."
+            "schedule, outcome, steps, regret, calibration, leakage)."
         ),
+        "primary_metrics": {
+            "source": "peer decision 2026-10-11-0016-peer-decision-sck-methodology-next-gate Q5",
+            "primary": [
+                "paired cross-play terminal utility / faction win rate against fixed opponents",
+                "belief calibration and Brier/log loss on held-out episodes",
+                "belief-discrimination flat fraction / entropy change after informative evidence",
+                "information leakage",
+                "cross-play exploitability / asymmetry diagnostics",
+            ],
+            "secondary_diagnostics": [
+                "immediate target loss (formerly called action regret)",
+                "vote concentration / coordination",
+                "target-distribution collapse or predictability",
+            ],
+            "note": "This all-seats self-play report can only supply the mechanism metrics. Paired cross-play is a separate harness and is the primary strength evidence.",
+        },
+        "metric_notes": {
+            "action_regret_renamed": (
+                "mean_action_regret and mean_action_regret_by_kind were renamed to "
+                "mean_immediate_target_loss_diagnostic and "
+                "immediate_target_loss_by_kind_diagnostic per peer decision 0016 Q5, "
+                "because the name implied true sequential regret. Historic artifacts "
+                "under runtime/adaptation/storybox/ still use the old key names and "
+                "are retained unchanged as historical diagnostics."
+            ),
+        },
         "unavailable_metrics": UNAVAILABLE_METRICS,
         "non_discriminating_metrics": {
-            "mean_action_regret_by_kind.mafia_eliminate": (
+            "immediate_target_loss_by_kind_diagnostic.mafia_eliminate": (
                 "Structurally zero for every variant: the Mafia's legal night "
                 "targets already exclude its own team, so the truth oracle scores "
                 "every legal choice faction-optimal. This metric cannot separate "
@@ -346,6 +385,7 @@ def discrimination_report(
     num_players: int = 6,
     seed_start: int = 0,
     discussion_rounds: int = 3,
+    action_format: str = DEFAULT_TARGET_ACTION_FORMAT,
     public_vote_record: bool = False,
 ) -> dict[str, Any]:
     """Measure whether the belief actually separates the legal targets.
@@ -383,6 +423,7 @@ def discrimination_report(
     runner = SecretMafiaLiveRunner(
         discussion_rounds=discussion_rounds,
         policy_classes={"belief": _Probe},
+        action_format=action_format,
         public_vote_record=public_vote_record,
     )
     belief_variant = next(
@@ -416,6 +457,7 @@ def discrimination_report(
     return {
         "episodes": episodes,
         "num_players": num_players,
+        "target_action_format": action_format,
         "reconstructed_public_vote_record": public_vote_record,
         "overall": summarise(samples),
         "by_role": by_role,
@@ -474,22 +516,24 @@ def format_report(report: dict[str, Any]) -> str:
     for variant_id, row in report["variants"].items():
         lines.append(
             f"  {variant_id:<17}"
-            f"{fmt(row['mean_action_regret']):>8}"
+            f"{fmt(row['mean_immediate_target_loss_diagnostic']):>8}"
             f"{fmt(row['mean_brier_village_side'], '.4f'):>9}"
             f"{row['information_leakage_count']:>6}"
             f"{fmt(row['village_faction_win_rate']):>9}"
             f"{fmt(row['mafia_faction_win_rate']):>8}"
         )
     lines.append("")
-    lines.append("  regret = mean action regret vs truth oracle (lower is better)")
+    lines.append("  loss   = mean immediate-target loss, DIAGNOSTIC ONLY (peer 0016 Q5): it")
+    lines.append("           ignores coordination and future response and can improve while")
+    lines.append("           terminal play gets worse, so it is not a quality verdict")
     lines.append("  brier  = village-side belief calibration (lower better, n/a = no belief)")
     lines.append("  village/mafia = faction win rate in self-play (descriptive, not the claim)")
     lines.append("")
-    lines.append("  action regret by kind")
+    lines.append("  immediate-target loss by kind (diagnostic)")
     for variant_id, row in report["variants"].items():
         kinds = ", ".join(
             f"{kind}={value:.3f}"
-            for kind, value in row["mean_action_regret_by_kind"].items()
+            for kind, value in row["immediate_target_loss_by_kind_diagnostic"].items()
         )
         lines.append(f"  {variant_id:<17}{kinds}")
     lines.append("")
@@ -515,15 +559,27 @@ def main(argv: Sequence[str] | None = None) -> int:
         default="lowest_id",
         help="Tie-break for informed policies; lowest_id keeps the planner ablation clean.",
     )
-    parser.add_argument("--out", type=Path, default=None)
+    parser.add_argument(
+        "--action-format",
+        choices=TARGET_ACTION_FORMATS,
+        default=DEFAULT_TARGET_ACTION_FORMAT,
+        help=(
+            "Target action encoding. 'native' submits [N], whose target survives "
+            "the public observation stream. 'player_tag' submits [Player N], which "
+            "the environment strips to an empty string; kept for comparison only."
+        ),
+    )
     parser.add_argument(
         "--public-vote-record",
         action="store_true",
         help=(
-            "Labelled sensitivity arm: reconstruct the day-vote record the "
-            "environment destroys before broadcasting it. Off by default so "
-            "primary numbers stay strictly within what the environment delivers."
+            "Labelled sensitivity arm: reconstruct the vote record that the "
+            "legacy player_tag encoding destroys. Forces --action-format "
+            "player_tag, because the native format already makes votes visible."
         ),
+    )
+    parser.add_argument(
+        "--out", type=Path, default=None
     )
     parser.add_argument(
         "--diagnose-discrimination",
@@ -535,6 +591,15 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--quiet", action="store_true")
     args = parser.parse_args(argv)
 
+    action_format = args.action_format
+    if args.public_vote_record and action_format == "native":
+        print(
+            "note: --public-vote-record reconstructs what the legacy player_tag "
+            "encoding destroys, so this run uses action_format=player_tag.",
+            flush=True,
+        )
+        action_format = "player_tag"
+
     # Fail early and clearly if the live dependency is missing.
     load_textarena_secret_mafia_env()
 
@@ -544,6 +609,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         seed_start=args.seed_start,
         discussion_rounds=args.discussion_rounds,
         tie_break=args.tie_break,
+        action_format=action_format,
         public_vote_record=args.public_vote_record,
         progress=not args.quiet,
     )
@@ -553,6 +619,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             num_players=args.players,
             seed_start=args.seed_start,
             discussion_rounds=args.discussion_rounds,
+            action_format=action_format,
             public_vote_record=args.public_vote_record,
         )
     print(format_report(report))

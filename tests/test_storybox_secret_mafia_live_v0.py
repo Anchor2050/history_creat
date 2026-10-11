@@ -402,6 +402,23 @@ def test_oracle_mirrors_for_mafia_and_rewards_killing_the_mafia_target():
     assert protect_values["protect:1"] == 0.0
 
 
+def test_native_action_format_is_default_and_validated():
+    assert live.DEFAULT_TARGET_ACTION_FORMAT == "native"
+    assert live.textarena_target_action(3) == "[3]"
+    assert live.textarena_target_action(12) == "[12]"
+    assert live.textarena_target_action(3, "player_tag") == "[Player 3]"
+    with pytest.raises(SCKError):
+        live.textarena_target_action(3, "bracketed")
+    with pytest.raises(SCKError):
+        live.PlainPolicy(num_players=6, seed=0, action_format="bracketed")
+
+
+def test_native_format_and_reconstructed_arm_cannot_be_combined():
+    """Enabling both would feed the same evidence to the belief twice."""
+    with pytest.raises(SCKError):
+        live.SecretMafiaLiveRunner(action_format="native", public_vote_record=True)
+
+
 def test_live_dependency_is_lazy_and_reports_unavailability_clearly():
     source = inspect.getsource(live)
     assert "import textarena" not in source.split("def load_textarena")[0]
@@ -470,9 +487,10 @@ def test_live_secret_mafia_episode_completes_and_scores(variant):
     assert summary["metadata"]["decision_count"] > 0
     assert summary["won"] in (True, False)
     assert summary["utility"] in (1.0, -1.0)
-    assert summary["mean_action_regret"] is not None
+    assert summary["mean_immediate_target_loss_diagnostic"] is not None
     assert summary["information_leakage_count"] == 0
-    assert summary["metadata"]["vote_targets_observable"] is False
+    assert summary["metadata"]["target_action_format"] == "native"
+    assert summary["metadata"]["vote_targets_observable"] is True
     if variant.belief_enabled:
         assert summary["mean_brier"] is not None
     else:
@@ -559,16 +577,119 @@ def test_live_reconstructed_vote_arm_restores_belief_discrimination():
     _require_textarena()
     from narrative.longform.storybox_sck_ab_v0 import discrimination_report
 
-    off = discrimination_report(episodes=20, discussion_rounds=2)
-    on = discrimination_report(
-        episodes=20, discussion_rounds=2, public_vote_record=True
+    # Inert baseline: the legacy encoding destroys vote targets, so a Villager's
+    # belief is provably unable to rank anyone.
+    inert = discrimination_report(
+        episodes=20, discussion_rounds=2, action_format="player_tag"
+    )
+    arm = discrimination_report(
+        episodes=20,
+        discussion_rounds=2,
+        action_format="player_tag",
+        public_vote_record=True,
     )
 
-    # With only the environment's observations a Villager's belief is provably
-    # unable to rank anyone: every legal target has the same marginal.
-    assert off["by_role"]["Villager"]["flat_fraction"] == 1.0
-    assert on["by_role"]["Villager"]["flat_fraction"] < 0.5
-    assert on["overall"]["flat_fraction"] < off["overall"]["flat_fraction"]
-    assert off["reconstructed_public_vote_record"] is False
-    assert on["reconstructed_public_vote_record"] is True
+    assert inert["by_role"]["Villager"]["flat_fraction"] == 1.0
+    assert arm["by_role"]["Villager"]["flat_fraction"] < 0.5
+    assert arm["overall"]["flat_fraction"] < inert["overall"]["flat_fraction"]
+    assert inert["reconstructed_public_vote_record"] is False
+    assert arm["reconstructed_public_vote_record"] is True
+    assert arm["target_action_format"] == "player_tag"
+
+
+def test_live_native_vote_target_reaches_later_actors_intact():
+    """Peer gate 0016 Q1: '[N]' must survive the ordinary observation stream.
+
+    No backstage state is read: the probe only inspects ActorViews that the
+    information-safety audit already approves.
+    """
+    _require_textarena()
+    views_by_actor: dict[int, list] = {}
+
+    class SpyPlain(live.PlainPolicy):
+        def act(self, view):
+            live.assert_information_safe(view)
+            views_by_actor.setdefault(view.actor_id, []).append(view)
+            return super().act(view)
+
+    runner = live.SecretMafiaLiveRunner(
+        discussion_rounds=2, policy_classes={"plain": SpyPlain}
+    )
+    evaluation = runner.run_episode(variant=LIVE_VARIANTS[0], num_players=6, seed=21)
+
+    assert evaluation.metadata["target_action_format"] == "native"
+    assert evaluation.metadata["vote_targets_observable"] is True
+    assert evaluation.metadata["reconstructed_channels"] == []
+
+    observed = []
+    for actor_id, views in views_by_actor.items():
+        for view in views:
+            for row in view.history:
+                if (
+                    row.observation_type != "PLAYER_ACTION"
+                    or row.phase != PHASE_DAY_VOTING
+                ):
+                    continue
+                if row.speaker is None or row.speaker == actor_id:
+                    continue
+                target = live.parse_vote_target(row.message)
+                if target is not None:
+                    observed.append((actor_id, row.speaker, target))
+
+    assert observed, "no actor received another actor's day-vote target intact"
+    for observer, speaker, target in observed:
+        assert observer != speaker
+        assert 0 <= target < 6
+
+
+def test_live_legacy_player_tag_encoding_destroys_the_vote_target():
+    """Negative control for the same gate: the old encoding loses the target."""
+    _require_textarena()
+    runner = live.SecretMafiaLiveRunner(
+        discussion_rounds=2, action_format="player_tag"
+    )
+    evaluation = runner.run_episode(variant=LIVE_VARIANTS[0], num_players=6, seed=21)
+    assert evaluation.metadata["target_action_format"] == "player_tag"
+    assert evaluation.metadata["vote_targets_observable"] is False
+    assert evaluation.metadata["empty_player_action_messages"] > 0
+
+
+def test_live_encodings_differ_only_in_observability_not_in_the_game():
+    """Controlled comparison: same policy, same seed, same outcome."""
+    _require_textarena()
+    native = live.SecretMafiaLiveRunner(discussion_rounds=2).run_episode(
+        variant=LIVE_VARIANTS[0], num_players=6, seed=21
+    )
+    legacy = live.SecretMafiaLiveRunner(
+        discussion_rounds=2, action_format="player_tag"
+    ).run_episode(variant=LIVE_VARIANTS[0], num_players=6, seed=21)
+
+    assert native.metadata["true_mafia"] == legacy.metadata["true_mafia"]
+    assert native.metadata["steps"] == legacy.metadata["steps"]
+    assert native.metadata["termination_reason"] == legacy.metadata["termination_reason"]
+    assert [row["reward"] for row in native.metadata["actor_results"]] == [
+        row["reward"] for row in legacy.metadata["actor_results"]
+    ]
+    # The only difference is whether targets survived the observation stream.
+    assert native.metadata["empty_player_action_messages"] == 0
+    assert legacy.metadata["empty_player_action_messages"] > 0
+
+
+def test_live_native_encoding_restores_discrimination_without_reconstruction():
+    """The native channel alone must fix the belief, with no reconstruction."""
+    _require_textarena()
+    from narrative.longform.storybox_sck_ab_v0 import discrimination_report
+
+    legacy = discrimination_report(
+        episodes=20, discussion_rounds=2, action_format="player_tag"
+    )
+    native = discrimination_report(
+        episodes=20, discussion_rounds=2, action_format="native"
+    )
+
+    assert legacy["by_role"]["Villager"]["flat_fraction"] == 1.0
+    assert native["by_role"]["Villager"]["flat_fraction"] < 0.5
+    assert native["overall"]["flat_fraction"] < legacy["overall"]["flat_fraction"]
+    assert native["target_action_format"] == "native"
+    assert native["reconstructed_public_vote_record"] is False
 

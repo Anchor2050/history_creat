@@ -39,7 +39,7 @@ def test_episode_summary_reports_brier_regret_and_leakage():
     summary = episode.summary()
     assert summary["won"] is True
     assert summary["mean_brier"] is not None
-    assert abs(summary["mean_action_regret"] - 0.3) < 1e-12
+    assert abs(summary["mean_immediate_target_loss_diagnostic"] - 0.3) < 1e-12
     assert summary["information_leakage_count"] == 1
 
 

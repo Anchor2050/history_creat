@@ -52,6 +52,13 @@ class ActionCheckpoint:
 
     @property
     def regret(self) -> float:
+        """Gap between the best and chosen value in the checkpoint's value table.
+
+        This is a local gap against a supplied value table, not true sequential
+        regret.  Reported aggregates are named
+        ``mean_immediate_target_loss_diagnostic`` for that reason (peer decision
+        2026-10-11-0016 Q5); it can improve while terminal play gets worse.
+        """
         if self.chosen_action_id not in self.action_values:
             raise SCKError("chosen action is absent from action value table")
         chosen = (
@@ -115,7 +122,7 @@ class EpisodeEvaluation:
             "won": self.won,
             "utility": self.utility,
             "mean_brier": brier,
-            "mean_action_regret": mean_regret,
+            "mean_immediate_target_loss_diagnostic": mean_regret,
             "information_leakage_count": leakage,
             "claim_contradiction_count": contradictions,
             "mean_persuasion_delta": (
@@ -139,16 +146,18 @@ def aggregate_episodes(episodes: Sequence[EpisodeEvaluation]) -> dict[str, dict[
         utilities = [float(x["utility"]) for x in rows if x["utility"] is not None]
         briers = [float(x["mean_brier"]) for x in rows if x["mean_brier"] is not None]
         regrets = [
-            float(x["mean_action_regret"])
+            float(x["mean_immediate_target_loss_diagnostic"])
             for x in rows
-            if x["mean_action_regret"] is not None
+            if x["mean_immediate_target_loss_diagnostic"] is not None
         ]
         output[variant_id] = {
             "episodes": len(rows),
             "win_rate": sum(wins) / len(wins) if wins else None,
             "mean_utility": sum(utilities) / len(utilities) if utilities else None,
             "mean_brier": sum(briers) / len(briers) if briers else None,
-            "mean_action_regret": sum(regrets) / len(regrets) if regrets else None,
+            "mean_immediate_target_loss_diagnostic": (
+                sum(regrets) / len(regrets) if regrets else None
+            ),
             "information_leakage_count": sum(
                 int(x["information_leakage_count"]) for x in rows
             ),

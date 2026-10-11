@@ -22,16 +22,22 @@ Information boundary (hard)
   receive the environment or its ``state``.
 
 Observed environment behaviour this design depends on (verified against
-textarena 0.7.4; the probe that established it is kept at
-``output/sck-evidence/probe_live_env.py``)
+textarena 0.7.4; the probes that established it are kept at
+``output/sck-evidence/probe_live_env.py`` and ``output/sck-evidence/probe_native_vote.py``)
 ----------------------------------------------------------------------
-* ``textarena.core.State.add_observation`` strips role tags from every
-  ``PLAYER_ACTION`` message, so structured votes arrive as the **empty string**.
-  Vote targets are therefore not observable, and no vote-based evidence model is
-  possible.  Evidence must come from ``GAME_MESSAGE`` events.
+* ``textarena.core.State.add_observation`` strips every ``[Player N]`` role tag
+  from ``PLAYER_ACTION`` messages.  The environment's own phase prompts ask for
+  the ``[X]`` form and ``VoteHandler`` accepts both, so **this runner submits
+  ``[N]``**, whose target survives the ordinary public observation stream
+  unchanged.  ``action_format="player_tag"`` reproduces the broken behaviour and
+  exists only so the difference can be tested.  With ``[N]`` a day vote cast
+  before an actor's turn is visible to that actor, which is what
+  ``broadcast_to_all=True`` in ``SecretMafiaEnv._record_vote`` intends; with
+  ``[Player N]`` it arrives as the empty string and is lost.
 * Observable evidence events: ``"Player X was killed during the night."``,
-  ``"No one was killed tonight."``, ``"Player X was eliminated by vote."`` and the
-  Detective's private ``"Player X IS [NOT] a Mafia member."``.
+  ``"No one was killed tonight."``, ``"Player X was eliminated by vote."``, the
+  Detective's private ``"Player X IS [NOT] a Mafia member."``, and public day
+  votes with their targets intact.
 * ``day_number`` is never incremented by the environment, so the runner keeps its
   own night counter.
 * The environment resolves ties with the global ``random`` module and
@@ -43,8 +49,8 @@ Deliberately unavailable in v0 (reported as unavailable, never faked)
 * ``persuasion_delta`` -- the template discussion renderer has no measurable
   persuasive effect on the other policies.
 * learned evidence likelihoods -- :class:`BehaviorEvidenceModel` is an explicit
-  hand-specified model awaiting replay calibration.
-* vote-target evidence -- unobservable in this environment version.
+  hand-specified model awaiting replay calibration, and round 5 showed its
+  hand-specified direction is wrong for play.
 * LLM strategy-candidate generation and natural-language rendering.
 """
 from __future__ import annotations
@@ -88,6 +94,16 @@ from .storybox_textarena_secret_mafia_adapter_v0 import (
 )
 
 GAME_ID = -1
+
+#: Day votes and night targets are submitted as ``[N]``, which is the format the
+#: environment itself advertises in its phase prompts ("submit one vote in format
+#: [X]", "Valid targets: [0], [3]").  ``State.add_observation`` strips every
+#: ``[Player N]`` role tag from ``PLAYER_ACTION`` messages but leaves ``[N]``
+#: alone, so the native form is the only encoding whose target survives the
+#: ordinary public observation stream.  ``"player_tag"`` is kept so the
+#: difference can be tested and demonstrated, never as the default.
+TARGET_ACTION_FORMATS = ("native", "player_tag")
+DEFAULT_TARGET_ACTION_FORMAT = "native"
 
 #: Environment fields the runner may read while building a decision view.
 #: Everything else in ``state`` is backstage truth.
@@ -151,8 +167,14 @@ def secret_mafia_role_count(num_players: int, mafia_ratio: float = 0.25) -> int:
     return max(1, round(num_players * mafia_ratio))
 
 
-def textarena_target_action(target: int) -> str:
-    return f"[Player {int(target)}]"
+def textarena_target_action(
+    target: int, action_format: str = DEFAULT_TARGET_ACTION_FORMAT
+) -> str:
+    if action_format not in TARGET_ACTION_FORMATS:
+        raise SCKError(f"unknown target action format: {action_format}")
+    if action_format == "player_tag":
+        return f"[Player {int(target)}]"
+    return f"[{int(target)}]"
 
 
 # ---------------------------------------------------------------------------
@@ -344,9 +366,11 @@ class BehaviorEvidenceModel:
         combines the Doctor's own action with a public outcome and is a
         legitimate private inference, not truth access.
 
-    ``mafia_votes_*`` are retained for recorded-vote replays; TextArena 0.7.4
-    strips role tags from ``PLAYER_ACTION`` messages, so the live runner cannot
-    currently use them.
+    ``mafia_votes_*``
+        Structural property of the game: Mafia avoid eliminating their own
+        team, so a vote by a suspected Mafia for ``t`` lowers ``t``'s Mafia
+        probability.  With ``action_format="native"`` this term is live, because
+        day-vote targets survive the observation stream.
     """
 
     night_kill_mafia_likelihood: float = 0.02
@@ -421,7 +445,12 @@ def recorded_vote_evidence(
     belief: BeliefState,
     model: BehaviorEvidenceModel,
 ) -> EvidenceRecord:
-    """Evidence from an explicitly recorded vote (replay/log inputs only)."""
+    """Evidence from an observed vote.
+
+    Used by the native channel (a day vote whose target survived the public
+    observation stream) and by the reconstructed sensitivity arm.  Never used
+    for a vote the actor could not have observed.
+    """
     ratios: dict[str, float] = {}
     for world_id in belief.hypotheses:
         world = parse_mafia_world(world_id)
@@ -496,6 +525,7 @@ class SecretMafiaPolicy:
         seed: int,
         model: BehaviorEvidenceModel | None = None,
         tie_break: str | None = None,
+        action_format: str = DEFAULT_TARGET_ACTION_FORMAT,
     ):
         self.num_players = num_players
         self.model = model or BehaviorEvidenceModel()
@@ -503,6 +533,9 @@ class SecretMafiaPolicy:
             if tie_break not in {"lowest_id", "random"}:
                 raise SCKError(f"unknown tie_break mode: {tie_break}")
             self.tie_break = tie_break
+        if action_format not in TARGET_ACTION_FORMATS:
+            raise SCKError(f"unknown target action format: {action_format}")
+        self.action_format = action_format
         # Own RNG: the environment seeds the global ``random`` module, so using
         # the global generator here would perturb environment randomness.
         self.rng = random.Random(seed)
@@ -583,7 +616,7 @@ class SecretMafiaPolicy:
             phase=view.phase,
             chosen_action_id=f"{kind}:{target}",
             target=target,
-            action_string=textarena_target_action(target),
+            action_string=textarena_target_action(target, self.action_format),
             legal_targets=view.legal_targets,
             protected_facts=self.protected_facts(view),
         )
@@ -659,6 +692,9 @@ class BeliefPolicy(SecretMafiaPolicy):
         start = self.processed.get(view.actor_id, 0)
         for index in range(start, len(history)):
             row = history[index]
+            if row.observation_type == "PLAYER_ACTION":
+                self._apply_native_vote_evidence(view, row, index, belief)
+                continue
             if row.observation_type != "GAME_MESSAGE":
                 continue
             kill = NIGHT_KILL_RE.search(row.message)
@@ -700,6 +736,34 @@ class BeliefPolicy(SecretMafiaPolicy):
                 )
         self.processed[view.actor_id] = len(history)
         self._update_from_vote_record(view, belief)
+
+    def _apply_native_vote_evidence(
+        self,
+        view: ActorView,
+        row: TranscriptEntry,
+        index: int,
+        belief: BeliefState,
+    ) -> None:
+        """Native channel: a day vote whose target survived the observation stream.
+
+        Only day-voting player actions are used.  The Mafia's night votes share
+        the same message shape but are tagged with a night phase, so they are
+        excluded here to avoid double counting with the night-kill evidence.
+        """
+        if row.phase != PHASE_DAY_VOTING or row.speaker is None:
+            return
+        target = parse_vote_target(row.message)
+        if target is None or row.speaker == view.actor_id:
+            return
+        belief.update(
+            recorded_vote_evidence(
+                evidence_id=f"p{view.actor_id}-n{row.night_number}-nativevote-{row.speaker}-{target}-{index}",
+                voter=row.speaker,
+                target=target,
+                belief=belief,
+                model=self.model,
+            )
+        )
 
     def _update_from_vote_record(self, view: ActorView, belief: BeliefState) -> None:
         """Apply evidence from the reconstructed public day-vote record.
@@ -893,6 +957,7 @@ def build_policy(
     num_players: int,
     seed: int,
     tie_break: str | None = None,
+    action_format: str = DEFAULT_TARGET_ACTION_FORMAT,
     policy_classes: Mapping[str, type[SecretMafiaPolicy]] | None = None,
 ) -> SecretMafiaPolicy:
     registry = policy_classes or POLICY_BY_VARIANT
@@ -900,7 +965,12 @@ def build_policy(
         policy_type = registry[variant.variant_id]
     except KeyError as exc:
         raise SCKError(f"unknown SCK variant: {variant.variant_id}") from exc
-    return policy_type(num_players=num_players, seed=seed, tie_break=tie_break)
+    return policy_type(
+        num_players=num_players,
+        seed=seed,
+        tie_break=tie_break,
+        action_format=action_format,
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -945,6 +1015,7 @@ class SecretMafiaLiveRunner:
         max_steps: int = 2000,
         evidence_model: BehaviorEvidenceModel | None = None,
         tie_break: str = "lowest_id",
+        action_format: str = DEFAULT_TARGET_ACTION_FORMAT,
         policy_classes: Mapping[str, type[SecretMafiaPolicy]] | None = None,
         public_vote_record: bool = False,
         env_factory: Callable[..., Any] | None = None,
@@ -954,13 +1025,23 @@ class SecretMafiaLiveRunner:
         self.max_steps = max_steps
         self.evidence_model = evidence_model or BehaviorEvidenceModel()
         self.tie_break = tie_break
+        if action_format not in TARGET_ACTION_FORMATS:
+            raise SCKError(f"unknown target action format: {action_format}")
+        self.action_format = action_format
+        if public_vote_record and action_format == "native":
+            raise SCKError(
+                "public_vote_record reconstructs the vote record that the native "
+                "action format already makes observable; enabling both would "
+                "double-count the same evidence"
+            )
         #: Optional policy registry override, used by instrumentation such as
         #: the A/B harness's belief-discrimination diagnostic.
         self.policy_classes = policy_classes
         #: Off by default.  When on, the runner reconstructs the day-vote record
         #: the environment intends to broadcast but destroys, and marks every
-        #: view that carries it.  Turns on with this flag are a labelled
-        #: sensitivity arm, never the primary measurement.
+        #: view that carries it.  Only meaningful with the legacy
+        #: ``action_format="player_tag"``; it is a labelled sensitivity arm,
+        #: never the primary measurement.
         self.public_vote_record = public_vote_record
         self._env_factory = env_factory
 
@@ -1084,6 +1165,7 @@ class SecretMafiaLiveRunner:
                 num_players=num_players,
                 seed=seed * 1000 + pid,
                 tie_break=self.tie_break,
+                action_format=self.action_format,
                 policy_classes=self.policy_classes,
             )
             for pid in range(num_players)
@@ -1177,6 +1259,7 @@ class SecretMafiaLiveRunner:
             num_players=num_players,
             mafia_count=mafia_count,
             trace=trace,
+            target_action_format=self.action_format,
         )
 
 
@@ -1255,6 +1338,7 @@ def evaluate_episode(
     num_players: int,
     mafia_count: int,
     trace: EpisodeTrace,
+    target_action_format: str = DEFAULT_TARGET_ACTION_FORMAT,
 ) -> EpisodeEvaluation:
     """Score a finished episode.  Backstage truth is read here only."""
     true_roles = {pid: env.player_roles[pid] for pid in range(num_players)}
@@ -1283,7 +1367,8 @@ def evaluate_episode(
             "invalid_moves": trace.invalid_moves,
             "termination_reason": reason,
             "empty_player_action_messages": trace.empty_player_action_messages,
-            "vote_targets_observable": False,
+            "vote_targets_observable": target_action_format == "native",
+            "target_action_format": target_action_format,
             "reconstructed_channels": list(trace.reconstructed_channels),
             "focal_actor": 0,
             "focal_role": true_roles[0],

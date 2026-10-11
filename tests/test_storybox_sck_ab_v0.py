@@ -147,7 +147,7 @@ def test_missing_belief_reports_brier_as_unavailable_not_zero():
     assert belief_row["brier_episodes_measured"] == 2
 
 
-def test_action_regret_is_aggregated_per_action_kind():
+def test_immediate_target_loss_is_aggregated_per_action_kind_as_a_diagnostic():
     runtime = VariantRuntime(variant=PLAIN)
     runtime.episodes = [
         _episode("plain", seed=0, regret_kind="vote", regret=0.5),
@@ -155,9 +155,14 @@ def test_action_regret_is_aggregated_per_action_kind():
         _episode("plain", seed=2, regret_kind="protect", regret=0.25),
     ]
     row = aggregate_variant(runtime)
-    assert row["mean_action_regret_by_kind"]["vote"] == 0.75
-    assert row["mean_action_regret_by_kind"]["protect"] == 0.25
+    by_kind = row["immediate_target_loss_by_kind_diagnostic"]
+    assert by_kind["vote"] == 0.75
+    assert by_kind["protect"] == 0.25
+    assert row["mean_immediate_target_loss_diagnostic"] == pytest.approx(0.5833333333333334)
     assert row["action_decisions_measured"] == 3
+    # The old name must be gone so no artifact implies true sequential regret.
+    assert "mean_action_regret" not in row
+    assert "mean_action_regret_by_kind" not in row
 
 
 def test_shared_role_schedule_check_passes_and_detects_mismatch():
@@ -210,6 +215,7 @@ def test_run_ab_reports_design_validity_and_unavailable_metrics():
     assert report["design"]["role_schedule_check"]["verified"] is True
     assert report["design"]["seeds"] == [0, 1, 2]
     assert report["design"]["informed_policy_tie_break"] == "lowest_id"
+    assert report["design"]["target_action_format"] == "native"
     assert set(report["variants"]) == {"plain", "belief"}
 
     # Every variant must be driven over the identical seed schedule.
@@ -221,11 +227,20 @@ def test_run_ab_reports_design_validity_and_unavailable_metrics():
     assert report["variants"]["plain"]["information_leakage_count"] == 0
 
     assert set(UNAVAILABLE_METRICS).issubset(report["unavailable_metrics"])
-    assert "vote_target_evidence" in report["unavailable_metrics"]
     assert (
-        "mean_action_regret_by_kind.mafia_eliminate"
+        "immediate_target_loss_by_kind_diagnostic.mafia_eliminate"
         in report["non_discriminating_metrics"]
     )
+    # Peer 0016 Q5: the metric is a diagnostic, and the artifact says so.
+    assert "action_regret_renamed" in report["metric_notes"]
+    assert "immediate target loss" in " ".join(
+        report["primary_metrics"]["secondary_diagnostics"]
+    )
+    assert (
+        report["variants"]["plain"]["mean_immediate_target_loss_diagnostic"]
+        is not None
+    )
+    assert "mean_action_regret" not in report["variants"]["plain"]
 
 
 def test_run_ab_retains_one_replay_record_per_episode():
@@ -240,7 +255,7 @@ def test_run_ab_retains_one_replay_record_per_episode():
     assert sorted(row["seed"] for row in records if row["variant"] == "plain") == [0, 1, 2]
     for row in records:
         assert row["true_mafia"] == [1, 4]
-        assert row["mean_action_regret"] is not None
+        assert row["mean_immediate_target_loss_diagnostic"] is not None
         assert row["steps"] == 40
         assert row["information_leakage_count"] == 0
     assert "failure_replay_retention" in report

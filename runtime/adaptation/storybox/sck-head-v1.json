@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "status": "sck_v0_evidence_model_invalidated_by_vote_arm_gate_held",
+  "status": "sck_v0_native_vote_channel_verified_metric_demoted_crossplay_gate_open",
   "historical_world_writeback": false,
   "purpose": "Provide a reusable high-skill strategic cognition layer between StoryBox visibility/legal-action state and StoryBox world resolution.",
   "design_spec": "docs/adaptation/storybox-strategic-cognition-kernel-v1.md",
@@ -106,11 +106,32 @@
     "conclusion": "Action regret is not a valid proxy for playing well here, and the evidence model is mis-specified for play: recorded_vote_evidence only ever exonerates the player voted for, so the informed village avoids whoever is under suspicion, scatters its votes and never concentrates on a Mafia. The mechanism that should improve play makes it worse once it has data.",
     "gate": "MCTS, bi-level search and reconnecting SCK to the risk-list hospital Scene all remain held. SCK has no validated strategic improvement to offer StoryBox yet."
   },
+  "native_vote_channel": {
+    "verified_against": "textarena 0.7.4",
+    "change": "Target actions are now submitted as '[N]' instead of '[Player N]'. State.add_observation strips every '[Player N]' role tag from PLAYER_ACTION messages but leaves '[N]' alone, and the environment's own prompts ask for the '[X]' form.",
+    "controlled_evidence": "Same policy and same seed: the two encodings produce identical roles, steps, termination reason and rewards, so the change affects observability only. With '[N]' zero PLAYER_ACTION observations arrive empty and 55 carry a real target; with '[Player N]' 55 arrive empty and zero carry a target.",
+    "channel_health_100_episodes": {
+      "flat_fraction_overall": {"legacy_no_repair": 0.741, "reconstructed_arm": 0.465, "native": 0.451},
+      "flat_fraction_Villager": {"legacy_no_repair": 1.0, "reconstructed_arm": 0.164, "native": 0.144},
+      "flat_fraction_day_voting": {"legacy_no_repair": 0.504, "reconstructed_arm": 0.086, "native": 0.079},
+      "flat_fraction_Doctor": {"legacy_no_repair": 0.727, "reconstructed_arm": 0.453, "native": 0.414},
+      "flat_fraction_Detective": {"legacy_no_repair": 0.795, "reconstructed_arm": 0.481, "native": 0.445}
+    },
+    "conclusion": "The native encoding fully replaces the reconstructed arm and needs no out-of-band repair, exactly as peer decision 0016 Q1 required. The reconstructed arm is retained only as a labelled sensitivity result for the legacy encoding, and the runner refuses to enable both at once because that would double-count the same evidence."
+  },
+  "metric_status": {
+    "renamed_per_peer_0016_Q5": "mean_action_regret -> mean_immediate_target_loss_diagnostic, in storybox_sck_eval_v0.py and in the A/B harness, so no artifact implies true sequential regret.",
+    "status": "diagnostic only, never the acceptance metric",
+    "reason": "It scores immediate target correctness against a truth oracle and ignores downstream coordination, information value, tie mechanics and future responses. In the round 5 arm it improved while village play got three to five times worse. mafia_eliminate is additionally structurally non-discriminating because the Mafia's legal targets already exclude its own team.",
+    "primary_metrics_now": "paired cross-play terminal utility / faction win rate against fixed opponents, with calibration, discrimination flat fraction and leakage as mechanism gates"
+  },
+  "artifact_encoding_note": "The 50-episode smoke test and both 500-episode artifacts were produced with the legacy '[Player N]' encoding. Plain and memory results are unchanged by the switch, but the belief variants' behaviour changes because they now receive vote evidence. Those artifacts are therefore retained as historical diagnostics only, per peer decision 0016 artifact_status_decision, and must not be compared against native-encoding runs.",
   "next_gate": [
-    "replace or replay-calibrate the evidence model so it can accuse as well as exonerate; the hand-specified likelihoods are refuted, not merely uncalibrated",
-    "re-run the 500-episode comparison and require the informed variants to beat the uniform-random baseline on village faction win rate, not only on action regret",
-    "keep the belief-discrimination flat fraction as a channel-health gate before any claim that the belief mechanism engaged",
-    "extend the live A/B to the 8- and 10-player counts in the environment block",
-    "only then reconsider MCTS, bi-level search, or reconnecting SCK to the risk-list hospital Scene"
+    "implement fixed-baseline paired cross-play with shared seeds and identical role schedules (informed Village vs baseline Mafia, baseline Village vs informed Mafia, swapped across belief and belief_planning)",
+    "make paired cross-play terminal utility and faction win rate the primary outcome, with calibration, discrimination and leakage as mechanism gates",
+    "implement a replay-calibrated symmetric evidence model fitted on a training seed partition, frozen, then evaluated on a disjoint held-out partition",
+    "run a small cross-play smoke test before a larger paired experiment",
+    "if corrected belief/belief_planning still fail against fixed baselines, declare the SecretMafia substrate or feature model insufficient instead of adding handcrafted rules",
+    "keep MCTS, bi-level search and StoryBox/risk-list reconnection held until this gate passes"
   ]
 }
