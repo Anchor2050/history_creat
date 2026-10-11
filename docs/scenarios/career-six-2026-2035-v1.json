@@ -1,0 +1,336 @@
+{
+  "spec_version": 1,
+  "status": "long_horizon_extension_noncanonical",
+  "scenario": "career_six_2026_2035",
+  "base_world": "beijing-doctoral-initial-v1",
+  "base_branch": "chatgpt/endogenous-social-topology",
+  "start_date": "2026-03-02",
+  "end_date": "2035-12-31",
+  "notice": "六名新增人物与机构均为虚构。用户明确给出的家庭结构、专业和初始求职目标保持固定；未给出的财富、婚恋、健康、家庭关系质量与最终职业结果均保持开放，不作为性别或出身的决定论结论。",
+  "fixed_design_rules": [
+    "三名男性均来自虚构五线城市语境、独生子女、数学博士概率论方向，2026年起点公开论文为0。",
+    "三名男性2026年主目标依次为国企、公务员、高校辅导员，父母均为双职工。",
+    "三名女性均为家中第三个孩子且有两个哥哥，研究方向均为生存分析。",
+    "三名女性2026年主目标依次为高校、公务员或事业单位、医药企业。",
+    "家庭结构只改变约束、资源与照护协商，不直接决定人物选择或命运。",
+    "所有2035年前职业、婚恋、迁移、照护与健康结果均由后续世界推进产生，不预写为事实。"
+  ],
+  "actors": {
+    "zhou_ye": {
+      "id": "zhou_ye",
+      "name": "周野",
+      "age": 29,
+      "gender": "male",
+      "organization": "university_c",
+      "role": "doctoral_student",
+      "doctoral_year": 5,
+      "field": "mathematics_probability",
+      "published_papers": 0,
+      "hometown_context": "fictional_fifth_tier_city",
+      "only_child": true,
+      "parents_employment": "dual_income",
+      "career_target_2026": "state_owned_enterprise",
+      "weekly_discretionary_work_hours": 42,
+      "cash": 26000,
+      "goals": [
+        "按期完成博士论文",
+        "进入稳定且专业可迁移的国企岗位",
+        "保留照顾父母和回乡的选择"
+      ],
+      "known_initial": [
+        "doctoral_job_search_group",
+        "xu_reproducibility_reputation"
+      ],
+      "private_initial": [
+        "zero_publication_anxiety",
+        "parents_retirement_expectation"
+      ]
+    },
+    "gao_yuan": {
+      "id": "gao_yuan",
+      "name": "高原",
+      "age": 28,
+      "gender": "male",
+      "organization": "university_c",
+      "role": "doctoral_student",
+      "doctoral_year": 5,
+      "field": "mathematics_probability",
+      "published_papers": 0,
+      "hometown_context": "fictional_fifth_tier_city",
+      "only_child": true,
+      "parents_employment": "dual_income",
+      "career_target_2026": "civil_service",
+      "weekly_discretionary_work_hours": 44,
+      "cash": 22000,
+      "goals": [
+        "完成博士毕业要求",
+        "系统备考公务员",
+        "在城市平台与父母距离之间找到可接受方案"
+      ],
+      "known_initial": [
+        "doctoral_job_search_group",
+        "lin_public_sector_interest"
+      ],
+      "private_initial": [
+        "exam_failure_fear",
+        "family_return_option"
+      ]
+    },
+    "luo_cheng": {
+      "id": "luo_cheng",
+      "name": "罗诚",
+      "age": 30,
+      "gender": "male",
+      "organization": "university_c",
+      "role": "doctoral_student",
+      "doctoral_year": 6,
+      "field": "mathematics_probability",
+      "published_papers": 0,
+      "hometown_context": "fictional_fifth_tier_city",
+      "only_child": true,
+      "parents_employment": "dual_income",
+      "career_target_2026": "university_counselor",
+      "weekly_discretionary_work_hours": 40,
+      "cash": 18000,
+      "goals": [
+        "完成博士毕业手续",
+        "争取高校辅导员或相近学生工作岗位",
+        "建立不依赖论文数量的职业叙事"
+      ],
+      "known_initial": [
+        "doctoral_job_search_group",
+        "sun_coordinator_role"
+      ],
+      "private_initial": [
+        "academic_identity_loss",
+        "age_pressure"
+      ]
+    },
+    "tang_yu": {
+      "id": "tang_yu",
+      "name": "唐雨",
+      "age": 28,
+      "gender": "female",
+      "organization": "university_d",
+      "role": "doctoral_student",
+      "doctoral_year": 4,
+      "field": "survival_analysis",
+      "published_papers": null,
+      "sibling_order": 3,
+      "older_brothers": 2,
+      "career_target_2026": "university_faculty",
+      "weekly_discretionary_work_hours": 46,
+      "cash": 24000,
+      "goals": [
+        "形成可独立延展的生存分析研究线",
+        "进入高校教学科研岗位",
+        "在家庭义务与研究机会之间保留协商空间"
+      ],
+      "known_initial": [
+        "doctoral_job_search_group",
+        "shen_methods_seminar"
+      ],
+      "private_initial": [
+        "publication_record_open",
+        "family_support_pattern_open"
+      ]
+    },
+    "he_xin": {
+      "id": "he_xin",
+      "name": "何欣",
+      "age": 29,
+      "gender": "female",
+      "organization": "university_d",
+      "role": "doctoral_student",
+      "doctoral_year": 5,
+      "field": "survival_analysis",
+      "published_papers": null,
+      "sibling_order": 3,
+      "older_brothers": 2,
+      "career_target_2026": "civil_service_or_public_institution",
+      "weekly_discretionary_work_hours": 43,
+      "cash": 21000,
+      "goals": [
+        "完成博士训练",
+        "比较公务员和事业单位岗位的长期稳定性",
+        "明确家庭协商边界"
+      ],
+      "known_initial": [
+        "doctoral_job_search_group",
+        "lin_public_sector_interest",
+        "sun_policy_information"
+      ],
+      "private_initial": [
+        "publication_record_open",
+        "sibling_care_bargain_open"
+      ]
+    },
+    "song_nan": {
+      "id": "song_nan",
+      "name": "宋楠",
+      "age": 28,
+      "gender": "female",
+      "organization": "university_d",
+      "role": "doctoral_student",
+      "doctoral_year": 4,
+      "field": "survival_analysis",
+      "published_papers": null,
+      "sibling_order": 3,
+      "older_brothers": 2,
+      "career_target_2026": "pharmaceutical_industry",
+      "weekly_discretionary_work_hours": 45,
+      "cash": 25000,
+      "goals": [
+        "把生存分析训练转化为真实药物研发问题能力",
+        "进入医药企业统计或数据科学岗位",
+        "保留研究与行业之间的回流可能"
+      ],
+      "known_initial": [
+        "doctoral_job_search_group",
+        "chen_external_work",
+        "zhao_project_channel"
+      ],
+      "private_initial": [
+        "publication_record_open",
+        "industry_fit_uncertainty"
+      ]
+    }
+  },
+  "organizations": {
+    "university_c": {
+      "name": "丙校数学研究院",
+      "members": [
+        "zhou_ye",
+        "gao_yuan",
+        "luo_cheng"
+      ],
+      "shared_resources": {
+        "career_recommendation_slots_per_cycle": 2,
+        "mock_interview_slots_per_cycle": 2
+      }
+    },
+    "university_d": {
+      "name": "丁校统计与健康数据学院",
+      "members": [
+        "tang_yu",
+        "he_xin",
+        "song_nan"
+      ],
+      "shared_resources": {
+        "faculty_recommendation_slots_per_cycle": 1,
+        "industry_referral_slots_per_cycle": 1
+      }
+    }
+  },
+  "relationships": [
+    {
+      "parties": ["zhou_ye", "xu_hang"],
+      "kind": "cross_campus_reproducibility_peer",
+      "start": "2026-03",
+      "mechanism": "代码复现与研究可靠性互换，可能转化为行业或国企技术信息。"
+    },
+    {
+      "parties": ["gao_yuan", "lin_jing"],
+      "kind": "public_sector_preparation_peer",
+      "start": "2026-04",
+      "mechanism": "共享招考信息与面试练习，但岗位竞争时信息并不自动完全共享。"
+    },
+    {
+      "parties": ["luo_cheng", "sun_jie"],
+      "kind": "student_affairs_information_link",
+      "start": "2026-03",
+      "mechanism": "通过研究生事务接触理解高校辅导员岗位的真实工作与招聘流程。"
+    },
+    {
+      "parties": ["tang_yu", "shen_yan"],
+      "kind": "methods_seminar_link",
+      "start": "2026-05",
+      "mechanism": "方法讨论和学术反馈可改善研究成熟度，但不自动产生岗位或署名。"
+    },
+    {
+      "parties": ["he_xin", "lin_jing"],
+      "kind": "career_comparison_peer",
+      "start": "2026-05",
+      "mechanism": "比较体制岗位、城市选择和学术机会，长期可能形成不同选择的镜像。"
+    },
+    {
+      "parties": ["he_xin", "sun_jie"],
+      "kind": "public_institution_information_link",
+      "start": "2026-06",
+      "mechanism": "获取程序性信息，孙洁不能越权保证录用。"
+    },
+    {
+      "parties": ["song_nan", "chen_lan"],
+      "kind": "industry_translation_peer",
+      "start": "2026-04",
+      "mechanism": "陈岚分享把研究训练转成客户或组织问题的经验，宋楠反向提供健康数据方法知识。"
+    },
+    {
+      "parties": ["song_nan", "zhao_ke"],
+      "kind": "project_channel",
+      "start": "2026-06",
+      "mechanism": "可出现有偿健康数据项目或行业推荐，须受预算、交付和利益冲突约束。"
+    },
+    {
+      "parties": ["tang_yu", "xu_hang"],
+      "kind": "verification_collaboration",
+      "start": "2027-01",
+      "mechanism": "生存分析代码验证与失败记录成为双方专业信任来源。"
+    },
+    {
+      "parties": ["zhou_ye", "chen_lan"],
+      "kind": "stable_work_comparison",
+      "start": "2027-01",
+      "mechanism": "比较国企稳定、市场收入、家庭距离与时间自主性。"
+    },
+    {
+      "parties": ["luo_cheng", "lin_jing"],
+      "kind": "university_path_comparison",
+      "start": "2027-03",
+      "mechanism": "高校行政或学生工作与研究道路互相成为参照。"
+    }
+  ],
+  "shared_long_horizon_resources": {
+    "citywide_doctoral_job_information": {"capacity_per_cycle": 6},
+    "public_sector_mock_interview": {"capacity_per_cycle": 3},
+    "university_faculty_referral": {"capacity_per_cycle": 2},
+    "university_counselor_referral": {"capacity_per_cycle": 1},
+    "state_owned_enterprise_referral": {"capacity_per_cycle": 2},
+    "pharma_statistics_project_hours": {"capacity_per_cycle": 80}
+  },
+  "long_horizon_pressures": [
+    {
+      "window": "2026-2027",
+      "kind": "doctoral_exit_and_first_job",
+      "description": "毕业、首份工作与第一轮岗位竞争。"
+    },
+    {
+      "window": "2028-2029",
+      "kind": "skill_repricing",
+      "description": "论文、考试能力、可靠性、行业翻译能力与组织经验开始出现不同回报。"
+    },
+    {
+      "window": "2030-2031",
+      "kind": "family_and_city_lock_in",
+      "description": "父母年龄、兄弟姐妹协商、住房与伴侣或家庭形成可能改变可迁移性。"
+    },
+    {
+      "window": "2032-2033",
+      "kind": "career_reassessment",
+      "description": "稳定岗位的上升空间、科研产出压力、行业波动和体制内机会重新定价。"
+    },
+    {
+      "window": "2034-2035",
+      "kind": "second_order_consequences",
+      "description": "早期选择通过养老金或福利连续性、照护时间、职业声誉、城市网络与再进入成本产生长期后果。"
+    }
+  ],
+  "open_variables": [
+    "三名女性2026年的具体论文数量与质量",
+    "六人的恋爱婚姻、生育与健康",
+    "父母和兄弟之间的关系质量、家庭财富和住房",
+    "具体考试成绩、岗位录取与裁员或晋升",
+    "是否回到家乡或迁往其他城市",
+    "2035年时任何人的价值判断或幸福排序"
+  ]
+}
