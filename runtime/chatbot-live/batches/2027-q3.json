@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2027-q3",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2027-07-01","end":"2027-09-30"},
+  "generation_mode": "chatgpt_product_interaction_chain",
+  "era_lens": [
+    "公开程序开始把长期准备转成实质差异：有人进入下一轮，有人止步，有人拿到offer但尚未决定是否接受。",
+    "城市、住房、工资、安全感、机会密度与家庭距离开始同时进入职业选择；offer本身不等于终局。",
+    "失败不自动解释为个人能力低，也不自动触发换赛道；角色通过已有关系做有限复盘。"
+  ],
+  "exogenous_hard_world_events": [
+    {"event_id":"2027q3:proc01","at":"2027-07-06","kind":"public_recruitment_process_update","actor":"song_nan","source_candidate":"candidate:2027-05:song-pharma-interview:01","result":"first_round_completed_second_round_invited","visibility":"private_to_actor"},
+    {"event_id":"2027q3:proc02","at":"2027-07-16","kind":"technical_screen_update","actor":"zhou_ye","source_candidate":"candidate:2027-06:zhou-soe-technical-screen:01","result":"technical_sample_passed_final_interview_invited","visibility":"private_to_actor"},
+    {"event_id":"2027q3:proc03","at":"2027-08-09","kind":"public_exam_result","actor":"gao_yuan","source_candidate":"candidate:2027-q1:gao-civil-service-cycle:01","result":"written_score_below_interview_cutoff","visibility":"private_to_actor"},
+    {"event_id":"2027q3:proc04","at":"2027-08-18","kind":"public_exam_result","actor":"he_xin","source_candidate":"candidate:2027-q1:he-public-institution-applications:01","result":"written_stage_passed_interview_invited","visibility":"private_to_actor"},
+    {"event_id":"2027q3:proc05","at":"2027-09-03","kind":"public_application_result","actor":"luo_cheng","source_candidate":"candidate:2027-q1:luo-counselor-applications:01","result":"remaining_application_rejected_after_interview","visibility":"private_to_actor"},
+    {"event_id":"2027q3:offer01","at":"2027-08-31","kind":"conditional_offer_generated","actor":"song_nan","sector":"pharmaceutical_industry","city_bundle":"pharma_cluster","gross_monthly":17110,"housing_monthly":4600,"commute_hours_daily":1.05,"security":0.56,"opportunity_density":0.90,"family_distance":3.00,"source":"public_recruitment_process","status":"pending_actor_bundle_evaluation_noncanonical"},
+    {"event_id":"2027q3:offer02","at":"2027-09-23","kind":"conditional_offer_generated","actor":"zhou_ye","sector":"state_owned_enterprise","city_bundle":"provincial_capital","gross_monthly":10500,"housing_monthly":3300,"commute_hours_daily":0.90,"security":0.78,"opportunity_density":0.73,"family_distance":1.25,"source":"public_recruitment_process","status":"pending_actor_bundle_evaluation_noncanonical"}
+  ],
+  "windows": [
+    {"packet_id":"micro:chatbot:2027-07:song-chen-interview-debrief:01","start_date":"2027-07-09","end_date":"2027-07-09","event_kind":"recruitment_interview_debrief","participants":["song_nan","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-07:zhou-xu-technical-screen:01","start_date":"2027-07-21","end_date":"2027-07-21","event_kind":"technical_screen_debrief","participants":["zhou_ye","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-08:chen-wu-defense:01","start_date":"2027-08-03","end_date":"2027-08-03","event_kind":"doctoral_defense","participants":["chen_lan","wu_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-08:gao-lin-exam-result:01","start_date":"2027-08-10","end_date":"2027-08-10","event_kind":"public_exam_result_debrief","participants":["gao_yuan","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-08:he-sun-interview-prep:01","start_date":"2027-08-24","end_date":"2027-08-24","event_kind":"public_institution_interview_prep","participants":["he_xin","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-09:luo-sun-rejection-debrief:01","start_date":"2027-09-07","end_date":"2027-09-07","event_kind":"application_rejection_debrief","participants":["luo_cheng","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-09:tang-xu-verification-followup:01","start_date":"2027-09-18","end_date":"2027-09-18","event_kind":"verification_followup","participants":["tang_yu","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-09:methods-meetup:01","start_date":"2027-09-29","end_date":"2027-09-29","event_kind":"alumni_methods_meetup","participants":["lin_jing","xu_hang","tang_yu","he_xin","song_nan","zhou_ye"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events": [
+    {"event_id":"2027q3:e01","kind":"social_interaction","at":"2027-07-09","event_kind":"recruitment_interview_debrief","speaker":"song_nan","listener":"chen_lan","act":"share_experience","content":"宋楠说第一轮真正难的不是方法题，而是对方不断改变业务条件后，她能不能及时说清哪些结论还成立、哪些需要重做。她进入了下一轮，但仍不知道最终结果。","channel":"wechat_private","evidence":"公开招聘流程产生下一轮邀请。"},
+    {"event_id":"2027q3:e02","kind":"social_interaction","at":"2027-07-09","event_kind":"recruitment_interview_debrief","speaker":"chen_lan","listener":"song_nan","act":"offer_information","content":"陈岚提醒她第二轮继续把边界说清，不知道的就说明需要什么数据或时间才能判断；如果为了显得像行业人而什么都答，会把前一年练出的可靠性丢掉。","channel":"wechat_private","evidence":"一般职业反馈。"},
+
+    {"event_id":"2027q3:e03","kind":"social_interaction","at":"2027-07-21","event_kind":"technical_screen_debrief","speaker":"zhou_ye","listener":"xu_hang","act":"share_experience","content":"周野说技术筛查里对方确实问了别人如何复跑、结果怎么核验和异常如何记录；他的复现包第一次直接成为解释工作方式的证据，因此进入最终面试。","channel":"wechat_private","evidence":"公开招聘技术筛查结果，不表示录用。"},
+    {"event_id":"2027q3:e04","kind":"social_interaction","at":"2027-07-21","event_kind":"technical_screen_debrief","speaker":"xu_hang","listener":"zhou_ye","act":"repair","content":"许航说这只能说明样本和岗位当前需求有匹配，不代表复现包本身是什么万能通行证；最终面试还会重新评估岗位理解和协作方式。","channel":"wechat_private","evidence":"防止单一因果归因。"},
+
+    {"event_id":"2027q3:e05","kind":"social_interaction","at":"2027-08-03","event_kind":"doctoral_defense","speaker":"chen_lan","listener":"wu_cheng","act":"share_experience","content":"正式答辩结束后，陈岚确认主要研究内容通过，但仍需按意见完成一轮小范围文本和规范修改，学位流程还没有完全结束。","channel":"in_person","evidence":"博士完成候选通过答辩环节但仍有后续程序。"},
+    {"event_id":"2027q3:e06","kind":"social_interaction","at":"2027-08-03","event_kind":"doctoral_defense","speaker":"wu_cheng","listener":"chen_lan","act":"offer_information","content":"吴澄要求她把修改限定在答辩明确提出的范围，不借机重新扩展结果，并先把学位流程真正闭环再安排下一份长期工作。","channel":"in_person","evidence":"导师继续维持完成边界。"},
+
+    {"event_id":"2027q3:e07","kind":"social_interaction","at":"2027-08-10","event_kind":"public_exam_result_debrief","speaker":"gao_yuan","listener":"lin_jing","act":"share_experience","content":"高原告诉林静这轮笔试没有进面试线。他有点失落，但至少已经完整跑过一次报名、准备和考试流程。","channel":"wechat_private","evidence":"公开考试结果。"},
+    {"event_id":"2027q3:e08","kind":"social_interaction","at":"2027-08-10","event_kind":"public_exam_result_debrief","speaker":"lin_jing","listener":"gao_yuan","act":"offer_information","content":"林静建议他先拆结果：哪些是可改的知识与表达准备，哪些只是岗位竞争和分数线；如果还要再考，应该基于真实差距决定，而不是因为已经投入很多时间就机械继续。","channel":"wechat_private","evidence":"一般失败复盘框架。"},
+    {"event_id":"2027q3:e09","kind":"social_interaction","at":"2027-08-10","event_kind":"public_exam_result_debrief","speaker":"gao_yuan","listener":"lin_jing","act":"make_plan","content":"高原决定保留公务员主线到下一周期，但给自己设一个复盘窗口：如果毕业和下一轮准备的时间冲突继续扩大，就必须重新评估是否增加其他稳定岗位选项。","channel":"wechat_private","evidence":"失败后维持主线但增加退出条件。"},
+
+    {"event_id":"2027q3:e10","kind":"social_interaction","at":"2027-08-24","event_kind":"public_institution_interview_prep","speaker":"he_xin","listener":"sun_jie","act":"ask_advice","content":"何欣说自己通过了笔试，面试前最担心的是把岗位说得太理想化；她问孙洁怎样在不了解内部情况时回答对日常工作的理解。","channel":"wechat_private","evidence":"公开程序进入面试。"},
+    {"event_id":"2027q3:e11","kind":"social_interaction","at":"2027-08-24","event_kind":"public_institution_interview_prep","speaker":"sun_jie","listener":"he_xin","act":"offer_information","content":"孙洁让她只基于岗位说明和自己真实经历回答：哪些职责她做过类似部分、哪些没做过、如果遇到不熟悉程序会怎样查规则和留下记录；不要假装知道单位内部运作。","channel":"wechat_private","evidence":"通用程序性准备，无内部信息。"},
+    {"event_id":"2027q3:e12","kind":"social_interaction","at":"2027-08-24","event_kind":"public_institution_interview_prep","speaker":"sun_jie","listener":"he_xin","act":"set_boundary","content":"孙洁再次说明她不会替何欣打听面试题或内部评价，也不会因为认识就去影响流程。","channel":"wechat_private","evidence":"权限边界。"},
+
+    {"event_id":"2027q3:e13","kind":"social_interaction","at":"2027-09-07","event_kind":"application_rejection_debrief","speaker":"luo_cheng","listener":"sun_jie","act":"share_experience","content":"罗诚说第二条学生事务岗位面试后也没有录用。他发现自己能讲清流程和跟进，但面对直接学生工作情境时例子仍然偏少。","channel":"in_person","evidence":"公开招聘拒绝。"},
+    {"event_id":"2027q3:e14","kind":"social_interaction","at":"2027-09-07","event_kind":"application_rejection_debrief","speaker":"sun_jie","listener":"luo_cheng","act":"offer_information","content":"孙洁没有劝他继续死磕同类岗位，只让他把想要的工作元素拆出来：稳定、与人协作、流程责任、大学环境，这些元素未必只能由辅导员岗位同时提供。","channel":"in_person","evidence":"职业元素拆分，不指定新岗位。"},
+    {"event_id":"2027q3:e15","kind":"social_interaction","at":"2027-09-07","event_kind":"application_rejection_debrief","speaker":"luo_cheng","listener":"sun_jie","act":"make_plan","content":"罗诚决定下一轮把高校行政、研究支持和公共机构中的流程协调类岗位也纳入比较，同时保留辅导员作为一个选项而不是唯一身份。","channel":"in_person","evidence":"第一次明确目标修订。"},
+
+    {"event_id":"2027q3:e16","kind":"social_interaction","at":"2027-09-18","event_kind":"verification_followup","speaker":"tang_yu","listener":"xu_hang","act":"share_experience","content":"唐雨进一步检查后发现，一部分异常确实随实现变化消失，但另一部分在不同实现下仍反复出现。她开始能把实现问题和结构问题分开描述。","channel":"in_person","evidence":"验证链继续产生候选证据，不宣称理论完成。"},
+    {"event_id":"2027q3:e17","kind":"social_interaction","at":"2027-09-18","event_kind":"verification_followup","speaker":"xu_hang","listener":"tang_yu","act":"offer_information","content":"许航建议她把稳定出现的部分冻结成一份可复现反例集，再由唐雨自己回到理论结构解释为什么会发生；验证工作先到这里，避免无限扩计算。","channel":"in_person","evidence":"限定验证贡献范围。"},
+    {"event_id":"2027q3:e18","kind":"social_interaction","at":"2027-09-18","event_kind":"verification_followup","speaker":"tang_yu","listener":"xu_hang","act":"offer_help","content":"唐雨提出如果后面理论解释真正形成，她会按实际贡献重新讨论许航是否继续参与，而不是提前默认作者关系。","channel":"in_person","evidence":"贡献和署名保持开放。"},
+
+    {"event_id":"2027q3:e19","kind":"social_interaction","at":"2027-09-29","event_kind":"alumni_methods_meetup","speaker":"song_nan","listener":"xu_hang","act":"share_experience","content":"宋楠选择公开说自己拿到一份医药统计岗位的条件offer，但还没有接受，因为城市、住房和职业机会要一起算。她没有公开薪资细节。","channel":"in_person","evidence":"offer事实由hard-world公开招聘结果生成；具体私人条款未广播。"},
+    {"event_id":"2027q3:e20","kind":"social_interaction","at":"2027-09-29","event_kind":"alumni_methods_meetup","speaker":"zhou_ye","listener":"tang_yu","act":"share_experience","content":"周野说自己也拿到一份省会国企技术岗条件offer，稳定性比他最初想象的真实，但他现在反而更在意岗位内容、离家距离和以后还能不能继续做技术。","channel":"in_person","evidence":"offer由公开招聘生成；只公开一般选择维度。"},
+    {"event_id":"2027q3:e21","kind":"social_interaction","at":"2027-09-29","event_kind":"alumni_methods_meetup","speaker":"tang_yu","listener":"zhou_ye","act":"check_in","content":"唐雨没有劝周野接受或拒绝，只问他复现包真正帮他争取到的是岗位本身，还是让他更清楚自己想做哪类工作；两人的弱联系仍停留在偶尔技术交流。","channel":"in_person","evidence":"无资源转移。"},
+    {"event_id":"2027q3:e22","kind":"social_interaction","at":"2027-09-29","event_kind":"alumni_methods_meetup","speaker":"he_xin","listener":"lin_jing","act":"share_experience","content":"何欣只说自己已经参加完面试，结果未出；她仍保留之前的城市和退出成本比较表，没有因为进到后期就预先把岗位当成自己的。","channel":"in_person","evidence":"公开流程状态。"}
+  ],
+  "hard_world_candidate_updates": [
+    {"candidate_id":"candidate:2027-05:song-pharma-interview:01","checked_at":"2027-08-31","checks":{"interview_attended":true,"technical_fit_evaluated":true,"communication_fit_evaluated":true},"result":"conditional_offer_generated_noncanonical","resource_effect":"pharma_cluster offer bundle pending acceptance"},
+    {"candidate_id":"candidate:2027-06:zhou-soe-technical-screen:01","checked_at":"2027-09-23","checks":{"technical_sample_reviewed":true,"role_fit_sufficient":true,"interview_slot_available":true},"result":"conditional_offer_generated_noncanonical","resource_effect":"provincial_capital SOE offer bundle pending acceptance"},
+    {"candidate_id":"candidate:2027-q1:gao-civil-service-cycle:01","checked_at":"2027-08-09","checks":{"written_exam_completed":true,"interview_cutoff_met":false},"result":"cycle_closed_below_cutoff_noncanonical","resource_effect":"none"},
+    {"candidate_id":"candidate:2027-q1:luo-counselor-applications:01","checked_at":"2027-09-03","checks":{"remaining_interview_attended":true,"selection_result":"not_selected"},"result":"cycle_closed_no_offer_noncanonical","resource_effect":"none"},
+    {"candidate_id":"candidate:2027-01-17:tang-xu-validation-review:01","checked_at":"2027-09-18","checks":{"bounded_review_completed":true,"stable_failure_subset_identified":true,"implementation_artifact_partly_separated":true},"result":"closed_after_bounded_review_noncanonical","resource_effect":"reproducible counterexample set candidate; no paper claim"}
+  ],
+  "new_hard_world_candidates": [
+    {"candidate_id":"candidate:2027-08-31:song-pharma-offer-evaluation:01","created_at":"2027-08-31","type":"offer_bundle_evaluation","beneficiary":"song_nan","bundle":{"sector":"pharmaceutical_industry","city":"pharma_cluster","gross_monthly":17110,"housing_monthly":4600,"commute_hours_daily":1.05,"security":0.56,"opportunity_density":0.90,"family_distance":3.00},"requires_checks":["cash_after_relocation","housing_feasibility","family_bargain","career_learning_value","acceptance_deadline"],"status":"pending_bundle_evaluation_noncanonical"},
+    {"candidate_id":"candidate:2027-09-23:zhou-soe-offer-evaluation:01","created_at":"2027-09-23","type":"offer_bundle_evaluation","beneficiary":"zhou_ye","bundle":{"sector":"state_owned_enterprise","city":"provincial_capital","gross_monthly":10500,"housing_monthly":3300,"commute_hours_daily":0.90,"security":0.78,"opportunity_density":0.73,"family_distance":1.25},"requires_checks":["cash_after_relocation","housing_feasibility","parent_distance_preference","technical_role_content","acceptance_deadline"],"status":"pending_bundle_evaluation_noncanonical"},
+    {"candidate_id":"candidate:2027-09:luo-target-revision:01","created_at":"2027-09-07","type":"career_target_revision","beneficiary":"luo_cheng","description":"把高校行政、研究支持和公共机构流程协调类岗位加入下一轮比较，辅导员不再是唯一目标。","requires_checks":["matching_openings_exist","skills_transferable","city_and_income_feasible"],"status":"pending_search_noncanonical"}
+  ],
+  "actor_state_evidence": [
+    {"at":"2027-08-03","actor":"chen_lan","dimension":"doctoral_completion","evidence":"正式答辩环节完成，仍需小范围修改和学校程序闭环。","status":"candidate_state_evidence"},
+    {"at":"2027-08-10","actor":"gao_yuan","dimension":"career_strategy","evidence":"第一次完整招考失败后仍保留公务员主线，但新增明确的重新评估触发条件。","status":"candidate_state_evidence"},
+    {"at":"2027-09-07","actor":"luo_cheng","dimension":"career_target","evidence":"连续两次学生事务公开招聘无offer后，目标从单一辅导员扩展为高校/公共机构流程协调类岗位组合。","status":"candidate_state_evidence"},
+    {"at":"2027-09-18","actor":"tang_yu","dimension":"research_line","evidence":"开始区分实现脆弱性与跨实现稳定的结构性失效，并形成可复现反例集候选。","status":"candidate_state_evidence"}
+  ],
+  "audit_rules": {"single_batch_noncanonical":true,"generated_through_interaction_chain":true,"offer_generated_only_after_public_process":true,"city_bundle_uses_existing_fictional_priors":true,"no_unearned_knowledge":true,"conversation_does_not_auto_change_relationship":true,"offer_does_not_auto_accept":true,"bilateral_memory_derivable_from_events":true}
+}
