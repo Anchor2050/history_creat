@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_probe_revision_audit_noncanonical",
+  "historical_world_writeback": false,
+  "pairs": [
+    {
+      "scene": "ma_qing_viewpoint",
+      "v1": "docs/adaptation/probes/p3-02-ma-qing-viewpoint-v1.md",
+      "v2": "docs/adaptation/probes/p3-02-ma-qing-viewpoint-v2.md",
+      "v1_problem": "authorial diagnosis explains Ma Qing's coordination fatigue and the ending gives a neat miniature resolution",
+      "v2_changes": [
+        "removed explicit paragraph diagnosing why Ma Qing is annoyed",
+        "added meeting interruption and version-management noise",
+        "kept Song Nan and Ma Qing partly misaligned instead of fully mutually understanding",
+        "ended on Ma Qing moving into the next meeting rather than a designed symbolic slide-title change"
+      ],
+      "what_improved": [
+        "Ma Qing's independent workday is more legible",
+        "institutional pressure appears through time, people and file versions rather than explanation",
+        "Song Nan remains an important collaborator without taking over the scene",
+        "the guest micro-arc survives even though it is less explicitly resolved"
+      ],
+      "what_was_lost": [
+        "v1 made the learning point about statistical uncertainty slightly clearer",
+        "v2 asks the reader to infer more from procedural action"
+      ],
+      "remaining_risk": "dialogue still moves relatively efficiently because all participants are professionally trained and the scene is task-focused",
+      "verdict": "v2_preferred"
+    },
+    {
+      "scene": "he_family_boundary_failure",
+      "v1": "docs/adaptation/probes/p3-03-he-family-boundary-failure-v1.md",
+      "v2": "docs/adaptation/probes/p3-03-he-family-boundary-failure-v2.md",
+      "v1_problem": "narrator explains communication theory and He Xin's desired boundary too completely",
+      "v2_changes": [
+        "removed facts-feelings-needs explanation",
+        "removed the full paragraph explaining exactly what He Xin wants from her brother",
+        "made the quarrel less rhetorically balanced",
+        "reduced repair to short messages and retained continued private housing browsing"
+      ],
+      "what_improved": [
+        "He Xin can be skilled at communication and still fail to communicate without narrative contradiction",
+        "the brother remains helpful, intrusive and understandable at the same time",
+        "family-origin pressure is visible through role expectation rather than backstory exposition",
+        "the reader must infer why 'you always do this' is heavier than the housing link itself"
+      ],
+      "what_was_lost": [
+        "v1 made the exact nature of He Xin's boundary conflict easier to decode immediately"
+      ],
+      "remaining_risk": "the brother's line about her words being precise but painful is slightly crafted and should not become a recurring self-aware formulation",
+      "verdict": "v2_preferred"
+    },
+    {
+      "scene": "zhou_he_awkward_meetup",
+      "v1": "docs/adaptation/probes/p3-05-zhou-he-awkward-meetup-v1.md",
+      "v2": "docs/adaptation/probes/p3-05-zhou-he-awkward-meetup-v2.md",
+      "v1_problem": "mirrored questions create formal symmetry and the look-back ending gives an unnecessary cinematic signal",
+      "v2_changes": [
+        "broke the mirrored 'annoying / leave?' exchange",
+        "allowed one topic to end after a single acknowledgement",
+        "used the power-strip question as ordinary continuation rather than symbolic ending",
+        "removed the street-crossing look-back"
+      ],
+      "what_improved": [
+        "weak tie remains genuinely weak",
+        "information exchange is partial and inefficient",
+        "characters do not extract a lesson from the meal",
+        "mundane expertise appears naturally in Zhou Ye without turning into character demonstration"
+      ],
+      "what_was_lost": [
+        "v1 had a slightly cleaner sense of both characters independently valuing stable time and transferable work"
+      ],
+      "remaining_risk": "the final sentence 'this time they really separated' is still an authorial nudge and should probably be removed in any later version",
+      "verdict": "v2_strongly_preferred"
+    }
+  ],
+  "cross_pair_findings": {
+    "main_result": "Removing explicit interpretation increases character legibility rather than reducing it when the ledger and character model are already strong.",
+    "narrative_distance_candidate": "close but externally anchored realism: selective interior access, concrete procedural/material detail, limited narrator diagnosis, no mandatory scene resolution",
+    "retain_from_v1": [
+      "clear local stakes",
+      "institutional and professional specificity",
+      "virtue-shadow tension"
+    ],
+    "prefer_from_v2": [
+      "less explanatory psychology",
+      "more interruption and dead time",
+      "less symmetrical dialogue",
+      "unfinished emotional repair",
+      "ordinary continuation after conflict"
+    ],
+    "do_not_overcorrect": [
+      "silence alone is not depth",
+      "awkwardness should not become a new style gimmick",
+      "educated professionals can sometimes communicate efficiently",
+      "some scenes need explicit decisions and procedural clarity",
+      "withholding explanation cannot become deliberate obscurity"
+    ]
+  },
+  "gate_status_after_pass_03": {
+    "anti_ai_style": "provisional_pass_for_restrained_scene_mode",
+    "character_legibility_without_explanation": "pass",
+    "guest_independent_life": "pass",
+    "weak_tie_realism": "pass",
+    "family_origin_without_melodrama": "pass",
+    "prose_canon": "still_blocked_pending_sustained_long_scene_test"
+  },
+  "next_recommendation": "Use the emerging restrained narrative distance in one sustained 1800-3000 Chinese-character scene. The long-scene test should contain at least three people, an institutional task, a minor misunderstanding, dead time, and no final thematic resolution. If the voice survives length without reverting to explanation or decorative sensitivity, allow a provisional narrative-voice canon while keeping scene text disposable."
+}
