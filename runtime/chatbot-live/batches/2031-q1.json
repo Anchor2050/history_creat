@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2031-q1",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2031-01-01","end":"2031-03-31"},
+  "generation_mode": "chatgpt_product_interaction_chain",
+  "era_lens": [
+    "2031首次进入住房购买考虑窗口，但稳定工作只提供资格，不提供购房结论。",
+    "城市锁定同时受到现金缓冲、未来迁移成本、工作年限、家庭距离和角色对可逆性的偏好影响。",
+    "第一份高校工作只有在真实入职后才能检验研究自主性；合同文本不能替代日常经验。"
+  ],
+  "exogenous_hard_world_events": [
+    {"event_id":"2031q1:move01","at":"2031-01-08","kind":"employment_relocation_check","actor":"lin_jing","result":"regional_university_city_lease_and_employment_start_confirmed","engineering_prior":{"monthly_rent":2400,"living_monthly":2200,"commute_hours_daily":0.70},"visibility":"private_to_actor"},
+    {"event_id":"2031q1:house01","at":"2031-03-03","kind":"home_purchase_feasibility_check","actor":"zhou_ye","city":"provincial_capital","engineering_prior":{"reference_rent":3300,"downpayment_target":92400,"minimum_liquid_buffer_floor":26000,"cash_path":"reconciled_from_2028_employment_income_and_known_rent/living priors","cash_feasibility":"borderline_but_passes_under_no_new_care_cost_assumption"},"result":"financially_possible_but_requires_actor_commitment_check","visibility":"private_to_actor"},
+    {"event_id":"2031q1:house02","at":"2031-03-04","kind":"home_purchase_feasibility_check","actor":"he_xin","city":"provincial_capital","engineering_prior":{"reference_rent":3300,"downpayment_target":92400,"minimum_liquid_buffer_floor":26000,"cash_path":"reconciled_from_2028_employment_income_and_known_rent/living priors","cash_feasibility":"fails_buffer_requirement"},"result":"hard_cash_block_purchase_not_feasible","visibility":"private_to_actor"},
+    {"event_id":"2031q1:review01","at":"2031-03-18","kind":"third_year_role_review","actor":"gao_yuan","result":"meets_expectations_no_role_change_growth_density_still_low","visibility":"private_to_actor"}
+  ],
+  "windows": [
+    {"packet_id":"micro:chatbot:2031-01:lin-relocation-first-job:01","start_date":"2031-01-09","end_date":"2031-01-18","event_kind":"employment_relocation_and_first_job_transition","participants":["lin_jing","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-01:chen-year-two-identity:01","start_date":"2031-01-28","end_date":"2031-01-28","event_kind":"formal_role_identity_checkin","participants":["chen_lan","wu_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-02:song-distance-portability:01","start_date":"2031-02-08","end_date":"2031-02-08","event_kind":"industry_year_four_checkin","participants":["song_nan","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-02:gao-luo-growth-call:01","start_date":"2031-02-19","end_date":"2031-02-19","event_kind":"old_classmate_growth_call","participants":["gao_yuan","luo_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-03:zhou-home-check:01","start_date":"2031-03-06","end_date":"2031-03-06","event_kind":"home_purchase_consideration","participants":["zhou_ye","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-03:he-home-check:01","start_date":"2031-03-08","end_date":"2031-03-08","event_kind":"home_purchase_consideration","participants":["he_xin","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-03:sun-queue-boundary:01","start_date":"2031-03-16","end_date":"2031-03-16","event_kind":"coordinator_boundary_scene","participants":["sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-03:zhao-project-intake:01","start_date":"2031-03-24","end_date":"2031-03-24","event_kind":"project_manager_intake_scene","participants":["zhao_ke"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events": [
+    {"event_id":"2031q1:e01","kind":"social_interaction","at":"2031-01-10","event_kind":"employment_relocation_and_first_job_transition","speaker":"lin_jing","listener":"chen_lan","act":"share_experience","content":"林静搬到区域高校城市后先租房，没有因为接受高校岗位就同时做长期住房承诺。入职第一周她最明显的感受是日程比博士阶段更碎：研究时间仍在，但会议、课程准备和行政流程开始占据固定块。","channel":"video_call","evidence":"租住与入职均已完成；只记录早期现实，不推断长期结果。"},
+    {"event_id":"2031q1:e02","kind":"social_interaction","at":"2031-01-10","event_kind":"employment_relocation_and_first_job_transition","speaker":"chen_lan","listener":"lin_jing","act":"offer_information","content":"陈岚提醒她把合同里承诺的研究自主性和每天实际能拿到的连续时间分开记录，半年后再比较，不要用第一周的兴奋或疲惫替代判断。","channel":"video_call","evidence":"延续陈岚自己的时间边界经验。"},
+    {"event_id":"2031q1:e03","kind":"social_interaction","at":"2031-01-18","event_kind":"employment_relocation_and_first_job_transition","speaker":"lin_jing","listener":"chen_lan","act":"make_plan","content":"林静决定前三个月只记录研究连续时间、服务工作和住房通勤，不立刻判断这份高校工作是否适合长期留下。","channel":"video_call","evidence":"第一年现实检查计划。"},
+
+    {"event_id":"2031q1:e04","kind":"social_interaction","at":"2031-01-28","event_kind":"formal_role_identity_checkin","speaker":"chen_lan","listener":"wu_cheng","act":"share_experience","content":"陈岚进入正式岗位第二年后发现，自己越来越熟悉组织的数据流程和决策节奏，工作也更顺，但真正主动提出研究问题的时间比博士阶段少得多。","channel":"in_person","evidence":"岗位可持续与研究自由交换继续存在。"},
+    {"event_id":"2031q1:e05","kind":"social_interaction","at":"2031-01-28","event_kind":"formal_role_identity_checkin","speaker":"wu_cheng","listener":"chen_lan","act":"check_in","content":"吴澄问她现在是否还需要用‘研究者’这个词维持自我解释；陈岚说她更想保留判断问题的能力，不急着保留原来的身份标签。","channel":"in_person","evidence":"身份变化来自两年实际工作，不产生职业转移。"},
+
+    {"event_id":"2031q1:e06","kind":"social_interaction","at":"2031-02-08","event_kind":"industry_year_four_checkin","speaker":"song_nan","listener":"chen_lan","act":"share_experience","content":"宋楠第四年仍愿意留在医药统计，但高住房成本和离家远已经从抽象缺点变成每年都要重新算的固定成本；她的便携案例档案让她知道自己即便未来离开，也不至于只能用公司名字解释能力。","channel":"video_call","evidence":"便携案例已经完成，当前无外部求职事实。"},
+    {"event_id":"2031q1:e07","kind":"social_interaction","at":"2031-02-08","event_kind":"industry_year_four_checkin","speaker":"chen_lan","listener":"song_nan","act":"repair","content":"陈岚提醒她‘有能力离开’和‘现在应该离开’仍是两件事；宋楠把今年的判断继续放在学习密度是否下降，而不是只看成本升高。","channel":"video_call","evidence":"可逆性不自动触发跳槽。"},
+
+    {"event_id":"2031q1:e08","kind":"social_interaction","at":"2031-02-19","event_kind":"old_classmate_growth_call","speaker":"gao_yuan","listener":"luo_cheng","act":"share_experience","content":"高原第三年工作越来越熟练，稳定感更强，但新问题变少；他第一次把‘我是不是只是越来越会做同一套流程’写进年度复盘。","channel":"phone","evidence":"第三年角色评估显示成长密度仍低。"},
+    {"event_id":"2031q1:e09","kind":"social_interaction","at":"2031-02-19","event_kind":"old_classmate_growth_call","speaker":"luo_cheng","listener":"gao_yuan","act":"share_experience","content":"罗诚说自己这边研究支持工作反而慢慢增加了问题判断，但城市和岗位层级的上升空间仍有限；两人都没有因此立刻打开求职。","channel":"phone","evidence":"比较不同锁定结构，不生成求职候选。"},
+
+    {"event_id":"2031q1:e10","kind":"social_interaction","at":"2031-03-06","event_kind":"home_purchase_consideration","speaker":"zhou_ye","listener":"chen_lan","act":"share_experience","content":"周野把省会购房工程测算给陈岚看：按现有工资、租金和生活先验，他勉强能够付首付后保留基本缓冲，但这会明显降低未来两三年的迁移弹性。","channel":"wechat_private","evidence":"2031住房检查在无新增照护成本假设下现金条件接近可行。"},
+    {"event_id":"2031q1:e11","kind":"social_interaction","at":"2031-03-06","event_kind":"home_purchase_consideration","speaker":"chen_lan","listener":"zhou_ye","act":"offer_information","content":"陈岚问他最关键的问题不是‘买得起吗’，而是‘你已经愿意把未来几年绑定在这座城市了吗’；周野承认自己对岗位比第一年满意，但还没到愿意用住房锁住技术流动性的程度。","channel":"wechat_private","evidence":"稳定岗位没有自动转成长期城市承诺。"},
+    {"event_id":"2031q1:e12","kind":"social_interaction","at":"2031-03-06","event_kind":"home_purchase_consideration","speaker":"zhou_ye","listener":"chen_lan","act":"make_plan","content":"周野决定2031这一轮不买，保留租住和现金缓冲，等2033窗口再看技术责任、家庭距离和城市留任意愿是否仍一致。","channel":"wechat_private","evidence":"财务可行但承诺检查不通过，主动延期而非购买失败。"},
+
+    {"event_id":"2031q1:e13","kind":"social_interaction","at":"2031-03-08","event_kind":"home_purchase_consideration","speaker":"he_xin","listener":"lin_jing","act":"share_experience","content":"何欣算完后发现自己的现金缓冲远不到‘付首付后还能留足应急资金’的程度；她反而有点轻松，因为这次不需要把购房包装成价值观选择，现实条件已经先给出答案。","channel":"video_call","evidence":"2031住房工程检查触发hard cash block。"},
+    {"event_id":"2031q1:e14","kind":"social_interaction","at":"2031-03-08","event_kind":"home_purchase_consideration","speaker":"lin_jing","listener":"he_xin","act":"repair","content":"林静说继续租房本身也是一个有效状态，尤其何欣现在已经清楚记录路径依赖；没有必要为了证明自己稳定，就再增加一个财务锁定。","channel":"video_call","evidence":"住房结果不与职业成功绑定。"},
+
+    {"event_id":"2031q1:e15","kind":"actor_state_interaction","at":"2031-03-16","event_kind":"coordinator_boundary_scene","speaker":"sun_jie","listener":"self_record","act":"share_experience","content":"孙洁记录到统一队列已经减少熟人插队，但也让她在少数真正紧急的例外上更需要解释为什么这次可以越过普通顺序；边界制度化并没有消灭判断，只把判断集中到例外。","channel":"private_record","evidence":"延续正式队列边界的二阶效果。"},
+    {"event_id":"2031q1:e16","kind":"actor_state_interaction","at":"2031-03-24","event_kind":"project_manager_intake_scene","speaker":"zhao_ke","listener":"self_record","act":"share_experience","content":"赵珂发现团队已经开始主动把部分模糊需求在进入他这里之前先补齐范围和责任人；他的个人解释成本下降了一点，但新问题变成了怎样让这套入口规则不过度僵化。","channel":"private_record","evidence":"项目入口边界从个人习惯逐渐变成团队流程。"}
+  ],
+  "hard_world_candidate_updates": [
+    {"candidate_id":"candidate:2030-q4:lin-regional-university-role:01","checked_at":"2031-01-08","checks":{"employment_start_confirmed":true,"lease_feasible":true,"initial_cash_and_move_cost_feasible":true,"commute_feasible":true},"result":"employment_relocation_completed_noncanonical","resource_effect":"Lin Jing starts regional-university role while renting"},
+    {"candidate_id":"candidate:2031-03:zhou-home-purchase:01","checked_at":"2031-03-06","checks":{"employed":true,"current_tenure_rent":true,"engineering_cash_feasibility":true,"minimum_buffer_after_downpayment":true,"city_commitment":false,"mobility_value_still_material":true},"result":"deferred_by_actor_after_feasibility_noncanonical","resource_effect":"none; continues renting and preserves cash/mobility"},
+    {"candidate_id":"candidate:2031-03:he-home-purchase:01","checked_at":"2031-03-08","checks":{"employed":true,"current_tenure_rent":true,"engineering_cash_feasibility":false,"minimum_buffer_after_downpayment":false},"result":"closed_hard_cash_block_noncanonical","resource_effect":"none; continues renting"}
+  ],
+  "new_hard_world_candidates": [
+    {"candidate_id":"candidate:2031-03:zhou-home-purchase:01","created_at":"2031-03-03","type":"home_purchase_consideration","beneficiary":"zhou_ye","description":"2031首次省会购房考虑；只有现金、缓冲、城市承诺和迁移成本均可接受时才购买。","requires_checks":["engineering_cash_feasibility","minimum_buffer_after_downpayment","city_commitment","mobility_cost"],"status":"resolved_deferred_noncanonical"},
+    {"candidate_id":"candidate:2031-03:he-home-purchase:01","created_at":"2031-03-04","type":"home_purchase_consideration","beneficiary":"he_xin","description":"2031首次省会购房考虑；先过现金与最低缓冲硬约束。","requires_checks":["engineering_cash_feasibility","minimum_buffer_after_downpayment"],"status":"resolved_hard_block_noncanonical"},
+    {"candidate_id":"candidate:2031-q1:gao-growth-density-review:01","created_at":"2031-03-18","type":"career_growth_review","beneficiary":"gao_yuan","description":"在保持家乡公务员岗位的同时，2031继续观察是否能通过职责变化或学习增加成长密度；当前无外部求职候选。","requires_checks":["internal_growth_opportunity","time_capacity","no_forced_external_search"],"status":"open_noncanonical"}
+  ],
+  "actor_state_evidence": [
+    {"at":"2031-01-18","actor":"lin_jing","dimension":"first_job_reality","evidence":"高校研究岗第一月显示研究自主性存在但时间更碎；本人选择至少观察一个学期再评价。","status":"candidate_state_evidence"},
+    {"at":"2031-03-06","actor":"zhou_ye","dimension":"housing_lock_in","evidence":"首次购房现金条件勉强可行，但本人因城市承诺和技术流动性尚未一致而主动延后。","status":"candidate_state_evidence"},
+    {"at":"2031-03-08","actor":"he_xin","dimension":"housing_lock_in","evidence":"首次购房被现金缓冲硬约束直接阻断，继续租住并未被解释为职业失败。","status":"candidate_state_evidence"},
+    {"at":"2031-02-19","actor":"gao_yuan","dimension":"growth_density","evidence":"第三年稳定性更强，同时开始明确记录重复流程增加、新问题减少的成长密度成本。","status":"candidate_state_evidence"},
+    {"at":"2031-02-08","actor":"song_nan","dimension":"career_portability","evidence":"第四年仍选择留任，同时把高住房/家庭距离成本与便携专业资产并列记录。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence": [
+    {"at":"2031-03-06","pair":["zhou_ye","chen_lan"],"direction":"positive","evidence":"陈岚只帮助区分财务可行与城市承诺，未把自身职业路径强加给周野。"},
+    {"at":"2031-03-08","pair":["he_xin","lin_jing"],"direction":"positive","evidence":"住房硬约束出现后，两人把继续租住视为有效选择，没有用稳定/成功叙事施压。"}
+  ],
+  "storyteller_index_delta": {
+    "new_material_threads": [
+      "first explicit home-purchase consideration produces one voluntary defer and one hard cash block",
+      "Lin Jing contract-level autonomy begins real-life testing",
+      "Gao Yuan stability/growth tension enters third-year evidence",
+      "Song Nan portability becomes an insurance asset without triggering exit"
+    ],
+    "world_writeback": false
+  },
+  "audit_rules": {
+    "single_batch_noncanonical": true,
+    "generated_through_interaction_chain": true,
+    "stable_job_cannot_force_home_purchase": true,
+    "cash_and_buffer_are_hard_purchase_constraints": true,
+    "financial_feasibility_does_not_equal_actor_commitment": true,
+    "family_age_alone_cannot_create_health_or_care_crisis": true,
+    "storyteller_is_read_only": true,
+    "bilateral_memory_derivable_from_events": true
+  }
+}
