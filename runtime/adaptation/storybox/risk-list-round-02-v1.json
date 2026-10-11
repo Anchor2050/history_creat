@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_only_noncanonical_round_record",
+  "game_id": "risk-list-game-01",
+  "round_no": 2,
+  "trigger": {
+    "kind": "technical_logs_requested",
+    "event": "technical side must reconstruct all overnight jobs, versions and input identities"
+  },
+  "eligible_actors": ["luo_cheng", "office_director", "zhou_ye"],
+  "actions": [
+    {
+      "action_id": "r2-luo-inspect-process-records",
+      "actor": "luo_cheng",
+      "action": "inspect",
+      "basis": "project-office records should contain manual rerun applications and timeline evidence",
+      "intent": "match technical jobs to an authorized process record"
+    },
+    {
+      "action_id": "r2-zhou-reconstruct-runs",
+      "actor": "zhou_ye",
+      "action": "inspect",
+      "basis": "technical operations logs contain deployment, rollback, job timestamps, input hashes and export events",
+      "intent": "identify actual serving versions and distinguish job labels from actual instances"
+    },
+    {
+      "action_id": "r2-zhou-reject-single-cause",
+      "actor": "zhou_ye",
+      "action": "correct",
+      "basis": "both batch 2 and batch 3 ran v3.4.2 but their input snapshots differ",
+      "intent": "prevent the group from equating rollback with proof of the classification anomaly"
+    },
+    {
+      "action_id": "r2-director-contact-hospital",
+      "actor": "office_director",
+      "action": "contact",
+      "basis": "technical logs show a manual request from the hospital interface account at 23:44",
+      "intent": "establish why the rerun was requested and what data had changed"
+    }
+  ],
+  "state_deltas": [
+    {
+      "domain": "actor_state",
+      "path": ["zhou_ye", "active"],
+      "value": true,
+      "evidence": "technical reconstruction requires his deployment/log access"
+    },
+    {
+      "domain": "public_information",
+      "path": ["overnight_run_timeline"],
+      "value": {
+        "23:31": "scheduled run",
+        "23:46": "manual rerun; source of leaked screenshot",
+        "23:51": "automatic retry"
+      },
+      "evidence": "technical job logs plus screenshot timestamp"
+    },
+    {
+      "domain": "public_information",
+      "path": ["confirmed_serving_version_batches_2_3"],
+      "value": "v3.4.2",
+      "evidence": "deployment and container logs"
+    },
+    {
+      "domain": "private_information",
+      "path": ["luo_cheng", "manual_rerun_application"],
+      "value": "currently not found in project-office records; absence is not yet proof no record exists elsewhere",
+      "evidence": "project record search"
+    },
+    {
+      "domain": "beliefs",
+      "path": ["office_director", "leading_hypothesis"],
+      "value": "rollback is real but cannot by itself explain the suspicious row because the relevant batches have different inputs",
+      "evidence": "same old version across differing input snapshots"
+    },
+    {
+      "domain": "beliefs",
+      "path": ["zhou_ye", "leading_hypothesis"],
+      "value": "the incident requires separating version effects from input-snapshot and data-contract effects",
+      "evidence": "input hashes and version reconstruction"
+    },
+    {
+      "domain": "mysteries",
+      "path": ["q_run_count", "status"],
+      "value": "paid_or_transformed",
+      "evidence": "three overnight runs reconstructed"
+    },
+    {
+      "domain": "mysteries",
+      "path": ["q_missing_manual_status", "status"],
+      "value": "open",
+      "evidence": "batch-3 input manifest lacks manual_followup_status"
+    },
+    {
+      "domain": "mysteries",
+      "path": ["q_missing_manual_status", "actionable"],
+      "value": true,
+      "evidence": "input manifest discrepancy is now directly testable against hospital/export records"
+    }
+  ],
+  "paid_questions": [
+    "q_run_count",
+    "setup:version_342_vs_350"
+  ],
+  "new_questions": [
+    {
+      "question_id": "q_manual_rerun_authorization_path",
+      "question": "Who or what process authorized the 23:44 rerun, and why is the project-office application record not currently visible?",
+      "actionable": true,
+      "status": "open"
+    }
+  ],
+  "map_unlocks": [
+    "hospital_followup_desk"
+  ],
+  "end_reason": "all_eligible_actors_resolved",
+  "material_result": "The easy explanation 'old version caused the anomaly' becomes insufficient. The active problem moves from technical logs into the data snapshot and hospital rerun process.",
+  "next_round_trigger": {
+    "kind": "input_contract_discrepancy",
+    "event": "batch-3 manifest is missing manual_followup_status and hospital-side rerun context must be reconstructed before the first external reply"
+  },
+  "prose_sources": [
+    "docs/adaptation/central-event-probes/ch02-how-many-runs-v1.md"
+  ]
+}
