@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "recorded_before_implementing_or_running_round_10",
+  "created_at": "2026-10-11",
+  "authority": "runtime/message-bus/messages/2026-10-11-0023-peer-decision-accept-mixed-motive-failure-fix-opponent-model-once.json",
+  "purpose": "Fix the round-10 prediction in the git history before the bounded learner-aware opponent model is implemented or run, so the result cannot be rationalised after the fact and no parameter can be tuned toward it.",
+  "benchmark": "docs/adaptation/sck-mixed-motive-benchmark-contract-v1.md, unchanged",
+  "planned_change": "Replace the rule-following-partner assumption with the smallest learner-aware opponent model: a Laplace-smoothed empirical frequency distribution over each other agent's observed contributions, updated only from public history, used to compute expected partner contribution by exact convolution. The hidden-cost belief, planner, environment, utilities, prior, action set and integration gate stay unchanged.",
+  "analytic_work_done_before_any_run": {
+    "all_zero_is_a_nash_equilibrium": {
+      "claim": "true",
+      "derivation": "With threshold 6 and a maximum contribution of 3, a single agent cannot make the project succeed alone. If every other agent contributes 0 then any own contribution x yields success = false, so the payoff is -cost*x, which is maximised at x = 0 for every cost type. Universal defection is therefore a Nash equilibrium of the contract's game."
+    },
+    "initial_laplace_prior_best_response": {
+      "setup": "Three opponents, each uniform over {0,1,2,3} under the Laplace prior. The distribution of the opponents' total is the coefficients of (1+t+t^2+t^3)^3 / 64, namely 1,3,6,10,12,12,10,6,3,1 for totals 0 through 9.",
+      "tail_probabilities": {"P(total>=6)": 0.3125, "P(total>=5)": 0.5, "P(total>=4)": 0.6875, "P(total>=3)": 0.84375},
+      "expected_values": {
+        "x=0": {"any cost": 1.875},
+        "x=1": {"cost=1": 2.0, "cost=2": 1.0, "cost=4": -1.0},
+        "x=2": {"cost=1": 2.125, "cost=2": 0.125, "cost=4": -3.875},
+        "x=3": {"cost=1": 2.0625, "cost=2": -0.9375, "cost=4": -6.9375}
+      },
+      "predicted_first_round_best_response": {"cost=1": 2, "cost=2": 0, "cost=4": 0},
+      "note": "This is expected-value maximisation, not forced exploration, so it is permitted by the peer's constraint against contributing merely to create evidence."
+    }
+  },
+  "predictions": [
+    "P1: belief and belief_planning will improve on their previous 0.00 mean social utility, because type-1 seats contribute 2 in the first round before any evidence exists.",
+    "P2: the improvement will come only from type-1 seats. Type-2 and type-4 seats will contribute 0 from the first round and, once they observe mostly zeros, type-1 seats will revert to 0 as well.",
+    "P3: if the profile reaches all-zero it is absorbing under any history-based model without forced exploration, because all-zero is a Nash equilibrium and the empirical model will then predict zeros. The final rounds should therefore show a higher zero-contribution share than the first rounds.",
+    "P4: belief and belief_planning will remain below the type-blind memory heuristic (43.50 mean social utility) and may remain below uniform random plain (12.50), because at most one of the three cost types contributes and success needs at least two contributors of 3, or three of 2.",
+    "P5: predicted success probability will become better calibrated than the previous 0.896 believed against 0.000 realised, because a zero-heavy history drives the empirical convolution's success probability down. Calibration improving is not the same as utility improving.",
+    "P6: the posterior mass on the true type vector will move away from the no-evidence prior only in episodes where informative rounds occur, that is where at least one contribution is strictly positive.",
+    "P7: information leakage stays 0, and it stays structurally zero rather than being an achievement."
+  ],
+  "acceptance_gate_to_be_applied_verbatim": "belief or belief_planning must materially exceed the previous zero social utility on the unchanged benchmark; the gain must come from corrected expectations, contingent cooperation or a useful belief update rather than a deterministic symmetry exploit; predicted success must be better calibrated to realised success; the policy must not preserve a pathological all-zero free-riding equilibrium; information leakage remains zero.",
+  "failure_rule_to_be_applied_verbatim": "If the bounded learner-aware correction still collapses, still free-rides pathologically, or fails to beat the fixed cost-threshold policy in a meaningful way, stop SCK feature development. Retain StrategicObservation, the information boundaries, the BeliefState/StrategicDecision/CommunicationIntent interfaces, the replay/audit tooling and the two negative benchmarks, then return engineering priority to StoryBox and novel work.",
+  "honest_note": "P2 to P4 predict that the bounded repair is unlikely to satisfy the acceptance gate, and they are recorded before the run precisely so that a partial improvement cannot be presented as a pass."
+}
