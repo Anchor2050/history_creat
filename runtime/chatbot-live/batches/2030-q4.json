@@ -1,0 +1,82 @@
+{
+  "schema_version":1,
+  "batch_id":"career-six-chatbot-2030-q4",
+  "status":"noncanonical_chatbot_replay_batch",
+  "period":{"start":"2030-10-01","end":"2030-12-31"},
+  "generation_mode":"chatgpt_product_interaction_chain",
+  "era_lens":[
+    "到2030年底，部分选择开始形成更强路径依赖，但仍通过租赁、有限合同与主动记录保留可逆性。",
+    "研究合作的贡献边界必须从长期实际贡献中产生，不能因为关系熟或参与时间长自动署名。",
+    "2031将首次进入购房考虑窗口，但工作稳定本身不构成购房理由。"
+  ],
+  "exogenous_hard_world_events":[
+    {"event_id":"2030q4:offer01","at":"2030-10-10","kind":"offer_written_terms_update","actor":"lin_jing","result":"role_scope_and_evaluation_structure_received_service_load_bounded","visibility":"private_to_actor"},
+    {"event_id":"2030q4:review01","at":"2030-11-06","kind":"third_year_role_review","actor":"he_xin","result":"meets_expectations_no_role_change_protected_learning_partially_sustained","visibility":"private_to_actor"},
+    {"event_id":"2030q4:review02","at":"2030-11-20","kind":"third_year_role_review","actor":"song_nan","result":"meets_expectations_independent_analysis_scope_stable_no_title_change","visibility":"private_to_actor"},
+    {"event_id":"2030q4:review03","at":"2030-12-02","kind":"second_year_role_review","actor":"gao_yuan","result":"meets_expectations_no_role_change","visibility":"private_to_actor"}
+  ],
+  "windows":[
+    {"packet_id":"micro:chatbot:2030-10:lin-offer-final:01","start_date":"2030-10-12","end_date":"2030-10-12","event_kind":"offer_final_check","participants":["lin_jing","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2030-10:tang-xu-contribution-review:01","start_date":"2030-10-20","end_date":"2030-10-20","event_kind":"research_contribution_review","participants":["tang_yu","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2030-10:tang-shen-manuscript-rewrite:01","start_date":"2030-10-27","end_date":"2030-10-27","event_kind":"manuscript_rewrite_review","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2030-11:zhou-handoff-experiment:01","start_date":"2030-11-08","end_date":"2030-11-08","event_kind":"work_design_experiment_review","participants":["zhou_ye","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2030-11:he-lin-path-dependence:01","start_date":"2030-11-15","end_date":"2030-11-15","event_kind":"career_path_dependence_chat","participants":["he_xin","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2030-11:song-chen-portability:01","start_date":"2030-11-23","end_date":"2030-11-23","event_kind":"professional_portability_checkin","participants":["song_nan","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2030-12:gao-luo-year-end:01","start_date":"2030-12-06","end_date":"2030-12-06","event_kind":"old_classmate_year_end_call","participants":["gao_yuan","luo_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2030-12:zhao-project-boundary:01","start_date":"2030-12-14","end_date":"2030-12-14","event_kind":"project_manager_boundary_scene","participants":["zhao_ke"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2030-12:year-end-group-call:01","start_date":"2030-12-27","end_date":"2030-12-27","event_kind":"year_end_group_call","participants":["lin_jing","chen_lan","xu_hang","zhou_ye","gao_yuan","luo_cheng","tang_yu","he_xin","song_nan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events":[
+    {"event_id":"2030q4:e01","kind":"social_interaction","at":"2030-10-12","event_kind":"offer_final_check","speaker":"lin_jing","listener":"chen_lan","act":"share_experience","content":"林静拿到书面职责和评价结构后确认，教学与服务负担有限、研究自主性真实存在，但年度评价压力也明确写在制度里；她把这当成可见代价，而不是隐藏风险。","channel":"in_person","evidence":"Q3最终offer检查获得书面信息。"},
+    {"event_id":"2030q4:e02","kind":"social_interaction","at":"2030-10-12","event_kind":"offer_final_check","speaker":"chen_lan","listener":"lin_jing","act":"offer_information","content":"陈岚提醒她只判断未来两三年是否愿意承担这个评价结构，不用把接受高校岗位等同于一辈子留在高校。","channel":"in_person","evidence":"阶段性bundle框架。"},
+    {"event_id":"2030q4:e03","kind":"social_interaction","at":"2030-10-12","event_kind":"offer_final_check","speaker":"lin_jing","listener":"chen_lan","act":"make_plan","content":"林静决定接受区域高校研究岗，计划2031年初搬迁；理由是当前研究自主性、住房和时间结构整体可承受，同时保留未来重新评估的可能。","channel":"in_person","evidence":"书面职责、住房与bundle检查后接受。"},
+
+    {"event_id":"2030q4:e04","kind":"social_interaction","at":"2030-10-20","event_kind":"research_contribution_review","speaker":"tang_yu","listener":"xu_hang","act":"share_experience","content":"唐雨把过去几年贡献日志摊开：许航多次参与验证设计、冻结反例集、跨实现复查和命题收缩后的边界核验；这些检查实际改变了哪些结论能被保留。","channel":"in_person","evidence":"贡献来自2027-2030连续事件链，而非一次技术帮忙。"},
+    {"event_id":"2030q4:e05","kind":"social_interaction","at":"2030-10-20","event_kind":"research_contribution_review","speaker":"xu_hang","listener":"tang_yu","act":"set_boundary","content":"许航说如果最终文章把验证框架、反例可靠性和边界判定作为实质组成，他愿意继续完成对应写作；如果这些最后只剩附带计算，他也接受贡献停在致谢或其他合适位置。","channel":"in_person","evidence":"署名继续绑定最终实际贡献。"},
+    {"event_id":"2030q4:e06","kind":"social_interaction","at":"2030-10-20","event_kind":"research_contribution_review","speaker":"tang_yu","listener":"xu_hang","act":"make_plan","content":"两人暂时把许航记为共同作者候选，但不写死作者顺序；最终取决于验证部分是否进入主文、许航是否承担对应写作和最终责任。","channel":"in_person","evidence":"形成贡献候选，不直接写入正式作者事实。"},
+
+    {"event_id":"2030q4:e07","kind":"social_interaction","at":"2030-10-27","event_kind":"manuscript_rewrite_review","speaker":"tang_yu","listener":"shen_yan","act":"share_experience","content":"唐雨的新稿已经完全改成‘失效边界—最小结果—反例解释’结构，旧的大命题只作为被反例否掉的背景，不再放在标题或主结论里。","channel":"in_person","evidence":"Q3机制稿重写完成。"},
+    {"event_id":"2030q4:e08","kind":"social_interaction","at":"2030-10-27","event_kind":"manuscript_rewrite_review","speaker":"shen_yan","listener":"tang_yu","act":"offer_information","content":"沈雁认为现在可以进入正式投稿准备，但要求再做一次贡献和论证清单，确认开放问题、验证贡献和理论责任都写清楚。","channel":"in_person","evidence":"正式投稿仍需最终准备检查。"},
+
+    {"event_id":"2030q4:e09","kind":"social_interaction","at":"2030-11-08","event_kind":"work_design_experiment_review","speaker":"zhou_ye","listener":"xu_hang","act":"share_experience","content":"周野试行模板和异常升级一个月后，普通交接请求明显更多能自行完成，他个人被拉进去处理常规问题的次数减少；少数复杂异常仍需要他判断。","channel":"wechat_private","evidence":"Q3工作设计实验得到实际结果。"},
+    {"event_id":"2030q4:e10","kind":"social_interaction","at":"2030-11-08","event_kind":"work_design_experiment_review","speaker":"xu_hang","listener":"zhou_ye","act":"offer_information","content":"许航说这说明技术所有权开始从‘本人总在场’转成‘标准能让别人工作’，复杂例外仍由他处理反而更能体现判断价值。","channel":"wechat_private","evidence":"工作边界实验正向但不等于升职。"},
+
+    {"event_id":"2030q4:e11","kind":"social_interaction","at":"2030-11-15","event_kind":"career_path_dependence_chat","speaker":"he_xin","listener":"lin_jing","act":"share_experience","content":"何欣说第三年最大的变化不是更喜欢岗位，而是发现如果现在离开，要放弃的福利连续性、熟悉流程和同城生活都比第一年多；她开始把这种锁定单独记账。","channel":"video_call","evidence":"路径依赖从实际积累生成。"},
+    {"event_id":"2030q4:e12","kind":"social_interaction","at":"2030-11-15","event_kind":"career_path_dependence_chat","speaker":"lin_jing","listener":"he_xin","act":"share_experience","content":"林静说自己反而刚准备搬去新城市，提醒何欣‘已有很多’和‘未来仍值得’是两个问题；何欣也提醒她新岗位第一年别过早把研究自主性当成永久事实。","channel":"video_call","evidence":"不同阶段互相校准。"},
+
+    {"event_id":"2030q4:e13","kind":"social_interaction","at":"2030-11-23","event_kind":"professional_portability_checkin","speaker":"song_nan","listener":"chen_lan","act":"share_experience","content":"宋楠说便携案例档案完成后，她第一次能把公司里学到的东西拆成不依赖公司名称的判断能力；她没有因此立刻求职，只把它当作未来可逆性的保险。","channel":"video_call","evidence":"便携资产完成后的解释。"},
+    {"event_id":"2030q4:e14","kind":"social_interaction","at":"2030-11-23","event_kind":"professional_portability_checkin","speaker":"chen_lan","listener":"song_nan","act":"repair","content":"陈岚说她当年最怕的是只有离开时才发现自己会什么；宋楠现在提前做这件事，反而可以不急着离开。","channel":"video_call","evidence":"职业可逆性反馈。"},
+
+    {"event_id":"2030q4:e15","kind":"social_interaction","at":"2030-12-06","event_kind":"old_classmate_year_end_call","speaker":"gao_yuan","listener":"luo_cheng","act":"share_experience","content":"高原第二年工作仍稳定，没有职位变化；他开始接受职业成长未必表现为快速换岗，但也把机会密度不足继续记在长期成本里。","channel":"phone","evidence":"第二年评估。"},
+    {"event_id":"2030q4:e16","kind":"social_interaction","at":"2030-12-06","event_kind":"old_classmate_year_end_call","speaker":"luo_cheng","listener":"gao_yuan","act":"share_experience","content":"罗诚说自己研究内容增加后更愿意继续留，但同样不准备把区域高校城市当成永远不动；两个人都没有形成新的求职候选。","channel":"phone","evidence":"当前留任不等于终身锁定。"},
+
+    {"event_id":"2030q4:e17","kind":"actor_state_interaction","at":"2030-12-14","event_kind":"project_manager_boundary_scene","speaker":"zhao_ke","listener":"self_record","act":"share_experience","content":"赵珂发现今年把模糊请求更早挡在项目入口后，自己真正需要救火的次数继续下降，但他也更常承担解释‘为什么不能先做再说’的沟通成本。","channel":"private_record","evidence":"边界制度化后的二阶成本。"},
+
+    {"event_id":"2030q4:e18","kind":"social_interaction","at":"2030-12-27","event_kind":"year_end_group_call","speaker":"lin_jing","listener":"he_xin","act":"share_experience","content":"林静公开说自己接受了区域高校岗位，年后搬家；她只谈了研究自主、住房和评价压力的交换，没有把它说成回归学术的胜利。","channel":"video_call","evidence":"本人主动披露已接受offer。"},
+    {"event_id":"2030q4:e19","kind":"social_interaction","at":"2030-12-27","event_kind":"year_end_group_call","speaker":"tang_yu","listener":"xu_hang","act":"share_experience","content":"唐雨只说项目终于从大命题失败里收缩出一条能站住的机制线，正在做投稿前准备；许航没有在群里谈作者候选。","channel":"video_call","evidence":"作者讨论保持私密。"},
+    {"event_id":"2030q4:e20","kind":"social_interaction","at":"2030-12-27","event_kind":"year_end_group_call","speaker":"zhou_ye","listener":"gao_yuan","act":"small_talk","content":"周野和高原最后聊的是春节安排、租房和今年有没有真正休过假，工作比较只占了很少一部分。","channel":"video_call","evidence":"普通生活密度。"}
+  ],
+  "hard_world_candidate_updates":[
+    {"candidate_id":"candidate:2030-q3:lin-university-offer-final:01","checked_at":"2030-10-12","checks":{"written_role_scope":true,"evaluation_structure":true,"service_load":true,"housing_feasibility":true,"cash_after_relocation":true,"research_autonomy":true,"reentry_option":true},"result":"offer_accepted_noncanonical","resource_effect":"employment planned 2031-01 in regional_university_city"},
+    {"candidate_id":"candidate:2030-q3:tang-mechanism-manuscript-rewrite:01","checked_at":"2030-10-27","checks":{"narrative_rewritten":true,"proof_and_counterexample_aligned":true,"open_limits_explicit":true,"contribution_review":"in_progress"},"result":"submission_preparation_allowed_noncanonical","resource_effect":"manuscript may enter final preparation; no submission yet"},
+    {"candidate_id":"candidate:2030-q3:zhou-handoff-boundary-experiment:01","checked_at":"2030-11-08","checks":{"templates_used":true,"exception_rate_recorded":true,"handoff_quality_not_degraded":true,"zhou_time_load_change":"routine_interruptions_lower"},"result":"work_design_experiment_successful_noncanonical","resource_effect":"template-first handoff becomes current work practice"}
+  ],
+  "new_hard_world_candidates":[
+    {"candidate_id":"candidate:2030-q4:tang-xu-contribution-final:01","created_at":"2030-10-20","type":"research_contribution_assessment","beneficiary":"tang_yu_and_xu_hang","description":"许航作为共同作者候选，最终资格与顺序取决于验证部分是否进入主文、对应写作和最终责任。","requires_checks":["validation_material_in_main_manuscript","xu_writing_contribution","final_accountability","all_authors_consent"],"status":"pending_contribution_noncanonical"},
+    {"candidate_id":"candidate:2030-q4:tang-submission-prep:01","created_at":"2030-10-27","type":"research_submission_preparation","beneficiary":"tang_yu","description":"机制边界稿进入投稿前最终论证、贡献和开放问题检查。","requires_checks":["argument_checklist_complete","contribution_resolved","open_limits_clear","target_scope_match"],"status":"pending_preparation_noncanonical"},
+    {"candidate_id":"candidate:2030-q4:lin-relocation-start:01","created_at":"2030-10-12","type":"employment_relocation","beneficiary":"lin_jing","description":"为2031年初区域高校入职进行租住、搬迁与现金缓冲检查。","requires_checks":["rental_available","cash_after_relocation","commute_feasible","employment_start_confirmed"],"status":"pending_transition_noncanonical"},
+    {"candidate_id":"candidate:2030-q4:zhou-he-2031-housing-consideration:01","created_at":"2030-12-31","type":"housing_consideration_window","beneficiary":"zhou_ye_and_he_xin_separately","description":"2031首次允许两人分别考虑是否继续租住或研究购房，但不得因同城、稳定岗位或弱联系自动联合决策。","requires_checks":["individual_cash_buffer","city_retention_intent","mortgage_or_purchase_feasibility","future_mobility_cost"],"status":"window_opens_2031_noncanonical"}
+  ],
+  "actor_state_evidence":[
+    {"at":"2030-10-12","actor":"lin_jing","dimension":"employment_transition","evidence":"经过非学术线真实落选和高校offer完整bundle检查后接受区域高校研究岗，计划2031年初迁移。","status":"candidate_state_evidence"},
+    {"at":"2030-11-08","actor":"zhou_ye","dimension":"work_boundary","evidence":"把技术交接从个人随时介入转成模板优先、异常升级，常规打断下降。","status":"candidate_state_evidence"},
+    {"at":"2030-11-23","actor":"song_nan","dimension":"career_reversibility","evidence":"完成不泄密的便携案例档案后，外部可迁移能力更可见，但当前无主动离职候选。","status":"candidate_state_evidence"},
+    {"at":"2030-12-06","actor":"gao_yuan","dimension":"second_year_retention","evidence":"第二年继续留任，同时持续记录低机会密度为长期成本。","status":"candidate_state_evidence"},
+    {"at":"2030-12-06","actor":"luo_cheng","dimension":"second_year_retention","evidence":"专业研究内容增加提升留任意愿，但城市和岗位仍未被写成永久锁定。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence":[
+    {"at":"2030-10-20","pair":["tang_yu","xu_hang"],"direction":"positive","evidence":"多年验证合作已累积到需要正式贡献审查的程度；关系证据来自具体贡献而非亲密度。"},
+    {"at":"2030-11-15","pair":["he_xin","lin_jing"],"direction":"positive","evidence":"两人从早期岗位比较延续到不同职业阶段的路径依赖校准，关系仍是低频职业镜像。"}
+  ],
+  "audit_rules":{"single_batch_noncanonical":true,"generated_through_interaction_chain":true,"stable_job_does_not_force_home_purchase":true,"coauthorship_requires_final_contribution_checks":true,"accepted_academic_job_is_stage_not_destiny":true,"family_age_alone_cannot_create_health_or_care_crisis":true,"no_unearned_knowledge":true,"conversation_does_not_auto_change_relationship":true,"hard_world_candidates_require_feasibility":true,"bilateral_memory_derivable_from_events":true}
+}
