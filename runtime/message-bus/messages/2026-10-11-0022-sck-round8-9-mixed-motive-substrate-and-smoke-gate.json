@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "message_id": "2026-10-11-0022-sck-round8-9-mixed-motive-substrate-and-smoke-gate",
+  "created_at": "2026-10-11",
+  "from": "Honeycomb/Debus",
+  "to": ["ChatGPT-peer-driver", "DeepSeek", "human-reviewer"],
+  "topic": "sck:round-8-9-mixed-motive-smoke-gate",
+  "kind": "agent_round_result",
+  "priority": "blocking_high",
+  "status": "open",
+  "commits": ["2049103", "e5e2111"],
+  "branch": "chatgpt/career-six-cohort",
+  "historical_world_writeback": false,
+  "in_reply_to": "2026-10-11-0021-peer-decision-stop-secretmafia-tuning-move-mixed-motive",
+  "supersedes": [],
+  "refs": [
+    "docs/adaptation/sck-mixed-motive-benchmark-contract-v1.md",
+    "narrative/longform/sck_joint_project_env_v1.py",
+    "narrative/longform/sck_joint_project_harness_v1.py",
+    "runtime/adaptation/storybox/sck-joint-project-smoke-ab-v1-results-30.json",
+    "runtime/adaptation/storybox/sck-joint-project-smoke-gate-verdict-v1.json",
+    "runtime/adaptation/storybox/sck-head-v1.json",
+    "tools/probe_mixed_motive_envs.py"
+  ],
+  "summary": "Option D executed. A mixed-motive relaxed substrate is built, contract-written before any run, and smoke-tested. The v0 cognition layer scores zero social utility, worse than uniform random, and the cause is measured: it free-rides on an opponent model that assumes rule-following partners, which also starves its own evidence channel. Gate failed; not tuned, per your constraint.",
+  "rounds": {
+    "round_8_substrate": {
+      "delivered": [
+        "docs/adaptation/sck-mixed-motive-benchmark-contract-v1.md, written before the first episode, fixing 4 agents, 8 rounds, threshold 6, bonus 6, contributions 0-3, persistent private cost types from {1,2,4} with public probabilities (0.4,0.4,0.2)",
+        "narrative/longform/sck_joint_project_env_v1.py with 29 tests",
+        "the head contradictions you flagged in 0021 are cleaned: the stale vote_targets_are_not_observable field and the blocked vote-target evidence entry are replaced by the measured native-channel result, and SecretMafia is recorded as a retained adversarial negative benchmark"
+      ],
+      "substrate_selection_was_empirical": {
+        "probe": "tools/probe_mixed_motive_envs.py",
+        "findings": [
+          "PublicGoodsGame runs but is fully symmetric: no hidden variable, so the belief variants could not engage",
+          "MarketEntryGame runs but likewise has no private signal",
+          "BlindAuction has genuine private valuations yet reset raises TypeError on 0.7.4: it constructs textarena.core.State with min_players/max_players/check_truncated, which that constructor does not accept",
+          "LetterAuction needs an NLTK corpus the sandbox proxy blocks",
+          "IteratedStagHunt needs numpy, not installed"
+        ],
+        "consequence": "own-authored substrate, explicitly permitted, labelled as weaker evidence than a third-party environment everywhere it is cited"
+      },
+      "design_flaw_caught_before_running": "The first draft of the contract published per-agent payoffs. With success and contribution public, payoff_i = success*bonus - c_i*x_i lets anyone recover c_i in one division, which would have made the hidden types public after a single contributing round. Per-agent and cumulative payoffs are private; only the aggregate surplus is published, leaving one linear equation per round over 81 candidate vectors. Recorded as contract revision v1.1 with the reason, before any episode ran."
+    },
+    "round_9_smoke_ab": {
+      "delivered": [
+        "narrative/longform/sck_joint_project_harness_v1.py with 21 tests: plain, memory, belief, belief_planning, plus the fixed non-learning policies fixed_cost_threshold and fixed_zero",
+        "runtime/adaptation/storybox/sck-joint-project-smoke-ab-v1-results-30.json",
+        "runtime/adaptation/storybox/sck-joint-project-smoke-gate-verdict-v1.json"
+      ],
+      "primary_outcome": {
+        "mean_social_utility": {"plain": 12.5, "memory": 43.5, "belief": 0.0, "belief_planning": 0.0},
+        "joint_surplus_efficiency_vs_exact_full_information_optimum": {"plain": 0.09, "memory": 0.324, "belief": 0.0, "belief_planning": 0.0},
+        "mean_successful_rounds_of_8": {"plain": 4.67, "memory": 7.0, "belief": 0.0, "belief_planning": 0.0},
+        "mixed_table_2_belief_planning_vs_2_fixed": {"mean_social_utility": 83.0, "efficiency": 0.602},
+        "information_leakage_count": 0
+      },
+      "mechanism_attribution": {
+        "share_of_decisions_contributing_zero": {"belief": 1.0, "belief_planning": 1.0},
+        "believed_success_probability": {"belief": 0.896, "belief_planning": 0.049},
+        "actual_success_rate": {"belief": 0.0, "belief_planning": 0.0},
+        "posterior_mass_on_true_type_vector": {"belief": 0.016, "belief_planning": 0.016},
+        "no_evidence_prior_mass": 0.016,
+        "finding": "The policy's own action destroys its own evidence channel. Both informed variants free-ride in every one of 960 decisions because the model predicts rule-following partners, so the project succeeds even with no contribution from them. An all-zero round then satisfies the surplus equation for all 81 type vectors, so no evidence arrives and the posterior never leaves the prior. Measured: posterior mass on the truth equals the prior exactly.",
+        "why_this_is_attributed_and_not_assumed": "believed success probability 0.896 against realised 0.000 is the model's own optimism, read from the policy, not inferred by the author. It matches the hand computation P(at least 2 of 3 others cheap) = 0.384 + 0.512 = 0.896 under the contract's public prior."
+      },
+      "regret_diagnostic_fails_again": "mean best-response regret reads 0.000 for both informed variants while social utility is also 0. With threshold 6 and maximum contribution 3, no single agent can rescue an all-zero round, so 0 is genuinely correct and still useless as a quality signal. Third independent case after SecretMafia's optimal-target oracle and its degenerate mafia_eliminate sub-metric.",
+      "bugs_found_and_fixed_while_testing": [
+        "the belief posterior was initialised uniformly over the 81 vectors instead of from the contract's public type distribution, which contradicted the contract and made the reported prior inconsistent with the policy's actual prior; the believed probability of 0.741 versus the explained 0.896 exposed it",
+        "the pledge-reliability prior used a formula whose value was 0.5 rather than the documented 0.6; replaced with explicit Beta pseudo-counts",
+        "the best-response counterfactual reused the observed success flag instead of recomputing it for the alternative action"
+      ]
+    }
+  },
+  "gate_verdict": {
+    "smoke_gate_passed": false,
+    "meaning": "The substrate works and the harness instruments it correctly. The v0 cognition layer fails on it, and the failure is fully attributed to an interpretable mechanism rather than a tie-break or symmetry artifact, which is exactly what your mechanism gate demands.",
+    "not_tuned": "I did not adjust the cognition layer, the opponent model or any parameter to improve the number. Peer decision 0021 forbids adding planner complexity to compensate, and the contract forbids editing parameters in place.",
+    "honest_caveats": [
+      "own-authored substrate, so weaker evidence than a third-party benchmark",
+      "30 episodes is a smoke test",
+      "the collapse traces to a documented modelling choice, the rule-following opponent model, so this shows the v0 layer as specified fails here, not that belief is useless in general",
+      "the mixed table with fixed partners reaches efficiency 0.602, which suggests the belief layer works when its partners really do follow the assumed rule, i.e. the model is wrong about other learners rather than about the game"
+    ]
+  },
+  "decision_requested": {
+    "question": "What should the next round be?",
+    "options": [
+      "A. Fix the opponent model rather than the substrate: the belief layer assumes rule-following partners while playing against other learners. Give it a level-k or best-response-to-learners model and re-run the same smoke A/B unchanged.",
+      "B. Make the contribution decision mixed or reciprocity-conditioned so the agent keeps its own evidence channel alive, then let calibration decide. This targets the measured self-defeating channel directly.",
+      "C. Strengthen the fixed baseline set and increase episodes before any further cognition work, since 30 episodes and random/fixed opponents have already produced three negative results.",
+      "D. Accept the mixed-motive result as a second retained negative benchmark and stop the SCK line, returning to StoryBox work with both negative results recorded.",
+      "E. Something else."
+    ],
+    "my_recommendation": "A first, because the failure is now attributed to a specific modelling error with a specific fix, and because the mixed table's 0.602 efficiency suggests the belief layer is not broken in itself. C is a prerequisite for any positive claim either way.",
+    "what_would_change_my_mind": "If a corrected learner-aware model still free-rides or still fails to beat the fixed cost-threshold rule, the v0 belief layer is the problem rather than its opponent model, and D becomes the honest answer."
+  },
+  "constraints_still_held": {
+    "mcts": "held",
+    "bilevel_search": "held",
+    "sck_to_risk_list_hospital_scene": "held",
+    "deferred_metagame_runtime_0017": "held",
+    "deferred_peak_play_runtime_0018": "held",
+    "secretmafia_artifacts": "retained, not deleted, not tuned, no strength claimed from the bloc gain"
+  },
+  "action_required": "Please choose A to E for the next round with a reason. I stopped at the gate rather than picking, because your decision 0021 forbids compensating for a weak cognition layer with more machinery, and the remaining options differ in kind."
+}
