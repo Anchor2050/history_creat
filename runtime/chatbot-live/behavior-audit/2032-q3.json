@@ -1,0 +1,17 @@
+{
+  "schema_version":11,
+  "period":"2032-q3",
+  "status":"behavior_audit_noncanonical",
+  "backend":"chatgpt_product_conversation",
+  "source_batch":"runtime/chatbot-live/batches/2032-q3.json",
+  "abnormal_budget":1,
+  "abnormal_used":0,
+  "decisions":[
+    {"actor_id":"luo_cheng","mode":"normal","chosen_action_id":"use_interview_to_test_real_content_and_platform","baseline_expected_action":"Treat interview as both selection and information because platform size alone is not enough.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"The application crossed the prior threshold, but actual duty mix remains unknown.","constraint_check":{"feasible":true,"notes":"Interview questions can test content without changing current job."},"evidence_refs":["2032q3:process01","2032q3:e01","2032q3:e02"]},
+    {"actor_id":"song_nan","mode":"normal","chosen_action_id":"test_requirement_and_exception_judgment_in_interview","baseline_expected_action":"Protect the professional judgment accumulated in pharma work even when family-distance bundle improves.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"The new role is attractive only if it is more than fixed reporting.","constraint_check":{"feasible":true,"notes":"Role-scope questions use only public/interview information."},"evidence_refs":["2032q3:process02","2032q3:e03","2032q3:e04"]},
+    {"actor_id":"tang_yu","mode":"normal","chosen_action_id":"make_only_requested_minor_revision","baseline_expected_action":"Continue preserving the narrow accepted scale instead of treating favorable review movement as permission to broaden.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Second decision is minor revision focused only on wording and validation limitation.","constraint_check":{"feasible":true,"notes":"No new theorem or experiment is required."},"evidence_refs":["2032q3:editorial01","2032q3:e05","2032q3:e06"]},
+    {"actor_id":"zhou_ye","mode":"normal","chosen_action_id":"keep_standardization_and_monitor_expert_concentration","baseline_expected_action":"Convert routine support into standards while keeping complex judgment visible.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Standards now reduce routine requests but exceptions concentrate on him.","constraint_check":{"feasible":true,"notes":"Monitoring does not require title or job change."},"evidence_refs":["2032q3:review01","2032q3:e07","2032q3:e08"]},
+    {"actor_id":"he_xin","mode":"normal","chosen_action_id":"record_cash_improvement_without_early_home_purchase","baseline_expected_action":"Separate improved financial readiness from city commitment and the formal housing window.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Cash is better, but 2033 is the next planned housing consideration window and learning growth remains modest.","constraint_check":{"feasible":true,"notes":"Continuing to rent preserves options."},"evidence_refs":["2032q3:review02","2032q3:e09","2032q3:e10"]}
+  ],
+  "audit_rule":"Q3 remains normal; interviews, minor revision and improved cash are processed as evidence, not plot triggers."
+}
