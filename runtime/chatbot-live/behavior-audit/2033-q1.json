@@ -1,0 +1,17 @@
+{
+  "schema_version":11,
+  "period":"2033-q1",
+  "status":"behavior_audit_noncanonical",
+  "backend":"chatgpt_product_conversation",
+  "source_batch":"runtime/chatbot-live/batches/2033-q1.json",
+  "abnormal_budget":1,
+  "abnormal_used":0,
+  "decisions":[
+    {"actor_id":"song_nan","mode":"normal","chosen_action_id":"complete_second_city_move_and_observe_before_judging","baseline_expected_action":"Treat the accepted offer as a bundle experiment whose real learning value must be observed after moving.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Employment, lease, move cash and commute all pass; new-team reality remains unknown.","constraint_check":{"feasible":true,"notes":"Relocation is completed while renting."},"evidence_refs":["2033q1:move01","2033q1:e01","2033q1:e03"]},
+    {"actor_id":"zhou_ye","mode":"normal","chosen_action_id":"buy_home_after_second_window_checks_pass","baseline_expected_action":"Preserve mobility until cash and city commitment materially change; reconsider only at scheduled later window.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Compared with 2031, liquidity is stronger and five years of role/city evidence increase commitment while expert concentration is not an exit trigger.","constraint_check":{"feasible":true,"notes":"Downpayment and minimum buffer pass; mortgage is affordable under engineering priors."},"evidence_refs":["2033q1:house01","2033q1:e07","2033q1:e08","2033q1:e09"]},
+    {"actor_id":"he_xin","mode":"normal","chosen_action_id":"do_not_buy_when_buffer_still_fails","baseline_expected_action":"Keep housing decisions behind hard cash-buffer constraints even when stable employment continues.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Second-window cash improves but still fails the same post-downpayment buffer rule.","constraint_check":{"feasible":true,"notes":"Continued renting is feasible; no family borrowing is assumed."},"evidence_refs":["2033q1:house02","2033q1:e10","2033q1:e11"]},
+    {"actor_id":"xu_hang","mode":"normal","chosen_action_id":"test_independent_validation_identity_on_new_problem","baseline_expected_action":"Seek evidence outside Tang project before treating validation as independent identity.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"A new internal request requires judgment about checks and stopping rules rather than simple reuse.","constraint_check":{"feasible":true,"notes":"Bounded internal task; no title or promotion fact."},"evidence_refs":["2033q1:use01","2033q1:e04","2033q1:e05","2033q1:e06"]},
+    {"actor_id":"lin_jing","mode":"normal","chosen_action_id":"protect_one_long_horizon_question","baseline_expected_action":"Counter output-pressure effects by preserving limited problem-choice autonomy while formal duties remain met.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Third-year evidence shows evaluation rhythm is already affecting topic selection.","constraint_check":{"feasible":true,"notes":"Only a small protected share is used and formal duties remain."},"evidence_refs":["2033q1:e12","2033q1:e13"]}
+  ],
+  "audit_rule":"All Q1 decisions remain normal; Zhou's purchase is earned by changed evidence at a scheduled second window, not a random milestone."
+}
