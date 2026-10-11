@@ -1,5 +1,5 @@
 {
-  "schema_version": 18,
+  "schema_version": 19,
   "status": "adaptation_storyteller_head_noncanonical",
   "historical_world_writeback": false,
   "history_source": {
@@ -17,10 +17,10 @@
     "campbell_structure": "docs/adaptation/campbell-distributed-hero-journey-v1.md",
     "campbell_negative_space": "docs/adaptation/campbell-arc-and-negative-space-v2.md",
     "hero_arc_negative_space_matrix": "runtime/adaptation/storyteller/hero-arc-negative-space-matrix-v1.json",
-    "water_margin_character_entrance_model": "docs/adaptation/water-margin-character-entrance-model-v1.md",
+    "water_margin_character_entrance_model_v1": "docs/adaptation/water-margin-character-entrance-model-v1.md",
+    "water_margin_relay_chain_model_v2": "docs/adaptation/water-margin-relay-chain-model-v2.md",
+    "opening_relay_graph": "runtime/adaptation/storyteller/opening-relay-graph-v1.json",
     "core_character_entrance_cards": "runtime/adaptation/storyteller/core-character-entrance-cards-v1.json",
-    "opening_entrance_a_audit": "runtime/adaptation/storyteller/opening-entrance-a-audit-v1.json",
-    "opening_entrance_ab_comparison": "runtime/adaptation/storyteller/opening-entrance-ab-comparison-v1.json",
     "opening_entrance_abc_comparison": "runtime/adaptation/storyteller/opening-entrance-abc-comparison-v1.json",
     "nested_substory_model": "docs/adaptation/nested-hero-substory-model-v1.md",
     "substory_guest_slots": "runtime/adaptation/storyteller/substory-and-guest-slots-v1.json",
@@ -38,7 +38,8 @@
     "message_bus_plot_review": "runtime/message-bus/messages/2026-10-11-0001-plot-connection-review.json",
     "message_bus_plot_decision": "runtime/message-bus/messages/2026-10-11-0002-plot-connection-decision.json",
     "message_bus_literary_review": "runtime/message-bus/messages/2026-10-11-0003-literary-flatness-character-entrance-review.json",
-    "message_bus_entrance_direction": "runtime/message-bus/messages/2026-10-11-0004-character-entrance-direction-decision.json"
+    "message_bus_entrance_direction_superseded": "runtime/message-bus/messages/2026-10-11-0004-character-entrance-direction-decision.json",
+    "message_bus_relay_correction": "runtime/message-bus/messages/2026-10-11-0005-roster-entrance-correction.json"
   },
   "legacy_material_pilots": [
     "docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md",
@@ -48,130 +49,110 @@
     "docs/adaptation/pilots/ch05-first-results-full-v2.md",
     "docs/adaptation/pilots/ch06-two-offers-full-v2.md"
   ],
-  "active_entrance_probes": [
+  "entrance_scene_material_only": [
     "docs/adaptation/pilots/opening-entrance-b-song-pharma-interview-v2.md",
     "docs/adaptation/pilots/opening-entrance-a-zhou-technical-screen-v2.md",
     "docs/adaptation/pilots/opening-entrance-c-luo-office-v1.md"
   ],
   "primary_project": {
     "working_title": "不同的稳定",
-    "architecture": "six_core_plus_second_ring_with_nested_substories",
+    "architecture": "event_relay_ensemble_with_nested_character_arcs",
     "core": ["zhou_ye", "gao_yuan", "luo_cheng", "tang_yu", "he_xin", "song_nan"],
     "high_frequency_secondary": ["lin_jing", "chen_lan", "xu_hang"],
     "recurring_secondary": ["wu_cheng", "shen_yan", "gu_wei", "zhao_ke", "sun_jie"],
-    "provisional_chapter_count": 25,
-    "chapter_architecture_status": "material_map_only_opening_reset",
-    "narrative_voice_status": "retest_under_character_entrance_model",
-    "narrative_voice_label": "close_external_restrained_realism_with_cinematic_entrance_pressure",
-    "hero_arc_priority": "primary_longitudinal_structure",
+    "chapter_architecture_status": "reset_to_event_relay_test",
+    "narrative_voice_status": "retest_inside_continuous_story_chain",
+    "hero_arc_priority": "primary_longitudinal_character_structure_after_entry",
     "negative_space_priority": "primary_rendering_principle",
-    "plot_connection_strategy": "visible_weak_braid_plus_delayed_payoff",
-    "character_entrance_strategy": "event_first_character_second_background_leaks_through_action",
+    "plot_connection_strategy": "event_and_relationship_relay_with_delayed_payoff",
+    "character_entrance_strategy": "characters_enter_only_when_current_story_reaches_them",
     "prose_canon_fixed": false,
     "world_is_not_centered_on_core_six": true
   },
   "narrative_layers": [
-    "long_campbell_hero_arcs_for_core_characters",
-    "water_margin_inspired_event_first_character_entrances",
+    "event_relay_chain_moves_the_camera",
+    "water_margin_inspired_event_first_character_revelation_inside_the_chain",
+    "long_campbell_hero_arcs_begin_or_advance_when_the_chain_reaches_a_character",
     "negative_space_rendering_of_long_arcs",
-    "visible_weak_braids_through_existing_relationships_and_repeated_practices",
-    "multi_scene_substories_inside_each_long_arc",
+    "branching_and_rejoining_substories",
     "guest_micro_arcs_for_passersby_colleagues_authorities_clients_students_family_and_peers"
   ],
-  "arc_rendering_rule": "Backend arcs remain structurally legible, but a character first enters through a concrete pressured scene. Biography, trait explanation and long-term arc interpretation are delayed. Foreground prose remains partial, visual, fallible and under-explained.",
-  "plot_connection_rule": "Weakly connected ensemble does not mean disconnected chapters. Early actions must receive some observable later consequences, but connections do not justify introducing many names at once.",
-  "character_entrance_rule": "First entrance must be a scene, not a profile. Prefer one memorable action, one contradiction, one voice pattern and one external pressure. New memorable names per early chapter should normally stay at or below two.",
+  "relay_rule": "Story order is not chosen to introduce protagonists evenly. One event leaves a concrete destination, relationship, task, consequence or unresolved process; the camera follows that relay. A new core actor appears only when the active story naturally reaches them.",
+  "arc_rendering_rule": "Campbell structures a character longitudinally after the story reaches that character. Campbell stages never determine who must appear next. Foreground prose remains partial, visual, fallible and under-explained.",
+  "character_entrance_rule": "First substantial appearance is still scene-first and event-first, but no actor is owed a standalone entrance chapter. An actor may first appear inside someone else's active story and become focal only later.",
   "nonnegotiable_rules": [
     "No adaptation hypothesis becomes ledger history.",
+    "Do not introduce a core actor because the roster says it is their turn.",
+    "Do not require all six core actors to appear in the opening movement or Part 1.",
+    "A chapter transition must be explainable by a concrete relay: consequence, person, task, message, place, public process or existing relationship.",
+    "Same theme or same generation alone does not count as story connection.",
+    "A relay may branch, but prose follows one branch at a time; other branches may stay offstage for chapters.",
+    "Secondary and guest characters may carry the narrative baton between core actors.",
+    "Early chapters should normally add no more than one or two memorable names at a time.",
+    "Use role labels for nonrecurring guests until a name matters.",
+    "Background leaks through action, dialogue, objects, institutions, money, space and other people's reactions rather than profile paragraphs.",
     "High education does not imply universal negotiation, leadership, emotional or social skill.",
     "Every strong capability must have a formation source, shadow cost and high-pressure failure mode.",
     "A virtue must be allowed to create costs; a flaw must be allowed to protect something real.",
     "Power changes how personality is expressed; separate trait from position effect.",
-    "Core six are weakly connected ensemble peers, not a permanent six-person team.",
-    "A core character's first substantial appearance must happen through an external event under pressure, not through biography or résumé summary.",
-    "Early chapters should not ask the reader to memorize more than two new named people unless a scene absolutely requires it.",
-    "Use role labels for nonrecurring guests until a name matters.",
-    "Background should leak through dialogue, action, documents, space and other people's reactions instead of exposition dumps.",
-    "Campbell stages remain backend structure only and never chapter labels, thesis dialogue or explicit self-diagnosis.",
-    "A stage may span several chapters or years; no chapter is required to resolve a stage.",
+    "Campbell stages are backend structure only and never chapter labels, thesis dialogue or explicit self-diagnosis.",
     "Character transformation changes probabilities, thresholds and recovery patterns; it does not permanently remove old flaws.",
     "Every core actor retains at least one materially unresolved ambiguity at the 2035 horizon.",
-    "Readers may understand an arc before the character does; the narrator does not close that gap automatically.",
-    "Do not reward every mature decision immediately or fairly; environment and chance retain independent causal force.",
     "Do not force romance, illness, family disaster, betrayal, crime or redemption to manufacture a hook.",
-    "Do not imitate Water Margin through archaic diction or chapter-title pastiche; borrow entrance mechanics only.",
+    "Do not imitate Water Margin through archaic diction or chapter-title pastiche; borrow its relay mechanics and event-driven entrances only.",
     "Do not use AI-summary endings, thesis dialogue, forced symbolism or universal self-awareness.",
     "2035 is an observation endpoint, not a life verdict."
   ],
-  "entrance_audit_questions": [
-    "What event is already happening before the character is explained?",
-    "What does the character do first under pressure?",
-    "What one external detail gives away education, class, profession or history without a biography paragraph?",
-    "What virtue is visible, and what small shadow is already attached to it?",
-    "How many names does the reader need to remember after the scene?",
-    "Could the scene be storyboarded into shots without inventing extra action?",
-    "Does the scene end with residue rather than a personality thesis?"
+  "relay_audit_questions": [
+    "What concrete thing from the previous scene makes the camera move here?",
+    "Why does the story need this person now?",
+    "Would this actor still enter if their core-character label were hidden?",
+    "What does the newcomer want independently of the previous focal actor?",
+    "What changes or remains unresolved that can push the story onward?",
+    "Where can the baton go next without announcing a theme?",
+    "How many new names is the reader being asked to retain?"
   ],
   "opening_sequence": {
-    "status": "provisional_character_entrance_order_selected_not_canon",
-    "reason_for_reset": "Human reader found the previous six-chapter material flat as a novel opening, too name-dense and too profile-like despite sound character arcs and causal braids.",
-    "provisional_sequence": [
-      {
-        "position": 1,
-        "lead": "song_nan",
-        "reference": "docs/adaptation/pilots/opening-entrance-b-song-pharma-interview-v2.md",
-        "function": "macro graduation/job-market frame -> fast business conflict -> memorable first core character"
-      },
-      {
-        "position": 2,
-        "lead": "zhou_ye",
-        "reference": "docs/adaptation/pilots/opening-entrance-a-zhou-technical-screen-v2.md",
-        "function": "switch to quiet pressure and technical reliability; widen tonal range"
-      },
-      {
-        "position": 3,
-        "lead": "luo_cheng",
-        "reference": "docs/adaptation/pilots/opening-entrance-c-luo-office-v1.md",
-        "function": "scene already moving before protagonist; institutional labor and status tension"
-      }
-    ],
-    "selection_status": "provisional_pass_first_gate"
+    "status": "roster_order_cancelled_build_relay_chain",
+    "previous_provisional_order": ["song_nan", "zhou_ye", "luo_cheng"],
+    "previous_order_status": "superseded_as_roster_driven",
+    "current_reference": "runtime/adaptation/storyteller/opening-relay-graph-v1.json",
+    "preferred_test_route": "route:industry-pressure-to-first-stability",
+    "important_note": "The preferred route is only a relay test, not a commitment to introduce He Xin or Tang Yu early. Core actors may remain offstage until the active line reaches them."
   },
   "gate_status": {
-    "campbell_arc_model": "retained_primary_backend",
+    "campbell_arc_model": "retained_primary_backend_after_character_entry",
     "negative_space_model": "retained_primary",
-    "plot_connection_review": "resolved_in_material_architecture",
-    "old_first_six_as_publication_opening": "rejected_demoted_to_material",
-    "literary_character_entrance_review": "open_blocking_until_all_core_entrances_rebuilt",
-    "cinematic_entrance_probe_song": "provisional_opening_pick",
-    "cinematic_entrance_probe_zhou": "pass",
-    "cinematic_entrance_probe_luo": "pass",
+    "plot_connection_review": "resolved_but_now_strengthened_into_relay_requirement",
+    "old_first_six_as_publication_opening": "rejected_material_only",
+    "standalone_six-entrance_plan": "rejected_superseded",
+    "literary_relay_chain_review": "open_blocking",
     "prose_canon": "reset_not_fixed"
   },
   "open_reviews": [
     {
       "id": "review:plot-connection-ch01-ch04",
       "status": "resolved_option_a_plus_c_prose_verified",
-      "resolution_message": "runtime/message-bus/messages/2026-10-11-0002-plot-connection-decision.json",
-      "resolution_artifact": "runtime/adaptation/storyteller/plot-connection-resolution-v1.json"
+      "resolution_message": "runtime/message-bus/messages/2026-10-11-0002-plot-connection-decision.json"
     },
     {
       "id": "review:literary-flatness-character-entrance",
-      "status": "open_blocking_until_remaining_core_entrances_rebuilt",
-      "bus_message": "runtime/message-bus/messages/2026-10-11-0003-literary-flatness-character-entrance-review.json",
-      "direction_message": "runtime/message-bus/messages/2026-10-11-0004-character-entrance-direction-decision.json",
-      "must_resolve_before_resuming_linear_chapters": true
+      "status": "reframed_as_relay_chain_review",
+      "source_message": "runtime/message-bus/messages/2026-10-11-0003-literary-flatness-character-entrance-review.json",
+      "correction_message": "runtime/message-bus/messages/2026-10-11-0005-roster-entrance-correction.json",
+      "must_resolve_before_resuming_long_linear_draft": true
     }
   ],
-  "current_stage": "rebuild_remaining_core_character_entrances",
+  "current_stage": "opening_relay_chain_test",
   "next_stage_gate": {
-    "required_before_resuming_linear_chapter_drafting": [
-      "draft Tang Yu's entrance as a research scene where a preferred phenomenon weakens under a changed implementation",
-      "draft He Xin's entrance around a real boundary/family/work interaction rather than a profile or values speech",
-      "draft Gao Yuan's entrance around first civil-service exam failure or second-cycle threshold without turning caution into a thesis",
-      "compare all six entrances for name load, cinematic motion, memorability and voice separation",
-      "rebuild the first 6-8 chapter order from the entrance scenes and only then reattach weak braids and Campbell payoffs"
+    "required_before_resuming_long_linear_chapter_drafting": [
+      "do not draft standalone entrances for Tang Yu, He Xin or Gao Yuan merely to complete the core roster",
+      "draft one continuous 3-4 chapter relay test from route:industry-pressure-to-first-stability or replace it with a stronger relay discovered from ledger evidence",
+      "at every chapter boundary document the concrete baton that moves the camera",
+      "allow a secondary actor such as Chen Lan to carry the baton between two core actors",
+      "after the relay test, audit whether the reader is following a story rather than meeting a cast list",
+      "only then rebuild the longer chapter architecture"
     ],
-    "drafting_rule": "Do not continue to the previous Chapter7. Until the literary review closes, only entrance reconstruction, opening architecture and subtraction/rewrite of opening material may advance."
+    "drafting_rule": "No return to the old Chapter7 sequence. Until the relay review passes, write only contiguous relay-chain prose and its audits; do not complete a roster of character entrances."
   }
 }
