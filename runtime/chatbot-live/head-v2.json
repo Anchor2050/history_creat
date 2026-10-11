@@ -25,6 +25,14 @@
     "runtime/chatbot-live/batches/2028-q3.json",
     "runtime/chatbot-live/batches/2028-q4.json"
   ],
+  "cognition_layers": {
+    "manifest": "runtime/chatbot-live/cognition-layers-v11.json",
+    "protocol": "narrative/longform/storybox_cognition_protocol_v11.py",
+    "personal": {"enabled": true, "writeback": "personal_ledger_only", "first_refresh_as_of": "2028-12-31"},
+    "behavior": {"enabled": true, "normal_default": true, "random_abnormal_factor": false, "abnormal_requires_evidence": true},
+    "storyteller": {"enabled": true, "mode": "read_only_diagnostic", "literary_generation_enabled": false, "first_diagnostic_as_of": "2028-12-31"},
+    "backend_priority": ["chatgpt_product_conversation", "deepseek_api", "local_model", "deterministic_control"]
+  },
   "cursor": 84,
   "world_time": "2028-12-31",
   "processed_window_count": 84,
@@ -86,7 +94,7 @@
     "end_date":"2029-01-20",
     "event_kind":"first_job_transition",
     "participants":["gao_yuan"],
-    "instruction":"由当前ChatGPT继续充当cognition backend。高原进入家乡公务员岗位后，从住房/是否与父母同住、通勤、现金、程序工作、与周野罗诚的联系频率以及对低机会密度的真实体验生成后续状态。不要把稳定自动写成满意，也不要因为机会密度低自动写成后悔。随后继续推进2029年其他角色的工作第二年、博士完成、研究内部审读和陈岚正式求职。"
+    "instruction":"由当前ChatGPT继续充当cognition backend。推进这场前先按 Personal v11 刷新高原相关内在状态候选，并用 Behavior v11 对关键选择做 normal/abnormal 路由；高原进入家乡公务员岗位后，从住房/是否与父母同住、通勤、现金、程序工作、与周野罗诚的联系频率以及对低机会密度的真实体验生成后续状态。不要把稳定自动写成满意，也不要因为机会密度低自动写成后悔。随后继续推进2029年其他角色的工作第二年、博士完成、研究内部审读和陈岚正式求职。"
   },
   "rules": {
     "repository_calls_model_api": false,
@@ -100,6 +108,9 @@
     "hard_world_candidates_require_feasibility": true,
     "job_outcomes_require_public_process_or_explicit_resource_path": true,
     "offer_can_be_rejected_when_constraints_fail": true,
+    "personal_cannot_directly_write_hard_world": true,
+    "abnormal_behavior_requires_evidence_trigger": true,
+    "storyteller_is_read_only": true,
     "literary_layer_not_started": true
   }
 }
