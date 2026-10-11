@@ -1,0 +1,59 @@
+{
+  "schema_version":1,
+  "batch_id":"career-six-chatbot-2035-q2",
+  "status":"noncanonical_chatbot_replay_batch",
+  "period":{"start":"2035-04-01","end":"2035-06-30"},
+  "generation_mode":"chatgpt_product_interaction_chain",
+  "era_lens":[
+    "最后一年允许新项目迅速失败，允许方法只在局部可移交；成熟不要求形成宏大正面结局。",
+    "住房购买后的第一层后果仍是现金、按揭和迁移成本，而不是自动满意。",
+    "第二次职业迁移仍需半年现实验证，不用offer阶段判断替代工作日常。"
+  ],
+  "exogenous_hard_world_events":[
+    {"event_id":"2035q2:tang01","at":"2035-04-12","kind":"research_counterexample_verification","actor":"tang_yu","source_candidate":"candidate:2035-q1:tang-counterexample-verification:01","result":"counterexample_reproduces_and_invalidates_minimal_statement","visibility":"private_to_actor"},
+    {"event_id":"2035q2:xu01","at":"2035-05-16","kind":"validation_transferability_trial_result","actor":"xu_hang","source_candidate":"candidate:2035-q1:xu-transferability-trial:01","result":"nonexpert_user_reaches_independent_stop_decision_with_bounded_support_and_reasoning_log","visibility":"private_to_actor"},
+    {"event_id":"2035q2:zhou01","at":"2035-05-22","kind":"second_judge_extension_result","actor":"zhou_ye","result":"second_exception_class_common_branches_handled_independently_rare_edges_still_escalate","visibility":"private_to_actor"},
+    {"event_id":"2035q2:luo01","at":"2035-06-14","kind":"midcareer_new_role_halfyear_review","actor":"luo_cheng","result":"research_content_and_platform_access_materially_better_coordination_load_and_housing_cost_higher_no_exit_trigger","visibility":"private_to_actor"},
+    {"event_id":"2035q2:he01","at":"2035-06-20","kind":"home_ownership_first_quarter_review","actor":"he_xin","result":"mortgage_affordable_liquid_buffer_lower_city_commitment_higher_no_distress","visibility":"private_to_actor"}
+  ],
+  "windows":[
+    {"packet_id":"micro:chatbot:2035-04:tang-counterexample-result:01","start_date":"2035-04-14","end_date":"2035-04-14","event_kind":"small_project_negative_result","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-05:xu-transfer-result:01","start_date":"2035-05-18","end_date":"2035-05-18","event_kind":"validation_transferability_result","participants":["xu_hang","gu_wei"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-05:zhou-second-class-result:01","start_date":"2035-05-24","end_date":"2035-05-24","event_kind":"second_judge_extension_result","participants":["zhou_ye","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-06:luo-halfyear:01","start_date":"2035-06-16","end_date":"2035-06-16","event_kind":"midcareer_new_role_halfyear_review","participants":["luo_cheng","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-06:he-ownership-first-review:01","start_date":"2035-06-22","end_date":"2035-06-22","event_kind":"home_ownership_first_review","participants":["he_xin","song_nan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2035-06:lin-after-closure:01","start_date":"2035-06-28","end_date":"2035-06-28","event_kind":"post_closure_research_autonomy_check","participants":["lin_jing","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events":[
+    {"event_id":"2035q2:e01","kind":"social_interaction","at":"2035-04-14","event_kind":"small_project_negative_result","speaker":"tang_yu","listener":"shen_yan","act":"share_experience","content":"反例复核后成立，最小陈述直接错了。唐雨这次没有再找额外条件补回去，只把问题记成‘这个边界比我想的更窄’，准备关闭项目。","channel":"in_person","evidence":"反例在证明投入扩大前得到确认。"},
+    {"event_id":"2035q2:e02","kind":"social_interaction","at":"2035-04-14","event_kind":"small_project_negative_result","speaker":"shen_yan","listener":"tang_yu","act":"repair","content":"沈雁说这个项目只活了几个月恰恰说明前几年的训练留下了东西：错误陈述被快速发现、快速关闭，不需要再经历一次长期沉没成本。","channel":"in_person","evidence":"负面学习改变的是退出速度，不制造新成果。"},
+    {"event_id":"2035q2:e03","kind":"social_interaction","at":"2035-04-14","event_kind":"small_project_negative_result","speaker":"tang_yu","listener":"shen_yan","act":"make_plan","content":"唐雨决定关闭这次小项目，只保留反例和问题笔记；2035剩余时间不强制再开新项目。","channel":"in_person","evidence":"项目关闭，研究状态重新开放。"},
+
+    {"event_id":"2035q2:e04","kind":"social_interaction","at":"2035-05-18","event_kind":"validation_transferability_result","speaker":"xu_hang","listener":"gu_wei","act":"share_experience","content":"这次非专家使用者在只接受两次边界澄清后，能够自己写出检查理由并决定何时停止；其中一项结论和许航预期不同，但理由完整且最后被证明可接受。","channel":"in_person","evidence":"独立停止判断和理由记录均通过预设标准。"},
+    {"event_id":"2035q2:e05","kind":"social_interaction","at":"2035-05-18","event_kind":"validation_transferability_result","speaker":"gu_wei","listener":"xu_hang","act":"offer_information","content":"顾维认为这终于是有限的可移交性证据：不是别人复制许航的答案，而是框架允许别人产生不同但可审查的判断；仍只能在这类边界清楚的问题上成立。","channel":"in_person","evidence":"方法成熟度得到局部正面证据并保留适用范围。"},
+
+    {"event_id":"2035q2:e06","kind":"social_interaction","at":"2035-05-24","event_kind":"second_judge_extension_result","speaker":"zhou_ye","listener":"xu_hang","act":"share_experience","content":"第二类异常训练后，常见分支也能由同事独立处理，周野只接最少见的边界情况；他第一次觉得即使自己请两周假，团队也不会因为复杂交接完全停住。","channel":"wechat_private","evidence":"第二轮责任转移部分成功。"},
+    {"event_id":"2035q2:e07","kind":"social_interaction","at":"2035-05-24","event_kind":"second_judge_extension_result","speaker":"xu_hang","listener":"zhou_ye","act":"repair","content":"许航说这已经足够改变‘有房+不可替代=只能留下’的结构，房产锁定还在，但职业单点开始被实际拆开。","channel":"wechat_private","evidence":"锁定治理获得第二层真实结果。"},
+
+    {"event_id":"2035q2:e08","kind":"social_interaction","at":"2035-06-16","event_kind":"midcareer_new_role_halfyear_review","speaker":"luo_cheng","listener":"lin_jing","act":"share_experience","content":"半年后罗诚确认新岗位的研究支持内容和平台资源确实比旧单位强，自己能参与更早的问题定义；代价是协调链更长、住房和日常成本更高。","channel":"video_call","evidence":"双门槛正面部分在真实工作中兑现。"},
+    {"event_id":"2035q2:e09","kind":"social_interaction","at":"2035-06-16","event_kind":"midcareer_new_role_halfyear_review","speaker":"lin_jing","listener":"luo_cheng","act":"check_in","content":"林静问他现在是否还会因为等了很多年而放大新岗位优点；罗诚说至少半年数据里优点和成本都很具体，暂时不需要靠等待时间证明这次移动。","channel":"video_call","evidence":"继续防止成功终点美化等待。"},
+
+    {"event_id":"2035q2:e10","kind":"social_interaction","at":"2035-06-22","event_kind":"home_ownership_first_review","speaker":"he_xin","listener":"song_nan","act":"share_experience","content":"买房几个月后何欣最明显的变化和周野当年一样：现金缓冲变薄、换城成本更具体；不同的是她买房前已经先把岗位价值复核做完，所以目前没有‘房子替我决定工作’的感觉。","channel":"in_person","evidence":"资产锁定与职业价值判断顺序明确。"},
+    {"event_id":"2035q2:e11","kind":"social_interaction","at":"2035-06-22","event_kind":"home_ownership_first_review","speaker":"song_nan","listener":"he_xin","act":"small_talk","content":"宋楠没有借自己的两次迁城劝她保留流动性，只说现在两个人都已经知道每种选择会带来什么成本，剩下只能各自过。","channel":"in_person","evidence":"不同住房/迁移经验不被转换成劝说。"},
+
+    {"event_id":"2035q2:e12","kind":"social_interaction","at":"2035-06-28","event_kind":"post_closure_research_autonomy_check","speaker":"lin_jing","listener":"shen_yan","act":"share_experience","content":"关掉慢问题后将近一年，林静没有马上找到同等规模的新问题。她把释放出的时间分给几个短项目和阅读，发现研究自主也可以是一段没有‘主线’的组合状态。","channel":"video_call","evidence":"关闭后没有被迫补一个新大项目。"},
+    {"event_id":"2035q2:e13","kind":"social_interaction","at":"2035-06-28","event_kind":"post_closure_research_autonomy_check","speaker":"shen_yan","listener":"lin_jing","act":"repair","content":"沈雁说只要她不是被年度评价逼着把所有时间塞满，这段组合状态同样可以是主动选择；以后是否出现新主线交给真实问题。","channel":"video_call","evidence":"研究自主不等于必须有长期项目。"}
+  ],
+  "hard_world_candidate_updates":[
+    {"candidate_id":"candidate:2035-q1:tang-counterexample-verification:01","checked_at":"2035-04-12","checks":{"counterexample_reproduces":true,"statement_invalid_if_true":true,"no_patch_by_default":true},"result":"small_project_closed_by_counterexample_noncanonical","resource_effect":"project ends; counterexample and notes retained"},
+    {"candidate_id":"candidate:2035-q1:xu-transferability-trial:01","checked_at":"2035-05-16","checks":{"nonexpert_user":true,"bounded_support":true,"independent_stop_decision":true,"reasoning_documented":true},"result":"bounded_transferability_evidence_activated_noncanonical","resource_effect":"one limited-domain method-transfer success; no universal-method claim"}
+  ],
+  "new_hard_world_candidates":[],
+  "actor_state_evidence":[
+    {"at":"2035-04-14","actor":"tang_yu","dimension":"research_exit_skill","evidence":"新项目在首轮反例成立后数月内关闭，显示负面检查已改变退出速度而非只改变论文叙事。","status":"candidate_state_evidence"},
+    {"at":"2035-05-18","actor":"xu_hang","dimension":"method_transferability","evidence":"首次获得非专家在有限支持下独立作出不同但可审查判断的正面可移交性证据。","status":"candidate_state_evidence"},
+    {"at":"2035-05-24","actor":"zhou_ye","dimension":"combined_lockin_governance","evidence":"第二类复杂异常也实现部分责任转移，职业单点风险进一步下降而房产锁定保持。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence":[],
+  "audit_rules":{"generated_through_interaction_chain":true,"negative_result_can_close_final_year_project":true,"transferability_requires_independent_reasoned_decision":true,"property_lockin_can_coexist_with_reduced_expert_lockin":true,"post_purchase_review_does_not_imply_regret_or_satisfaction":true,"family_age_alone_cannot_create_care_crisis":true,"storyteller_read_only":true}
+}
