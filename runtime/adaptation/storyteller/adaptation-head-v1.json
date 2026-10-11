@@ -1,5 +1,5 @@
 {
-  "schema_version":3,
+  "schema_version":4,
   "status":"adaptation_storyteller_head_noncanonical",
   "historical_world_writeback":false,
   "history_source":{
@@ -23,8 +23,17 @@
     "storyteller_scene_engine":"narrative/longform/storybox_adaptation_storyteller_v13.py",
     "storyteller_nested_engine":"narrative/longform/storybox_adaptation_storyteller_v14.py",
     "scene_reservoir":"runtime/adaptation/storyteller/scene-reservoir-v1.json",
-    "core_scene_selection":"runtime/adaptation/storyteller/viewpoint-weight-and-core26-v1.json"
+    "core_scene_selection":"runtime/adaptation/storyteller/viewpoint-weight-and-core26-v1.json",
+    "probe_pack_01":"runtime/adaptation/storyteller/probe-pack-01.json",
+    "probe_pack_02":"runtime/adaptation/storyteller/probe-pack-02-execution.json",
+    "probe_audit":"runtime/adaptation/storyteller/probe-audit-pass-01.json"
   },
+  "executed_probes":[
+    "docs/adaptation/probes/p2-01-ordinary-trip-v1.md",
+    "docs/adaptation/probes/p2-02-luo-sun-gate-v1.md",
+    "docs/adaptation/probes/p2-03-zhou-qiu-delegation-v1.md",
+    "docs/adaptation/probes/p2-04-song-ma-deliverable-v1.md"
+  ],
   "primary_project":{
     "working_title":"不同的稳定",
     "architecture":"six_core_plus_second_ring_with_nested_substories",
@@ -36,6 +45,7 @@
     "character_substory_count":9,
     "braided_substory_count":4,
     "audited_guest_count":2,
+    "executed_probe_count":4,
     "prose_canon_fixed":false,
     "world_is_not_centered_on_core_six":true
   },
@@ -61,7 +71,8 @@
     "reverse guest plausibility audit: time/institution/profession/relationship/information/interest/psychology/era",
     "guest micro-hero arc",
     "literary style guardrails",
-    "disposable prose probe"
+    "disposable prose probe",
+    "probe audit before any prose canon decision"
   ],
   "nonnegotiable_rules":[
     "No adaptation hypothesis becomes ledger history.",
@@ -84,16 +95,25 @@
     "Ordinary time and non-events remain usable narrative material.",
     "2035 is an observation endpoint, not a life verdict."
   ],
-  "current_stage":"nested_substories_built_first_guests_audited_scene_probe_preparation",
+  "current_stage":"probe_execution_pass_01_complete_more_voice_stress_tests_required",
+  "gate_status":{
+    "ordinary_scene_without_forced_meaning":"pass",
+    "locally_wrong_or_embarrassed_viewpoint":"pass",
+    "local_antagonist_with_plausible_good":"pass",
+    "guest_micro_arc":"pass_with_more_testing_needed",
+    "six_core_dialogue_differentiation":"not_yet_tested_enough",
+    "capability_consistency":"partial_pass",
+    "anti_ai_style":"partial_pass",
+    "prose_canon":"blocked"
+  },
   "next_stage_gate":{
     "required_before_full_chapter_drafting":[
-      "three disposable scene probes in different emotional registers",
-      "at least one locally-wrong-but-understandable viewpoint",
-      "at least one local-antagonist scene where both sides pursue plausible goods",
-      "at least one guest micro-arc whose life remains legible beyond the protagonist",
-      "dialogue differentiation check across six core actors",
-      "capability-consistency check across six core actors",
-      "anti-AI style audit"
+      "one low-energy or socially awkward scene where dialogue is not consistently witty",
+      "one guest-viewpoint scene",
+      "one family-origin-pressure scene without illness or melodrama",
+      "one six-core dialogue differentiation stress test",
+      "one scene where an educated character communicates badly despite knowing communication theory",
+      "second anti-AI style audit"
     ],
     "after_gate":"20-24 chapter novel beat sheet and 12-episode screen beat sheet may be fixed separately"
   }
