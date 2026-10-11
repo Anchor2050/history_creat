@@ -10,6 +10,8 @@
   },
   "adaptation_sources":{
     "selection_architecture":"runtime/adaptation/storyteller/2035-selection-architecture-v1.json",
+    "education_socialization_model":"docs/adaptation/education-socialization-capability-model-v1.md",
+    "character_background_dossiers":"runtime/adaptation/storyteller/character-background-dossiers-v1.json",
     "character_psychology":"docs/adaptation/character-psychology-bible-v1.md",
     "character_dialectics_power":"docs/adaptation/character-dialectics-and-power-v2.md",
     "campbell_structure":"docs/adaptation/campbell-distributed-hero-journey-v1.md",
@@ -32,6 +34,9 @@
     "historical evidence refs",
     "relationship history and information rights",
     "year-specific Personal state if available",
+    "education, resume and professional socialization",
+    "capability matrix and skill-source constraints",
+    "cultural capital and family-origin attenuation",
     "stable character core",
     "virtue-shadow contradiction",
     "power position and institutional incentives",
@@ -42,6 +47,10 @@
   ],
   "nonnegotiable_rules":[
     "No adaptation hypothesis becomes ledger history.",
+    "No adaptation-only resume item becomes a historical credential unless separately promoted by an explicit canon decision.",
+    "High education raises selected cognitive baselines but does not imply universal negotiation, leadership, emotional or social skill.",
+    "Every strong capability must have a formation source, shadow cost and high-pressure failure mode.",
+    "Long educational and professional socialization attenuates but does not erase family-origin effects; family may reappear around money, care, hometown, authority and shame.",
     "No secret or wound is announced as fact without scene evidence or explicit adaptation-only marking.",
     "A virtue must be allowed to create costs; a flaw must be allowed to protect something real.",
     "Local antagonists must have a legible interest, information set and value they are protecting.",
@@ -52,13 +61,14 @@
     "Ordinary time and non-events remain usable narrative material.",
     "2035 is an observation endpoint, not a life verdict."
   ],
-  "current_stage":"scene_probe_preparation",
+  "current_stage":"scene_probe_preparation_with_background_dossiers",
   "next_stage_gate":{
     "required_before_full_chapter_drafting":[
       "three disposable scene probes in different emotional registers",
       "at least one locally-wrong-but-understandable viewpoint",
       "at least one local-antagonist scene where both sides pursue plausible goods",
       "dialogue differentiation check across six core actors",
+      "capability-consistency check across six core actors",
       "anti-AI style audit"
     ],
     "after_gate":"20-24 chapter novel beat sheet and 12-episode screen beat sheet may be fixed separately"
