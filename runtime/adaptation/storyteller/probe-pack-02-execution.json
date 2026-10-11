@@ -1,0 +1,47 @@
+{
+  "schema_version":1,
+  "status":"adaptation_probe_execution_pack_noncanonical",
+  "historical_world_writeback":false,
+  "probes":[
+    {
+      "probe_id":"p2-01-ordinary-trip",
+      "source_scene":"s03-summer-trip-not-career",
+      "viewpoint":"song_nan",
+      "purpose":"weak-tie ordinary life; test whether people can remain interesting without plot acceleration",
+      "guest_policy":"no_new_guest",
+      "style":"restrained"
+    },
+    {
+      "probe_id":"p2-02-luo-sun-gate",
+      "source_scene":"s04-luo-posting-read",
+      "viewpoint":"luo_cheng",
+      "purpose":"existing secondary-ring local guardian; both sides pursue plausible goods",
+      "guest_policy":"no_new_guest",
+      "style":"closer_to_character"
+    },
+    {
+      "probe_id":"p2-03-zhou-qiu-delegation",
+      "source_substory":"sub:zhou-second-judge",
+      "viewpoint":"zhou_ye",
+      "guest_id":"guest:qiu_siyuan",
+      "purpose":"test guest micro-arc, virtue-shadow and delegation without leadership sermon",
+      "style":"restrained_workplace"
+    },
+    {
+      "probe_id":"p2-04-song-ma-deliverable",
+      "source_substory":"sub:song-second-role",
+      "viewpoint":"song_nan",
+      "guest_id":"guest:ma_qing",
+      "purpose":"test cross-cutting power, negotiation and mutually reasonable conflict",
+      "style":"dialogue_forward"
+    }
+  ],
+  "shared_rules":[
+    "No thesis ending.",
+    "No character fully diagnoses own psychology.",
+    "No invented detail writes back to history.",
+    "At least one line or action in each probe may be ordinary and narratively inefficient.",
+    "A locally opposing character must retain a life and interest outside the protagonist.",
+    "Campbell labels stay invisible in prose."
+  ]
+}
