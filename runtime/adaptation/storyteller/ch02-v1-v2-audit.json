@@ -1,0 +1,56 @@
+{
+  "schema_version":1,
+  "status":"chapter2_v1_v2_comparison_noncanonical",
+  "historical_world_writeback":false,
+  "v1":"docs/adaptation/pilots/ch02-ordinary-trip-full-v1.md",
+  "v2":"docs/adaptation/pilots/ch02-ordinary-trip-full-v2.md",
+  "comparison_refs":[
+    "docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md",
+    "docs/adaptation/pilots/ch03-luo-posting-full-v2.md"
+  ],
+  "overall_judgment":"v2_preferred_chapter2_gate_pass",
+  "why_v2_is_better":[
+    "The group no longer feels like five highly responsive television characters continuously feeding each other good lines.",
+    "Several conversational attempts simply stop, which makes the weak-tie texture more credible.",
+    "Xu Hang and Song Nan are introduced without converting the introduction into immediate professional chemistry.",
+    "Tang Yu, Lin Jing and Chen Lan remain legible while being allowed to be tired, brief or unavailable.",
+    "The trip does not reward the reader with a lesson, decision, emotional confession or symbolic ending.",
+    "The final separation at the transit point leaves the social unit loose rather than falsely cohesive."
+  ],
+  "acceptable_losses":[
+    "v2 is less witty and contains fewer individually memorable lines.",
+    "the chapter has deliberately low plot leverage.",
+    "some readers may initially wonder why the trip matters; later repetitions and weak-tie consequences should answer only part of that question."
+  ],
+  "remaining_risks":[
+    "If many later ordinary chapters use meals, travel logistics and phones in the same way, restraint itself will become a formula.",
+    "Song Nan is still the easiest social-energy carrier in the group; later scenes must allow her to be withdrawn, impatient, wrong or simply absent.",
+    "The chapter must not be retroactively overloaded with significance merely because Song Nan and Xu Hang later have consequential interactions.",
+    "The prose should preserve a little sensory and social specificity in later revision; subtraction must not flatten every ordinary scene into neutral reporting."
+  ],
+  "campbell_negative_space":{
+    "chapter_function":"ordinary_world_expansion",
+    "visible_hero_progress":"none_required",
+    "long_arc_seed":"weak ties and distinct social rhythms exist before they become useful",
+    "lesson_delivery":"none",
+    "closure":"deliberately_low",
+    "verdict":"pass"
+  },
+  "opening_sequence_comparison":{
+    "chapter1":"task pressure, private shame and a quiet Call; narrow focal field",
+    "chapter2":"social expansion, ordinary time and weak ties; deliberately diffuse field",
+    "chapter3":"institutional friction, status discomfort and concrete labor; stronger interpersonal pressure",
+    "rhythm_judgment":"complementary_and_nonrepetitive",
+    "risk":"do not let chapter3 retroactively make chapter2 feel like networking setup"
+  },
+  "gate_status":{
+    "ordinary_time_readability":"pass_provisionally",
+    "character_legibility_without_exposition":"pass",
+    "weak_tie_realism":"pass",
+    "anti_ai_neatness":"pass_after_subtraction",
+    "campbell_ordinary_world_function":"pass",
+    "chapter2_order":"confirm",
+    "chapter3_order":"confirm"
+  },
+  "next_recommendation":"Confirm the three-chapter opening order. Do not rewrite chapter 2 for extra plot. Move to chapter 4 or perform a first-three-chapter continuity pass before further full drafting."
+}
