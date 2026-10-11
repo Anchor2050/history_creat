@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_only_noncanonical_round_record",
+  "game_id": "risk-list-game-01",
+  "round_no": 1,
+  "trigger": {
+    "kind": "incident_discovery",
+    "event": "project office sees suspicious risk-list row and evidence that an external screenshot already exists"
+  },
+  "eligible_actors": ["luo_cheng", "office_director"],
+  "actions": [
+    {
+      "action_id": "r1-luo-inspect-list",
+      "actor": "luo_cheng",
+      "action": "inspect",
+      "basis": "current printed list and leaked screenshot are both available in the project office",
+      "intent": "compare timestamps and preserve a defensible sequence of events"
+    },
+    {
+      "action_id": "r1-luo-document-discrepancy",
+      "actor": "luo_cheng",
+      "action": "document",
+      "basis": "the screenshot timestamp predates the currently printed batch",
+      "intent": "prevent the project from describing the screenshot as if it came from the current batch"
+    },
+    {
+      "action_id": "r1-director-freeze",
+      "actor": "office_director",
+      "action": "freeze",
+      "basis": "multiple batch identities are possible and the list may already have been operationally exported",
+      "intent": "stop further use before the batch/version timeline is reconstructed"
+    },
+    {
+      "action_id": "r1-director-escalate-tech",
+      "actor": "office_director",
+      "action": "escalate",
+      "basis": "project office cannot reconstruct deployment and job logs itself",
+      "intent": "request overnight run and version reconstruction from the technical side"
+    }
+  ],
+  "state_deltas": [
+    {
+      "domain": "public_information",
+      "path": ["overnight_batches_frozen_for_review"],
+      "value": true,
+      "evidence": "office director freeze decision after timestamp discrepancy"
+    },
+    {
+      "domain": "beliefs",
+      "path": ["luo_cheng", "leading_hypothesis"],
+      "value": "the external screenshot belongs to an earlier overnight run; one printed list cannot explain the incident",
+      "evidence": "screenshot timestamp comparison"
+    },
+    {
+      "domain": "beliefs",
+      "path": ["office_director", "leading_hypothesis"],
+      "value": "a causal explanation is premature until every overnight run and its actual version/input are reconstructed",
+      "evidence": "batch mismatch plus external screenshot"
+    },
+    {
+      "domain": "commitments",
+      "path": ["office_director", "freeze_all_overnight_batches_until_reconstruction"],
+      "value": true,
+      "evidence": "incident triage decision"
+    }
+  ],
+  "paid_questions": [
+    "setup:screenshot_timestamp_precedes_current_batch"
+  ],
+  "new_questions": [],
+  "map_unlocks": [
+    "technical_operations_room"
+  ],
+  "end_reason": "all_eligible_actors_resolved",
+  "material_result": "The project stops treating the visible list as a single-run anomaly. Technical reconstruction becomes the next legally and causally justified move.",
+  "next_round_trigger": {
+    "kind": "technical_logs_requested",
+    "event": "technical side must reconstruct all overnight jobs, versions and input identities"
+  },
+  "prose_sources": [
+    "docs/adaptation/central-event-probes/ch01-risk-list-v2.md"
+  ]
+}
