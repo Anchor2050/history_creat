@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2029-q4",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2029-10-01","end":"2029-12-31"},
+  "generation_mode": "chatgpt_product_interaction_chain",
+  "era_lens": [
+    "第三年开始，最重要的变化不再是拿到机会，而是机会能否经过合同、使用、独立审读和日常生活的外部检查。",
+    "职业与研究的阶段性成功都允许被现实打回修改；失败检查本身进入长期记忆。",
+    "关系网络逐渐分布到不同城市，维持关系越来越依赖主动联系和真实共同经历。"
+  ],
+  "exogenous_hard_world_events": [
+    {"event_id":"2029q4:proc01","at":"2029-10-18","kind":"doctoral_completion_update","actor":"lin_jing","result":"defense_or_equivalent_completed_with_bounded_revisions","visibility":"private_to_actor"},
+    {"event_id":"2029q4:contract01","at":"2029-10-06","kind":"formal_offer_contract_update","actor":"chen_lan","result":"contract_matches_interviewed_response_rotation_and_role_scope","visibility":"private_to_actor"},
+    {"event_id":"2029q4:review01","at":"2029-11-28","kind":"second_year_role_review","actor":"zhou_ye","result":"meets_expectations_expanded_handoff_standard_ownership_no_title_change","visibility":"private_to_actor"},
+    {"event_id":"2029q4:review02","at":"2029-12-04","kind":"second_year_role_review","actor":"he_xin","result":"meets_expectations_learning_blocks_partially_sustained_no_role_change","visibility":"private_to_actor"}
+  ],
+  "windows": [
+    {"packet_id":"micro:chatbot:2029-10:chen-offer-final:01","start_date":"2029-10-08","end_date":"2029-10-08","event_kind":"offer_final_check","participants":["chen_lan","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-10:lin-shen-completion:01","start_date":"2029-10-21","end_date":"2029-10-21","event_kind":"doctoral_completion_closure","participants":["lin_jing","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-11:xu-standard-field-test:01","start_date":"2029-11-02","end_date":"2029-11-02","event_kind":"internal_method_asset_field_test","participants":["xu_hang","gu_wei"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-11:tang-independent-read:01","start_date":"2029-11-12","end_date":"2029-11-12","event_kind":"independent_internal_read","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-11:zhou-he-year-two:01","start_date":"2029-11-30","end_date":"2029-11-30","event_kind":"same_city_weak_tie_meetup","participants":["zhou_ye","he_xin"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-12:song-chen-cross-city:01","start_date":"2029-12-08","end_date":"2029-12-08","event_kind":"cross_city_career_checkin","participants":["song_nan","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-12:gao-year-one:01","start_date":"2029-12-14","end_date":"2029-12-14","event_kind":"first_year_role_review","participants":["gao_yuan","zhou_ye"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-12:zhao-project-manager-scene:01","start_date":"2029-12-18","end_date":"2029-12-18","event_kind":"project_manager_boundary_scene","participants":["zhao_ke"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-12:year-end-group-call:01","start_date":"2029-12-27","end_date":"2029-12-27","event_kind":"year_end_group_call","participants":["lin_jing","chen_lan","xu_hang","zhou_ye","gao_yuan","luo_cheng","tang_yu","he_xin","song_nan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events": [
+    {"event_id":"2029q4:e01","kind":"social_interaction","at":"2029-10-08","event_kind":"offer_final_check","speaker":"chen_lan","listener":"lin_jing","act":"share_experience","content":"陈岚拿到正式合同后逐条对过响应轮转、岗位范围和试用期安排，确认没有把面试时的边界悄悄改回高频随时响应。","channel":"in_person","evidence":"合同更新提供了最终可检查信息。"},
+    {"event_id":"2029q4:e02","kind":"social_interaction","at":"2029-10-08","event_kind":"offer_final_check","speaker":"chen_lan","listener":"lin_jing","act":"make_plan","content":"陈岚决定接受岗位并在11月入职；搬家后仍保留应急现金，不用一次性提高住房标准。","channel":"in_person","evidence":"合同、现金和住房检查通过后形成接受决定。"},
+
+    {"event_id":"2029q4:e03","kind":"social_interaction","at":"2029-10-21","event_kind":"doctoral_completion_closure","speaker":"lin_jing","listener":"shen_yan","act":"share_experience","content":"林静完成答辩或等价程序后拿到一组边界清楚的修改意见，核心论证没有被要求重做；她第一次把博士完成看成真正有限的任务。","channel":"in_person","evidence":"制度事件为bounded revisions。"},
+    {"event_id":"2029q4:e04","kind":"social_interaction","at":"2029-10-21","event_kind":"doctoral_completion_closure","speaker":"shen_yan","listener":"lin_jing","act":"offer_information","content":"沈雁让她先把规定修改逐项关掉，再谈毕业后的城市和岗位，不要在最后一步重新同时开三条战线。","channel":"in_person","evidence":"导师保持完成优先级。"},
+    {"event_id":"2029q4:e05","kind":"social_interaction","at":"2029-10-21","event_kind":"doctoral_completion_closure","speaker":"lin_jing","listener":"shen_yan","act":"make_plan","content":"林静决定把职业搜索推迟到修改闭环后，先保住一个不被求职信息打碎的完成窗口。","channel":"in_person","evidence":"形成最终修改候选。"},
+
+    {"event_id":"2029q4:e06","kind":"social_interaction","at":"2029-11-02","event_kind":"internal_method_asset_field_test","speaker":"xu_hang","listener":"gu_wei","act":"share_experience","content":"验证规范试用一个月后，一个任务可以在许航不介入的情况下按规范完成，另一个任务仍频繁来问‘什么算失败’和‘输出差多少要停’。","channel":"in_person","evidence":"Q3要求的真实使用测试给出混合结果。"},
+    {"event_id":"2029q4:e07","kind":"social_interaction","at":"2029-11-02","event_kind":"internal_method_asset_field_test","speaker":"gu_wei","listener":"xu_hang","act":"offer_information","content":"顾维认为这说明规范已经有迁移价值，但判停规则写得还像许航脑中的隐性经验；下一版要把阈值、例外和需要人工判断的地方明确标出来。","channel":"in_person","evidence":"资产未被直接判定成熟。"},
+
+    {"event_id":"2029q4:e08","kind":"social_interaction","at":"2029-11-12","event_kind":"independent_internal_read","speaker":"tang_yu","listener":"shen_yan","act":"share_experience","content":"独立逻辑审读没有否掉主命题，但指出一个关键引理在边界情形里偷偷用了更强条件；唐雨把这看成真实证明缺口，而不是措辞问题。","channel":"in_person","evidence":"独立审读产生外部于作者自评的负面检查。"},
+    {"event_id":"2029q4:e09","kind":"social_interaction","at":"2029-11-12","event_kind":"independent_internal_read","speaker":"shen_yan","listener":"tang_yu","act":"offer_information","content":"沈雁要求她先尝试在原条件下补引理；如果补不上，就收缩命题或明确增加条件，不能靠模拟看起来没问题就跨过去。","channel":"in_person","evidence":"研究线再次进入可失败分支。"},
+    {"event_id":"2029q4:e10","kind":"social_interaction","at":"2029-11-12","event_kind":"independent_internal_read","speaker":"tang_yu","listener":"shen_yan","act":"make_plan","content":"唐雨暂停投稿准备，把年底任务改成补引理或构造反例，内部草稿状态回到‘需实质修改’。","channel":"in_person","evidence":"独立审读阻止过早投稿。"},
+
+    {"event_id":"2029q4:e11","kind":"social_interaction","at":"2029-11-30","event_kind":"same_city_weak_tie_meetup","speaker":"zhou_ye","listener":"he_xin","act":"share_experience","content":"周野说第二年评估没有升职，但他开始真正拥有一套技术交接标准；何欣则说学习时间只能部分守住，但已经足以让她不把稳定生活理解成完全停滞。","channel":"in_person","evidence":"第二年工作评估与实验结果。"},
+    {"event_id":"2029q4:e12","kind":"social_interaction","at":"2029-11-30","event_kind":"same_city_weak_tie_meetup","speaker":"he_xin","listener":"zhou_ye","act":"small_talk","content":"两人更多讨论冬天通勤、房租续约和周末回不回家，没有形成新的资源候选。","channel":"in_person","evidence":"维持低频弱联系。"},
+
+    {"event_id":"2029q4:e13","kind":"social_interaction","at":"2029-12-08","event_kind":"cross_city_career_checkin","speaker":"chen_lan","listener":"song_nan","act":"share_experience","content":"陈岚入职一个月后说，正式岗位并没有突然让生活完美，但并行任务和临时响应确实比上一份被她拒掉的offer可控；她至少没有立刻回到无限接活的状态。","channel":"video_call","evidence":"新岗位一个月实际体验。"},
+    {"event_id":"2029q4:e14","kind":"social_interaction","at":"2029-12-08","event_kind":"cross_city_career_checkin","speaker":"song_nan","listener":"chen_lan","act":"share_experience","content":"宋楠说自己第二年愿意继续留在医药统计，但也开始更在意哪些能力是公司之外仍可迁移的，不想把成长只理解成组织内熟练度。","channel":"video_call","evidence":"行业第二年经验。"},
+
+    {"event_id":"2029q4:e15","kind":"social_interaction","at":"2029-12-14","event_kind":"first_year_role_review","speaker":"gao_yuan","listener":"zhou_ye","act":"share_experience","content":"高原一年后仍选择留下：低机会密度是真的，家庭距离、住房和稳定时间的收益也是真的；他没有出现强烈后悔，也没有再把这份工作理想化。","channel":"phone","evidence":"第一年完整体验。"},
+    {"event_id":"2029q4:e16","kind":"social_interaction","at":"2029-12-14","event_kind":"first_year_role_review","speaker":"zhou_ye","listener":"gao_yuan","act":"check_in","content":"周野问他博士时期最舍不得的是什么，高原说是长时间想一个问题的自由；现在只能靠很小的阅读时间保持联系。","channel":"phone","evidence":"职业身份变化。"},
+
+    {"event_id":"2029q4:e17","kind":"actor_state_interaction","at":"2029-12-18","event_kind":"project_manager_boundary_scene","speaker":"zhao_ke","listener":"self_record","act":"share_experience","content":"赵珂年底复盘发现，主动拒绝没有预算、责任人和范围的‘先试试看’后，项目数量少了一点，但返工和隐性加班也少了；代价是他必须更早对合作方说不。","channel":"private_record","evidence":"延续其项目经理边界线。"},
+
+    {"event_id":"2029q4:e18","kind":"social_interaction","at":"2029-12-27","event_kind":"year_end_group_call","speaker":"lin_jing","listener":"chen_lan","act":"share_experience","content":"林静只说自己已经完成正式程序、正在关最后修改，没有在群里提前宣布下一份工作计划；陈岚则公开说自己换到省会正式岗位一个月。","channel":"video_call","evidence":"两人只公开各自选择披露的当前状态。"},
+    {"event_id":"2029q4:e19","kind":"social_interaction","at":"2029-12-27","event_kind":"year_end_group_call","speaker":"tang_yu","listener":"xu_hang","act":"share_experience","content":"唐雨告诉许航独立读稿发现了一个真实证明缺口，验证线暂时不用加算例；许航说等理论分支稳定后再决定是否需要新的检查。","channel":"video_call","evidence":"合作随任务阶段自然降频。"},
+    {"event_id":"2029q4:e20","kind":"social_interaction","at":"2029-12-27","event_kind":"year_end_group_call","speaker":"luo_cheng","listener":"gao_yuan","act":"small_talk","content":"罗诚和高原更多聊春节回家、通勤和工作节奏，没有把年末通话做成职业排名。","channel":"video_call","evidence":"普通关系维持。"}
+  ],
+  "hard_world_candidate_updates": [
+    {"candidate_id":"candidate:2029-q3:chen-offer-acceptance:01","checked_at":"2029-10-08","checks":{"contract_matches_response_boundary":true,"cash_after_relocation":true,"housing_feasibility":true,"role_learning_value":true,"acceptance_deadline":true},"result":"offer_accepted_noncanonical","resource_effect":"employment starts 2029-11 in provincial_capital research/data operations role"},
+    {"candidate_id":"candidate:2029-q2:lin-doctoral-completion:01","checked_at":"2029-10-18","checks":{"program_requirements_met":true,"internal_review_passed":true,"defense_or_equivalent_schedule":true,"required_revisions":"bounded_pending"},"result":"defense_completed_revisions_pending_noncanonical","resource_effect":"final degree closure requires revisions"},
+    {"candidate_id":"candidate:2029-q3:xu-standard-field-test:01","checked_at":"2029-11-02","checks":{"two_external_internal_tasks_exist":true,"users_can_follow_without_xu_intervention":"one_yes_one_partial","feedback_recorded":true},"result":"partially_successful_requires_revision_noncanonical","resource_effect":"validation standard recognized as transferable candidate but not mature"},
+    {"candidate_id":"candidate:2029-q3:tang-independent-logic-read:01","checked_at":"2029-11-12","checks":{"reader_available":true,"draft_frozen":true,"open_issue_not_overclaimed":true,"logic_gap_found":true},"result":"failed_submission_readiness_check_noncanonical","resource_effect":"submission preparation paused; substantive lemma repair required"}
+  ],
+  "new_hard_world_candidates": [
+    {"candidate_id":"candidate:2029-q4:lin-final-revisions:01","created_at":"2029-10-21","type":"doctoral_final_revisions","beneficiary":"lin_jing","description":"关闭答辩后限定修改，完成学位最后程序。","requires_checks":["revisions_completed","program_acceptance"],"status":"pending_completion_noncanonical"},
+    {"candidate_id":"candidate:2029-q4:xu-standard-revision:01","created_at":"2029-11-02","type":"internal_method_asset_revision","beneficiary":"xu_hang","description":"把验证规范中隐性的判停规则、阈值和人工判断点显式化后再次试用。","requires_checks":["stopping_rules_explicit","exceptions_documented","second_use_test"],"status":"pending_revision_noncanonical"},
+    {"candidate_id":"candidate:2029-q4:tang-lemma-repair:01","created_at":"2029-11-12","type":"research_gap_repair","beneficiary":"tang_yu","description":"修补独立审读发现的边界引理缺口；失败则收缩命题或增加条件。","requires_checks":["lemma_proved_under_current_conditions_or_counterexample_found","main_statement_adjusted_if_needed","draft_updated"],"status":"pending_research_noncanonical"}
+  ],
+  "actor_state_evidence": [
+    {"at":"2029-11-08","actor":"chen_lan","dimension":"employment_transition","evidence":"经过两次真实offer比较后进入时间结构更可持续的正式岗位；接受决定来自合同和bundle检查。","status":"candidate_state_evidence"},
+    {"at":"2029-11-28","actor":"zhou_ye","dimension":"professional_identity","evidence":"无职级变化，但开始拥有技术交接和核验标准的实际责任，可靠性更接近可迁移技术资产。","status":"candidate_state_evidence"},
+    {"at":"2029-12-14","actor":"gao_yuan","dimension":"first_year_retention","evidence":"一年后仍接受低机会密度与家庭距离、住房、稳定时间之间的交换，不神化也不强烈后悔。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence": [
+    {"at":"2029-11-30","pair":["zhou_ye","he_xin"],"direction":"positive","evidence":"弱联系连续两年有低频现实接触，已具稳定性但仍无强关系证据。"},
+    {"at":"2029-12-27","pair":["tang_yu","xu_hang"],"direction":"mixed","evidence":"技术合作因理论缺口再次降频，双方能够共享负面结果且不把停算解释为关系问题。"}
+  ],
+  "audit_rules": {"single_batch_noncanonical":true,"generated_through_interaction_chain":true,"independent_negative_checks_can_reverse_progress":true,"offer_acceptance_requires_contract_and_bundle_checks":true,"doctoral_completion_requires_final_revisions":true,"internal_method_asset_requires_external_internal_use":true,"no_unearned_knowledge":true,"conversation_does_not_auto_change_relationship":true,"hard_world_candidates_require_feasibility":true,"bilateral_memory_derivable_from_events":true}
+}
