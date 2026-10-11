@@ -1,5 +1,5 @@
 {
-  "schema_version":2,
+  "schema_version":3,
   "status":"adaptation_storyteller_head_noncanonical",
   "historical_world_writeback":false,
   "history_source":{
@@ -17,6 +17,8 @@
     "campbell_structure":"docs/adaptation/campbell-distributed-hero-journey-v1.md",
     "nested_substory_model":"docs/adaptation/nested-hero-substory-model-v1.md",
     "substory_guest_slots":"runtime/adaptation/storyteller/substory-and-guest-slots-v1.json",
+    "substory_graph":"runtime/adaptation/storyteller/substory-graph-v1.json",
+    "audited_guest_dossiers":"runtime/adaptation/storyteller/guest-dossiers-probe-v1.json",
     "style_guardrails":"docs/adaptation/literary-style-guardrails-v1.md",
     "storyteller_scene_engine":"narrative/longform/storybox_adaptation_storyteller_v13.py",
     "storyteller_nested_engine":"narrative/longform/storybox_adaptation_storyteller_v14.py",
@@ -31,6 +33,9 @@
     "recurring_secondary":["wu_cheng","shen_yan","gu_wei","zhao_ke","sun_jie"],
     "selected_scene_count":26,
     "reservoir_scene_count":30,
+    "character_substory_count":9,
+    "braided_substory_count":4,
+    "audited_guest_count":2,
     "prose_canon_fixed":false,
     "world_is_not_centered_on_core_six":true
   },
@@ -79,11 +84,9 @@
     "Ordinary time and non-events remain usable narrative material.",
     "2035 is an observation endpoint, not a life verdict."
   ],
-  "current_stage":"nested_substory_mapping_and_scene_probe_preparation",
+  "current_stage":"nested_substories_built_first_guests_audited_scene_probe_preparation",
   "next_stage_gate":{
     "required_before_full_chapter_drafting":[
-      "group the core scene selection into multi-scene substories",
-      "instantiate guests only where a scene-function gap is real",
       "three disposable scene probes in different emotional registers",
       "at least one locally-wrong-but-understandable viewpoint",
       "at least one local-antagonist scene where both sides pursue plausible goods",
