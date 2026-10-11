@@ -1,0 +1,77 @@
+{
+  "schema_version":1,
+  "batch_id":"career-six-chatbot-2030-q1",
+  "status":"noncanonical_chatbot_replay_batch",
+  "period":{"start":"2030-01-01","end":"2030-03-31"},
+  "generation_mode":"chatgpt_product_interaction_chain",
+  "era_lens":[
+    "2030进入家庭与城市锁定阶段，但年龄本身不产生疾病、照护危机、婚恋或家庭冲突；锁定首先来自住房、现金、通勤、工作年限和主动协商。",
+    "工作第三年开始形成更明显的路径依赖：积累的组织知识、社保福利连续性、城市网络和搬迁成本提高重新选择的门槛。",
+    "研究与职业资产继续接受负面检查；完成一个阶段只开启下一阶段，不自动生成更好的机会。"
+  ],
+  "exogenous_hard_world_events":[
+    {"event_id":"2030q1:proc01","at":"2030-01-24","kind":"doctoral_completion_update","actor":"lin_jing","source_candidate":"candidate:2029-q4:lin-final-revisions:01","result":"bounded_revisions_accepted_degree_process_completed","visibility":"private_then_actor_discretion"},
+    {"event_id":"2030q1:review01","at":"2030-02-18","kind":"probation_or_early_role_review","actor":"chen_lan","result":"meets_expectations_response_boundary_holds_no_role_change","visibility":"private_to_actor"},
+    {"event_id":"2030q1:housing01","at":"2030-03-01","kind":"rental_renewal_window","actor":"zhou_ye","city":"provincial_capital","current_housing_monthly":3300,"purchase_option":"not_opened_in_2030","visibility":"private_to_actor"},
+    {"event_id":"2030q1:housing02","at":"2030-03-01","kind":"rental_renewal_window","actor":"he_xin","city":"provincial_capital","current_housing_monthly":3300,"purchase_option":"not_opened_in_2030","visibility":"private_to_actor"}
+  ],
+  "windows":[
+    {"packet_id":"micro:chatbot:2030-01:lin-final-revisions-and-transition:01","start_date":"2030-01-08","end_date":"2030-01-31","event_kind":"doctoral_final_revisions_and_transition","participants":["lin_jing","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2030-02:lin-chen-career-opening:01","start_date":"2030-02-03","end_date":"2030-02-03","event_kind":"postdegree_career_opening","participants":["lin_jing","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2030-02:chen-wu-role-check:01","start_date":"2030-02-22","end_date":"2030-02-22","event_kind":"formal_role_reality_check","participants":["chen_lan","wu_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2030-03:gao-housing-independence:01","start_date":"2030-03-02","end_date":"2030-03-02","event_kind":"housing_budget_decision","participants":["gao_yuan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2030-03:zhou-he-rental-renewal:01","start_date":"2030-03-09","end_date":"2030-03-09","event_kind":"same_city_housing_checkin","participants":["zhou_ye","he_xin"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2030-03:tang-xu-lemma-gap:01","start_date":"2030-03-16","end_date":"2030-03-16","event_kind":"research_gap_check","participants":["tang_yu","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2030-03:xu-gu-standard-retest:01","start_date":"2030-03-23","end_date":"2030-03-23","event_kind":"internal_method_asset_retest","participants":["xu_hang","gu_wei"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2030-03:song-zhao-portability:01","start_date":"2030-03-28","end_date":"2030-03-28","event_kind":"professional_portability_checkin","participants":["song_nan","zhao_ke"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events":[
+    {"event_id":"2030q1:e01","kind":"social_interaction","at":"2030-01-08","event_kind":"doctoral_final_revisions_and_transition","speaker":"lin_jing","listener":"shen_yan","act":"share_experience","content":"林静按答辩意见逐项关闭限定修改，没有重新打开已经留给毕业后的研究问题；最后一轮材料只处理被明确要求的逻辑和表述边界。","channel":"in_person","evidence":"延续2029年底完成优先级。"},
+    {"event_id":"2030q1:e02","kind":"social_interaction","at":"2030-01-24","event_kind":"doctoral_final_revisions_and_transition","speaker":"shen_yan","listener":"lin_jing","act":"check_in","content":"程序确认修改被接受后，沈雁只问她接下来最想保住的生活条件是什么，没有替她指定高校、体制或行业路线。","channel":"in_person","evidence":"学位闭环已由制度事件确认。"},
+    {"event_id":"2030q1:e03","kind":"social_interaction","at":"2030-01-24","event_kind":"doctoral_final_revisions_and_transition","speaker":"lin_jing","listener":"shen_yan","act":"share_experience","content":"林静说毕业后第一轮职业选择至少要同时看时间自主性、城市生活成本、能否继续做有独立判断的工作，以及以后换路径的成本。","channel":"in_person","evidence":"延续其长期可逆性和自主性偏好。"},
+
+    {"event_id":"2030q1:e04","kind":"social_interaction","at":"2030-02-03","event_kind":"postdegree_career_opening","speaker":"lin_jing","listener":"chen_lan","act":"ask_advice","content":"林静问陈岚，真正经历过拒offer和再找工作以后，哪些岗位信息最值得在面试前就筛掉，避免把时间花在结构上根本不合适的机会。","channel":"in_person","evidence":"林静学位已闭环，职业搜索现在才正式开启。"},
+    {"event_id":"2030q1:e05","kind":"social_interaction","at":"2030-02-03","event_kind":"postdegree_career_opening","speaker":"chen_lan","listener":"lin_jing","act":"offer_information","content":"陈岚建议她先把城市、最低收入、响应边界、并行任务数量和学习价值写成筛选表，能从公开信息排除的就先排除，面试只验证真正未知的部分。","channel":"in_person","evidence":"来自陈岚2028-2029真实offer比较经验。"},
+    {"event_id":"2030q1:e06","kind":"social_interaction","at":"2030-02-03","event_kind":"postdegree_career_opening","speaker":"lin_jing","listener":"chen_lan","act":"make_plan","content":"林静决定先建立职业bundle筛选表，再开始投递；她没有因为刚毕业就默认高校是唯一合理出口。","channel":"in_person","evidence":"形成职业搜索候选，不生成岗位。"},
+
+    {"event_id":"2030q1:e07","kind":"social_interaction","at":"2030-02-22","event_kind":"formal_role_reality_check","speaker":"chen_lan","listener":"wu_cheng","act":"share_experience","content":"陈岚入职三个多月后确认，临时响应轮转基本按合同执行，并行任务数量也明显少于她曾拒掉的岗位；代价是部分工作更偏流程和数据运营，研究自由度有限。","channel":"in_person","evidence":"早期岗位评估与合同现实一致。"},
+    {"event_id":"2030q1:e08","kind":"social_interaction","at":"2030-02-22","event_kind":"formal_role_reality_check","speaker":"wu_cheng","listener":"chen_lan","act":"offer_information","content":"吴澄提醒她先区分‘自由度比博士低’和‘结构性不可接受’，不要因为正式工作不再像研究阶段就立刻否定选择。","channel":"in_person","evidence":"导师式校准，不生成资源。"},
+
+    {"event_id":"2030q1:e09","kind":"actor_state_interaction","at":"2030-03-02","event_kind":"housing_budget_decision","speaker":"gao_yuan","listener":"self_record","act":"share_experience","content":"高原把继续低成本租房、与家人保持近距离和完全同住三种日常结构分开算后，决定续一个通勤可控的小房子；他愿意付有限房租换日常独立，同时仍保留很近的家庭距离。","channel":"private_record","evidence":"home_prefecture低住房成本与家庭距离优势已被一年生活验证；未假设家人要求同住。"},
+
+    {"event_id":"2030q1:e10","kind":"social_interaction","at":"2030-03-09","event_kind":"same_city_housing_checkin","speaker":"zhou_ye","listener":"he_xin","act":"share_experience","content":"周野说今年继续租房，不急着买；工作第三年技术责任更完整，但他还没确认自己会不会长期留在这座省会。","channel":"in_person","evidence":"2030仅触发租赁续约窗口，购房不提前开放。"},
+    {"event_id":"2030q1:e11","kind":"social_interaction","at":"2030-03-09","event_kind":"same_city_housing_checkin","speaker":"he_xin","listener":"zhou_ye","act":"share_experience","content":"何欣也选择续租，理由是稳定岗位不等于城市选择已经终身锁死；她更愿意先观察工作和家庭协商是否在未来两年发生真实变化。","channel":"in_person","evidence":"不把稳定工作自动转成购房或永久定居。"},
+
+    {"event_id":"2030q1:e12","kind":"social_interaction","at":"2030-03-16","event_kind":"research_gap_check","speaker":"tang_yu","listener":"xu_hang","act":"share_experience","content":"唐雨尝试在原条件下补边界引理没有成功，并找到一个更小的构造说明缺口不是纯粹写法问题；她准备把主命题再缩一层，而不是强行补证明。","channel":"in_person","evidence":"2029独立审读后的repair候选得到负面结果。"},
+    {"event_id":"2030q1:e13","kind":"social_interaction","at":"2030-03-16","event_kind":"research_gap_check","speaker":"xu_hang","listener":"tang_yu","act":"offer_information","content":"许航复查构造时只确认数值与逻辑边界在两套实现中一致，没有把这个结果解释成完整理论反例；他建议新命题先冻结最小可核验版本。","channel":"in_person","evidence":"验证贡献保持边界。"},
+
+    {"event_id":"2030q1:e14","kind":"social_interaction","at":"2030-03-23","event_kind":"internal_method_asset_retest","speaker":"xu_hang","listener":"gu_wei","act":"share_experience","content":"许航把判停规则、阈值、例外和必须人工判断的地方补全后再次试用，第二轮任务只需要一次澄清就能继续执行。","channel":"in_person","evidence":"2029方法资产修订后的第二次实际使用。"},
+    {"event_id":"2030q1:e15","kind":"social_interaction","at":"2030-03-23","event_kind":"internal_method_asset_retest","speaker":"gu_wei","listener":"xu_hang","act":"offer_information","content":"顾维认为这已经足以把它当组内可选验证标准继续用，但还不足以证明对其他研究环境普遍有效；如果以后对外写，必须重新定义适用范围。","channel":"in_person","evidence":"内部采用与外部普适性分开。"},
+
+    {"event_id":"2030q1:e16","kind":"social_interaction","at":"2030-03-28","event_kind":"professional_portability_checkin","speaker":"song_nan","listener":"zhao_ke","act":"ask_advice","content":"宋楠问赵珂，自己在公司里积累的范围澄清、版本控制和分析判断怎样才能留下不泄密、又能证明可迁移性的证据。","channel":"wechat_private","evidence":"延续2029年末对公司外可迁移性的关注。"},
+    {"event_id":"2030q1:e17","kind":"social_interaction","at":"2030-03-28","event_kind":"professional_portability_checkin","speaker":"zhao_ke","listener":"song_nan","act":"offer_information","content":"赵珂建议她不要改写真实客户案例，而是用公开数据或完全模拟场景复现同类决策结构，只展示如何界定范围、记录版本、发现风险和交付结果。","channel":"wechat_private","evidence":"明确避免机密信息外流。"},
+    {"event_id":"2030q1:e18","kind":"social_interaction","at":"2030-03-28","event_kind":"professional_portability_checkin","speaker":"song_nan","listener":"zhao_ke","act":"make_plan","content":"宋楠决定建立一个公开/模拟案例档案，只沉淀可迁移的判断框架，不复制公司数据、文档或客户背景。","channel":"wechat_private","evidence":"形成便携职业资产候选。"}
+  ],
+  "hard_world_candidate_updates":[
+    {"candidate_id":"candidate:2029-q4:lin-final-revisions:01","checked_at":"2030-01-24","checks":{"revisions_completed":true,"program_acceptance":true},"result":"doctoral_degree_completed_noncanonical","resource_effect":"Lin Jing can enter post-degree career search"},
+    {"candidate_id":"candidate:2029-q4:tang-lemma-repair:01","checked_at":"2030-03-16","checks":{"lemma_proved_under_current_conditions_or_counterexample_found":"counterexample_like_boundary_construction_found","main_statement_adjusted_if_needed":"required","draft_updated":false},"result":"repair_failed_statement_must_shrink_noncanonical","resource_effect":"submission remains blocked"},
+    {"candidate_id":"candidate:2029-q4:xu-standard-revision:01","checked_at":"2030-03-23","checks":{"stopping_rules_explicit":true,"exceptions_documented":true,"second_use_test":true},"result":"internal_optional_standard_adopted_noncanonical","resource_effect":"usable internal method asset; no external validity claim"}
+  ],
+  "new_hard_world_candidates":[
+    {"candidate_id":"candidate:2030-q1:lin-career-bundle-search:01","created_at":"2030-02-03","type":"postdegree_career_search","beneficiary":"lin_jing","description":"用城市、最低收入、响应边界、并行任务和学习价值筛选第一轮正式岗位。","requires_checks":["candidate_roles_exist","income_floor","city_feasibility","time_autonomy","learning_value","reentry_option"],"status":"pending_search_noncanonical"},
+    {"candidate_id":"candidate:2030-q1:tang-shrunk-statement:01","created_at":"2030-03-16","type":"research_statement_revision","beneficiary":"tang_yu","description":"根据无法修补的边界缺口收缩主命题，冻结最小可证明版本并重写草稿。","requires_checks":["minimal_statement_defined","proof_complete","counterexample_scope_consistent","independent_reread"],"status":"pending_research_noncanonical"},
+    {"candidate_id":"candidate:2030-q1:song-portable-casebook:01","created_at":"2030-03-28","type":"portable_professional_asset","beneficiary":"song_nan","description":"使用公开或模拟场景建立不泄露公司信息的项目判断案例档案。","requires_checks":["no_confidential_material","public_or_simulated_data_only","decision_process_explicit","artifact_completed"],"status":"pending_asset_noncanonical"}
+  ],
+  "actor_state_evidence":[
+    {"at":"2030-01-24","actor":"lin_jing","dimension":"education_status","evidence":"学位最后修改和程序闭环完成，职业选择首次成为独立主任务。","status":"candidate_state_evidence"},
+    {"at":"2030-02-18","actor":"chen_lan","dimension":"role_fit","evidence":"新岗位前三个月基本兑现响应边界，研究自由度较低但尚不构成结构性退出理由。","status":"candidate_state_evidence"},
+    {"at":"2030-03-02","actor":"gao_yuan","dimension":"housing_independence","evidence":"在家乡低住房成本下选择继续独立租住，以有限成本换日常独立，同时保持近距离家庭连接。","status":"candidate_state_evidence"},
+    {"at":"2030-03-09","actor":"zhou_ye","dimension":"city_lockin","evidence":"续租但拒绝提前购房，说明第三年工作尚未转化为永久城市承诺。","status":"candidate_state_evidence"},
+    {"at":"2030-03-09","actor":"he_xin","dimension":"city_lockin","evidence":"续租并保留未来迁移可能，稳定岗位尚未形成住房所有权锁定。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence":[
+    {"at":"2030-03-09","pair":["zhou_ye","he_xin"],"direction":"positive","evidence":"低频同城弱联系继续存在，并开始能交换住房与城市锁定经验；仍无强关系证据。"},
+    {"at":"2030-03-16","pair":["tang_yu","xu_hang"],"direction":"positive","evidence":"双方能够共同处理研究线的负面结果和命题收缩，技术信任持续但不自动产生署名。"}
+  ],
+  "audit_rules":{"single_batch_noncanonical":true,"generated_through_interaction_chain":true,"family_age_alone_cannot_create_health_or_care_crisis":true,"housing_purchase_not_forced_by_job_stability":true,"doctoral_completion_requires_program_acceptance":true,"research_negative_result_can_shrink_statement":true,"no_unearned_knowledge":true,"conversation_does_not_auto_change_relationship":true,"hard_world_candidates_require_feasibility":true,"bilateral_memory_derivable_from_events":true}
+}
