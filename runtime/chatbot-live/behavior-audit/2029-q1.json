@@ -1,0 +1,16 @@
+{
+  "schema_version":1,
+  "period":"2029-q1",
+  "status":"behavior_audit_noncanonical",
+  "backend":"chatgpt_product_conversation",
+  "source_batch":"runtime/chatbot-live/batches/2029-q1.json",
+  "abnormal_budget":1,
+  "abnormal_used":0,
+  "decisions":[
+    {"actor_id":"gao_yuan","mode":"normal","chosen_action_id":"observe_full_year_before_reassessment","baseline_expected_action":"After deliberately accepting a low-opportunity-density home-prefecture role for housing, family distance and stability, first learn the real annual cycle before reopening the decision.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"The first month shows the expected tradeoff rather than a new shock.","constraint_check":{"feasible":true,"notes":"Employment already active; protected small reading time is feasible."},"evidence_refs":["2029q1:e01","2029q1:e02"]},
+    {"actor_id":"chen_lan","mode":"normal","chosen_action_id":"narrow_search_to_verifiable_time_structure","baseline_expected_action":"Continue the post-degree search while protecting the time-boundary learned from the rejected 2028 offer.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"The search condition is a direct continuation of her documented boundary.","constraint_check":{"feasible":true,"notes":"Longer search is affordable enough to remain a candidate path; no job fact is created."},"evidence_refs":["2029q1:e06","2029q1:e08"]},
+    {"actor_id":"tang_yu","mode":"normal","chosen_action_id":"delay_writing_until_condition_roles_split","baseline_expected_action":"Prefer mechanism clarity over premature paper packaging after earlier counterexample-driven narrowing.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Internal review found a concrete structural ambiguity.","constraint_check":{"feasible":true,"notes":"Research remains internal; no submission deadline is imposed."},"evidence_refs":["2029q1:e13","2029q1:e15"]},
+    {"actor_id":"he_xin","mode":"normal","chosen_action_id":"test_protected_learning_before_exit","baseline_expected_action":"Preserve a stable role while checking whether stagnation can be reduced without a costly path switch.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Dissatisfaction is mild and specific rather than acute.","constraint_check":{"feasible":true,"notes":"Experiment only reallocates bounded personal time and seeks available internal variation."},"evidence_refs":["2029q1:e16","2029q1:e17"]}
+  ],
+  "audit_rule":"No abnormal route was earned by supplied evidence; no randomness may create one."
+}
