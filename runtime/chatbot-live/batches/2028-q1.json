@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2028-q1",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2028-01-01","end":"2028-03-31"},
+  "generation_mode": "chatgpt_product_interaction_chain",
+  "era_lens": [
+    "第一份工作开始把职业选择转成每天的通勤、流程、任务、现金和关系时间；过去的偏好第一次接受现实检验。",
+    "进入工作不意味着社会关系消失，但可支配时间下降会自然降低同学聚会和长聊天频率。",
+    "仍在博士或求职阶段的人继续面对完全不同的节奏，因此同龄人的生活开始明显异步。"
+  ],
+  "exogenous_hard_world_events": [
+    {"event_id":"2028q1:job01","at":"2028-01-05","kind":"employment_started","actor":"zhou_ye","sector":"state_owned_enterprise","city":"provincial_capital","housing_reference_monthly":3300,"status":"active_noncanonical"},
+    {"event_id":"2028q1:job02","at":"2028-01-08","kind":"employment_started","actor":"he_xin","sector":"civil_service_or_public_institution","city":"provincial_capital","housing_reference_monthly":3300,"status":"active_noncanonical"},
+    {"event_id":"2028q1:job03","at":"2028-01-09","kind":"employment_started","actor":"song_nan","sector":"pharmaceutical_industry","city":"pharma_cluster","housing_reference_monthly":4600,"status":"active_noncanonical"},
+    {"event_id":"2028q1:proc01","at":"2028-02-06","kind":"public_application_update","actor":"luo_cheng","source_candidate":"candidate:2027-11:luo-research-support-application:01","result":"interview_invited","visibility":"private_to_actor"},
+    {"event_id":"2028q1:proc02","at":"2028-03-03","kind":"public_search_update","actor":"gao_yuan","source_candidate":"candidate:2027-12:gao-broadened-stability-search:01","result":"one_civil_service_registration_plus_one_large_organization_application","visibility":"private_to_actor"}
+  ],
+  "windows": [
+    {"packet_id":"micro:chatbot:2028-01:zhou-cohort-first-job:01","start_date":"2028-01-12","end_date":"2028-01-12","event_kind":"first_job_checkin","participants":["zhou_ye","gao_yuan","luo_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2028-01:u_d-transition-chat:01","start_date":"2028-01-16","end_date":"2028-01-16","event_kind":"first_job_transition_chat","participants":["tang_yu","he_xin","song_nan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2028-01:song-chen-onboarding:01","start_date":"2028-01-27","end_date":"2028-01-27","event_kind":"industry_onboarding_checkin","participants":["song_nan","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2028-02:lin-chen-postdegree-search:01","start_date":"2028-02-10","end_date":"2028-02-10","event_kind":"post_degree_career_search","participants":["lin_jing","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2028-02:luo-sun-research-support-prep:01","start_date":"2028-02-14","end_date":"2028-02-14","event_kind":"research_support_interview_prep","participants":["luo_cheng","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2028-02:tang-shen-minimal-mechanism:01","start_date":"2028-02-26","end_date":"2028-02-26","event_kind":"research_mechanism_checkin","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2028-03:xu-gu-validation-identity:01","start_date":"2028-03-12","end_date":"2028-03-12","event_kind":"verification_identity_checkin","participants":["xu_hang","gu_wei"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2028-03:zhao-chen-project-gate:01","start_date":"2028-03-23","end_date":"2028-03-23","event_kind":"project_gate_checkin","participants":["zhao_ke","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events": [
+    {"event_id":"2028q1:e01","kind":"social_interaction","at":"2028-01-12","event_kind":"first_job_checkin","speaker":"zhou_ye","listener":"gao_yuan","act":"share_experience","content":"周野说入职第一周最明显的变化是一天被会议、权限申请和交接切得比博士阶段碎，他以前整理复现包的习惯反而在接手旧流程时有用。","channel":"wechat_group","evidence":"由就业开始后的真实工作节奏生成；不披露单位敏感信息。"},
+    {"event_id":"2028q1:e02","kind":"social_interaction","at":"2028-01-12","event_kind":"first_job_checkin","speaker":"gao_yuan","listener":"zhou_ye","act":"check_in","content":"高原问他稳定工作是否真的比博士轻松；周野说只是压力形状变了，至少下班时间更可预测一些，但组织流程比自己想象的慢。","channel":"wechat_group","evidence":"一般工作体验。"},
+    {"event_id":"2028q1:e03","kind":"social_interaction","at":"2028-01-12","event_kind":"first_job_checkin","speaker":"luo_cheng","listener":"zhou_ye","act":"small_talk","content":"罗诚只问了租房和搬家有没有把人折腾坏，没有把这次群聊变成求职咨询。","channel":"wechat_group","evidence":"普通生活互动。"},
+
+    {"event_id":"2028q1:e04","kind":"social_interaction","at":"2028-01-16","event_kind":"first_job_transition_chat","speaker":"he_xin","listener":"tang_yu","act":"share_experience","content":"何欣说新岗位真正让她安心的是任务边界比求职阶段清楚，但程序和文书比想象中多；省会住房还能承受，通勤开始变成每天都要算的时间成本。","channel":"wechat_group","evidence":"就业bundle转成日常体验。"},
+    {"event_id":"2028q1:e05","kind":"social_interaction","at":"2028-01-16","event_kind":"first_job_transition_chat","speaker":"song_nan","listener":"tang_yu","act":"share_experience","content":"宋楠说医药岗位刚开始大量时间都在理解业务流程、数据权限和文档要求，真正能动手分析的时间比她想象中少，但她暂时把这看成学习成本。","channel":"wechat_group","evidence":"一般行业onboarding，不涉及公司敏感信息。"},
+    {"event_id":"2028q1:e06","kind":"social_interaction","at":"2028-01-16","event_kind":"first_job_transition_chat","speaker":"tang_yu","listener":"he_xin","act":"check_in","content":"唐雨发现两位同学开始上班后回复明显变慢，三人约定不因为群里沉默就解释成关系变淡，有空再约。","channel":"wechat_group","evidence":"时间约束导致联系频率变化。"},
+
+    {"event_id":"2028q1:e07","kind":"social_interaction","at":"2028-01-27","event_kind":"industry_onboarding_checkin","speaker":"song_nan","listener":"chen_lan","act":"share_experience","content":"宋楠说自己以前练的项目语言现在真用上了，但也第一次碰到分析方案必须服从数据权限、版本控制和跨团队确认的情况，很多事情不能靠一个统计师单独决定。","channel":"video_call","evidence":"入职后的组织约束。"},
+    {"event_id":"2028q1:e08","kind":"social_interaction","at":"2028-01-27","event_kind":"industry_onboarding_checkin","speaker":"chen_lan","listener":"song_nan","act":"offer_information","content":"陈岚提醒她先学会分辨哪些限制是合理协作成本、哪些只是组织低效；第一季度先记录，不急着用学术训练去证明自己比流程聪明。","channel":"video_call","evidence":"通用职业反馈。"},
+
+    {"event_id":"2028q1:e09","kind":"social_interaction","at":"2028-02-10","event_kind":"post_degree_career_search","speaker":"chen_lan","listener":"lin_jing","act":"share_experience","content":"陈岚说博士完成以后，她反而更难接受‘先接着做再看’的模糊工作结构；她想找收入能覆盖生活、职责明确、又不要求长期无限响应的正式角色。","channel":"in_person","evidence":"延续毕业后职业约束。"},
+    {"event_id":"2028q1:e10","kind":"social_interaction","at":"2028-02-10","event_kind":"post_degree_career_search","speaker":"lin_jing","listener":"chen_lan","act":"offer_information","content":"林静建议她把最低收入、最长可接受响应时间、是否能持续学习和城市住房四个底线先写出来，再看职位，不再只按‘机会看起来不错’排序。","channel":"in_person","evidence":"通用bundle框架。"},
+    {"event_id":"2028q1:e11","kind":"social_interaction","at":"2028-02-10","event_kind":"post_degree_career_search","speaker":"chen_lan","listener":"lin_jing","act":"make_plan","content":"陈岚决定只进入满足基本边界的正式招聘或合同流程，不再把无明确范围的外部项目当长期职业候选。","channel":"in_person","evidence":"职业搜索规则收紧。"},
+
+    {"event_id":"2028q1:e12","kind":"social_interaction","at":"2028-02-14","event_kind":"research_support_interview_prep","speaker":"luo_cheng","listener":"sun_jie","act":"share_experience","content":"罗诚说新的研究支持岗位终于允许他把博士训练、材料流程和协调经验放在同一个叙事里，他被邀请面试，但不确定自己是否会再次缺少直接岗位经验。","channel":"wechat_private","evidence":"公开申请进入面试。"},
+    {"event_id":"2028q1:e13","kind":"social_interaction","at":"2028-02-14","event_kind":"research_support_interview_prep","speaker":"sun_jie","listener":"luo_cheng","act":"offer_information","content":"孙洁让他把前两次失败学到的边界直接说清：有些学生工作他没做过，但长期研究、材料整理、流程跟进和跨人沟通是做过的；不要再试图把自己包装成不存在的学生事务老手。","channel":"wechat_private","evidence":"事实型面试准备。"},
+
+    {"event_id":"2028q1:e14","kind":"social_interaction","at":"2028-02-26","event_kind":"research_mechanism_checkin","speaker":"tang_yu","listener":"shen_yan","act":"share_experience","content":"唐雨尝试证明年末定下的最小机制命题，但一个过于一般的版本很快被自己找到反例推翻；她只保留了更窄的条件。","channel":"in_person","evidence":"研究失败通过内部验证产生，不写成成功定理。"},
+    {"event_id":"2028q1:e15","kind":"social_interaction","at":"2028-02-26","event_kind":"research_mechanism_checkin","speaker":"shen_yan","listener":"tang_yu","act":"repair","content":"沈雁认为这次失败反而有用，因为它说明问题边界终于能被反例约束；下一步只研究剩下那个窄命题，不补更多方法。","channel":"in_person","evidence":"研究线通过失败收缩。"},
+
+    {"event_id":"2028q1:e16","kind":"social_interaction","at":"2028-03-12","event_kind":"verification_identity_checkin","speaker":"xu_hang","listener":"gu_wei","act":"share_experience","content":"许航说自己最近开始把验证工作按‘风险识别—检查设计—结论变化’记录，而不是按帮谁跑了多少代码记录，他感觉这更接近自己的研究身份。","channel":"in_person","evidence":"延续贡献日志与独立判断框架。"},
+    {"event_id":"2028q1:e17","kind":"social_interaction","at":"2028-03-12","event_kind":"verification_identity_checkin","speaker":"gu_wei","listener":"xu_hang","act":"offer_information","content":"顾维让他继续观察这种记录能否自然生出独立问题；如果永远只能附着在别人项目上，身份问题还没有真正解决。","channel":"in_person","evidence":"不预写独立成果。"},
+
+    {"event_id":"2028q1:e18","kind":"social_interaction","at":"2028-03-23","event_kind":"project_gate_checkin","speaker":"zhao_ke","listener":"chen_lan","act":"share_experience","content":"赵珂说他把外部协作者接入点后移以后，前期少了很多含糊试工，但有些项目也因此更早暴露出预算和责任人根本没准备好。","channel":"wechat_private","evidence":"2027年项目管理边界的后果。"},
+    {"event_id":"2028q1:e19","kind":"social_interaction","at":"2028-03-23","event_kind":"project_gate_checkin","speaker":"chen_lan","listener":"zhao_ke","act":"repair","content":"陈岚觉得这种早失败比后面无限返工便宜，她也更愿意只在范围明确以后进入合作。","channel":"wechat_private","evidence":"双方项目边界继续趋同。"}
+  ],
+  "hard_world_candidate_updates": [
+    {"candidate_id":"candidate:2027-11:luo-research-support-application:01","checked_at":"2028-02-06","checks":{"eligibility_met":true,"application_submitted":true,"selection_process":"interview_invited"},"result":"interview_invited_noncanonical","resource_effect":"one public interview opportunity"},
+    {"candidate_id":"candidate:2027-11:tang-minimal-mechanism:01","checked_at":"2028-02-26","checks":{"minimal_statement_defined":true,"proof_or_counterexample_progress":"broad_statement_refuted","failure_not_explained_by_implementation_only":true},"result":"research_statement_narrowed_noncanonical","resource_effect":"no paper result; narrower mechanism candidate"}
+  ],
+  "new_hard_world_candidates": [
+    {"candidate_id":"candidate:2028-02:luo-research-support-interview:01","created_at":"2028-02-06","type":"public_recruitment_interview","beneficiary":"luo_cheng","description":"目标修订后的研究支持/流程协调岗位进入公开面试。","requires_checks":["interview_attended","role_fit_evaluated","selection_result"],"status":"pending_public_process_noncanonical"},
+    {"candidate_id":"candidate:2028-q1:chen-formal-role-search:01","created_at":"2028-02-10","type":"post_degree_formal_role_search","beneficiary":"chen_lan","description":"只进入满足收入底线、时间边界、学习价值和城市住房可行性的正式岗位或明确合同流程。","requires_checks":["matching_role_exists","income_floor","time_boundary","learning_value","city_housing_feasible"],"status":"pending_search_noncanonical"},
+    {"candidate_id":"candidate:2028-q1:tang-narrow-mechanism:01","created_at":"2028-02-26","type":"research_mechanism_development","beneficiary":"tang_yu","description":"在广义命题被反例推翻后，只研究剩余窄条件下的结构性失效机制。","requires_checks":["narrow_statement_defined","proof_or_disproof_progress","reproducible_counterexamples_consistent"],"status":"pending_research_noncanonical"}
+  ],
+  "actor_state_evidence": [
+    {"at":"2028-01-12","actor":"zhou_ye","dimension":"first_job_reality","evidence":"国企技术岗带来更可预测的时间边界，同时组织流程、会议和权限申请增加碎片化。","status":"candidate_state_evidence"},
+    {"at":"2028-01-16","actor":"he_xin","dimension":"first_job_reality","evidence":"公共机构岗位的安全感伴随程序和文书密度；住房可承受但通勤成为稳定的日常成本。","status":"candidate_state_evidence"},
+    {"at":"2028-01-27","actor":"song_nan","dimension":"first_job_reality","evidence":"医药统计岗位前期学习大量集中在业务流程、数据权限、版本和跨团队确认，直接分析时间低于预期。","status":"candidate_state_evidence"},
+    {"at":"2028-02-10","actor":"chen_lan","dimension":"career_boundary","evidence":"博士完成后明确拒绝把无范围、无限响应的外部接活当作长期职业结构。","status":"candidate_state_evidence"},
+    {"at":"2028-03-12","actor":"xu_hang","dimension":"research_identity","evidence":"验证工作开始按风险识别、检查设计和结论变化组织，而非按附属劳动量组织。","status":"candidate_state_evidence"}
+  ],
+  "audit_rules": {"single_batch_noncanonical":true,"generated_through_interaction_chain":true,"employment_daily_life_generated_from_accepted_bundle":true,"no_unearned_knowledge":true,"group_chat_does_not_share_private_employer_details":true,"conversation_does_not_auto_change_relationship":true,"hard_world_candidates_require_feasibility":true,"research_failure_is_valid_data":true,"bilateral_memory_derivable_from_events":true}
+}
