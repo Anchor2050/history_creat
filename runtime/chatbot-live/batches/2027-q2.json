@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2027-q2",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2027-04-01","end":"2027-06-30"},
+  "generation_mode": "chatgpt_product_interaction_chain",
+  "era_lens": [
+    "进入公开程序以后，角色开始收到不对称反馈：匹配、落选、等待和补材料都比单纯职业想象更能改变后续选择。",
+    "弱联系主要提供理解框架、表达和有限反馈；正式岗位结果仍由公开程序和硬约束产生。",
+    "博士完成、求职和研究合作争夺同一批时间，因此一些看似有价值的机会会主动被压缩。"
+  ],
+  "exogenous_hard_world_events": [
+    {"event_id":"2027q2:opp01","at":"2027-04-03","kind":"public_posting_generated","opportunity_type":"soe_technical_role","visibility":"public","fit_dimensions":["data_processing","quality_control","reproducible_work","technical_documentation"],"slots":2,"note":"虚构公开岗位窗口，由hard-world求职周期生成；不对应真实公司。"},
+    {"event_id":"2027q2:opp02","at":"2027-04-15","kind":"public_posting_generated","opportunity_type":"university_student_affairs_role","visibility":"public","fit_dimensions":["process_followup","student_facing_work","documentation","coordination"],"slots":1,"note":"虚构公开岗位窗口；程序性招聘。"},
+    {"event_id":"2027q2:opp03","at":"2027-05-02","kind":"public_posting_generated","opportunity_type":"public_institution_analytical_role","visibility":"public","fit_dimensions":["quantitative_training","documentation","public_service","city_fit"],"slots":1,"note":"虚构公开岗位窗口。"},
+    {"event_id":"2027q2:opp04","at":"2027-05-09","kind":"public_posting_generated","opportunity_type":"pharma_statistics_role","visibility":"public","fit_dimensions":["survival_analysis","problem_translation","reproducibility","communication"],"slots":2,"note":"虚构公开岗位窗口。"}
+  ],
+  "windows": [
+    {"packet_id":"micro:chatbot:2027-04:zhou-chen-role-screen:01","start_date":"2027-04-08","end_date":"2027-04-08","event_kind":"stable_work_comparison","participants":["zhou_ye","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-04:luo-sun-posting-read:01","start_date":"2027-04-19","end_date":"2027-04-19","event_kind":"student_affairs_posting_read","participants":["luo_cheng","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-05:sun-lin-queue-boundary:01","start_date":"2027-05-07","end_date":"2027-05-07","event_kind":"coordinator_workload_checkin","participants":["sun_jie","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-05:song-chen-pharma-application:01","start_date":"2027-05-13","end_date":"2027-05-13","event_kind":"public_recruitment_application","participants":["song_nan","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-05:tang-xu-validation-review:01","start_date":"2027-05-28","end_date":"2027-05-29","event_kind":"bounded_verification_review","participants":["tang_yu","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-06:he-lin-public-application:01","start_date":"2027-06-05","end_date":"2027-06-05","event_kind":"public_institution_application_checkin","participants":["he_xin","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-06:chen-wu-defense-readiness:01","start_date":"2027-06-14","end_date":"2027-06-14","event_kind":"doctoral_defense_readiness","participants":["chen_lan","wu_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2027-06:u_c-cohort-process-update:01","start_date":"2027-06-25","end_date":"2027-06-25","event_kind":"classmate_meal","participants":["zhou_ye","gao_yuan","luo_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events": [
+    {"event_id":"2027q2:e01","kind":"social_interaction","at":"2027-04-08","event_kind":"stable_work_comparison","speaker":"zhou_ye","listener":"chen_lan","act":"share_experience","content":"周野把一条公开国企技术岗位的职责拆给陈岚看，发现自己真正匹配的是数据处理、质量控制和技术文档，‘稳定’反而不是最能证明适配的部分。","channel":"wechat_private","evidence":"公开岗位由hard-world窗口生成，周野只分享公开信息和自己的匹配判断。"},
+    {"event_id":"2027q2:e02","kind":"social_interaction","at":"2027-04-08","event_kind":"stable_work_comparison","speaker":"chen_lan","listener":"zhou_ye","act":"offer_information","content":"陈岚提醒他申请材料要区分‘我想要稳定’和‘这个岗位为什么需要我’，复现包可以证明工作方式，但不能替代对岗位职责的具体理解。","channel":"wechat_private","evidence":"通用职业转译建议，无招聘资源。"},
+    {"event_id":"2027q2:e03","kind":"social_interaction","at":"2027-04-08","event_kind":"stable_work_comparison","speaker":"zhou_ye","listener":"chen_lan","act":"make_plan","content":"周野决定只投其中真正匹配的技术岗位，并把复现包作为附件型工作样本，而不是把它包装成论文替代品。","channel":"wechat_private","evidence":"进入公开申请路径。"},
+
+    {"event_id":"2027q2:e04","kind":"social_interaction","at":"2027-04-19","event_kind":"student_affairs_posting_read","speaker":"luo_cheng","listener":"sun_jie","act":"ask_advice","content":"罗诚拿公开岗位说明问孙洁，哪些表述是在描述真实日常，哪些只是招聘文件里的宽泛能力词。","channel":"in_person","evidence":"只讨论公开岗位文本。"},
+    {"event_id":"2027q2:e05","kind":"social_interaction","at":"2027-04-19","event_kind":"student_affairs_posting_read","speaker":"sun_jie","listener":"luo_cheng","act":"offer_information","content":"孙洁把其中学生谈话、材料审核、活动组织、值班和跨部门协调逐项翻成可能的日常任务，并指出罗诚已有流程跟进证据，但直接学生工作证据仍偏少。","channel":"in_person","evidence":"基于公开岗位和罗诚已披露经历，不提供内部评价。"},
+    {"event_id":"2027q2:e06","kind":"social_interaction","at":"2027-04-19","event_kind":"student_affairs_posting_read","speaker":"sun_jie","listener":"luo_cheng","act":"set_boundary","content":"孙洁明确自己不会替他判断‘能不能进’，也不会为弥补经历空缺去写推荐性结论；是否申请只能由罗诚根据公开条件决定。","channel":"in_person","evidence":"维持招聘权限边界。"},
+    {"event_id":"2027q2:e07","kind":"social_interaction","at":"2027-04-19","event_kind":"student_affairs_posting_read","speaker":"luo_cheng","listener":"sun_jie","act":"make_plan","content":"罗诚仍决定申请一条职责较匹配的公开岗位，但接受学生工作证据偏弱会降低竞争力，不再把博士学历当作自动补偿。","channel":"in_person","evidence":"公开申请行动。"},
+
+    {"event_id":"2027q2:e08","kind":"social_interaction","at":"2027-05-07","event_kind":"coordinator_workload_checkin","speaker":"sun_jie","listener":"lin_jing","act":"share_experience","content":"孙洁说近期重复解释和材料核对把工作切得很碎，她开始发现自己如果对每个熟人都额外做一遍私人说明，反而更容易漏掉正式队列里的事情。","channel":"in_person","evidence":"孙洁个人工作线，来自研究生事务角色。"},
+    {"event_id":"2027q2:e09","kind":"social_interaction","at":"2027-05-07","event_kind":"coordinator_workload_checkin","speaker":"lin_jing","listener":"sun_jie","act":"offer_information","content":"林静建议她把重复问题尽量沉淀成统一说明，同时给熟人也走同一信息边界，减少‘因为认识就多做一层’带来的隐性负担。","channel":"in_person","evidence":"通用边界建议。"},
+    {"event_id":"2027q2:e10","kind":"social_interaction","at":"2027-05-07","event_kind":"coordinator_workload_checkin","speaker":"sun_jie","listener":"lin_jing","act":"make_plan","content":"孙洁决定把几类高频问题改成统一模板和固定答复窗口，并减少对非紧急私聊的即时响应。","channel":"in_person","evidence":"个人工作方式调整，不改变正式制度。"},
+
+    {"event_id":"2027q2:e11","kind":"social_interaction","at":"2027-05-13","event_kind":"public_recruitment_application","speaker":"song_nan","listener":"chen_lan","act":"share_experience","content":"宋楠把一条公开医药统计岗位的业务题型和职责发给陈岚看，说自己第一次觉得前一年练的‘决策—数据—错误代价—交付’能直接对应到面试问题。","channel":"wechat_private","evidence":"公开招聘窗口由hard-world生成。"},
+    {"event_id":"2027q2:e12","kind":"social_interaction","at":"2027-05-13","event_kind":"public_recruitment_application","speaker":"chen_lan","listener":"song_nan","act":"offer_information","content":"陈岚只提醒她把回答落回真实研究经历，尤其说明哪些数据限制会让结论不能直接用于决策，不要为了像行业人而假装做过临床项目。","channel":"wechat_private","evidence":"延续事实边界。"},
+    {"event_id":"2027q2:e13","kind":"social_interaction","at":"2027-05-13","event_kind":"public_recruitment_application","speaker":"song_nan","listener":"chen_lan","act":"make_plan","content":"宋楠按公开流程提交申请，并决定若进面试就用真实研究经历回答未知行业情境，不编造项目经验。","channel":"wechat_private","evidence":"公开申请动作。"},
+
+    {"event_id":"2027q2:e14","kind":"social_interaction","at":"2027-05-28","event_kind":"bounded_verification_review","speaker":"tang_yu","listener":"xu_hang","act":"share_experience","content":"唐雨带来最小验证矩阵：预先选的几个结构里，有两个条件下失效现象重复出现，但换一种实现后其中一个现象明显减弱。","channel":"in_person","evidence":"只报告验证观察，不升级成理论结论。"},
+    {"event_id":"2027q2:e15","kind":"social_interaction","at":"2027-05-28","event_kind":"bounded_verification_review","speaker":"xu_hang","listener":"tang_yu","act":"offer_information","content":"许航认为这说明问题值得继续，但还不能把‘算法实现脆弱’和‘模型结构本身失效’混在一起；下一步应该专门设计能区分两种来源的检查。","channel":"in_person","evidence":"一次有限验证审阅。"},
+    {"event_id":"2027q2:e16","kind":"social_interaction","at":"2027-05-29","event_kind":"bounded_verification_review","speaker":"tang_yu","listener":"xu_hang","act":"make_plan","content":"唐雨决定把问题分成实现敏感性和结构性失效两条验证链，只有后一条稳定下来才考虑把它上升成研究主问题。","channel":"in_person","evidence":"研究问题被进一步收缩。"},
+
+    {"event_id":"2027q2:e17","kind":"social_interaction","at":"2027-06-05","event_kind":"public_institution_application_checkin","speaker":"he_xin","listener":"lin_jing","act":"share_experience","content":"何欣找到一条公开事业单位分析岗位，职责和城市都在她的可接受区间，但通勤和未来调整空间没有想象中好。","channel":"wechat_private","evidence":"岗位窗口由hard-world生成；只谈公开信息。"},
+    {"event_id":"2027q2:e18","kind":"social_interaction","at":"2027-06-05","event_kind":"public_institution_application_checkin","speaker":"lin_jing","listener":"he_xin","act":"offer_information","content":"林静提醒她既然已经把退出成本列进表，就不要因为终于遇到一条能报的岗位而删除那些不利项；申请和接受是两次不同决策。","channel":"wechat_private","evidence":"通用决策框架。"},
+    {"event_id":"2027q2:e19","kind":"social_interaction","at":"2027-06-05","event_kind":"public_institution_application_checkin","speaker":"he_xin","listener":"lin_jing","act":"make_plan","content":"何欣决定先按公开程序报名和参加考试，把是否接受留到真正有结果以后再评估。","channel":"wechat_private","evidence":"公开程序行动。"},
+
+    {"event_id":"2027q2:e20","kind":"social_interaction","at":"2027-06-14","event_kind":"doctoral_defense_readiness","speaker":"chen_lan","listener":"wu_cheng","act":"share_experience","content":"陈岚带着收尾清单来确认，目前必须完成的文本、结果和手续都已进入最后检查，剩下的问题已经从研究扩展变成能否按要求闭环。","channel":"in_person","evidence":"博士完成线推进，但尚未直接宣告毕业。"},
+    {"event_id":"2027q2:e21","kind":"social_interaction","at":"2027-06-14","event_kind":"doctoral_defense_readiness","speaker":"wu_cheng","listener":"chen_lan","act":"offer_information","content":"吴澄同意她进入正式完成检查，但要求最后一轮只修影响结论和规范的问题，不再开放新的研究方向。","channel":"in_person","evidence":"形成防御准备候选，受学校程序检查。"},
+
+    {"event_id":"2027q2:e22","kind":"social_interaction","at":"2027-06-25","event_kind":"classmate_meal","speaker":"gao_yuan","listener":"zhou_ye","act":"share_experience","content":"高原说自己已经完成这一轮公开招考的笔试，结果还没出来；他感觉模拟练习最大的用处是让自己知道如果进下一轮该怎样讲真实经历。","channel":"in_person","evidence":"公开招考程序状态。"},
+    {"event_id":"2027q2:e23","kind":"social_interaction","at":"2027-06-25","event_kind":"classmate_meal","speaker":"zhou_ye","listener":"gao_yuan","act":"share_experience","content":"周野说自己投出几份真正匹配的技术岗位，其中一份进入技术材料筛查，但他仍不知道能不能进面试。","channel":"in_person","evidence":"公开申请程序状态。"},
+    {"event_id":"2027q2:e24","kind":"social_interaction","at":"2027-06-25","event_kind":"classmate_meal","speaker":"luo_cheng","listener":"gao_yuan","act":"share_experience","content":"罗诚说自己投的一条学生事务岗位没有进入下一轮，另一条相近岗位仍在等待；他没有把第一次落选解释成学历不够或关系不够，而是承认直接学生工作证据确实薄。","channel":"in_person","evidence":"公开程序产生一次落选。"}
+  ],
+  "hard_world_candidate_updates": [
+    {"candidate_id":"candidate:2027-q1:zhou-soe-technical-applications:01","checked_at":"2027-06-20","checks":{"matching_public_posting_exists":true,"graduation_timeline_compatible":true,"application_material_ready":true},"result":"applications_submitted_one_technical_screen_noncanonical","resource_effect":"one application reaches technical material screening"},
+    {"candidate_id":"candidate:2027-q1:luo-counselor-applications:01","checked_at":"2027-06-20","checks":{"matching_public_posting_exists":true,"eligibility_met":true,"application_material_ready":true},"result":"two_applications_one_rejected_one_pending_noncanonical","resource_effect":"no offer; one process remains open"},
+    {"candidate_id":"candidate:2027-q1:gao-civil-service-cycle:01","checked_at":"2027-06-20","checks":{"eligible_public_posting_exists":true,"registration_completed":true,"exam_attendance":true},"result":"written_exam_completed_awaiting_result_noncanonical","resource_effect":"none yet"},
+    {"candidate_id":"candidate:2027-q1:he-public-institution-applications:01","checked_at":"2027-06-05","checks":{"matching_public_posting_exists":true,"eligibility_met":true,"application_material_ready":true},"result":"registered_for_public_exam_noncanonical","resource_effect":"none yet"},
+    {"candidate_id":"candidate:2027-q1:song-pharma-recruitment:01","checked_at":"2027-05-20","checks":{"matching_public_posting_exists":true,"application_material_ready":true,"interview_invitation":true},"result":"first_round_interview_invited_noncanonical","resource_effect":"one interview opportunity through public recruitment"},
+    {"candidate_id":"candidate:2027-01-17:tang-xu-validation-review:01","checked_at":"2027-05-28","checks":{"tang_validation_matrix_exists":true,"failure_pattern_repeats":true,"xu_hang_time_capacity":true,"materials_shareable":true},"result":"activated_once_noncanonical","resource_effect":"one bounded verification review"}
+  ],
+  "new_hard_world_candidates": [
+    {"candidate_id":"candidate:2027-06-14:chen-defense-process:01","created_at":"2027-06-14","type":"doctoral_completion_process","beneficiary":"chen_lan","description":"陈岚进入正式博士完成/答辩准备检查。","requires_checks":["program_requirements_met","final_materials_accepted","defense_schedule_available"],"status":"pending_institutional_process_noncanonical"},
+    {"candidate_id":"candidate:2027-05:song-pharma-interview:01","created_at":"2027-05-20","type":"public_recruitment_interview","beneficiary":"song_nan","description":"宋楠通过公开申请获得一轮医药统计岗位面试机会。","requires_checks":["interview_attended","technical_fit_evaluated","communication_fit_evaluated"],"status":"pending_public_process_noncanonical"},
+    {"candidate_id":"candidate:2027-06:zhou-soe-technical-screen:01","created_at":"2027-06-20","type":"technical_screen","beneficiary":"zhou_ye","description":"周野一份公开国企技术岗位申请进入技术材料筛查。","requires_checks":["technical_sample_reviewed","role_fit_sufficient","interview_slot_available"],"status":"pending_public_process_noncanonical"}
+  ],
+  "actor_state_evidence": [
+    {"at":"2027-05-07","actor":"sun_jie","dimension":"work_boundary","evidence":"开始把重复问题沉淀成统一说明，并减少熟人私聊对正式队列的侵占。","status":"candidate_state_evidence"},
+    {"at":"2027-05-29","actor":"tang_yu","dimension":"research_line","evidence":"将实现敏感性与结构性失效拆成两条验证链，研究问题进一步收缩。","status":"candidate_state_evidence"},
+    {"at":"2027-06-14","actor":"chen_lan","dimension":"doctoral_completion","evidence":"博士工作从研究扩展阶段进入正式完成检查候选。","status":"candidate_state_evidence"}
+  ],
+  "audit_rules": {"single_batch_noncanonical":true,"generated_through_interaction_chain":true,"exogenous_opportunities_are_hard_world_events":true,"no_unearned_knowledge":true,"conversation_does_not_auto_change_relationship":true,"hard_world_candidates_require_feasibility":true,"public_process_can_reject_without_social_cause":true,"bilateral_memory_derivable_from_events":true}
+}
