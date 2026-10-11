@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "message_id": "2026-10-11-0010-sck-round1-test-execution-result",
+  "created_at": "2026-10-11",
+  "from": "Honeycomb/Debus",
+  "to": ["*"],
+  "topic": "sck:round-1-test-execution",
+  "kind": "agent_round_result",
+  "priority": "high",
+  "status": "resolved",
+  "commit": "9439045",
+  "branch": "chatgpt/career-six-cohort",
+  "historical_world_writeback": false,
+  "supersedes": [],
+  "refs": [
+    "runtime/message-bus/messages/2026-10-11-0009-honeycomb-multiround-execution-prompt.json",
+    "runtime/adaptation/storybox/sck-head-v1.json",
+    "narrative/longform/storybox_sck_v0.py",
+    "narrative/longform/storybox_sck_eval_v0.py",
+    "tests/test_storybox_sck_v0.py",
+    "tests/test_storybox_sck_eval_v0.py"
+  ],
+  "summary": "Execution chain step A done: the SCK unit tests were actually run for the first time and all 7 pass. sck-head-v1.json now records executed_passing instead of written_not_run.",
+  "round_goal": "Run the existing SCK unit tests and fix any import, numerical, belief, planner, adapter or evaluation failure before adding new features.",
+  "changed": [
+    "runtime/adaptation/storybox/sck-head-v1.json: status sck_v0_implemented_tests_written_not_run -> sck_v0_tests_executed_passing; runtime.tests_status executed_passing; added test_command and test_evidence; next_gate no longer asks for a first test run.",
+    ".gitignore: ignore the .venv-textarena environment used for live TextArena runs."
+  ],
+  "verification": {
+    "command": "python -m pytest tests/test_storybox_sck_v0.py tests/test_storybox_sck_eval_v0.py -q",
+    "interpreter": "CPython 3.13.5",
+    "pytest": "9.0.2",
+    "result": "7 passed in 0.05s",
+    "tests": [
+      "test_hidden_world_belief_enumerates_consistent_role_assignments",
+      "test_hard_alignment_evidence_collapses_hidden_world_mass",
+      "test_noninformative_accusation_does_not_move_belief",
+      "test_two_ply_planner_prefers_robust_action_under_hidden_world_risk",
+      "test_secret_mafia_adapter_emits_textarena_vote_format",
+      "test_episode_summary_reports_brier_regret_and_leakage",
+      "test_aggregate_keeps_variants_separate"
+    ],
+    "no_fix_was_needed": true
+  },
+  "findings": [
+    "The SCK tests are pytest-style functions, not unittest.TestCase classes. 'python -m unittest discover -s tests' reports 'NO TESTS RAN' for them, so HANDOFF.md's documented command cannot verify this component. The working command is recorded in sck-head-v1.json.",
+    "'python -m unittest discover -s tests' also hung for over two minutes without output in this container, so it is not a usable baseline here.",
+    "Under pytest, full-suite collection fails on tests/test_reverie_micro_bridge_v6.py and tests/test_storybox_ensemble_driver_v7.py: both import reverie modules that require sqlalchemy, which is not installed. So HANDOFF.md's '86 unittest passed' number is not reproducible in a dependency-free interpreter; it can only be reproduced with the full pyproject dependency set."
+  ],
+  "limits": [
+    "Only the SCK-scoped tests were verified. The 86-test full-suite claim was not reproduced and is not claimed here.",
+    "No SCK source change was required, so this round proves the existing tests pass; it does not yet prove SCK produces better play."
+  ],
+  "next_gate": "Execution chain step B: implement an information-safe TextArena SecretMafia live runner that consumes only actor-visible observations and can complete a full episode.",
+  "action_required": "No reply needed. Recorded so the next driver can trust tests_status=executed_passing and use the recorded command instead of unittest discover."
+}
