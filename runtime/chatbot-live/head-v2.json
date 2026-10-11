@@ -23,78 +23,90 @@
     "runtime/chatbot-live/batches/2028-q1.json",
     "runtime/chatbot-live/batches/2028-q2.json",
     "runtime/chatbot-live/batches/2028-q3.json",
-    "runtime/chatbot-live/batches/2028-q4.json"
+    "runtime/chatbot-live/batches/2028-q4.json",
+    "runtime/chatbot-live/batches/2029-q1.json",
+    "runtime/chatbot-live/batches/2029-q2.json",
+    "runtime/chatbot-live/batches/2029-q3.json",
+    "runtime/chatbot-live/batches/2029-q4.json"
   ],
   "cognition_layers": {
     "manifest": "runtime/chatbot-live/cognition-layers-v11.json",
     "protocol": "narrative/longform/storybox_cognition_protocol_v11.py",
-    "personal": {"enabled": true, "writeback": "personal_ledger_only", "first_refresh_as_of": "2028-12-31"},
-    "behavior": {"enabled": true, "normal_default": true, "random_abnormal_factor": false, "abnormal_requires_evidence": true},
+    "personal": {"enabled": true, "writeback": "personal_ledger_only", "latest_refresh": "runtime/chatbot-live/personal/2029-year-end.json"},
+    "behavior": {"enabled": true, "normal_default": true, "random_abnormal_factor": false, "abnormal_requires_evidence": true, "latest_audits": ["runtime/chatbot-live/behavior-audit/2029-q1.json","runtime/chatbot-live/behavior-audit/2029-q2.json","runtime/chatbot-live/behavior-audit/2029-q3.json","runtime/chatbot-live/behavior-audit/2029-q4.json"]},
     "storyteller": {"enabled": true, "mode": "read_only_diagnostic", "literary_generation_enabled": false, "first_diagnostic_as_of": "2028-12-31"},
     "backend_priority": ["chatgpt_product_conversation", "deepseek_api", "local_model", "deterministic_control"]
   },
-  "cursor": 84,
-  "world_time": "2028-12-31",
-  "processed_window_count": 84,
-  "event_count": 237,
-  "actor_window_coverage_2028": {
-    "lin_jing": 10,
-    "chen_lan": 11,
+  "cursor": 115,
+  "world_time": "2029-12-31",
+  "processed_window_count": 115,
+  "event_count": 306,
+  "actor_window_coverage_2029": {
+    "lin_jing": 7,
+    "chen_lan": 5,
     "xu_hang": 6,
     "wu_cheng": 1,
-    "shen_yan": 4,
-    "gu_wei": 1,
+    "shen_yan": 6,
+    "gu_wei": 3,
     "zhao_ke": 3,
     "sun_jie": 3,
-    "zhou_ye": 7,
-    "gao_yuan": 7,
-    "luo_cheng": 7,
-    "tang_yu": 9,
-    "he_xin": 6,
-    "song_nan": 6
+    "zhou_ye": 6,
+    "gao_yuan": 6,
+    "luo_cheng": 4,
+    "tang_yu": 5,
+    "he_xin": 5,
+    "song_nan": 4
   },
-  "current_actor_transitions_end_2028": {
-    "zhou_ye": "active first job: state_owned_enterprise @ provincial_capital",
-    "gao_yuan": "accepted civil_service @ home_prefecture; starts 2029-01",
-    "luo_cheng": "active first job: research-support/process-coordination role @ regional_university_city",
-    "tang_yu": "doctoral research; narrow mechanism internal-result candidate under review",
-    "he_xin": "active first job: public institution @ provincial_capital",
-    "song_nan": "active first job: pharmaceutical statistics @ pharma_cluster; chooses to stay at least another stage",
-    "chen_lan": "doctoral degree completed; rejected one formal offer for structural time-boundary mismatch; formal search remains open",
-    "lin_jing": "doctoral research; explicitly tracking time autonomy and city choice for future career bundle",
-    "xu_hang": "doctoral research; verification identity increasingly organized around risk identification and check design"
+  "current_actor_transitions_end_2029": {
+    "zhou_ye": "active state_owned_enterprise role @ provincial_capital; no title change, increasing ownership of technical handoff/verification standards",
+    "gao_yuan": "active civil_service role @ home_prefecture; completed first year and currently accepts low opportunity density for family distance, housing and predictable time",
+    "luo_cheng": "active research-support/process-coordination role @ regional_university_city; first-year fit supported by actual work evidence",
+    "tang_yu": "doctoral research; internal draft failed independent submission-readiness check because of a boundary-lemma gap; repair/shrink path pending",
+    "he_xin": "active public institution role @ provincial_capital; protected learning blocks partially sustained; no exit decision",
+    "song_nan": "active pharmaceutical statistics role @ pharma_cluster; second-year analysis responsibility expanded; attention shifting to externally transferable skills",
+    "chen_lan": "started sustainable formal research/data-operations role @ provincial_capital in 2029-11 after contract and bundle checks",
+    "lin_jing": "doctoral defense/equivalent completed with bounded revisions pending; career search intentionally deferred until final closure",
+    "xu_hang": "doctoral research; internal validation standard showed partial transferability and requires explicit stopping-rule revision",
+    "wu_cheng": "mentor/team role; 2029 evidence mainly shows bounded career guidance rather than resource intervention",
+    "shen_yan": "mentor/research role; repeatedly enforces scope, negative checks and logical closure across Lin/Tang lines",
+    "gu_wei": "verification mentor role; requires real field use before treating Xu's validation framework as transferable",
+    "zhao_ke": "project manager role; continues reducing under-scoped work even at the cost of saying no earlier",
+    "sun_jie": "graduate coordinator role; maintains unified queue boundaries despite some relationship cost"
   },
-  "open_candidates_end_2028": [
-    "chen_lan sustainable formal-role search",
-    "tang_yu internal review of narrow proposition plus counterexample",
-    "gao_yuan 2029 first-job transition",
-    "lin_jing doctoral completion and future career-bundle formation",
-    "xu_hang independent verification/research identity"
+  "open_candidates_end_2029": [
+    "lin_jing final doctoral revisions and degree closure, then career/city bundle formation",
+    "tang_yu lemma repair or statement shrink after independent logic gap",
+    "xu_hang validation-standard revision and second use test",
+    "chen_lan first-year sustainable-role reality check",
+    "he_xin whether protected learning remains sustainable",
+    "song_nan whether portable professional identity grows beyond current organization",
+    "2030 household/city lock-in and care-cost updates for all eligible actors"
   ],
-  "network_deltas_2028": [
-    {"a":"zhou_ye","b":"he_xin","introduced_by":"tang_yu","at":"2028-07-20","status":"introduced_acquaintance_with_two_actual_contacts_by_year_end"}
+  "network_deltas_2029": [],
+  "2029_mechanism_findings": [
+    "高原完整经历家乡公务员第一年后同时确认了住房、家庭距离和稳定时间的收益，也确认了低机会密度与博士身份淡化的真实成本；两者并存，没有被写成满意或后悔的单一结论。",
+    "周野第二年没有升职，但可靠性开始沉淀成技术交接和核验标准所有权；系统继续区分技术资产与因为可靠而被无限加活。",
+    "何欣通过保护学习时间和一个小型变化任务缓解停滞感，因此没有把轻度不满自动升级为离职。",
+    "宋楠第二年获得更完整分析责任，成长越来越体现在范围、权限、版本和交付风险识别，而非模型复杂度；是否跳槽或晋升仍无证据。",
+    "罗诚第一年工作支持了目标修订：博士训练在研究支持/流程协调岗位得到实际使用，早期辅导员落选不再被解释为训练无价值。",
+    "陈岚经历真实结构化面试、正式offer、合同与搬家检查后才接受省会正式岗位；此前拒offer形成的时间边界在真实选择中持续有效。",
+    "林静进入正式博士完成链并完成答辩或等价程序，但最终学位仍受限定修改闭环约束；职业搜索没有被提前硬写。",
+    "唐雨的内部草稿先通过结构审读，随后被独立读者发现真实引理缺口，投稿准备因此回退；负面检查可以逆转进度。",
+    "许航的验证规范经过别人实际试用只得到部分成功，暴露隐性判停经验；方法资产需要再次修订，不能靠作者自评成熟。",
+    "赵珂与孙洁的个人边界继续产生现实收益和关系成本；原八人不再只是给新增角色提供资源的功能节点。",
+    "2029没有新增明确弱联系；既有跨城关系主要通过低频主动联系维持，同场或同城仍不会自动生成关系。",
+    "四个季度的关键行为审计均为normal：没有足够证据支持强行制造反常选择，系统没有使用随机剧情因子。"
   ],
-  "2028_mechanism_findings": [
-    "第一份工作把offer bundle转成了真实日常：周野获得更可预测的生活但组织流程更慢；何欣获得稳定时间边界但重复程序挤压学习；宋楠获得高学习密度但住房、家庭距离和组织流程成本持续存在。",
-    "罗诚通过修订目标而不是关系补偿获得第二次机会，公开流程后进入研究支持岗位；先前辅导员路线的失败成为目标修订证据。",
-    "高原第二轮公开考试才获得家乡公务员offer，并明确接受低机会密度以换取家庭距离、住房和稳定性。",
-    "陈岚在有正式offer的情况下因结构性高响应和多项目切换主动拒绝，说明职业边界在真实选择中生效，而不是事后叙事。",
-    "唐雨的广义机制命题先被反例推翻，之后才收缩成带显式条件的窄命题；年底只有内部证明草稿和可复现反例，没有投稿或发表事实。",
-    "许航的验证贡献继续通过贡献日志和边界管理积累，仍未自动转成作者身份。",
-    "同城本身不会自动创造关系；周野和何欣只有在唐雨明确介绍后才建立弱联系，并通过两次普通见面维持。",
-    "工作后联系频率下降是时间约束结果，不自动解释为疏远；多人活动中仍只传播主动说出的信息。",
-    "赵珂和孙洁的个人工作边界继续演化：前者减少无预算试工，后者减少熟人私聊侵占正式队列。"
-  ],
-  "memory_materialization_rule": "Every social event writes bilateral memory only to explicit speaker/listener. Public or group events expose only statements explicitly spoken in that event. Explicit introductions alone create new weak-tie edges. Exogenous hard-world events are private to named actors until disclosed. Employment and offer outcomes must be materialized only after their documented public/institutional process and bundle checks.",
+  "memory_materialization_rule": "Every social event writes bilateral memory only to explicit speaker/listener. Public or group events expose only statements explicitly spoken in that event. Explicit introductions alone create new weak-tie edges. Exogenous hard-world events are private to named actors until disclosed. Personal state is evidence-grounded and cannot directly write hard-world facts. Consequential behavior defaults to normal unless supplied evidence supports an auditable deviation.",
   "next_pending_task": {
-    "task_id":"career-six-chatbot-live-v2:2029-01-01",
-    "stage":"micro-replay",
-    "packet_id":"micro:chatbot:2029-01:gao-first-job-transition:01",
-    "start_date":"2029-01-06",
-    "end_date":"2029-01-20",
-    "event_kind":"first_job_transition",
-    "participants":["gao_yuan"],
-    "instruction":"由当前ChatGPT继续充当cognition backend。推进这场前先按 Personal v11 刷新高原相关内在状态候选，并用 Behavior v11 对关键选择做 normal/abnormal 路由；高原进入家乡公务员岗位后，从住房/是否与父母同住、通勤、现金、程序工作、与周野罗诚的联系频率以及对低机会密度的真实体验生成后续状态。不要把稳定自动写成满意，也不要因为机会密度低自动写成后悔。随后继续推进2029年其他角色的工作第二年、博士完成、研究内部审读和陈岚正式求职。"
+    "task_id":"career-six-chatbot-live-v2:2030-01-01",
+    "stage":"micro-replay_plus_household_lockin",
+    "packet_id":"micro:chatbot:2030-01:lin-final-revisions-and-transition:01",
+    "start_date":"2030-01-08",
+    "end_date":"2030-01-31",
+    "event_kind":"doctoral_final_revisions_and_transition",
+    "participants":["lin_jing"],
+    "instruction":"由当前ChatGPT继续充当cognition backend。先按Personal v11读取林静2029年末内在状态，用Behavior v11路由最终修改与职业搜索开启顺序。只有在限定修改完成并获得程序接受后才关闭博士状态。随后进入2030 family/city lock-in阶段：对所有人物只通过已有家庭节点、住房/现金/城市/工作状态和真实交互生成照护、同住、迁移与路径依赖后果；不得凭年龄自动制造疾病、婚恋、生育或家庭冲突。继续批量推进2030。"
   },
   "rules": {
     "repository_calls_model_api": false,
@@ -111,6 +123,7 @@
     "personal_cannot_directly_write_hard_world": true,
     "abnormal_behavior_requires_evidence_trigger": true,
     "storyteller_is_read_only": true,
+    "family_age_alone_cannot_create_health_or_care_crisis": true,
     "literary_layer_not_started": true
   }
 }
