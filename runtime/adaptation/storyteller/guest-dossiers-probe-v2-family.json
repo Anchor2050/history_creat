@@ -1,0 +1,52 @@
+{
+  "schema_version":1,
+  "status":"adaptation_only_guest_dossier_noncanonical",
+  "historical_world_writeback":false,
+  "guests":[
+    {
+      "guest_id":"guest:he_jun",
+      "display_name":"何峻",
+      "relation":"he_xin_older_brother",
+      "used_in_substory":"sub:he-role-before-house",
+      "first_scene_year":2035,
+      "current_role":"何欣的哥哥之一，已工作多年；具体职业与居住城市保持开放",
+      "resume_hypothesis":{
+        "design":"长期工作经历让他习惯把家庭问题拆成时间、钱和执行步骤；他并非家庭权威，也无权替何欣做住房或职业决定。",
+        "status":"adaptation_only"
+      },
+      "current_goal":"希望妹妹把住房和未来城市安排尽早说清楚，减少父母反复担心和家里长期悬而未决的话题",
+      "pressure":"他经常被家里当成先去问清楚、先把事情办起来的人；效率既是能力，也慢慢变成默认责任",
+      "virtue":"务实、愿意帮忙、遇到现实问题会主动查信息和推进",
+      "shadow":"容易把关心变成项目管理，把‘我可以帮你’说成‘这件事应该这样办’，低估成年人保留未决定状态的需要",
+      "power_position":"family_peer_with_age_seniority_but_no_formal_authority",
+      "information_set":{
+        "knows":["何欣工作相对稳定","何欣过去几年没有马上买房","父母会关心她未来是否长期留城"],
+        "does_not_know":["何欣完整的岗位价值复核过程","她所有现金和贷款计算","她和同事朋友谈过的退出成本框架"]
+      },
+      "interaction_mode_with_protagonist":"family_mirror_and_local_pressure",
+      "micro_arc_pattern":"care_planning_overreach_boundary_recalibration",
+      "micro_arc_steps":[
+        "care: 主动问何欣是否需要一起查房贷与片区信息",
+        "planning: 很快把话推进到时间表和‘既然稳定就早点定’",
+        "overreach: 何欣觉得自己的职业与住房被他合并替她下结论，语气变硬",
+        "boundary: 两人通话不欢而散，没有当场达成高质量沟通",
+        "recalibration: 后续只恢复到‘需要具体帮忙时你再叫我’，关系没有裂，也没有解决全部分歧"
+      ],
+      "what_changes_for_guest":"他稍微意识到，帮助一个成年人不等于替对方消灭所有未决定状态。",
+      "what_changes_for_protagonist":"何欣看到自己很会替别人降温，但家庭角色一被触发，她也会用边界语言伤人。",
+      "status":"adaptation_only_approved_for_probe",
+      "reverse_plausibility_audit":{
+        "time_feasible":true,
+        "institution_feasible":true,
+        "professional_feasible":true,
+        "relationship_feasible":true,
+        "information_feasible":true,
+        "interest_feasible":true,
+        "psychology_feasible":true,
+        "era_feasible":true,
+        "result":"approved_for_disposable_probe",
+        "notes":"只使用历史已固定的‘何欣有两个哥哥’和其长期住房/岗位复核轨迹；哥哥姓名、说话方式和具体互动均为改编层假设。"
+      }
+    }
+  ]
+}
