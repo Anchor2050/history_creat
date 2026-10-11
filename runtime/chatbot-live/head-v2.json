@@ -34,12 +34,42 @@
     "runtime/chatbot-live/batches/2030-q4.json"
   ],
   "cognition_layers": {
-    "manifest": "runtime/chatbot-live/cognition-layers-v11.json",
+    "manifest": "runtime/chatbot-live/cognition-layers-v12.json",
     "protocol": "narrative/longform/storybox_cognition_protocol_v11.py",
-    "personal": {"enabled": true, "writeback": "personal_ledger_only", "latest_refresh": "runtime/chatbot-live/personal/2030-year-end.json"},
-    "behavior": {"enabled": true, "normal_default": true, "random_abnormal_factor": false, "abnormal_requires_evidence": true, "latest_audits": ["runtime/chatbot-live/behavior-audit/2030-q1.json","runtime/chatbot-live/behavior-audit/2030-q2.json","runtime/chatbot-live/behavior-audit/2030-q3.json","runtime/chatbot-live/behavior-audit/2030-q4.json"]},
-    "storyteller": {"enabled": true, "mode": "read_only_diagnostic", "literary_generation_enabled": false, "first_diagnostic_as_of": "2028-12-31"},
-    "backend_priority": ["chatgpt_product_conversation", "deepseek_api", "local_model", "deterministic_control"]
+    "personal": {
+      "enabled": true,
+      "writeback": "personal_ledger_only",
+      "latest_refresh": "runtime/chatbot-live/personal/2030-year-end.json"
+    },
+    "behavior": {
+      "enabled": true,
+      "normal_default": true,
+      "random_abnormal_factor": false,
+      "abnormal_requires_evidence": true,
+      "latest_audits": [
+        "runtime/chatbot-live/behavior-audit/2030-q1.json",
+        "runtime/chatbot-live/behavior-audit/2030-q2.json",
+        "runtime/chatbot-live/behavior-audit/2030-q3.json",
+        "runtime/chatbot-live/behavior-audit/2030-q4.json"
+      ]
+    },
+    "storyteller": {
+      "enabled": true,
+      "engine": "narrative/longform/storybox_storyteller_v12.py",
+      "mode": "read_only_evidence_graph_indexer",
+      "literary_generation_enabled": false,
+      "latest_diagnostic": "runtime/chatbot-live/storyteller/2030-diagnostic-v12.json",
+      "current_recommendation": "continue_history",
+      "quarterly_index_refresh": true,
+      "year_end_full_diagnostic": true,
+      "world_writeback": false
+    },
+    "backend_priority": [
+      "chatgpt_product_conversation",
+      "deepseek_api",
+      "local_model",
+      "deterministic_control"
+    ]
   },
   "cursor": 148,
   "world_time": "2030-12-31",
@@ -100,16 +130,27 @@
     "赵珂和孙洁首次直接以同行身份交换边界制度化经验，原八人之间开始产生不围绕新增六人的横向互动。",
     "2030四个季度关键行为审计仍全部为normal；没有证据支持用反常选择制造剧情。"
   ],
-  "memory_materialization_rule": "Every social event writes bilateral memory only to explicit speaker/listener. Public or group events expose only statements explicitly spoken in that event. Explicit introductions alone create new weak-tie edges. Exogenous hard-world events are private to named actors until disclosed. Personal state is evidence-grounded and cannot directly write hard-world facts. Consequential behavior defaults to normal unless supplied evidence supports an auditable deviation. Family age alone cannot create health, care, marriage, fertility or conflict events.",
+  "storyteller_checkpoint_2030": {
+    "diagnostic": "runtime/chatbot-live/storyteller/2030-diagnostic-v12.json",
+    "recommendation": "continue_history",
+    "major_open_structures": [
+      "2031 housing/city material lock-in",
+      "real family-event evidence rather than age-based invention",
+      "Lin Jing first-year university-role consequences",
+      "Tang Yu/Xu Hang submission and contribution closure",
+      "non-functional life depth for Wu Cheng, Gu Wei, Sun Jie and Zhao Ke"
+    ]
+  },
+  "memory_materialization_rule": "Every social event writes bilateral memory only to explicit speaker/listener. Public or group events expose only statements explicitly spoken in that event. Explicit introductions alone create new weak-tie edges. Exogenous hard-world events are private to named actors until disclosed. Personal state is evidence-grounded and cannot directly write hard-world facts. Consequential behavior defaults to normal unless supplied evidence supports an auditable deviation. Family age alone cannot create health, care, marriage, fertility or conflict events. Storyteller is read-only: chronology is not causality, and narrative interpretations must cite ledger evidence.",
   "next_pending_task": {
-    "task_id":"career-six-chatbot-live-v2:2031-01-01",
-    "stage":"micro-replay_plus_housing_lockin",
-    "packet_id":"micro:chatbot:2031-01:lin-relocation-first-job:01",
-    "start_date":"2031-01-05",
-    "end_date":"2031-01-31",
-    "event_kind":"employment_relocation_and_first_job_transition",
-    "participants":["lin_jing"],
-    "instruction":"由当前ChatGPT继续充当cognition backend。先用2030年末Personal状态和Behavior v11路由林静搬迁与高校第一年适应；只有租住、现金、通勤和入职确认均可行时才完成迁移。随后开启2031首次住房购买考虑窗口：周野与何欣分别独立计算现金缓冲、城市留任意愿、贷款/购房可行性和未来迁移成本；稳定岗位本身不得触发购房。家庭线仍要求具体事件证据，不得从年龄自动生成疾病、照护、婚恋、生育或冲突。继续批量推进2031。"
+    "task_id": "career-six-chatbot-live-v2:2031-01-01",
+    "stage": "micro-replay_plus_housing_lockin",
+    "packet_id": "micro:chatbot:2031-01:lin-relocation-first-job:01",
+    "start_date": "2031-01-05",
+    "end_date": "2031-01-31",
+    "event_kind": "employment_relocation_and_first_job_transition",
+    "participants": ["lin_jing"],
+    "instruction": "由当前ChatGPT继续充当cognition backend。先用2030年末Personal状态和Behavior v11路由林静搬迁与高校第一年适应；只有租住、现金、通勤和入职确认均可行时才完成迁移。随后开启2031首次住房购买考虑窗口：周野与何欣分别独立计算现金缓冲、城市留任意愿、贷款/购房可行性和未来迁移成本；稳定岗位本身不得触发购房。家庭线仍要求具体事件证据，不得从年龄自动生成疾病、照护、婚恋、生育或冲突。每季度新batch完成后由Storyteller v12刷新只读证据图/未决线程索引；2031年末再做完整诊断。继续批量推进2031。"
   },
   "rules": {
     "repository_calls_model_api": false,
@@ -126,6 +167,8 @@
     "personal_cannot_directly_write_hard_world": true,
     "abnormal_behavior_requires_evidence_trigger": true,
     "storyteller_is_read_only": true,
+    "storyteller_chronology_is_not_causality": true,
+    "storyteller_interpretations_require_evidence_refs": true,
     "family_age_alone_cannot_create_health_or_care_crisis": true,
     "stable_job_cannot_force_home_purchase": true,
     "coauthorship_requires_final_contribution_checks": true,
