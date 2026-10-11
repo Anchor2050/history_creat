@@ -460,15 +460,27 @@ class SecretMafiaPolicy:
 
     variant_id = "plain"
 
+    #: Informed policies break ties by lowest player id instead of drawing from
+    #: their RNG.  Otherwise ``belief`` and ``belief_planning`` consume different
+    #: numbers of random values on different phases and diverge in arbitrary
+    #: tie-breaks, which contaminates the planner ablation.  ``"random"``
+    #: restores the stochastic tie-break for sensitivity checks.
+    tie_break = "lowest_id"
+
     def __init__(
         self,
         *,
         num_players: int,
         seed: int,
         model: BehaviorEvidenceModel | None = None,
+        tie_break: str | None = None,
     ):
         self.num_players = num_players
         self.model = model or BehaviorEvidenceModel()
+        if tie_break is not None:
+            if tie_break not in {"lowest_id", "random"}:
+                raise SCKError(f"unknown tie_break mode: {tie_break}")
+            self.tie_break = tie_break
         # Own RNG: the environment seeds the global ``random`` module, so using
         # the global generator here would perturb environment randomness.
         self.rng = random.Random(seed)
@@ -477,15 +489,26 @@ class SecretMafiaPolicy:
         self.uses_belief = False
 
     # -- helpers ---------------------------------------------------------
-    def _argmax_random(self, candidates: Sequence[int], key) -> int:
-        best = max(key(t) for t in candidates)
-        tied = [t for t in candidates if key(t) == best]
-        return self.rng.choice(tied)
+    def _best_target(
+        self, candidates: Sequence[int], key, *, maximise: bool
+    ) -> int:
+        """Pick the extremal candidate, resolving ties deterministically."""
+        values = {target: key(target) for target in candidates}
+        best = (max if maximise else min)(values.values())
+        tied = sorted(
+            target
+            for target, value in values.items()
+            if math.isclose(value, best, rel_tol=1e-12, abs_tol=1e-15)
+        )
+        if self.tie_break == "random":
+            return self.rng.choice(tied)
+        return tied[0]
 
-    def _argmin_random(self, candidates: Sequence[int], key) -> int:
-        best = min(key(t) for t in candidates)
-        tied = [t for t in candidates if key(t) == best]
-        return self.rng.choice(tied)
+    def _argmax(self, candidates: Sequence[int], key) -> int:
+        return self._best_target(candidates, key, maximise=True)
+
+    def _argmin(self, candidates: Sequence[int], key) -> int:
+        return self._best_target(candidates, key, maximise=False)
 
     def _pick_random(self, view: ActorView) -> int | None:
         if not view.legal_targets:
@@ -666,7 +689,9 @@ class BeliefPolicy(SecretMafiaPolicy):
         candidates = [t for t in view.legal_targets if t not in known]
         if not candidates:
             candidates = list(view.legal_targets)
-        return self._argmax_random(candidates, lambda t: self._binary_entropy(marginals[t]))
+        return self._argmax(
+            candidates, lambda t: self._binary_entropy(marginals[t])
+        )
 
     def choose_target(self, view: ActorView) -> int | None:
         legal = list(view.legal_targets)
@@ -680,8 +705,8 @@ class BeliefPolicy(SecretMafiaPolicy):
         if role in {"doctor", "mafia"}:
             # Both want to remove a player who is unlikely to be Mafia: the Mafia
             # eliminates a villager, the Doctor protects the Mafia's likely victim.
-            return self._argmin_random(legal, lambda t: marginals[t])
-        return self._argmax_random(legal, lambda t: marginals[t])
+            return self._argmin(legal, lambda t: marginals[t])
+        return self._argmax(legal, lambda t: marginals[t])
 
     def act(self, view: ActorView) -> DecisionRecord:
         record = super().act(view)
@@ -810,13 +835,19 @@ POLICY_BY_VARIANT: dict[str, type[SecretMafiaPolicy]] = {
 
 
 def build_policy(
-    variant: VariantConfig, *, num_players: int, seed: int
+    variant: VariantConfig,
+    *,
+    num_players: int,
+    seed: int,
+    tie_break: str | None = None,
+    policy_classes: Mapping[str, type[SecretMafiaPolicy]] | None = None,
 ) -> SecretMafiaPolicy:
+    registry = policy_classes or POLICY_BY_VARIANT
     try:
-        policy_type = POLICY_BY_VARIANT[variant.variant_id]
+        policy_type = registry[variant.variant_id]
     except KeyError as exc:
         raise SCKError(f"unknown SCK variant: {variant.variant_id}") from exc
-    return policy_type(num_players=num_players, seed=seed)
+    return policy_type(num_players=num_players, seed=seed, tie_break=tie_break)
 
 
 # ---------------------------------------------------------------------------
@@ -857,12 +888,18 @@ class SecretMafiaLiveRunner:
         discussion_rounds: int = 3,
         max_steps: int = 2000,
         evidence_model: BehaviorEvidenceModel | None = None,
+        tie_break: str = "lowest_id",
+        policy_classes: Mapping[str, type[SecretMafiaPolicy]] | None = None,
         env_factory: Callable[..., Any] | None = None,
     ):
         self.mafia_ratio = mafia_ratio
         self.discussion_rounds = discussion_rounds
         self.max_steps = max_steps
         self.evidence_model = evidence_model or BehaviorEvidenceModel()
+        self.tie_break = tie_break
+        #: Optional policy registry override, used by instrumentation such as
+        #: the A/B harness's belief-discrimination diagnostic.
+        self.policy_classes = policy_classes
         self._env_factory = env_factory
 
     def _make_env(self):
@@ -978,6 +1015,8 @@ class SecretMafiaLiveRunner:
                 variant,
                 num_players=num_players,
                 seed=seed * 1000 + pid,
+                tie_break=self.tie_break,
+                policy_classes=self.policy_classes,
             )
             for pid in range(num_players)
         }
@@ -1181,6 +1220,13 @@ def evaluate_episode(
                 for pid in range(num_players)
             ],
             "role_wins": _role_win_table(true_roles, rewards),
+            "village_won": bool(
+                all(
+                    rewards.get(pid) == 1
+                    for pid, role in true_roles.items()
+                    if role != "Mafia"
+                )
+            ),
             "decision_count": len(trace.decisions),
             "unavailable_metrics": [
                 "persuasion_delta",

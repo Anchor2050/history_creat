@@ -4,6 +4,7 @@ These run without textarena: aggregation is exercised with synthetic episode
 evaluations and ``run_ab`` is driven by a stub runner.  Live behaviour is covered
 by tests/test_storybox_secret_mafia_live_v0.py.
 """
+from narrative.longform import storybox_sck_ab_v0 as ab
 from narrative.longform.storybox_sck_ab_v0 import (
     UNAVAILABLE_METRICS,
     VariantRuntime,
@@ -17,10 +18,16 @@ from narrative.longform.storybox_sck_eval_v0 import (
     EpisodeEvaluation,
     VariantConfig,
 )
-from narrative.longform.storybox_sck_v0 import BeliefState
+from narrative.longform.storybox_sck_v0 import BeliefState, SCKError
 from narrative.longform.storybox_textarena_secret_mafia_adapter_v0 import (
     mafia_world_id,
 )
+from narrative.longform.storybox_textarena_secret_mafia_live_v0 import (
+    BeliefPolicy,
+    build_policy,
+)
+
+import pytest
 
 PLAIN = VariantConfig("plain", False, False, 0, False)
 BELIEF = VariantConfig("belief", True, True, 0, True)
@@ -202,6 +209,7 @@ def test_run_ab_reports_design_validity_and_unavailable_metrics():
     assert report["design"]["same_seed_schedule_for_all_variants"] is True
     assert report["design"]["role_schedule_check"]["verified"] is True
     assert report["design"]["seeds"] == [0, 1, 2]
+    assert report["design"]["informed_policy_tie_break"] == "lowest_id"
     assert set(report["variants"]) == {"plain", "belief"}
 
     # Every variant must be driven over the identical seed schedule.
@@ -218,6 +226,83 @@ def test_run_ab_reports_design_validity_and_unavailable_metrics():
         "mean_action_regret_by_kind.mafia_eliminate"
         in report["non_discriminating_metrics"]
     )
+
+
+def test_run_ab_retains_one_replay_record_per_episode():
+    report = run_ab(
+        variants=[PLAIN, BELIEF],
+        episodes_per_variant=3,
+        runner=_StubRunner(),
+    )
+    records = report["episode_records"]
+    assert len(records) == 6
+    assert {row["variant"] for row in records} == {"plain", "belief"}
+    assert sorted(row["seed"] for row in records if row["variant"] == "plain") == [0, 1, 2]
+    for row in records:
+        assert row["true_mafia"] == [1, 4]
+        assert row["mean_action_regret"] is not None
+        assert row["steps"] == 40
+        assert row["information_leakage_count"] == 0
+    assert "failure_replay_retention" in report
+
+
+def test_informed_policies_break_ties_by_lowest_id_unless_asked_otherwise():
+    policy = BeliefPolicy(num_players=6, seed=1)
+    assert policy.tie_break == "lowest_id"
+    assert policy._argmax([3, 1, 2], lambda t: 1.0) == 1
+    assert policy._argmin([3, 1, 2], lambda t: 0.0) == 1
+    # Near-equal values still count as a tie.
+    assert policy._argmax([3, 1], lambda t: 1.0 + (1e-15 if t == 3 else 0.0)) == 1
+
+    stochastic = BeliefPolicy(num_players=6, seed=1, tie_break="random")
+    picks = {stochastic._argmax([1, 2, 3, 4, 5], lambda t: 0.0) for _ in range(30)}
+    assert len(picks) > 1
+
+
+def test_unknown_tie_break_mode_is_rejected():
+    with pytest.raises(SCKError):
+        BeliefPolicy(num_players=6, seed=1, tie_break="coin-flip")
+
+
+def test_policy_classes_override_is_honoured_and_validated():
+    class Custom(BeliefPolicy):
+        pass
+
+    built = build_policy(
+        BELIEF, num_players=6, seed=0, policy_classes={"belief": Custom}
+    )
+    assert isinstance(built, Custom)
+
+    with pytest.raises(SCKError):
+        build_policy(
+            PLAIN, num_players=6, seed=0, policy_classes={"belief": Custom}
+        )
+
+
+def test_discrimination_report_shape(monkeypatch):
+    """The diagnostic must be driven by the runner's documented override."""
+    captured = {}
+
+    class _FakeRunner:
+        def __init__(self, **kwargs):
+            captured.update(kwargs)
+            self.episodes = 0
+
+        def run_episode(self, *, variant, num_players, seed):
+            self.episodes += 1
+            return _episode("belief", seed=seed, with_belief=True)
+
+    monkeypatch.setattr(ab, "SecretMafiaLiveRunner", _FakeRunner)
+    report = ab.discrimination_report(episodes=2)
+
+    assert report["episodes"] == 2
+    assert report["overall"]["decisions"] == 0
+    assert report["overall"]["flat_fraction"] is None
+    assert isinstance(report["by_role"], dict)
+    assert "flat_fraction" in report["interpretation"]
+    # The probe must be injected through policy_classes, not by editing policies.
+    assert "policy_classes" in captured
+    assert set(captured["policy_classes"]) == {"belief"}
 
 
 def test_run_ab_marks_role_schedule_mismatch_in_the_report():

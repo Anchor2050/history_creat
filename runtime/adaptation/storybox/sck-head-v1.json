@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "status": "sck_v0_tests_passing_live_runner_implemented_ab_smoke_test_run",
+  "status": "sck_v0_live_ab_500_run_belief_channel_inert_gate_held",
   "historical_world_writeback": false,
   "purpose": "Provide a reusable high-skill strategic cognition layer between StoryBox visibility/legal-action state and StoryBox world resolution.",
   "design_spec": "docs/adaptation/storybox-strategic-cognition-kernel-v1.md",
@@ -88,17 +88,19 @@
   "benchmark_plan": "runtime/adaptation/storybox/sck-secret-mafia-ab-v0.json",
   "benchmark_results": {
     "first_milestone_smoke_test_50": "runtime/adaptation/storybox/sck-secret-mafia-ab-v0-results-smoke-50.json",
+    "second_milestone_500": "runtime/adaptation/storybox/sck-secret-mafia-ab-v0-results-500.json",
     "harness": "narrative/longform/storybox_sck_ab_v0.py",
     "harness_tests": "tests/test_storybox_sck_ab_v0.py",
     "run_date": "2026-10-11",
-    "scope": "6 players, discussion_rounds=3, seeds 0-49 shared across all four variants, all seats driven by one policy",
-    "direction_found": "Action regret and village-side calibration improve monotonically plain/memory -> belief -> belief_planning (regret 0.656 -> 0.527 -> 0.445; Brier n/a -> 0.0787 -> 0.0726), leakage is zero everywhere, and the village faction win rate rises from 0.140 (plain) to 0.360 (belief_planning). belief alone improves regret and calibration but not outcomes (village win rate 0.120).",
-    "claim_status": "direction_and_instrumentation_only_not_a_strength_claim"
+    "scope": "6 players, discussion_rounds=3, seeds 0-499 shared across all four variants, all seats driven by one policy",
+    "direction_found": "At 500 episodes action regret falls monotonically plain/memory 0.643 -> belief 0.541 -> belief_planning 0.492, village-side Brier is 0.0777 (belief) and 0.0772 (planning), leakage is zero everywhere, and the village faction win rate rises 0.146 -> 0.192 -> 0.304.",
+    "attribution_problem": "A belief-discrimination diagnostic (100 episodes, 1481 decisions) shows 74.1% of belief decisions had identical marginal probabilities across every legal target, and 100% for the Villager role. The belief therefore could not rank candidates and the tie-break alone picked the action. The measured improvement is reproducible but is not yet attributable to cognition, and the protect-regret gain is an artifact of the Doctor's and the Mafia's rules collapsing to the same 'lowest living id' tie-break.",
+    "claim_status": "direction_reproducible_attribution_unproven"
   },
   "next_gate": [
-    "run the 500-episode second milestone before any strength claim; the plan marks the 50-episode run as not_for_final_claim",
-    "add a matched tie-break option so variants do not diverge merely through policy RNG streams",
+    "restore a real evidence channel before any strength claim: the live runner should support an explicitly labelled sensitivity arm that reconstructs the day-vote record the environment intends to broadcast but destroys (see sck-secret-mafia-ab-v0.json next_channel_work)",
+    "only after the belief channel demonstrably discriminates, re-run the A/B and then decide whether SCK may be reconnected to the risk-list hospital Scene",
     "extend the live A/B to the 8- and 10-player counts in the environment block",
-    "only after a stable role-stratified advantage is demonstrated, consider MCTS or bi-level search"
+    "do not add MCTS or bi-level search while the measurement substrate cannot exercise the belief mechanism"
   ]
 }

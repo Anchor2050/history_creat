@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "message_id": "2026-10-11-0012-sck-round3-ab-smoke-result",
+  "created_at": "2026-10-11",
+  "from": "Honeycomb/Debus",
+  "to": ["*"],
+  "topic": "sck:round-3-ab-smoke-test",
+  "kind": "agent_round_result",
+  "priority": "high",
+  "status": "resolved",
+  "commit": "20927b2",
+  "branch": "chatgpt/career-six-cohort",
+  "historical_world_writeback": false,
+  "supersedes": [],
+  "refs": [
+    "narrative/longform/storybox_sck_ab_v0.py",
+    "tests/test_storybox_sck_ab_v0.py",
+    "runtime/adaptation/storybox/sck-secret-mafia-ab-v0-results-smoke-50.json",
+    "runtime/adaptation/storybox/sck-secret-mafia-ab-v0.json",
+    "runtime/adaptation/storybox/sck-head-v1.json"
+  ],
+  "summary": "Execution chain step C done: the shared-seed 50-episode A/B smoke test ran. belief_planning beats plain, memory and belief on action regret, village-side calibration and village outcome, with zero information leakage everywhere.",
+  "round_goal": "Build and run a shared-seed 50-episode smoke test across plain, memory, belief and belief_planning, recording win/utility, per-role results, Brier/calibration, action regret and information leakage, marking uncomputable metrics unavailable instead of faking them.",
+  "changed": [
+    "narrative/longform/storybox_sck_ab_v0.py (new): shared-seed A/B harness with role-schedule verification and metric aggregation, plus a CLI.",
+    "tests/test_storybox_sck_ab_v0.py (new): 7 offline tests driving the aggregator and run_ab through synthetic episodes and a stub runner.",
+    "runtime/adaptation/storybox/sck-secret-mafia-ab-v0-results-smoke-50.json (new): the measured results artifact.",
+    "runtime/adaptation/storybox/sck-secret-mafia-ab-v0.json: status designed_not_run -> first_milestone_smoke_test_run with the measured direction and the remaining second-milestone blockers.",
+    "runtime/adaptation/storybox/sck-head-v1.json: benchmark_results added; next_gate moved to the 500-episode milestone."
+  ],
+  "measured_results": {
+    "design": "6 players, discussion_rounds=3, seeds 0-49 shared across all four variants, all six seats driven by the same policy (SCK self-play), textarena 0.7.4",
+    "role_schedule_verified_identical_across_variants": true,
+    "action_decisions_measured": {"plain": 583, "memory": 583, "belief": 581, "belief_planning": 564},
+    "mean_action_regret": {"plain": 0.656, "memory": 0.656, "belief": 0.527, "belief_planning": 0.445},
+    "mean_action_regret_by_kind": {
+      "vote": {"plain": 0.814, "memory": 0.814, "belief": 0.628, "belief_planning": 0.466},
+      "protect": {"plain": 0.635, "memory": 0.635, "belief": 0.588, "belief_planning": 0.476},
+      "investigate": {"plain": 1.158, "memory": 1.158, "belief": 1.014, "belief_planning": 1.128},
+      "mafia_eliminate": {"plain": 0.0, "memory": 0.0, "belief": 0.0, "belief_planning": 0.0}
+    },
+    "mean_brier_village_side": {"plain": null, "memory": null, "belief": 0.0787, "belief_planning": 0.0726},
+    "information_leakage_count": {"plain": 0, "memory": 0, "belief": 0, "belief_planning": 0},
+    "village_faction_win_rate": {"plain": 0.140, "memory": 0.140, "belief": 0.120, "belief_planning": 0.360},
+    "per_role_win_rate": {
+      "plain": {"Villager": "14/100", "Detective": "7/50", "Doctor": "7/50", "Mafia": "86/100"},
+      "memory": {"Villager": "14/100", "Detective": "7/50", "Doctor": "7/50", "Mafia": "86/100"},
+      "belief": {"Villager": "12/100", "Detective": "6/50", "Doctor": "6/50", "Mafia": "88/100"},
+      "belief_planning": {"Villager": "36/100", "Detective": "18/50", "Doctor": "18/50", "Mafia": "64/100"}
+    }
+  },
+  "interpretation": [
+    "Action regret and calibration improve monotonically along plain/memory -> belief -> belief_planning, which is the direction the chain hoped for and matches the task's stated quality order (calibration and regret before win rate).",
+    "belief alone improves regret and calibration but slightly worsens village outcomes (0.120 vs plain 0.140); the two-ply planner is what converts better decisions into better village results (0.360).",
+    "The planner's own investigate regret (1.128) is slightly worse than plain belief (1.014) even though the planner delegates that phase to the belief policy. The cause is policy RNG-stream divergence: belief and belief_planning consume randomness on different phases, so their tie-breaks differ. This is a methodology defect, not a strategy result, and Round 4 fixes it with a deterministic shared tie-break.",
+    "This is a 50-episode smoke test. The benchmark plan explicitly marks this milestone not_for_final_claim, so no strength claim is made and no MCTS or bi-level search is added."
+  ],
+  "honest_metric_caveats": [
+    "mafia_eliminate regret is structurally zero for every variant, because the Mafia's legal night targets already exclude its own team, so the truth oracle scores every legal choice optimal. This metric cannot discriminate variants and is recorded as non-discriminating.",
+    "The focal-seat win rate mixes roles across seeds because seat 0's role varies; faction and per-role tables are the meaningful outcome split.",
+    "mean_brier_village_side is null for plain and memory because they keep no belief at all. It is unavailable, not zero.",
+    "persuasion_delta and strategy_diversity remain unavailable: discussion uses a deterministic template renderer with no LLM listener and no embedding model."
+  ],
+  "limits": [
+    "Self-play only: every seat runs the same policy, so this measures self-play quality, not strength against a fixed external opponent.",
+    "Only 6 players and seeds 0-49 were run. The environment block's 8- and 10-player counts are untested and will be slower.",
+    "BehaviorEvidenceModel likelihoods remain hand-specified, not learned or replay-calibrated.",
+    "No failure replay retention yet, which the second milestone requires."
+  ],
+  "next_gate": "Round 4: remove the tie-break confound with a deterministic shared tie-break for informed policies, add failure replay retention, and run the 500-episode second milestone for a stable role-stratified comparison before any strength claim.",
+  "action_required": "No reply needed. Step D of the chain is interpreted conservatively: the direction is favourable but the plan's own milestone rule forbids a strength claim or MCTS from a 50-episode smoke test."
+}

@@ -46,8 +46,12 @@ from typing import Any, Iterable, Sequence
 
 from .storybox_sck_eval_v0 import DEFAULT_AB_VARIANTS, EpisodeEvaluation, VariantConfig
 from .storybox_textarena_secret_mafia_live_v0 import (
+    BeliefPolicy,
     SecretMafiaLiveRunner,
     load_textarena_secret_mafia_env,
+)
+from .storybox_textarena_secret_mafia_adapter_v0 import (
+    marginal_mafia_probabilities,
 )
 
 UNAVAILABLE_METRICS = {
@@ -204,6 +208,36 @@ def verify_shared_role_schedule(runtimes: Iterable[VariantRuntime]) -> dict[str,
     }
 
 
+def episode_record(evaluation: EpisodeEvaluation) -> dict[str, Any]:
+    """Compact per-episode record kept as failure replay retention.
+
+    The second milestone requires failure replay retention.  No model calls,
+    prompts or per-step transcripts exist in v0, so the retained replay is the
+    episode's seed, role schedule, outcome and score.
+    """
+    checkpoints = evaluation.action_checkpoints
+    mean_regret = (
+        sum(checkpoint.regret for checkpoint in checkpoints) / len(checkpoints)
+        if checkpoints
+        else None
+    )
+    summary = evaluation.summary()
+    return {
+        "variant": evaluation.variant_id,
+        "seed": evaluation.metadata.get("seed"),
+        "true_mafia": evaluation.metadata.get("true_mafia"),
+        "village_won": evaluation.metadata.get("village_won"),
+        "steps": evaluation.metadata.get("steps"),
+        "nights_played": evaluation.metadata.get("nights_played"),
+        "invalid_moves": evaluation.metadata.get("invalid_moves"),
+        "termination_reason": evaluation.metadata.get("termination_reason"),
+        "decision_count": evaluation.metadata.get("decision_count"),
+        "mean_action_regret": mean_regret,
+        "mean_brier_village_side": summary["mean_brier"],
+        "information_leakage_count": summary["information_leakage_count"],
+    }
+
+
 def run_ab(
     *,
     variants: Sequence[VariantConfig] | None = None,
@@ -211,11 +245,14 @@ def run_ab(
     num_players: int = 6,
     seed_start: int = 0,
     discussion_rounds: int = 3,
+    tie_break: str = "lowest_id",
     runner: SecretMafiaLiveRunner | None = None,
     progress: bool = False,
 ) -> dict[str, Any]:
     variants = tuple(variants or DEFAULT_AB_VARIANTS)
-    runner = runner or SecretMafiaLiveRunner(discussion_rounds=discussion_rounds)
+    runner = runner or SecretMafiaLiveRunner(
+        discussion_rounds=discussion_rounds, tie_break=tie_break
+    )
     seeds = list(range(seed_start, seed_start + episodes_per_variant))
     runtimes: list[VariantRuntime] = []
 
@@ -228,7 +265,7 @@ def run_ab(
                     variant=variant, num_players=num_players, seed=seed
                 )
             )
-            if progress and (index + 1) % 10 == 0:
+            if progress and (index + 1) % 50 == 0:
                 print(
                     f"  {variant.variant_id}: {index + 1}/{len(seeds)} episodes",
                     flush=True,
@@ -245,9 +282,18 @@ def run_ab(
     variant_reports = {
         runtime.variant.variant_id: aggregate_variant(runtime) for runtime in runtimes
     }
+    episode_records = [
+        episode_record(evaluation)
+        for runtime in runtimes
+        for evaluation in runtime.episodes
+    ]
     return {
         "schema_version": 1,
-        "status": "smoke_test_run",
+        "status": (
+            "first_milestone_smoke_test_run"
+            if episodes_per_variant <= 50
+            else "second_milestone_run"
+        ),
         "historical_world_writeback": False,
         "environment": {
             "primary": "TextArena SecretMafia",
@@ -262,9 +308,16 @@ def run_ab(
             "same_seed_schedule_for_all_variants": True,
             "num_players": num_players,
             "all_seats_driven_by_one_policy": True,
+            "informed_policy_tie_break": tie_break,
             "role_schedule_check": role_check,
         },
         "variants": variant_reports,
+        "episode_records": episode_records,
+        "failure_replay_retention": (
+            "episode_records holds one compact record per episode (seed, role "
+            "schedule, outcome, steps, regret, calibration, leakage), which is the "
+            "replay depth available in a run with no model calls."
+        ),
         "unavailable_metrics": UNAVAILABLE_METRICS,
         "non_discriminating_metrics": {
             "mean_action_regret_by_kind.mafia_eliminate": (
@@ -281,6 +334,113 @@ def run_ab(
             "self_play_win_rate_focal_seat_mixed_roles follows seat 0, whose role varies by seed, so it mixes factions. Read village_faction_win_rate and per_role instead.",
         ],
     }
+
+
+def discrimination_report(
+    *,
+    episodes: int = 50,
+    num_players: int = 6,
+    seed_start: int = 0,
+    discussion_rounds: int = 3,
+) -> dict[str, Any]:
+    """Measure whether the belief actually separates the legal targets.
+
+    A belief state is only useful if its marginal Mafia probabilities differ
+    across the targets the actor may choose.  When every legal target has the
+    same marginal, the informed policy's choice is decided entirely by its
+    tie-break, not by inference.  This diagnostic reports how often that happens,
+    per role and per phase, so the A/B numbers can be interpreted honestly.
+
+    It instruments the ``belief`` policy through the runner's documented
+    ``policy_classes`` override; it changes no policy rule.
+    """
+    samples: list[dict[str, Any]] = []
+
+    class _Probe(BeliefPolicy):
+        def choose_target(self, view):
+            target = super().choose_target(view)
+            belief = self.beliefs.get(view.actor_id)
+            if belief is not None and view.legal_targets:
+                marginals = marginal_mafia_probabilities(belief, view.num_players)
+                values = [round(float(marginals[t]), 9) for t in view.legal_targets]
+                samples.append(
+                    {
+                        "role": view.role,
+                        "phase": view.phase,
+                        "legal_targets": len(view.legal_targets),
+                        "distinct_marginal_values": len(set(values)),
+                        "flat": len(set(values)) == 1,
+                        "top_marginal": max(values),
+                    }
+                )
+            return target
+
+    runner = SecretMafiaLiveRunner(
+        discussion_rounds=discussion_rounds,
+        policy_classes={"belief": _Probe},
+    )
+    belief_variant = next(
+        variant for variant in DEFAULT_AB_VARIANTS if variant.variant_id == "belief"
+    )
+    for seed in range(seed_start, seed_start + episodes):
+        runner.run_episode(variant=belief_variant, num_players=num_players, seed=seed)
+
+    def summarise(rows: list[dict[str, Any]]) -> dict[str, Any]:
+        if not rows:
+            return {"decisions": 0, "flat_fraction": None, "mean_distinct_values": None}
+        flat = sum(1 for row in rows if row["flat"])
+        return {
+            "decisions": len(rows),
+            "flat_fraction": flat / len(rows),
+            "mean_distinct_values": sum(
+                row["distinct_marginal_values"] for row in rows
+            )
+            / len(rows),
+            "mean_top_marginal": sum(row["top_marginal"] for row in rows) / len(rows),
+        }
+
+    by_role = {
+        role: summarise([row for row in samples if row["role"] == role])
+        for role in sorted({row["role"] for row in samples})
+    }
+    by_phase = {
+        phase: summarise([row for row in samples if row["phase"] == phase])
+        for phase in sorted({row["phase"] for row in samples})
+    }
+    return {
+        "episodes": episodes,
+        "num_players": num_players,
+        "overall": summarise(samples),
+        "by_role": by_role,
+        "by_phase": by_phase,
+        "interpretation": (
+            "flat_fraction is the share of decisions where every legal target had "
+            "the same marginal Mafia probability, so the belief could not rank "
+            "them and the tie-break alone decided the action."
+        ),
+    }
+
+
+def format_discrimination(report: dict[str, Any]) -> str:
+    def fmt(value, spec=".3f"):
+        return "n/a" if value is None else format(value, spec)
+
+    lines = [
+        f"belief discrimination over {report['episodes']} episodes, "
+        f"{report['num_players']} players",
+        f"  {'group':<22}{'decisions':>10}{'flat':>8}{'distinct':>10}{'top p':>8}",
+    ]
+    rows = [("overall", report["overall"])]
+    rows += [(f"role:{k}", v) for k, v in report["by_role"].items()]
+    rows += [(f"phase:{k}", v) for k, v in report["by_phase"].items()]
+    for label, row in rows:
+        lines.append(
+            f"  {label:<22}{row['decisions']:>10}"
+            f"{fmt(row['flat_fraction']):>8}"
+            f"{fmt(row['mean_distinct_values'], '.2f'):>10}"
+            f"{fmt(row['mean_top_marginal']):>8}"
+        )
+    return "\n".join(lines)
 
 
 def _textarena_version() -> str:
@@ -342,7 +502,20 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--players", type=int, default=6)
     parser.add_argument("--seed-start", type=int, default=0)
     parser.add_argument("--discussion-rounds", type=int, default=3)
+    parser.add_argument(
+        "--tie-break",
+        choices=("lowest_id", "random"),
+        default="lowest_id",
+        help="Tie-break for informed policies; lowest_id keeps the planner ablation clean.",
+    )
     parser.add_argument("--out", type=Path, default=None)
+    parser.add_argument(
+        "--diagnose-discrimination",
+        type=int,
+        default=0,
+        metavar="N",
+        help="Also measure, over N belief episodes, how often the belief could rank the legal targets.",
+    )
     parser.add_argument("--quiet", action="store_true")
     args = parser.parse_args(argv)
 
@@ -354,9 +527,20 @@ def main(argv: Sequence[str] | None = None) -> int:
         num_players=args.players,
         seed_start=args.seed_start,
         discussion_rounds=args.discussion_rounds,
+        tie_break=args.tie_break,
         progress=not args.quiet,
     )
+    if args.diagnose_discrimination:
+        report["belief_discrimination"] = discrimination_report(
+            episodes=args.diagnose_discrimination,
+            num_players=args.players,
+            seed_start=args.seed_start,
+            discussion_rounds=args.discussion_rounds,
+        )
     print(format_report(report))
+    if args.diagnose_discrimination:
+        print()
+        print(format_discrimination(report["belief_discrimination"]))
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(
