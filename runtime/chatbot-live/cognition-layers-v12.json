@@ -1,0 +1,88 @@
+{
+  "schema_version": 12,
+  "status": "active_chatbot_cognition_layers_noncanonical",
+  "default_backend": "chatgpt_product_conversation",
+  "optional_backends": ["deepseek_api", "local_model", "deterministic_control"],
+  "modules": {
+    "protocol": "narrative/longform/storybox_cognition_protocol_v11.py",
+    "personal": "narrative/longform/storybox_personal_v11.py",
+    "behavior": "narrative/longform/storybox_behavior_v11.py",
+    "storyteller": "narrative/longform/storybox_storyteller_v12.py"
+  },
+  "personal": {
+    "mode": "evidence_grounded_candidate_state",
+    "cadence": "quarterly_when_evidence_changed_plus_major_event_reflection",
+    "writeback_scope": "personal_ledger_only",
+    "hard_world_writeback": false,
+    "latest_refresh": "runtime/chatbot-live/personal/2030-year-end.json"
+  },
+  "behavior": {
+    "modes": ["normal", "abnormal"],
+    "normal_default": true,
+    "abnormal_definition": "evidence-triggered deviation from the actor's own established baseline",
+    "abnormal_budget_default": 1,
+    "budget_period": "quarter",
+    "random_abnormal_factor_disabled": true,
+    "must_preserve_hard_world_feasibility": true,
+    "latest_audits": [
+      "runtime/chatbot-live/behavior-audit/2030-q1.json",
+      "runtime/chatbot-live/behavior-audit/2030-q2.json",
+      "runtime/chatbot-live/behavior-audit/2030-q3.json",
+      "runtime/chatbot-live/behavior-audit/2030-q4.json"
+    ]
+  },
+  "storyteller": {
+    "mode": "read_only_evidence_graph_indexer",
+    "literary_generation_enabled": false,
+    "world_writeback": false,
+    "engine": "narrative/longform/storybox_storyteller_v12.py",
+    "latest_diagnostic": "runtime/chatbot-live/storyteller/2030-diagnostic-v12.json",
+    "cadence": {
+      "quarterly": "refresh deterministic evidence graph and unresolved-thread index when new batch exists",
+      "year_end": "run full evidence-grounded Storyteller diagnostic",
+      "on_demand": "allow read-only diagnostic whenever the user asks about narrative readiness"
+    },
+    "deterministic_indices": [
+      "evidence_graph",
+      "actor_timelines",
+      "candidate_lifecycles",
+      "delayed_consequence_candidates",
+      "scene_clusters",
+      "unresolved_threads",
+      "viewpoint_coverage",
+      "history_thickness_v12"
+    ],
+    "interpretive_outputs": [
+      "historical_periods",
+      "recurring_conflicts",
+      "delayed_consequence_arcs",
+      "unresolved_narrative_threads",
+      "scene_reservoirs",
+      "viewpoint_candidates",
+      "ensemble_structures",
+      "underrepresented_lives",
+      "competing_interpretations"
+    ],
+    "adaptation_gate": {
+      "current_recommendation": "continue_history",
+      "major_literary_adaptation_allowed": false,
+      "reason": "2031 housing/city lock-in, real family evidence, new-job consequences and underrepresented original-cast lives are still structurally open",
+      "small_literary_probes": "may be allowed later as noncanonical tests, but are not part of the current data-building phase"
+    }
+  },
+  "backend_contract": {
+    "chatgpt_product_conversation": "read structured state/evidence from GitHub, reason in current ChatGPT product conversation, write only validated cognition artifacts through GitHub connector; no repository model API call",
+    "deepseek_api": "may implement the same cognition task/result schemas later",
+    "local_model": "may implement the same cognition task/result schemas later",
+    "deterministic_control": "may build evidence indices but cannot fabricate interpretive world facts"
+  },
+  "invariants": [
+    "Storyteller never writes hard-world facts",
+    "Storyteller never changes relationships, candidate status, jobs, housing, family events or publications",
+    "Every interpretation cites ledger evidence",
+    "Actor chronology is not automatically treated as causality",
+    "Candidate lifecycle edges are mechanical; broader causal arcs remain interpretations",
+    "Absence of evidence can be reported as a gap but cannot be filled by invention",
+    "Literary prose remains disabled during the current historical-data phase"
+  ]
+}
