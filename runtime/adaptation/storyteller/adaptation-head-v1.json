@@ -1,0 +1,66 @@
+{
+  "schema_version":1,
+  "status":"adaptation_storyteller_head_noncanonical",
+  "historical_world_writeback":false,
+  "history_source":{
+    "live_head":"runtime/chatbot-live/head-v2.json",
+    "final_storyteller_diagnostic":"runtime/chatbot-live/storyteller/2035-diagnostic-v12.json",
+    "horizon":"2026-03-02/2035-12-31",
+    "frozen_by_default":true
+  },
+  "adaptation_sources":{
+    "selection_architecture":"runtime/adaptation/storyteller/2035-selection-architecture-v1.json",
+    "character_psychology":"docs/adaptation/character-psychology-bible-v1.md",
+    "character_dialectics_power":"docs/adaptation/character-dialectics-and-power-v2.md",
+    "campbell_structure":"docs/adaptation/campbell-distributed-hero-journey-v1.md",
+    "style_guardrails":"docs/adaptation/literary-style-guardrails-v1.md",
+    "storyteller_engine":"narrative/longform/storybox_adaptation_storyteller_v13.py",
+    "scene_reservoir":"runtime/adaptation/storyteller/scene-reservoir-v1.json",
+    "core_scene_selection":"runtime/adaptation/storyteller/viewpoint-weight-and-core26-v1.json"
+  },
+  "primary_project":{
+    "working_title":"不同的稳定",
+    "architecture":"six_core_plus_second_ring",
+    "core":["zhou_ye","gao_yuan","luo_cheng","tang_yu","he_xin","song_nan"],
+    "high_frequency_secondary":["lin_jing","chen_lan","xu_hang"],
+    "recurring_secondary":["wu_cheng","shen_yan","gu_wei","zhao_ke","sun_jie"],
+    "selected_scene_count":26,
+    "reservoir_scene_count":30,
+    "prose_canon_fixed":false
+  },
+  "scene_execution_order":[
+    "historical evidence refs",
+    "relationship history and information rights",
+    "year-specific Personal state if available",
+    "stable character core",
+    "virtue-shadow contradiction",
+    "power position and institutional incentives",
+    "current emotion hypothesis",
+    "Campbell scene function",
+    "literary style guardrails",
+    "disposable prose probe"
+  ],
+  "nonnegotiable_rules":[
+    "No adaptation hypothesis becomes ledger history.",
+    "No secret or wound is announced as fact without scene evidence or explicit adaptation-only marking.",
+    "A virtue must be allowed to create costs; a flaw must be allowed to protect something real.",
+    "Local antagonists must have a legible interest, information set and value they are protecting.",
+    "Power changes how personality is expressed; scene analysis must separate trait from position effect.",
+    "Do not force romance, illness, family disaster, betrayal or redemption to complete an arc.",
+    "Do not turn Campbell functions into visible formula or dialogue.",
+    "Do not use AI-summary endings, thesis dialogue, forced symbolism or universal self-awareness.",
+    "Ordinary time and non-events remain usable narrative material.",
+    "2035 is an observation endpoint, not a life verdict."
+  ],
+  "current_stage":"scene_probe_preparation",
+  "next_stage_gate":{
+    "required_before_full_chapter_drafting":[
+      "three disposable scene probes in different emotional registers",
+      "at least one locally-wrong-but-understandable viewpoint",
+      "at least one local-antagonist scene where both sides pursue plausible goods",
+      "dialogue differentiation check across six core actors",
+      "anti-AI style audit"
+    ],
+    "after_gate":"20-24 chapter novel beat sheet and 12-episode screen beat sheet may be fixed separately"
+  }
+}
