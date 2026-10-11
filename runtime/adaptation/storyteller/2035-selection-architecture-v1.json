@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "status": "storyteller_selection_and_architecture_noncanonical",
+  "as_of": "2035-12-31",
+  "source_diagnostic": "runtime/chatbot-live/storyteller/2035-diagnostic-v12.json",
+  "world_writeback": false,
+  "selection_principle": "Choose a work by the historical question it can sustain across ten years, not by who looks most successful at the endpoint.",
+  "topic_pool": [
+    {
+      "id": "topic:different-stabilities",
+      "working_title": "不同的稳定",
+      "central_question": "同一代人离开博士阶段后，所谓稳定究竟可以有多少种彼此不可通约的形式？",
+      "core_actors": ["zhou_ye", "gao_yuan", "luo_cheng", "tang_yu", "he_xin", "song_nan"],
+      "secondary_ring": ["lin_jing", "chen_lan", "xu_hang", "wu_cheng", "shen_yan", "gu_wei", "zhao_ke", "sun_jie"],
+      "strength": "Carries career, city, housing, research, public-sector and industry histories without a winner scale.",
+      "risk": "Requires disciplined viewpoint hierarchy or the ensemble can become diffuse.",
+      "evidence_refs": ["2035q4:e03", "2035q3:e03", "2035q4:e05", "2035q3:e01", "2035q4:e01"]
+    },
+    {
+      "id": "topic:when-to-continue",
+      "working_title": "问题何时值得继续",
+      "central_question": "专业判断最难的部分，会不会是知道何时坚持、何时缩小、何时停止？",
+      "core_actors": ["tang_yu", "lin_jing", "xu_hang", "shen_yan", "gu_wei"],
+      "strength": "Strong research and technical-labor structure with failure, negative evidence and stopping decisions.",
+      "risk": "Narrower social world; housing, city and public-sector lines recede.",
+      "evidence_refs": ["2035q2:e01", "2035q2:e04", "2035q4:e07", "2035q4:e11"]
+    },
+    {
+      "id": "topic:reliable-people",
+      "working_title": "可靠的人",
+      "central_question": "一个人因为可靠而不断被需要之后，怎样避免可靠最终变成无限兜底？",
+      "core_actors": ["zhou_ye", "chen_lan", "xu_hang", "zhao_ke", "sun_jie", "wu_cheng", "gu_wei"],
+      "strength": "Distinctive organizational theme: standards, escalation, second judges, exception governance and authority boundaries.",
+      "risk": "More workplace/institutional than domestic; emotional drama must come from lived costs rather than plot twists.",
+      "evidence_refs": ["2035q2:e06", "2035q3:e09", "2035q3:e11", "2035q1:e13", "2035q3:e13"]
+    },
+    {
+      "id": "topic:second-choice",
+      "working_title": "第二次选择",
+      "central_question": "第一次工作已经变成生活之后，一个成年人还有多大能力重新选择？",
+      "core_actors": ["gao_yuan", "luo_cheng", "song_nan", "he_xin", "zhou_ye"],
+      "strength": "Midcareer recalibration, selective mobility, failed application, successful relocation and housing lock-in create clear delayed consequences.",
+      "risk": "Underplays the early doctoral/research texture unless the first third remains substantial.",
+      "evidence_refs": ["2035q3:e03", "2035q4:e01", "2035q3:e01", "2035q4:e14"]
+    },
+    {
+      "id": "topic:no-single-scale",
+      "working_title": "没有同一把尺",
+      "central_question": "如果收入、学术、稳定、城市、家庭距离、住房和自主都不能被压成一条排名，人生还怎样被比较？",
+      "core_actors": ["zhou_ye", "gao_yuan", "luo_cheng", "tang_yu", "he_xin", "song_nan", "lin_jing", "chen_lan", "xu_hang"],
+      "strength": "Closest to the entire historical thesis and supports a broad social panorama.",
+      "risk": "High abstraction risk; requires concrete scenes to avoid becoming a thesis novel.",
+      "evidence_refs": ["2035q4:e13", "2035q4:e14", "2035q4:e15"]
+    }
+  ],
+  "architecture_options": [
+    {
+      "id": "arch:single",
+      "form": "single_protagonist_novel",
+      "best_candidate": "he_xin",
+      "alternate_candidates": ["tang_yu", "luo_cheng"],
+      "engine": "One person's changing definition of a good life; the rest of the ensemble appears as real alternatives rather than subplots that must resolve.",
+      "advantage": "High emotional concentration and easiest literary control.",
+      "cost": "Loses much of the simulated world's strongest feature: different choices remain valid at the same time."
+    },
+    {
+      "id": "arch:dual",
+      "form": "dual_protagonist_novel_or_feature",
+      "best_pair": ["zhou_ye", "song_nan"],
+      "alternate_pair": ["tang_yu", "xu_hang"],
+      "engine": "Cross-cut two long arcs whose choices point in different directions but are each evidence-grounded.",
+      "advantage": "Clear contrast without winner/loser ranking.",
+      "cost": "Other four new actors become mirrors and the public-sector/research breadth narrows."
+    },
+    {
+      "id": "arch:six-core",
+      "form": "six_core_ensemble_novel_or_series",
+      "core": ["zhou_ye", "gao_yuan", "luo_cheng", "tang_yu", "he_xin", "song_nan"],
+      "second_ring": ["lin_jing", "chen_lan", "xu_hang", "wu_cheng", "shen_yan", "gu_wei", "zhao_ke", "sun_jie"],
+      "engine": "Six same-generation trajectories carry the macro history; the original eight recur where relationships and institutions actually intersect them.",
+      "advantage": "Best balance between breadth, continuity, historical thesis and scene-level manageability.",
+      "cost": "Needs unequal but controlled viewpoint weights; mechanical six-way rotation would feel schematic.",
+      "recommendation": "primary"
+    },
+    {
+      "id": "arch:fourteen",
+      "form": "fourteen_person_large_ensemble_series",
+      "core": ["all_14"],
+      "engine": "A social network is the protagonist; episodes follow institutions, relationships and delayed consequences across nodes.",
+      "advantage": "Most faithful to simulation and strongest for a multi-season television/animation project.",
+      "cost": "Weakest fit for a first novel; high cognitive load and high risk of functional characters."
+    }
+  ],
+  "primary_proposal": {
+    "working_title": "不同的稳定",
+    "format_priority": ["ensemble_novel", "12_episode_drama", "serialized_animation"],
+    "architecture": "six_core_plus_second_ring",
+    "core_actors": ["zhou_ye", "gao_yuan", "luo_cheng", "tang_yu", "he_xin", "song_nan"],
+    "high_frequency_secondary": ["lin_jing", "chen_lan", "xu_hang"],
+    "recurring_secondary": ["wu_cheng", "shen_yan", "gu_wei", "zhao_ke", "sun_jie"],
+    "four_part_time_structure": [
+      {"part": 1, "years": "2026-2028", "label": "第一次定价", "question": "博士训练怎样被翻译成第一份工作，哪些翻译失败？"},
+      {"part": 2, "years": "2029-2031", "label": "工作变成生活", "question": "收入、时间、住房、城市和职业身份怎样把选择变成日常？"},
+      {"part": 3, "years": "2032-2033", "label": "第二次选择", "question": "有人留下、有人落选、有人换城以后，移动与不移动各自意味着什么？"},
+      {"part": 4, "years": "2034-2035", "label": "治理已经做出的选择", "question": "当锁定已经发生，人还能怎样恢复判断、退出能力和局部可逆性？"}
+    ],
+    "novel_shape": {
+      "parts": 4,
+      "target_chapters": "20-24",
+      "viewpoint_rule": "Do not rotate mechanically. A chapter belongs to the actor whose decision uncertainty is highest in that scene cluster.",
+      "ending_rule": "End on ordinary continuing life, not a ten-year verdict or winner table."
+    },
+    "series_shape": {
+      "episodes": 12,
+      "act_distribution": [3, 3, 3, 3],
+      "episode_rule": "Each episode carries one major ledger arc plus one ordinary-life counterpoint; no episode must advance all six actors.",
+      "finale_rule": "Use unresolved but matured choices; avoid retrospective destiny narration."
+    },
+    "era_lens": [
+      "Advanced training must be translated into institutions that price different forms of usefulness.",
+      "Stability accumulates through welfare, organization knowledge, housing, city networks and habits, not through one decision.",
+      "Mobility is not automatically freedom and staying is not automatically entrapment.",
+      "Professional maturity increasingly concerns boundaries, stopping rules, escalation and transfer of judgment.",
+      "Negative evidence, failed applications, no-opening years and ordinary conversations are historical action rather than empty time."
+    ],
+    "adaptation_only_fiction_policy": "Private domestic details, scene geography, minor dialogue, composite side characters and connective moments may be invented only when labeled adaptation-only and must not contradict ledger facts."
+  },
+  "next_storyteller_tasks": [
+    "Build a protagonist-weight map for the six-core proposal.",
+    "Select 20-30 evidence-backed scene reservoirs before writing prose.",
+    "Produce a 20-24 chapter novel beat sheet and a separate 12-episode screen beat sheet.",
+    "Run 3 disposable scene probes from the same historical event with different viewpoints.",
+    "Choose a final working title only after scene probes reveal the dominant emotional register."
+  ]
+}
