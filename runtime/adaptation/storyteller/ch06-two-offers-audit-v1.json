@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "chapter6_two_offers_audit_noncanonical",
+  "historical_world_writeback": false,
+  "draft": "docs/adaptation/pilots/ch06-two-offers-full-v1.md",
+  "overall_judgment": "arc_structure_pass_explanation_too_complete",
+  "strengths": [
+    "Chen's offer remains genuinely attractive in salary, formality and learning value; refusal carries short-term income uncertainty rather than moral reward.",
+    "Gao's offer is attractive in a completely different bundle: family distance, housing, commute and security, while low opportunity density remains real.",
+    "Threshold and refusal appear as different Campbell functions rather than opposite answers to one question.",
+    "The short November call reconnects Gao with Zhou and Luo through an existing relationship and carries Chapter5's classmate braid forward.",
+    "The chapter uses transit, rent, laundry, family messages and start-date logistics, widening the material register."
+  ],
+  "risks": [
+    "Gao and Lin verbally analyze sunk cost too cleanly; the reader does not need the decision certified as non-sunk-cost.",
+    "The handwritten list of salary/rent/commute repeats the novel's existing table/document habit.",
+    "Lin's line 'you are not only looking at having passed' functions as an authorial verdict and should be deleted.",
+    "The old preparation note physically reappearing is a little too engineered as a symbolic prop.",
+    "The folded-corner final image is slightly literary in a chapter that otherwise benefits from plain materiality."
+  ],
+  "revision_instruction": "Create v2 mainly by subtraction: remove verdict dialogue and symbolic note handling, keep practical facts and uncertainty, and end in unfinished administrative preparation or an interrupted call rather than a composed image.",
+  "campbell_check": {
+    "chen_lan": "refusal_without_return",
+    "gao_yuan": "threshold_without_final_vindication",
+    "must_remain_unresolved": ["whether Gao later experiences staying as preference or inertia", "whether Chen's refusal leads to a better job or merely longer uncertainty"]
+  }
+}
