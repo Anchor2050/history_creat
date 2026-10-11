@@ -1,6 +1,6 @@
 {
-  "schema_version": 3,
-  "status": "adaptation_storybox_scene_multigame_runtime_noncanonical",
+  "schema_version": 4,
+  "status": "adaptation_storybox_scene_multigame_director_runtime_noncanonical",
   "historical_world_writeback": false,
   "purpose": "Run persistent multi-actor narrative worlds as concurrent event arcs, games, scenes and rounds before Storyteller selects and renders prose.",
   "architecture": "world -> event_arc -> game -> scene -> round -> action_collision -> writeback",
@@ -8,16 +8,35 @@
     "legacy_micro_runtime": "narrative/longform/storybox_noapi_runtime_v8.py",
     "round_runtime": "narrative/longform/storybox_round_engine_v15.py",
     "scene_multigame_runtime": "narrative/longform/storybox_multigame_engine_v16.py",
+    "game_director": "narrative/longform/storybox_game_director_v17.py",
     "seed_loader": "narrative/longform/storybox_round_loader_v15.py",
     "round_design": "docs/adaptation/round-based-narrative-engine-v1.md",
     "scene_multigame_design": "docs/adaptation/storybox-scene-multigame-engine-v2.md",
+    "mechanic_library": "docs/adaptation/storybox-mechanic-library-v1.md",
+    "moderator_policy": "docs/adaptation/storybox-moderator-policy-v1.md",
     "round_tests": "tests/test_storybox_round_engine_v15.py",
     "multigame_tests": "tests/test_storybox_multigame_engine_v16.py",
+    "director_tests": "tests/test_storybox_game_director_v17.py",
     "tests_status": "written_not_run"
+  },
+  "design_quality_gate": {
+    "active": true,
+    "requirements": [
+      "at least two meaningful strategic branches for nontrivial Games",
+      "at least one counterplay path against plausible dominant strategies",
+      "public or durable evidence sufficient for skilled inference when deduction is part of the Game",
+      "fixed backstage truth for mystery/information Games",
+      "bounded moderator discretion",
+      "no single actor controls almost all critical action space unless that imbalance itself is the Game",
+      "failure and deadlock remain legal outcomes",
+      "event arc should not reskin the same mechanic bundle across every Game"
+    ],
+    "active_profiles": "runtime/adaptation/storybox/risk-list-mechanic-profiles-v1.json"
   },
   "active_event_arc": {
     "arc": "runtime/adaptation/storybox/risk-list-multigame-arc-v2.json",
     "truth_seed": "runtime/adaptation/storybox/risk-list-game-v1.json",
+    "mechanic_profiles": "runtime/adaptation/storybox/risk-list-mechanic-profiles-v1.json",
     "fixed_truth_before_play": true,
     "active_games": [
       "game:cause-reconstruction",
@@ -39,11 +58,23 @@
     "current_arc_status": "active_round_2_resolved_round_3_scene_gate_open",
     "next_trigger": "batch-3 manifest lacks manual_followup_status; hospital-side rerun context must be reconstructed before briefing language can safely converge"
   },
+  "moderator_rules": {
+    "minimal_sufficient_information": true,
+    "noise_requires_world_source": true,
+    "no_emergency_clue_to_save_pacing": true,
+    "unconventional_legal_strategy_allowed": true,
+    "no_hidden_winrate_balancing": true,
+    "silence_is_valid_moderator_action": true,
+    "slow_down_on_irreversible_commitment_or_power_shift": true,
+    "speed_up_repeated_nonmaterial_exchange": true
+  },
   "layer_responsibilities": {
     "storybox": [
       "hard-world truth",
       "event-node graph and preconditions",
       "concurrent game state",
+      "game mechanic configuration",
+      "game-design quality gate",
       "scene membership and local objectives",
       "round eligibility and legal actions",
       "map and reachability",
@@ -76,7 +107,8 @@
       "Storyteller may hide truth from reader but may not change it",
       "StoryBox may end a game in deadlock, failure or partial resolution",
       "Game-local information does not automatically synchronize across games",
-      "An actor is not globally good/bad because of a local stance in one game"
+      "An actor is not globally good/bad because of a local stance in one game",
+      "Moderator may not invent evidence solely to restore excitement or balance"
     ]
   },
   "scene_definition": {
@@ -114,16 +146,6 @@
   "concurrent_game_rules": {
     "games_share_world_not_all_information": true,
     "cross_game_change_requires_explicit_bridge": true,
-    "bridges": [
-      "public disclosure",
-      "formal report",
-      "shared evidence object",
-      "participant-carried information",
-      "authority decision",
-      "resource transfer",
-      "reputation change",
-      "map/jurisdiction change"
-    ],
     "role_locality": "actor role, stake and stance are recorded per game; no global hero/villain tag",
     "actor_concurrency": "soft capacity may be exceeded with fatigue/coordination costs; hard capacity may not be exceeded without a hard-world capacity change",
     "high_influence_effect": "high-power/high-delegation/high-coordination actors can sustain more simultaneous games, but accumulate cross-game commitments and contradiction risk"
@@ -188,6 +210,7 @@
     }
   ],
   "next_actions": [
+    "audit the four risk-list Game mechanic profiles with game_director_v17 before activating new Games",
     "materialize a hospital-side Scene for Round 3; allow multiple rounds inside that scene if the action set changes without participants separating",
     "reconstruct why manual_followup_status was absent and who requested the rerun",
     "permit verified facts to spill from cause-reconstruction into 72h-briefing only through an explicit report/evidence bridge",
