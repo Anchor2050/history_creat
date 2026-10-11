@@ -1,0 +1,101 @@
+{
+  "schema_version":1,
+  "status":"adaptation_only_hero_arc_matrix_noncanonical",
+  "historical_world_writeback":false,
+  "design_rule":"Campbell arc is backend structure; prose reveals it incompletely through repeated action, thresholds, costs and changed behavior.",
+  "characters":[
+    {
+      "actor":"zhou_ye",
+      "arc":"reliability_to_delegation",
+      "ordinary":"零论文、可靠性难被外部观察",
+      "call":"把可靠变成可检查证据",
+      "thresholds":["第一份技术岗位","承担更完整交接责任","购房增加城市锁定"],
+      "trials":["标准化交接","复杂异常集中到自己","房产与专家单点叠加"],
+      "shadow":"被需要既是负担也是尊严来源",
+      "transformation":"培养第二判断者并接受不同判断路径",
+      "return":"系统在他短期离开时仍可运行",
+      "unresolved":"稀有边界仍会回到他身上；对被需要的依恋不被完全解决",
+      "reader_should_infer":["他并不天然喜欢控制，但可靠性曾被组织持续奖励","授权会让他轻松，也会轻微动摇自我价值来源"],
+      "must_not_state_directly":["我终于明白真正的领导力是让别人不需要我","我其实一直享受被需要"]
+    },
+    {
+      "actor":"gao_yuan",
+      "arc":"fear_of_wrong_choice_to_calibrated_staying",
+      "ordinary":"把稳定视作降低人生下行风险的主要方式",
+      "call":"公务员与家乡生活",
+      "thresholds":["第二次考试成功并接受家乡岗位"],
+      "trials":["机会密度偏低","同龄人迁移","多次外部市场刷新","阈值漂移审计"],
+      "shadow":"谨慎可以变成对恐惧的高质量解释",
+      "transformation":"允许‘留下’成为需要反复校准的主动选择",
+      "return":"继续留下，但不停止观察外部机会",
+      "unresolved":"真实偏好与迁移惯性始终混合，2035不作最终裁决",
+      "reader_should_infer":["他并非单纯胆小，也并非完全自由","重复校准本身是他对抗自我欺骗的方法"],
+      "must_not_state_directly":["我终于战胜了对改变的恐惧","留下也是一种勇敢"]
+    },
+    {
+      "actor":"luo_cheng",
+      "arc":"status_label_to_work_content",
+      "ordinary":"希望博士身份能对应一个体面的制度位置",
+      "call":"高校学生事务路径",
+      "thresholds":["第一次路线失败后改做研究支持","多年后第二次迁移"],
+      "trials":["直接经验不足","重新定义可迁移能力","中期申请失败","长期等待双门槛岗位"],
+      "shadow":"适应性很强，因此容易继续寻找一个能解释自己的身份名词",
+      "transformation":"岗位内容和平台质量逐渐高于名称本身",
+      "return":"迁到省会研究运营岗位并接受其中仍有大量流程",
+      "unresolved":"后来的成功不能证明早年的等待全部正确",
+      "reader_should_infer":["体面感在早期决定里占过真实位置","他逐渐能容忍一个名字没那么好听但工作内容更对的身份"],
+      "must_not_state_directly":["我过去只是虚荣","我终于不在乎身份了"]
+    },
+    {
+      "actor":"tang_yu",
+      "arc":"prove_independence_to_let_negative_evidence_stop",
+      "ordinary":"把高强度坚持与独立研究者身份绑定",
+      "call":"做成自己的研究问题",
+      "thresholds":["接受结构性失败并收缩命题","论文接受","研究空档后重新开小题"],
+      "trials":["实现敏感性","引理缺口","命题收缩","接受后的空档","新题快速反例"],
+      "shadow":"研究强度会让她对原问题产生所有权和证明自己的需要",
+      "false_return":"论文被接受，却没有自动生成下一条成熟研究线",
+      "transformation":"负面证据更早获得终止项目的权力",
+      "return":"能更快关掉错误问题，同时容忍暂时没有新主线",
+      "unresolved":"她仍然倔强、竞争、要强；这些特质没有被治愈",
+      "reader_should_infer":["她的成熟体现在停止速度变化，不在性格突然柔软","空档不被强行解释成准备更大突破"],
+      "must_not_state_directly":["我终于学会了放弃","失败也是一种成功"]
+    },
+    {
+      "actor":"he_xin",
+      "arc":"stability_as_goal_to_stability_as_reviewable_structure",
+      "ordinary":"把稳定理解为低波动、边界清楚、可长期生活",
+      "call":"事业单位和稳定城市生活",
+      "thresholds":["接受岗位","第三次住房窗口购房"],
+      "trials":["学习增长放缓","福利与网络形成锁定","两次住房窗口不过","家庭意见和资产承诺"],
+      "shadow":"边界感与稳定偏好也能成为避免冲突和变化的工具",
+      "transformation":"先复核岗位价值，再决定资产承诺",
+      "return":"买房，同时继续把工作和住房分开记账",
+      "unresolved":"购房既可以是主动承诺，也会真实增加未来退出成本",
+      "reader_should_infer":["她不是因为‘稳定就是好’而买房","她也没有因为能分析路径依赖就免于路径依赖"],
+      "must_not_state_directly":["这套房是我对生活的回答","成熟就是知道自己要什么"]
+    },
+    {
+      "actor":"song_nan",
+      "arc":"maximize_learning_to_multiobjective_bundle",
+      "ordinary":"把快速成长、强责任和机会密度看得很重",
+      "call":"进入医药统计行业",
+      "thresholds":["第一份行业岗位","主动接受较低薪酬的第二城市岗位"],
+      "trials":["高租金","远家庭","强学习曲线","跨专业协调","第二岗位学习速度下降"],
+      "shadow":"行动力和速度会压过别人的理解节奏，也容易把成长看成单一指标",
+      "transformation":"接受一个选择只在部分维度更好",
+      "return":"保留专业判断和行动力，同时把生活成本、家庭距离、可持续性纳入同一决策",
+      "unresolved":"她仍会在意机会密度和收入，不把第二城市写成终极归宿",
+      "reader_should_infer":["主动降薪不是牺牲叙事，也不是价值觉醒","她只是开始使用更多维度评估自己的生活"],
+      "must_not_state_directly":["生活比事业更重要","我终于学会平衡"]
+    }
+  ],
+  "global_negative_space_rules":[
+    "A stage may span multiple chapters and years.",
+    "No transformation is permanent; old behavior may recur under pressure.",
+    "At least one major ambiguity must remain unresolved for each core actor at 2035.",
+    "Do not give every trial a lesson or every chapter a payoff.",
+    "Readers may understand an arc before the character does.",
+    "A later repeated action may reveal the meaning of an earlier scene without retrospective explanation."
+  ]
+}
