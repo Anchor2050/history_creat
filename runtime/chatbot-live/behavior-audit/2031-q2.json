@@ -1,0 +1,17 @@
+{
+  "schema_version": 11,
+  "period": "2031-q2",
+  "status": "behavior_audit_noncanonical",
+  "backend": "chatgpt_product_conversation",
+  "source_batch": "runtime/chatbot-live/batches/2031-q2.json",
+  "abnormal_budget": 1,
+  "abnormal_used": 0,
+  "decisions": [
+    {"actor_id":"tang_yu","mode":"normal","chosen_action_id":"finish_argument_and_submission_checks_before_submit","baseline_expected_action":"Continue the project only after negative checks and explicit scope limits are resolved.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Independent logic review passes with only minor clarification; author/file checks remain open.","constraint_check":{"feasible":true,"notes":"Submission still blocked until full author/file approval."},"evidence_refs":["2031q2:e04","2031q2:e05","2031q2:e06"]},
+    {"actor_id":"xu_hang","mode":"normal","chosen_action_id":"accept_coauthor_responsibility_only_for_substantive_main_text_contribution","baseline_expected_action":"Do not equate technical participation with authorship; require design impact, writing and accountability.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Validation design and counterexample reliability now alter retained claims and enter the main text.","constraint_check":{"feasible":true,"notes":"Final author list/order remains a full-project decision."},"evidence_refs":["2031q2:e01","2031q2:e02","2031q2:e03"]},
+    {"actor_id":"lin_jing","mode":"normal","chosen_action_id":"run_service_boundary_experiment_before_judging_job_fit","baseline_expected_action":"Evaluate career structure through observed autonomy and time use rather than contract language alone.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Research autonomy is partly real, while service fragmentation is higher than expected but not yet an exit trigger.","constraint_check":{"feasible":true,"notes":"Optional service can be tested without abandoning formal duties."},"evidence_refs":["2031q2:review01","2031q2:e07","2031q2:e08","2031q2:e09"]},
+    {"actor_id":"xu_hang","mode":"normal","chosen_action_id":"remove_domain_specific_check_from_core_standard","baseline_expected_action":"Let real use shrink the validation asset when a rule fails to transfer.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Third use preserves core steps but shows one check adds little outside its original domain.","constraint_check":{"feasible":true,"notes":"Core standard remains usable with explicit optional appendix."},"evidence_refs":["2031q2:use01","2031q2:e10","2031q2:e11"]},
+    {"actor_id":"luo_cheng","mode":"normal","chosen_action_id":"stay_in_role_and_record_platform_ceiling","baseline_expected_action":"Retain a role whose research fit is improving while keeping regional platform limits visible.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Role content improves and no competing offer/search path exists.","constraint_check":{"feasible":true,"notes":"No external search is required yet."},"evidence_refs":["2031q2:e14","2031q2:e15"]}
+  ],
+  "audit_rule": "Q2 consequential choices remain normal; no supplied trigger supports out-of-pattern behavior."
+}
