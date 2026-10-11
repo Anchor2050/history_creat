@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2031-q4",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2031-10-01","end":"2031-12-31"},
+  "generation_mode": "chatgpt_product_interaction_chain",
+  "era_lens": [
+    "到2031年底，住房锁定第一次被真实考虑，但三条代表性路径分别得到主动延期、现金阻断和迁移价值阻断，没有任何稳定岗位自动转成购房。",
+    "第一年或第四年工作评估开始把岗位价值拆成时间、学习、责任、平台与退出成本，而非单一满意度。",
+    "投稿进入外部评价后，角色能做的事情减少；等待本身也成为历史状态。"
+  ],
+  "exogenous_hard_world_events": [
+    {"event_id":"2031q4:review01","at":"2031-11-08","kind":"first_year_university_role_review","actor":"lin_jing","result":"meets_expectations_no_title_change_service_boundary_not_penalized_research_block_partly_preserved","visibility":"private_to_actor"},
+    {"event_id":"2031q4:review02","at":"2031-11-16","kind":"fourth_year_role_review","actor":"zhou_ye","result":"meets_expectations_no_title_change_handoff_standard_used_by_multiple_teams","visibility":"private_to_actor"},
+    {"event_id":"2031q4:review03","at":"2031-11-22","kind":"fourth_year_role_review","actor":"he_xin","result":"meets_expectations_no_role_change_learning_time_partly_recovered","visibility":"private_to_actor"},
+    {"event_id":"2031q4:review04","at":"2031-12-01","kind":"fourth_year_role_review","actor":"song_nan","result":"meets_expectations_scope_stable_marginal_learning_growth_slower","visibility":"private_to_actor"},
+    {"event_id":"2031q4:review05","at":"2031-12-05","kind":"third_year_role_review","actor":"luo_cheng","result":"meets_expectations_research_support_fit_stable_platform_ceiling_visible","visibility":"private_to_actor"},
+    {"event_id":"2031q4:review06","at":"2031-12-07","kind":"third_year_role_review","actor":"gao_yuan","result":"meets_expectations_no_role_change_growth_density_low","visibility":"private_to_actor"},
+    {"event_id":"2031q4:submission01","at":"2031-12-15","kind":"editorial_status_check","actor":"tang_yu","project":"mechanism_boundary_manuscript","result":"under_review_no_decision","visibility":"authors_only"}
+  ],
+  "windows": [
+    {"packet_id":"micro:chatbot:2031-11:lin-chen-year-one:01","start_date":"2031-11-10","end_date":"2031-11-10","event_kind":"university_role_year_one_checkin","participants":["lin_jing","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-11:zhou-he-housing-aftercheck:01","start_date":"2031-11-18","end_date":"2031-11-18","event_kind":"same_city_housing_followup","participants":["zhou_ye","he_xin"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-12:song-chen-year-four:01","start_date":"2031-12-03","end_date":"2031-12-03","event_kind":"industry_year_four_review","participants":["song_nan","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-12:tang-xu-waiting:01","start_date":"2031-12-16","end_date":"2031-12-16","event_kind":"manuscript_waiting_checkin","participants":["tang_yu","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-12:gao-luo-reassessment-prep:01","start_date":"2031-12-09","end_date":"2031-12-09","event_kind":"career_reassessment_preparation","participants":["gao_yuan","luo_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-10:wu-shen-mentor-peer:01","start_date":"2031-10-24","end_date":"2031-10-24","event_kind":"mentor_peer_boundary_exchange","participants":["wu_cheng","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-12:year-end-group-call:01","start_date":"2031-12-27","end_date":"2031-12-27","event_kind":"year_end_group_call","participants":["lin_jing","chen_lan","xu_hang","zhou_ye","gao_yuan","luo_cheng","tang_yu","he_xin","song_nan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events": [
+    {"event_id":"2031q4:e01","kind":"social_interaction","at":"2031-11-10","event_kind":"university_role_year_one_checkin","speaker":"lin_jing","listener":"chen_lan","act":"share_experience","content":"林静第一年评估没有因为减少部分额外服务受到正式惩罚，研究块也比上学期稳定；但年度评价让她更清楚这份工作会长期要求可见产出，研究自主并不等于没有制度压力。","channel":"video_call","evidence":"年度评估给出服务边界结果。"},
+    {"event_id":"2031q4:e02","kind":"social_interaction","at":"2031-11-10","event_kind":"university_role_year_one_checkin","speaker":"chen_lan","listener":"lin_jing","act":"repair","content":"陈岚说这至少证明第一年的边界实验可行，但不要把一次未受罚当成永久制度保障；林静决定继续按年度而非按想象评价岗位。","channel":"video_call","evidence":"长期制度效果仍开放。"},
+
+    {"event_id":"2031q4:e03","kind":"social_interaction","at":"2031-11-18","event_kind":"same_city_housing_followup","speaker":"zhou_ye","listener":"he_xin","act":"check_in","content":"周野和何欣偶尔见面时才知道两个人今年都认真算过买房，但原因完全不同地继续租着：周野不愿锁迁移，何欣是现金条件没到。","channel":"in_person","evidence":"双方主动披露各自结果；不形成联合住房决策。"},
+    {"event_id":"2031q4:e04","kind":"social_interaction","at":"2031-11-18","event_kind":"same_city_housing_followup","speaker":"he_xin","listener":"zhou_ye","act":"share_experience","content":"何欣说知道自己暂时买不起反而让她更认真看租房状态能不能长期舒适；周野说自己买得起一点却不想买，也让他确认‘可选’和‘应该选’之间有差别。","channel":"in_person","evidence":"住房结果没有被社会比较排序。"},
+
+    {"event_id":"2031q4:e05","kind":"social_interaction","at":"2031-12-03","event_kind":"industry_year_four_review","speaker":"song_nan","listener":"chen_lan","act":"share_experience","content":"宋楠第四年评估显示工作范围稳定、表现正常，但新增学习速度开始比前两年慢；她第一次把‘当前岗位还值不值得再待两年’写成2032正式再评价问题。","channel":"video_call","evidence":"学习边际下降由年度评估产生，不自动触发求职。"},
+    {"event_id":"2031q4:e06","kind":"social_interaction","at":"2031-12-03","event_kind":"industry_year_four_review","speaker":"chen_lan","listener":"song_nan","act":"offer_information","content":"陈岚建议她明年先用便携案例去看外部市场到底认可什么，再决定是否投递；市场校准可以先于离职行动。","channel":"video_call","evidence":"形成2032市场校准候选，不是跳槽。"},
+
+    {"event_id":"2031q4:e07","kind":"social_interaction","at":"2031-12-16","event_kind":"manuscript_waiting_checkin","speaker":"tang_yu","listener":"xu_hang","act":"check_in","content":"稿件仍在审稿，没有决定。唐雨说自己现在最难适应的是没有更多内部修补动作可做；许航提醒她继续改一个已经送出的版本只会制造另一条历史。","channel":"wechat_private","evidence":"外部评价阶段的等待状态。"},
+    {"event_id":"2031q4:e08","kind":"social_interaction","at":"2031-12-16","event_kind":"manuscript_waiting_checkin","speaker":"xu_hang","listener":"tang_yu","act":"small_talk","content":"两人最后只聊了年底各自休几天，没有把等待强行转成新的研究任务。","channel":"wechat_private","evidence":"普通生活互动。"},
+
+    {"event_id":"2031q4:e09","kind":"social_interaction","at":"2031-12-09","event_kind":"career_reassessment_preparation","speaker":"gao_yuan","listener":"luo_cheng","act":"share_experience","content":"高原把2032再评价拆成三个问题：现在岗位给他的时间和家庭距离值多少、成长密度不足付出了什么、重新进入其他市场会损失什么。","channel":"phone","evidence":"三年真实工作后形成再评价框架。"},
+    {"event_id":"2031q4:e10","kind":"social_interaction","at":"2031-12-09","event_kind":"career_reassessment_preparation","speaker":"luo_cheng","listener":"gao_yuan","act":"share_experience","content":"罗诚也准备同样做一次，但他的重点是研究内容增长能否抵消平台层级限制；两人仍只交换框架，不交换具体岗位线索。","channel":"phone","evidence":"2032独立再评价准备。"},
+
+    {"event_id":"2031q4:e11","kind":"social_interaction","at":"2031-10-24","event_kind":"mentor_peer_boundary_exchange","speaker":"wu_cheng","listener":"shen_yan","act":"share_experience","content":"吴澄说自己减少临时指导后，团队提问质量提高了一些，但也担心年轻成员把‘别打扰导师’理解得太重；沈雁说他在研究指导里也会遇到相反风险：边界太软会替学生做问题，边界太硬又会错过真正需要判断的节点。","channel":"in_person","evidence":"两名导师首次以同行身份讨论边界的双向风险。"},
+    {"event_id":"2031q4:e12","kind":"social_interaction","at":"2031-10-24","event_kind":"mentor_peer_boundary_exchange","speaker":"shen_yan","listener":"wu_cheng","act":"offer_information","content":"两人最后都倾向把边界写成‘什么问题值得同步讨论’而不是简单减少次数，没有形成统一规则或项目。","channel":"in_person","evidence":"原八人横向专业关系继续加厚。"},
+
+    {"event_id":"2031q4:e13","kind":"social_interaction","at":"2031-12-27","event_kind":"year_end_group_call","speaker":"lin_jing","listener":"he_xin","act":"share_experience","content":"林静说自己第一年没有买房也没有后悔搬去区域高校城市，现阶段最重要的是确认时间结构能否持续；何欣说自己也继续租住，两人的城市锁定仍主要来自工作和生活网络。","channel":"video_call","evidence":"住房未购买的城市锁定继续存在。"},
+    {"event_id":"2031q4:e14","kind":"social_interaction","at":"2031-12-27","event_kind":"year_end_group_call","speaker":"zhou_ye","listener":"gao_yuan","act":"share_experience","content":"周野说今年最意外的是自己有一点买房能力却主动没买；高原听完只说自己目前连购房窗口都不急着开，家乡低租金已经满足当前生活。","channel":"video_call","evidence":"不同住房状态主动披露。"},
+    {"event_id":"2031q4:e15","kind":"social_interaction","at":"2031-12-27","event_kind":"year_end_group_call","speaker":"song_nan","listener":"tang_yu","act":"check_in","content":"宋楠说自己明年会认真看一次外部市场但还没决定投；唐雨只说论文还在审，没有把两个人的等待和再评价说成谁更顺。","channel":"video_call","evidence":"开放线程只披露当前状态。"}
+  ],
+  "hard_world_candidate_updates": [
+    {"candidate_id":"candidate:2031-q2:lin-service-boundary-experiment:01","checked_at":"2031-11-08","checks":{"annual_evaluation_completed":true,"formal_penalty_for_declined_optional_service":false,"research_block_partly_preserved":true},"result":"activated_first_year_noncanonical","resource_effect":"service boundary remains viable for now; no guarantee beyond first year"},
+    {"candidate_id":"candidate:2031-09:gao-luo-2032-reassessment:01","checked_at":"2031-12-09","checks":{"three_year_role_evidence_available":true,"market_reentry_cost_can_be_estimated":true,"city_lock_in_visible":true},"result":"ready_for_2032_individual_reassessment_noncanonical","resource_effect":"none yet"},
+    {"candidate_id":"candidate:2031-q2:tang-final-submission-assembly:01","checked_at":"2031-12-15","checks":{"submitted":true,"editorial_decision_available":false},"result":"under_review_open_noncanonical","resource_effect":"none; wait for external review"}
+  ],
+  "new_hard_world_candidates": [
+    {"candidate_id":"candidate:2031-12:song-2032-market-calibration:01","created_at":"2031-12-03","type":"external_market_calibration","beneficiary":"song_nan","description":"2032使用便携案例和公开职位信息校准外部市场认可，不要求先离职或投递。","requires_checks":["public_market_information","portable_casebook_ready","time_capacity","no_confidential_material"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2031-12:lin-year-two-boundary:01","created_at":"2031-11-10","type":"second_year_work_boundary_continuation","beneficiary":"lin_jing","description":"继续保留固定研究块并观察第二年年度评价是否仍允许当前服务边界。","requires_checks":["formal_duties_met","research_block_tracking","second_year_evaluation"],"status":"open_noncanonical"}
+  ],
+  "actor_state_evidence": [
+    {"at":"2031-11-10","actor":"lin_jing","dimension":"first_year_role_fit","evidence":"第一年研究自主性与服务边界总体可行，但评价压力长期化；当前选择继续而非退出。","status":"candidate_state_evidence"},
+    {"at":"2031-11-18","actor":"zhou_ye","dimension":"housing_lock_in","evidence":"主动延后购房后继续租住，没有出现后悔或被动购买压力。","status":"candidate_state_evidence"},
+    {"at":"2031-11-18","actor":"he_xin","dimension":"housing_lock_in","evidence":"现金阻断后转向评估长期租住质量，未把买房作为稳定职业身份的证明。","status":"candidate_state_evidence"},
+    {"at":"2031-12-03","actor":"song_nan","dimension":"career_reassessment","evidence":"第四年新增学习速度下降，2032将先做外部市场校准而非直接跳槽。","status":"candidate_state_evidence"},
+    {"at":"2031-12-16","actor":"tang_yu","dimension":"research_waiting","evidence":"论文under review后停止内部无穷修补，等待外部评价成为真实状态。","status":"candidate_state_evidence"},
+    {"at":"2031-12-09","actor":"gao_yuan","dimension":"career_reassessment","evidence":"三年稳定工作证据足够，2032将正式比较当前收益、成长成本和市场再进入成本。","status":"candidate_state_evidence"},
+    {"at":"2031-12-09","actor":"luo_cheng","dimension":"career_reassessment","evidence":"三年研究支持适配度提高但平台上限持续可见，2032进入正式再评价。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence": [
+    {"at":"2031-11-18","pair":["zhou_ye","he_xin"],"direction":"positive","evidence":"同城弱联系能够交换住房现实，但两人保持各自财务和城市决策边界。"},
+    {"at":"2031-10-24","pair":["wu_cheng","shen_yan"],"direction":"positive","evidence":"两名导师开始形成不依附新增六人的同行边界讨论。"}
+  ],
+  "storyteller_index_delta": {
+    "new_material_threads": [
+      "2031 establishes home purchase as a real but non-mandatory lock-in mechanism: Zhou defers voluntarily, He is cash-blocked, Song defers for mobility",
+      "Lin first-year university autonomy survives one boundary experiment but remains institutionally contingent",
+      "Tang/Xu enter external review and lose control over immediate next steps",
+      "Gao/Luo complete enough role history to enter 2032 formal career reassessment",
+      "Wu/Shen develop an original-cast peer line about boundaries rather than serving younger actors"
+    ],
+    "world_writeback": false
+  },
+  "audit_rules": {
+    "single_batch_noncanonical": true,
+    "generated_through_interaction_chain": true,
+    "waiting_is_valid_history_state": true,
+    "no_home_purchase_without_independent_checks": true,
+    "same_city_weak_tie_does_not_merge_finances_or_housing_decisions": true,
+    "external_market_calibration_does_not_equal_job_search": true,
+    "storyteller_is_read_only": true,
+    "bilateral_memory_derivable_from_events": true
+  }
+}
