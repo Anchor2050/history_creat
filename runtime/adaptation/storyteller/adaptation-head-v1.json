@@ -1,37 +1,41 @@
 {
-  "schema_version":5,
-  "status":"adaptation_storyteller_head_noncanonical",
-  "historical_world_writeback":false,
-  "history_source":{
-    "live_head":"runtime/chatbot-live/head-v2.json",
-    "final_storyteller_diagnostic":"runtime/chatbot-live/storyteller/2035-diagnostic-v12.json",
-    "horizon":"2026-03-02/2035-12-31",
-    "frozen_by_default":true
+  "schema_version": 6,
+  "status": "adaptation_storyteller_head_noncanonical",
+  "historical_world_writeback": false,
+  "history_source": {
+    "live_head": "runtime/chatbot-live/head-v2.json",
+    "final_storyteller_diagnostic": "runtime/chatbot-live/storyteller/2035-diagnostic-v12.json",
+    "horizon": "2026-03-02/2035-12-31",
+    "frozen_by_default": true
   },
-  "adaptation_sources":{
-    "selection_architecture":"runtime/adaptation/storyteller/2035-selection-architecture-v1.json",
-    "education_socialization_model":"docs/adaptation/education-socialization-capability-model-v1.md",
-    "character_background_dossiers":"runtime/adaptation/storyteller/character-background-dossiers-v1.json",
-    "character_psychology":"docs/adaptation/character-psychology-bible-v1.md",
-    "character_dialectics_power":"docs/adaptation/character-dialectics-and-power-v2.md",
-    "campbell_structure":"docs/adaptation/campbell-distributed-hero-journey-v1.md",
-    "nested_substory_model":"docs/adaptation/nested-hero-substory-model-v1.md",
-    "substory_guest_slots":"runtime/adaptation/storyteller/substory-and-guest-slots-v1.json",
-    "substory_graph":"runtime/adaptation/storyteller/substory-graph-v1.json",
-    "audited_guest_dossiers":"runtime/adaptation/storyteller/guest-dossiers-probe-v1.json",
-    "family_guest_dossier":"runtime/adaptation/storyteller/guest-dossiers-probe-v2-family.json",
-    "style_guardrails":"docs/adaptation/literary-style-guardrails-v1.md",
-    "storyteller_scene_engine":"narrative/longform/storybox_adaptation_storyteller_v13.py",
-    "storyteller_nested_engine":"narrative/longform/storybox_adaptation_storyteller_v14.py",
-    "scene_reservoir":"runtime/adaptation/storyteller/scene-reservoir-v1.json",
-    "core_scene_selection":"runtime/adaptation/storyteller/viewpoint-weight-and-core26-v1.json",
-    "probe_pack_01":"runtime/adaptation/storyteller/probe-pack-01.json",
-    "probe_pack_02":"runtime/adaptation/storyteller/probe-pack-02-execution.json",
-    "probe_pack_03":"runtime/adaptation/storyteller/probe-pack-03-stress-tests.json",
-    "probe_audit_01":"runtime/adaptation/storyteller/probe-audit-pass-01.json",
-    "probe_audit_02":"runtime/adaptation/storyteller/probe-audit-pass-02.json"
+  "adaptation_sources": {
+    "selection_architecture": "runtime/adaptation/storyteller/2035-selection-architecture-v1.json",
+    "education_socialization_model": "docs/adaptation/education-socialization-capability-model-v1.md",
+    "character_background_dossiers": "runtime/adaptation/storyteller/character-background-dossiers-v1.json",
+    "character_psychology": "docs/adaptation/character-psychology-bible-v1.md",
+    "character_dialectics_power": "docs/adaptation/character-dialectics-and-power-v2.md",
+    "campbell_structure": "docs/adaptation/campbell-distributed-hero-journey-v1.md",
+    "nested_substory_model": "docs/adaptation/nested-hero-substory-model-v1.md",
+    "substory_guest_slots": "runtime/adaptation/storyteller/substory-and-guest-slots-v1.json",
+    "substory_graph": "runtime/adaptation/storyteller/substory-graph-v1.json",
+    "audited_guest_dossiers": "runtime/adaptation/storyteller/guest-dossiers-probe-v1.json",
+    "family_guest_dossier": "runtime/adaptation/storyteller/guest-dossiers-probe-v2-family.json",
+    "style_guardrails": "docs/adaptation/literary-style-guardrails-v1.md",
+    "narrative_voice_spec": "docs/adaptation/narrative-voice-spec-v1.md",
+    "storyteller_scene_engine": "narrative/longform/storybox_adaptation_storyteller_v13.py",
+    "storyteller_nested_engine": "narrative/longform/storybox_adaptation_storyteller_v14.py",
+    "scene_reservoir": "runtime/adaptation/storyteller/scene-reservoir-v1.json",
+    "core_scene_selection": "runtime/adaptation/storyteller/viewpoint-weight-and-core26-v1.json",
+    "probe_pack_01": "runtime/adaptation/storyteller/probe-pack-01.json",
+    "probe_pack_02": "runtime/adaptation/storyteller/probe-pack-02-execution.json",
+    "probe_pack_03": "runtime/adaptation/storyteller/probe-pack-03-stress-tests.json",
+    "probe_audit_01": "runtime/adaptation/storyteller/probe-audit-pass-01.json",
+    "probe_audit_02": "runtime/adaptation/storyteller/probe-audit-pass-02.json",
+    "probe_audit_03": "runtime/adaptation/storyteller/probe-audit-pass-03-v1-v2.json",
+    "probe_audit_04": "runtime/adaptation/storyteller/probe-audit-pass-04-long-scene.json",
+    "probe_audit_05": "runtime/adaptation/storyteller/probe-audit-pass-05-cross-context.json"
   },
-  "executed_probes":[
+  "executed_probes": [
     "docs/adaptation/probes/p2-01-ordinary-trip-v1.md",
     "docs/adaptation/probes/p2-02-luo-sun-gate-v1.md",
     "docs/adaptation/probes/p2-03-zhou-qiu-delegation-v1.md",
@@ -40,29 +44,36 @@
     "docs/adaptation/probes/p3-02-ma-qing-viewpoint-v1.md",
     "docs/adaptation/probes/p3-03-he-family-boundary-failure-v1.md",
     "docs/adaptation/probes/p3-04-six-core-voice-lab-v1.md",
-    "docs/adaptation/probes/p3-05-zhou-he-awkward-meetup-v1.md"
+    "docs/adaptation/probes/p3-05-zhou-he-awkward-meetup-v1.md",
+    "docs/adaptation/probes/p3-02-ma-qing-viewpoint-v2.md",
+    "docs/adaptation/probes/p3-03-he-family-boundary-failure-v2.md",
+    "docs/adaptation/probes/p3-05-zhou-he-awkward-meetup-v2.md",
+    "docs/adaptation/probes/p4-01-ma-song-long-scene-v1.md",
+    "docs/adaptation/probes/p4-02-tang-xu-research-intensity-v1.md"
   ],
-  "primary_project":{
-    "working_title":"不同的稳定",
-    "architecture":"six_core_plus_second_ring_with_nested_substories",
-    "core":["zhou_ye","gao_yuan","luo_cheng","tang_yu","he_xin","song_nan"],
-    "high_frequency_secondary":["lin_jing","chen_lan","xu_hang"],
-    "recurring_secondary":["wu_cheng","shen_yan","gu_wei","zhao_ke","sun_jie"],
-    "selected_scene_count":26,
-    "reservoir_scene_count":30,
-    "character_substory_count":9,
-    "braided_substory_count":4,
-    "audited_guest_count":3,
-    "executed_probe_count":9,
-    "prose_canon_fixed":false,
-    "world_is_not_centered_on_core_six":true
+  "primary_project": {
+    "working_title": "不同的稳定",
+    "architecture": "six_core_plus_second_ring_with_nested_substories",
+    "core": ["zhou_ye", "gao_yuan", "luo_cheng", "tang_yu", "he_xin", "song_nan"],
+    "high_frequency_secondary": ["lin_jing", "chen_lan", "xu_hang"],
+    "recurring_secondary": ["wu_cheng", "shen_yan", "gu_wei", "zhao_ke", "sun_jie"],
+    "selected_scene_count": 26,
+    "reservoir_scene_count": 30,
+    "character_substory_count": 9,
+    "braided_substory_count": 4,
+    "audited_guest_count": 3,
+    "executed_probe_count": 14,
+    "prose_canon_fixed": false,
+    "narrative_voice_status": "provisional_canon",
+    "narrative_voice_label": "close_external_restrained_realism",
+    "world_is_not_centered_on_core_six": true
   },
-  "narrative_layers":[
+  "narrative_layers": [
     "long_hero_arcs_for_core_characters",
     "multi_scene_substories_inside_each_long_arc",
     "guest_micro_arcs_for_passersby_colleagues_authorities_clients_students_family_and_peers"
   ],
-  "scene_execution_order":[
+  "scene_execution_order": [
     "historical evidence refs",
     "relationship history and information rights",
     "year-specific Personal state if available",
@@ -78,11 +89,12 @@
     "if a real function gap remains: instantiate minimum guest dossier",
     "reverse guest plausibility audit: time/institution/profession/relationship/information/interest/psychology/era",
     "guest micro-hero arc",
+    "provisional narrative voice spec",
     "literary style guardrails",
-    "disposable prose probe",
-    "probe audit before any prose canon decision"
+    "disposable prose probe or chapter card",
+    "anti-AI audit before any prose canon decision"
   ],
-  "nonnegotiable_rules":[
+  "nonnegotiable_rules": [
     "No adaptation hypothesis becomes ledger history.",
     "No adaptation-only resume item becomes a historical credential unless separately promoted by an explicit canon decision.",
     "High education raises selected cognitive baselines but does not imply universal negotiation, leadership, emotional or social skill.",
@@ -97,34 +109,41 @@
     "Every named guest needs a current goal, pressure, virtue-shadow pair, power position, bounded information set and 3-5 step micro arc.",
     "Guest characters generated on demand must pass reverse plausibility audit before prose use.",
     "Guest biography remains adaptation-only unless explicitly canonized later.",
+    "Narrative voice canon is provisional and controls distance, not character-specific syntax.",
     "Do not force romance, illness, family disaster, betrayal or redemption to complete an arc.",
     "Do not turn Campbell functions into visible formula or dialogue.",
     "Do not use AI-summary endings, thesis dialogue, forced symbolism or universal self-awareness.",
     "Ordinary time and non-events remain usable narrative material.",
     "2035 is an observation endpoint, not a life verdict."
   ],
-  "current_stage":"probe_execution_pass_02_complete_revision_before_architecture_lock",
-  "gate_status":{
-    "ordinary_scene_without_forced_meaning":"pass",
-    "low_energy_socially_awkward_scene":"pass",
-    "locally_wrong_or_embarrassed_viewpoint":"pass",
-    "local_antagonist_with_plausible_good":"pass",
-    "guest_viewpoint_scene":"pass",
-    "guest_micro_arc":"pass",
-    "family_origin_pressure_without_melodrama":"pass",
-    "educated_character_communicates_badly":"pass",
-    "six_core_dialogue_differentiation":"pass_as_diagnostic",
-    "capability_consistency":"pass_with_revision_notes",
-    "anti_ai_style":"improved_but_not_full_pass",
-    "prose_canon":"blocked"
+  "current_stage": "provisional_chapter_architecture_ready",
+  "gate_status": {
+    "ordinary_scene_without_forced_meaning": "pass",
+    "low_energy_socially_awkward_scene": "pass",
+    "locally_wrong_or_embarrassed_viewpoint": "pass",
+    "local_antagonist_with_plausible_good": "pass",
+    "guest_viewpoint_scene": "pass",
+    "guest_micro_arc": "pass",
+    "family_origin_pressure_without_melodrama": "pass",
+    "educated_character_communicates_badly": "pass",
+    "six_core_dialogue_differentiation": "pass_as_diagnostic",
+    "capability_consistency": "pass_with_revision_notes",
+    "v1_v2_revision_comparison": "pass",
+    "long_scene_sustainability": "pass",
+    "research_scene_voice": "pass_with_minor_risk",
+    "anti_ai_style": "provisional_pass",
+    "narrative_voice": "provisional_canon",
+    "prose_canon": "blocked"
   },
-  "next_stage_gate":{
-    "required_before_full_chapter_drafting":[
-      "revise three strongest probes by deleting explanatory psychology and designed endings",
-      "compare v1 and v2 for loss or gain of human texture",
-      "second anti-AI audit focused on authorial over-explanation, neatness and symmetry",
-      "choose provisional narrative distance only after revision comparison"
+  "next_stage_gate": {
+    "required_before_full_chapter_drafting": [
+      "build 20-24 provisional chapter cards from the selected scenes and substory graph",
+      "assign viewpoint by uncertainty and contradiction rather than rotation",
+      "for each chapter define visible action, hidden contradiction, material/institutional constraint and unresolved residue",
+      "mark guest-function gaps but instantiate new guests only on demand",
+      "retain at least one ordinary/non-conversion chapter in every major part",
+      "audit chapter rhythm for overconcentration of work/research scenes"
     ],
-    "after_gate":"20-24 chapter novel beat sheet and 12-episode screen beat sheet may be fixed separately"
+    "after_gate": "draft one full pilot chapter while all other chapters remain cards"
   }
 }
