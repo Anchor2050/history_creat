@@ -1,0 +1,49 @@
+{
+  "schema_version":1,
+  "status":"provisional_novel_chapter_revision_overlay_noncanonical",
+  "historical_world_writeback":false,
+  "base":"runtime/adaptation/storyteller/novel-chapter-cards-v1.json",
+  "audit":"runtime/adaptation/storyteller/novel-architecture-audit-pass-01.json",
+  "final_chapter_count":24,
+  "operations":[
+    {
+      "operation":"insert_chapter_after",
+      "after_chapter":5,
+      "chapter":{
+        "chapter":6,
+        "working_title":"最后几页",
+        "primary_viewpoint":"lin_jing",
+        "historical_window":"2029-10 to 2030-02",
+        "evidence_refs":["2029q4:e03","2029q4:e04","2029q4:e05","2030q1:e01","2030q1:e02","2030q1:e03","2030q1:e04","2030q1:e05","2030q1:e06"],
+        "visible_action":"林静完成答辩后的边界修改；学位程序闭环后才打开职业搜索，并把第一轮职业条件写成筛选表。",
+        "hidden_contradiction":"她长期保护开放的研究问题，此时先要学会把一个阶段有限地关掉。",
+        "material_or_institutional_constraint":"学位程序、明确修改项、时间窗口、求职信息噪声、毕业后的城市与收入约束。",
+        "unresolved_residue":"学位关掉以后没有职位自动出现，职业搜索才刚开始。",
+        "campbell_function":"return_then_new_call",
+        "rhythm":"低戏剧、等待和纸面工作；毕业不写成重生。",
+        "anti_ai_risk":"不使用门、旅程、崭新人生等毕业隐喻。"
+      }
+    },
+    {"operation":"renumber_range","old_start":6,"old_end":23,"delta":1},
+    {
+      "operation":"correct_viewpoint_summary_note",
+      "value":"Viewpoint block counts include primary plus mirror blocks; mirror blocks are normally shorter and do not imply equal chapter weight."
+    },
+    {
+      "operation":"apply_part4_texture_rules",
+      "rules":[
+        "Each Part 4 chapter contains at least one ordinary activity unrelated to the headline decision.",
+        "At least two Part 4 chapters end by interruption or obligation rather than conclusion.",
+        "At least half of Part 4 chapters retain a minor mistake, misunderstanding or practical inconvenience.",
+        "Mature characters may still explain themselves badly."
+      ]
+    }
+  ],
+  "pilot_chapter":{
+    "chapter":3,
+    "working_title":"招聘启事上的一天",
+    "primary_viewpoint":"luo_cheng",
+    "status":"selected_for_full_disposable_pilot",
+    "reason":"Strong institutional and character conflict with minimal worldbuilding burden; suitable for testing full-chapter density without relying on climax."
+  }
+}
