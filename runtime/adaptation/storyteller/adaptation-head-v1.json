@@ -1,5 +1,5 @@
 {
-  "schema_version":1,
+  "schema_version":2,
   "status":"adaptation_storyteller_head_noncanonical",
   "historical_world_writeback":false,
   "history_source":{
@@ -15,21 +15,30 @@
     "character_psychology":"docs/adaptation/character-psychology-bible-v1.md",
     "character_dialectics_power":"docs/adaptation/character-dialectics-and-power-v2.md",
     "campbell_structure":"docs/adaptation/campbell-distributed-hero-journey-v1.md",
+    "nested_substory_model":"docs/adaptation/nested-hero-substory-model-v1.md",
+    "substory_guest_slots":"runtime/adaptation/storyteller/substory-and-guest-slots-v1.json",
     "style_guardrails":"docs/adaptation/literary-style-guardrails-v1.md",
-    "storyteller_engine":"narrative/longform/storybox_adaptation_storyteller_v13.py",
+    "storyteller_scene_engine":"narrative/longform/storybox_adaptation_storyteller_v13.py",
+    "storyteller_nested_engine":"narrative/longform/storybox_adaptation_storyteller_v14.py",
     "scene_reservoir":"runtime/adaptation/storyteller/scene-reservoir-v1.json",
     "core_scene_selection":"runtime/adaptation/storyteller/viewpoint-weight-and-core26-v1.json"
   },
   "primary_project":{
     "working_title":"不同的稳定",
-    "architecture":"six_core_plus_second_ring",
+    "architecture":"six_core_plus_second_ring_with_nested_substories",
     "core":["zhou_ye","gao_yuan","luo_cheng","tang_yu","he_xin","song_nan"],
     "high_frequency_secondary":["lin_jing","chen_lan","xu_hang"],
     "recurring_secondary":["wu_cheng","shen_yan","gu_wei","zhao_ke","sun_jie"],
     "selected_scene_count":26,
     "reservoir_scene_count":30,
-    "prose_canon_fixed":false
+    "prose_canon_fixed":false,
+    "world_is_not_centered_on_core_six":true
   },
+  "narrative_layers":[
+    "long_hero_arcs_for_core_characters",
+    "multi_scene_substories_inside_each_long_arc",
+    "guest_micro_arcs_for_passersby_colleagues_authorities_clients_students_family_and_peers"
+  ],
   "scene_execution_order":[
     "historical evidence refs",
     "relationship history and information rights",
@@ -41,7 +50,11 @@
     "virtue-shadow contradiction",
     "power position and institutional incentives",
     "current emotion hypothesis",
-    "Campbell scene function",
+    "Campbell long-arc and local-substory function",
+    "existing-character function check",
+    "if a real function gap remains: instantiate minimum guest dossier",
+    "reverse guest plausibility audit: time/institution/profession/relationship/information/interest/psychology/era",
+    "guest micro-hero arc",
     "literary style guardrails",
     "disposable prose probe"
   ],
@@ -55,18 +68,26 @@
     "A virtue must be allowed to create costs; a flaw must be allowed to protect something real.",
     "Local antagonists must have a legible interest, information set and value they are protecting.",
     "Power changes how personality is expressed; scene analysis must separate trait from position effect.",
+    "Core six are weakly connected ensemble peers, not a permanent six-person team.",
+    "Prefer existing relationships; create a guest only for a real scene-function gap.",
+    "Every named guest needs a current goal, pressure, virtue-shadow pair, power position, bounded information set and 3-5 step micro arc.",
+    "Guest characters generated on demand must pass reverse plausibility audit before prose use.",
+    "Guest biography remains adaptation-only unless explicitly canonized later.",
     "Do not force romance, illness, family disaster, betrayal or redemption to complete an arc.",
     "Do not turn Campbell functions into visible formula or dialogue.",
     "Do not use AI-summary endings, thesis dialogue, forced symbolism or universal self-awareness.",
     "Ordinary time and non-events remain usable narrative material.",
     "2035 is an observation endpoint, not a life verdict."
   ],
-  "current_stage":"scene_probe_preparation_with_background_dossiers",
+  "current_stage":"nested_substory_mapping_and_scene_probe_preparation",
   "next_stage_gate":{
     "required_before_full_chapter_drafting":[
+      "group the core scene selection into multi-scene substories",
+      "instantiate guests only where a scene-function gap is real",
       "three disposable scene probes in different emotional registers",
       "at least one locally-wrong-but-understandable viewpoint",
       "at least one local-antagonist scene where both sides pursue plausible goods",
+      "at least one guest micro-arc whose life remains legible beyond the protagonist",
       "dialogue differentiation check across six core actors",
       "capability-consistency check across six core actors",
       "anti-AI style audit"
