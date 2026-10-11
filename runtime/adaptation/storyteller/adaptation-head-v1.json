@@ -1,5 +1,5 @@
 {
-  "schema_version": 16,
+  "schema_version": 17,
   "status": "adaptation_storyteller_head_noncanonical",
   "historical_world_writeback": false,
   "history_source": {
@@ -17,6 +17,10 @@
     "campbell_structure": "docs/adaptation/campbell-distributed-hero-journey-v1.md",
     "campbell_negative_space": "docs/adaptation/campbell-arc-and-negative-space-v2.md",
     "hero_arc_negative_space_matrix": "runtime/adaptation/storyteller/hero-arc-negative-space-matrix-v1.json",
+    "water_margin_character_entrance_model": "docs/adaptation/water-margin-character-entrance-model-v1.md",
+    "core_character_entrance_cards": "runtime/adaptation/storyteller/core-character-entrance-cards-v1.json",
+    "opening_entrance_a_audit": "runtime/adaptation/storyteller/opening-entrance-a-audit-v1.json",
+    "opening_entrance_ab_comparison": "runtime/adaptation/storyteller/opening-entrance-ab-comparison-v1.json",
     "nested_substory_model": "docs/adaptation/nested-hero-substory-model-v1.md",
     "substory_guest_slots": "runtime/adaptation/storyteller/substory-and-guest-slots-v1.json",
     "substory_graph": "runtime/adaptation/storyteller/substory-graph-v1.json",
@@ -29,23 +33,22 @@
     "chapter_revision_v3_plot_connection": "runtime/adaptation/storyteller/novel-chapter-revision-v3-plot-connection.json",
     "reader_plot_connection_review": "runtime/adaptation/storyteller/reader-plot-connection-review-v1.json",
     "plot_connection_resolution": "runtime/adaptation/storyteller/plot-connection-resolution-v1.json",
-    "chapter5_v1_v2_audit": "runtime/adaptation/storyteller/ch05-v1-v2-audit.json",
-    "opening_five_continuity_audit": "runtime/adaptation/storyteller/opening-five-continuity-audit-v1.json",
-    "chapter6_audit_v1": "runtime/adaptation/storyteller/ch06-two-offers-audit-v1.json",
-    "chapter6_part1_audit": "runtime/adaptation/storyteller/ch06-v1-v2-and-part1-audit.json",
     "message_bus_protocol": "runtime/message-bus/README.md",
-    "message_bus_review": "runtime/message-bus/messages/2026-10-11-0001-plot-connection-review.json",
-    "message_bus_decision": "runtime/message-bus/messages/2026-10-11-0002-plot-connection-decision.json"
+    "message_bus_plot_review": "runtime/message-bus/messages/2026-10-11-0001-plot-connection-review.json",
+    "message_bus_plot_decision": "runtime/message-bus/messages/2026-10-11-0002-plot-connection-decision.json",
+    "message_bus_literary_review": "runtime/message-bus/messages/2026-10-11-0003-literary-flatness-character-entrance-review.json"
   },
-  "executed_full_pilots": [
+  "legacy_material_pilots": [
     "docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md",
     "docs/adaptation/pilots/ch02-ordinary-trip-full-v3-braided.md",
     "docs/adaptation/pilots/ch03-luo-posting-full-v3-braided.md",
     "docs/adaptation/pilots/ch04-tang-xu-implementation-structure-full-v3-braided.md",
-    "docs/adaptation/pilots/ch05-first-results-full-v1.md",
     "docs/adaptation/pilots/ch05-first-results-full-v2.md",
-    "docs/adaptation/pilots/ch06-two-offers-full-v1.md",
     "docs/adaptation/pilots/ch06-two-offers-full-v2.md"
+  ],
+  "active_entrance_probes": [
+    "docs/adaptation/pilots/opening-entrance-a-zhou-technical-screen-v2.md",
+    "docs/adaptation/pilots/opening-entrance-b-song-pharma-interview-v1.md"
   ],
   "primary_project": {
     "working_title": "不同的稳定",
@@ -54,24 +57,27 @@
     "high_frequency_secondary": ["lin_jing", "chen_lan", "xu_hang"],
     "recurring_secondary": ["wu_cheng", "shen_yan", "gu_wei", "zhao_ke", "sun_jie"],
     "provisional_chapter_count": 25,
-    "chapter_architecture_status": "provisional_v3_visible_braid_overlay",
-    "narrative_voice_status": "provisional_canon",
-    "narrative_voice_label": "close_external_restrained_realism",
+    "chapter_architecture_status": "material_map_only_opening_reset",
+    "narrative_voice_status": "retest_under_character_entrance_model",
+    "narrative_voice_label": "close_external_restrained_realism_with_cinematic_entrance_pressure",
     "hero_arc_priority": "primary_longitudinal_structure",
     "negative_space_priority": "primary_rendering_principle",
     "plot_connection_strategy": "visible_weak_braid_plus_delayed_payoff",
+    "character_entrance_strategy": "event_first_character_second_background_leaks_through_action",
     "prose_canon_fixed": false,
     "world_is_not_centered_on_core_six": true
   },
   "narrative_layers": [
     "long_campbell_hero_arcs_for_core_characters",
+    "water_margin_inspired_event_first_character_entrances",
     "negative_space_rendering_of_long_arcs",
     "visible_weak_braids_through_existing_relationships_and_repeated_practices",
     "multi_scene_substories_inside_each_long_arc",
     "guest_micro_arcs_for_passersby_colleagues_authorities_clients_students_family_and_peers"
   ],
-  "arc_rendering_rule": "Backend arcs must be structurally legible; foreground prose remains partial, delayed, fallible and under-explained. Longitudinal character transformation has priority over making an individual chapter thematically complete.",
-  "plot_connection_rule": "Weakly connected ensemble does not mean disconnected chapters. At least some early actions must receive observable later consequences, and braids must be legible through existing people, messages, practices, objects or decisions without authorial explanation.",
+  "arc_rendering_rule": "Backend arcs remain structurally legible, but a character first enters through a concrete pressured scene. Biography, trait explanation and long-term arc interpretation are delayed. Foreground prose remains partial, visual, fallible and under-explained.",
+  "plot_connection_rule": "Weakly connected ensemble does not mean disconnected chapters. Early actions must receive some observable later consequences, but connections do not justify introducing many names at once.",
+  "character_entrance_rule": "First entrance must be a scene, not a profile. Prefer one memorable action, one contradiction, one voice pattern and one external pressure. New memorable names per early chapter should normally stay at or below two.",
   "nonnegotiable_rules": [
     "No adaptation hypothesis becomes ledger history.",
     "High education does not imply universal negotiation, leadership, emotional or social skill.",
@@ -79,52 +85,66 @@
     "A virtue must be allowed to create costs; a flaw must be allowed to protect something real.",
     "Power changes how personality is expressed; separate trait from position effect.",
     "Core six are weakly connected ensemble peers, not a permanent six-person team.",
-    "Weak connection must still produce some visible cross-chapter consequences; do not confuse negative space with structural disconnection.",
-    "Prefer existing relationships; create guests only for real scene-function gaps.",
-    "Campbell stages are backend structure only and never chapter labels, thesis dialogue or explicit self-diagnosis.",
+    "A core character's first substantial appearance must happen through an external event under pressure, not through biography or résumé summary.",
+    "Early chapters should not ask the reader to memorize more than two new named people unless a scene absolutely requires it.",
+    "Use role labels for nonrecurring guests until a name matters.",
+    "Background should leak through dialogue, action, documents, space and other people's reactions instead of exposition dumps.",
+    "Campbell stages remain backend structure only and never chapter labels, thesis dialogue or explicit self-diagnosis.",
     "A stage may span several chapters or years; no chapter is required to resolve a stage.",
     "Character transformation changes probabilities, thresholds and recovery patterns; it does not permanently remove old flaws.",
     "Every core actor retains at least one materially unresolved ambiguity at the 2035 horizon.",
     "Readers may understand an arc before the character does; the narrator does not close that gap automatically.",
     "Do not reward every mature decision immediately or fairly; environment and chance retain independent causal force.",
-    "Do not force romance, illness, family disaster, betrayal or redemption to complete an arc.",
+    "Do not force romance, illness, family disaster, betrayal, crime or redemption to manufacture a hook.",
+    "Do not imitate Water Margin through archaic diction or chapter-title pastiche; borrow entrance mechanics only.",
     "Do not use AI-summary endings, thesis dialogue, forced symbolism or universal self-awareness.",
-    "Ordinary time and non-events remain usable narrative material, but ordinary chapters should not remain permanently isolated from the novel around them.",
     "2035 is an observation endpoint, not a life verdict."
   ],
-  "chapter_arc_audit": [
-    "Which long-term hero stage does this chapter touch, if any?",
-    "Which stable trait or virtue-shadow pair is under pressure?",
-    "Did the prose explain the shadow more clearly than the character could actually know?",
-    "What earlier action receives a consequence here?",
-    "What later consequence does this chapter make possible without promising it?",
-    "Did the chapter give an emotionally complete payoff only because the author wanted closure?",
-    "Could the final explanatory paragraph be deleted while the long arc remains legible?",
-    "Does this chapter leave enough uncertainty for later repetitions to change its meaning?"
+  "entrance_audit_questions": [
+    "What event is already happening before the character is explained?",
+    "What does the character do first under pressure?",
+    "What one external detail gives away education, class, profession or history without a biography paragraph?",
+    "What virtue is visible, and what small shadow is already attached to it?",
+    "How many names does the reader need to remember after the scene?",
+    "Could the scene be storyboarded into shots without inventing extra action?",
+    "Does the scene end with residue rather than a personality thesis?"
   ],
   "opening_sequence": {
-    "status": "confirmed_through_chapter6_part1_momentum_pass",
-    "sequence": [
-      {"chapter":1,"lead":"zhou_ye","reference":"docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md","function":"call; reliability seeks external evidence"},
-      {"chapter":2,"lead":"song_nan_ensemble","reference":"docs/adaptation/pilots/ch02-ordinary-trip-full-v3-braided.md","function":"ordinary world; weak ties remain weak"},
-      {"chapter":3,"lead":"luo_cheng","reference":"docs/adaptation/pilots/ch03-luo-posting-full-v3-braided.md","function":"trial; institutional work resists credential substitution"},
-      {"chapter":4,"lead":"tang_yu","reference":"docs/adaptation/pilots/ch04-tang-xu-implementation-structure-full-v3-braided.md","function":"trial; preferred evidence weakens and is split"},
-      {"chapter":5,"lead":"zhou_ye","reference":"docs/adaptation/pilots/ch05-first-results-full-v2.md","function":"partial payoff/threshold; earlier evidence receives contingent external price"},
-      {"chapter":6,"lead":"gao_yuan_with_chen_lan_mirror","reference":"docs/adaptation/pilots/ch06-two-offers-full-v2.md","function":"threshold plus refusal; two attractive bundles produce different actions without universal ranking"}
-    ]
+    "status": "previous_sequence_demoted_to_material_pool",
+    "previous_material_sequence": [
+      "zhou reliability package",
+      "ordinary ensemble trip",
+      "luo posting read",
+      "tang implementation review",
+      "first results",
+      "two offers"
+    ],
+    "reason_for_reset": "Human reader found the material flat as a novel opening, too name-dense and too profile-like despite sound character arcs and causal braids.",
+    "active_candidates": [
+      {
+        "id": "entrance-a",
+        "lead": "zhou_ye",
+        "reference": "docs/adaptation/pilots/opening-entrance-a-zhou-technical-screen-v2.md",
+        "hook": "quiet external pressure"
+      },
+      {
+        "id": "entrance-b",
+        "lead": "song_nan",
+        "reference": "docs/adaptation/pilots/opening-entrance-b-song-pharma-interview-v1.md",
+        "hook": "fast changing business conditions"
+      }
+    ],
+    "selection_status": "undecided_until_non_interview_entrance_test"
   },
   "gate_status": {
-    "anti_ai_style": "provisional_pass_at_chapter_length",
-    "narrative_voice": "provisional_canon",
-    "chapter_architecture": "provisional_pass_with_v3_visible_braid_overlay",
-    "campbell_arc_model": "primary",
-    "negative_space_model": "primary",
-    "plot_connection_review": "resolved_in_architecture_and_prose",
-    "chapter5_partial_payoff": "pass_after_subtraction",
-    "chapter6_two_offers": "pass_after_subtraction",
-    "first_six_continuity": "pass",
-    "part1_material_momentum": "pass_with_offer_repetition_warning",
-    "prose_canon": "still_not_fixed"
+    "campbell_arc_model": "retained_primary_backend",
+    "negative_space_model": "retained_primary",
+    "plot_connection_review": "resolved_in_material_architecture",
+    "old_first_six_as_publication_opening": "rejected_demoted_to_material",
+    "literary_character_entrance_review": "open_blocking",
+    "cinematic_entrance_probe_a": "promising",
+    "cinematic_entrance_probe_b": "promising_needs_subtractive_revision",
+    "prose_canon": "reset_not_fixed"
   },
   "open_reviews": [
     {
@@ -132,18 +152,23 @@
       "status": "resolved_option_a_plus_c_prose_verified",
       "resolution_message": "runtime/message-bus/messages/2026-10-11-0002-plot-connection-decision.json",
       "resolution_artifact": "runtime/adaptation/storyteller/plot-connection-resolution-v1.json"
+    },
+    {
+      "id": "review:literary-flatness-character-entrance",
+      "status": "open_blocking_for_further_chapter_drafting",
+      "bus_message": "runtime/message-bus/messages/2026-10-11-0003-literary-flatness-character-entrance-review.json",
+      "must_resolve_before_resuming_linear_chapters": true
     }
   ],
-  "current_stage": "first_six_passed_select_work_becomes_life_bridge",
+  "current_stage": "opening_rebuild_character_entrance_tests",
   "next_stage_gate": {
-    "required_before_next_full_chapter": [
-      "move away from offer evaluation and major decisions into lived first-job texture",
-      "prefer a chapter that pays an existing setup through actual daily work rather than another application or bundle comparison",
-      "strong candidate: Luo Cheng's first months in research-support/process-coordination work, because it continues Chapters3 and5 and tests whether the revised target works in practice",
-      "alternate candidates: Zhou/He first-year reality or Song's first-year industry scope, but do not braid several first-job reviews into a montage",
-      "keep Xu Hang and Lin Jing from becoming universal advisers in the next movement",
-      "show ordinary competence, mistakes, interruptions and power relations before another major threshold"
+    "required_before_resuming_linear_chapter_drafting": [
+      "draft a non-interview entrance probe for Luo Cheng or another core actor using an already-moving social/institutional scene",
+      "compare Zhou, Song and the non-interview probe for hook, memorability, name load, cinematic action and long-arc room",
+      "select or compose a provisional publication opening",
+      "rebuild the next 3-5 entrance chapters around character scenes rather than the old chronology list",
+      "retain old chapter material only where it can be absorbed into the new scene sequence"
     ],
-    "drafting_rule": "Only one new full chapter at a time may advance to review. Every full chapter must pass anti-AI subtraction, long-arc/negative-space, and cross-chapter consequence review before the next one begins."
+    "drafting_rule": "Do not continue to Chapter7 while the literary entrance review is open. Work only on entrance probes, opening architecture and subtraction/rewrite of opening material."
   }
 }
