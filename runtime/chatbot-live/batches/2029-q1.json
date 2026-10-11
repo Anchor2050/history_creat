@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2029-q1",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2029-01-01","end":"2029-03-31"},
+  "generation_mode": "chatgpt_product_interaction_chain",
+  "era_lens": [
+    "进入工作第二年后，稳定、收入和成长开始从求职标签变成每周时间表、住房和组织流程。",
+    "家乡就业降低住房与家庭距离成本，但机会密度较低的代价只有在实际工作中才会逐渐显现。",
+    "博士后期与毕业后的职业搜索继续受现金、时间边界和城市可行性约束；认识人本身不生成岗位。"
+  ],
+  "exogenous_hard_world_events": [
+    {"event_id":"2029q1:employment01","at":"2029-01-06","kind":"employment_started","actor":"gao_yuan","sector":"civil_service","city_bundle":"home_prefecture","gross_monthly":5616,"housing_monthly":"0_to_1700_depending_household_choice","commute_hours_daily":0.55,"source":"accepted_2028_public_exam_offer","visibility":"private_then_actor_discretion"},
+    {"event_id":"2029q1:review01","at":"2029-02-20","kind":"second_year_role_update","actor":"zhou_ye","result":"assigned_broader_technical_handoff_responsibility_no_title_change","visibility":"private_to_actor"},
+    {"event_id":"2029q1:review02","at":"2029-03-03","kind":"second_year_role_update","actor":"song_nan","result":"analysis_scope_expands_with_more_cross_team_coordination","visibility":"private_to_actor"}
+  ],
+  "windows": [
+    {"packet_id":"micro:chatbot:2029-01:gao-first-job-transition:01","start_date":"2029-01-06","end_date":"2029-01-20","event_kind":"first_job_transition","participants":["gao_yuan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-01:u_c-classmate-call:01","start_date":"2029-01-27","end_date":"2029-01-27","event_kind":"distributed_classmate_call","participants":["zhou_ye","gao_yuan","luo_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-02:chen-lin-search-boundary:01","start_date":"2029-02-05","end_date":"2029-02-05","event_kind":"career_search_checkin","participants":["chen_lan","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-02:zhou-xu-second-year:01","start_date":"2029-02-23","end_date":"2029-02-23","event_kind":"technical_identity_checkin","participants":["zhou_ye","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-03:song-zhao-delivery-boundary:01","start_date":"2029-03-06","end_date":"2029-03-06","event_kind":"industry_delivery_checkin","participants":["song_nan","zhao_ke"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-03:tang-shen-internal-review:01","start_date":"2029-03-14","end_date":"2029-03-14","event_kind":"internal_research_review","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2029-03:he-sun-year-two:01","start_date":"2029-03-24","end_date":"2029-03-24","event_kind":"public_institution_year_two_checkin","participants":["he_xin","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events": [
+    {"event_id":"2029q1:e01","kind":"actor_state_interaction","at":"2029-01-10","event_kind":"first_job_transition","speaker":"gao_yuan","listener":"self_record","act":"share_experience","content":"高原入职两周后发现，住房和通勤压力确实比在大城市求职时低很多，日程也更稳定；但大量工作首先是程序、材料和反复核对，和他博士阶段想象的‘稳定岗位’并不完全一样。","channel":"private_record","evidence":"由实际入职城市bundle和岗位日常生成，不预写满意或后悔。"},
+    {"event_id":"2029q1:e02","kind":"actor_state_interaction","at":"2029-01-18","event_kind":"first_job_transition","speaker":"gao_yuan","listener":"self_record","act":"make_plan","content":"高原决定先完整经历一个年度周期再评价成长空间；眼下优先把程序性工作做熟，同时保留每周少量时间阅读和维护博士阶段的数学训练。","channel":"private_record","evidence":"基于低机会密度与稳定时间结构形成的自我计划。"},
+    {"event_id":"2029q1:e03","kind":"social_interaction","at":"2029-01-27","event_kind":"distributed_classmate_call","speaker":"gao_yuan","listener":"zhou_ye","act":"share_experience","content":"高原告诉周野，回家乡后最大变化是生活成本和通勤一下降下来，但工作本身并没有因为‘公务员’三个字变轻松，只是压力类型从求职不确定变成程序责任。","channel":"video_call","evidence":"本人主动披露第一月工作体验。"},
+    {"event_id":"2029q1:e04","kind":"social_interaction","at":"2029-01-27","event_kind":"distributed_classmate_call","speaker":"zhou_ye","listener":"gao_yuan","act":"share_experience","content":"周野说自己第二年开始接更多技术交接责任，稳定工作也会把可靠的人往流程关键处推；两个人都没有把自己的选择说成更优。","channel":"video_call","evidence":"周野角色更新与既有同班关系。"},
+    {"event_id":"2029q1:e05","kind":"social_interaction","at":"2029-01-27","event_kind":"distributed_classmate_call","speaker":"luo_cheng","listener":"gao_yuan","act":"check_in","content":"罗诚只问高原现在还能不能留出自己的时间，并说研究支持岗第一年最意外的是很多价值来自把研究者、流程和材料真正接起来。","channel":"video_call","evidence":"三人路线分化后的普通近况交流。"},
+
+    {"event_id":"2029q1:e06","kind":"social_interaction","at":"2029-02-05","event_kind":"career_search_checkin","speaker":"chen_lan","listener":"lin_jing","act":"share_experience","content":"陈岚说拒掉上一份正式offer后，她把搜索条件收得更清楚：宁可薪资少一些，也希望响应边界、项目切换数量和城市住房成本至少有两项可控。","channel":"in_person","evidence":"延续2028拒offer后的真实边界。"},
+    {"event_id":"2029q1:e07","kind":"social_interaction","at":"2029-02-05","event_kind":"career_search_checkin","speaker":"lin_jing","listener":"chen_lan","act":"offer_information","content":"林静提醒她把‘可持续’也写成可验证条件，例如面试时直接问一周通常有多少并行任务、临时响应来自哪里、谁决定优先级，而不是只听文化描述。","channel":"in_person","evidence":"通用职业评估，不生成岗位。"},
+    {"event_id":"2029q1:e08","kind":"social_interaction","at":"2029-02-05","event_kind":"career_search_checkin","speaker":"chen_lan","listener":"lin_jing","act":"make_plan","content":"陈岚决定只推进能够回答这些结构性问题的岗位，并接受搜索周期可能进一步拉长。","channel":"in_person","evidence":"职业搜索候选继续开放。"},
+
+    {"event_id":"2029q1:e09","kind":"social_interaction","at":"2029-02-23","event_kind":"technical_identity_checkin","speaker":"zhou_ye","listener":"xu_hang","act":"share_experience","content":"周野说第二年开始有人把技术交接和复跑问题更多交给他，他担心自己又变成‘可靠所以多收尾’的人。","channel":"wechat_private","evidence":"来自角色第二年职责更新。"},
+    {"event_id":"2029q1:e10","kind":"social_interaction","at":"2029-02-23","event_kind":"technical_identity_checkin","speaker":"xu_hang","listener":"zhou_ye","act":"offer_information","content":"许航建议他区分‘替别人收尾’和‘拥有一套别人依赖的验证标准’：如果只是多干活就要设边界，如果能定义核验规则、交接模板和失败条件，就把它沉淀成自己的技术资产。","channel":"wechat_private","evidence":"延续许航的独立验证身份线。"},
+
+    {"event_id":"2029q1:e11","kind":"social_interaction","at":"2029-03-06","event_kind":"industry_delivery_checkin","speaker":"song_nan","listener":"zhao_ke","act":"share_experience","content":"宋楠说第二年分析范围变大后，真正耗时的部分越来越多是跨团队确认和版本变化，她开始理解去年赵珂说的‘范围怎么收住’是什么意思。","channel":"wechat_private","evidence":"由第二年工作范围扩大生成。"},
+    {"event_id":"2029q1:e12","kind":"social_interaction","at":"2029-03-06","event_kind":"industry_delivery_checkin","speaker":"zhao_ke","listener":"song_nan","act":"offer_information","content":"赵珂说项目经理最怕的不是需求变化本身，而是变化没有留下责任人、版本和截止时间；如果宋楠以后想承担更完整的分析责任，最好开始明确哪些变更必须重新确认范围。","channel":"wechat_private","evidence":"一般项目管理经验，无客户或岗位资源。"},
+
+    {"event_id":"2029q1:e13","kind":"social_interaction","at":"2029-03-14","event_kind":"internal_research_review","speaker":"tang_yu","listener":"shen_yan","act":"share_experience","content":"唐雨带来窄命题证明草稿、条件去除时的可复现反例和一页假设关系图；她明确把‘已证明’和‘目前只由反例支持’分开。","channel":"in_person","evidence":"延续2028内部证明与反例链。"},
+    {"event_id":"2029q1:e14","kind":"social_interaction","at":"2029-03-14","event_kind":"internal_research_review","speaker":"shen_yan","listener":"tang_yu","act":"offer_information","content":"沈雁指出证明主线现在基本可读，但有一个条件在两处承担不同作用；如果不拆开，后续写作会把技术条件和机制条件混在一起。","channel":"in_person","evidence":"内部审读发现具体结构问题，不宣称论文完成。"},
+    {"event_id":"2029q1:e15","kind":"social_interaction","at":"2029-03-14","event_kind":"internal_research_review","speaker":"tang_yu","listener":"shen_yan","act":"make_plan","content":"唐雨决定先把两个条件角色拆开，并让反例只针对真正对应的那一层；写作项目暂缓到这一步完成。","channel":"in_person","evidence":"研究候选保持开放。"},
+
+    {"event_id":"2029q1:e16","kind":"social_interaction","at":"2029-03-24","event_kind":"public_institution_year_two_checkin","speaker":"he_xin","listener":"sun_jie","act":"share_experience","content":"何欣说第二年最明显的是时间仍然可预测，但她开始感觉重复流程会把学习计划一点点挤掉；不难受，却容易什么都不改变。","channel":"wechat_private","evidence":"来自公共机构第二年日常。"},
+    {"event_id":"2029q1:e17","kind":"social_interaction","at":"2029-03-24","event_kind":"public_institution_year_two_checkin","speaker":"sun_jie","listener":"he_xin","act":"offer_information","content":"孙洁建议她先别把问题升级成要不要辞职，而是看能不能稳定保住一块学习时间、承担一个稍有变化的内部任务；如果连这两件事都长期做不到，再谈路径成本。","channel":"wechat_private","evidence":"通用职业现实反馈。"}
+  ],
+  "hard_world_candidate_updates": [
+    {"candidate_id":"candidate:2028-q4:gao-offer-evaluation:01","checked_at":"2029-01-06","checks":{"employment_start_completed":true,"housing_or_household_arrangement_feasible":true,"commute_feasible":true,"cash_pressure_low_to_moderate":true},"result":"employment_transition_completed_noncanonical","resource_effect":"first job active in home_prefecture"}
+  ],
+  "new_hard_world_candidates": [
+    {"candidate_id":"candidate:2029-q1:chen-sustainable-role-search:01","created_at":"2029-02-05","type":"formal_role_search","beneficiary":"chen_lan","description":"只推进能明确说明并行任务、临时响应和优先级机制的正式岗位。","requires_checks":["income_floor","response_boundary","parallel_project_load","city_housing_feasibility","role_learning_value"],"status":"pending_search_noncanonical"},
+    {"candidate_id":"candidate:2029-q1:tang-condition-split:01","created_at":"2029-03-14","type":"research_revision","beneficiary":"tang_yu","description":"拆分窄命题中同一条件承担的两种作用，并重写反例与证明对应关系。","requires_checks":["condition_roles_separated","proof_remains_valid","counterexample_targets_correct_layer"],"status":"pending_research_noncanonical"},
+    {"candidate_id":"candidate:2029-q1:he-protected-learning-block:01","created_at":"2029-03-24","type":"work_design_experiment","beneficiary":"he_xin","description":"在不离职前提下测试能否稳定保留学习时段并承担一个稍有变化的内部任务。","requires_checks":["weekly_time_capacity","managerial_permission_if_needed","task_available"],"status":"pending_work_experiment_noncanonical"}
+  ],
+  "actor_state_evidence": [
+    {"at":"2029-01-18","actor":"gao_yuan","dimension":"first_job_reality","evidence":"家乡岗位显著降低住房与通勤压力，但程序责任替代了求职不确定性；暂不判定满意或后悔。","status":"candidate_state_evidence"},
+    {"at":"2029-02-20","actor":"zhou_ye","dimension":"role_scope","evidence":"第二年承担更多技术交接责任，开始主动区分技术资产与无边界收尾。","status":"candidate_state_evidence"},
+    {"at":"2029-03-03","actor":"song_nan","dimension":"role_scope","evidence":"分析范围扩大同时增加跨团队协调与版本管理负担。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence": [
+    {"at":"2029-01-27","pair":["zhou_ye","gao_yuan"],"direction":"positive","evidence":"路线分化后仍能交换真实工作体验且不做优劣排名；关系维持。"},
+    {"at":"2029-02-23","pair":["zhou_ye","xu_hang"],"direction":"positive","evidence":"许航继续帮助周野把可靠性从额外劳动转成可沉淀的核验标准，但没有形成资源承诺。"}
+  ],
+  "audit_rules": {"single_batch_noncanonical":true,"generated_through_interaction_chain":true,"employment_state_requires_prior_offer_chain":true,"no_unearned_knowledge":true,"conversation_does_not_auto_change_relationship":true,"hard_world_candidates_require_feasibility":true,"ordinary_work_dissatisfaction_does_not_auto_trigger_exit":true,"bilateral_memory_derivable_from_events":true}
+}
