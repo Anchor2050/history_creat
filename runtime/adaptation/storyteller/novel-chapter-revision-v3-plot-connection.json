@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "provisional_novel_chapter_revision_v3_noncanonical",
+  "historical_world_writeback": false,
+  "base": "runtime/adaptation/storyteller/novel-chapter-cards-v1.json",
+  "previous_overlay": "runtime/adaptation/storyteller/novel-chapter-revision-v2.json",
+  "plot_connection_resolution": "runtime/adaptation/storyteller/plot-connection-resolution-v1.json",
+  "provisional_chapter_count": 25,
+  "note": "The count may later compress after full-sequence audit. Do not merge hero beats merely to return to 24 chapters.",
+  "operations": [
+    {
+      "operation": "insert_chapter_before_original_chapter5",
+      "chapter": {
+        "chapter": 5,
+        "working_title": "第一次有结果",
+        "primary_viewpoint": "zhou_ye",
+        "historical_window": "2027-07 to 2027-12",
+        "evidence_refs": ["2027q3:e03", "2027q3:e04", "2027q4:e04", "2027q4:e05", "2027q4:e06", "2027q4:e17", "2027q4:e18", "2027q4:e19"],
+        "visible_action": "周野的复现包在技术筛查中第一次成为可检查工作证据；进入终面并拿到省会国企 offer，开始算房租、通勤和第一年现金；年末与高原、罗诚吃饭，三条路线短暂同桌。",
+        "hidden_contradiction": "周野渴望自己的可靠性被看见，但一次被看见不能证明这种工作方式适用于所有岗位，也不能替他完成后续职业选择。",
+        "material_or_institutional_constraint": "公开招聘、岗位真实职责、月薪、房租、通勤、搬家现金、家庭距离。",
+        "cross_chapter_payoff": [
+          "pays_ch01_reproducibility_seed",
+          "shows_ch03_luo_route_consequence_without_replaying_rejection",
+          "introduces_gao_through_existing_classmate_relation"
+        ],
+        "unresolved_residue": "周野接受的是第一份岗位，不是终身稳定；高原继续下一轮但扩展少量备选；罗诚开始投研究支持岗位，尚无结果。",
+        "campbell_function": "threshold_with_partial_payoff",
+        "rhythm": "从技术筛查的短反馈转入数月等待、offer 的物质计算和普通同学饭局；避免季度总结感。",
+        "anti_ai_risk": "不要写成准备终有回报；不要把三人排成赢家/谨慎者/失败者。"
+      }
+    },
+    {
+      "operation": "renumber_original_chapter5_and_later",
+      "delta": 1
+    },
+    {
+      "operation": "preserve_original_two_offer_chapter",
+      "new_chapter": 6,
+      "reason": "Gao Yuan's eventual hometown threshold and Chen Lan's refusal are separate Campbell beats and cannot be deleted merely because Chapter5 now pays off earlier setup."
+    },
+    {
+      "operation": "retain_v2_inserted_lin_transition",
+      "note": "The previous '最后几页' insertion remains valid; apply renumbering after both overlays in implementation order."
+    }
+  ],
+  "sequence_rule_added": [
+    "At least one chapter in each major part must visibly pay off an earlier action or decision.",
+    "Payoff may be partial, negative, delayed or contingent; do not reward preparation mechanically.",
+    "Ordinary-world chapters may carry weak connective residue through messages, repeated practices or later recognition without becoming plot delivery vehicles."
+  ]
+}
