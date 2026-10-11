@@ -1,0 +1,16 @@
+{
+  "schema_version":1,
+  "period":"2030-q2",
+  "status":"behavior_audit_noncanonical",
+  "backend":"chatgpt_product_conversation",
+  "source_batch":"runtime/chatbot-live/batches/2030-q2.json",
+  "abnormal_budget":1,
+  "abnormal_used":0,
+  "decisions":[
+    {"actor_id":"lin_jing","mode":"normal","chosen_action_id":"keep_two_career_tracks_open_until_information_is_comparable","baseline_expected_action":"Prefer informed reversible comparison over identity-based filtering.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Both tracks passed initial screening but provide different autonomy/time structures.","constraint_check":{"feasible":true,"notes":"No offer is assumed."},"evidence_refs":["2030q2:e01","2030q2:e03"]},
+    {"actor_id":"tang_yu","mode":"normal","chosen_action_id":"seek_value_review_after_proof_shrink","baseline_expected_action":"Do not continue a long project solely because it is now technically provable.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"The result shrank materially and needs a separate mechanism-value check.","constraint_check":{"feasible":true,"notes":"Internal review only."},"evidence_refs":["2030q2:e04","2030q2:e06"]},
+    {"actor_id":"song_nan","mode":"normal","chosen_action_id":"renew_one_year_while_testing_portability","baseline_expected_action":"Stay while learning value remains high, but preserve an exit option because city cost is high.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Housing remains feasible and no acute exit trigger exists.","constraint_check":{"feasible":true,"notes":"Renewal does not imply permanent settlement."},"evidence_refs":["2030q2:e07","2030q2:e08"]},
+    {"actor_id":"luo_cheng","mode":"normal","chosen_action_id":"stay_for_another_full_cycle","baseline_expected_action":"Continue a role whose professional content has increased while testing whether that improvement persists.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Second-year review is positive but not enough for permanent lock-in.","constraint_check":{"feasible":true,"notes":"No new job resource is required."},"evidence_refs":["2030q2:e11","2030q2:e12"]}
+  ],
+  "audit_rule":"All Q2 choices follow established reversible-decision baselines."
+}
