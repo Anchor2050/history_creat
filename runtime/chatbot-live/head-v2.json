@@ -1,108 +1,75 @@
 {
-  "schema_version": 2,
-  "status": "live_chatbot_ledger_head_noncanonical",
-  "run_id": "career-six-chatbot-live-v2",
-  "branch": "chatgpt/career-six-cohort",
-  "driver": "chatgpt_product_conversation",
-  "storage_model": "append_only_baseline_plus_delta_batches",
-  "baseline": {"path":"runtime/chatbot-live/career-six-state.json","content_sha":"2d55706ea7063113d54b5b09aac6544813bb9652","cursor":7,"world_time":"2026-06-15"},
-  "delta_batches": [
+  "schema_version":2,
+  "status":"live_chatbot_ledger_head_noncanonical",
+  "run_id":"career-six-chatbot-live-v2",
+  "branch":"chatgpt/career-six-cohort",
+  "driver":"chatgpt_product_conversation",
+  "storage_model":"append_only_baseline_plus_delta_batches",
+  "baseline":{"path":"runtime/chatbot-live/career-six-state.json","content_sha":"2d55706ea7063113d54b5b09aac6544813bb9652","cursor":7,"world_time":"2026-06-15"},
+  "delta_batches":[
     "runtime/chatbot-live/batches/2026-q3a.json","runtime/chatbot-live/batches/2026-q3b.json","runtime/chatbot-live/batches/2026-q4.json",
     "runtime/chatbot-live/batches/2027-q1.json","runtime/chatbot-live/batches/2027-q2.json","runtime/chatbot-live/batches/2027-q3.json","runtime/chatbot-live/batches/2027-q4.json","runtime/chatbot-live/batches/2027-q4b-zhao.json",
     "runtime/chatbot-live/batches/2028-q1.json","runtime/chatbot-live/batches/2028-q2.json","runtime/chatbot-live/batches/2028-q3.json","runtime/chatbot-live/batches/2028-q4.json",
     "runtime/chatbot-live/batches/2029-q1.json","runtime/chatbot-live/batches/2029-q2.json","runtime/chatbot-live/batches/2029-q3.json","runtime/chatbot-live/batches/2029-q4.json",
     "runtime/chatbot-live/batches/2030-q1.json","runtime/chatbot-live/batches/2030-q2.json","runtime/chatbot-live/batches/2030-q3.json","runtime/chatbot-live/batches/2030-q4.json",
     "runtime/chatbot-live/batches/2031-q1.json","runtime/chatbot-live/batches/2031-q2.json","runtime/chatbot-live/batches/2031-q3.json","runtime/chatbot-live/batches/2031-q4.json",
-    "runtime/chatbot-live/batches/2032-q1.json","runtime/chatbot-live/batches/2032-q2.json","runtime/chatbot-live/batches/2032-q3.json","runtime/chatbot-live/batches/2032-q4.json"
+    "runtime/chatbot-live/batches/2032-q1.json","runtime/chatbot-live/batches/2032-q2.json","runtime/chatbot-live/batches/2032-q3.json","runtime/chatbot-live/batches/2032-q4.json",
+    "runtime/chatbot-live/batches/2033-q1.json","runtime/chatbot-live/batches/2033-q2.json","runtime/chatbot-live/batches/2033-q3.json","runtime/chatbot-live/batches/2033-q4.json"
   ],
-  "cognition_layers": {
+  "cognition_layers":{
     "manifest":"runtime/chatbot-live/cognition-layers-v12.json",
     "protocol":"narrative/longform/storybox_cognition_protocol_v11.py",
-    "personal":{"enabled":true,"writeback":"personal_ledger_only","latest_refresh":"runtime/chatbot-live/personal/2032-year-end.json"},
-    "behavior":{"enabled":true,"normal_default":true,"random_abnormal_factor":false,"abnormal_requires_evidence":true,"latest_audits":["runtime/chatbot-live/behavior-audit/2032-q1.json","runtime/chatbot-live/behavior-audit/2032-q2.json","runtime/chatbot-live/behavior-audit/2032-q3.json","runtime/chatbot-live/behavior-audit/2032-q4.json"]},
-    "storyteller":{"enabled":true,"engine":"narrative/longform/storybox_storyteller_v12.py","mode":"read_only_evidence_graph_indexer","literary_generation_enabled":false,"latest_diagnostic":"runtime/chatbot-live/storyteller/2032-diagnostic-v12.json","current_recommendation":"allow_small_literary_probes","quarterly_index_refresh":true,"year_end_full_diagnostic":true,"world_writeback":false},
+    "personal":{"enabled":true,"writeback":"personal_ledger_only","latest_refresh":"runtime/chatbot-live/personal/2033-year-end.json"},
+    "behavior":{"enabled":true,"normal_default":true,"random_abnormal_factor":false,"abnormal_requires_evidence":true,"latest_audits":["runtime/chatbot-live/behavior-audit/2033-q1.json","runtime/chatbot-live/behavior-audit/2033-q2.json","runtime/chatbot-live/behavior-audit/2033-q3.json","runtime/chatbot-live/behavior-audit/2033-q4.json"]},
+    "storyteller":{"enabled":true,"engine":"narrative/longform/storybox_storyteller_v12.py","mode":"read_only_evidence_graph_indexer","literary_generation_enabled":false,"latest_diagnostic":"runtime/chatbot-live/storyteller/2033-diagnostic-v12.json","current_recommendation":"allow_small_literary_probes","major_adaptation_ready":false,"quarterly_index_refresh":true,"year_end_full_diagnostic":true,"world_writeback":false},
     "backend_priority":["chatgpt_product_conversation","deepseek_api","local_model","deterministic_control"]
   },
-  "cursor": 206,
-  "world_time": "2032-12-31",
-  "processed_window_count": 206,
-  "event_count": 504,
-  "actor_window_coverage_2032": {
-    "lin_jing":10,"chen_lan":7,"xu_hang":6,"wu_cheng":1,"shen_yan":4,"gu_wei":1,"zhao_ke":2,"sun_jie":1,
-    "zhou_ye":2,"gao_yuan":7,"luo_cheng":6,"tang_yu":7,"he_xin":2,"song_nan":6
+  "cursor":235,
+  "world_time":"2033-12-31",
+  "processed_window_count":235,
+  "event_count":564,
+  "actor_window_coverage_2033":{"lin_jing":6,"chen_lan":5,"xu_hang":6,"wu_cheng":1,"shen_yan":6,"gu_wei":4,"zhao_ke":2,"sun_jie":3,"zhou_ye":5,"gao_yuan":4,"luo_cheng":4,"tang_yu":4,"he_xin":7,"song_nan":6},
+  "current_actor_transitions_end_2033":{
+    "lin_jing":"regional university role year three; one long-horizon question survives a full year of negative narrowing without publishable output; project-choice autonomy remains under annual evaluation pressure",
+    "chen_lan":"formal research/data-operations role year four; organizational judgment identity stabilizes while return-to-pure-academic cost becomes more explicit",
+    "xu_hang":"independent validation-design identity has evidence outside Tang project; one success and one failure case show personal capability is ahead of independently transferable method maturity",
+    "wu_cheng":"mentor/team boundary stable; independent personal-life evidence remains thin",
+    "shen_yan":"mentor/research role now calibrates slow-question value and research gaps rather than only proof repair",
+    "gu_wei":"verification mentor role; actively separates expert identity from method transferability using failure cases",
+    "zhao_ke":"project-manager intake rules mature; attention shifts to exception governance and own growth beyond rule maintenance",
+    "sun_jie":"coordinator queue boundary mature; new concern is preserving human understanding before process classification",
+    "zhou_ye":"state-owned-enterprise role continues; bought provincial-capital home in second housing window; mortgage affordable and cash buffer rebuilding, but city-exit cost materially higher; complex-exception single-point risk remains",
+    "gao_yuan":"civil-service role continues; threshold-drift audit separates learned life-bundle preference from inertia; annual selective market refresh retained",
+    "luo_cheng":"research-support/process-coordination role continues; first sanitized portable judgment case completed; waits for content+platform double-threshold opening",
+    "tang_yu":"accepted mechanism-boundary paper is closed; one full post-acceptance year passes without mature new research line, research gap retained as real state",
+    "he_xin":"public-institution role year six; second housing window again blocked by the same post-downpayment cash-buffer rule; 2034 role-value review now precedes any 2035 housing decision",
+    "song_nan":"provincial-capital second role first year completed; lower housing/family-distance costs and preserved judgment coexist with slower learning; no exit trigger"
   },
-  "current_actor_transitions_end_2032": {
-    "lin_jing":"regional university role year two; service boundary remains viable, but autonomy risk shifted from time fragmentation toward output-pressure and short-horizon project selection",
-    "chen_lan":"sustainable research/data-operations role year three; time boundary stable, organizational judgment and governance learning growing, research freedom structurally lower",
-    "xu_hang":"validation standard narrowed through real use; coauthor contribution on Tang project survived external review and final accepted manuscript with explicit limitation language",
-    "wu_cheng":"mentor/team boundary line stable; little independent nonfunctional evidence in 2032",
-    "shen_yan":"mentor/research role; Tang project external review closed at narrowed mechanism-boundary scale",
-    "gu_wei":"verification mentor role; actively countering checklist-over-judgment behavior",
-    "zhao_ke":"project manager role; continues role-scope and exception-judgment calibration without acting as resource broker",
-    "sun_jie":"graduate coordinator role; queue/exception boundary remains stable with limited new personal-state evidence",
-    "zhou_ye":"state-owned-enterprise role year five; handoff standard embedded across teams, routine interruptions reduced, complex exceptions increasingly concentrated on him; still renting",
-    "gao_yuan":"civil-service role year four; full midcareer market reassessment found no threshold-crossing alternative, so he continues role with annual public-market refresh",
-    "luo_cheng":"research-support/process-coordination role; one selective provincial-capital application reached interview but ended without offer; current role retained with content+platform double threshold",
-    "tang_yu":"mechanism-boundary manuscript accepted after major then minor revision; accepted result is the narrowed failure-boundary result, not the original broad ambition",
-    "he_xin":"public-institution role year five; cash buffer improved, learning growth modest, still renting ahead of 2033 housing window",
-    "song_nan":"accepted provincial-capital health-data/pharma statistics role after selective market process; lower salary/opportunity density traded for lower housing and shorter family distance while preserving judgment scope; 2033 relocation pending"
-  },
-  "open_candidates_end_2032": [
-    "Song Nan 2033 employment relocation and first-year reality check in provincial capital",
-    "2033 second housing window for Zhou Ye and He Xin; Song Nan just relocated and cannot default into purchase",
-    "Gao Yuan continues annual market refresh after a completed reassessment with no superior threshold-crossing option",
-    "Luo Cheng retains content+platform selective search threshold after one real interview rejection",
-    "Tang Yu accepted manuscript downstream consequences remain completely open; no automatic prestige, job or next-project effect",
-    "Xu Hang must test whether validation identity has independent consequences beyond Tang project",
-    "Lin Jing year-three output-pressure versus long-horizon research choice",
-    "real family/care events remain absent; age alone still cannot create them",
-    "nonfunctional life depth for Wu Cheng, Gu Wei, Sun Jie and Zhao Ke remains thinner than core actors"
+  "open_candidates_end_2033":[
+    "He Xin 2034 role-value reassessment before any 2035 home-purchase window",
+    "Zhou Ye second-judge development versus combined expert and property lock-in",
+    "Song Nan second-role second-year learning slope versus improved life bundle",
+    "Lin Jing long-horizon question mid-2034 value check; continuation cannot rely on sunk time",
+    "Xu Hang additional independent validation success/failure cases before any mature-method claim",
+    "Tang Yu whether recurring questions naturally end the research gap or gap continues",
+    "Gao Yuan annual threshold audit and Luo Cheng double-threshold selective search",
+    "family/care history remains event-free; continued non-event is itself increasingly meaningful if it persists through 2035",
+    "Wu Cheng and Zhao Ke still need more independent nonfunctional life evidence before major literary adaptation"
   ],
-  "network_deltas_2032": [],
-  "2032_mechanism_findings": [
-    "第一次中期职业再评价产生三种不同结果：高原完整看过市场后因无岗位跨门槛而继续留任；罗诚选择性申请进入面试但未获offer；宋楠选择性申请后获得offer并接受第二次城市迁移。",
-    "宋楠的换岗不是回到最初职业目标，而是用当前岗位的边际学习、住房、家庭距离和判断职责重新定价；她接受较低工资与机会密度换更低生活成本和更近家庭距离。",
-    "唐雨—许航项目经major revision、局部证明、验证边界重写和minor revision后被接受；最终被接受的是收缩后的机制边界结果，双方明确拒绝用终点反向美化早期大命题。",
-    "林静第二年研究时间边界大体成立后，新的自主性风险变成年度评价诱导短周期可见产出。",
-    "周野的交接标准嵌入多团队流程后，常规依赖下降但复杂异常更集中，制度化产生新的专家单点风险。",
-    "何欣现金缓冲比2031改善，但没有提前开启购房；2033住房窗口将重新检验城市承诺和退出成本。",
-    "许航验证规范继续通过删除不能迁移的领域特定检查而变窄，顾维则开始直接干预检查表替代判断的风险。",
-    "2032四季度关键行为仍全部为normal；申请、落选、offer接受、稿件接受都能由此前长期规则解释。",
-    "家庭距离继续改变职业bundle，但仍没有真实健康/照护事件，系统没有用年龄制造家庭危机。"
+  "network_deltas_2033":[],
+  "2033_mechanism_findings":[
+    "住房从候选变成真实物质锁定：周野第二窗口购买后，按揭、流动现金恢复和房产处置成本进入日常；何欣在同一窗口仍被统一现金缓冲规则阻断。",
+    "宋楠第二次迁城完整走过入职、租住、半年和第一年现实检查，形成工资/机会密度较低但住房、家庭距离更好且专业判断保留的混合bundle，没有被写成换对或换错。",
+    "许航首次在唐雨项目之外获得独立验证设计证据，同时新的失败案例证明个人能力已经成熟于方法可移交性；身份和方法成熟度被明确拆开。",
+    "林静用一整年保留一个无论文结果的慢问题，通过负面排除做窄，但每年继续价值审查，慢本身没有被神圣化。",
+    "唐雨论文接受一年后仍无成熟新主线；研究空档被保留为真实职业状态，接受没有自动生成下一项目。",
+    "高原通过门槛历史审计区分真实偏好和惯性成本；罗诚通过真实工作形成第一个可迁移、去敏感的研究支持判断案例。",
+    "周野购房、宋楠降薪换城、高原继续留任都属于不同类型的稳定化选择，Storyteller不再把稳定视为单一结果。",
+    "2033关键行为继续全部为normal；没有使用随机反常行为制造二阶后果。",
+    "家庭距离持续进入职业bundle，但直到2033年底仍无真实健康/照护危机，系统继续拒绝用年龄补戏。"
   ],
-  "storyteller_checkpoint_2032": {
-    "diagnostic":"runtime/chatbot-live/storyteller/2032-diagnostic-v12.json",
-    "recommendation":"allow_small_literary_probes",
-    "major_adaptation_ready":false,
-    "major_open_structures":[
-      "Song Nan 2033 second-city reality after accepting a lower-salary better-life-bundle role",
-      "2033 repeat housing window for Zhou Ye and He Xin",
-      "downstream consequences of Tang/Xu accepted manuscript rather than treating acceptance as climax",
-      "independent consequences of Xu Hang validation identity",
-      "Lin Jing year-three shift from time autonomy to project-selection autonomy",
-      "family/care history still requires real evidence or continued non-event accumulation",
-      "underrepresented original-cast personal lives"
-    ],
-    "world_writeback":false
-  },
-  "memory_materialization_rule":"Every social event writes bilateral memory only to explicit speaker/listener. Public/group events expose only statements explicitly spoken there. Explicit introductions alone create new weak ties. Exogenous hard-world events are private until disclosed. Personal state cannot directly write hard-world facts. Consequential behavior defaults normal unless supplied evidence supports auditable deviation. Family age alone cannot create health/care/marriage/fertility/conflict. Storyteller is read-only; chronology is not causality and every narrative interpretation requires evidence refs.",
-  "next_pending_task": {
-    "task_id":"career-six-chatbot-live-v2:2033-01-01",
-    "stage":"second_city_transition_plus_repeat_housing_window",
-    "packet_id":"micro:chatbot:2033-01:song-relocation-second-role:01",
-    "start_date":"2033-01-05",
-    "end_date":"2033-03-31",
-    "event_kind":"midcareer_employment_relocation_and_housing_reassessment",
-    "participants":["song_nan","zhou_ye","he_xin"],
-    "instruction":"Continue via Personal/Behavior/interaction-chain. First complete Song Nan relocation only if employment start, lease, move cash and commute pass. Then run the 2033 housing window independently for Zhou Ye and He Xin using changed cash, city commitment, mobility/exit cost and current work evidence; no purchase default and no joint housing decisions. Do not create career/prestige effects from Tang/Xu paper acceptance without new evidence. Gao/Luo continue selective market logic, Lin year-three autonomy/output-pressure, Xu independent validation identity. Family age alone still cannot create care crisis. Refresh Storyteller v12 quarterly and run year-end diagnostic; small literary probes remain optional/noncanonical but data-building remains primary."
-  },
-  "rules": {
-    "repository_calls_model_api":false,"chatgpt_product_is_runtime":true,"deepseek_api_optional_backend":true,"local_model_optional_backend":true,
-    "single_batch_noncanonical":true,"generated_through_interaction_chain":true,"no_unearned_knowledge":true,"conversation_does_not_auto_change_relationship":true,
-    "hard_world_candidates_require_feasibility":true,"job_outcomes_require_public_process_or_explicit_resource_path":true,"offer_can_be_rejected_when_constraints_fail":true,
-    "personal_cannot_directly_write_hard_world":true,"abnormal_behavior_requires_evidence_trigger":true,"storyteller_is_read_only":true,
-    "storyteller_chronology_is_not_causality":true,"storyteller_interpretations_require_evidence_refs":true,"family_age_alone_cannot_create_health_or_care_crisis":true,
-    "stable_job_cannot_force_home_purchase":true,"coauthorship_requires_final_contribution_checks":true,"submission_is_not_acceptance":true,"accepted_manuscript_does_not_auto_create_career_effect":true,
-    "small_literary_probes_allowed_noncanonical":true,"major_literary_adaptation_not_ready":true
-  }
+  "storyteller_checkpoint_2033":{"diagnostic":"runtime/chatbot-live/storyteller/2033-diagnostic-v12.json","recommendation":"allow_small_literary_probes","major_adaptation_ready":false,"do_not_literarize_yet":["2034-2035 designed second-order-consequence window remains incomplete","family long-term non-event still needs observation through horizon","Wu Cheng and Zhao Ke remain thin in independent nonfunctional life dimensions"],"world_writeback":false},
+  "memory_materialization_rule":"Explicit event participants alone receive bilateral memory. Group co-presence does not broadcast private knowledge. Personal state is evidence-grounded and cannot directly write hard-world facts. Consequential behavior defaults normal absent supplied trigger evidence. Family age alone cannot create health/care/marriage/fertility/conflict. Storyteller is read-only: chronology is not causality, candidate lifecycle links are stronger than temporal adjacency, and every interpretation requires ledger evidence.",
+  "next_pending_task":{"task_id":"career-six-chatbot-live-v2:2034-01-01","stage":"second_order_consequences_plus_role_value_reviews","packet_id":"micro:chatbot:2034-01:he-role-value-review-start:01","start_date":"2034-01-05","end_date":"2034-03-31","event_kind":"structured_role_value_and_lockin_review","participants":["he_xin","zhou_ye","song_nan","lin_jing","xu_hang"],"instruction":"Continue through Personal/Behavior/interaction-chain. Start He Xin's role-value review before any housing reconsideration: separate stability, work content, learning, welfare continuity, city network and exit cost. Zhou Ye must test second-judge development against combined expert/property lock-in rather than force a job search. Song Nan enters second year of second role and should compare learning slope with life-bundle gains. Lin Jing's slow question requires midyear value check and may be closed if mechanism value disappears. Xu Hang collects additional independent validation use/failure evidence. Gao/Luo retain selective market rules. Tang Yu research gap may continue without forced project. Build independent scenes for Wu Cheng/Zhao Ke and continue Sun Jie/Gu Wei. Family/care events require explicit hard-world evidence; age alone still cannot generate crisis. Refresh Storyteller v12 quarterly and full-diagnostic at year end; data-building remains primary even though small noncanonical literary probes are now allowed."},
+  "rules":{"repository_calls_model_api":false,"chatgpt_product_is_runtime":true,"deepseek_api_optional_backend":true,"local_model_optional_backend":true,"single_batch_noncanonical":true,"generated_through_interaction_chain":true,"no_unearned_knowledge":true,"conversation_does_not_auto_change_relationship":true,"hard_world_candidates_require_feasibility":true,"personal_cannot_directly_write_hard_world":true,"abnormal_behavior_requires_evidence_trigger":true,"storyteller_is_read_only":true,"storyteller_chronology_is_not_causality":true,"storyteller_interpretations_require_evidence_refs":true,"family_age_alone_cannot_create_health_or_care_crisis":true,"stable_job_cannot_force_home_purchase":true,"accepted_manuscript_does_not_auto_create_career_effect":true,"small_literary_probes_allowed_noncanonical":true,"major_literary_adaptation_not_ready":true}
 }
