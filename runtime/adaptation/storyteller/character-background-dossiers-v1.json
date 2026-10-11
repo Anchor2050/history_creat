@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_only_background_dossiers_noncanonical",
+  "historical_world_writeback": false,
+  "design_note": "All details tagged adaptation_only are replaceable character-design hypotheses. They may shape prose but never overwrite ledger facts. Ledger-backed gaps remain binding.",
+  "capability_scale": {"1":"clear blind spot","2":"conceptual familiarity or narrow-context competence","3":"solid everyday competence","4":"strong, repeatedly usable skill","5":"deep cross-context strength with known shadow"},
+  "core_actors": {
+    "zhou_ye": {
+      "education_socialization": [
+        {"stage":"undergraduate","design":"provincial-capital comprehensive university mathematics honors track; strong proof/coding culture, relatively weak career services","status":"adaptation_only"},
+        {"stage":"masters_or_early_graduate_training","design":"spent several years doing computational probability and simulation-heavy work; often became the person who fixed environments, reran code and checked reproducibility","status":"adaptation_only_compatible_with_ledger"},
+        {"stage":"doctoral","design":"University C probability PhD; long training in technical independence, zero publications at 2026 exit point remains binding historical fact","status":"ledger_plus_adaptation_context"}
+      ],
+      "formative_experiences": [
+        {"design":"served repeatedly as TA for probability/computing courses; learned to explain procedures one-on-one but never became an enthusiastic public speaker","status":"adaptation_only"},
+        {"design":"managed shared code/environment notes in a small research group after repeated version failures; this is where his process discipline became identity","status":"adaptation_only"},
+        {"design":"rarely held formal student-leadership titles; influence came through technical dependability rather than charisma","status":"adaptation_only"}
+      ],
+      "cultural_humanities_profile": {
+        "design":"reads non-fiction, technology history and some modern Chinese essays more than novels; comfortable with institutional/technical prose, less practiced at symbolic or emotional language",
+        "status":"adaptation_only"
+      },
+      "family_origin_effect": {
+        "design":"only-child, fifth-tier-city background remains strongest in money-security and return-home imagination; long university socialization dominates professional judgment",
+        "status":"ledger_compatible_hypothesis"
+      },
+      "capabilities": {
+        "analytical_reasoning":5,"written_communication":4,"oral_briefing":3,"negotiation":3,"conflict_navigation":2,"nvc_style_communication":2,"leadership":3,"facilitation":2,"institutional_literacy":3,"sociological_literacy":2,"psychological_literacy":2,"self_awareness":3,"networking":2,"deep_relationship_capacity":3,"boundary_setting":3,"public_speaking":2,"cross_cultural_adaptation":3,"aesthetic_humanities_exposure":2,"practical_money_literacy":4,"mentoring_or_teaching":4
+      },
+      "skill_sources_and_shadows": {
+        "negotiation":"Good at scope, evidence and responsibility negotiation; weaker when negotiation requires reading status anxiety or saving face. Under pressure he may turn a relational disagreement into a technical checklist.",
+        "leadership":"Best at technical stewardship and standards. Shadow: steps in too early and can reduce others' ownership.",
+        "communication":"Excellent when there is an object to inspect; weaker at naming diffuse feelings or status tension.",
+        "humanities":"Limited breadth means he can underestimate symbolic/status meanings that are obvious to more socially attuned peers."
+      }
+    },
+    "gao_yuan": {
+      "education_socialization": [
+        {"stage":"undergraduate","design":"normal-university mathematics program with strong exam culture and structured coursework; accustomed to ranking, qualification gates and formal preparation","status":"adaptation_only"},
+        {"stage":"graduate_training","design":"moved into probability theory and proof-heavy graduate work; long exam and theorem culture strengthened patience and downside checking","status":"adaptation_only"},
+        {"stage":"doctoral","design":"University C probability PhD, zero publications at 2026 exit point remains fixed","status":"ledger_plus_adaptation_context"}
+      ],
+      "formative_experiences": [
+        {"design":"organized small peer study schedules for qualifying exams rather than holding visible leadership office","status":"adaptation_only"},
+        {"design":"has experience tutoring younger students privately; good at making plans and checking progress, less comfortable with spontaneous group facilitation","status":"adaptation_only"},
+        {"design":"followed public-policy and local-development news for years before formally targeting civil service; institutional interest predates the job search","status":"adaptation_only"}
+      ],
+      "cultural_humanities_profile": {
+        "design":"reads history, public policy, biographies and long-form current-affairs writing; not aesthetically showy, but has a decent historical sense of institutions and local development",
+        "status":"adaptation_only"
+      },
+      "family_origin_effect": {"design":"family origin has medium influence on security, geography and obligation; professional reasoning is much more shaped by long education and exam institutions","status":"ledger_compatible_hypothesis"},
+      "capabilities": {
+        "analytical_reasoning":5,"written_communication":4,"oral_briefing":3,"negotiation":3,"conflict_navigation":3,"nvc_style_communication":3,"leadership":3,"facilitation":3,"institutional_literacy":4,"sociological_literacy":4,"psychological_literacy":3,"self_awareness":3,"networking":2,"deep_relationship_capacity":4,"boundary_setting":4,"public_speaking":3,"cross_cultural_adaptation":3,"aesthetic_humanities_exposure":3,"practical_money_literacy":5,"mentoring_or_teaching":4
+      },
+      "skill_sources_and_shadows": {
+        "negotiation":"Strong in BATNA-like comparison, timing and downside terms; weaker at creating excitement or selling an uncertain vision.",
+        "institutional_literacy":"Understands procedures and incentives well. Shadow: can over-respect formal pathways and discount unusual opportunities.",
+        "nvc_style_communication":"Often good at separating facts from accusations, but may use calm language to avoid exposing his own desire.",
+        "sociological_literacy":"Sees how city, family and welfare structures shape decisions; risk is turning every choice into a system explanation and underweighting impulse."
+      }
+    },
+    "luo_cheng": {
+      "education_socialization": [
+        {"stage":"undergraduate","design":"regional key university mathematics major; broader campus culture and more mixed student population than his later doctoral environment","status":"adaptation_only"},
+        {"stage":"graduate_training","design":"probability/statistical computation track; better than his peers at collaborative explanation, weaker at building a publication pipeline","status":"adaptation_only_compatible_with_zero_papers"},
+        {"stage":"doctoral","design":"University C probability PhD, year six in 2026, zero papers; direct student-affairs evidence remains limited and cannot be retroactively filled","status":"ledger_binding"}
+      ],
+      "formative_experiences": [
+        {"design":"did occasional teaching assistant and admissions-day volunteer work, but no sustained student-affairs leadership; enough to like people-facing environments, not enough to prove counselor fit","status":"adaptation_only_bounded_by_ledger"},
+        {"design":"often became the person who explained administrative or technical steps to classmates after he had figured them out himself","status":"adaptation_only"},
+        {"design":"participated in an amateur campus speaking/debate group for one year, giving him ease with informal speech but not elite debating polish","status":"adaptation_only"}
+      ],
+      "cultural_humanities_profile": {"design":"reads biographies, reportage and some social psychology/popular sociology; interested in how organizations feel from the inside, though his concepts are uneven","status":"adaptation_only"},
+      "family_origin_effect": {"design":"age and status comparison activate hometown/family expectations more than professional problem-solving does; long education weakened direct parental scripting","status":"ledger_compatible_hypothesis"},
+      "capabilities": {
+        "analytical_reasoning":4,"written_communication":3,"oral_briefing":4,"negotiation":4,"conflict_navigation":4,"nvc_style_communication":4,"leadership":3,"facilitation":4,"institutional_literacy":4,"sociological_literacy":3,"psychological_literacy":4,"self_awareness":3,"networking":4,"deep_relationship_capacity":4,"boundary_setting":3,"public_speaking":4,"cross_cultural_adaptation":4,"aesthetic_humanities_exposure":3,"practical_money_literacy":3,"mentoring_or_teaching":4
+      },
+      "skill_sources_and_shadows": {
+        "communication":"Strong at translating between people and making others feel heard. Shadow: adapts to the room so well that he can delay stating what he himself wants.",
+        "negotiation":"Good at discovering interests and reframing roles; weaker when he fears losing status, when he may anchor too much on job titles.",
+        "psychological_literacy":"Can read others reasonably well; self-reading lags behind social reading.",
+        "networking":"Can maintain weak ties without appearing transactional, but may mistake relational warmth for real institutional leverage."
+      }
+    },
+    "tang_yu": {
+      "education_socialization": [
+        {"stage":"undergraduate","design":"strong statistics/mathematics program with research-oriented faculty; early exposure to theoretical statistics and scientific writing","status":"adaptation_only"},
+        {"stage":"masters_or_early_research","design":"entered survival analysis through a methodologically demanding group; learned to defend assumptions and read proofs critically","status":"adaptation_only"},
+        {"stage":"doctoral","design":"University D survival-analysis PhD, research-output record intentionally left open by history; ambition for an independent line is fixed","status":"ledger_plus_adaptation_context"}
+      ],
+      "formative_experiences": [
+        {"design":"gave many seminar presentations and once coordinated a small methods reading group; comfortable challenging arguments in academic rooms","status":"adaptation_only"},
+        {"design":"served as TA for mathematical statistics; high standards made her effective with motivated students and intimidating to some weaker ones","status":"adaptation_only"},
+        {"design":"had one short overseas summer school or cross-institution workshop, enough to broaden academic norms without making her globally cosmopolitan","status":"adaptation_only"}
+      ],
+      "cultural_humanities_profile": {"design":"reads serious contemporary fiction, intellectual biographies and women scholars' memoirs intermittently; uses literature less as identity and more as a private counterweight to technical work","status":"adaptation_only"},
+      "family_origin_effect": {"design":"being third child with two older brothers matters most around fairness, resource negotiation and not wanting to be treated as the 'flexible' child; academic identity is primarily shaped by education","status":"ledger_compatible_hypothesis"},
+      "capabilities": {
+        "analytical_reasoning":5,"written_communication":5,"oral_briefing":5,"negotiation":3,"conflict_navigation":3,"nvc_style_communication":2,"leadership":4,"facilitation":3,"institutional_literacy":3,"sociological_literacy":3,"psychological_literacy":3,"self_awareness":3,"networking":3,"deep_relationship_capacity":4,"boundary_setting":4,"public_speaking":5,"cross_cultural_adaptation":4,"aesthetic_humanities_exposure":4,"practical_money_literacy":3,"mentoring_or_teaching":4
+      },
+      "skill_sources_and_shadows": {
+        "leadership":"Strong at intellectual direction and standards; weaker at protecting exploratory safety. Her precision can shut down half-formed ideas too early.",
+        "negotiation":"Competent on authorship/scope/evidence when facts are explicit; less skilled at soft coalition-building.",
+        "communication":"Excellent formal speaker and writer; under emotional threat she can become too exact and accidentally punitive.",
+        "humanities":"Gives her metaphors and comparative frames, but she still resists using soft language when a technical claim is wrong."
+      }
+    },
+    "he_xin": {
+      "education_socialization": [
+        {"stage":"undergraduate","design":"statistics/public-health adjacent program with substantial applied coursework and structured team assignments","status":"adaptation_only"},
+        {"stage":"graduate_training","design":"survival analysis plus health-data applications; learned to document assumptions, procedures and administrative constraints carefully","status":"adaptation_only"},
+        {"stage":"doctoral","design":"University D survival-analysis PhD; later preference for public-sector stability is historical, publication count remains open","status":"ledger_plus_adaptation_context"}
+      ],
+      "formative_experiences": [
+        {"design":"worked as teaching assistant and graduate program helper on a few bounded tasks, giving her good process sense without making her a formal administrator","status":"adaptation_only"},
+        {"design":"took elective courses or sustained reading in social policy, organizations and gender/family studies, more from curiosity than formal second specialization","status":"adaptation_only"},
+        {"design":"often mediated practical disagreements in team projects because she could summarize both sides without raising the temperature","status":"adaptation_only"}
+      ],
+      "cultural_humanities_profile": {"design":"broad reader of sociology, social policy, family studies, essays and selected literature; more interested in how ordinary institutions shape lives than in elite cultural display","status":"adaptation_only"},
+      "family_origin_effect": {"design":"third-child family position informs fairness/boundary sensitivity, but long education has made her explicit about separating kinship obligation from professional choice","status":"ledger_compatible_hypothesis"},
+      "capabilities": {
+        "analytical_reasoning":4,"written_communication":5,"oral_briefing":4,"negotiation":4,"conflict_navigation":5,"nvc_style_communication":5,"leadership":3,"facilitation":4,"institutional_literacy":5,"sociological_literacy":5,"psychological_literacy":4,"self_awareness":4,"networking":3,"deep_relationship_capacity":5,"boundary_setting":5,"public_speaking":3,"cross_cultural_adaptation":3,"aesthetic_humanities_exposure":4,"practical_money_literacy":5,"mentoring_or_teaching":4
+      },
+      "skill_sources_and_shadows": {
+        "conflict_navigation":"Very good at lowering temperature and clarifying needs. Shadow: can preserve civility so effectively that necessary confrontation is postponed.",
+        "institutional_literacy":"Excellent at seeing procedural fairness and hidden obligations; can become overly procedural when spontaneity is needed.",
+        "sociological_literacy":"Sees family, gender, welfare and city structures clearly; risk is analyzing away personal desire.",
+        "leadership":"Better as stabilizer/facilitator than charismatic direction-setter."
+      }
+    },
+    "song_nan": {
+      "education_socialization": [
+        {"stage":"undergraduate","design":"applied statistics program with strong programming/project component and frequent team presentations","status":"adaptation_only"},
+        {"stage":"graduate_training","design":"medical statistics/survival-analysis research with some hospital-data collaboration but no deep pharma-industry employment before 2026","status":"adaptation_only_bounded_by_industry_uncertainty"},
+        {"stage":"doctoral","design":"University D survival-analysis PhD; industry-fit uncertainty at 2026 is binding","status":"ledger_binding"}
+      ],
+      "formative_experiences": [
+        {"design":"comfortable presenting posters and talking to unfamiliar researchers at conferences; built broader weak-tie network than Tang or He","status":"adaptation_only"},
+        {"design":"once coordinated a multi-person data-cleaning or simulation task where deadlines mattered more than elegance; learned rudimentary project leadership","status":"adaptation_only"},
+        {"design":"has read popular psychology and communication books, including NVC-adjacent material, but applies them inconsistently when impatient","status":"adaptation_only"}
+      ],
+      "cultural_humanities_profile": {"design":"widest popular-culture exposure among the six: podcasts, films, travel writing, popular psychology, some fiction; less systematic than He or Tang but socially useful","status":"adaptation_only"},
+      "family_origin_effect": {"design":"third-child position matters around not wanting family logistics automatically assigned to her; years away from home make professional identity mostly peer/organization shaped","status":"ledger_compatible_hypothesis"},
+      "capabilities": {
+        "analytical_reasoning":4,"written_communication":4,"oral_briefing":5,"negotiation":4,"conflict_navigation":3,"nvc_style_communication":3,"leadership":4,"facilitation":4,"institutional_literacy":3,"sociological_literacy":3,"psychological_literacy":3,"self_awareness":3,"networking":5,"deep_relationship_capacity":4,"boundary_setting":3,"public_speaking":5,"cross_cultural_adaptation":5,"aesthetic_humanities_exposure":4,"practical_money_literacy":4,"mentoring_or_teaching":3
+      },
+      "skill_sources_and_shadows": {
+        "networking":"Strong at making new contacts and keeping interaction warm. Shadow: may move faster than trust depth warrants.",
+        "leadership":"Good at momentum, deadlines and turning ambiguity into action. Shadow: can make slower colleagues feel dragged rather than led.",
+        "negotiation":"Good at value exchange and asking concrete questions; under excitement she may concede long-term costs too early.",
+        "cross_cultural_adaptation":"Learns local norms quickly, but adaptation strength can blur whether she actually likes the environment."
+      }
+    }
+  },
+  "secondary_ring_professional_socialization": {
+    "lin_jing": {"profile":"research-trained academic with strong comparative career judgment; likely high written communication, moderate-to-strong mentoring, growing institutional literacy; less evidence for sales/networking charisma","status":"strongly_inferred_plus_adaptation_only_details_to_be_added_later"},
+    "chen_lan": {"profile":"late-stage PhD to organizational research/data-operations role; strongest in translation between technical and organizational problems, boundary negotiation and cross-team judgment; formal academic purity becomes less central over time","status":"ledger_backed_core"},
+    "xu_hang": {"profile":"validation/reproducibility specialist; strong technical mentoring and diagnostic reasoning, moderate social assertiveness; later develops judgment transfer rather than charismatic leadership","status":"ledger_backed_core"},
+    "wu_cheng": {"profile":"senior academic mentor; high judgment density, selective commitment and scope control; leadership through calibration more than motivational rhetoric","status":"ledger_backed_core"},
+    "shen_yan": {"profile":"methodological mentor skilled at question selection, stopping rules and research autonomy; high intellectual coaching, limited evidence on broad organizational leadership","status":"ledger_backed_core"},
+    "gu_wei": {"profile":"verification mentor with strong epistemic humility and resistance to authority-by-stamp; likely excellent technical critique, bounded willingness to certify others' conclusions","status":"ledger_backed_core"},
+    "zhao_ke": {"profile":"project manager with mature intake, exception governance and later judgment-training experience; strongest in operational negotiation, escalation and cross-team facilitation","status":"ledger_backed_core"},
+    "sun_jie": {"profile":"graduate coordinator with deep procedural, interpersonal and fairness literacy; strong one-on-one explanation and queue management; later integrates listening with process classification","status":"ledger_backed_core"}
+  },
+  "storyteller_rules": [
+    "Load education/socialization before personality in every scene.",
+    "Do not let capability scores become visible narration or RPG stats.",
+    "A high score never guarantees success under shame, status threat, fatigue or low formal power.",
+    "A low score may improve over 2026-2035 only if later ledger behavior supports it.",
+    "Do not invent formal credentials, internships or leadership roles as historical facts; adaptation-only resumes remain replaceable.",
+    "Original family influence is attenuated by long educational and professional socialization, but may reappear around money, care, hometown, authority and shame."
+  ]
+}
