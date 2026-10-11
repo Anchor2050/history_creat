@@ -1,0 +1,38 @@
+{
+  "schema_version":1,
+  "status":"full_pilot_chapter_audit_noncanonical",
+  "historical_world_writeback":false,
+  "pilot":"docs/adaptation/pilots/ch03-luo-posting-full-v1.md",
+  "overall_judgment":"strong_full_chapter_test_needs_subtractive_revision",
+  "passes":[
+    "The chapter sustains itself through ordinary institutional labor rather than plot escalation.",
+    "Luo Cheng's embarrassment is visible through what he tries to translate into resume evidence rather than through a trauma explanation.",
+    "Sun Jie has bounded authority and is visibly imperfect: the office itself has version errors, printing friction and competing requests.",
+    "The job posting becomes concrete through student conversations, forms, duty schedules, material review and interruptions.",
+    "The post-meeting resume revision gives the conversation a behavioral consequence without turning it into instant personal transformation.",
+    "The chapter ends on an ordinary printing problem, leaving application outcome open."
+  ],
+  "problems":[
+    "Sun Jie is still too consistently quick and correct in the central conversation. Several replies feel author-shaped, especially '你想换一点', '你又来了', and the repeated ability to identify exactly where Luo is overclaiming.",
+    "Luo Cheng is slightly too good at converting embarrassment into humor. More silence and imperfect recovery would make status pain less charming.",
+    "A few narrator lines explain the scene more than needed, especially the paragraph about student affairs previously feeling like a complete thing and the explicit description of his old resume as dangerous after the conversation.",
+    "The scene contains many crisp mini-exchanges. Individually plausible, collectively they make both characters sound unusually responsive for a busy office.",
+    "The printing-shop section is useful but could lose several explicit comparisons between 'small' experience and the job language; the reader already understands the mismatch."
+  ],
+  "subtractive_revision_plan":[
+    "Cut 10-20% of dialogue, especially lines that restate the same boundary in sharper wording.",
+    "Remove at least two narrator explanations of what the office or resume means to Luo.",
+    "Keep Sun Jie's template/version oversight visible so she remains a working person rather than a competence oracle.",
+    "Let one or two questions receive flat or incomplete answers instead of polished reframing.",
+    "Shorten the printing-shop reflection and keep the ordinary machine problem ending."
+  ],
+  "gate_status":{
+    "full_chapter_density":"pass",
+    "narrative_voice_sustainability":"pass",
+    "institutional_realism":"pass",
+    "secondary_character_legibility":"pass_with_overcompetence_risk",
+    "anti_ai_style":"close_but_revision_required",
+    "prose_canon":"blocked"
+  },
+  "next_action":"Produce ch03-luo-posting-full-v2.md by subtraction only, then compare v1/v2 before any prose canon decision."
+}
