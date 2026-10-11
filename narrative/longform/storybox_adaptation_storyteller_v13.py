@@ -22,7 +22,7 @@ class AdaptationStorytellerError(ValueError):
 
 HERO_STAGE_FUNCTIONS = {
     "ordinary", "call", "refusal", "threshold", "trial", "descent",
-    "insight", "return", "post_return_consequence",
+    "insight", "transformation", "return", "post_return_consequence",
 }
 
 ARCHETYPE_ROLES = {"mentor", "ally", "shadow", "guardian", "herald", "trickster", "mirror"}
