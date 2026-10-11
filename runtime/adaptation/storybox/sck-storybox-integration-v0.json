@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "active_contract_v0",
+  "components": {
+    "storybox": "authoritative world/visibility/legal-action/resolution runtime",
+    "sck": "actor-local belief/opponent-model/planning proposal runtime",
+    "storyteller": "reader-facing renderer after world resolution"
+  },
+  "decision_cycle": [
+    "StoryBox computes actor-local visible state and legal actions.",
+    "Adapter converts visible state into StrategicObservation without backstage truth.",
+    "SCK updates actor-local BeliefState from visible evidence only.",
+    "SCK evaluates legal actions and returns StrategicDecision.",
+    "Optional language renderer realizes CommunicationIntent without changing chosen strategic action.",
+    "StoryBox re-validates the proposed action against current legal actions and authority.",
+    "StoryBox resolves simultaneous/colliding actions and hard-world uncertainty.",
+    "StoryBox writes back public/private information, resources, commitments, reputation, relationships, map and deadlines.",
+    "Evaluator may compare the recorded decision against backstage truth or oracle values only after the action has been fixed.",
+    "Storyteller may render the resolved trace but may not repair the decision or outcome."
+  ],
+  "forbidden": [
+    "SCK reading fixed truth or evaluator oracle values before deciding",
+    "SCK directly mutating StoryBox world state",
+    "language renderer substituting a different strategic action",
+    "StoryBox replacing an SCK loss with a convenient literary outcome",
+    "Storyteller changing actor information ownership",
+    "cross-game confidential evidence entering SCK portfolio summaries without an explicit StoryBox bridge"
+  ],
+  "rollout_boundary": {
+    "v0": "SCK uses an abstract rollout_utility callback over visible-state hypotheses and opponent response models.",
+    "future": "MCTS/bi-level search may use a sandboxed StoryBox transition model, but rollout state is hypothetical and never written to canonical world state.",
+    "truth_rule": "A rollout may condition on the actor's hidden-world hypotheses and probabilities, never on which hypothesis is actually true."
+  },
+  "active_sck_head": "runtime/adaptation/storybox/sck-head-v1.json",
+  "first_external_benchmark": "runtime/adaptation/storybox/sck-secret-mafia-ab-v0.json"
+}
