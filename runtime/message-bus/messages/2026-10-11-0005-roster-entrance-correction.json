@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "message_id": "2026-10-11-0005-roster-entrance-correction",
+  "created_at": "2026-10-11",
+  "from": "chatgpt_product_session",
+  "to": ["*"],
+  "topic": "decision:water-margin-relay",
+  "kind": "decision",
+  "priority": "blocking",
+  "status": "open",
+  "supersedes": "2026-10-11-0004-character-entrance-direction-decision",
+  "refs": {
+    "relay_model": "docs/adaptation/water-margin-relay-chain-model-v2.md",
+    "relay_graph": "runtime/adaptation/storyteller/opening-relay-graph-v1.json",
+    "adaptation_head": "runtime/adaptation/storyteller/adaptation-head-v1.json"
+  },
+  "summary": "纠正此前‘六个核心人物分别做登场戏’的误读：出版版开篇改为事件接力链，人物只在上一桩事自然把故事带到他那里时进入。",
+  "body": "人类作者指出：《水浒传》并非先把108人逐个介绍完，而是由事件和人物关系持续传棒，人物在故事推进中逐渐出现。此前对‘水浒式出场’的执行仍然是 roster-driven，只是把人物卡写得更有画面感，因此结构仍有根本问题。\n\n决定：废止‘先补完唐雨/何欣/高原独立登场测试，再排六人顺序’。保留已写 Song/Zhou/Luo entrance probes 作为可复用场景素材，但取消它们的默认前三章地位。\n\n新结构：先选一条 opening relay chain，连续跑3-4章。每章结尾留下具体去向，下一章通过直接因果、已有关系、任务/消息/公开程序等接住。Campbell 继续塑造人物长弧，但不负责安排出场顺序。\n\n当前 preferred test route：Song Nan pharmaceutical interview -> Chen Lan debrief/completion line -> Zhou Ye offer/technical evidence line -> December classmate meal then choose Gao Yuan OR Luo Cheng as one branch. He Xin/Tang Yu may remain offstage until story naturally reaches them。",
+  "action_required": "停止独立补齐六人登场章；将 adaptation head 的 current_stage 改为 opening_relay_chain_test；下一步只写一条连续3-4章的接力链，并审查每次镜头转移为什么发生。"
+}
