@@ -1,5 +1,5 @@
 {
-  "schema_version": 23,
+  "schema_version": 24,
   "status": "adaptation_storyteller_head_noncanonical",
   "historical_world_writeback": false,
   "history_source": {
@@ -10,58 +10,65 @@
   },
   "primary_project": {
     "working_title": "不同的稳定",
-    "architecture": "reader_first_central_event_then_event_driven_ensemble",
+    "architecture": "storybox_round_game_arc_world_then_storyteller_rendering",
     "core": ["zhou_ye", "gao_yuan", "luo_cheng", "tang_yu", "he_xin", "song_nan"],
     "prose_canon_fixed": false,
     "world_is_not_centered_on_core_six": true,
     "central_event": "risk-list-incident",
     "first_focal_anchor": "luo_cheng"
   },
+  "storybox_source_of_truth": {
+    "head": "runtime/adaptation/storybox/storybox-head-v1.json",
+    "round_runtime": "narrative/longform/storybox_round_engine_v15.py",
+    "seed_loader": "narrative/longform/storybox_round_loader_v15.py",
+    "active_game_seed": "runtime/adaptation/storybox/risk-list-game-v1.json",
+    "active_game_arc": "runtime/adaptation/storybox/risk-list-game-arc-v1.json",
+    "formalized_rounds": [
+      "runtime/adaptation/storybox/risk-list-round-01-v1.json",
+      "runtime/adaptation/storybox/risk-list-round-02-v1.json"
+    ],
+    "rule": "Storyteller consumes StoryBox state. It may select, compress, reorder within causal truth, and control reader knowledge, but may not rewrite StoryBox truth, outcomes, authority or information ownership."
+  },
   "active_sources": {
+    "round_based_narrative_engine": "docs/adaptation/round-based-narrative-engine-v1.md",
     "reader_first_causal_density": "docs/adaptation/reader-first-causal-density-model-v1.md",
     "central_event_engine": "runtime/adaptation/storyteller/central-event-engine-v1.json",
     "central_event_opening_map": "runtime/adaptation/storyteller/central-event-opening-map-v1.json",
     "payoff_registry": "runtime/adaptation/storyteller/payoff-registry-v1.json",
-    "opening_probe_preferred": "docs/adaptation/central-event-probes/ch01-risk-list-v2.md",
+    "opening_probe_ch1": "docs/adaptation/central-event-probes/ch01-risk-list-v2.md",
+    "opening_probe_ch2": "docs/adaptation/central-event-probes/ch02-how-many-runs-v1.md",
     "opening_probe_audit": "runtime/adaptation/storyteller/central-event-opening-audit-v1.json",
     "character_psychology": "docs/adaptation/character-psychology-bible-v1.md",
     "character_dialectics_power": "docs/adaptation/character-dialectics-and-power-v2.md",
     "campbell_structure": "docs/adaptation/campbell-distributed-hero-journey-v1.md",
     "campbell_negative_space": "docs/adaptation/campbell-arc-and-negative-space-v2.md",
-    "water_margin_relay_model": "docs/adaptation/water-margin-relay-chain-model-v2.md",
-    "message_bus_reset": "runtime/message-bus/messages/2026-10-11-0007-reader-first-central-event-reset.json"
+    "water_margin_relay_model": "docs/adaptation/water-margin-relay-chain-model-v2.md"
   },
   "demoted_material": {
     "opening_luo_sequence": "docs/adaptation/opening-luo-sequence-v1/",
     "fast_relay_test": "docs/adaptation/relay-test-01/",
     "legacy_pilots": "docs/adaptation/pilots/",
-    "note": "All remain adaptation reservoirs. They may supply backstory only when current action requires it; they no longer define publication opening order."
+    "note": "These remain adaptation reservoirs. They may supply backstory only when current StoryBox state causally requires it."
   },
-  "central_event_opening": {
-    "status": "chapter1_v2_provisional_pass_chapter2_gate_open",
-    "chapter1": "docs/adaptation/central-event-probes/ch01-risk-list-v2.md",
-    "chapter1_job": [
-      "make the anomaly concrete",
-      "show that institutions know different pieces",
-      "start the 72-hour clock",
-      "make the first easy explanation insufficient",
-      "end on a discovery that forces the next chapter"
-    ],
-    "reader_questions": [
-      "why did the suspicious low-risk classification happen",
-      "why does the leaked screenshot predate the batch being investigated",
-      "who will be blamed before the technical cause is known",
-      "what happens when data model deployment and authority belong to different institutions"
-    ]
+  "round_game_rendering_rule": {
+    "round_is_not_chapter": true,
+    "game_is_not_part": true,
+    "chapter_job": "render the minimum reader-facing material needed to convey one or more meaningful StoryBox state transitions",
+    "game_job": "run one dominant decision/problem until resolution, failure, deadlock, equilibrium or supersession",
+    "arc_job": "carry persistent consequences across successor games",
+    "world_job": "preserve long-term people, relationships, reputation, institutions, map and memory"
   },
   "reader_first_rule": "Every sentence, paragraph, scene and chapter must justify its existence to the reader. A sentence without action, new information, pressure, character revelation, power change, setup/payoff, necessary transition/orientation, or deliberate rhythm is presumed removable.",
   "causal_density_rule": "A scene must change state. A chapter must answer at least one prior question and deepen or create another. Each chapter pays off at least one prior setup before adding more than two major new setups.",
   "payoff_rule": "Every conspicuous object, anomaly, promise, name, discrepancy, secret or rule enters the payoff registry. Setups without later consequences are deleted.",
-  "character_entry_rule": "A major actor enters only when the live incident reaches their role, information, authority, interest or relationship. Ensemble coverage is never a reason to introduce a person.",
+  "character_entry_rule": "A major actor enters prose only when StoryBox has already made them materially relevant through role, information, authority, interest, location or relationship. Ensemble coverage is never a reason to introduce a person.",
   "technical_rule": "Technical detail remains only when it changes a decision, responsibility, authority, workload, money, reputation, trust or later causal interpretation.",
-  "campbell_rule": "Campbell remains hidden longitudinal structure for characters after they enter. It does not choose chapter order and never appears as explicit thesis dialogue.",
+  "campbell_rule": "Campbell remains hidden longitudinal structure for characters after they enter. It neither chooses StoryBox actions nor chapter order and never appears as explicit thesis dialogue.",
   "nonnegotiable_rules": [
     "No adaptation hypothesis becomes ledger history.",
+    "StoryBox runs first; Storyteller renders second.",
+    "Storyteller may not rewrite fixed truth to improve drama.",
+    "Storyteller may hide information from reader but may not grant information to a character who does not possess it.",
     "Write for a reader, not for a character dossier.",
     "No paragraph exists solely for atmosphere, cleverness or authorial display.",
     "No scene exists solely to prove a trait already established.",
@@ -72,26 +79,29 @@
     "Do not let human conflict require a faction to become stupid.",
     "No roster balancing and no forced ensemble montage.",
     "Do not use AI-summary endings, thesis dialogue or redundant meaning explanations.",
-    "2035 remains an observation endpoint for frozen history; adaptation events are explicitly noncanonical."
+    "A StoryBox deadlock is a valid outcome and must not be repaired by literary convenience.",
+    "2035 remains an observation endpoint for frozen history; adaptation games are explicitly noncanonical."
   ],
   "gate_status": {
     "chronological_career_opening": "demoted_to_backstory_reservoir",
     "central_event_engine": "provisional_pass",
-    "chapter1_v2_causal_density": "provisional_pass",
+    "storybox_round_runtime": "active",
+    "fixed_truth_game_seed": "active",
+    "risk_list_round_01": "formalized",
+    "risk_list_round_02": "formalized",
     "payoff_registry": "active",
-    "central_event_first_8_chapter_map": "drafted",
     "prose_canon": "not_fixed"
   },
-  "current_stage": "central_event_chapter2_only",
+  "current_stage": "storybox_round_03_before_more_prose",
   "next_stage_gate": {
-    "required_before_chapter3": [
-      "draft Chapter2 only from Chapter1 final discovery that the leaked screenshot predates the current batch",
-      "reconstruct overnight runs before introducing any new core actor",
-      "introduce Zhou Ye only if technical/version reconstruction genuinely requires his role",
-      "pay off at least one Chapter1 setup before adding more than two major setups",
-      "audit every scene for sentence purpose and state change",
-      "reject any paragraph whose removal leaves later action unchanged"
+    "required_before_new_prose_chapter": [
+      "execute StoryBox Round 3 from the missing manual-followup-status and rerun-authorization problem",
+      "activate hospital-side actor only because current StoryBox jurisdiction requires it",
+      "do not activate research, industry or public-sector core actors yet",
+      "evaluate Game 1 convergence after Round 3 using the explicit convergence policy",
+      "only then decide what subset of Round 3 deserves reader-facing prose",
+      "audit every rendered paragraph against sentence purpose and payoff debt"
     ],
-    "drafting_rule": "No return to chronological career chapters while the central-event test is active. One causally forced chapter at a time."
+    "drafting_rule": "Do not invent Chapter 3 first. Run Round 3 first, then render."
   }
 }
