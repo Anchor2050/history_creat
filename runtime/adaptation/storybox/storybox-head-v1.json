@@ -1,50 +1,71 @@
 {
-  "schema_version": 2,
-  "status": "adaptation_storybox_round_runtime_noncanonical",
+  "schema_version": 3,
+  "status": "adaptation_storybox_scene_multigame_runtime_noncanonical",
   "historical_world_writeback": false,
-  "purpose": "Run persistent multi-actor narrative games before Storyteller selects and renders prose.",
-  "architecture": "world -> arc -> game -> round -> action collision -> writeback",
+  "purpose": "Run persistent multi-actor narrative worlds as concurrent event arcs, games, scenes and rounds before Storyteller selects and renders prose.",
+  "architecture": "world -> event_arc -> game -> scene -> round -> action_collision -> writeback",
   "runtime": {
     "legacy_micro_runtime": "narrative/longform/storybox_noapi_runtime_v8.py",
     "round_runtime": "narrative/longform/storybox_round_engine_v15.py",
+    "scene_multigame_runtime": "narrative/longform/storybox_multigame_engine_v16.py",
     "seed_loader": "narrative/longform/storybox_round_loader_v15.py",
-    "design_model": "docs/adaptation/round-based-narrative-engine-v1.md",
-    "tests": "tests/test_storybox_round_engine_v15.py",
+    "round_design": "docs/adaptation/round-based-narrative-engine-v1.md",
+    "scene_multigame_design": "docs/adaptation/storybox-scene-multigame-engine-v2.md",
+    "round_tests": "tests/test_storybox_round_engine_v15.py",
+    "multigame_tests": "tests/test_storybox_multigame_engine_v16.py",
     "tests_status": "written_not_run"
   },
-  "active_game_arc": {
-    "arc": "runtime/adaptation/storybox/risk-list-game-arc-v1.json",
-    "current_game_seed": "runtime/adaptation/storybox/risk-list-game-v1.json",
-    "current_game_id": "risk-list-game-01",
+  "active_event_arc": {
+    "arc": "runtime/adaptation/storybox/risk-list-multigame-arc-v2.json",
+    "truth_seed": "runtime/adaptation/storybox/risk-list-game-v1.json",
     "fixed_truth_before_play": true,
+    "active_games": [
+      "game:cause-reconstruction",
+      "game:72h-briefing",
+      "game:leak-path"
+    ],
+    "locked_games": [
+      "game:pilot-decision"
+    ],
     "formalized_rounds": [
       "runtime/adaptation/storybox/risk-list-round-01-v1.json",
       "runtime/adaptation/storybox/risk-list-round-02-v1.json"
     ],
+    "materialized_scenes": [
+      "scene:project-office:discovery",
+      "scene:technical:overnight-runs"
+    ],
     "current_round": 2,
-    "current_game_status": "active_round_2_resolved_round_3_gate_open",
-    "next_trigger": "batch-3 manifest lacks manual_followup_status; hospital-side rerun context must be reconstructed before the first external reply"
+    "current_arc_status": "active_round_2_resolved_round_3_scene_gate_open",
+    "next_trigger": "batch-3 manifest lacks manual_followup_status; hospital-side rerun context must be reconstructed before briefing language can safely converge"
   },
   "layer_responsibilities": {
     "storybox": [
       "hard-world truth",
+      "event-node graph and preconditions",
+      "concurrent game state",
+      "scene membership and local objectives",
+      "round eligibility and legal actions",
       "map and reachability",
       "public/private information",
       "actor beliefs",
+      "actor portfolios across games",
+      "attention/fatigue/concurrency capacity",
       "actor state and resources",
       "formal power",
-      "legal actions",
       "action collisions",
-      "round writeback",
+      "scene/round writeback",
+      "cross-game spillover bridges",
       "mystery graph",
-      "round/game convergence",
+      "scene/game/event convergence",
       "successor-game carry"
     ],
     "storyteller": [
-      "which rounds deserve prose",
+      "which games/scenes/rounds deserve prose",
       "viewpoint selection",
       "reader knowledge allocation",
       "scene compression and ordering",
+      "chapter boundaries",
       "sentence purpose audit",
       "setup/payoff visibility",
       "literary voice and negative space"
@@ -53,11 +74,27 @@
       "Storyteller may not rewrite StoryBox truth to improve drama",
       "StoryBox may not force an outcome to satisfy a literary arc",
       "Storyteller may hide truth from reader but may not change it",
-      "StoryBox may end in deadlock, failure or partial resolution"
+      "StoryBox may end a game in deadlock, failure or partial resolution",
+      "Game-local information does not automatically synchronize across games",
+      "An actor is not globally good/bad because of a local stance in one game"
     ]
   },
+  "scene_definition": {
+    "start": "a bounded location/channel/time window opens with a concrete local trigger and at least one legal participant action",
+    "contains": "one or more rounds",
+    "end": [
+      "local objective resolved or transformed",
+      "new evidence or actor changes the action set",
+      "authority/jurisdiction changes",
+      "deadline interrupts",
+      "all local actors act/pass and no local move remains",
+      "local deadlock",
+      "participants separate"
+    ],
+    "important_rule": "A scene may end without resolving its parent game. A novel chapter may render part of one scene, one scene, or selected material from several scenes."
+  },
   "round_definition": {
-    "start": "a material trigger changes what at least one eligible actor can or must do",
+    "start": "a material trigger changes what at least one eligible actor can or must do inside the current scene/game",
     "phases": [
       "world_update",
       "actor_local_perception",
@@ -74,23 +111,33 @@
       "hard interrupt changes the action set"
     ]
   },
-  "game_convergence": {
-    "successful": [
-      "dominant objective resolved",
-      "dominant objective absorbed into a stable institutional rule",
-      "old objective legitimately superseded by a new dominant game"
+  "concurrent_game_rules": {
+    "games_share_world_not_all_information": true,
+    "cross_game_change_requires_explicit_bridge": true,
+    "bridges": [
+      "public disclosure",
+      "formal report",
+      "shared evidence object",
+      "participant-carried information",
+      "authority decision",
+      "resource transfer",
+      "reputation change",
+      "map/jurisdiction change"
     ],
-    "unsuccessful_but_terminal": [
-      "objective failed",
-      "deadlock after repeated zero-material-delta rounds",
-      "hard round cap",
-      "external hard terminal event"
-    ],
-    "important_rule": "Convergence is not victory. A deadlock is a valid game result and may become a later-world trigger."
+    "role_locality": "actor role, stake and stance are recorded per game; no global hero/villain tag",
+    "actor_concurrency": "soft capacity may be exceeded with fatigue/coordination costs; hard capacity may not be exceeded without a hard-world capacity change",
+    "high_influence_effect": "high-power/high-delegation/high-coordination actors can sustain more simultaneous games, but accumulate cross-game commitments and contradiction risk"
+  },
+  "event_node_rules": {
+    "pre_event_convergence": "multiple games/scenes may need to converge before a hard event node becomes ready",
+    "event_firing": "event node mutates hard world only after auditable predicates are satisfied",
+    "post_event": "event firing may open/close games, change map, authority, deadlines, public information or resource constraints",
+    "no_storyteller_shortcut": true
   },
   "anti_filler": {
     "zero_delta_rule": "Repeated rounds with no material truth/info/belief/power/relationship/map/resource/deadline/mystery change terminate as deadlock or equilibrium.",
     "no_chat_for_chat_rule": "Conversation alone is not a material delta unless it changes information, belief, commitment, relationship evidence, authority, resource or future action set.",
+    "no_scene_for_atmosphere_rule": "A scene must alter local state/action space or justify a convergence/deadlock result.",
     "no_forced_breakthrough": "If actors lack evidence or legal moves, record the deadlock; do not invent discovery to keep the plot moving."
   },
   "information_integrity": {
@@ -98,47 +145,54 @@
     "actor_requests_never_receive_truth_directly": true,
     "beliefs_may_be_false": true,
     "reader_knowledge_is_storyteller_controlled": true,
-    "new_evidence_may_reveal_truth_but_not_retroactively_rewrite_it": true
-  },
-  "map_rules": {
-    "start_small": true,
-    "unlock_requires": [
-      "new information source",
-      "new legal capability",
-      "new constraint",
-      "new faction or jurisdiction"
-    ],
-    "decorative_location_without_state_function": "reject"
+    "new_evidence_may_reveal_truth_but_not_retroactively_rewrite_it": true,
+    "cross_game_leakage_itself_can_be_an_event": true
   },
   "character_rules": {
     "persistent_state_across_rounds": true,
+    "persistent_state_across_scenes": true,
     "persistent_state_across_games": [
       "personality",
       "capability",
       "relationships",
       "reputation",
+      "fatigue",
       "belief residues",
       "commitments",
+      "resources",
       "unpaid payoff debt"
     ],
-    "new_actor_entry": "only when the active game reaches their role, information, authority, interest, location or existing relationship",
+    "game_local_state": [
+      "role",
+      "stake",
+      "stance",
+      "local authority",
+      "confidential evidence",
+      "role-specific obligation"
+    ],
+    "new_actor_entry": "only when an active scene/game reaches their role, information, authority, interest, location or existing relationship",
     "no_roster_balance": true
   },
   "round_history": [
     {
       "round": 1,
+      "scene": "scene:project-office:discovery",
+      "game": "game:cause-reconstruction",
       "material_change": "timestamp mismatch turns one suspicious list into a multi-run incident; all overnight batches are frozen; technical-operations map unlocks"
     },
     {
       "round": 2,
+      "scene": "scene:technical:overnight-runs",
+      "game": "game:cause-reconstruction",
       "material_change": "three runs reconstructed; rollback confirmed but single-cause explanation weakened; hospital/data-snapshot map unlocks; missing manual-followup table becomes actionable"
     }
   ],
   "next_actions": [
-    "execute Round 3 only from the missing manual-followup-status / rerun-authorization problem",
-    "activate hospital-side actor only because the current question reaches that jurisdiction",
-    "do not activate research, industry or public-sector actors yet",
-    "after Round 3 evaluate convergence; Game 1 cannot end before its minimum-round requirement",
-    "only render prose after the round state is stable"
+    "materialize a hospital-side Scene for Round 3; allow multiple rounds inside that scene if the action set changes without participants separating",
+    "reconstruct why manual_followup_status was absent and who requested the rerun",
+    "permit verified facts to spill from cause-reconstruction into 72h-briefing only through an explicit report/evidence bridge",
+    "do not activate research, industry or additional core actors merely for ensemble breadth",
+    "after the hospital scene evaluate both scene convergence and each affected game's convergence/event-node readiness",
+    "render prose only after StoryBox state is stable"
   ]
 }
