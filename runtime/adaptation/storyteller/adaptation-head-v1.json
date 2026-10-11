@@ -1,5 +1,5 @@
 {
-  "schema_version": 13,
+  "schema_version": 14,
   "status": "adaptation_storyteller_head_noncanonical",
   "historical_world_writeback": false,
   "history_source": {
@@ -26,24 +26,24 @@
     "core_scene_selection": "runtime/adaptation/storyteller/viewpoint-weight-and-core26-v1.json",
     "chapter_cards_v1": "runtime/adaptation/storyteller/novel-chapter-cards-v1.json",
     "chapter_revision_v2": "runtime/adaptation/storyteller/novel-chapter-revision-v2.json",
-    "chapter2_v1_v2_audit": "runtime/adaptation/storyteller/ch02-v1-v2-audit.json",
-    "opening_three_continuity_audit": "runtime/adaptation/storyteller/opening-three-continuity-audit-v1.json",
-    "chapter4_audit_v1": "runtime/adaptation/storyteller/ch04-tang-xu-audit-v1.json",
-    "chapter4_v1_v2_audit": "runtime/adaptation/storyteller/ch04-tang-xu-v1-v2-audit.json",
-    "opening_four_continuity_audit": "runtime/adaptation/storyteller/opening-four-continuity-audit-v1.json",
     "reader_plot_connection_review": "runtime/adaptation/storyteller/reader-plot-connection-review-v1.json",
+    "plot_connection_resolution": "runtime/adaptation/storyteller/plot-connection-resolution-v1.json",
     "message_bus_protocol": "runtime/message-bus/README.md",
-    "message_bus_latest_open": "runtime/message-bus/messages/2026-10-11-0001-plot-connection-review.json"
+    "message_bus_review": "runtime/message-bus/messages/2026-10-11-0001-plot-connection-review.json",
+    "message_bus_decision": "runtime/message-bus/messages/2026-10-11-0002-plot-connection-decision.json"
   },
   "executed_full_pilots": [
     "docs/adaptation/pilots/ch01-zhou-reliability-opening-v1.md",
     "docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md",
     "docs/adaptation/pilots/ch02-ordinary-trip-full-v1.md",
     "docs/adaptation/pilots/ch02-ordinary-trip-full-v2.md",
+    "docs/adaptation/pilots/ch02-ordinary-trip-full-v3-braided.md",
     "docs/adaptation/pilots/ch03-luo-posting-full-v1.md",
     "docs/adaptation/pilots/ch03-luo-posting-full-v2.md",
+    "docs/adaptation/pilots/ch03-luo-posting-full-v3-braided.md",
     "docs/adaptation/pilots/ch04-tang-xu-implementation-structure-full-v1.md",
-    "docs/adaptation/pilots/ch04-tang-xu-implementation-structure-full-v2.md"
+    "docs/adaptation/pilots/ch04-tang-xu-implementation-structure-full-v2.md",
+    "docs/adaptation/pilots/ch04-tang-xu-implementation-structure-full-v3-braided.md"
   ],
   "primary_project": {
     "working_title": "不同的稳定",
@@ -52,21 +52,24 @@
     "high_frequency_secondary": ["lin_jing", "chen_lan", "xu_hang"],
     "recurring_secondary": ["wu_cheng", "shen_yan", "gu_wei", "zhao_ke", "sun_jie"],
     "chapter_card_count": 24,
-    "chapter_architecture_status": "provisional_v2_overlay",
+    "chapter_architecture_status": "provisional_v3_visible_braid_overlay",
     "narrative_voice_status": "provisional_canon",
     "narrative_voice_label": "close_external_restrained_realism",
     "hero_arc_priority": "primary_longitudinal_structure",
     "negative_space_priority": "primary_rendering_principle",
+    "plot_connection_strategy": "visible_weak_braid_plus_delayed_payoff",
     "prose_canon_fixed": false,
     "world_is_not_centered_on_core_six": true
   },
   "narrative_layers": [
     "long_campbell_hero_arcs_for_core_characters",
     "negative_space_rendering_of_long_arcs",
+    "visible_weak_braids_through_existing_relationships_and_repeated_practices",
     "multi_scene_substories_inside_each_long_arc",
     "guest_micro_arcs_for_passersby_colleagues_authorities_clients_students_family_and_peers"
   ],
-  "arc_rendering_rule": "Backend arcs must be structurally legible; foreground prose must remain partial, delayed, fallible and under-explained. Longitudinal character transformation has priority over making an individual chapter thematically complete.",
+  "arc_rendering_rule": "Backend arcs must be structurally legible; foreground prose remains partial, delayed, fallible and under-explained. Longitudinal character transformation has priority over making an individual chapter thematically complete.",
+  "plot_connection_rule": "Weakly connected ensemble does not mean disconnected chapters. At least some early actions must receive observable later consequences, and braids must be legible through existing people, messages, practices, objects or decisions without authorial explanation.",
   "nonnegotiable_rules": [
     "No adaptation hypothesis becomes ledger history.",
     "High education does not imply universal negotiation, leadership, emotional or social skill.",
@@ -74,6 +77,7 @@
     "A virtue must be allowed to create costs; a flaw must be allowed to protect something real.",
     "Power changes how personality is expressed; separate trait from position effect.",
     "Core six are weakly connected ensemble peers, not a permanent six-person team.",
+    "Weak connection must still produce some visible cross-chapter consequences; do not confuse negative space with structural disconnection.",
     "Prefer existing relationships; create guests only for real scene-function gaps.",
     "Campbell stages are backend structure only and never chapter labels, thesis dialogue or explicit self-diagnosis.",
     "A stage may span several chapters or years; no chapter is required to resolve a stage.",
@@ -83,7 +87,7 @@
     "Do not reward every mature decision immediately or fairly; environment and chance retain independent causal force.",
     "Do not force romance, illness, family disaster, betrayal or redemption to complete an arc.",
     "Do not use AI-summary endings, thesis dialogue, forced symbolism or universal self-awareness.",
-    "Ordinary time and non-events remain usable narrative material.",
+    "Ordinary time and non-events remain usable narrative material, but ordinary chapters should not remain permanently isolated from the novel around them.",
     "2035 is an observation endpoint, not a life verdict."
   ],
   "chapter_arc_audit": [
@@ -91,57 +95,69 @@
     "Which stable trait or virtue-shadow pair is under pressure?",
     "Did the prose explain the shadow more clearly than the character could actually know?",
     "What changed: behavior, threshold, relationship, resource, interpretation, or nothing?",
+    "What earlier action, if any, receives a consequence here?",
+    "What later consequence does this chapter make possible without promising it?",
     "Did the chapter give an emotionally complete payoff only because the author wanted closure?",
     "Could the final explanatory paragraph be deleted while the long arc remains legible?",
     "Does this chapter leave enough uncertainty for later repetitions to change its meaning?"
   ],
   "opening_sequence": {
-    "status": "confirmed_through_chapter4",
+    "status": "confirmed_through_chapter4_with_v3_braid",
     "sequence": [
-      {"chapter":1,"lead":"zhou_ye","function":"quiet Campbell call; reliability seeks external evidence without payoff"},
-      {"chapter":2,"lead":"song_nan_ensemble","function":"ordinary-world expansion; weak ties and non-instrumental social time"},
-      {"chapter":3,"lead":"luo_cheng","function":"institutional friction; credentials meet actual labor"},
-      {"chapter":4,"lead":"tang_yu","function":"research trial; evidence is split without completing the later stopping arc"}
+      {"chapter":1,"lead":"zhou_ye","reference":"docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md","function":"quiet Campbell call; creates reproducibility package seed"},
+      {"chapter":2,"lead":"song_nan_ensemble","reference":"docs/adaptation/pilots/ch02-ordinary-trip-full-v3-braided.md","function":"ordinary-world expansion; Zhou-Xu follow-up is visible but does not take over the trip"},
+      {"chapter":3,"lead":"luo_cheng","reference":"docs/adaptation/pilots/ch03-luo-posting-full-v3-braided.md","function":"institutional friction; Luo briefly compares his intangible experience with Zhou's inspectable technical evidence"},
+      {"chapter":4,"lead":"tang_yu","reference":"docs/adaptation/pilots/ch04-tang-xu-implementation-structure-full-v3-braided.md","function":"research trial; failure-log practice becomes visible in a different relationship"}
     ],
-    "continuity_note": "Chapter4 reuses already introduced Tang Yu and Xu Hang. The first four registers differ enough, but three chapters still lean on work artifacts or documents. Chapter5 should increase bodily, spatial, money, city or time stakes. Xu Hang should recede after appearing in chapters1,2 and4."
+    "continuity_note": "The opening remains weakly connected, but Ch1's reproducibility/failure-record practice is now perceptible in Ch2 and Ch4, while Ch3 uses an existing classmate memory to connect different forms of external evidence. No common crisis or permanent team is introduced."
   },
   "gate_status": {
     "anti_ai_style": "provisional_pass_at_chapter_length",
     "narrative_voice": "provisional_canon",
-    "chapter_architecture": "provisional_pass_with_v2_overlay",
+    "chapter_architecture": "provisional_pass_with_v3_visible_braid_overlay",
     "campbell_arc_model": "primary",
     "negative_space_model": "primary",
+    "plot_connection_review": "resolved_option_a_plus_c",
     "chapter1_opening": "pass",
-    "chapter2_ordinary_world": "pass_after_subtraction",
-    "chapter3_institutional_friction": "pass_after_subtraction",
-    "chapter4_research_trial": "pass_after_subtraction",
-    "opening_four_continuity": "pass_with_material_stakes_warning",
+    "chapter2_ordinary_world": "pass_after_braid_retrofit",
+    "chapter3_institutional_friction": "pass_after_braid_retrofit",
+    "chapter4_research_trial": "pass_after_braid_retrofit",
     "prose_canon": "still_not_fixed"
   },
   "open_reviews": [
     {
       "id": "review:plot-connection-ch01-ch04",
       "bus_message": "runtime/message-bus/messages/2026-10-11-0001-plot-connection-review.json",
+      "resolution_message": "runtime/message-bus/messages/2026-10-11-0002-plot-connection-decision.json",
       "artifact": "runtime/adaptation/storyteller/reader-plot-connection-review-v1.json",
+      "resolution_artifact": "runtime/adaptation/storyteller/plot-connection-resolution-v1.json",
       "raised": "2026-10-11",
       "raised_by": "human_reader",
-      "status": "open_blocking_for_chapter5",
-      "summary": "前四章之间没有因果剧情连接；braid 与长期弧线只存在于架构层，正文不可见。",
-      "must_resolve_before_chapter5": true,
-      "options": ["option-a: visible braid cue", "option-b: add causal mainline (may violate ensemble rule)", "option-c: keep, converge later"]
+      "status": "resolved_option_a_plus_c",
+      "summary": "前四章增加可感知弱编织；Chapter5 起用历史已有结果回收前因；不增加统一强因果主线。",
+      "must_resolve_before_chapter5": false
     }
   ],
-  "current_stage": "chapter4_passed_select_chapter5_material_threshold",
+  "chapter5_selected": {
+    "working_title": "第一次有结果",
+    "primary_viewpoint": "zhou_ye",
+    "historical_window": "2027-07 to 2027-12",
+    "campbell_function": "threshold_with_partial_payoff",
+    "evidence_refs": ["2027q3:e03", "2027q3:e04", "2027q4:e04", "2027q4:e05", "2027q4:e06", "2027q4:e17", "2027q4:e18"],
+    "visible_action": "周野的复现包在技术筛查中第一次成为可检查工作证据；进入最终面试、拿到国企 offer、把城市住房和家庭距离一起计算，年末与高原和罗诚吃饭。",
+    "braid_function": "支付 Ch1 的种子，并通过真实同学饭局让 Zhou/Gao/Luo 三条路线第一次在正文中相遇。",
+    "do_not": ["不要把复现包写成万能钥匙", "不要用周野录用反衬罗诚失败", "不要让饭局总结人生路线", "不要重新把许航放到中心"]
+  },
+  "current_stage": "plot_connection_resolved_chapter5_payoff_ready_for_full_disposable_draft",
   "next_stage_gate": {
-    "required_before_chapter5_full_draft": [
-      "resolve open review review:plot-connection-ch01-ch04 (chapters 1-4 lack causal plot connection; braids and long arcs are not legible in prose) and record the chosen option in open_reviews",
-      "shift away from code/document verification into money, city, time, family geography or embodied work rhythm",
-      "keep Xu Hang off center and let Tang Yu's line recede temporarily",
-      "use a threshold/refusal scene that advances a different hero arc",
-      "preferred candidates: Gao Yuan hometown civil-service offer and Chen Lan good-offer refusal",
-      "if braided, keep both decisions locally incomplete and forbid a universal comparison lesson",
-      "draft and revise only chapter5 before advancing"
+    "required_before_chapter6": [
+      "draft Chapter5 as one full disposable chapter centered on Zhou Ye, with year-end classmate dinner as short convergence rather than equal-weight montage",
+      "include money, city, housing and family-distance stakes so the register moves away from screens and documents",
+      "make the technical-screen payoff partial: the package helps, but final hiring still evaluates role understanding and collaboration",
+      "introduce Gao Yuan through the existing classmate dinner with one clear behavioral hook and no biography dump",
+      "let Luo Cheng's route revision be visible without replaying Chapter3 or turning him into the losing comparison",
+      "revise Chapter5 once by subtraction and audit whether the first five chapters now read as one novel rather than linked profiles"
     ],
-    "drafting_rule": "Only one new full chapter at a time may advance to review. Every full chapter must pass anti-AI subtraction review and long-arc/negative-space review before the next one begins."
+    "drafting_rule": "Only one new full chapter at a time may advance to review. Every full chapter must pass anti-AI subtraction, long-arc/negative-space, and cross-chapter consequence review before the next one begins."
   }
 }
