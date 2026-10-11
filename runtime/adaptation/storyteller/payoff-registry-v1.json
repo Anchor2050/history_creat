@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_only_noncanonical",
+  "source_probe": "docs/adaptation/central-event-probes/ch01-risk-list-v1.md",
+  "items": [
+    {
+      "id": "setup:risk_row_incomplete_followup",
+      "first_appearance": "ch01 opening",
+      "surface_reading": "the model appears to classify an obviously incomplete-follow-up record as low risk",
+      "future_function": "forces separation of data completeness, censoring assumptions, scoring logic and workflow use",
+      "must_not_resolve_as": "simple bad-model reveal",
+      "payoff_window": "early-middle central-event arc"
+    },
+    {
+      "id": "setup:version_342_vs_350",
+      "first_appearance": "ch01 early",
+      "surface_reading": "old model version ran overnight",
+      "future_function": "initial convenient explanation that later proves only partial",
+      "must_not_resolve_as": "single root cause",
+      "payoff_window": "within first 3-5 chapters"
+    },
+    {
+      "id": "setup:list_used_before_review",
+      "first_appearance": "ch01 middle",
+      "surface_reading": "hospital side already exported a list for operational use",
+      "future_function": "turns technical anomaly into responsibility and real-world consequence",
+      "must_not_resolve_as": "automatic harm",
+      "payoff_window": "within first 2-4 chapters"
+    },
+    {
+      "id": "setup:screenshot_leaked",
+      "first_appearance": "ch01",
+      "surface_reading": "external people already possess a screenshot",
+      "future_function": "creates public narrative pressure and information asymmetry",
+      "must_not_resolve_as": "random gossip with no source or consequence",
+      "payoff_window": "source path should narrow by middle arc; motive may remain ambiguous longer"
+    },
+    {
+      "id": "setup:screenshot_timestamp_precedes_current_batch",
+      "first_appearance": "ch01 final turn",
+      "surface_reading": "the leaked screenshot cannot be from the batch currently under review",
+      "future_function": "expands incident from one bad run to multiple runs/versions and makes early explanation insufficient",
+      "must_not_resolve_as": "author trick with no operational meaning",
+      "payoff_window": "immediate next chapter must act on this discovery"
+    },
+    {
+      "id": "setup:project_office_72h_deadline",
+      "first_appearance": "ch01",
+      "surface_reading": "joint preliminary explanation due in three days",
+      "future_function": "forces decisions before full certainty and creates faction conflict",
+      "must_not_resolve_as": "background decoration",
+      "payoff_window": "dominant clock of opening movement"
+    },
+    {
+      "id": "setup:director_fact_not_conclusion",
+      "first_appearance": "ch01",
+      "surface_reading": "office director distinguishes reportable facts from unsupported conclusion",
+      "future_function": "establishes an institutional ethics line that later becomes costly to maintain",
+      "must_not_resolve_as": "always-correct mentor voice",
+      "payoff_window": "must later encounter a situation where caution itself has a cost"
+    },
+    {
+      "id": "setup:luo_process_memory",
+      "first_appearance": "ch01",
+      "surface_reading": "Luo notices timestamps, versions, preservation and who knew what when",
+      "future_function": "makes his process-oriented background causally useful without explaining biography",
+      "must_not_resolve_as": "Luo becomes all-purpose investigator",
+      "payoff_window": "recurs throughout central-event arc"
+    }
+  ],
+  "rule": "Any conspicuous new fact, object, anomaly, promise, name or discrepancy added later must enter this registry or be deleted during revision. A setup without a planned consequence is presumed waste."}
