@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "status": "sck_v0_tests_executed_passing",
+  "status": "sck_v0_tests_passing_live_runner_implemented_ab_not_run",
   "historical_world_writeback": false,
   "purpose": "Provide a reusable high-skill strategic cognition layer between StoryBox visibility/legal-action state and StoryBox world resolution.",
   "design_spec": "docs/adaptation/storybox-strategic-cognition-kernel-v1.md",
@@ -9,6 +9,8 @@
     "core": "narrative/longform/storybox_sck_v0.py",
     "textarena_secret_mafia_adapter": "narrative/longform/storybox_textarena_secret_mafia_adapter_v0.py",
     "evaluation": "narrative/longform/storybox_sck_eval_v0.py",
+    "textarena_secret_mafia_live_runner": "narrative/longform/storybox_textarena_secret_mafia_live_v0.py",
+    "live_runner_tests": "tests/test_storybox_secret_mafia_live_v0.py",
     "tests": "tests/test_storybox_sck_v0.py",
     "eval_tests": "tests/test_storybox_sck_eval_v0.py",
     "tests_status": "executed_passing",
@@ -19,6 +21,19 @@
       "pytest": "9.0.2",
       "result": "7 passed",
       "note": "The SCK tests are pytest-style functions, not unittest.TestCase classes. 'python -m unittest discover -s tests' collects 0 of them, so HANDOFF.md's unittest command cannot verify this component."
+    },
+    "live_runner_status": "implemented_and_executed",
+    "live_runner_environment": {
+      "textarena": "0.7.4",
+      "virtualenv": ".venv-textarena",
+      "install": "python -m venv .venv-textarena && .venv-textarena/Scripts/python.exe -m pip install textarena pytest"
+    },
+    "live_runner_command": ".venv-textarena/Scripts/python.exe -m pytest tests/test_storybox_secret_mafia_live_v0.py -q",
+    "live_runner_evidence": {
+      "executed_at": "2026-10-11",
+      "interpreter": "CPython 3.13.5",
+      "pytest": "9.1.1",
+      "result": "24 passed (17 offline + 7 live)"
     }
   },
   "implemented_capabilities": [
@@ -33,7 +48,11 @@
     "SecretMafia hidden-role world enumeration",
     "SecretMafia visible-state to StrategicObservation adapter",
     "TextArena structured target-action rendering",
-    "replay/action-regret/Brier/leakage evaluation helpers"
+    "replay/action-regret/Brier/leakage evaluation helpers",
+    "live TextArena SecretMafia self-play runner (one policy drives every seat)",
+    "actor-view boundary: roles recovered only from the actor's own private prompt",
+    "explicit hand-specified behavior evidence model (night kill, doctor save)",
+    "static and empirical information-leakage audits for the decision path"
   ],
   "deliberately_not_implemented_yet": [
     "LLM strategy-candidate generation",
@@ -44,8 +63,21 @@
     "bi-level strategy search",
     "strategy library/self-play league",
     "nested theory of mind beyond one-step opponent action models",
-    "live TextArena runner"
+    "vote-target evidence (blocked by the environment, see environment_constraints)"
   ],
+  "environment_constraints": {
+    "verified_against": "textarena 0.7.4",
+    "vote_targets_are_not_observable": "textarena.core.State.add_observation strips role tags from every PLAYER_ACTION message, so structured votes arrive as the empty string. Vote targets cannot be observed and no vote-based evidence model is possible in live play.",
+    "observable_evidence_events": [
+      "Player X was killed during the night.",
+      "No one was killed tonight.",
+      "Player X was eliminated by vote.",
+      "Player X IS [NOT] a Mafia member. (Detective, private)"
+    ],
+    "day_number_never_increments": "The environment never advances game_state['day_number'], so the runner keeps its own night counter.",
+    "global_random_seeding": "SecretMafiaEnv.reset seeds the global random module. Policies therefore use their own random.Random instance so they cannot perturb environment randomness.",
+    "consequence": "Actionable public evidence for alignment is thin at 6 players: a night kill removes a candidate who is already dead, so it does not discriminate among living candidates. The live A/B must be read with this limitation."
+  },
   "strict_boundaries": [
     "SCK never receives StoryBox backstage truth.",
     "Evaluation may use truth only after decisions have been recorded.",
@@ -55,8 +87,8 @@
   ],
   "benchmark_plan": "runtime/adaptation/storybox/sck-secret-mafia-ab-v0.json",
   "next_gate": [
-    "add a live TextArena runner for SecretMafia-v0",
     "run 50-episode shared-seed A/B smoke test across plain/memory/belief/belief_planning",
+    "report win/utility, per-role result, Brier/calibration, action regret and information leakage, marking uncomputable metrics unavailable",
     "only after measurable improvement add MCTS or bi-level search"
   ]
 }
