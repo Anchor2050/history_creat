@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2032-q1",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2032-01-01","end":"2032-03-31"},
+  "generation_mode": "chatgpt_product_interaction_chain",
+  "era_lens": [
+    "2032首次进入中期职业再评价：角色拥有几年真实工作数据，重新进入市场的成本与当前岗位收益都不再抽象。",
+    "外部市场校准可以先于求职，避免把不满直接翻译成离职。",
+    "研究项目第一次接受真正外部审稿，外部反馈可以推翻内部对成熟度的判断。"
+  ],
+  "exogenous_hard_world_events": [
+    {"event_id":"2032q1:editorial01","at":"2032-03-14","kind":"editorial_decision","actor":"tang_yu","project":"mechanism_boundary_manuscript","result":"major_revision","review_focus":["clarify mechanism boundary","separate theoretical necessity from observed counterexample","justify validation role and scope"],"visibility":"authors_only"},
+    {"event_id":"2032q1:market01","at":"2032-02-11","kind":"public_market_scan","actor":"gao_yuan","result":"few_matching_roles_with_higher_growth_but_material_city_housing_and_security_costs","visibility":"private_to_actor"},
+    {"event_id":"2032q1:market02","at":"2032-02-13","kind":"public_market_scan","actor":"luo_cheng","result":"several_research_support_or_data_coordination_roles_exist_but_most_require_city_move_or_lower_role_fit","visibility":"private_to_actor"},
+    {"event_id":"2032q1:market03","at":"2032-02-20","kind":"public_market_scan","actor":"song_nan","result":"portable_casebook_maps_to_multiple_statistics_and_data_roles_but_market_values_domain_delivery_experience_more_than_methods_labels","visibility":"private_to_actor"}
+  ],
+  "windows": [
+    {"packet_id":"micro:chatbot:2032-01:gao-luo-reassessment-start:01","start_date":"2032-01-10","end_date":"2032-01-10","event_kind":"structured_midcareer_reassessment","participants":["gao_yuan","luo_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-02:gao-market-read:01","start_date":"2032-02-12","end_date":"2032-02-12","event_kind":"public_market_calibration","participants":["gao_yuan","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-02:luo-market-read:01","start_date":"2032-02-14","end_date":"2032-02-14","event_kind":"public_market_calibration","participants":["luo_cheng","lin_jing"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-02:song-market-calibration:01","start_date":"2032-02-22","end_date":"2032-02-22","event_kind":"external_market_calibration","participants":["song_nan","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-03:tang-xu-review-response:01","start_date":"2032-03-16","end_date":"2032-03-16","event_kind":"major_revision_response_planning","participants":["tang_yu","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-03:tang-shen-review-scope:01","start_date":"2032-03-22","end_date":"2032-03-22","event_kind":"major_revision_scope_review","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2032-03:lin-year-two-boundary:01","start_date":"2032-03-28","end_date":"2032-03-28","event_kind":"university_role_year_two_boundary_check","participants":["lin_jing","chen_lan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events": [
+    {"event_id":"2032q1:e01","kind":"social_interaction","at":"2032-01-10","event_kind":"structured_midcareer_reassessment","speaker":"gao_yuan","listener":"luo_cheng","act":"share_experience","content":"高原把三年工作的收益和成本分别列出来：低住房、近家庭、稳定时间依然很值钱，但新问题和角色扩展几乎没有增加；他决定先看市场，不先写辞职理由。","channel":"phone","evidence":"2031再评价候选进入正式比较。"},
+    {"event_id":"2032q1:e02","kind":"social_interaction","at":"2032-01-10","event_kind":"structured_midcareer_reassessment","speaker":"luo_cheng","listener":"gao_yuan","act":"share_experience","content":"罗诚的研究支持内容越来越适配，但平台层级、城市机会和岗位晋升空间仍有限；他也决定先做市场校准，再看是否值得把适配内容换成更大平台。","channel":"phone","evidence":"三年角色收益与平台上限同时存在。"},
+
+    {"event_id":"2032q1:e03","kind":"social_interaction","at":"2032-02-12","event_kind":"public_market_calibration","speaker":"gao_yuan","listener":"lin_jing","act":"share_experience","content":"高原看了公开岗位后发现，成长密度更高的选择通常伴随更远城市、更高住房或更低安全感；市场没有给他一个明显占优的新答案。","channel":"video_call","evidence":"公开市场扫描结果。"},
+    {"event_id":"2032q1:e04","kind":"social_interaction","at":"2032-02-12","event_kind":"public_market_calibration","speaker":"lin_jing","listener":"gao_yuan","act":"offer_information","content":"林静建议他别把‘没有明显更优选项’理解成当前岗位就是最优，只把它记录成这一次再进入市场的机会成本比想象中高。","channel":"video_call","evidence":"防止市场扫描被解释成终身留任证明。"},
+
+    {"event_id":"2032q1:e05","kind":"social_interaction","at":"2032-02-14","event_kind":"public_market_calibration","speaker":"luo_cheng","listener":"lin_jing","act":"share_experience","content":"罗诚发现公开市场上确实有更大平台的研究支持或数据协调岗位，但大多需要搬城，有些工作内容反而比当前岗位更远离研究判断。","channel":"video_call","evidence":"市场存在但bundle和内容匹配不占优。"},
+    {"event_id":"2032q1:e06","kind":"social_interaction","at":"2032-02-14","event_kind":"public_market_calibration","speaker":"lin_jing","listener":"luo_cheng","act":"offer_information","content":"林静让他把‘平台更大’和‘工作更像自己想做的’分开；罗诚决定只对内容和平台都显著改善的岗位打开申请。","channel":"video_call","evidence":"形成选择性申请门槛。"},
+
+    {"event_id":"2032q1:e07","kind":"social_interaction","at":"2032-02-22","event_kind":"external_market_calibration","speaker":"song_nan","listener":"chen_lan","act":"share_experience","content":"宋楠用便携案例去对照公开岗位后发现，外部市场确实能读懂她的范围、版本和风险判断，但真正有区分度的仍是医药领域交付经验，而不是生存分析方法名。","channel":"video_call","evidence":"便携案例首次用于外部岗位可读性校准。"},
+    {"event_id":"2032q1:e08","kind":"social_interaction","at":"2032-02-22","event_kind":"external_market_calibration","speaker":"chen_lan","listener":"song_nan","act":"offer_information","content":"陈岚说这说明她的专业身份已经可以离开公司名字存在，但下一步要比较的是外部岗位能否同时改善学习、城市或家庭距离，不能为了证明可迁移就随便投。","channel":"video_call","evidence":"市场校准不自动触发求职。"},
+
+    {"event_id":"2032q1:e09","kind":"social_interaction","at":"2032-03-16","event_kind":"major_revision_response_planning","speaker":"tang_yu","listener":"xu_hang","act":"share_experience","content":"外审给出major revision，最尖锐的问题仍集中在边界：反例能证明什么、理论必要性究竟到哪一步、验证设计是不是只适用于当前问题。","channel":"video_call","evidence":"真实外审第一次重新检验内部叙事。"},
+    {"event_id":"2032q1:e10","kind":"social_interaction","at":"2032-03-16","event_kind":"major_revision_response_planning","speaker":"xu_hang","listener":"tang_yu","act":"make_plan","content":"许航决定补写验证框架为何足以支持当前边界判断，同时主动列出它不支持的更广结论；两人不准备为了回应审稿而重新放大命题。","channel":"video_call","evidence":"验证部分回应范围保持收缩。"},
+
+    {"event_id":"2032q1:e11","kind":"social_interaction","at":"2032-03-22","event_kind":"major_revision_scope_review","speaker":"tang_yu","listener":"shen_yan","act":"share_experience","content":"唐雨把审稿意见分成可通过解释解决、需要补一个局部证明、以及不能诚实解决的三类；第三类准备直接承认限制，不用新假设掩盖。","channel":"in_person","evidence":"外部评价继续强化诚实边界。"},
+    {"event_id":"2032q1:e12","kind":"social_interaction","at":"2032-03-22","event_kind":"major_revision_scope_review","speaker":"shen_yan","listener":"tang_yu","act":"offer_information","content":"沈雁认为major revision不是奖励也不是失败，关键是修后版本是否仍然是一篇完整的小结果；如果为了回应所有意见把问题重新做大，宁愿缩短回应。","channel":"in_person","evidence":"修稿仍受机制尺度约束。"},
+
+    {"event_id":"2032q1:e13","kind":"social_interaction","at":"2032-03-28","event_kind":"university_role_year_two_boundary_check","speaker":"lin_jing","listener":"chen_lan","act":"share_experience","content":"林静第二年开头仍能保住固定研究块，但已经看到新一轮服务请求重新增加；她没有立刻拒绝全部，而是继续区分正式职责和可替代额外工作。","channel":"video_call","evidence":"第一年边界并非永久完成。"},
+    {"event_id":"2032q1:e14","kind":"social_interaction","at":"2032-03-28","event_kind":"university_role_year_two_boundary_check","speaker":"chen_lan","listener":"lin_jing","act":"offer_information","content":"陈岚说真正的锁定不是工作变多，而是几年后你开始觉得这些额外工作已经是‘自己应该做的’；林静决定继续记录哪些服务是角色变化，哪些只是习惯性接活。","channel":"video_call","evidence":"第二年路径依赖监测。"}
+  ],
+  "hard_world_candidate_updates": [
+    {"candidate_id":"candidate:2031-09:gao-luo-2032-reassessment:01","checked_at":"2032-02-14","checks":{"gao_market_scan_complete":true,"luo_market_scan_complete":true,"current_role_benefits_documented":true,"city_lock_in_visible":true,"competing_offer_exists":false},"result":"market_calibration_complete_no_immediate_exit_noncanonical","resource_effect":"selective search thresholds clarified"},
+    {"candidate_id":"candidate:2031-12:song-2032-market-calibration:01","checked_at":"2032-02-22","checks":{"public_market_information":true,"portable_casebook_ready":true,"time_capacity":true,"no_confidential_material":true},"result":"market_legibility_confirmed_no_search_required_noncanonical","resource_effect":"external role criteria clarified"},
+    {"candidate_id":"candidate:2031-q2:tang-final-submission-assembly:01","checked_at":"2032-03-14","checks":{"external_decision_received":true,"decision":"major_revision"},"result":"major_revision_open_noncanonical","resource_effect":"revision work required; no acceptance fact"}
+  ],
+  "new_hard_world_candidates": [
+    {"candidate_id":"candidate:2032-q1:gao-selective-market-entry:01","created_at":"2032-02-12","type":"selective_job_search_threshold","beneficiary":"gao_yuan","description":"只对能显著增加成长密度且城市/住房/安全成本可承受的公开岗位考虑申请。","requires_checks":["matching_public_opening","growth_gain_material","bundle_cost_acceptable","time_capacity"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2032-q1:luo-selective-market-entry:01","created_at":"2032-02-14","type":"selective_job_search_threshold","beneficiary":"luo_cheng","description":"只对工作内容与平台同时显著改善的岗位打开申请。","requires_checks":["matching_public_opening","research_content_gain","platform_gain","bundle_cost_acceptable"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2032-q1:song-selective-market-entry:01","created_at":"2032-02-22","type":"selective_job_search_threshold","beneficiary":"song_nan","description":"只有外部岗位能明确改善学习、城市/家庭距离或长期可逆性时才考虑实际投递。","requires_checks":["matching_public_opening","learning_or_bundle_gain","portable_casebook_relevant","time_capacity"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2032-q1:tang-major-revision:01","created_at":"2032-03-14","type":"manuscript_major_revision","beneficiary":"tang_yu","description":"在不重新放大命题的前提下回应边界、局部证明和验证适用范围问题。","requires_checks":["response_matrix_complete","local_proof_gap_closed_or_limitation_admitted","validation_scope_rewritten","all_authors_approve_revision"],"status":"open_noncanonical"}
+  ],
+  "actor_state_evidence": [
+    {"at":"2032-02-12","actor":"gao_yuan","dimension":"midcareer_reassessment","evidence":"三年再评价后未发现明显占优替代路径，决定只对显著改善成长且成本可接受的岗位开放。","status":"candidate_state_evidence"},
+    {"at":"2032-02-14","actor":"luo_cheng","dimension":"midcareer_reassessment","evidence":"更大平台并不自动改善工作内容，形成内容与平台双门槛的选择性申请标准。","status":"candidate_state_evidence"},
+    {"at":"2032-02-22","actor":"song_nan","dimension":"market_legibility","evidence":"便携案例在公开市场语境中可读，专业身份不再依赖公司名称；真正区分度来自领域交付经验。","status":"candidate_state_evidence"},
+    {"at":"2032-03-14","actor":"tang_yu","dimension":"external_review","evidence":"首次外审为major revision，外部评价继续要求更清楚的机制、必要性和验证边界。","status":"candidate_state_evidence"},
+    {"at":"2032-03-28","actor":"lin_jing","dimension":"second_year_role_boundary","evidence":"第二年服务请求再次增加，第一年边界需要持续维护而非一次性解决。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence": [
+    {"at":"2032-03-16","pair":["tang_yu","xu_hang"],"direction":"positive","evidence":"外审压力下两人继续共同缩小验证主张，没有用修稿机会重新放大贡献。"},
+    {"at":"2032-01-10","pair":["gao_yuan","luo_cheng"],"direction":"positive","evidence":"三年后仍能交换职业再评价框架，同时保持各自申请信息和决策边界。"}
+  ],
+  "storyteller_index_delta": {
+    "new_material_threads": [
+      "midcareer reassessment meets a market with no obvious dominant alternative",
+      "Song's portable professional identity becomes externally legible before job search",
+      "Tang/Xu receive major revision that independently reopens the same boundary questions the internal history had identified",
+      "Lin's first-year boundary success now faces second-year maintenance rather than closure"
+    ],
+    "world_writeback": false
+  },
+  "audit_rules": {
+    "single_batch_noncanonical": true,
+    "generated_through_interaction_chain": true,
+    "market_scan_does_not_equal_job_search": true,
+    "larger_platform_does_not_equal_better_role": true,
+    "major_revision_is_not_acceptance_or_rejection": true,
+    "external_review_can_reverse_internal_readiness": true,
+    "storyteller_is_read_only": true,
+    "family_age_alone_cannot_create_health_or_care_crisis": true
+  }
+}
