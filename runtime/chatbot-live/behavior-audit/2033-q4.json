@@ -1,0 +1,17 @@
+{
+  "schema_version":11,
+  "period":"2033-q4",
+  "status":"behavior_audit_noncanonical",
+  "backend":"chatgpt_product_conversation",
+  "source_batch":"runtime/chatbot-live/batches/2033-q4.json",
+  "abnormal_budget":1,
+  "abnormal_used":0,
+  "decisions":[
+    {"actor_id":"song_nan","mode":"normal","chosen_action_id":"retain_second_role_after_full_year_mixed_bundle_review","baseline_expected_action":"Evaluate the deliberate lower-pay move from lived professional judgment and life-bundle evidence rather than prestige comparison.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Full-year review confirms lower living/family-distance costs and preserved judgment alongside moderate learning growth.","constraint_check":{"feasible":true,"notes":"No exit trigger or better alternative is present."},"evidence_refs":["2033q4:role01","2033q4:e01","2033q4:e02"]},
+    {"actor_id":"lin_jing","mode":"normal","chosen_action_id":"give_narrow_long_question_one_more_year","baseline_expected_action":"Retain a slow problem only if negative progress leaves a clearer mechanism question, not because time has already been spent.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Two directions were eliminated and the remaining narrow question remains meaningful at year-end.","constraint_check":{"feasible":true,"notes":"No output commitment is imposed and formal duties remain compatible."},"evidence_refs":["2033q4:research01","2033q4:e03","2033q4:e04"]},
+    {"actor_id":"xu_hang","mode":"normal","chosen_action_id":"separate_personal_validation_identity_from_method_transferability","baseline_expected_action":"Use failure cases to reduce method claims while retaining evidence about personal design capability.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"A new use case requires too much expert intervention for independent transfer.","constraint_check":{"feasible":true,"notes":"Identity evidence remains; method maturity claim is reduced."},"evidence_refs":["2033q4:validation01","2033q4:e05","2033q4:e06"]},
+    {"actor_id":"he_xin","mode":"normal","chosen_action_id":"reassess_role_value_before_future_home_purchase","baseline_expected_action":"Keep career and housing lock-in as separate decisions after repeated cash blockage.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"Cash improves but learning growth remains low; 2035 housing should not precede role-value review.","constraint_check":{"feasible":true,"notes":"Role review can occur while renting and staying employed."},"evidence_refs":["2033q4:review01","2033q4:e09","2033q4:e10"]},
+    {"actor_id":"tang_yu","mode":"normal","chosen_action_id":"allow_research_gap_to_continue_without_forced_project","baseline_expected_action":"Do not turn output anxiety into a fabricated research line after a long project closes.","deviation":"","trigger_type":null,"trigger_refs":[],"reason":"A full post-acceptance year still produces no mature new line, only scattered questions.","constraint_check":{"feasible":true,"notes":"No hard-world requirement forces a new project."},"evidence_refs":["2033q4:e13","2033q4:e14"]}
+  ],
+  "audit_rule":"Q4 remains normal. Mixed stability, method failure, career review and research gaps are preserved rather than dramatized into abrupt reversals."
+}
