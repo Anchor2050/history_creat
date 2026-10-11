@@ -1,0 +1,27 @@
+{
+  "schema_version":1,
+  "status":"read_only_storyteller_diagnostic_noncanonical",
+  "as_of":"2031-03-31",
+  "source_batches":["runtime/chatbot-live/batches/2031-q1.json"],
+  "world_writeback":false,
+  "literary_generation_enabled":false,
+  "recommendation":"continue_history",
+  "evidence_threads":[
+    {"thread":"lin_first_job_reality","evidence_refs":["2031q1:e01","2031q1:e02","2031q1:e03"],"diagnostic":"合同层面的研究自主开始接受日常时间结构检验；证据尚不足以判断长期适配。"},
+    {"thread":"housing_lock_in_diverges","evidence_refs":["2031q1:e10","2031q1:e11","2031q1:e12","2031q1:e13","2031q1:e14"],"diagnostic":"同城两条独立住房线产生不同阻断机制：周野是承诺/流动性不一致，何欣是现金缓冲硬约束；不存在联合住房决策。"},
+    {"thread":"stability_vs_growth","evidence_refs":["2031q1:e08","2031q1:e09"],"diagnostic":"高原第三年首次把熟练与成长密度下降分开记录；没有家庭危机或外部求职事实。"},
+    {"thread":"portable_skill_without_exit","evidence_refs":["2031q1:e06","2031q1:e07"],"diagnostic":"宋楠的便携案例开始发挥选择权保险功能，同时高住房与家庭距离成本仍未触发跳槽。"},
+    {"thread":"organizational_identity","evidence_refs":["2031q1:e04","2031q1:e05"],"diagnostic":"陈岚第二年更重视保留问题判断能力，研究者身份标签本身的重要性下降。"},
+    {"thread":"boundary_roles_remain_people","evidence_refs":["2031q1:e15","2031q1:e16"],"diagnostic":"孙洁与赵珂各自承受制度边界的二阶判断成本，未被降格为他人剧情工具。"}
+  ],
+  "open_threads":[
+    "Tang Yu submission argument/contribution closure and Xu Hang coauthor responsibility check",
+    "Xu Hang validation-standard negative applicability boundary",
+    "Luo Cheng third-year research-content share and regional-city reversibility",
+    "Shen Yan and Gu Wei personal/work-boundary scenes",
+    "Lin Jing first-semester research-time versus service-load evidence",
+    "Gao Yuan internal growth-density candidate",
+    "Song Nan year-four learning-value threshold"
+  ],
+  "audit_rule":"Chronology is not causality. Every diagnostic above is indexed to ledger evidence and cannot mutate world state."
+}
