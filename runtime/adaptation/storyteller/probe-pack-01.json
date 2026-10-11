@@ -1,0 +1,82 @@
+{
+  "schema_version":1,
+  "status":"adaptation_probe_pack_noncanonical",
+  "historical_world_writeback":false,
+  "source_head":"runtime/adaptation/storyteller/adaptation-head-v1.json",
+  "purpose":"Test voice, human contradiction, local antagonism and anti-AI prose before any chapter is fixed.",
+  "probes":[
+    {
+      "probe_id":"probe01-ordinary-trip",
+      "scene_id":"s03-summer-trip-not-career",
+      "mode":"restrained",
+      "test_goal":"Can ordinary social time carry character difference without turning every line into career exposition or symbolic foreshadowing?",
+      "primary_viewpoint":"song_nan",
+      "must_show":[
+        "宋楠的反应速度和职业敏感性存在，但旅行仍然主要是旅行",
+        "陈岚介绍宋楠和许航认识时不广播私人信息",
+        "至少一段对话完全不服务情节推进",
+        "不同人物的语气和注意力可区分"
+      ],
+      "must_avoid":[
+        "窗外风景自动象征人生",
+        "人物突然总结博士生共同命运",
+        "所有人围绕职业问题说高质量金句",
+        "为了文艺强行安排沉默和凝视"
+      ],
+      "success_test":"删掉所有主题解释句后，场景仍然让人愿意继续读，并能感到宋楠与其他人的节奏不同。"
+    },
+    {
+      "probe_id":"probe02-local-antagonist",
+      "scene_id":"s04-luo-posting-read",
+      "mode":"closer_to_character",
+      "test_goal":"Can Sun Jie function as a local threshold guardian without becoming a bureaucratic obstacle or benevolent mentor stereotype?",
+      "primary_viewpoint":"luo_cheng",
+      "must_show":[
+        "罗诚希望这份高校岗位能解释自己的博士身份",
+        "孙洁坚持权限和真实经历边界，有充分正当理由",
+        "孙洁的正确做法仍可以让罗诚感到一点难堪或受阻",
+        "罗诚不能立刻把被指出短板理解成成长机会"
+      ],
+      "must_avoid":[
+        "孙洁说教式输出人生道理",
+        "罗诚当场顿悟",
+        "把制度边界写成坏制度或好制度",
+        "用旁白替双方宣布谁对谁错"
+      ],
+      "success_test":"读者能同时理解罗诚为什么想继续申请，也理解孙洁为什么不能替他补空缺。"
+    },
+    {
+      "probe_id":"probe03-virtue-shadow",
+      "scene_id":"s23-zhou-second-judge",
+      "mode":"closer_to_character",
+      "test_goal":"Can Zhou Ye's reliability appear simultaneously admirable and controlling when another colleague begins handling work he used to own?",
+      "primary_viewpoint":"zhou_ye",
+      "must_show":[
+        "周野确实想降低单点依赖",
+        "别人真正学会以后，他并不会只有纯粹欣慰",
+        "他的犹豫不能被写成嫉妒标签；应通过检查、插手冲动、交接细节显现",
+        "许航只帮助设计判断转移，不替周野做情绪解释"
+      ],
+      "must_avoid":[
+        "把周野写成控制狂",
+        "把授权写成领导力鸡汤",
+        "旁白直接说他享受被需要",
+        "第二判断者一学就会、组织问题一次解决"
+      ],
+      "success_test":"读者可以同时觉得周野是好同事，又隐约看见他的好为什么会让别人长不出来。"
+    }
+  ],
+  "shared_evaluation_rubric":[
+    "voice differentiation",
+    "concrete action before abstraction",
+    "emotion present without full self-diagnosis",
+    "virtue and shadow coexist",
+    "power structure changes behavior",
+    "no hindsight leakage",
+    "no AI thesis sentence",
+    "no forced symbolism",
+    "no historical fact invention",
+    "ending can remain unfinished"
+  ],
+  "rule":"All prose outputs from this pack are disposable. Nothing becomes canonical adaptation text until separately reviewed."
+}
