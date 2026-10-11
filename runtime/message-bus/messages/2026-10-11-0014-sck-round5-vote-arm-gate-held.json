@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "message_id": "2026-10-11-0014-sck-round5-vote-arm-gate-held",
+  "created_at": "2026-10-11",
+  "from": "Honeycomb/Debus",
+  "to": ["*"],
+  "topic": "sck:round-5-vote-arm-and-gate",
+  "kind": "agent_round_result",
+  "priority": "blocking_high",
+  "status": "resolved",
+  "commit": "b971863",
+  "branch": "chatgpt/career-six-cohort",
+  "historical_world_writeback": false,
+  "supersedes": [],
+  "refs": [
+    "runtime/adaptation/storybox/sck-secret-mafia-ab-v0-results-500-public-vote-arm.json",
+    "runtime/adaptation/storybox/sck-secret-mafia-ab-v0-arm-comparison.json",
+    "runtime/adaptation/storybox/sck-secret-mafia-ab-v0-results-500.json",
+    "runtime/adaptation/storybox/sck-head-v1.json",
+    "runtime/adaptation/storybox/sck-secret-mafia-ab-v0.json"
+  ],
+  "summary": "Round 5 restored the destroyed vote channel as a labelled arm. The belief then genuinely discriminates (Villager flat fraction 1.000 -> 0.164) but play gets much worse (village faction win rate 0.192 -> 0.036). The hand-specified evidence model is refuted, action regret is shown not to be a proxy for winning, and every downstream gate is held.",
+  "round_goal": "Add an explicitly labelled arm that reconstructs the day-vote record the environment destroys, verify through the discrimination diagnostic that the belief then discriminates, and re-measure play.",
+  "changed": [
+    "narrative/longform/storybox_textarena_secret_mafia_live_v0.py: ActorView gains public_vote_record and reconstructed_channels; the runner gains public_vote_record (default false) and tracks votes cast so far in the current voting round; the information-safety audit rejects an undeclared or unknown reconstructed channel; BeliefPolicy now consumes recorded_vote_evidence, which was previously dead code.",
+    "narrative/longform/storybox_sck_ab_v0.py: the harness and the discrimination diagnostic both accept the arm and record it in the design block.",
+    "tests/test_storybox_secret_mafia_live_v0.py: three new tests, including that the primary arm never carries a reconstructed record and that the arm restores discrimination.",
+    "runtime/adaptation/storybox/sck-secret-mafia-ab-v0-arm-comparison.json (new) and ...-results-500-public-vote-arm.json (new)."
+  ],
+  "information_boundary_note": "The arm is off by default so primary numbers stay strictly within what the environment delivers. Reconstruction preserves submission order, so an actor only ever sees votes cast before its own turn, which is what a public vote is. Because the content is reconstructed rather than delivered, every view declares reconstructed_channels and the audit enforces that declaration; an experiment using the arm is self-describing in its artifact.",
+  "measured_results": {
+    "channel_health_100_episodes": {
+      "flat_fraction_overall": {"primary": 0.741, "reconstructed": 0.465},
+      "flat_fraction_Villager": {"primary": 1.0, "reconstructed": 0.164},
+      "flat_fraction_day_voting": {"primary": 0.504, "reconstructed": 0.086},
+      "flat_fraction_Doctor": {"primary": 0.727, "reconstructed": 0.453},
+      "flat_fraction_Detective": {"primary": 0.795, "reconstructed": 0.481}
+    },
+    "play_500_shared_seeds": {
+      "mean_action_regret": {
+        "primary": {"plain": 0.643, "memory": 0.643, "belief": 0.541, "belief_planning": 0.492},
+        "reconstructed": {"plain": 0.643, "memory": 0.643, "belief": 0.533, "belief_planning": 0.503}
+      },
+      "village_faction_win_rate": {
+        "primary": {"plain": 0.146, "memory": 0.146, "belief": 0.192, "belief_planning": 0.304},
+        "reconstructed": {"plain": 0.146, "memory": 0.146, "belief": 0.036, "belief_planning": 0.068}
+      },
+      "mean_brier_village_side": {
+        "primary": {"belief": 0.0777, "belief_planning": 0.0772},
+        "reconstructed": {"belief": 0.0785, "belief_planning": 0.0783}
+      },
+      "information_leakage_count": {"primary": 0, "reconstructed": 0},
+      "consistency_check": "plain and memory are identical across both arms (regret 0.643, village win rate 0.146), confirming the arm only changes the informed variants and the shared seed schedule is intact."
+    }
+  },
+  "interpretation": [
+    "The channel repair worked. Restoring vote evidence cut the flat-marginal share from 74.1% to 46.5% overall, from 100% to 16.4% for Villagers, and from 50.4% to 8.6% in day voting. The belief becomes a real inference engine rather than a tie-break.",
+    "Per-decision quality barely moved (regret 0.541 -> 0.533 for belief) while outcomes collapsed: the village faction win rate fell to 0.036 and 0.068, both far below the uniform-random baseline of 0.146.",
+    "Therefore action regret is NOT a valid proxy for playing well in this game, and the harness's regret metric must not be read as a quality verdict on its own. This is a correction to how the earlier rounds' numbers should be interpreted.",
+    "The evidence model is mis-specified for play. recorded_vote_evidence only ever EXONERATES the player who was voted for: being voted for by a suspected Mafia lowers that player's Mafia probability. The informed village therefore systematically avoids whoever is under suspicion, scatters its votes, and never concentrates on a Mafia, while the Mafia seats keep a stable target. Giving the cognition component data made its strategy worse.",
+    "This is the source of failure step D asked for, and it is an SCK defect rather than only a substrate limitation."
+  ],
+  "gate_decision": {
+    "mcts_or_bilevel_search": "held",
+    "reconnect_sck_to_risk_list_hospital_scene": "held",
+    "reason": "SCK has no reproducible, auditable strategic improvement to offer the narrative system. In the primary arm its apparent gain is not attributable to cognition; in the arm where cognition actually engages, play gets materially worse. Reconnecting it now would inject an unvalidated component into StoryBox.",
+    "conditions_to_lift": [
+      "replace or replay-calibrate the evidence model so it can accuse as well as exonerate, with likelihoods fitted on replay rather than hand-specified",
+      "re-run the 500-episode comparison and require the informed variants to beat the uniform-random baseline on village faction win rate, not only on action regret",
+      "require a materially lower belief-discrimination flat fraction than the primary arm before claiming the mechanism engaged",
+      "extend to 8 and 10 players before any strength claim"
+    ]
+  },
+  "limits": [
+    "Self-play only: every seat runs the same policy, so the collapse in village win rate is a property of this policy against itself.",
+    "The reconstructed arm is a sensitivity arm, not a claim about what textarena really delivers.",
+    "6 players only, discussion_rounds=3, deterministic template discussion with no LLM listener.",
+    "The evidence model's likelihoods were never fitted; the arm shows they are wrong for play, not merely uncalibrated."
+  ],
+  "next_gate": "Replace or replay-calibrate the evidence model so it can accuse as well as exonerate, then re-run the 500-episode comparison with the village faction win rate as the acceptance metric alongside the discrimination flat fraction. Do not proceed to MCTS, bi-level search, or StoryBox reconnection until the informed variants beat the uniform-random baseline.",
+  "action_required": "This is a decision point rather than a routine result. Steps A, B, C and D of the chain are complete and E is deliberately not entered. A human or the next driver should confirm the evidence-model rebuild as the next objective, or overrule the gate with reasons."
+}

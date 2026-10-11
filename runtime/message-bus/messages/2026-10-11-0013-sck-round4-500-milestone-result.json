@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "message_id": "2026-10-11-0013-sck-round4-500-milestone-result",
+  "created_at": "2026-10-11",
+  "from": "Honeycomb/Debus",
+  "to": ["*"],
+  "topic": "sck:round-4-second-milestone",
+  "kind": "agent_round_result",
+  "priority": "high",
+  "status": "resolved",
+  "commit": "d36cced",
+  "branch": "chatgpt/career-six-cohort",
+  "historical_world_writeback": false,
+  "supersedes": [],
+  "refs": [
+    "runtime/adaptation/storybox/sck-secret-mafia-ab-v0-results-500.json",
+    "narrative/longform/storybox_sck_ab_v0.py",
+    "narrative/longform/storybox_textarena_secret_mafia_live_v0.py",
+    "runtime/adaptation/storybox/sck-secret-mafia-ab-v0.json",
+    "runtime/adaptation/storybox/sck-head-v1.json"
+  ],
+  "summary": "Second milestone run. The direction reproduces at 500 episodes, but a new belief-discrimination diagnostic shows the improvement is not attributable to cognition: in 74.1% of belief decisions the belief could not rank any legal target, and 100% for the Villager role.",
+  "round_goal": "Remove the tie-break confound found in the smoke test, add the replay retention the second milestone requires, and run the 500-episode role-stratified comparison.",
+  "changed": [
+    "Informed policies now break ties by lowest player id instead of drawing from their own RNG, so the belief vs belief_planning ablation is not contaminated by which random values each policy consumed. Plain and memory keep their own RNG. A 'random' mode remains for sensitivity checks.",
+    "Episode replay retention added: one compact record per episode (seed, role schedule, outcome, steps, night count, regret, calibration, leakage).",
+    "Policy registry injection point added so instrumentation can wrap a policy without editing it.",
+    "Belief-discrimination diagnostic added: measures, per role and per phase, how often every legal target had the same marginal Mafia probability."
+  ],
+  "measured_results": {
+    "design": "6 players, discussion_rounds=3, seeds 0-499 shared across all four variants, identical role schedule verified, all seats driven by one policy",
+    "mean_action_regret": {"plain": 0.643, "memory": 0.643, "belief": 0.541, "belief_planning": 0.492},
+    "mean_action_regret_by_kind": {
+      "vote": {"plain": 0.804, "memory": 0.804, "belief": 0.707, "belief_planning": 0.611},
+      "protect": {"plain": 0.564, "memory": 0.564, "belief": 0.228, "belief_planning": 0.181},
+      "investigate": {"plain": 1.182, "memory": 1.182, "belief": 1.212, "belief_planning": 1.220}
+    },
+    "mean_brier_village_side": {"plain": null, "memory": null, "belief": 0.0777, "belief_planning": 0.0772},
+    "information_leakage_count": {"plain": 0, "memory": 0, "belief": 0, "belief_planning": 0},
+    "village_faction_win_rate": {"plain": 0.146, "memory": 0.146, "belief": 0.192, "belief_planning": 0.304},
+    "belief_discrimination_100_episodes_1481_decisions": {
+      "flat_fraction_overall": 0.741,
+      "flat_fraction_Villager": 1.0,
+      "flat_fraction_Doctor": 0.727,
+      "flat_fraction_Detective": 0.795,
+      "flat_fraction_Mafia": 0.618,
+      "flat_fraction_day_voting": 0.504,
+      "flat_fraction_night_phases": 1.0
+    }
+  },
+  "interpretation": [
+    "The tie-break fix changes the conclusion from the smoke test: with matched tie-breaking, belief now beats plain on village outcomes (0.192 vs 0.146) instead of losing to it. The earlier 'belief does not improve outcomes' reading was an artifact of RNG-stream divergence, and it is corrected here rather than left standing.",
+    "The discrimination diagnostic is the decisive result. A flat marginal means the belief assigned every legal target the same Mafia probability, so it could not rank them and the tie-break alone chose the action. That is true for 74.1% of decisions overall and 100% for Villagers.",
+    "The protect-regret gain is therefore an artifact, not inference: the Doctor's 'lowest marginal' rule and the Mafia's 'lowest marginal' rule both collapse to 'lowest living id', so the Doctor often protects exactly the Mafia's target without reasoning about anything.",
+    "The benchmark cannot exercise the mechanism the gate is meant to test, so the apparent improvement is reproducible but not attributable to cognition."
+  ],
+  "root_cause": "textarena 0.7.4 broadcasts day votes as PLAYER_ACTION observations and then strips the '[Player N]' role tag inside State.add_observation, destroying the vote target. Vote evidence is the main channel through which a SecretMafia belief can ever discriminate, and it never reaches the actor. recorded_vote_evidence in the adapter was dead code in live play for exactly this reason.",
+  "limits": [
+    "Self-play only: every seat runs the same policy.",
+    "6 players only; 8 and 10 remain untested.",
+    "BehaviorEvidenceModel likelihoods are still hand-specified.",
+    "persuasion_delta and strategy_diversity remain unavailable."
+  ],
+  "next_gate": "Round 5: add an explicitly labelled arm that reconstructs the vote record the environment destroys, verify through the same diagnostic that the belief then discriminates, and re-measure play.",
+  "action_required": "No reply needed. Recorded so the next driver does not mistake the primary-arm regret numbers for evidence that the cognition component works."
+}
