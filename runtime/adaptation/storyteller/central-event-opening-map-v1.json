@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "status": "adaptation_only_noncanonical",
+  "central_event": "risk-list-incident",
+  "rule": "Every chapter exists because a concrete unresolved fact, obligation or consequence from the previous chapter forces it to exist. Character introduction is subordinate to causality.",
+  "chapters": [
+    {
+      "chapter": 1,
+      "working_title": "风险名单",
+      "focal": "luo_cheng",
+      "cause_from_previous": "none; inciting incident",
+      "live_problem": "a low-risk list contains an obviously suspicious record, an old version ran, the list was operationally exported, and a leaked screenshot predates the batch currently being investigated",
+      "must_change": [
+        "an anomaly becomes an institutional incident",
+        "72-hour clock starts",
+        "single-batch explanation becomes impossible"
+      ],
+      "setups": [
+        "v3.4.2 vs v3.5.0",
+        "hospital already exported a list",
+        "leaked screenshot timestamp 23:46 vs current batch 23:51",
+        "director insists on facts before conclusions"
+      ],
+      "exit_force": "freeze all overnight batches and reconstruct which version produced each one"
+    },
+    {
+      "chapter": 2,
+      "working_title": "昨晚一共有几批",
+      "focal": "luo_cheng",
+      "new_major_actor": "zhou_ye",
+      "why_this_actor_enters": "the frozen batch logs sit on the technical/vendor side; Luo cannot reconstruct deployment history alone",
+      "live_problem": "the team discovers more than one overnight run and must establish whether the older version appeared once or repeatedly",
+      "payoffs": [
+        "screenshot predates current batch -> earlier run must exist",
+        "old-version setup begins to acquire a concrete deployment path"
+      ],
+      "new_setups": [
+        "one configuration fallback occurred after a failed update",
+        "a manual rerun was performed by someone before midnight",
+        "Zhou's logs show the technical system recorded the rerun but not the human reason"
+      ],
+      "character_pressure": "Zhou becomes useful because his habit of preserving logs matters; he is immediately tempted to take ownership of everything because others are slower",
+      "exit_force": "the manual rerun requires finding who requested it and what data snapshot they used"
+    },
+    {
+      "chapter": 3,
+      "working_title": "谁让它重跑的",
+      "focal": "luo_cheng",
+      "co_focal": "zhou_ye",
+      "live_problem": "an apparently simple technical rerun turns out to have been requested to meet an operational deadline after a late data update",
+      "payoffs": [
+        "manual rerun setup -> identifies a real human decision under deadline",
+        "hospital export setup -> explains why the rerun mattered operationally"
+      ],
+      "new_major_actor": "he_xin",
+      "why_this_actor_enters": "the rerun request passed through a public-institution coordination channel she now works in; she possesses process records but not model details",
+      "new_setups": [
+        "the rerun request did not explicitly specify model version",
+        "two institutions interpreted 'rerun with latest data' differently",
+        "a message was forwarded without its earlier context"
+      ],
+      "character_pressure": "He Xin sees that a procedure can be formally followed while still transmitting an ambiguous instruction",
+      "exit_force": "the first joint meeting must decide what can be stated publicly before the data/model issue is understood"
+    },
+    {
+      "chapter": 4,
+      "working_title": "第一版说明",
+      "focal": "gao_yuan",
+      "why_this_actor_enters": "the incident now requires an administrative briefing; Gao receives a draft full of incompatible technical claims",
+      "live_problem": "turn several uncertain explanations into a report that can be sent upward without lying or creating unnecessary panic",
+      "payoffs": [
+        "72-hour clock becomes active institutional pressure",
+        "director's facts-before-conclusions stance becomes costly because leaders ask for a causal sentence"
+      ],
+      "new_setups": [
+        "one side wants to call it a version-control incident",
+        "one side wants to call it incomplete-data misuse",
+        "one side insists model validity is still unknown",
+        "Gao removes a sentence that claims the anomaly 'has been fully contained'"
+      ],
+      "character_pressure": "Gao's caution is useful, but every deletion makes the briefing less decisive and increases pressure from above",
+      "exit_force": "a model-side technical review is ordered because the administrative explanation cannot choose between data, version and method"
+    },
+    {
+      "chapter": 5,
+      "working_title": "如果新版本也错呢",
+      "focal": "tang_yu",
+      "why_this_actor_enters": "the investigation needs someone capable of asking whether the statistical assumptions fail even when the correct version and data snapshot are used",
+      "live_problem": "the team reruns selected records under the current version; one suspicious pattern survives",
+      "payoffs": [
+        "v3.4.2 was only partial explanation",
+        "low-risk incomplete-follow-up row becomes a methodological question rather than merely deployment noise"
+      ],
+      "new_setups": [
+        "a censoring/follow-up condition differs from the development setting",
+        "Tang recognizes a condition close to a failure mode she once studied but cannot yet claim equivalence",
+        "the most convenient institutional explanation becomes scientifically weaker"
+      ],
+      "character_pressure": "negative evidence now threatens an externally visible system rather than a private theorem; Tang has incentive to be careful and incentive to minimize the scope",
+      "exit_force": "independent replication is demanded before anyone accepts a model-side explanation"
+    },
+    {
+      "chapter": 6,
+      "working_title": "别让我替你们盖章",
+      "focal": "xu_hang",
+      "live_problem": "Xu can reproduce one anomaly but refuses to certify the institutions' broader preferred conclusion",
+      "payoffs": [
+        "independent-validation faction enters",
+        "earlier version/data/method hypotheses are separated into claims with different evidence levels"
+      ],
+      "new_setups": [
+        "one result can be reproduced only with the exact operational snapshot",
+        "a second result disappears when a follow-up rule changes",
+        "someone asks Xu for a yes/no statement he cannot honestly give"
+      ],
+      "character_pressure": "verification is finally central, but centrality comes with pressure to become an authority beyond his evidence",
+      "exit_force": "industry/operational partners need a decision despite incomplete validation"
+    },
+    {
+      "chapter": 7,
+      "working_title": "今天到底还用不用",
+      "focal": "song_nan",
+      "why_this_actor_enters": "the uncertainty must now be translated into an operational decision with a deadline and downstream cost",
+      "live_problem": "pause everything, narrow the system to a verified subgroup, or continue with manual review",
+      "payoffs": [
+        "Xu's differentiated evidence becomes a decision input",
+        "72-hour clock reaches first real consequence"
+      ],
+      "new_setups": [
+        "Song proposes a narrow temporary use rule",
+        "her fast decision style solves paralysis but may underweight a rare failure mode",
+        "the chosen compromise creates a group that now requires manual follow-up"
+      ],
+      "character_pressure": "she must choose without complete certainty and cannot hide behind statistical caveats",
+      "exit_force": "the compromise has staffing and responsibility costs; someone must own the manual-review burden"
+    },
+    {
+      "chapter": 8,
+      "working_title": "谁来接这批人",
+      "focal": "he_xin",
+      "co_focal": "luo_cheng",
+      "live_problem": "the technically cautious compromise becomes a concrete queue of people, calls, records and responsibility",
+      "payoffs": [
+        "operational use of the list becomes human workload rather than abstract policy",
+        "He Xin's process skill and Luo's coordination memory gain real value",
+        "the novel reveals that a 'safe' technical decision can shift cost onto lower-power workers"
+      ],
+      "new_setups": [
+        "manual review capacity is lower than assumed",
+        "one institution wants to count a delayed follow-up as completed for reporting purposes",
+        "Luo recognizes that the first leaked screenshot still has no identified source"
+      ],
+      "exit_force": "the technical incident has become a political and labor-allocation conflict while the leak remains unresolved"
+    }
+  ],
+  "density_rules": [
+    "Each chapter must pay off at least one prior setup before adding more than two new major setups.",
+    "No chapter may introduce a core actor merely for coverage.",
+    "Every new core actor enters because the current unresolved problem reaches their role, information or authority.",
+    "No technical explanation may end conflict by itself; consequences move through institutions and people.",
+    "At least one apparently convincing early explanation must later prove incomplete, but not fraudulent.",
+    "The leaked screenshot source cannot be solved until its revelation changes responsibility or character relations; it cannot be a decorative mystery."
+  ]
+}
