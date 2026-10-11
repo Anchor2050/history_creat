@@ -1,0 +1,91 @@
+{
+  "schema_version": 2,
+  "status": "live_chatbot_ledger_head_noncanonical",
+  "run_id": "career-six-chatbot-live-v2",
+  "branch": "chatgpt/career-six-cohort",
+  "driver": "chatgpt_product_conversation",
+  "storage_model": "append_only_baseline_plus_delta_batches",
+  "baseline": {
+    "path": "runtime/chatbot-live/career-six-state.json",
+    "content_sha": "2d55706ea7063113d54b5b09aac6544813bb9652",
+    "cursor": 7,
+    "world_time": "2026-06-15"
+  },
+  "delta_batches": [
+    "runtime/chatbot-live/batches/2026-q3a.json",
+    "runtime/chatbot-live/batches/2026-q3b.json",
+    "runtime/chatbot-live/batches/2026-q4.json"
+  ],
+  "cursor": 20,
+  "world_time": "2026-12-31",
+  "processed_window_count": 20,
+  "event_count": 67,
+  "h2_actor_window_coverage": {
+    "lin_jing": 5,
+    "chen_lan": 4,
+    "xu_hang": 6,
+    "wu_cheng": 1,
+    "shen_yan": 1,
+    "gu_wei": 1,
+    "zhao_ke": 1,
+    "sun_jie": 1,
+    "zhou_ye": 5,
+    "gao_yuan": 1,
+    "luo_cheng": 3,
+    "tang_yu": 5,
+    "he_xin": 5,
+    "song_nan": 5
+  },
+  "network_deltas_2026_h2": [
+    {"a":"song_nan","b":"xu_hang","introduced_by":"chen_lan","at":"2026-07-23","status":"weak_tie_candidate"},
+    {"a":"luo_cheng","b":"he_xin","introduced_by":"lin_jing","at":"2026-10-24","status":"weak_tie_candidate"},
+    {"a":"zhou_ye","b":"tang_yu","introduced_by":"xu_hang","at":"2026-12-18","status":"weak_tie_candidate"}
+  ],
+  "candidate_status_summary": {
+    "still_pending": [
+      "candidate:2026-04-13:chen-review-song-note:01",
+      "candidate:2026-04-21:gao-lin-mock-interview:01"
+    ],
+    "activated_once": [
+      "candidate:2026-05-10:shen-review-tang-problem-tree:01",
+      "candidate:2026-06-27:xu-review-zhou-repro-pack:01"
+    ],
+    "closed_without_resource": [
+      "candidate:2026-06-13:zhao-song-scoped-health-data-trial:01"
+    ]
+  },
+  "2026_h2_mechanism_findings": [
+    "周野的可靠性从自我评价变成最小复现包、失败条件和核验规则；仍未产生国企推荐。",
+    "宋楠学会用项目语言表达能力，但真实项目候选因没有匹配需求而关闭；认识赵珂没有自动变成项目。",
+    "唐雨把研究线判断从方法复杂度转向结构性失效机制，并只获得一次受时间约束的反馈。",
+    "何欣开始把稳定性拆成职责、城市、调整空间和退出成本，家庭结构仍保持开放协商。",
+    "罗诚把辅导员职业叙事转成真实流程、记录和持续跟进经历的盘点，没有获得招聘捷径。",
+    "陈岚开始给外部项目设时间边界；许航开始把验证工作表述成独立风险识别与判断框架。",
+    "多人活动不会自动让所有人互相认识；2026下半年只确认三条新弱联系。",
+    "候选帮助既可能兑现，也可能因现实条件失败；失败本身进入记忆但不自动损害关系。"
+  ],
+  "memory_materialization_rule": "Every event in baseline and delta batches writes bilateral memory only to its explicit speaker/listener. Public co-presence alone creates no private knowledge. Explicit introductions create only the named weak-tie edge.",
+  "next_pending_task": {
+    "task_id": "career-six-chatbot-live-v2:2027-01-01",
+    "stage": "micro-replay",
+    "packet_id": "micro:chatbot:2027-01:tang-xu-verification-collaboration:01",
+    "start_date": "2027-01-15",
+    "end_date": "2027-01-17",
+    "event_kind": "verification_collaboration",
+    "mode": "in_person",
+    "location": "campus_workroom",
+    "participants": ["tang_yu","xu_hang"],
+    "instruction": "由当前ChatGPT继续充当cognition backend。2027第一场不预写成果，先让唐雨把一个结构性失效问题交给许航做验证设计讨论；任何计算合作、代码审阅或后续论文贡献都只形成候选并受时间、材料权限和实际贡献约束。"
+  },
+  "rules": {
+    "repository_calls_model_api": false,
+    "chatgpt_product_is_runtime": true,
+    "deepseek_api_optional_backend": true,
+    "local_model_optional_backend": true,
+    "single_batch_noncanonical": true,
+    "no_unearned_knowledge": true,
+    "conversation_does_not_auto_change_relationship": true,
+    "hard_world_candidates_require_feasibility": true,
+    "literary_layer_not_started": true
+  }
+}
