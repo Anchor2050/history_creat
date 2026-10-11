@@ -1,5 +1,5 @@
 {
-  "schema_version": 21,
+  "schema_version": 22,
   "status": "adaptation_storyteller_head_noncanonical",
   "historical_world_writeback": false,
   "history_source": {
@@ -9,139 +9,104 @@
     "frozen_by_default": true
   },
   "adaptation_sources": {
-    "selection_architecture": "runtime/adaptation/storyteller/2035-selection-architecture-v1.json",
-    "education_socialization_model": "docs/adaptation/education-socialization-capability-model-v1.md",
-    "character_background_dossiers": "runtime/adaptation/storyteller/character-background-dossiers-v1.json",
     "character_psychology": "docs/adaptation/character-psychology-bible-v1.md",
     "character_dialectics_power": "docs/adaptation/character-dialectics-and-power-v2.md",
     "campbell_structure": "docs/adaptation/campbell-distributed-hero-journey-v1.md",
     "campbell_negative_space": "docs/adaptation/campbell-arc-and-negative-space-v2.md",
     "hero_arc_negative_space_matrix": "runtime/adaptation/storyteller/hero-arc-negative-space-matrix-v1.json",
-    "water_margin_character_entrance_model_v1": "docs/adaptation/water-margin-character-entrance-model-v1.md",
     "water_margin_relay_chain_model_v2": "docs/adaptation/water-margin-relay-chain-model-v2.md",
-    "opening_luo_sequence_audit": "runtime/adaptation/storyteller/opening-luo-sequence-audit-v1.json",
-    "nested_substory_model": "docs/adaptation/nested-hero-substory-model-v1.md",
-    "substory_graph": "runtime/adaptation/storyteller/substory-graph-v1.json",
+    "opening_luo_sequence_audit_v1": "runtime/adaptation/storyteller/opening-luo-sequence-audit-v1.json",
+    "opening_luo_sequence_audit_v2": "runtime/adaptation/storyteller/opening-luo-sequence-audit-v2.json",
     "style_guardrails": "docs/adaptation/literary-style-guardrails-v1.md",
     "narrative_voice_spec": "docs/adaptation/narrative-voice-spec-v1.md",
-    "scene_reservoir": "runtime/adaptation/storyteller/scene-reservoir-v1.json",
-    "message_bus_protocol": "runtime/message-bus/README.md",
     "message_bus_single_anchor_correction": "runtime/message-bus/messages/2026-10-11-0006-single-anchor-opening-correction.json"
   },
   "demoted_material": {
-    "legacy_chapter_pilots": [
-      "docs/adaptation/pilots/ch01-zhou-reliability-opening-v2.md",
-      "docs/adaptation/pilots/ch02-ordinary-trip-full-v3-braided.md",
-      "docs/adaptation/pilots/ch03-luo-posting-full-v3-braided.md",
-      "docs/adaptation/pilots/ch04-tang-xu-implementation-structure-full-v3-braided.md",
-      "docs/adaptation/pilots/ch05-first-results-full-v2.md",
-      "docs/adaptation/pilots/ch06-two-offers-full-v2.md"
-    ],
-    "standalone_entrance_probes": [
-      "docs/adaptation/pilots/opening-entrance-b-song-pharma-interview-v2.md",
-      "docs/adaptation/pilots/opening-entrance-a-zhou-technical-screen-v2.md",
-      "docs/adaptation/pilots/opening-entrance-c-luo-office-v1.md"
-    ],
-    "fast_relay_test": "docs/adaptation/relay-test-01/"
+    "legacy_chapter_pilots": "docs/adaptation/pilots/",
+    "fast_relay_test": "docs/adaptation/relay-test-01/",
+    "note": "These remain adaptation material only and do not define publication opening order."
   },
   "active_opening_unit": {
     "id": "opening-luo-sequence-v1",
-    "status": "single_anchor_five_chapter_unit_drafted_revision_pending",
+    "status": "single_anchor_pass_first_handoff_test_started",
     "anchor_actor": "luo_cheng",
-    "chapters": [
-      "docs/adaptation/opening-luo-sequence-v1/ch01-door-ten-minutes.md",
-      "docs/adaptation/opening-luo-sequence-v1/ch02-first-interview.md",
-      "docs/adaptation/opening-luo-sequence-v1/ch03-second-rejection.md",
+    "preferred_chapters": [
+      "docs/adaptation/opening-luo-sequence-v1/ch01-door-ten-minutes-v2.md",
+      "docs/adaptation/opening-luo-sequence-v1/ch02-first-interview-v2.md",
+      "docs/adaptation/opening-luo-sequence-v1/ch03-second-rejection-v2.md",
       "docs/adaptation/opening-luo-sequence-v1/ch04-research-support.md",
-      "docs/adaptation/opening-luo-sequence-v1/ch05-first-day.md"
+      "docs/adaptation/opening-luo-sequence-v1/ch05-first-day.md",
+      "docs/adaptation/opening-luo-sequence-v1/ch06-say-no.md",
+      "docs/adaptation/opening-luo-sequence-v1/ch07-gao-enters.md"
     ],
     "story_unit": [
-      "Luo observes the lived reality of a student-affairs role before applying",
-      "he applies anyway and discovers the gap between process competence and direct student-work experience",
-      "a second failed student-affairs attempt forces a narrower self-assessment rather than a moral lesson",
-      "he searches for research-support work that retains university context, process responsibility and research literacy",
-      "he receives a modest offer and begins the new job",
-      "the imagined fit is immediately tested by ordinary institutional work"
+      "Luo observes a student-affairs workplace before applying",
+      "he applies and fails once",
+      "he tries again and fails again",
+      "he revises the target toward research support",
+      "he receives a modest offer and starts the job",
+      "real work adds hierarchy, student money, rules and the need to say no",
+      "only after Luo is established does an old classmate with a live decision, Gao Yuan, enter naturally through a real call"
     ],
-    "reader_memory_goal": "By the end of the opening unit the reader should know Luo Cheng through scenes, repeated choices, embarrassment, partial competence and consequences, not through a profile paragraph.",
+    "reader_memory_goal": "Luo must remain memorable even if the camera later leaves him for several chapters.",
     "secondary_anchor": "sun_jie",
-    "other_core_actor_requirement": "none"
+    "first_new_core_after_anchor": "gao_yuan"
   },
   "primary_project": {
     "working_title": "不同的稳定",
     "architecture": "single_anchor_opening_then_event_relay_ensemble_with_nested_character_arcs",
     "core": ["zhou_ye", "gao_yuan", "luo_cheng", "tang_yu", "he_xin", "song_nan"],
-    "high_frequency_secondary": ["lin_jing", "chen_lan", "xu_hang"],
-    "recurring_secondary": ["wu_cheng", "shen_yan", "gu_wei", "zhao_ke", "sun_jie"],
-    "chapter_architecture_status": "opening_anchor_rebuild_active_long_architecture_not_rebuilt",
-    "narrative_voice_status": "retest_inside_single_character_continuity",
+    "chapter_architecture_status": "opening_anchor_pass_first_handoff_under_test",
+    "narrative_voice_status": "provisional_single_anchor_pass",
     "hero_arc_priority": "primary_longitudinal_character_structure_after_entry",
     "negative_space_priority": "primary_rendering_principle",
-    "plot_connection_strategy": "first_establish_anchor_then_follow_event_and_relationship_relay",
-    "character_entrance_strategy": "first_anchor_gets_sustained_reader_investment_before_ensemble_expands",
+    "plot_connection_strategy": "depth_before_breadth_then_event_relay",
+    "character_entrance_strategy": "first_anchor_sustained_then_one_new_actor_only_when_live_story_reaches_them",
     "prose_canon_fixed": false,
     "world_is_not_centered_on_core_six": true
   },
-  "opening_anchor_rule": "The first memorable protagonist must remain focal long enough for the reader's initial investment to pay off. Do not introduce a core actor in the opening merely to remove them for many chapters. Establish one person, one live problem, and real consequences first; ensemble expansion happens later through the active story.",
-  "relay_rule": "Water-Margin-like relay remains valid after the anchor is established. Event relay does not require protagonist rotation, and it never overrides the need for the current live problem to finish or deepen.",
-  "arc_rendering_rule": "Campbell structures a character longitudinally after entry. It never chooses who appears next. Foreground prose stays partial, visual, fallible and under-explained.",
+  "opening_anchor_rule": "The first memorable protagonist remains focal until desire, vulnerability, repeated action and lived consequence are established. Only then may the novel introduce another core actor through a concrete social or causal encounter.",
+  "relay_rule": "Water-Margin-like relay begins after depth is achieved. One live event may expose a new person; the novel then chooses whether to stay with the old focal actor or follow the newcomer. No roster balancing, no forced handoff, no multi-core montage.",
+  "arc_rendering_rule": "Campbell remains backend-only. It shapes Luo and Gao longitudinally but does not dictate chapter order or visible lessons.",
   "nonnegotiable_rules": [
     "No adaptation hypothesis becomes ledger history.",
-    "Do not broaden the cast before the opening anchor is memorable through action and consequence.",
+    "Depth before breadth in the opening.",
+    "Do not broaden the cast before the current anchor is memorable through action and consequence.",
     "Do not introduce a core actor because the roster says it is their turn.",
-    "The opening may spend several chapters with one protagonist.",
-    "A new major character enters only when the current story naturally reaches them and the reader has room to remember them.",
+    "Only one new core actor should normally be foregrounded at a handoff.",
+    "A background participant may appear without becoming a new protagonist.",
     "Do not force a handoff every chapter.",
-    "Early chapters should normally add no more than one or two memorable names at a time.",
     "Use role labels for nonrecurring guests until a name matters.",
     "Background leaks through action, dialogue, objects, institutions, money, space and other people's reactions rather than profile paragraphs.",
     "High education does not imply universal negotiation, leadership, emotional or social skill.",
     "Every strong capability must have a formation source, shadow cost and high-pressure failure mode.",
     "A virtue must be allowed to create costs; a flaw must be allowed to protect something real.",
     "Power changes how personality is expressed; separate trait from position effect.",
-    "Campbell stages are backend structure only and never chapter labels, thesis dialogue or explicit self-diagnosis.",
+    "Campbell stages are never chapter labels, thesis dialogue or explicit self-diagnosis.",
     "Character transformation changes probabilities, thresholds and recovery patterns; it does not permanently remove old flaws.",
     "Every core actor retains at least one materially unresolved ambiguity at the 2035 horizon.",
     "Do not force romance, illness, family disaster, betrayal, crime or redemption to manufacture a hook.",
-    "Do not imitate Water Margin through archaic diction or chapter-title pastiche; borrow its event-driven introduction and relay mechanics only.",
+    "Do not imitate Water Margin through archaic diction or chapter-title pastiche; borrow event-driven introduction and relay mechanics only.",
     "Do not use AI-summary endings, thesis dialogue, forced symbolism or universal self-awareness.",
     "2035 is an observation endpoint, not a life verdict."
   ],
-  "opening_audit_questions": [
-    "Is the reader still following the same live problem rather than being asked to meet a new protagonist?",
-    "What has Luo done that makes him memorable without a biography paragraph?",
-    "Did the latest consequence arise from his earlier choice?",
-    "Are repeated interviews genuinely different scenes rather than duplicate Q&A structures?",
-    "Has the story moved from imagined work to lived work?",
-    "Does the current problem deserve another Luo chapter before any ensemble expansion?",
-    "If a new major character appears next, what concrete event requires them?"
-  ],
   "gate_status": {
-    "campbell_arc_model": "retained_primary_backend_after_character_entry",
-    "negative_space_model": "retained_primary",
-    "old_roster_opening": "rejected_material_only",
-    "fast_relay_opening": "demoted_as_mechanic_test",
-    "single_anchor_opening": "provisional_pass_materially_stronger",
-    "opening_luo_five_chapter_unit": "drafted_revision_required",
+    "single_anchor_opening": "pass_first_structure_gate",
+    "luo_v2_subtractive_revision": "preferred",
+    "luo_human_conflict_scene": "pass",
+    "first_core_handoff_to_gao": "drafted_not_yet_validated",
+    "ensemble_expansion": "one_actor_at_a_time_only",
     "prose_canon": "not_fixed"
   },
-  "open_reviews": [
-    {
-      "id": "review:literary-flatness-character-entrance",
-      "status": "reframed_as_single_anchor_opening_revision",
-      "latest_correction_message": "runtime/message-bus/messages/2026-10-11-0006-single-anchor-opening-correction.json",
-      "must_resolve_before_broad_ensemble_expansion": true
-    }
-  ],
-  "current_stage": "revise_single_anchor_opening_and_deepen_luo_work_life",
+  "current_stage": "validate_gao_handoff_or_stay_with_luo",
   "next_stage_gate": {
-    "required_before_broad_ensemble_expansion": [
-      "revise Chapters1-3 by subtraction where dialogue is too neat or interview structure too repetitive",
-      "continue Luo Cheng at work into at least one scene with genuine human incentive conflict, authority asymmetry, embarrassment or misunderstanding rather than document mechanics alone",
-      "do not introduce Song Nan, Zhou Ye, Gao Yuan, Tang Yu or He Xin merely to signal ensemble breadth",
-      "allow Sun Jie and workplace guests to recur because they belong to Luo's active story",
-      "only after Luo's opening unit is memorable and his lived work has begun may a new core protagonist enter through a concrete event"
+    "required_before_following_gao_for_multiple_chapters": [
+      "audit Chapter7 for whether Gao enters as a person with his own live problem rather than as information about a classmate",
+      "if Gao passes, follow him for at least two scenes before considering another core handoff",
+      "if Gao does not pass, keep the camera with Luo and treat the call as ordinary social texture",
+      "do not develop Zhou Ye merely because he joins the same call",
+      "keep ordinary life, money, housing, family distance and city texture visible without turning them into a checklist"
     ],
-    "drafting_rule": "Stay with Luo Cheng until the opening anchor review passes. Do not return to the old chapter map or fast relay route."
+    "drafting_rule": "One core handoff at a time. No ensemble montage and no return to the old roster-driven architecture."
   }
 }
