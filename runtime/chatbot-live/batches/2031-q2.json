@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "batch_id": "career-six-chatbot-2031-q2",
+  "status": "noncanonical_chatbot_replay_batch",
+  "period": {"start":"2031-04-01","end":"2031-06-30"},
+  "generation_mode": "chatgpt_product_interaction_chain",
+  "era_lens": [
+    "长期合作只有在最终主文贡献、写作与责任检查通过后才转化为作者事实。",
+    "第一年高校岗位开始从合同承诺进入学期现实：连续研究时间、课程服务和评价压力需要分别记录。",
+    "内部方法资产只有经过不同使用者试用并记录失败边界，才能获得有限可迁移性。"
+  ],
+  "exogenous_hard_world_events": [
+    {"event_id":"2031q2:review01","at":"2031-05-25","kind":"first_semester_role_review","actor":"lin_jing","result":"research_autonomy_partly_realized_service_fragmentation_higher_than_expected_no_exit_trigger","visibility":"private_to_actor"},
+    {"event_id":"2031q2:logic01","at":"2031-06-03","kind":"independent_argument_check","actor":"tang_yu","result":"mechanism_boundary_argument_passes_internal_logic_check_with_minor_clarifications","visibility":"private_to_actor"},
+    {"event_id":"2031q2:use01","at":"2031-06-14","kind":"validation_standard_third_use","actor":"xu_hang","result":"second_user_can_apply_core_steps_one_domain_specific_check_removed","visibility":"private_to_actor"}
+  ],
+  "windows": [
+    {"packet_id":"micro:chatbot:2031-04:tang-xu-contribution-accountability:01","start_date":"2031-04-09","end_date":"2031-04-09","event_kind":"final_contribution_accountability_review","participants":["tang_yu","xu_hang"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-04:tang-shen-final-argument:01","start_date":"2031-04-20","end_date":"2031-04-20","event_kind":"final_argument_checklist_review","participants":["tang_yu","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-05:lin-shen-first-semester:01","start_date":"2031-05-27","end_date":"2031-05-27","event_kind":"first_semester_university_role_checkin","participants":["lin_jing","shen_yan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-06:xu-gu-third-use:01","start_date":"2031-06-16","end_date":"2031-06-16","event_kind":"validation_standard_transfer_check","participants":["xu_hang","gu_wei"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-05:he-sun-learning-time:01","start_date":"2031-05-09","end_date":"2031-05-09","event_kind":"public_institution_learning_boundary_check","participants":["he_xin","sun_jie"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-06:luo-gao-third-year:01","start_date":"2031-06-08","end_date":"2031-06-08","event_kind":"research_support_third_year_checkin","participants":["luo_cheng","gao_yuan"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"},
+    {"packet_id":"micro:chatbot:2031-04:wu-team-boundary:01","start_date":"2031-04-28","end_date":"2031-04-28","event_kind":"mentor_team_boundary_scene","participants":["wu_cheng"],"backend":"chatgpt_product_conversation","status":"committed_noncanonical"}
+  ],
+  "events": [
+    {"event_id":"2031q2:e01","kind":"social_interaction","at":"2031-04-09","event_kind":"final_contribution_accountability_review","speaker":"tang_yu","listener":"xu_hang","act":"share_experience","content":"唐雨把当前主文结构逐段对照过去四年的贡献日志，确认验证设计、反例冻结和跨实现边界判断已经进入正文论证，而不再只是补充计算。","channel":"in_person","evidence":"2030共同作者候选要求最终验证贡献进入主文。"},
+    {"event_id":"2031q2:e02","kind":"social_interaction","at":"2031-04-09","event_kind":"final_contribution_accountability_review","speaker":"xu_hang","listener":"tang_yu","act":"make_plan","content":"许航同意承担验证设计与反例可靠性部分的正式写作，并对相应结论承担最终检查责任；他仍不要求预设作者顺序。","channel":"in_person","evidence":"共同作者条件中的主文贡献、写作和责任三项开始满足。"},
+    {"event_id":"2031q2:e03","kind":"social_interaction","at":"2031-04-09","event_kind":"final_contribution_accountability_review","speaker":"tang_yu","listener":"xu_hang","act":"repair","content":"两人把许航从‘共同作者候选’更新为‘共同作者贡献条件已满足’，但作者顺序和其他作者仍按完整项目贡献另行确认；这次检查本身不决定整篇论文的最终署名表。","channel":"in_person","evidence":"只解决许航自身贡献资格，不虚构其他作者。"},
+
+    {"event_id":"2031q2:e04","kind":"social_interaction","at":"2031-04-20","event_kind":"final_argument_checklist_review","speaker":"tang_yu","listener":"shen_yan","act":"share_experience","content":"唐雨按投稿前清单重新写了主命题适用范围、失败反例、验证边界和仍未解决的问题，把所有早期被推翻的更大说法从结论中删掉。","channel":"in_person","evidence":"延续2030失效边界重写。"},
+    {"event_id":"2031q2:e05","kind":"social_interaction","at":"2031-04-20","event_kind":"final_argument_checklist_review","speaker":"shen_yan","listener":"tang_yu","act":"offer_information","content":"沈雁认为只要独立逻辑复核不再出现新的主缺口，就可以进入投稿准备；他再次要求不要用研究过程的曲折替代结果本身的价值判断。","channel":"in_person","evidence":"形成独立逻辑检查候选。"},
+    {"event_id":"2031q2:e06","kind":"social_interaction","at":"2031-06-04","event_kind":"final_argument_checklist_review","speaker":"tang_yu","listener":"shen_yan","act":"make_plan","content":"独立逻辑检查只留下几处表述澄清后，唐雨决定进入正式投稿材料整理，但在完整作者确认、文件核对和共同作者批准完成前不提交。","channel":"in_person","evidence":"论证检查通过不等于已投稿。"},
+
+    {"event_id":"2031q2:e07","kind":"social_interaction","at":"2031-05-27","event_kind":"first_semester_university_role_checkin","speaker":"lin_jing","listener":"shen_yan","act":"share_experience","content":"林静一个学期后确认合同里的研究自主性大体是真的，她能决定主要问题和合作方式；但课程、服务和零碎会议比入职前估计的更频繁，连续研究时间需要主动保护。","channel":"video_call","evidence":"第一学期角色评估。"},
+    {"event_id":"2031q2:e08","kind":"social_interaction","at":"2031-05-27","event_kind":"first_semester_university_role_checkin","speaker":"shen_yan","listener":"lin_jing","act":"offer_information","content":"沈雁提醒她第一年先别把所有服务都当成建立存在感的机会，至少保住两块固定研究时间；能否做到比合同里写多少自主更能说明岗位结构。","channel":"video_call","evidence":"导师只提供时间边界建议。"},
+    {"event_id":"2031q2:e09","kind":"social_interaction","at":"2031-05-27","event_kind":"first_semester_university_role_checkin","speaker":"lin_jing","listener":"shen_yan","act":"make_plan","content":"林静准备下一学期拒绝一部分可替代的额外服务，测试是否能稳定保住连续研究块；暂时没有离开岗位的理由。","channel":"video_call","evidence":"形成服务边界实验候选。"},
+
+    {"event_id":"2031q2:e10","kind":"social_interaction","at":"2031-06-16","event_kind":"validation_standard_transfer_check","speaker":"xu_hang","listener":"gu_wei","act":"share_experience","content":"验证规范第三次实际使用中，另一位使用者能独立完成核心步骤，但其中一个领域特定检查几乎没有帮助；许航把这条检查从核心规范移到可选附录。","channel":"in_person","evidence":"真实使用继续缩小适用边界。"},
+    {"event_id":"2031q2:e11","kind":"social_interaction","at":"2031-06-16","event_kind":"validation_standard_transfer_check","speaker":"gu_wei","listener":"xu_hang","act":"offer_information","content":"顾维认为这种删除比继续加规则更重要：如果别人能用核心框架，同时知道哪些检查只在特定问题有效，这个方法资产才算逐渐可移交。","channel":"in_person","evidence":"有限可迁移性来自第三次使用。"},
+
+    {"event_id":"2031q2:e12","kind":"social_interaction","at":"2031-05-09","event_kind":"public_institution_learning_boundary_check","speaker":"he_xin","listener":"sun_jie","act":"share_experience","content":"何欣第四年仍能保住一部分学习时间，但最近一轮临时材料任务又侵占了几次固定时段；她没有把这当成离职理由，只想知道有没有更稳的边界办法。","channel":"wechat_private","evidence":"学习块长期只有部分维持。"},
+    {"event_id":"2031q2:e13","kind":"social_interaction","at":"2031-05-09","event_kind":"public_institution_learning_boundary_check","speaker":"sun_jie","listener":"he_xin","act":"offer_information","content":"孙洁建议她把固定学习时间从‘有空就做’改成和其他工作一样提前占日历，但临时硬截止仍可能打断；边界的目标是减少常态侵占，不是假装没有例外。","channel":"wechat_private","evidence":"程序型边界建议。"},
+
+    {"event_id":"2031q2:e14","kind":"social_interaction","at":"2031-06-08","event_kind":"research_support_third_year_checkin","speaker":"luo_cheng","listener":"gao_yuan","act":"share_experience","content":"罗诚第三年能参与更多研究材料判断和流程设计，岗位比入职时更适配博士训练；但区域城市的岗位层级仍有限，他开始把‘内容变好’和‘长期平台有限’同时写进年度评估。","channel":"phone","evidence":"岗位内容增加与城市层级限制并存。"},
+    {"event_id":"2031q2:e15","kind":"social_interaction","at":"2031-06-08","event_kind":"research_support_third_year_checkin","speaker":"gao_yuan","listener":"luo_cheng","act":"repair","content":"高原说这种状态和自己有点像：当前生活可以继续，但不应该因为已经适应就停止记录长期成本；两人仍没有打开外部求职。","channel":"phone","evidence":"留任与未来复核并存。"},
+
+    {"event_id":"2031q2:e16","kind":"actor_state_interaction","at":"2031-04-28","event_kind":"mentor_team_boundary_scene","speaker":"wu_cheng","listener":"self_record","act":"share_experience","content":"吴澄发现自己减少临时指导后，年轻成员一开始更频繁地问‘这件事是不是值得占正式讨论时间’；几个月后团队开始自己区分可异步解决的问题和真正需要导师判断的问题。","channel":"private_record","evidence":"导师边界逐渐改变团队提问方式。"}
+  ],
+  "hard_world_candidate_updates": [
+    {"candidate_id":"candidate:2030-10:tang-xu-coauthor:01","checked_at":"2031-04-09","checks":{"validation_contribution_in_main_text":true,"substantive_design_contribution":true,"writing_commitment":true,"final_accountability":true},"result":"xu_hang_coauthor_contribution_criteria_met_noncanonical","resource_effect":"coauthor contribution eligibility for Xu Hang; final author list/order still requires full project confirmation"},
+    {"candidate_id":"candidate:2030-q4:tang-submission-preparation:01","checked_at":"2031-06-04","checks":{"mechanism_scope_clear":true,"counterexample_boundary_clear":true,"independent_logic_check_passed":true,"minor_clarifications_completed":true,"full_author_approval":false,"submission_files_final":false},"result":"argument_ready_submission_still_pending_noncanonical","resource_effect":"manuscript may enter final submission assembly"},
+    {"candidate_id":"candidate:2031-q2:lin-service-boundary-experiment:01","checked_at":"2031-05-27","checks":{"research_autonomy_observed":true,"service_fragmentation_observed":true,"actor_wants_experiment":true},"result":"opened_noncanonical","resource_effect":"next-semester boundary experiment only"}
+  ],
+  "new_hard_world_candidates": [
+    {"candidate_id":"candidate:2031-q2:lin-service-boundary-experiment:01","created_at":"2031-05-27","type":"work_boundary_experiment","beneficiary":"lin_jing","description":"下一学期减少部分可替代额外服务，测试能否稳定保住连续研究块。","requires_checks":["service_requests_are_optional","institutional_expectations_preserved","research_block_tracking"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2031-q2:tang-final-submission-assembly:01","created_at":"2031-06-04","type":"manuscript_submission_assembly","beneficiary":"tang_yu","description":"完成完整作者确认、共同作者批准、文件与论证最终核对后才允许正式投稿。","requires_checks":["full_author_list_confirmed","author_order_confirmed","all_authors_approve","files_final","submission_target_selected"],"status":"open_noncanonical"},
+    {"candidate_id":"candidate:2031-q2:xu-core-validation-standard:01","created_at":"2031-06-16","type":"internal_method_asset_revision","beneficiary":"xu_hang","description":"保留第三次试用后仍可独立执行的核心验证框架，领域特定检查降为可选。","requires_checks":["core_steps_reproducible_by_other_user","failure_boundaries_documented","domain_specific_checks_labeled_optional"],"status":"active_internal_noncanonical"}
+  ],
+  "actor_state_evidence": [
+    {"at":"2031-04-09","actor":"xu_hang","dimension":"research_contribution","evidence":"多年验证设计已进入主文并形成实际写作/责任，因此对唐雨项目的贡献跨过普通技术支持门槛。","status":"candidate_state_evidence"},
+    {"at":"2031-06-04","actor":"tang_yu","dimension":"manuscript_status","evidence":"独立论证检查通过后进入最终投稿材料整理，但完整作者和文件批准仍未完成。","status":"candidate_state_evidence"},
+    {"at":"2031-05-27","actor":"lin_jing","dimension":"first_job_reality","evidence":"研究自主性大体兑现，但服务碎片化高于预期；本人选择通过边界实验校准而非退出。","status":"candidate_state_evidence"},
+    {"at":"2031-06-16","actor":"xu_hang","dimension":"method_asset","evidence":"验证标准第三次实际使用支持核心框架可移交，同时迫使一个领域特定检查退出核心。","status":"candidate_state_evidence"},
+    {"at":"2031-06-08","actor":"luo_cheng","dimension":"career_lock_in","evidence":"研究内容增加提高适配度，区域岗位层级有限继续构成长周期成本。","status":"candidate_state_evidence"}
+  ],
+  "relationship_evidence": [
+    {"at":"2031-04-09","pair":["tang_yu","xu_hang"],"direction":"positive","evidence":"共同作者资格由多年主文贡献、写作和责任检查生成；仍未用关系亲疏替代贡献标准。"},
+    {"at":"2031-06-16","pair":["xu_hang","gu_wei"],"direction":"positive","evidence":"顾维允许方法资产在真实失败边界中缩小，而非要求许航证明普适性。"}
+  ],
+  "storyteller_index_delta": {
+    "new_material_threads": [
+      "Tang/Xu coauthorship crosses contribution threshold but manuscript submission remains open",
+      "Lin first-semester autonomy/service tradeoff becomes observable rather than contractual",
+      "Xu validation asset improves by removing a failed domain-specific rule",
+      "Luo role fit improves while regional-platform ceiling remains"
+    ],
+    "world_writeback": false
+  },
+  "audit_rules": {
+    "single_batch_noncanonical": true,
+    "generated_through_interaction_chain": true,
+    "coauthorship_requires_main_text_contribution_writing_and_accountability": true,
+    "submission_requires_full_author_and_file_checks": true,
+    "first_job_contract_does_not_equal_first_job_reality": true,
+    "method_asset_may_shrink_after_real_use": true,
+    "storyteller_is_read_only": true,
+    "bilateral_memory_derivable_from_events": true
+  }
+}
